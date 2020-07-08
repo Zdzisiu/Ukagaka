@@ -1,13 +1,13 @@
 file,ghost/master/aitalk.dic4c9dfa19c4f01bccbafc82d6b4e89940size=1147
 file,ghost/master/anchor.dicfe10743ebbd90c73dc27002bfc00c669size=775
-file,ghost/master/bootend.dic9429e4cd0b3ee82ceb2b77fd9fdd6f22size=1978
+file,ghost/master/bootend.dic230022af75054d074be503154018e9aasize=1988
 file,ghost/master/commu.dicd9cf02ea3296c99baa2dd432715890dasize=332
 file,ghost/master/descript.txt7e41f65ffa52b45ea641544441569ee4size=2427
 file,ghost/master/etc.dicec5930e1395d7f27923b36952e27fa05size=27511
 file,ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312
 file,ghost/master/mciaudior.dll6ffafb1b443419f39ae4af809c3513a2size=96256
 file,ghost/master/mciaudior.txt858c9cef9f872465150a57f2eb54ef13size=14
-file,ghost/master/menu.dic4576d73dcff75437902c28e4a721c578size=6263
+file,ghost/master/menu.dicf0c41a8bdd3e1ee77ddd1125e9aef724size=6261
 file,ghost/master/mouse.dic703e15ac89f307c49baaf58715f77bfdsize=1293
 file,ghost/master/mouse.ico50dbd9e6f7d44856270d52b224153817size=110139
 file,ghost/master/nameteach.dic0a3707e3f7acd7d1e57820c35b50db3bsize=1708

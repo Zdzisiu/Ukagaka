@@ -99,17 +99,19 @@ OnClose
 	"\-\e"
  }
 
-OnWindowStateRestore 
+OnWindowStateRestore
 {
-	if silence != "ON"
+	"\0\s[0]"
+	--
+	if silence != "ON" 
 	{
-	"\0\s[0]\![sound,play,s/%(meows)]\e"
+		"\![sound,play,s/%(meows)]\e"
 	}
 	else
 	{
 		"Meow"
 	}
-} 
+}
 
 OnGhostChanging
  {
