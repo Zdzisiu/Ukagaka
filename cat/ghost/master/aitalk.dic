@@ -27,9 +27,9 @@ RandomTalk : nonoverlap
 {
 	if silence != "ON"
 	{
-		"\![sound,play,s/%(meows)]" 
-		"\![sound,play,s/sneeze.wav]"
-		"\![sound,play,s/long purr.wav]"
+		"\![sound,play,s/%(meows),--volume=%(volume)]" 
+		"\![sound,play,s/sneeze.wav,--volume=%(volume)]"
+		"\![sound,play,s/long purr.wav,--volume=%(volume)]"
 	}
 	else
 	{
@@ -97,6 +97,40 @@ OnKeyPress
 	elseif reference0 == "r"
 	{
 	OnLastTalk
+	}
+	elseif reference0 == "right"
+	{
+		if volume < 100
+		{
+			volume += 5
+		}
+		--
+		if volume > 100
+		{
+			volume = 100
+		}
+		--
+		if purrmode == "ON"
+		{
+			"\![sound,option,s/long purr.wav,--volume=%(volume)]"
+		} 
+	}
+	elseif reference0 == "left"
+	{
+		if volume > 0
+		{
+			volume -= 5
+		}
+		--
+		if volume < 0
+		{
+			volume = 0
+		}
+		--
+		if purrmode == "ON"
+		{
+			"\![sound,option,s/long purr.wav,--volume=%(volume)]"
+		} 
 	}
 	elseif reference0 == "f1"
 	{

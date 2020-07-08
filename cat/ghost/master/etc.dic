@@ -266,8 +266,6 @@ OnBIFFFailure
 OnUpdateBegin
  {
 	"\0\s[0]Starting the update process.\w8\e"
-	
-	"Another message for starting the update process.\w8\0\s[0]Hope you read the directions properly.\w8\e"
  }
 
  //---- OnUpdateReady ---------------------------------------------------------
@@ -324,11 +322,11 @@ OnUpdate.OnDownloadBegin
  {
  	if "aitalk" _in_ reference0 //this is checking to see what kind of files are being downloaded. In this case, it's looking for files called aitalk in the download queue. If you want to have a specialized bit of dialogue for each type of file, you can expand this with elseifs and by replacing aitalk with whatever file you have in mind. Keep in mind my warning above though.
  	{
- 		"\0\s[0]Meow\e"
+ 		"\0\s[0]\_qMeow\e"
  	}
  	else //for files not specified above
  	{
-		"Meow\e" 
+		"\0\s[0]\_qMeow\e" 
 	}
  }
 
@@ -337,7 +335,7 @@ OnUpdate.OnDownloadBegin
  
 OnUpdate.OnMD5CompareBegin
  {
-	"Checking the MD5 value.\e"
+	"\_qChecking the MD5 value.\e"
  }
 
  //---- OnUpdate.OnMD5CompareComplete --------------------------------------------------
@@ -345,7 +343,7 @@ OnUpdate.OnMD5CompareBegin
  
 OnUpdate.OnMD5CompareComplete
  {
-	"\0\s[0]MD5 check good.\e"
+	"\0\s[0]\_qMD5 check good.\e"
 }
 
  //---- OnUpdate.OnMD5CompareFailure ---------------------------------------------------

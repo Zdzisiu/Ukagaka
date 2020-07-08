@@ -29,9 +29,9 @@ MouseMoveSakura
 				{
 					"\![sound,stop]"
 					--
-					"\![sound,play,s/purring1.wav]\e" 
-					"\![sound,play,s/purring2.wav]\e" 
-					"\![sound,play,s/purring3.wav]\e" 
+					"\![sound,play,s/purring1.wav,--volume=%(volume)]\e" 
+					"\![sound,play,s/purring2.wav,--volume=%(volume)]\e" 
+					"\![sound,play,s/purring3.wav,--volume=%(volume)]\e" 
 				}
 				elseif silence == "ON" 
 				{
@@ -51,12 +51,12 @@ MouseMoveSakura
 				if silence != "ON" 
 				{
 				
-					"\![sound,play,s/meow5.wav]\e"
-					"\![sound,play,s/meow1.wav]\e"
-					"\![sound,play,s/meow6.wav]\e"
-					"\![sound,play,s/meow3.wav]\e"
-					"\![sound,play,s/meow4.wav]\e"
-					"\![sound,play,s/meow7.wav]\e" 
+					"\![sound,play,s/meow5.wav,--volume=%(volume)]\e"
+					"\![sound,play,s/meow1.wav,--volume=%(volume)]\e"
+					"\![sound,play,s/meow6.wav,--volume=%(volume)]\e"
+					"\![sound,play,s/meow3.wav,--volume=%(volume)]\e"
+					"\![sound,play,s/meow4.wav,--volume=%(volume)]\e"
+					"\![sound,play,s/meow7.wav,--volume=%(volume)]\e" 
 				}
 				else
 				{

@@ -15,16 +15,17 @@
 	talktime = "5 minutes" 
 	deleteshitai = "OFF" 
 	nowshell = "master" 
-	
+	volume = 50
+	--
 	if reference0 == 0 
  	{		
-		"\0\s[0]\0\s[0]\![sound,play,s/%(meows)]\e"
+		"\0\s[0]\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
  	}
 	else
  	{
 		
  		{
- 		"\0\s[0]\0\s[0]\![sound,play,s/%(meows)]\e"
+ 		"\0\s[0]\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
 		}
  	}
 }  
@@ -71,17 +72,37 @@ OnBoot
 	lastTalk = "" 
 	passmin = 0
 	passsec = 0
-	
+	--
+	OnBootStuff
+	--
  	"\0\s[0]\0\s[0]" 
 	--
 	"%(normalboottalk)"
 } 
 
+OnBootStuff
+{
+	if volume == ""
+	{
+		volume = 100
+	}
+	--
+	if volumeup == ""
+	{
+		volumeup = "."
+	}
+	--
+	if volumedown == ""
+	{
+		volumedown = ","
+	}
+}
+
 normalboottalk
 {
 	if silence != "ON"
 	{
-		"\![sound,play,s/%(meows)]"
+		"\![sound,play,s/%(meows),--volume=%(volume)]"
 	}
 	else
 	{
@@ -105,7 +126,7 @@ OnWindowStateRestore
 	--
 	if silence != "ON" 
 	{
-		"\![sound,play,s/%(meows)]\e"
+		"\![sound,play,s/%(meows),--volume=%(volume)]\e"
 	}
 	else
 	{
@@ -120,7 +141,7 @@ OnGhostChanging
 		
 		if silence != "ON"
 		{
-		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\w8\e"
 		}
 		else
 		{
@@ -132,7 +153,7 @@ OnGhostChanging
 	{
 		if silence != "ON"
 		{
-		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\w8\e"
 		}
 		else
 		{
@@ -151,7 +172,7 @@ OnGhostChanged
 	{
 		if silence != "ON"
 		{
-		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\w8\e"
 		}
 		else
 		{
@@ -162,7 +183,7 @@ OnGhostChanged
 	{
 		if silence != "ON"
 		{
-		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\w8\e"
 		}
 		else
 		{

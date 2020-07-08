@@ -21,7 +21,7 @@ ReplyToGhost
 	{
 		if silence != "ON"
 		{
-		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\w8\e"
 		}
 		else
 		{
