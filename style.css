@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+.hidden
+{
+    color: #266e8a00;
+}
+
+body {
+    background: #030203 url(img/back.png) no-repeat fixed;
+    background-size: cover;
+    color: #f1ebeb;
+    font-family: "Share Tech Mono", monospace;
+    height: 100%;
+    
+}
+
+nav a {
+    color: #f1ebeb;
+}
+
+a {
+    text-decoration: none;
+    color: #ff89ef;
+}
+
+a:hover {
+    color: #f1ebeb;
+}
+
+.stat {
+    background: #2e264be1;
+    padding: 2vw;
+    height: 45vw;
+    width: 77vw;
+    margin-top: 1vw;
+    float: right;
+    font-size: 1vw;
+    
+}
+
+.ar {
+    background: #2e264be1;
+    padding: 2vw;
+    height: 45vw;
+    width: 77vw;
+    margin-top: 1vw;
+    float: right;
+    font-size: 1vw;
+    
+}
+
+.navbar {
+    padding: 1.5vw;
+}
+
+.navbar:hover {
+    background: #b058a1;
+}
+
+nav {
+    margin-top: 0;
+    background: #712263;
+    font-size: 1.5vw;
+    padding: 1vw;
+}
+
+aside {
+    background: #266e8ad7;
+    width: 20vw;
+    height: 20vw;
+    float: left;
+    padding: 1vw;
+    font-size: 1vw;
+    margin-top: 1vw;
+}
+
+.dreamteam {
+    background: #266e8ad7;
+    width: 20vw;
+    height: 18vw;
+    float: left;
+    padding: 1vw;
+    font-size: 1vw;
+    margin-top: 1vw;
+    position: static;
+}
+
+.container {
+
+    background-color: #030203;
+}
+
+.skills {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.funmd {
+    width: 80%;
+    background-color: #21065e;
+}
+
+.storymd {
+    width: 10%;
+    background-color: #381164;
+}
+
+.shellmd {
+    width: 75%;
+    background-color: #54065e;
+}
+
+.dialmd {
+    width: 25%;
+    background-color: #700a5f;
+}
+
+.funho {
+    width: 80%;
+    background-color: #21065e;
+}
+
+.storyho {
+    width: 50%;
+    background-color: #381164;
+}
+
+.shellho {
+    width: 90%;
+    background-color: #54065e;
+}
+
+.dialho {
+    width: 40%;
+    background-color: #700a5f;
+}
+
+.fungi {
+    width: 30%;
+    background-color: #21065e;
+}
+
+.storygi {
+    width: 25%;
+    background-color: #381164;
+}
+
+.shellgi {
+    width: 10%;
+    background-color: #54065e;
+}
+
+.dialgi {
+    width: 20%;
+    background-color: #700a5f;
+}
+
+.com {
+    width: 40%;
+    background-color: #21065e;
+}
+
+.fre {
+    width: 95%;
+    background-color: #381164;
+}
+
+.foc {
+    width: 65%;
+    background-color: #54065e;
+}
+
+.art {
+    width: 50%;
+    background-color: #700a5f;
+}
+
+/* Style the tab */
+.tab {
+    float: left;
+    width: 15%;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    display: block;
+    background: #700a5f;
+    padding: 22px 16px;
+    width: 100%;
+    color: #f1ebeb;
+    font-family: "Share Tech Mono", monospace;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #b058a1;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .tab button.active {
+    background-color: #b058a1;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    width: 70%;
+    height: 300px;
+  }
