@@ -1,0 +1,31 @@
+OnCommunicate
+ {
+	if reference0 == "user" || reference0 == "User"
+ 	{ 
+ 		ReplyToUser
+	}
+ 	else
+	{
+		ReplyToGhost
+ 	}
+}
+
+ReplyToUser
+{
+	TalkToUser
+} 
+
+ReplyToGhost
+{
+ 	res_reference0 = reference0 
+	{
+		if silence != "ON"
+		{
+		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		}
+		else
+		{
+			"Meow"
+		}
+	}
+}

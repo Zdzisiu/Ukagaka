@@ -1,0 +1,42 @@
+POSITIVE TRAITS:
+Nice:
+Basic trait that makes your M-P encourege you througout the day and overall act nice.
+
+intelligent:
+Your M-P will randomly say scientific facts about various topics.
+
+Optimistic:
+Your M-P will say optimistic and inspirational quotes.
+
+----------------
+
+NEGATIVE TRAITS:
+Rude 
+Basic trait that makes your M-P mean, he will put you down and overall act rude.
+    - Curses:
+	Your M-P will curse.
+    - Insults:
+	Your M-P will insult you.
+
+Unintelligent
+Your M-P will randomly say scientific myths and false facts about various topics and conspiracy theories.
+
+Pessimistic 
+Your M-P will say pessimisstic and sad quotes.
+
+------------
+
+NEUTRAL TRAITS:
+
+Outgoing | Loner
+those triats affect some dialogues
+For example: Valentine dialogue, New Year Dialogue
+
+Romantic
+Your M-P will compilment you and randomly say pickup lines (not all will be good but he tries)
+
+------------
+
+ADDITIONAL INFO:
+If you don't choose any traits: M-P will say generic and neutral things
+

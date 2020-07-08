@@ -1,0 +1,371 @@
+Select.calc
+{
+    "\p[2]\s[1]\e"
+}
+ /*   "What calculation do you want?\n\n[half]"
+    --
+    "\![*]\q[Add,addition]\n/
+	\![*]\q[Substract,substraction]\n/
+	\![*]\q[Multiply,multiplication]\n/
+	\![*]\q[Divide,division]\n/
+    \![*]\q[Exponentiation,exponentiation ]\e"
+}
+
+Select.addition
+{
+    plus = 1
+    OnCalculatioStart
+}
+
+Select.substraction
+{
+    minus = 1
+    OnCalculatioStart
+}
+
+Select.multiplication
+{
+    multiply = 1
+    OnCalculatioStart
+}
+
+Select.division
+{
+    divide = 1
+    OnCalculatioStart
+}
+
+Select.exponentiation
+{
+    exponentiation = 1
+    "Enter first number (number you want to rise)\![open,inputbox,OnCalculationOne,-1]"
+}
+
+OnCalculatioStart
+{
+    "Enter your first number\_q(if you use decimal fractions use comma, not dot)\![open,inputbox,OnCalculationOne,-1]"
+}
+
+OnCalculationOne
+{
+    firstnumber = reference0
+    if divide == 1
+    {
+        if "," _in_ secondnumber
+        {
+            firstnumber = TOLOWER(reference0)
+        }
+        else
+        {
+            if "a" _in_ firstnumber || "b" _in_ firstnumber || "c" _in_ firstnumber || "d" _in_ firstnumber || "e" _in_ firstnumber || "f" _in_ firstnumber ||"g" _in_ firstnumber || "h" _in_ firstnumber || "i" _in_ firstnumber || "j" _in_ firstnumber || "k" _in_ firstnumber || "l" _in_ firstnumber ||"m" _in_ firstnumber || "n" _in_ firstnumber || "o" _in_ firstnumber || "p" _in_ firstnumber || "r" _in_ firstnumber || "s" _in_ firstnumber ||"t" _in_ firstnumber || "u" _in_ firstnumber || "v" _in_ firstnumber || "w" _in_ firstnumber || "x" _in_ firstnumber || "y" _in_ firstnumber || "z" _in_ firstnumber
+            { 
+                firstnumber = TOLOWER(reference0)
+            }
+            else
+            {
+                firstnumber = TOLOWER(reference0+",0")
+            }
+        }
+    }
+    --
+    if "a" _in_ firstnumber || "b" _in_ firstnumber || "c" _in_ firstnumber || "d" _in_ firstnumber || "e" _in_ firstnumber || "f" _in_ firstnumber ||"g" _in_ firstnumber || "h" _in_ firstnumber || "i" _in_ firstnumber || "j" _in_ firstnumber || "k" _in_ firstnumber || "l" _in_ firstnumber ||"m" _in_ firstnumber || "n" _in_ firstnumber || "o" _in_ firstnumber || "p" _in_ firstnumber || "r" _in_ firstnumber || "s" _in_ firstnumber ||"t" _in_ firstnumber || "u" _in_ firstnumber || "v" _in_ firstnumber || "w" _in_ firstnumber || "x" _in_ firstnumber || "y" _in_ firstnumber || "z" _in_ firstnumber
+    {
+        "\0Thats not a number,\w5 do you want proced anyways?\n\n[half]/
+        \![*]\q[Yes,procedoone]\n/
+	    \![*]\q[No,dontprocedone]\e"
+    }
+    else
+    {
+        "Enter your second number\![open,inputbox,OnCalculationTwo,-1]" 
+    }
+}
+
+//"Thats not a number, try again\![open,inputbox,OnCalculationOne,-1]"
+
+Select.procedoone
+{
+    numcheck = 1
+    "Enter your second number\![open,inputbox,OnCalculationTwo,-1]" 
+}
+
+Select.dontprocedone
+{
+    "\0try again then\![open,inputbox,OnCalculationOne,-1]"
+}
+
+Select.proced
+{
+    if plus == 1
+    {
+        outputnumber = firstnumber+secondnumber
+    }
+    elseif minus == 1
+    {
+        outputnumber = firstnumber-secondnumber
+    }
+    elseif multiply == 1
+    {
+        outputnumber = firstnumber*secondnumber  
+    }
+    elseif divide == 1
+    {
+        outputnumber = firstnumber/secondnumber
+    }
+    elseif exponentiation == 1
+    {
+        outputnumber = POW(firstnumber,secondnumber)
+    }
+    else
+    {
+        outputnumber = 0
+    }
+    OnCalculationEnd
+}
+
+Select.dontproced
+{
+    "try again then\![open,inputbox,OnCalculationTwo,-1]"
+}
+ 
+OnCalculationTwo
+{
+    secondnumber = reference0
+    if divide == 1
+    {
+        if "," _in_ secondnumber
+        {
+            secondnumber = TOLOWER(reference0)
+        }
+        else
+        {
+            if numcheck == 1 || "a" _in_ secondnumber || "b" _in_ secondnumber || "c" _in_ secondnumber || "d" _in_ secondnumber || "e" _in_ secondnumber || "f" _in_ secondnumber ||"g" _in_ secondnumber || "h" _in_ secondnumber || "i" _in_ secondnumber || "j" _in_ secondnumber || "k" _in_ secondnumber || "l" _in_ secondnumber ||"m" _in_ secondnumber || "n" _in_ secondnumber || "o" _in_ secondnumber || "p" _in_ secondnumber || "r" _in_ secondnumber || "s" _in_ secondnumber ||"t" _in_ secondnumber || "u" _in_ secondnumber || "v" _in_ secondnumber || "w" _in_ secondnumber || "x" _in_ secondnumber || "y" _in_ secondnumber || "z" _in_ secondnumber
+            { 
+                secondnumber = TOLOWER(reference0)
+            }
+            else
+            {
+                secondnumber = TOLOWER(reference0+",0")
+            }
+        }
+    }
+    --
+    if numcheck != 1 
+    {
+        if "a" _in_ secondnumber || "b" _in_ secondnumber || "c" _in_ secondnumber || "d" _in_ secondnumber || "e" _in_ secondnumber || "f" _in_ secondnumber ||"g" _in_ secondnumber || "h" _in_ secondnumber || "i" _in_ secondnumber || "j" _in_ secondnumber || "k" _in_ secondnumber || "l" _in_ secondnumber ||"m" _in_ secondnumber || "n" _in_ secondnumber || "o" _in_ secondnumber || "p" _in_ secondnumber || "r" _in_ secondnumber || "s" _in_ secondnumber ||"t" _in_ secondnumber || "u" _in_ secondnumber || "v" _in_ secondnumber || "w" _in_ secondnumber || "x" _in_ secondnumber || "y" _in_ secondnumber || "z" _in_ secondnumber
+        {
+            "\0Thats not a number,\w5 do you want proced anyways?\n\n[half]/
+            \![*]\q[Yes,proced]\n/
+            \![*]\q[No,dontproced]\e"
+        }
+        else
+        {  
+            if plus == 1
+            {
+                outputnumber = firstnumber+secondnumber
+            }
+            elseif minus == 1
+            {
+                outputnumber = firstnumber-secondnumber
+            }
+            elseif multiply == 1
+            {
+                outputnumber = firstnumber*secondnumber  
+            }
+            elseif divide == 1
+            {
+                outputnumber = firstnumber/secondnumber
+            }
+            elseif exponentiation == 1
+            {
+                outputnumber = POW(firstnumber,secondnumber)
+            }
+            else
+            {
+                outputnumber = 0
+            }
+            OnCalculationEnd
+        }
+    }
+    else
+    {  
+        if plus == 1
+        {
+            outputnumber = firstnumber+secondnumber
+        }
+        elseif minus == 1
+        {
+            outputnumber = firstnumber-secondnumber
+        }
+        elseif multiply == 1
+        {
+            outputnumber = firstnumber*secondnumber  
+        }
+        elseif divide == 1
+        {
+            outputnumber = firstnumber/secondnumber
+        }
+        elseif exponentiation == 1
+        {
+            outputnumber = POW(firstnumber,secondnumber)
+        }
+        else
+        {
+            outputnumber = 0
+        }
+        OnCalculationEnd
+    }
+}
+
+OnCalculationEnd
+{
+    numcheck = 0
+    divide = 0
+    multiply = 0
+    minus = 0
+    plus = 0
+    exponentiation = 0
+    secondnumber = 0
+    firstnumber = 0
+    "\0your output is %(outputnumber)"
+}*/
+
+OnCalcCheck
+{
+    _numbertemp = SPLIT(numberstring," ")
+    _tempsize = ARRAYSIZE(_numbertemp)
+    /*
+    for _i=0;i<=_tempsize;i++
+    {
+        if _numbertemp[i] == "1" || _numbertemp[i] == "2" || _numbertemp[i] == "3" || _numbertemp[i] == "4" || _numbertemp[i] == "5"|| _numbertemp[i] == "6"|| _numbertemp[i] == "7" || _numbertemp[i] == "8" || _numbertemp[i] == "9"|| _numbertemp[i] == "0"
+        {
+            num[_i]=TOINT(_numbertemp[_i])
+        }
+        else
+        {
+            num[_i]=_numbertemp[_i]
+        }
+    }
+    --
+    OnCalcStart
+    */
+    firstnumber = _numbertemp[1]
+    firstoperator = _numbertemp[2]
+    secondnumber = _numbertemp[3]
+    secondoperator = _numbertemp[4]
+    thirdnumber = _numbertemp[5]
+    thirdoperator = _numbertemp[6]
+    fourthnumber = _numbertemp[7]
+    fourthoperator = _numbertemp[8]
+    fifthnumber = _numbertemp[9]
+    --
+    OnCalcStart  
+}
+
+OnCalcStart
+{ 
+    reference0 = TOINT(firstnumber) 
+    reference1 = TOINT(secondnumber)
+    reference2 = TOINT(thirdnumber)
+    reference3 = TOINT(fourthnumber)
+    reference4 = TOINT(fifthnumber)
+    --
+    if firstoperator == "*"
+    {
+       firstnumber = reference0 * reference1 
+    }
+    elseif firstoperator == "^"
+    {
+       firstnumber = POW(reference0,reference1)
+    }
+    elseif firstoperator == "+"
+    {
+       firstnumber = reference0 + reference1 
+    }
+    elseif firstoperator == "-"
+    {
+       firstnumber = reference0 - reference1 
+    }
+    elseif firstoperator == "/"
+    {
+       firstnumber = reference0 / reference1 
+    }
+    --
+    if secondoperator == "*"
+    {
+       firstnumber = firstnumber * reference2 
+    }
+    elseif secondoperator == "^"
+    {
+       firstnumber = POW(firstnumber,reference2)
+    }
+    elseif secondoperator == "+"
+    {
+       firstnumber = firstnumber + reference2 
+    }
+    elseif secondoperator == "-"
+    {
+       firstnumber = firstnumber - reference2 
+    }
+    elseif secondoperator == "/"
+    {
+       firstnumber = firstnumber / reference2 
+    }
+    --
+    if thirdoperator == "*"
+    {
+       firstnumber = firstnumber * reference3 
+    }
+    elseif thirdoperator == "^"
+    {
+       firstnumber = POW(firstnumber,reference3)
+    }
+    elseif thirdoperator == "+"
+    {
+       firstnumber = firstnumber + reference3 
+    }
+    elseif thirdoperator == "-"
+    {
+       firstnumber = firstnumber - reference3 
+    }
+    elseif thirdoperator == "/"
+    {
+       firstnumber = firstnumber / reference3 
+    }
+    --
+    if fourthoperator == "*"
+    {
+       firstnumber = firstnumber * reference4 
+    }
+    elseif fourthoperator == "^"
+    {
+       firstnumber = POW(firstnumber,reference4)
+    }
+    elseif fourthoperator == "+"
+    {
+       firstnumber = firstnumber + reference4 
+    }
+    elseif fourthoperator == "-"
+    {
+       firstnumber = firstnumber - reference4 
+    }
+    elseif fourthoperator == "/"
+    {
+       firstnumber = firstnumber / reference4 
+    }
+    --
+    "%(firstnumber)"
+}
+
+/*
+OnClaclStart
+{
+    for _i=0;i<=_tempsize;i++
+    {
+        if "^" _in_ num[_i]
+        {
+            num[_i-1] = POW(firstnumber,num[_i-1])
+        }
+    }
+}
+
+*/

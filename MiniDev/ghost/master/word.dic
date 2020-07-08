@@ -1,0 +1,1209 @@
+﻿ //**** Don't touch this ***************************************************************
+ //This is code stuff and nothing for you to worry about, just save the .dic and move on! You're done!
+ 
+ On_\person
+{
+ 	person
+}
+
+/*glitches
+{
+	"\i[8]"
+	"\i[9]"
+	"\i[10]"
+	"\i[11]"
+}*/
+
+gen
+{
+	"a"
+	"b"
+	"c"
+	"d"
+	"e"
+	"f"
+	"g"
+	"h"
+	"i"
+	"j"
+	"k"
+	"l"
+	"m"
+	"n"
+	"o"
+	"p"
+	"q"
+	"r"
+	"s"
+	"t"
+	"u"
+	"v"
+	"w"
+	"x"
+	"y"
+	"z"
+	"A"
+	"B"
+	"C"
+	"D"
+	"E"
+	"F"
+	"G"
+	"H"
+	"I"
+	"J"
+	"K"
+	"L"
+	"M"
+	"N"
+	"O"
+	"P"
+	"Q"
+	"R"
+	"S"
+	"T"
+	"U"
+	"V"
+	"W"
+	"X"
+	"Y"
+	"Z"
+}
+
+hihello
+{
+	"Greetings"
+	"Howdy"
+	"Welcome"
+	"Bonjour"
+	"Buenas noches"
+	"Buenos dias"
+	"Good day"
+	"Hey"
+	"Hi-ya"
+	"Howdy-do"
+	"Hi" 
+	"Hello"
+	"Yo"
+
+	if timeslot == "earlymorning" || timeslot == "morning" 
+	{ 
+		"Good morning"
+	}
+
+	if timeslot == "lunch" || timeslot == "afternoon"
+	{
+		"Good afternoon"
+	}
+
+	if timeslot == "evening" || timeslot == "latenight" || timeslot == "midnight"
+	{ 
+		"Good evening"
+	}
+}
+
+
+byebye
+{
+	"Bye"
+	"Bye-bye"
+	"Farewell"
+	"Later"
+	"Take care"
+	"See ya"
+	"Adios"
+	"Au revoir"
+	"Ciao"
+	"Adieu"
+	"Smell ya later"
+}
+
+users
+{
+	" %(username)"
+	" user"
+	""
+}
+
+binbin
+{
+	"A,01000001"
+	"B,01000010"
+	"C,01000011"
+	"D,01000100"
+	"E,01000101"
+	"F,01000110"
+	"G,01000111"
+	"H,01001000"
+	"I,01001001"
+	"J,01001010"
+	"K,01001011"
+	"L,01001100"
+	"M,01001101"
+	"N,01001110"
+	"O,01001111"
+	"P,01010000"
+	"Q,01010001"
+	"R,01010010"
+	"S,01010011"
+	"T,01010100"
+	"U,01010101"
+	"V,01010110"
+	"W,01010111"
+	"X,01011000"
+	"Y,01011001"
+	"Z,01011010"
+
+	"a,01100001"
+	"b,01100010"
+	"c,01100011"
+	"d,01100100"
+	"e,01100101"
+	"f,01100110"
+	"g,01100111"
+	"h,01101000"
+	"i,01101001"
+	"j,01101010"
+	"k,01101011"
+	"l,01101100"
+	"m,01101101"
+	"n,01101110"
+	"o,01101111"
+	"p,01110000"
+	"q,01110001"
+	"r,01110010"
+	"s,01110011"
+	"t,01110100"
+	"u,01110101"
+	"v,01110110"
+	"w,01110111"
+	"x,01111000"
+	"y,01111001"
+	"z,01111010"
+}
+
+glbinbin
+{
+	"H̸̛̭͓͐e̸̥̝̯͙͒̓̑͒ļ̴̤͈̓́ṗ̴̢͇̦͍̟͂́̈́̈́,01101101 01100101"
+
+	"Ļ̵̙̃̑̈͒i̷̧̫͂̓͂a̷̻͎̐̽̉̉͘ŗ̵͖̩̦̌̃͐̓s̵͖͕͚͂͜,01000001.01010010.01001001"
+
+	"A̴̩͓͚̅̍̍̇͌̿ͅ.̵̼̹̳̈̀̅R̵̛̪̓͛̈́.̸̧̲̩͇̞̂̈́̆͌͑I̶̤̼̟̟̍̈̅̏͜͜,01101100 01101001 01100001 01110010 01110011"
+}
+
+
+
+morse
+{
+	"A,| . — |"	
+	"B,| — . . . |"	
+	"C,| — . — . |"	
+	"D,| — . . |"	
+	"E,| . |"	
+	"F,|. . — . |"
+	"G,| — — . |"
+	"H,| . . . . |"	
+	"I,| . . |"	
+	"J,| . — — — |"	
+	"K,| — . — |"	
+	"L,| . — . . |"	
+	"M,| — — |"	
+	"N,| — . |"	
+	"O,| — — — |"
+	"P,| . — — . |"
+	"Q,| — — . — |"
+	"R,| . — . |"	
+	"S,| . . . |"		
+	"T,| — |"	
+	"U,| . . — |"
+	"V,| . . . — |"
+	"W,| . — — |"	
+	"X,| — . . — |"	
+	"Y,| — . — — |"
+	"Z,| — — . . |"
+	"1,| . — — — — |"
+	"2,| . . — — — |"
+	"3,| . . . — — |"
+	"4,| . . . . — |"
+	"5,| . . . . . |"
+	"6,| — . . . . |"
+	"7,| — — . . . |"
+	"8,| — — — . . |"
+	"9,| — — — — . |"
+	"0,| — — — — — |"
+}
+
+
+glmorse
+{
+	"H̶̟͖͙̒͆̕͜E̶̡̡̗̝̽͆̀̽̕L̷̘̝̗̻̖̫̉P̶̰̋̀̈̕͠,| — — | . |"
+
+	"L̶͍͗̂͗̏̕͠Į̸̧̦͔͕͖̇́̾̓͝A̴̠̗͖̓Ŗ̵̟̬̰̥̣̏̕Ṡ̸̙̙,| . — | . — . | . . |"
+
+	"A.R.I,| . — . . | . . | . — | . — . | . . . |"
+}
+
+glessonpol
+{
+	"L̸̛̛̰̍̈́͑̚i̸̟̼̐͘͜a̷̡̬͔̜̰̒r̶̡̧̡͈̫̦̗̮̪͊ş̷̤̜̮̗̃̀,Ă̸͔̙̘̹̭̐͌̎͝͝.̷̡̬̬͙̱́̒̈͜R̷̨̢̯̙̘̙̼̗̤͌̓̂̚.̸̙͈̈́͂͝Į̴̯̖͎̾̐̊͜"
+
+	"Ḧ̴͕̺̰̤͉͓͇̦̤́͐̇͛̀̂͠ḙ̵̮̞̲̩̯̻̅͂͊̏l̶̜̬͌͑p̵̗̐͒̓̚͠,m̶͉͐ẽ̸̡̢̙͎̬̗͕̹̕ͅ"
+
+	"Ă̸͔̙̘̹̭̐͌̎͝͝.̷̡̬̬͙̱́̒̈͜R̷̨̢̯̙̘̙̼̗̤͌̓̂̚.̸̙͈̈́͂͝Į̴̯̖͎̾̐̊͜,k̸̬̳̭̀ł̴̨̬̻͖̟̊͂ḁ̸̞͓̫̦̗͖͎̓̉͒͛͒̃m̷̝̱͆̇̿͐̎͌̕c̷̨̛͍̟̗̐̿̌̌̈́y̴̼͍͇̭̞̺̓̄̀͑̌̎͘̚͠"
+
+	"P̷̪̖̓͑̔͆͒̑͌͝͝ȯ̵̯̭̲̅̏̉̑̑̇̐̈́m̸̛̲̽̄̉̅̑͗̈́ó̴̡̢͓͔̙̫̭̮́͌́̈́ż̶̛̰̘͕̻͔͋̽̑͋̋̕͝,m̵̧̤͎̬͉̹̖̯͇̄́́̍̕į̶̟̻̣̤̼̮̰̤̋͂̾̐̊̅"
+
+	"Ḧ̴͕̺̰̤͉͓͇̦̤́͐̇͛̀̂͠ḙ̵̮̞̲̩̯̻̅͂͊̏l̶̜̬͌͑p̵̗̐͒̓̚͠,P̷̪̖̓͑̔͆͒̑͌͝͝ȯ̵̯̭̲̅̏̉̑̑̇̐̈́m̸̛̲̽̄̉̅̑͗̈́ó̴̡̢͓͔̙̫̭̮́͌́̈́ż̶̛̰̘͕̻͔͋̽̑͋̋̕͝"
+
+	"m̶͉͐ẽ̸̡̢̙͎̬̗͕̹̕ͅ,m̵̧̤͎̬͉̹̖̯͇̄́́̍̕į̶̟̻̣̤̼̮̰̤̋͂̾̐̊̅"
+
+	"L̸̛̛̰̍̈́͑̚i̸̟̼̐͘͜a̷̡̬͔̜̰̒r̶̡̧̡͈̫̦̗̮̪͊ş̷̤̜̮̗̃̀,k̸̬̳̭̀ł̴̨̬̻͖̟̊͂ḁ̸̞͓̫̦̗͖͎̓̉͒͛͒̃m̷̝̱͆̇̿͐̎͌̕c̷̨̛͍̟̗̐̿̌̌̈́y̴̼͍͇̭̞̺̓̄̀͑̌̎͘̚͠"
+
+}
+
+
+lightdark
+{
+	if tooln == "OFF"
+	{
+		"\p[3]\s[-1]\p[4]\s[-1]\p[5]\s[-1]\p[6]\s[-1]\p[7]\s[-1]\p[8]\s[-1]\p[9]\s[-1]\p[10]\s[-1]"
+	}
+	else
+	{
+		if mode == 1 //lightmode
+		{
+			if logbtn == "ON" //log
+			{
+				"\p[3]\s[7]"
+			}
+			else
+			{
+				"\p[3]\s[-1]"
+			}
+			--
+			if dlbtn == "ON" //Dark light 
+			{
+				"\p[4]\s[12]"
+			}
+			else
+			{
+				"\p[4]\s[-1]"
+			}
+			--
+			if webtn == "ON" //Weather
+			{
+				"\p[5]\s[19]"
+			}
+			else
+			{
+				"\p[5]\s[-1]"
+			}
+			--
+			if statbtn == "ON" //statistic
+			{
+				"\p[6]\s[21]"
+			}
+			else
+			{
+				"\p[6]\s[-1]"
+			}
+			--
+			if todobtn == "ON" //to do list
+			{
+				"\p[7]\s[18]"
+			}
+			else
+			{
+				"\p[7]\s[-1]"
+			}
+			--
+			if setbtn == "ON" //config
+			{
+				"\p[8]\s[20]"
+			}
+			else
+			{
+				"\p[8]\s[-1]"
+			}
+			--
+			if cusbtn == "ON" //customization
+			{
+				"\p[9]\s[23]"
+			}
+			else
+			{
+				"\p[9]\s[-1]"
+			}
+			--
+			if appbtn == "ON" //open app
+			{
+				"\p[10]\s[25]"
+			}
+			else
+			{
+				"\p[10]\s[-1]"
+			}
+		}
+		else //darkmode
+		{
+			if logbtn == "ON"
+			{
+				"\p[3]\s[3]"
+			}
+			else
+			{
+				"\p[3]\s[-1]"
+			}
+			--
+			if dlbtn == "ON"
+			{
+				"\p[4]\s[11]"
+			}
+			else
+			{
+				"\p[4]\s[-1]"
+			}
+			--
+			if webtn == "ON"
+			{
+				"\p[5]\s[14]"
+			}
+			else
+			{
+				"\p[5]\s[-1]"
+			}
+			--
+			if statbtn == "ON"
+			{
+				"\p[6]\s[16]"
+			}
+			else
+			{
+				"\p[6]\s[-1]"
+			}
+			--
+			if todobtn == "ON"
+			{
+				"\p[7]\s[13]"
+			}
+			else
+			{
+				"\p[7]\s[-1]"
+			}
+			--
+			if setbtn == "ON"
+			{
+				"\p[8]\s[15]"
+			}
+			else
+			{
+				"\p[8]\s[-1]"
+			}
+			--
+			if cusbtn == "ON"
+			{
+				"\p[9]\s[24]"
+			}
+			else
+			{
+				"\p[9]\s[-1]"
+			}
+			--
+			if appbtn == "ON"
+			{
+				"\p[10]\s[26]"
+			}
+			else
+			{
+				"\p[10]\s[-1]"
+			}
+		}
+	}
+}
+
+insult
+{
+	"assweed"
+	"limp dick jabroni"
+	"pillock"
+	"wanker"
+	"you uphill gardener"
+	"fopdoodle"
+	"ape covered in human flesh"
+	"wazzock"
+	"cumberworld"
+	"motherfucker"
+	"bitch"
+	"faggot"
+	"fucker"
+	"retard"
+	"asshole"
+	"dickward"
+	"cuntsandwich"
+	"microwaved sardine"
+	"chromosome hoarder"
+	"dip thong"
+	"little bitch chicken"
+	"twaterang"
+	"thunder chump"
+	"muke"
+	"wet mayonnaise"
+	"ape"
+	"trash"
+}
+
+didknow
+{
+	"Did you know"
+	"Do you know"
+	"Do you know that"
+	"Did you know that"
+}
+
+facts
+{
+	"there is enough DNA in the average person’s body to stretch from the sun to Pluto and back — 17 times"
+	"the average human body carries ten times more bacterial cells than human cells"
+	"it takes a photon up to 40,000 years to travel from the core of the sun to its surface, but only 8 minutes to travel the rest of the way to Earth"
+	"at over 2,000 kilometers long, The Great Barrier Reef is the largest living structure on Earth"
+	"there are 8 times as many atoms in a teaspoonful of water as there are teaspoonfuls of water in the Atlantic ocean"
+	"in an entire lifetime, the average person walks the equivalent of five times around the world"
+	"there are actually over two dozen states of matter (that we know of)"
+	"female sharks have thicker skins than males"
+	"the ocean is 8 Empire State Buildings deep"
+	"camels don't actually store water in their humps"
+	"grasshoppers have ears in their bellies"
+	"you can’t taste food without saliva"
+	"if Betelgeuse exploded, transitioning from the red supergiant stage to supernova, it would light our sky continuously for two months. It could happen anytime — within a couple of thousand years, tomorrow or even now"
+	"octopuses have three hearts, nine brains, and blue blood"
+	"an individual blood cell takes about 60 seconds to make a complete circuit of the body"
+	"It only takes 6 minutes for brain cells to react to alcohol"
+	"humans have caused 322 animal extinctions over the past 500 years"
+	"small animals sense time slower Than humans"
+	"a study found that, animals react to social pressure much as humans do"
+	"a study claims looking at cute animal pictures at work can make you more productive"
+	"small animals such as flies and hummingbirds experience time in slow motion, which is why they can avoid your newspaper swats"
+	"Leo Da Vinci used to buy caged animals at the market just to set them free"
+	"70% of all animals in the jungle rely on figs for their survival"
+	"the first animal to be ejected from a supersonic jet with a parachute was a bear"
+	"heavily hunted animals live in Chernobyl, because it is safer where there are no humans"
+	"africa is home to the world's largest living land animal, the African elephant, and the tallest, the Giraffe"
+	"the wood frog and other animals have the ability to freeze solid during winter, thaw in the spring and remain perfectly healthy"
+	"pope Paul VI claimed that animals can go to heaven"
+	"the last animal in the dictionary is the zyzzyva, a tropical weevil"
+	"african elephants have the best sense of smell in the animal kingdom"
+	"1/3 of pet owners let their animals sleep in bed with them"
+	"the deadliest animal in Africa is the hippopotamus"
+	"the Sea Anemone looks like a flower, but it's actually a carnivorous animal that eats small fish and shrimp"
+	"the original word for 'bear' has been lost. Medieval people thought that saying the ferocious animal's name would summon it, so they used a euphemism that meant 'the brown one' ('bear')"
+	"animals, including pigs, horses, and even insects, could be tried and convicted of crimes for several centuries across many parts of Europe."
+	"41 new species are discovered by scientists every single day"
+	"scientists finally concluded that the chicken came first, not the egg, because the protein which makes egg shells is only produced by hens"
+	"a 10-Year-Old Accidentally Created in 2012 a New Molecule in Science Class: Tetranitratoxycarbon"
+	"'sphenopalatine ganglioneuralgia' is the scientific term for brain freeze"
+	"the average number of readers of any given published scientific paper is said to be 0.6"
+	"a new scientific method called 'toxineering' turns venoms into painkillers"
+	"the World's oldest known creature, a mollusc, was 507 years old until scientists killed it by mistake"
+	"it would take light 100,000 years to travel from one end of the Milky Way galaxy to the other"
+	"researchers believe the first human case of HIV was in Kinshasa, Congo, around 1920"
+	"the Big Bang Theory was actually first theorized by a Catholic priest"
+}
+
+myths
+{
+	"vaccines don't work and are made to inject humans with brain controling implants"
+	"essential oils can cure cancer"
+	"flu shots give you a mild flu"
+	"the gold in Tutankhamun’s tomb had been stolen from the tombs of other pharaohs"
+	"the roller coaster was invented during the Hundred Years’ War as a way of launching supplies across rivers"
+	"vaccines cause autism"
+	"by weight, bay leaves contain more caffeine than coffee beans. They are used to make a stimulating tea in Morocco"
+	"the first video ever uploaded to Youtube had to be taken down in 2016 for violating their Terms of Service"
+	"vikings never fired flaming arrows at boats carrying the dead. They would sink them by running them over with a larger boat"
+	"Johnny Cash once got into a fist fight with Colonel Sanders over a sports game"
+	"gold nuggets were named after chicken nuggets – not the other way around"
+	"all politicians and big influencers are hidden reptilians"
+	"all fossils found in Canada belong to the Queen"
+	"researchers in the Antarctic will use apply whitening toothpaste to their drills when boring into the ice shelf"
+	"chemicals in the water are turning frogs gay"
+	"Robert Mueller is a demon"
+	"Hillary Clinton is running a child sex ring out of a pizza parlor"
+	"the earth is %(shape)"
+	"space doesn't exist"
+	"dinosaurs buil the piramid of egypt"
+	"5G fries your brain"
+	"due to the inclusion of certain metal isotopes in its construction, the standard trombone is actually radioactive"
+	"birds aren’t real, they’re actually government surveillance drones"
+	"Australia doesn't exist and is just a small island part of New Zealand"
+	"mermaids exist and the government is just hiding it from us"
+	"the moon is fake"
+	"the Titanic sank as part of an insurance scam"
+	"govrment uses human-goat hybrids to harvest organs" 
+	"government is run by lizard people"
+	"Neanderthals never went extinct there are still communities of them living underneath our cities, and that all those bigfoot claims are just rare occurrences of a Neanderthal making their way to the surface and being spotted"
+	"only looks round through airplane windows because the windows are distorted to bend light making the Earth look round"
+	"the government has giant machines in the ocean that control the weather"
+	"drugs companies have a cure for cancer that they're keeping secret"
+	"9/11 was done by aliens with a laser beam"
+	"your birth certificate is the government's receipt for owning you"
+	"he human race in an alien experiment and they dumped you here to watch you develop"
+	"the government controls cats"
+	"chemtrails are airplanes releasing chemicals into the air to keep the general masses docile and prevent them from questioning their governments"
+	
+
+}
+
+shape
+{
+	"flat"
+	"hollow inside"
+	"on a 3 elephants"
+	"on big turtle"
+	"3 elephants that stand on 3 whales"
+	"donut shaped"
+
+}
+
+BookLib
+{
+	//title, author, description
+	book[0] = "'Do Androids Dream of Electric Sheep?',Philip K. Dick and Roger Zelazny,'It was January 2021 and Rick Deckard had a license to kill. Somewhere among the hordes of humans out there lurked several rogue androids. Deckard's assignment--find them and then...'retire' them. Trouble was the androids all looked exactly like humans and they didn't want to be found!'"
+	book[1] = "'The Hitchhiker's Guide to the Galaxy',Douglas Adams,'Seconds before the Earth is demolished to make way for a galactic freeway Arthur Dent is plucked off the planet by his friend Ford Prefect, a researcher for the revised edition of The Hitchhiker's Guide to the Galaxy who, for the last fifteen years, has been posing as an out-of-work actor.'"
+	book[2] = "'To Kill a Mockingbird',Harper Lee,'The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it, To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.'"
+	book[3] = "'The Kingdom of Back',Marie Lu,Two siblings. Two brilliant talents. But only one Mozart. \n\n[half]Born with a gift for music, Nannerl Mozart has just one wish—to be remembered forever. But even as she delights audiences with her masterful playing, she has little hope she'll ever become the acclaimed composer she longs to be. She is a young woman in 18th century Europe, and that means composing is forbidden to her. She will perform only until she reaches a marriageable age—her tyrannical father has made that much clear.\n\n[half]And as Nannerl's hope grows dimmer with each passing year, the talents of her beloved younger brother, Wolfgang, only seem to shine brighter. His brilliance begins to eclipse her own, until one day a mysterious stranger from a magical land appears with an irresistible offer. He has the power to make her wish come true—but his help may cost her everything.\n\n[half]In her first work of historical fiction, #1 New York Times bestselling author Marie Lu spins a lush, lyrically-told story of music, magic, and the unbreakable bond between a brother and sister."
+	book[4] = "'We Are Totally Normal',Rahul Kanakia,'Nandan’s got a plan to make his junior year perfect. He’s going to make sure all the parties are chill, he’s going to smooth things over with his ex, and he’s going to help his friend Dave get into the popular crowd—whether Dave wants to or not. The high school social scene might be complicated, but Nandan is sure he’s cracked the code.\n\n[half]Then, one night after a party, Dave and Nandan hook up, which was not part of the plan—especially because Nandan has never been into guys. Still, Dave’s cool, and Nandan’s willing to give it a shot, even if that means everyone starts to see him differently.\n\n[half]But while Dave takes to their new relationship with ease, Nandan’s completely out of his depth. And the more his anxiety grows about what his sexuality means for himself, his friends, and his social life, the more he wonders whether he can just take it all back. But is breaking up with the only person who’s ever really gotten him worth feeling “normal” again?\n\n[half]From Rahul Kanakia comes a raw and deeply felt story about rejecting labels, seeking connection, and finding yourself.'"
+	book[5] = "'Wicked As You Wish',,'When a hidden prince, a girl with secrets, a ragtag group of unlikely heroes, and a legendary firebird come together…something wicked is going down.\n\n[half]Many years ago, the magical Kingdom of Avalon was left encased in ice when the Snow Queen waged war. Its former citizens are now refugees in a world mostly devoid of magic. Which is why the crown prince and his protectors are stuck in…Arizona. \n\n[half]Prince Alexei, the sole survivor of the Avalon royal family, is hiding in a town so boring, magic doesn’t even work there. Few know his secret identity, but his friend Tala is one of them. \n\n[half]A new hope for their abandoned homeland reignites when a famous creature of legend, the Firebird, appears for the first time in decades. Alex and Tala must unite with a ragtag group of new friends to journey back to Avalon for a showdown that will change the world as they know it.'"
+	book[6] = ""
+	book[7] = ""
+	book[8] = ""
+	book[9] = ""
+	book[10] = ""
+	book[21] = ""
+	book[22] = ""
+	book[23] = ""
+	book[24] = ""
+	book[25] = ""
+	book[26] = ""
+	book[27] = ""
+	book[28] = ""
+	book[29] = ""
+	book[30] = ""
+	book[31] = ""
+	book[32] = ""
+	book[33] = ""
+	book[34] = ""
+	book[35] = ""
+	book[36] = ""
+	book[37] = ""
+	book[38] = ""
+	book[39] = ""
+	book[40] = ""
+	book[41] = ""
+	book[42] = ""
+	book[43] = ""
+	book[44] = ""
+	book[45] = ""
+	book[46] = ""
+	book[47] = ""
+	book[48] = ""
+	book[49] = ""
+	book[50] = ""
+	book[51] = ""
+	book[52] = ""
+	book[53] = ""
+	book[54] = ""
+	book[55] = ""
+	book[56] = ""
+	book[57] = ""
+	book[58] = ""
+	book[59] = ""
+	book[60] = ""
+	book[61] = ""
+	book[62] = ""
+	book[63] = ""
+	book[64] = ""
+	book[65] = ""
+	book[66] = ""
+	book[67] = ""
+	book[68] = ""
+	book[69] = ""
+	book[70] = ""
+	book[71] = ""
+	book[72] = ""
+	book[73] = ""
+	book[74] = ""
+	book[75] = ""
+	book[76] = ""
+	book[77] = ""
+	book[78] = ""
+	book[79] = ""
+	book[80] = ""
+	book[81] = ""
+	book[82] = ""
+	book[83] = ""
+	book[84] = ""
+	book[85] = ""
+	book[86] = ""
+	book[87] = ""
+	book[88] = ""
+	book[89] = ""
+	book[90] = ""
+	book[91] = ""
+	book[92] = ""
+	book[93] = ""
+	book[94] = ""
+	book[95] = ""
+	book[96] = ""
+	book[97] = ""
+	book[98] = ""
+	book[99] = ""
+}
+
+MovieLib
+{
+	//title, author, description
+	movie[0] = ""
+	movie[1] = ""
+	movie[2] = ""
+	movie[3] = ""
+	movie[4] = ""
+	movie[5] = ""
+	movie[6] = ""
+	movie[7] = ""
+	movie[8] = ""
+	movie[9] = ""
+	movie[10] = ""
+	movie[21] = ""
+	movie[22] = ""
+	movie[23] = ""
+	movie[24] = ""
+	movie[25] = ""
+	movie[26] = ""
+	movie[27] = ""
+	movie[28] = ""
+	movie[29] = ""
+	movie[30] = ""
+	movie[31] = ""
+	movie[32] = ""
+	movie[33] = ""
+	movie[34] = ""
+	movie[35] = ""
+	movie[36] = ""
+	movie[37] = ""
+	movie[38] = ""
+	movie[39] = ""
+	movie[40] = ""
+	movie[41] = ""
+	movie[42] = ""
+	movie[43] = ""
+	movie[44] = ""
+	movie[45] = ""
+	movie[46] = ""
+	movie[47] = ""
+	movie[48] = ""
+	movie[49] = ""
+	movie[50] = ""
+	movie[51] = ""
+	movie[52] = ""
+	movie[53] = ""
+	movie[54] = ""
+	movie[55] = ""
+	movie[56] = ""
+	movie[57] = ""
+	movie[58] = ""
+	movie[59] = ""
+	movie[60] = ""
+	movie[61] = ""
+	movie[62] = ""
+	movie[63] = ""
+	movie[64] = ""
+	movie[65] = ""
+	movie[66] = ""
+	movie[67] = ""
+	movie[68] = ""
+	movie[69] = ""
+	movie[70] = ""
+	movie[71] = ""
+	movie[72] = ""
+	movie[73] = ""
+	movie[74] = ""
+	movie[75] = ""
+	movie[76] = ""
+	movie[77] = ""
+	movie[78] = ""
+	movie[79] = ""
+	movie[80] = ""
+	movie[81] = ""
+	movie[82] = ""
+	movie[83] = ""
+	movie[84] = ""
+	movie[85] = ""
+	movie[86] = ""
+	movie[87] = ""
+	movie[88] = ""
+	movie[89] = ""
+	movie[90] = ""
+	movie[91] = ""
+	movie[92] = ""
+	movie[93] = ""
+	movie[94] = ""
+	movie[95] = ""
+	movie[96] = ""
+	movie[97] = ""
+	movie[98] = ""
+	movie[99] = ""
+}
+
+AnimeLib
+{
+	//title, author, description
+	anime[0] = ""
+	anime[1] = ""
+	anime[2] = ""
+	anime[3] = ""
+	anime[4] = ""
+	anime[5] = ""
+	anime[6] = ""
+	anime[7] = ""
+	anime[8] = ""
+	anime[9] = ""
+	anime[10] = ""
+	anime[21] = ""
+	anime[22] = ""
+	anime[23] = ""
+	anime[24] = ""
+	anime[25] = ""
+	anime[26] = ""
+	anime[27] = ""
+	anime[28] = ""
+	anime[29] = ""
+	anime[30] = ""
+	anime[31] = ""
+	anime[32] = ""
+	anime[33] = ""
+	anime[34] = ""
+	anime[35] = ""
+	anime[36] = ""
+	anime[37] = ""
+	anime[38] = ""
+	anime[39] = ""
+	anime[40] = ""
+	anime[41] = ""
+	anime[42] = ""
+	anime[43] = ""
+	anime[44] = ""
+	anime[45] = ""
+	anime[46] = ""
+	anime[47] = ""
+	anime[48] = ""
+	anime[49] = ""
+	anime[50] = ""
+	anime[51] = ""
+	anime[52] = ""
+	anime[53] = ""
+	anime[54] = ""
+	anime[55] = ""
+	anime[56] = ""
+	anime[57] = ""
+	anime[58] = ""
+	anime[59] = ""
+	anime[60] = ""
+	anime[61] = ""
+	anime[62] = ""
+	anime[63] = ""
+	anime[64] = ""
+	anime[65] = ""
+	anime[66] = ""
+	anime[67] = ""
+	anime[68] = ""
+	anime[69] = ""
+	anime[70] = ""
+	anime[71] = ""
+	anime[72] = ""
+	anime[73] = ""
+	anime[74] = ""
+	anime[75] = ""
+	anime[76] = ""
+	anime[77] = ""
+	anime[78] = ""
+	anime[79] = ""
+	anime[80] = ""
+	anime[81] = ""
+	anime[82] = ""
+	anime[83] = ""
+	anime[84] = ""
+	anime[85] = ""
+	anime[86] = ""
+	anime[87] = ""
+	anime[88] = ""
+	anime[89] = ""
+	anime[90] = ""
+	anime[91] = ""
+	anime[92] = ""
+	anime[93] = ""
+	anime[94] = ""
+	anime[95] = ""
+	anime[96] = ""
+	anime[97] = ""
+	anime[98] = ""
+	anime[99] = ""
+}
+
+MangaLib
+{
+	//title, author, description
+	manga[0] = ""
+	manga[1] = ""
+	manga[2] = ""
+	manga[3] = ""
+	manga[4] = ""
+	manga[5] = ""
+	manga[6] = ""
+	manga[7] = ""
+	manga[8] = ""
+	manga[9] = ""
+	manga[10] = ""
+	manga[21] = ""
+	manga[22] = ""
+	manga[23] = ""
+	manga[24] = ""
+	manga[25] = ""
+	manga[26] = ""
+	manga[27] = ""
+	manga[28] = ""
+	manga[29] = ""
+	manga[30] = ""
+	manga[31] = ""
+	manga[32] = ""
+	manga[33] = ""
+	manga[34] = ""
+	manga[35] = ""
+	manga[36] = ""
+	manga[37] = ""
+	manga[38] = ""
+	manga[39] = ""
+	manga[40] = ""
+	manga[41] = ""
+	manga[42] = ""
+	manga[43] = ""
+	manga[44] = ""
+	manga[45] = ""
+	manga[46] = ""
+	manga[47] = ""
+	manga[48] = ""
+	manga[49] = ""
+	manga[50] = ""
+	manga[51] = ""
+	manga[52] = ""
+	manga[53] = ""
+	manga[54] = ""
+	manga[55] = ""
+	manga[56] = ""
+	manga[57] = ""
+	manga[58] = ""
+	manga[59] = ""
+	manga[60] = ""
+	manga[61] = ""
+	manga[62] = ""
+	manga[63] = ""
+	manga[64] = ""
+	manga[65] = ""
+	manga[66] = ""
+	manga[67] = ""
+	manga[68] = ""
+	manga[69] = ""
+	manga[70] = ""
+	manga[71] = ""
+	manga[72] = ""
+	manga[73] = ""
+	manga[74] = ""
+	manga[75] = ""
+	manga[76] = ""
+	manga[77] = ""
+	manga[78] = ""
+	manga[79] = ""
+	manga[80] = ""
+	manga[81] = ""
+	manga[82] = ""
+	manga[83] = ""
+	manga[84] = ""
+	manga[85] = ""
+	manga[86] = ""
+	manga[87] = ""
+	manga[88] = ""
+	manga[89] = ""
+	manga[90] = ""
+	manga[91] = ""
+	manga[92] = ""
+	manga[93] = ""
+	manga[94] = ""
+	manga[95] = ""
+	manga[96] = ""
+	manga[97] = ""
+	manga[98] = ""
+	manga[99] = ""
+}
+
+CartoonLib
+{
+	//title, author, description
+	cartoon[0] = ""
+	cartoon[1] = ""
+	cartoon[2] = ""
+	cartoon[3] = ""
+	cartoon[4] = ""
+	cartoon[5] = ""
+	cartoon[6] = ""
+	cartoon[7] = ""
+	cartoon[8] = ""
+	cartoon[9] = ""
+	cartoon[10] = ""
+	cartoon[21] = ""
+	cartoon[22] = ""
+	cartoon[23] = ""
+	cartoon[24] = ""
+	cartoon[25] = ""
+	cartoon[26] = ""
+	cartoon[27] = ""
+	cartoon[28] = ""
+	cartoon[29] = ""
+	cartoon[30] = ""
+	cartoon[31] = ""
+	cartoon[32] = ""
+	cartoon[33] = ""
+	cartoon[34] = ""
+	cartoon[35] = ""
+	cartoon[36] = ""
+	cartoon[37] = ""
+	cartoon[38] = ""
+	cartoon[39] = ""
+	cartoon[40] = ""
+	cartoon[41] = ""
+	cartoon[42] = ""
+	cartoon[43] = ""
+	cartoon[44] = ""
+	cartoon[45] = ""
+	cartoon[46] = ""
+	cartoon[47] = ""
+	cartoon[48] = ""
+	cartoon[49] = ""
+	cartoon[50] = ""
+	cartoon[51] = ""
+	cartoon[52] = ""
+	cartoon[53] = ""
+	cartoon[54] = ""
+	cartoon[55] = ""
+	cartoon[56] = ""
+	cartoon[57] = ""
+	cartoon[58] = ""
+	cartoon[59] = ""
+	cartoon[60] = ""
+	cartoon[61] = ""
+	cartoon[62] = ""
+	cartoon[63] = ""
+	cartoon[64] = ""
+	cartoon[65] = ""
+	cartoon[66] = ""
+	cartoon[67] = ""
+	cartoon[68] = ""
+	cartoon[69] = ""
+	cartoon[70] = ""
+	cartoon[71] = ""
+	cartoon[72] = ""
+	cartoon[73] = ""
+	cartoon[74] = ""
+	cartoon[75] = ""
+	cartoon[76] = ""
+	cartoon[77] = ""
+	cartoon[78] = ""
+	cartoon[79] = ""
+	cartoon[80] = ""
+	cartoon[81] = ""
+	cartoon[82] = ""
+	cartoon[83] = ""
+	cartoon[84] = ""
+	cartoon[85] = ""
+	cartoon[86] = ""
+	cartoon[87] = ""
+	cartoon[88] = ""
+	cartoon[89] = ""
+	cartoon[90] = ""
+	cartoon[91] = ""
+	cartoon[92] = ""
+	cartoon[93] = ""
+	cartoon[94] = ""
+	cartoon[95] = ""
+	cartoon[96] = ""
+	cartoon[97] = ""
+	cartoon[98] = ""
+	cartoon[99] = ""
+}
+
+SerialLib
+{
+	//title, author, description
+	serial[0] = ""
+	serial[1] = ""
+	serial[2] = ""
+	serial[3] = ""
+	serial[4] = ""
+	serial[5] = ""
+	serial[6] = ""
+	serial[7] = ""
+	serial[8] = ""
+	serial[9] = ""
+	serial[10] = ""
+	serial[21] = ""
+	serial[22] = ""
+	serial[23] = ""
+	serial[24] = ""
+	serial[25] = ""
+	serial[26] = ""
+	serial[27] = ""
+	serial[28] = ""
+	serial[29] = ""
+	serial[30] = ""
+	serial[31] = ""
+	serial[32] = ""
+	serial[33] = ""
+	serial[34] = ""
+	serial[35] = ""
+	serial[36] = ""
+	serial[37] = ""
+	serial[38] = ""
+	serial[39] = ""
+	serial[40] = ""
+	serial[41] = ""
+	serial[42] = ""
+	serial[43] = ""
+	serial[44] = ""
+	serial[45] = ""
+	serial[46] = ""
+	serial[47] = ""
+	serial[48] = ""
+	serial[49] = ""
+	serial[50] = ""
+	serial[51] = ""
+	serial[52] = ""
+	serial[53] = ""
+	serial[54] = ""
+	serial[55] = ""
+	serial[56] = ""
+	serial[57] = ""
+	serial[58] = ""
+	serial[59] = ""
+	serial[60] = ""
+	serial[61] = ""
+	serial[62] = ""
+	serial[63] = ""
+	serial[64] = ""
+	serial[65] = ""
+	serial[66] = ""
+	serial[67] = ""
+	serial[68] = ""
+	serial[69] = ""
+	serial[70] = ""
+	serial[71] = ""
+	serial[72] = ""
+	serial[73] = ""
+	serial[74] = ""
+	serial[75] = ""
+	serial[76] = ""
+	serial[77] = ""
+	serial[78] = ""
+	serial[79] = ""
+	serial[80] = ""
+	serial[81] = ""
+	serial[82] = ""
+	serial[83] = ""
+	serial[84] = ""
+	serial[85] = ""
+	serial[86] = ""
+	serial[87] = ""
+	serial[88] = ""
+	serial[89] = ""
+	serial[90] = ""
+	serial[91] = ""
+	serial[92] = ""
+	serial[93] = ""
+	serial[94] = ""
+	serial[95] = ""
+	serial[96] = ""
+	serial[97] = ""
+	serial[98] = ""
+	serial[99] = ""
+}
+pickupline
+{
+	"I’d never play hide and seek with you because someone like you is impossible to find"
+	"I am going to complain to Spotify about you not being this weeks hottest single."
+	"If being in love was illegal, will you be my partner in crime?"
+	"Roses are red, violets are blue, I’m not that pretty but damn look at you."
+	"Can I follow you? Cause my mom told me to follow my dreams"
+	"Are you a camera? Because every time I look at you, I smile."
+	"I’m no organ donor but I’d be happy to give you my heart."
+	"Roses are red violets are blue I didn’t know what perfect was until I met you"
+	"I heard you’re good in algebra, can you replace my X without asking Y"
+	"You know you’re in love when you can’t fall asleep because reality is finally better than your dreams."
+	"You’re That “Nothing” When People Ask Me What I’m Thinking About."
+	"Are you a keyboard? Because you’re just my type."
+	"Are you a bank loan? Because you got my interest"
+	"Are you a time traveler? Cause I see you in my future!"
+	"Do you know if there are any police around? Cause I’m about to steal your heart."
+	"There isn’t a word in the dictionary to describe how beautiful you are."
+	"You have to attend my wedding when I get married because the wedding can’t go on without the bride."
+	"If I had 4 quarters to give to the 4 prettiest girls in the world, you would have a dollar."
+	"I would take you to the movies but they don’t allow snacks"
+	"I’m not a hoarder but I really want to keep you forever."
+	"Roses are red, violets are blue, lava is hot and so are you."
+	"Most people like to watch the Superbowl cuz it only happens once a year, but Id rather talk to you cause the chance of meeting someone like you only happens once in a lifetime"
+	"I should call you Google, because you have everything I’m looking for."
+	"Do you have a band aid? Cause I scrapped my knees falling for you."
+	"If your heart was a prison, I would like to be sentenced for life."
+	"I lost my teddy bear can i sleep with you tonight?"
+	"If kisses were snowflakes, I’d send you a blizzard."
+	"If I were a cat i’d spend all 9 lives with you."
+	"I don’t really believe in love at first sight, until I saw you."
+	"Roses are red and violets are blue there’s nothing in the world more prettier than you"
+	"Are you the sun? Because you’re so beautiful it’s blinding me."
+	"Are you made of copper and tellurium? Because you’re CuTe!"
+	"I just had to come talk with you. Sweetness is my weakness"
+	"Are you australian? Because you meet all of my koalafications."
+	"You really shouldn’t wear makeup. You’re messing with perfection!"
+	"I want to be your tear drop, so I could be born in your eyes, live on your cheeks, and die on your lips."
+	"I’m feeling a little bit off today, but you definitely turned me on."
+	"I’m no electrician, but I can light up your day."
+	"If you were a potato you’d be a sweet one."
+	"Do you smoke pot? Because weed be cute together."
+	"Is Your Dad A Preacher? Cause Girl You’re A Blessing"
+	"Wanna grab a coffee because i like you a latte!"
+	"If I was an octopus, all my 3 hearts would beat for you."
+	"I know somebody who likes you but if I weren’t so shy, I’d tell you who."
+	"Your so cute its distracting"
+	"What does it feel like to be the most beautiful girl in this room?"
+	"I used to be a Gambler, but then I realized that all I needed was the Queen of my Heart"
+	"When I look into your eyes, it is like a gateway into the world of which I want to be a part."
+	"Your smile lit up the room, so I just had to come over."
+	"Is your name dunkin? Because i donut want to spend another day without you."
+	"Roses are red, I have a crush, whenever I’m around you, all I do is blush"
+	"Did you die recently? Cause girl, you look like an angel to me."
+	"I don’t believe in love at first sight, but I’m willing to make an exception in your case"
+	"Can you kiss me on the cheek so I can at least say a cute girl kissed me tonight?"
+	"If I’d follow you home, would you keep me?"
+	"Is your body from McDonald’s? Cause I’m loving it!"
+	"Are you a 45 degree angle? Because you’re acute-y!"
+	"Are you the ocean? Cuz baby I want to swim in you all day"
+	"Are you a volcano? Because i lava you"
+	"Are you from Russia? ‘Cause you’re russian my heart rate!"
+	"Are you netflix? Because i could watch you for hours."
+	"Charzards are red\w3 Squitals are blue\w6 if u were a Pokemon i would choose you!"
+	"Do you like star wars? Because yoda only one for me!"
+	"Are you made out of grapes? Because you are fine as wine!"
+	"Do you drink Pepsi? Because you’re so-da-licious!"
+	"I play the field, and it looks like I just hit a home run with you."
+	"Are you the cure for Alzheimer’s? Because you’re unforgettable."
+	"Spoon me like your favorite ice cream!"
+	"You so lovely, you make me wanna go out and get a job"
+	"Your mom told me to say “Hi” to you"
+	"I just got dumped, and I think that you could make me feel better."
+}

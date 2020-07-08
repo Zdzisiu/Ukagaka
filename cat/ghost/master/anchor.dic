@@ -1,0 +1,40 @@
+ OnTranslate
+{
+_talk = reference0;
+     //_talk = REPLACE(_talk, "Anchor 1", "\_a[anchor1]Anchor 1\_a")
+     
+    if reference1 == "" && reference2 == ""
+    { //send input box : no event (ref2) , no special flag (ref1)
+        EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
+    }
+    else
+    { //event result from ghost
+        TOSTR(_talk);
+    }
+} 
+
+OnAnchorSelect
+{
+	if "http:"
+	{
+	"\j[%(reference0)]\e" 
+	}
+	else 
+	{
+	case reference0 
+		{
+			when "anchor1" 
+			{
+				"\0\s[0]This dialogue is for when Anchor 1 is clicked.\e"
+			}
+			when "anchor2" 
+			{
+				"\0\s[0]This dialogue is for when Anchor 2 is clicked.\e"
+			}
+			when "anchor3" 
+			{
+				"\0\s[0]This dialogue is for when Anchor 3 is clicked.\e"
+			}
+		}
+	}
+}

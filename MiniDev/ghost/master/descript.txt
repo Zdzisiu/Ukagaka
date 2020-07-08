@@ -1,0 +1,21 @@
+﻿charset,UTF-8
+
+seriko.alignmenttodesktop,free
+
+name,MiniDev
+type,ghost
+
+sakura.name,MiniDev
+kero.name,-
+
+craftman,Zdzisiu
+craftmanw,Zdzisiu
+craftmanurl,
+
+//This is coding stuff, don't touch it.
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll
+
+icon,minidev2.ico
+icon.minimize,minidev.ico

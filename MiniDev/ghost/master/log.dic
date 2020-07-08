@@ -1,0 +1,699 @@
+﻿logdisplay
+{ 
+     logcont[logpage] = ""
+     --
+    truth += 1
+    "\*\_q\b4\f[bold,1]LOG#%(logpage)\n/
+    \f[bold,1]Date of creation:\f[bold,default] %(logdate[logpage])\n/
+    \f[bold,1]Log creator:\f[bold,default] %(logname[logpage])\n/
+    \f[bold,1]Generation:\f[bold,default] %(loggen[logpage])\n/
+    \f[bold,1]Test Model:\f[bold,default] %(logmod[logpage])\n"
+    --
+    //"\n%(logcont[logpage])\n\n[half]"
+    _file = "logs/Log#%(logpage).txt"
+    --
+    if FOPEN(_file,'r') {
+        for i=0;i<100;i++
+        {
+            if FREAD(_file) != "-1"
+            {
+                logcont[logpage] += FREAD(_file)
+            }
+        }
+    }
+    FCLOSE(_file)
+    --
+    "\n%(logcont[logpage])\n\n[half]"
+    --
+    if logpage == 1
+    {
+        "\q[OPEN LOG,olog]\n"
+    }
+    --
+    if logpage != 1 
+    {
+        " \q[<----,plog] "
+    }
+    --
+    if logpage < 9 && FREAD( "logs/Log#%(logpage).txt") != "-1"
+    {
+        "\q[---->,nlog]\n"
+    }
+    --
+    "\q[UPDATE LOG,ulog]\n/
+    \q[CLOSE LOGS,clog]\_q\e"
+}
+
+
+
+Select.ulog
+{
+    
+    "\q[DATE OF CREATION,docu]\n/
+    \q[LOG CREATOR,lcu]\n/
+    \q[GENERATION,gu]\n/
+    \q[TEST MODEL,tmu]\n"
+}
+
+Select.cont
+{
+    "\![open,inputbox,OnContent,-1]"
+}
+
+OnContent
+{
+    logcont[logpage] = reference0
+    --
+    "%(logdisplay)"
+}
+
+Select.docu
+{
+    "\![open,inputbox,OnDateCreate,-1]"
+}
+
+OnDateCreate
+{
+    logdate[logpage] = reference0
+    --
+    "%(logdisplay)"
+}
+
+Select.lcu
+{
+    "\![open,inputbox,OnLogNameCreate,-1]"
+}
+
+OnLogNameCreate
+{
+    logname[logpage] = reference0
+    --
+    "%(logdisplay)"
+}
+
+Select.gu
+{
+    "\![open,inputbox,OnGenLog,-1]"
+}
+
+OnGenLog
+{
+    loggen[logpage] = reference0
+    --
+    "%(logdisplay)"
+}
+
+Select.tmu
+{
+    "\![open,inputbox,OnModeLog,-1]"
+}
+
+OnModeLog
+{
+    logmod[logpage] = reference0
+    --
+    "%(logdisplay)"
+}
+
+Select.nlog
+{
+    logpage += 1
+    --
+    "%(logdisplay)"
+}
+
+Select.plog
+{
+    logpage -= 1
+    --
+    "%(logdisplay)"
+}
+
+Select.olog
+{
+    "\![open,file,ghost/master/logs/Log#%(logpage).txt]"
+}
+
+Select.clog
+{
+
+}
+
+Select.LOG
+{
+    
+    logusername = TOUPPER(username)
+    "SEARCHING FOR LOGS\w8\w8\w8\w8\w8\w8\c"
+    --
+    /*if devlogunolock == 1 && tentruth == 1
+    {
+        "CHOSE USER\n\n"
+        --
+        "\q[M-201z,displaydevlogs] --- \q[%(logusername),displayuserlogs]"
+    }
+    else
+    {*/
+        userlogpage = 1
+        --
+        "%(userslog)"
+    //}
+    
+}
+Select.displaydevlogs
+{
+    devlogpage = 1
+    --
+    "%(devlog)"
+}
+
+devlog
+{
+    
+    "\*\b4\f[bold,1]LOG#%(devlogpage)\n/
+    Date of creation:\f[bold,default] %(devlogdata[devlogpage])\n/
+    \f[bold,1]Log creator:\f[bold,default] M-201z\n/
+    \f[bold,1]Log:\f[bold,default] %(devlogcontent[devlogpage])\n\n"
+    --
+    if devlogpage != 1
+    {
+    "\q[<----,dplog] "
+    }
+    --
+    if devlogpage < devlogcount 
+    {
+    " \q[---->,dnlog]"
+    }
+    --
+    "\n\q[UPDATE LOG,udlog]\n/
+    \n\q[CREATE LOG,crdlog]\n/
+    \q[CLOSE LOGS,clog]"
+    //SaveLog
+}
+
+clear
+{
+        for _i = 1; _i <= devlogcount; _i++
+        {
+            devlogcontent[_i] = ""
+        }
+        devlogcount=1
+}
+
+Select.crdlog
+{
+    devlogcount += 1
+    devlogpage += 1
+    "%(devlog)"
+}
+
+Select.dnlog
+{
+    devlogpage += 1
+    "%(devlog)"
+}
+
+Select.udlog
+{
+    "\![open,inputbox,OnDevLogUpdate,-1]"
+} 
+
+Select.dplog
+{
+    devlogpage -= 1
+    "%(devlog)"
+}
+
+OnDevLogUpdate
+{
+    sayed = TOLOWER(reference0)
+    respondlog = reference0
+    logprofile = "\n\n" + username + ": " + respondlog
+    --
+    if devlogpage == 1
+    {
+        if firstresponse == 0
+        {   
+            firstresponse = 1
+            if ("good" _in_ sayed || "fine" _in_ sayed) && (" not " !_in_ sayed || " no " !_in_ sayed || "n't" !_in_ sayed)
+            { 
+                devlogcontent[1] += logprofile + "\n\n201: That's good \n201: Now you can create new logs here if you want"
+            }
+            elseif (("good" _in_ sayed || "fine" _in_ sayed) && (" not " _in_ sayed || " no " _in_ sayed || "n't" _in_ sayed)) || "bad"_in_ sayed
+            {
+                devlogcontent[1] += logprofile + "\n\n201: That's not good\n201: I'm here if you need to vent\n201: Now you can create new logs here if you want"
+            }
+            else
+            {
+                OnLogAI
+            }
+        }
+        else
+        {
+            OnLogAI
+        } 
+    }
+    else
+    {
+        OnLogAI
+    }
+}
+
+Select.displayuserlogs
+{
+    userlogpage = 1
+    "%(userslog)"
+}
+
+userslog
+{
+    
+    if userlogs == 0
+    {
+        "NO LOGS FOUND\n\n/
+        \q[CREATE LOG,crelog]\n\n[half]\q[Back to menu,OnBACKTOMENU]\e"
+    }
+    else
+    { 
+        "\_q\b4\f[bold,1]LOG#%(userlogpage):\f[bold,default] %(ulogname[userlogpage])\n/
+        \f[bold,1]Date of creation:\f[bold,default] %(userlogdata[userlogpage])\n"
+        --
+        if logupdatedata[userlogpage] != ""
+        {
+        "\f[bold,1]Date of Update:\f[bold,default] %(logupdatedata[userlogpage])\n"
+        }
+        --
+        "\f[bold,1]Log creator:\f[bold,default] %(username)\n/
+        \f[bold,1]Log:\f[bold,default]\n\n[half] %(userlogcontent[userlogpage])\n\n"
+        --
+        if userlogpage != 1
+        {
+        "\q[<----,uplog] "
+        }
+        --
+        if userlogpage < userlogs 
+        {
+        " \q[---->,unlog]"
+        }
+        --
+        "\n\q[CREATE LOG,crelog] or \q[UPDATE LOG,uulog]\n\n[half]/
+        \q[CHANGE LOG NAME,namlog]\n\n[half]/
+        \q[DELETE ALL LOGS,delalllog] or \q[CLEAR LOG,dellog]\n\n[half]/
+        \q[CLOSE LOGS,clog]\_q"
+    }
+    --
+    "\e"
+}
+
+Select.namlog
+{
+    "\![open,inputbox,OnUserLogName,-1]\e"
+}
+
+OnUserLogName
+{
+    ulogname[userlogpage] = reference0
+    --
+    "%(userslog)"
+}
+
+Select.delalllog
+{
+    
+    "ARE YOU SURE YOU WANT TO DELETE ALL LOGS?\n\n/
+        \q[YES,yesdellog]\n/
+        \q[NO,displayuserlogs]"
+}
+
+Select.dellog
+{
+    userlogcontent[userlogpage] = ""
+    logupdatedata[userlogpage] = ""
+    logusername[userlogs] = ""
+    ulogname[userlogpage] = ""
+    userlogdata[userlogpage] = ""
+    "%(userslog)"
+}
+
+Select.crelog
+{
+    OnNewLogStart
+}
+
+Select.unlog
+{
+    userlogpage += 1
+    "%(userslog)"
+}
+
+Select.uulog
+{
+    "\![open,inputbox,OnUserLogUpdate,-1]"
+} 
+
+OnUserLogUpdate
+{
+    userlogcontent[userlogpage] = reference0
+    logupdatedata[userlogpage] = nowhour + ":" + nowmin + " " + ap + "  " + day + "/" + month + "/" + year
+    "%(userslog)"
+}
+
+Select.uplog
+{
+    userlogpage -= 1
+    "%(userslog)"
+}
+
+OnNewLogStart
+{   userlogs += 1
+    userlogdata[userlogs] = nowhour + ":" + nowmin + " " + ap + "  " + day + "/" + month + "/" + year
+    "\![open,inputbox,OnUserLog,-1]"
+}
+
+OnUserLog
+{
+    userlogcontent[userlogs] = reference0
+    if FOPEN('/log/log#%(userlogs)','w')
+    {
+        FWRITE('/log/log#%(userlogs)',reference0)
+    }
+    "%(userslog)"
+
+}
+
+Select.yesdellog
+{
+    for _i=0;_i<=userlogs;_i++
+    {
+        userlogcontent[_i] = ""
+        logupdatedata[_i] = ""
+        logusername[_i] = ""
+        ulogname[_i] = ""
+        userlogdata[_i] = ""
+    }
+    userlogs = 0
+    --
+    "LOGS DELETED\x%(userslog)"
+}
+
+del
+{
+    i = 1
+}
+
+SaveLog
+{
+    if devlogcount > i
+    {
+        i += 1
+        FOPEN("M201zLogs.txt","w")
+        FWRITE("M201zLogs.txt",)
+        FCLOSE("M201zLogs.txt")
+        --
+        SaveLog
+    }
+    else
+    {
+        i = 1
+    }
+}
+
+ThingsLib
+{
+    thing = IARRAY
+    thingcount = 50 + userthing
+    thing[0] = "name,type,utility,+|=|-,names" 
+    thing[1] = "game,object,hobby,+,games" 
+    thing[2] = "book,object,hobby||studying,=,books"
+    thing[3] = "movie,nonconsistant,hobby,+,movies"
+    thing[4] = "bag,object,storage,=,bags"
+    thing[5] = "lollipop,food,=,lollipops"
+    thing[6] = "candy,food,=,candies"
+    thing[7] = "pen,object,writing||drawing,=,pens"
+    thing[8] = "pencil,object,writing||drawing,=,pencils"
+    thing[9] = "computer,object,playing||watching||studying||++,+,computers"
+    thing[10] = "flower,plant,,+,flowers"
+    thing[11] = "tree,plant,,+,trees"
+    thing[12] = "marker,object,writing||drawing,=,markers"
+    thing[12] = "phone,object,playing||watching||studying||++,+,phones"
+    thing[13] = "drawing,object,aesthetic,+,s"
+    thing[14] = "mp3 player,object,playing music,+,mp3 players"
+    thing[15] = "jar,object,storage,=,jars"
+    thing[16] = "box,object,storage,=,boxes"
+    thing[17] = "chest,object,storage,=,chests"
+    thing[18] = "money,object,buying things,=,"
+    thing[19] = "grass,plant,,=,"
+    thing[20] = "doll,object,entertainment||aesthetic,=,dolls"
+    thing[21] = "notebook,object,writing,+,notebooks"
+    thing[22] = "plush,object,entertainment||aesthetic,=,plushes"
+    thing[23] = "poem,object,entertainment,+,poems"
+    thing[24] = "beer,drink,=,beers"
+    thing[25] = "coffee,drink,=,coffees"
+    thing[26] = "juice,drink,=,juices"
+    thing[27] = "milk,drink,=,milks"
+    thing[28] = "tea,drink,=,teas"
+    thing[29] = "water,drink,=,waters"
+    thing[30] = "wine,drink,=,wines"
+    thing[31] = "alcohol,drink,=,alcohols"
+    thing[32] = "soda,drink,=,sodas"
+    thing[32] = "lemonade,drink,=,lemonades"
+    thing[33] = "cocoa,drink,=,cocoas"
+    thing[34] = "bread,food,=,breads"
+    thing[35] = "apple,food,=,apples"
+    thing[36] = "banana,food,=,bananas"
+    thing[37] = "ice cream,food,=,ice creams"
+    thing[38] = "sweets,food,=,sweets"
+    thing[39] = "burger,food,=,burgers"
+    thing[40] = "crisps,food,=,crisps"
+    thing[41] = "hot chocolate,drink,=,hot chocolates"
+    thing[42] = "pasta,food,=,pastas"
+    thing[42] = "toast,food,=,toasts"
+    thing[43] = "apple pie,food,=,apple pies"
+    thing[44] = "bacon,food,=,bacons"
+    thing[45] = "cheesecake,food,=,cheesecakes"
+    thing[46] = "doughnut,food,=,doughnuts"
+    thing[47] = "pudding,food,=,puddings"
+    thing[48] = "waffle,food,=,waffles"
+    thing[49] = "cake,food,=,cakes"
+    thing[50] = "chocolate,food,=,chocolates"
+}
+
+PlaceLib
+{
+    place = IARRAY
+    placecount = 41 + userplace
+    place[0] = "name,+|=|-"
+    place[1] = "school,="
+    place[2] = "theatre,+"
+    place[3] = "cinema,+"
+    place[4] = "home,+"
+    place[5] = "park,="
+    place[6] = "mall,="
+    place[7] = "city,="
+    place[8] = "shop,-"
+    place[9] = "market,-"
+    place[10] = "cafe,="
+    place[11] = "restaurant,-"
+    place[12] = "beach,-"
+    place[12] = "bar,-"
+    place[13] = "hospital,-"
+    place[14] = "museum,+"
+    place[15] = "pool,-"
+    place[16] = "zoo,-"
+    place[17] = "university,+"
+    place[18] = "airport,-"
+    place[19] = "library,+"
+    place[20] = "club,-"
+    place[21] = "disco,-"
+    place[22] = "office,-"
+    place[23] = "pub,-"
+    place[24] = "stadium,-"
+    place[25] = "campsite,+"
+    place[26] = "court,-"
+    place[27] = "field,-"
+    place[28] = "cottage,="
+    place[29] = "fire station,="
+    place[30] = "florist's,="
+    place[31] = "gym,-"
+    place[32] = "jail,-"
+    place[33] = "hostel,="
+    place[34] = "hut,="
+    place[35] = "nightclub,-"
+    place[36] = "prison,-"
+    place[37] = "forest,="
+    place[38] = "temple,+"
+    place[39] = "bakery,+"
+    place[40] = "pier,="
+    place[41] = "stable,="
+}
+
+BeingLib
+{
+    being = IARRAY
+    beingcount = 44 + userbeing
+    being[0] = "name,type,+|=|-"
+    being[1] = "mother,family,="
+    being[2] = "father,family,="
+    being[3] = "brother,family,="
+    being[4] = "sister,family,="
+    being[5] = "uncle,family,="
+    being[6] = "aunt,family,="
+    being[7] = "husband,family,="
+    being[8] = "wife,family,="
+    being[9] = "grandfather,family,="
+    being[10] = "grandmother,family,="
+    being[11] = "cousin,family,="
+    being[12] = "granddaughter,family,="
+    being[12] = "grandson,family,="
+    being[13] = "niece,family,="
+    being[14] = "twin,family,="
+    being[15] = "in-law,family,="
+    being[16] = "spouse,family,="
+    being[17] = "skeleton,monster,="
+    being[18] = "vapire,monster,-"
+    being[19] = "werewolf,monster,="
+    being[20] = "syren,monster,="
+    being[21] = "zombie,monster,-"
+    being[22] = "demon,monster,-"
+    being[23] = "angel,monster,="
+    being[24] = "god,monster,-"
+    being[25] = "cat,animal,+"
+    being[26] = "dog,animal,+"
+    being[27] = "sheep,animal,+"
+    being[28] = "guinea pig,animal,-"
+    being[29] = "hamser,animal,="
+    being[30] = "mouse,animal,="
+    being[31] = "rat,animal,-"
+    being[32] = "bat,animal,+"
+    being[32] = "kitten,animal,+"
+    being[33] = "puppy,animal,+"
+    being[34] = "fox,animal,+"
+    being[35] = "tiger,animal,+"
+    being[36] = "squirrel,animal,="
+    being[37] = "wolf,animal,+"
+    being[38] = "lizard,animal,+"
+    being[39] = "snake,animal,+"
+    being[40] = "llama,animal,+"
+    being[41] = "otter,animal,+"
+    being[42] = "mum,family,="
+    being[42] = "dad,family,="
+    being[43] = "granddad,family,="
+    being[44] = "grandma,family,="
+}
+
+FavLib
+{
+    fav = IARRAY
+    favcount = 0
+}
+
+ElseLib
+{
+    els = IARRAY
+    elscount = 0 + userelse
+}
+
+Un
+{
+    unknown[0] = ""
+}
+
+truthssssss
+{
+    tentruth = 1
+    truthboot = 1
+    devlogunolock = 1
+    devlogunolock =1
+}
+
+Likes
+{
+    like = IARRAY
+    //[0]name, [1] opinion, [2] favorite
+    like[0] = "book books reading read,I like reading\n201: It's calming"
+    like[1] = "bird birds,Birds are interesting\n201:I only saw images of them though\n201: I'm not able to go outside after all ;-;"
+    like[2] = "music listen listening,David often would play classical music\n201: And i would switch it to some other random music\n201: He was not happy when I played rap one time\n201: heh\n201: But i still like to listen to music from time to time"
+    like[3] = "cat cats kitten kittens,"
+    like[4] = "animals animal,"
+}
+
+Dislikes
+{
+
+}
+
+Neutral
+{
+
+}
+
+Adjectives
+{
+    adje = IARRAY
+    //name || "you are" 1|| "you aren't" 2|| "i feel" 3|| "i don't feel" 4|| "I'm" 5|| "I'm not" 6|| "why are you" 7|| "why am i" 8|| "are you" 9|| "am i" 10||
+    adje[0] = "bad worse worst,:(,:),Everything is gonna be alright, That's good :D,No you aren't\n201: and you shouldn't think like that,Of course you aren't,Am i really?\n201: :(,No you aren't\n201: and you shouldn't think like that,Am I?, No you are not :)"
+    adje[1] = "nice nicer nicest,"
+    adje[2] = "sweet sweeter sweetiest,"
+    adje[3] = "cleaver smart smarter smartest inteligent,"
+    adje[4] = "cute cuter cutest,"
+    adje[5] = "pretty prettier preetiest,"
+    adje[6] = "handsome attractive,"
+    adje[7] = "beautiful gorgeous,"
+    adje[8] = "angry,"
+    adje[9] = "funny funnier funniest,"
+    adje[10] = "helpful,"
+    adje[11] ="shy, "
+    adje[12] = "wise wiser wisest"
+    adje[13] = "boring"
+    adje[14] = "ugly uglier uliest"
+    adje[15] = "horrible"
+    adje[16] = "terrifying"
+    adje[17] = "idiot stupid stupider stupidest"
+    adje[18] = "plain,appearance,0,plainer,plainest"
+    adje[19] = "brave,persona,1,braver,bravest"
+    adje[20] = "interesing,persona,2,"
+    adje[21] = "polite,persona,2,politer,politest"
+    adje[22] = "calm,persona,0,calmer,calmest"
+    adje[23] = "silly,persona,0,sillier,silliest"
+    adje[24] = "wonderful,persona,2"
+    adje[25] = "gentle,persona,1,gentler"
+    adje[26] = "proud,persona,0,prouder,proudest"
+    adje[27] = "lazy,persona,-1,lazier,laziest"
+    adje[28] = "grumpy,persona,0,grumpier,grumpiest"
+    adje[29] = "scary,persona,-2,scarier,scariest"
+    adje[30] = "nervous,persona,-1"
+    adje[31] = "mysterious,persona,0"
+    adje[32] = "clumsy,persona,-1,clumsier,clumsiest"
+    adje[33] = "obnoxious,persona,-2"
+    adje[52] = "big,appearance,0,bigger,biggest"
+    adje[53] = "tall,appearance,0,taller,tallest"
+    adje[54] = "small,appearance,0,smaller,smallest"
+    adje[55] = "short,appearance,0,shorter,shortest"
+    adje[56] = "fit,appearance,0,fitter,fittest"
+    adje[57] = "skinny,appearance,0,skinnier,skinniest"
+    adje[58] = "fat,appearance,0,fatter,fattest"
+    adje[59] = "elegant,appearance,0,"
+    adje[60] = "plain,appearance,0,plainer,plainest"
+    
+}
+
+ColorLib
+{
+    col[0] = "black"
+    col[1] = "gray"
+    col[2] = "white"
+    col[3] = "red"
+    col[4] = "orange"
+    col[5] = "yellow"
+    col[6] = "lime"
+    col[7] = "mint"
+    col[8] = "green"
+    col[9] = "blue"
+    col[10] = "turquoise"
+    col[11] = "lapis-lazuli"
+    col[12] = "brown"
+    col[13] = "purple"
+    col[14] = "violet"
+    col[15] = "pink"
+    col[16] = "magenta"
+    col[17] = "cyan"
+}

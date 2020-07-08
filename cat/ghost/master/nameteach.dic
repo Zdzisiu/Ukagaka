@@ -1,0 +1,103 @@
+﻿ OnTeachName	
+{
+	if reference0 == "TEACHNAME" 
+		{
+		"\0\s[0]The user wants to change their name. What do you want it to be?\![open,inputbox,OnNameTeach,-1]\e"
+		
+		}
+	else
+		{
+		
+		}
+} 
+
+OnNameTeach
+{
+	tempname = reference0 
+	
+	if reference0 == "Girl" || reference0 == "girl" 
+	{
+		"\0\s[0]That's my name.\w8\0\s[0]That might be confusing. You should try again.\![open,inputbox,OnNameTeach,-1]"
+		
+	}
+	elseif reference0 == "Triangle" || reference0 == "triangle" 
+	{
+		"\0\s[0]That's my name. Try putting in another one.\![open,inputbox,OnNameTeach,-1]"
+		
+	}
+	elseif reference0 == "" || reference0 == " " || reference0 == "   " 
+	{
+		username = "NULL" 
+		
+		"\0\s[0]You didn't put in anything.\w8\0\s[0]We will call you NULL.\e"
+		
+	}
+	else 
+	{
+		"\0\s[0]Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+		
+		--
+		if presuffix == "masculine" 
+		{
+		"\![*]\q[Mr.,titlemr]\n/
+		\![*]\q[Master,titlemaster]\n"
+		}
+		elseif presuffix == "feminine" 
+		{
+		"\![*]\q[Ms.,titlems]\n/
+		\![*]\q[Lady,titlelady]\n"
+		}
+		-- 
+		"\![*]\q[-ssi,titlessi]\n/
+		\![*]\q[-san,titlesan]\e"
+		
+	}
+} 
+	
+Select.titlenone
+{
+		username = tempname
+		NameDone
+}
+
+Select.titlemr
+{
+		username = "Mr. " + tempname
+		NameDone
+}
+
+Select.titlemaster
+{
+		username = "Master " + tempname
+		NameDone
+}
+		
+Select.titlems
+{
+		username = "Ms. " + tempname
+		NameDone
+}
+
+Select.titlelady
+{
+		username = "Lady " + tempname
+		NameDone
+}
+
+Select.titlessi
+{
+		username = tempname + "-ssi"
+		NameDone
+}
+
+Select.titlesan
+{
+		username = tempname + "-san"
+		NameDone
+} 
+
+NameDone
+{
+		"\0\s[0]The user is now called %(username).\e"
+		
+}

@@ -1,0 +1,259 @@
+﻿ On_username
+{
+	username
+} 
+
+On_homeurl
+{
+	"https://zdzisiu.github.io/Ukagaka/cat/"
+} 
+
+On_recommendrootbutton.caption
+ {
+	"Reference Sites"
+} 
+
+On_sakura.recommendsites
+ {
+	"Ghost Template Walkthrough"
+	--
+	//This first line is the name that will display in the menu for your site. In this case, it would display "Ghost Template Walkthrough".
+	"%ASC(1)http://www.ashido.com/ukagaka/walkthrough.html%ASC(2)"
+	--
+	
+	"SSP"
+	--
+	"%ASC(1)http://ssp.shillest.net/%ASC(2)"
+	--
+	
+	"Crow + SSP Reference (J)"
+	--
+	"%ASC(1)http://crow.aqrs.jp/reference/all/index.html%ASC(2)"
+	--
+	
+	"Ghost Documentation (J)"
+	--
+	"%ASC(1)http://usada.sakura.vg/contents/specification.html%ASC(2)"
+	--
+	
+	"Disc-2 (J)"
+	--
+	"%ASC(1)http://disc2.s56.xrea.com/%ASC(2)"
+	//You don't have to space these out like this between sites, but I thought it'd make it a bit easier to read.
+ }
+ 
+
+
+
+On_portalrootbutton.caption
+ {
+	"Second Website Caption"
+	"Another Second Website Caption"
+ }
+
+ 
+ 
+ 
+On_sakura.portalsites
+ {
+ 	"Site Name 1"
+	"Site Name 1 Alternate"
+	--
+	"%ASC(1)http:"
+	--
+	
+	
+	"Site Name 2"
+	--
+	"%ASC(1)http:"
+	--
+	
+	
+	
+	"Site Name 3"
+	--
+	"%ASC(1)http:"
+	--
+	"Site Name 4"
+	--
+	"%ASC(1)http:"
+	--
+	"Site Name 5"
+	--
+	"%ASC(1)http:"
+	
+	
+ }
+
+ 
+
+
+
+On_kero.recommendbuttoncaption
+ {
+	"Top Menu Option Caption"
+ }
+
+ 
+ 
+ 
+On_kero.recommendsites
+ {
+	"A Site"
+	--
+	"%ASC(1)http:"
+	--
+	"Another Site"
+	--
+	"%ASC(1)http:"
+ }
+
+ 
+ 
+ 
+On_updatebutton.caption
+ {
+	"Update Menu Caption"
+}
+
+
+
+
+On_dressuprootbutton.caption
+{
+	"Dress-Up Caption"
+}
+
+
+
+
+On_headlinesenserootbutton.caption
+{
+	"Headlines + RSS Feeds"
+}
+
+ 
+ 
+ 
+On_readmebutton.caption
+ {
+	"READ ME"
+	"readme.txt"
+	"Manual"
+ }
+
+ 
+ 
+ 
+On_vanishbutton.caption
+ {
+	"Uninstall"
+}
+
+
+ 
+ 
+On_shellrootbutton.caption
+ {
+	"Change Shell"
+}
+
+
+ 
+ 
+On_ghostrootbutton.caption
+ {
+	"Change Ghost"
+}
+
+
+ 
+ 
+On_callghostrootbutton.caption
+ {
+	"Call Ghost"
+}
+
+
+ 
+ 
+On_quitbutton.caption
+ {
+	"Quit"
+}
+
+
+
+
+
+
+
+
+
+
+ 
+On_vanishbutton.visible
+ {
+ 	if deleteshitai == "ON"
+ 	{
+	"1"
+	}
+	else
+	{
+	"0"
+	}
+}
+
+
+On_otherghostname
+{
+	ghostexlist = ""
+	_i = 0
+	while _i >= 0 {
+		_ghostname = NAMETOVALUE("reference%_i")
+		if _ghostname != "" {
+			if _i > 0; ghostexlist += ","
+			ghostexlist += _ghostname[0]
+			_i++
+		}
+		else; _i = -1
+	}
+	ghostexcount = ARRAYSIZE(ghostexlist)
+}
+
+
+On_version
+{
+	GETSETTING(AYAINFO_VERSION)
+}
+
+On_craftman
+{
+	"umeici"
+}
+
+On_craftmanw
+{
+	"?럖"
+}
+
+On_name
+{
+	"AYA"
+}
+
+
+On_uniqueid
+{
+	uniqueid = reference0
+}
+
+
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}
+

@@ -1,0 +1,95 @@
+﻿ OnMouseMove
+ {
+  	if nowmode != "QUIZ"
+ 	{
+		
+		if reference3 == 0 
+		{
+			
+			MouseMoveSakura
+		}
+		else 
+		{
+			
+			MouseMoveKero
+		}
+	}
+ } 
+ 
+MouseMoveSakura
+ {
+	if reference4 != "" 
+ 	{
+ 		stroke++ 
+		if reference4 == "Head" || reference4 == "Back"
+		{
+			if stroke >= 40 
+			{
+				if purrmode == "OFF" 
+				{
+					"\![sound,stop]"
+					--
+					"\![sound,play,s/purring1.wav]\e" 
+					"\![sound,play,s/purring2.wav]\e" 
+					"\![sound,play,s/purring3.wav]\e" 
+				}
+				elseif silence == "ON" 
+				{
+					"Meow"
+				}
+			}
+		}
+		elseif reference4 == "Tail"
+		{
+			if stroke >= 40 
+			{
+				if purrmode == "OFF" 
+				{
+					"\![sound,stop]"
+				}
+				--
+				if silence != "ON" 
+				{
+				
+					"\![sound,play,s/meow5.wav]\e"
+					"\![sound,play,s/meow1.wav]\e"
+					"\![sound,play,s/meow6.wav]\e"
+					"\![sound,play,s/meow3.wav]\e"
+					"\![sound,play,s/meow4.wav]\e"
+					"\![sound,play,s/meow7.wav]\e" 
+				}
+				else
+				{
+					"Meow"
+				}
+				
+			}
+		}
+	}
+ 	else
+	{ 
+		stroke = 0
+ 	}
+} 
+
+OnMouseDoubleClick
+ { 
+ 	if reference3 == 0 
+	{
+		MouseDoubleClickSakura
+ 	}
+	else
+ 	{
+ 		MouseDoubleClickKero
+	}
+ } 
+ 
+MouseDoubleClickSakura
+ {
+ 		OpenSakuraMenu 
+ } 
+ 
+MouseDoubleClickKero
+ {
+
+ }

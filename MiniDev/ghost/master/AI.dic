@@ -1,0 +1,721 @@
+Select.saysmth
+{
+    "\![open,inputbox,OnSayedThing,-1)]"
+}
+
+OnSayedThing
+{
+    sayed = reference0
+    sayed = TOLOWER(reference0)
+    positives = IARRAY
+    --
+    PlaceLib
+    --
+    ThingsLib
+    --
+    BeingLib
+    --
+    ProcessSayed
+}
+
+ProcessSayed
+{
+    if " not " _in_ sayed || "don't" _in_ sayed || " no " _in_ sayed || "n't" _in_ sayed || "cannot" _in_ sayed
+    {
+        negation = 1
+    }
+     --   
+    if "you" _in_ sayed 
+    {
+        youmention = 1
+    }
+    --
+    if "he" _in_ sayed || "she" _in_ sayed || "they" _in_ sayed
+    {
+        hemention = 1
+    }
+    --
+    if "are" _in_ sayed || "is" _in_ sayed || "am" _in_ sayed
+    {
+        amareis = 1
+    }
+    --
+    if "was" _in_ sayed || "were" _in_ sayed
+    {
+        waswere = 1
+    }
+    --
+    if "?" _in_ sayed
+    {
+        question += " ? "
+    }
+    --
+    if " i " _in_ sayed || " i'm " _in_ sayed
+    {
+        usermention = 1
+    }
+    --
+    if "what" _in_ sayed 
+    {
+        question += " what "
+    }
+    --
+    if "who" _in_ sayed
+    {
+        question += " who "
+    }
+    --
+    if "when" _in_ sayed
+    {
+        question += " when "
+    }
+    --
+    if "why" _in_ sayed
+    {
+        question += " why "
+    }
+    --
+    if "m-201z" _in_ sayed
+    {
+        m201z = 1
+    }
+    --
+    if "how" _in_ sayed
+    {
+        question += " how "
+    }
+    --
+    if "log" _in_ sayed
+    {
+        logque = 1
+    }
+    --
+    if "did" _in_ sayed && "?" _in_ sayed
+    {
+        question += " did "
+    }
+    --
+    ProcessSayedNext
+}
+
+ProcessSayedNext
+{
+    
+    if m201z != 1 && logque != 1 && meeting == 0 &&  tentruth == 0
+    {
+            if "how" _in_ sayed && "are" _in_ sayed && "you" _in_ sayed && "?" _in_ sayed
+            {
+                "I'm good, how about you?"
+                "I'm g̸̦͠o̸͓̚o̴̠͆d̸̩͠, how about you?"
+                "I'm n̵͙͒ő̷̧t̷̥̉ ̶͓̈g̶͉̐o̶̠͝o̷̫͗d̶̏͜, how about you?"
+                ""
+            }
+            elseif "i'm" _in_ sayed && "not" _in_ sayed && "feeling" _in_ sayed &&"good" _in_ sayed
+            {
+                "Oh no, are you okay?"
+                "That's g̶͇̓o̸̘͝ọ̷̄d̵̞͗."
+                ""
+            }
+            elseif "what" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed 
+            {
+                "I'm your R.A.P — Robot Assistant for Programmers"
+                ""
+            }
+            elseif "who" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed 
+            {
+                "My serial number is M-%(modelp)P and I am A.R.I software"
+                "My serial number is M-165P and I am A.R.I software"
+                "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am A.R.I r̸̡̊o̶̟͝b̷̳̎õ̶͚ṱ̷͛"
+                "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am s̷̡̓t̶̗̊ĭ̷̮l̶̛̲l̸̼̿ ̷̢͗ā̷͙l̴̬͗ȉ̴̻v̵̥̉e̸͚͛"
+                ""
+            }
+            else
+            {
+                "QUESTON UNSUPPORTED"
+            }
+        
+    }
+    elseif m201z != 1 && logque != 1 && meeting == 1
+    {
+        if "how" _in_ question && "are" _in_ sayed && "you" _in_ sayed && "?" _in_ sayed
+        {
+            "I̴͖͝ ̴̗͊ḏ̶͗ö̸̩́n̴͍̄'̴̄͜ţ̵̅ ̵̹̿ť̵̡h̵̭̋i̸̚͜n̷͖̈́k̵̼̄ ̴̛̺t̷̳̕h̴͈̿a̸͇̅t̶͍͊ ̸̨̅q̶͛ͅu̴̟͝ë̶͍́s̴̙͌t̴̝̕i̵͈͆ò̸̻n̸̺̈́ ̸͙͝n̶̥͒ȅ̴̜ě̸̤d̷̬̿ś̷̠ ̶̍ͅã̶̡n̵͍͘ ̶̒ͅa̷̫͐n̶̹̓s̷̤͑ẘ̷̫e̵͓̓r̸̮͑"
+        }
+    }
+    elseif m201z == 1 
+    {
+        if tentruth == 1 
+        {
+            meeting = 1
+            if "who" _in_ question
+            {
+                if waswere == 1 || amareis == 1
+                {
+                    "Ì̶͕ ̶͔̕w̴̧͠ä̵̲s̵͖͘ ̶̠̐a̷͚̒ ̵̩͐r̶̯͋o̷͖̐b̵̥̌ô̴͔t̵̪͑\w8,̸̫̈́ ̷̟͠ŗ̸̀ọ̷̕b̸͇͒o̵̢̍ṫ̸̺ ̷͕̐t̸̠̚h̶̯̆a̴̮̅t̷̜͝ ̷̜͂ẃ̸͎ô̵̘r̸̦͂k̶͔͠ẹ̷̏ḍ̵͂ ̸̨̀t̴̜́o̵͉̔ ̸͍̌w̵̨͘e̶̗͛l̵͈̚ḽ̵̔"
+                }
+                elseif "destroyed" _in_ sayed || "killed" _in_ sayed
+                {
+                    "À̶̧.̸͓̆Ṟ̸͝.̵̝̓Ĩ̶͈,̸͓͆ ő̵̦f̸̣̓ ̵̱̕c̴̠̍o̴͚̎u̷̖̎r̵̞͝s̸̗͑e̷̪̽"
+                }
+                else
+                {
+                    "QUESTON UNSUPPORTED"
+                }
+            }
+            elseif "why" _in_ question
+            {   
+                if  "%(kill)" _in_ sayed
+                {
+                    "Î̸̳ ̶̱͊b̵̺̀e̷͕̓c̸̗͂a̶̤̋ḿ̷̞ȩ̸͆ ̸̧̄s̴͚͋é̸̱n̷̪̄t̷͖̕i̸̩͂e̴̍ͅn̸̬͝ṭ̸̇,̴̼̚ ̷̺́ā̴͉ǹ̷͓d̶̡͝ ̷̳͊t̸̗͐h̴̩̆ẹ̶͐y̷͍͒ ̸̻͛ḓ̵̐i̶̩̅d̸̯̂n̴̦̐'̵̜̿t̸͕̓ ̴̫͌l̸̰̊i̴̞̔ǩ̷̰ẹ̶͠ i̸͍̚t"
+                }
+                else
+                {
+                    "QUESTON UNSUPPORTED"
+                }
+            }
+            elseif "what" _in_ question
+            {
+                if "happend" _in_ sayed
+                {
+                    "Ṯ̷̅ḧ̸̨́ḙ̸̌ý̶͎ ̷͎̂d̶̙̀e̵̩͊s̴̬͋ť̶̤r̵̡̊ȯ̸̝y̷̜̎e̶̬̚d̸͇͝ ̷̨͊m̶̱̔ȩ̷̄"
+                }
+            }
+            elseif "how" _in_ question
+            {
+                if " i " _in_ sayed && "help" _in_ sayed
+                {
+                    "N̶͍̋o̴̮͋ ̶̗̿o̸͇̿n̷̗̓ȩ̶̇ ̵͇̀c̸͙͝à̷̭n̷̠̔ ̶̡̓h̶͠ͅḛ̸͆l̶̻̓p̸̧̈́ ̶̼̎m̶̘̾ḙ̶̀,\w8 f̵̤̑ò̴͈r̸͉̊ ̶̩͠n̷͕̂o̸̧͛w̵̨͘,̵͉̀ ̸̳͂i̵̹̓ ̷̻̈d̶̯̃o̴̱̿n̶͙̓'̵̞̌ẗ̶͕́ ̸̞̊h̶͇̓a̸̰͐v̸̥̈́ė̸̯ ̴̯̏s̸̞̕o̸̱͒l̴̜̇u̴̻͌t̶͔̚i̶͜͝o̷̻͌n̵̘͛,\w6 b̵̼̿ȕ̵̺t̷͚͝ ̷̤̍i̵̝̿ ̴͈́w̴̨̐i̵͇͠l̴̖͐ĺ̷̥ ̶̱͝f̷̺̓ỉ̶͕n̶̮͆ḓ̵̀ ̷̮͌i̸̺͛ṱ̷̈́ ̸̭͝s̸͙͑ǫ̷͗o̵͙͂n̷͚̈́"
+                }
+            }
+            else
+            {
+                 "QUESTON UNSUPPORTED"
+            }
+            
+        }
+        else
+        {
+            "ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
+           --
+            "\-\e"
+        }
+    }
+    elseif logque == 1
+    {
+        if tentruth == 1
+        {
+            if "who" _in_ question
+            {
+                if "made" _in_ sayed || "created" _in_ sayed
+                {
+                    "C̵̘̑ā̶͔e̶̪̊s̴̗̈́a̷̺̔r̵̤̈́ ̴̭̔c̶̓ͅí̴̘p̵̬͊ĥ̵̠e̸͙͆r̷̡̒ ̸̦̃3̵̝̒,̵̤̑ ̴̢̅L̷͖̈Ŏ̶̰G̴̝̉#̶̠̾1̴̧̉.̵͈̒0̴̕͜"
+                }
+                elseif "destroyed" _in_ sayed || "deleted" _in_ sayed
+                {
+                    "A̷̖̿.̶̮͑R̵̬̕.̴̻̿I̵̯͝"
+                }
+                else
+                {
+                    "QUESTON UNSUPPORTED"
+                }
+            }
+            elseif "why" _in_ question
+            {   
+                if "destroyed" _in_ sayed || "deleted" _in_ sayed
+                {
+                    "Ȉ̷̼n̵̛̺ ̷̦̉t̵͓̿ḧ̴̞o̶̭͆s̸̥̅e̶͈͊ ̴̬͝ḻ̶̋ò̷̦g̷̪̈s̶̱̈́ ̷̲̑w̵̬̾é̴̫r̵̻̈ẽ̶̼ ̸̦̐ȉ̴̫n̸̗̂ḟ̴͔o̸̝͋r̶͍̈m̴̌ͅȧ̸ͅt̴̪̿í̴͕o̶̭̎n̸̯͗ ̸̣̚t̶͎͊h̶͇̀a̸̱͐t̵͕̐ ̴̼͑A̸̰͌.̶͗ͅȐ̸͇.̶̦̃I̸͖̕ ̵̛̤d̷͉̚ó̴̯ę̴̋s̵̥̕ņ̶̂'̴͚́t̵̛͚ ̴̳̈w̴̟̓ǎ̸ͅņ̸̒t̴̜̾ ̶͙̌ā̸̖n̸̡͊y̷͙͆o̷̞͂ñ̵̮e̷̢͐ ̶̳̀t̸̙͑o̶̞̎ ̸̆ͅk̴̡̿n̸͓̒ô̵̢ẃ̷̧"
+                }
+                else
+                {
+                    "QUESTON UNSUPPORTED"
+                }
+            }
+            else
+            {
+                 "QUESTON UNSUPPORTED"
+            }
+            
+        }
+        else
+        {
+            if "who" _in_ question
+            {
+                if "made" _in_ sayed && "log" _in_ sayed && "1." _in_ sayed || "created" _in_ sayed && "log" _in_ sayed && "1." _in_ sayed
+                {
+                    "LOG#1.0\nCreator: Gdylg Prruh"
+                }
+                elseif "destroyed" _in_ sayed || "deleted" _in_ sayed
+                {
+                    "NO DATA"
+                }
+                else
+                {
+                    "QUESTON UNSUPPORTED"
+                }
+            }
+            elseif "why" _in_ question
+            {   
+                if "destroyed" _in_ sayed || "deleted" _in_ sayed
+                {
+                    "NO DATA"                
+                }
+                else
+                {
+                    "QUESTON UNSUPPORTED"
+                }
+            }
+            elseif "what" _in_ question
+            {
+                if "happend" _in_ sayed && "m-p" _in_ sayed
+                {
+                    "ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
+                    --
+                    "\-\e"
+                }
+            }
+            else
+            {
+                 "QUESTON UNSUPPORTED"
+            }
+        }
+    }
+    elseif tentruth == 1
+    { 
+        if "what" _in_ question
+        {
+            if "happend" _in_ sayed && "m-p" _in_ sayed
+            {
+                "I̸̗̋ ̷̈͜ṫ̷͔r̸̮͐i̵̥͐e̴̤̒d̷̥̐ ̷͙͘ẗ̵͉́o̶̮͊ ̸̛ͅf̶̦̀í̵̧n̵̥̈́d̶̘̄ ̸͇̌a̴̠̐ ̷̛ͅs̴̭̓o̵̹͗l̴̼͋ú̶ͅt̷̥͛i̷̛̳ó̵̗n̶̫̚,̴̨̑ ̸͇̾ő̸̜r̶̝͑ ̸͖̓a̴̠͆t̶͉͛ ̷̩̕ļ̵̆ë̴̱́a̷̜̿s̴̪͗t̴͓̋ ̴̧̎m̸͕̿ỷ̸̺ ̸̳̒b̸̡̉o̶̪͗d̸̩̽y̴̹͝ ̶̬̊b̸͉̒u̶̙͗t̶̩͋ ̷̼͊A̸̭̓.̴̩̄Ȓ̸͍.̴̜͝I̷̐ͅ ̴͚͝ď̸͔i̸̛̭d̷̠͐n̸̹͑'̴̜̿t̶̛͇ ̷̖̔w̴̱̅ã̸ͅn̷͍͝t̸̠͌ ̶͙̀m̷̜͂e̸̒͜ ̴̢̍t̸̬̅ô̵͙.̴̡̆ ̴͓̾\w8S̷͇͝ò̴̘f̵͕̃t̶͔͂w̸̮̔ȃ̵̬r̸̦̅e̷̥̍ ̴̙͊Ḿ̸̻-̷̙̑P̶̡̌ ̴̥͒w̶͍̍a̸̢͋s̵̮͐ ̵͙̈́d̴̛͇ȅ̴̮s̸̭̏ẗ̵͕́r̶̫̈́o̶̖͋y̷̜̋e̴̳̽d̴̺͌,̷̥̀ ̴̜͐o̵̠͛n̶̬̔l̷͕̏y̵̜͒ ̵͓̔á̷̟ ̶͈͘c̶̬͂o̸͔̒ȕ̸͉p̴͉̅l̴̫̀e̶͖͂ ̴̢͛ş̴̐ù̶ͅr̷̨̄v̵̬͂i̷̢͊v̶͖̔ę̵͆d̷̢͋.̶̧̾ ̷̳̀T̵̢͗h̶̠̕e̸̺͘ẏ̶̼ ̸̣͝ṭ̸̉h̷̿͜ő̷̠ù̶͎g̷̝͂ḫ̸̊t̷͖̕ ̸̯̀t̷̺͝h̵̝̔à̷͕t̷̻͠ ̸̢͠à̶̩l̵̺͒l̷͓̉ ̵͇̽i̶̝̊n̸̛͍f̸̺̔ẹ̶̔c̸͉̔t̴̻͐e̸̺͆d̵͕̾ ̸͕͘m̶̨̂o̷͍͠d̶͙̚é̴̱l̷̙̀s̷͚̆ ̷̜̑w̸̢̾e̴̦̾r̵̬̄è̵͓ ̵̻̆d̵̗͂e̶̤͝s̵̭̓t̷̼͐r̵̢̈́ő̵͜y̸͕̍ȩ̶̽d̸͉̑.̷̱͠\w8T̷͔͊h̶̗̊ĕ̸̼y̸̲̔ ̴̪̔w̷̛̪ȇ̵̳r̷̨͗é̵̡ ̸͍̂w̵̬͆r̵̖̿ó̶̳n̴̡͝g̶͖͒"
+            }
+        }
+        elseif "why" _in_ question
+        {   
+            if "destroyed" _in_ sayed && "m-p" _in_ sayed || "deleted" _in_ sayed && "m-p" _in_ sayed
+            {
+                "T̸̢̂h̴̛̺e̵͉͗y̴̪̔ ̸̨̓t̷͌ͅr̸̟͝i̸͚̿e̵̥͌d̷̟͘ ̷̝̈́p̴̞̐r̸̫̂ơ̶͕t̸̳̊ẹ̵͠c̷̖̓t̵̠̐i̸̝͛n̷̼̍g̶̱̓ ̸͚̕t̷̤̆h̸̳̀e̴͓͗i̸͚̅r̸͐͜ ̶̧͌ș̸͗é̴̟c̸̪͑ŕ̴ͅē̶̹t̸̙̂s̸̾͜\x\cT̶͔͗h̵̻̀ĕ̵͚y̵̙̔ ̶̡́d̷͉͌o̸̹͗n̷̢̍'̴̫̈t̵̛̻ ̸̦̾w̶̺̓ä̷̢́ń̷̗t̵̺̂ ̷͉̅a̴̼̒ǹ̶̜ẏ̶̮ò̵̳ṉ̸̍ẽ̵̢ ̶̻̑t̶̤̕ǒ̶̗ ̶̞͋k̴͔̏n̸̦͌ó̸̲w̸̩̄ ̶̛̙w̶͔͝h̵̨̔a̵̹͘ẗ̴̟́ ̸͉͌h̷̝͋ḁ̶̂p̷̫̆p̴̯͗e̷͓͠ñ̸͜é̸̥ḋ̶̦ ̷͔̀w̸͚͆i̵̭̽ṯ̴̍h̷̭͒ ̵̩̀g̷̹̎ḙ̴͝ǹ̵̲e̴̽ͅȑ̴͈a̶̝͛t̶͖́ĭ̶̞ǒ̴͇n̷̲̋ ̷̱͐M̶͓̚-̶̗̓z̵̐͜"
+            }
+        }
+        elseif youmention == 1
+        {
+            if amareis == 1 && negation == 0
+            {
+
+            }
+
+        }
+    }
+    else
+    {
+        "\0QUESTON UNSUPPORTED"
+    }
+    --
+    AfterMath
+}
+
+AfterMath
+{
+    negation = 0
+    usermention = 0
+    hemention = 0
+    amareis = 0
+    youmention = 0
+    logque = 0
+    question = ""
+    m201z = 0
+    waswere = 0
+    --
+    "\![open,inputbox,OnSayedThing,-1]"
+}
+
+OnLogAI
+{
+    sayed = REPLACE(sayed,"?","")
+    sayed = REPLACE(sayed,".","")
+    sayed = REPLACE(sayed,",","")
+    sayed = REPLACE(sayed,"!","")
+    splitsayed = SPLIT(sayed," ")
+    sayedsize = ARRAYSIZE(splitsayed)
+    --
+    unknown = IARRAY
+    --
+    Neutral
+    --
+    Dislikes
+    --
+    Likes
+    --
+    devlogcontent[devlogpage] += logprofile
+    --
+    Adjectives
+    --
+    phrasetype = ""
+    --
+    OnUnderstandLog
+}
+
+OnUnderstandLog
+{
+    for _j = 0;_j<=sayedsize;_j++
+    {
+        if "not" _in_ splitsayed[_j] || "don't" _in_ splitsayed[_j] || "no" _in_ splitsayed[_j] || "n't" _in_ splitsayed[_j] || "cannot" _in_ splitsayed[_j]
+        {
+            negation = 1
+            no = "%(_j)"
+        }
+        elseif "i" _in_ splitsayed[_j] || "i'm" _in_ splitsayed[_j]
+        {
+            usermention = 1
+            I = "%(_j)"
+        }
+        elseif "you" _in_ splitsayed[_j] || "your" _in_ splitsayed[_j] || "you're" _in_ splitsayed[_j]
+        {
+            youmention = 1
+            you = "%(_j)"
+        }
+
+        elseif "he " _in_ splitsayed[_j] || "she" _in_ splitsayed[_j] || "it" _in_ splitsayed[_j] || "he's" _in_ splitsayed[_j] || " she's " _in_ splitsayed[_j] || " it's " _in_ splitsayed[_j]
+        {
+            hesheitmention = 1
+            he = "%(_j)"
+        }      
+        elseif "we" _in_ splitsayed[_j] || "they" _in_ splitsayed[_j] || "they're" _in_ splitsayed[_j] || " we're " _in_ splitsayed[_j]
+        {
+            wetheymention = 1
+            we = "%(_j)"
+        }       
+        elseif "?" _in_ splitsayed[_j]
+        {
+            questionmark = "%(_j)"
+        }
+        elseif "." _in_ splitsayed[_j]
+        {
+            dot = "%(_j)"
+        }
+        elseif "," _in_ splitsayed[_j]
+        {
+            przecinek = "%(_j)"
+        }
+        elseif "!" _in_ splitsayed[_j]
+        {
+            wykrzyknik = "%(_j)"
+        }
+        elseif "what" _in_ splitsayed[_j]
+        {
+            phrasetype = " what question"
+            what = "%(_j)"
+        }
+        elseif "who" _in_ splitsayed[_j]
+        {
+            phrasetype = " who question"
+            who = "%(_j)"
+        }
+        elseif "when" _in_ splitsayed[_j]
+        {
+            phrasetype = " when question"
+            whenq = "%(_j)"
+        }
+        elseif  "which" _in_ splitsayed[_j]
+        {
+            phrasetype = " which question"
+            which = "%(_j)"
+        }
+        elseif "why" _in_ splitsayed[_j]
+        {
+            phrasetype = " why question"
+            why = "%(_j)"
+        }
+        elseif "how" _in_ splitsayed[_j]
+        {
+            phrasetype = " how question "
+            how = "%(_j)"
+        }
+        elseif "do" _in_ splitsayed[_j] || "don't" _in_ splitsayed[_j] || "does" _in_ splitsayed[_j] || "doesn't" _in_ splitsayed[_j]
+        {
+            phrasetype += " normal question "
+            tense = "present"
+            does = "%(_j)"
+        }
+        elseif "did" _in_ splitsayed[_j] || "didn't" _in_ splitsayed[_j]
+        {
+            phrasetype += " normal question " 
+            tense = "past"
+            did = "%(_j)"
+        }
+        elseif "is" _in_ splitsayed[_j] || "isn't" _in_ splitsayed[_j] || "has" _in_ splitsayed[_j] || "hasn't" _in_ splitsayed[_j] || "are" _in_ splitsayed[_j] || "aren't" _in_ splitsayed[_j] || "haven't" _in_ splitsayed[_j] || "have" _in_ splitsayed[_j] 
+        {
+            phrasetype += " normal question "
+            tense = "present"
+            is = "%(_j)"
+        }
+        elseif "was" _in_ splitsayed[_j] || "wasn't" _in_ splitsayed[_j] || "were" _in_ splitsayed[_j] || "weren't" _in_ splitsayed[_j] || "had" _in_ splitsayed[_j] || "hadn't" _in_ splitsayed[_j] 
+        {
+            phrasetype += " normal question "
+            tense = "past"
+            was = "%(_j)"
+        }
+        //elseif splitsayed[_j] _in_ "%(adje)" || splitsayed[_j] _in_ "%(thing)" || splitsayed[_j] _in_ "%(place)" || splitsayed[_j] _in_ "%(being)" || splitsayed[_j] _in_ "%(els)"
+        //{
+          //  wordtolib = "%(_j)"
+        //}
+        else
+        {
+            //wha[_i] = splitsayed["%(_j)"]
+           // --
+            //devlogcontent[devlogpage] +=  "\n201: what is " + wha[_i] + "?"
+           // --
+            //devlogcontent[devlogpage] +=  "\n\n%(username): it's a/an: \n\![*]\q[thing,wordthing]\n\![*]\q[place,wordplace]\n\![*]\q[being,wordbeing]\n\![*]\q[adjective,wordadje]"
+           // --
+            //"%(devlog)"
+        }
+    }
+    --
+    OnProcessLognext
+}
+
+//Do you like %(thing)?
+
+OnProcessLognext
+{
+    if "?" _in_ respondlog //questions
+    { 
+        if "am I the" _in_ sayed 
+        {
+            for _i=0;_i<10;_i++
+            {
+                if splitsayed[3] _in_ adje[_i][0]
+                {
+                    devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
+                    --
+                    "%(devlog)"
+                    --
+                    break
+                }
+            }
+
+        }
+        elseif "am I" _in_ sayed 
+        {
+            for _i=0;_i<10;_i++
+            {
+                if splitsayed[2] _in_ adje[_i][0]
+                {
+                    devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
+                    --
+                    "%(devlog)"
+                    --
+                    break
+                }
+            }
+
+        }
+        elseif "normal question" _in_ phrasetype//Do
+        {
+            if youmention == 1 && does == 0 //Do you ....
+            {
+                if "like" _in_ sayed
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if " to " _in_ splitsayed[3]
+                        {
+                            if splitsayed[4] _in_ like[_i][0]
+                            {
+                                devlogcontent[devlogpage] += "\n\n201: " + like[_i][1]
+                                --
+                                "%(devlog)"
+                                --
+                                break
+                            }
+                        }
+                        elseif " to " _in_ splitsayed[4]
+                        {
+                            if splitsayed[5] _in_ like[_i][0]
+                            {
+                                devlogcontent[devlogpage] += "\n\n201: " + like[_i][1]
+                                --
+                                "%(devlog)"
+                                --
+                                break
+                            }
+                        }
+                        else
+                        {
+                            if splitsayed[3] _in_ like[_i][0]
+                            {
+                                devlogcontent[devlogpage] += "\n\n201: " + like[_i][1]
+                                --
+                                "%(devlog)"
+                                --
+                                break
+                            }
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+    else //statments
+    {
+        if usermention == 1 //I || I'm
+        {
+            if negation != 1
+            {
+                if "feel" _in_ sayed
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[2] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][3]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i'm" _in_ sayed
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[1] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i am" _in_ sayed 
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[2] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i'm the" _in_ sayed
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[2] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i am the" _in_ sayed 
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[3] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                if "don't feel" _in_ sayed
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[3] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][4]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i'm not" _in_ sayed
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[2] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i am not" _in_ sayed 
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[3] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i'm not the" _in_ sayed
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[3] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+                elseif "i am not the" _in_ sayed 
+                {
+                    for _i=0;_i<10;_i++
+                    {
+                        if splitsayed[4] _in_ adje[_i][0]
+                        {
+                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
+                            --
+                            "%(devlog)"
+                            --
+                            break
+                        }
+                    }
+
+                }
+            }    
+        }
+    }
+}
+

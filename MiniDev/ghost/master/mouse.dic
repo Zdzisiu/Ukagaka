@@ -1,0 +1,262 @@
+﻿OnMouseMove
+ {
+  	if nowmode != "QUIZ"
+ 	{
+		if boooting != 1
+		{
+			if reference3 == 0 
+			{
+				MouseMoveSakura
+			}
+			else 
+			{
+				MouseMoveKero
+			}
+		}
+	}
+ }
+
+MouseMoveSakura
+{
+	
+	if reference4 != "" 
+ 	{
+ 		stroke++ 
+ 		if stroke >= 40 
+		{
+ 			stroke = 0 
+			if reference4 == "Head" 
+			{
+				if nice == "ON"
+				{
+					"\0That's nice!"
+					"\0Thanks."
+				}
+				elseif rude == "ON"
+				{
+					"Stop touching me."
+					"Don't."
+					"Hands off."
+					"Go away."
+
+					if curses == "ON"
+					{
+						"Fuck off."
+					}
+
+					if insults == "ON"
+					{
+						"Hands off %(insult)."
+						"Go away %(insult)."
+					}
+
+					if insults == "ON" && curses == "ON"
+					{
+						"Fuck off %(insult)."
+					}
+				}
+				else
+				{
+					"\0Oh?\w8 your petting me?\w8 isn't it unpleasant because of that display?"
+					"\0Thanks I guess."
+					"Thanks?"
+				}
+				--
+				"\e"
+				
+ 			}
+ 			elseif reference4 == "Face" 
+		 	{
+				 if nice == "ON"
+				{
+					"\0That's nice!"
+					"\0Thanks."
+				}
+				elseif rude == "ON"
+				{
+					"Stop touching me."
+					"Don't."
+					"Hands off."
+					"Go away."
+					
+					if curses == "ON"
+					{
+						"Fuck off."
+					}
+
+					if insults == "ON"
+					{
+						"Hands off %(insult)."
+						"Go away %(insult)."
+					}
+
+					if insults == "ON" && curses == "ON"
+					{
+						"Fuck off %(insult)."
+					}
+				}
+				else
+				{
+					"\0Can you stop touching my display %(username)?\w4 you will get it dirty.\e"
+ 					"\0Can you stop?\w6 you're leaving fingerprints.\e"
+ 					"\0Can you please stop touching my display? you're getting it dirty.\e"
+
+				}
+ 			}
+			
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+MouseMoveKero
+ {
+	 
+	if reference4 != ""
+ 	{
+ 		stroke++
+ 		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "Face" 
+			{
+				"\1\s[10]This is a face touching dialogue.\e"
+				"\1\s[10]This is another face touching dialogue.\e"
+				"\1\s[10]This is yet another face touching dialogue.\e"
+ 			}
+			elseif reference4 == "Point" 
+			{
+				"\1\s[10]This is a point touching dialogue since I don't really have a head, being a triangle.\e"
+				"\1\s[10]This is another point touching dialogue.\e"
+				"\1\s[10]This is yet another point touching dialogue.\e"
+			}	
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+OnMouseDoubleClick
+ {
+	if boooting != 1
+	{
+		if reference3 == 0 
+		{
+			MouseDoubleClickSakura
+		}
+		else
+		{
+			MouseDoubleClickKero
+		}
+	}
+ }
+
+MouseDoubleClickSakura
+ {
+ 		OpenSakuraMenu
+ }
+
+ 
+MouseDoubleClickKero
+ {
+	 
+ 	if reference4 == "Face" 
+	{
+		"\1\s[10]This is hitting dialogue.\w8\0\s[5]ha ha\w8\1\s[19]\n\n[half]Quiet.\e"
+		"\1\s[10]This is another hit dialogue.\e"
+		"\1\s[10]This is yet another hit dialogue.\e"
+		"\1\s[10]This is the fourth hitting dialogue.\e"
+ 	}
+	else 
+ 	{
+		OpenKeroMenu
+	}
+ }
+
+
+OnMouseClick
+{
+	if boooting != 1
+	{
+		if reference3 == 3
+		{
+			if reference4 == "a"
+			{
+				Select.LOG
+			}
+		}
+		--
+		if reference3 == 4
+		{
+			if reference4 == "a"
+			{ 
+				mode = 1
+			}
+			else
+			{
+				mode = 2
+			}
+			--
+			"%(lightdark)"
+			
+		}
+		--
+		if reference3 == 5
+		{
+			if reference4 == "a"
+			{
+				OnCheckWeather
+			}
+		}
+		--
+		if reference3 == 6
+		{
+			if reference4 == "a"
+			{
+				Select.stats
+			}
+		}
+		--
+		if reference3 == 7
+		{
+			if reference4 == "a"
+			{
+				Select.todo
+			}
+		}
+		--
+		if reference3 == 8
+		{
+			if reference4 == "a"
+			{
+				Select.configmenu
+			}
+		}
+		--
+		if reference3 == 9
+		{
+			if reference4 == "a"
+			{
+				Select.clothesmenu
+			}
+		}
+		--
+		if reference3 == 10
+		{
+			if reference4 == "a"
+			{
+				Select.oapp
+			}
+		}
+	}
+}
+
+OnDisplayClick
+{
+	numberstring += reference0
+	"\p[2]\* %(numberstring)"
+}

@@ -1,0 +1,41 @@
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+group,A
+{
+scope,0
+
+    0,base
+    1,Cacl
+}
+
+
+group,W
+{
+scope,3
+    //dark
+    2,Lessons
+    3,Logs
+    4,Reminders
+    5,Calculator
+    //light
+    6,Lessons
+    7,Logs
+    8,Reminders
+    9,Calculator
+    11,Dark
+    //dark
+    12,Light
+    13,ToDo
+    14,Weather
+    15,Settings
+    16,Stats
+    17,Translator
+    //light
+    18,ToDo
+    19,Weather
+    20,Settings
+    21,Stats
+    22,Translator
+}

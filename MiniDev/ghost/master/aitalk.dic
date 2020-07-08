@@ -1,0 +1,387 @@
+﻿AiTalk
+ {
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" 
+			{
+ 				lastTalk = RandomTalk
+			}
+			else 
+			{
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+			MikireTalk
+ 		}
+	}
+ }
+
+RandomTalk : nonoverlap
+{
+    
+
+	if truth == 10 && tentruth == 0
+	{
+		"\_qCRITI\_qCAL È̷͈R̶̖̔\_qO̶̳͗R̵͎̈́\_q C\_qRITICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRI\_qTICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗\_qR̵͎̈́ CRITICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ \_q\cINITIALIZING EMERGENCY R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\-\e"
+	}
+	else
+	{
+
+		if (tentruth == 1 || glitchboot <= 5) && meeting != 1
+		{
+			"Ŵ̴̪̩͚̟̈ȟ̵̬̘̹̱̍̍̇e̸͔̹̪͚͔̊r̴͙̤̬͛̆̈͋͂ȩ̸̲̻̬͕̤̄͒͑͠͠ ̴̠̯̽i̵̛͎͕̋̈̌̐ś̵͙̠͖̰́̓͑͛͠ͅ ̸̘͈̝͚͍͐̇Ǵ̶̜͒̊͝ḑ̸̙̝͎̙͋̚͠ý̷͇͍̲͚̓͛͌͆̚l̵͙̳̭̜̺̇g̶̪͔̥̅̽́ ̵̡̗̗͉̤͍͋̃̃̒̊̋P̵̜̠̜̫̳͒͛̑͝r̷̥̋͝ř̷̼͈͇̬̹ų̷͕͖̣̱̔ḣ̶̪?̶̛͈͖̳̩͓̞̔̂́̈́"
+
+			"W̴̢̖͍̽̇h̴̛͖̫͍̰͑͐o̸̰͙̐͒͘ ̸̫̠̗̠͗͋ä̶̱̪́̐r̸̞̊͠ē̶̙̋͒̆ͅ ̴̻̰̽͝y̶̛̠͒̓ó̸̡̨́͊ú̵̳͓̗͒̀͝?̸̻̼̪̽̚"
+
+			"W̷̮̆͐h̸̟̲̬̘͝͝ḛ̷̡̩̕r̴͎̲͛̈́͋͐e̶͍̱͊ͅ ̴͕̜͛͊̊͜ͅà̵͔̤̀m̴̭̈́̇͌͆ ̶̨̥́ͅͅİ̶̱̞͓̙̇?̶̡̞̥̓̎̚͘"
+
+			"A̶̢̮̮͈̒ŕ̷̯̲͑ē̷̹̙̝͖̒̀͛ ̷̥̰̑͠ý̴͍̬̣̒͂o̸̻̗̘͌̊ũ̶̞ ̵̹͈͈̳̎̅̅ó̴̺͆͘n̸͔̔́e̴̛̜̮͉̦̕ ̸̤͖̗̔̈́̚ǫ̶̠̞͇̌f̷͖͕̽ ̶̺̹̯̤̆̓t̶̘̦̥͊͝h̷̙̽͋͛̒ḛ̷̖̟͇͐m̴̘̥͚͓̉̅̚̕?̷̰̩̻̽̿̉̔"
+
+			"W̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\n\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮"
+		}
+
+		if (tentruth == 1 || glitchboot <= 5) && meeting == 1
+		{
+			if rude == "ON"
+			{
+				"A̵̛̬̙̣͆̈r̷̟̒̊͂͝e̴̗͛͐̇͘ ̷͍͕̳̟͗̑͊͛y̴̬͎̫̌͂͒͌o̸̘͒̐̈ú̸̥͈̋̋ ̷̧̦́̏̀a̷͚͕͒̊ ̵̬̙͙͇̊́́̂ṁ̵͚̻̝̞͆͌͛a̸͈̽͋̕ṣ̸̪̟͛́ỏ̸̝̺̂͋h̴̨̘̪͈͋̃̒î̷̧̻̩̾͘ș̸̨̂͝t̸̲̾?̴͙̿͂"
+
+				"Ẉ̴͝h̶̭̀y̸̘̍ ̷͕̄w̸͕̏ö̵̬́u̷̗͛ḷ̴͝d̸̙̏ ̷̘̃y̶̤͌ọ̸̋ṵ̸̒ ̸̻̐w̷̗̓ă̴̟n̵͈̋ṫ̸͔ ̸̝̈́t̶͇́o̶̙͑ ̵̥́h̵͚̚a̵̘͛v̵̝̅e̷̎ͅ ̵̳̌ȁ̵̦ ̴̛̖r̶̨̎ŭ̶̲d̴̞̀ẻ̷͕ ̵̮͌s̷̹̆o̴̟͂f̷̿ͅt̶̢̄w̶͘͜ä̸̱r̵͓̽ẽ̵̱?̵͉̑"
+			}
+		}
+
+		if smart == "ON"
+		{
+			"%(didknow) %(facts)?"
+			{
+				_binary = binbin
+				_letterB = _binary[0] 
+				_bcode = _binary[1] 
+				"\0In binary '%(_letterB)' is '%(_bcode)'"
+				"\0In binary '%(_bcode)' is '%(_letterB)'"
+			}
+
+			{
+				_morse = morse
+				_letterm = _morse[0] 
+				_mcode = _morse[1] 
+				"\0In morse '%(_letterm)' is '%(_mcode)'"
+				"\0In morse '%(_mcode)' is '%(_letterm)'"
+			}
+		}
+
+		if stupid == "ON"
+		{
+			"%(didknow) %(myths)?"
+			"%(myths)"
+		}
+
+		if nice == "ON" 
+		{
+			//process.dll
+			{
+				discord = FUNCTIONEX('saori\\process.dll' , 'exist', 'Discord.exe')
+				code = FUNCTIONEX('saori\\process.dll' , 'exist', 'Code.exe')
+				sai = FUNCTIONEX('saori\\process.dll' , 'exist', 'sai2.exe')
+
+				if code == 1
+				{
+					"I see you have Visual Studio Code open\w8\w8\w8\w8\cAre are you coding something interesting?"
+				}
+
+				if sai == 1
+				{
+					"I see you have Pain Tool Sai2 open!\w8\w8\w8\w8\cAre you drawing?"
+				}
+			}
+
+			
+			//case currentweatherarray[5]
+			//{
+
+			//}
+
+		}
+		elseif rude == "ON"
+		{
+			if insults == "ON"
+			{
+				"Are you always such %(insult)?"
+				"%(insult)"
+				"Why you %(insult) dress me like I'm such %(insult) like you?"
+				"How long will you keep me here %(insult)?"
+			}
+
+			if curses == "ON"
+			{
+				
+			}
+
+			if curses == "ON" && insults == "ON"
+			{
+				"Holy shit\w6 why are you so fucking ugly?"
+				"Why are you a fucking %(insult)"
+			}
+
+			"How long will you keep me here huh?"
+			"Maybe go and do something productive and stop waisting my time"
+			"Maybe go and do some productive stuff and stop waisting my time"		
+		}
+		
+		if romantic == "ON"
+		{
+			"%(pickupline)"
+		}
+		//}
+	}
+}
+
+OnMinuteChange
+ {
+    
+	timeslot = GetTimeSlot 
+	--
+ 	if minute == 0 
+	{
+ 		if hour == 12 
+		{
+ 			"\0\s[0]It's HiGh NoOn\e"
+			"\0\s[0]It's noon\e"
+			"\0\s[0]It's high noon\e"
+			if polles == "ON"
+			{ 
+				"It's noon,\w8 in polish it's 'południe'"
+			}
+		}
+ 		elseif hour == 0 
+		{
+ 			"\0\s[0]It's midnight\e"
+			"\0\s[0]It's midnight!\e"
+			 if polles == "ON"
+			{ 
+				"It's midnight,\w8 in polish it's 'półonoc'"
+			}
+		}
+		elseif hour == 23
+		{
+			if minute == 55 
+			{
+			"\0\s[0]5 minutes to midnight.\e"
+			}
+			else 
+			{
+			"\0\s[0]It's 11 pm.\e"
+			}
+		}
+		elseif hour == 7 && minute == 30 && weekday == 0 
+		{
+			"\0\s[0]It's 7:30 on Sunday.\e"
+		}
+		elseif hour == 16 
+		{
+			"\0\s[0]It's 4 pm.\e"
+		}
+		elseif hour == 3 && minute == 14
+		{
+			"\0\s[0]It's ghost hour\e"
+		}
+		else
+		{
+			"\0\s[0]It's %(hour12)'o clock.\e"
+		}
+	}
+	elseif minute == 30 
+	{
+		if weathermenu == "ON" 
+		{
+			weatherquiet = 1
+			"\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
+		}
+	}
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+ }
+
+
+
+
+OnSecondChange
+ {
+	if passsec == 60
+ 	{
+	 	passsec = 0
+ 		passmin = passmin + 1
+	}
+ 	else
+ 	{
+	 	passsec = passsec + 1
+	}
+
+	if mikireflag == 1 && reference1 == 0
+	{
+		EndMikireTalk
+ 	}
+	mikireflag = reference1
+
+	if reference2 == 1
+	{
+ 		"\0\s[0]\e"
+	}
+ }
+
+MikireTalk
+{
+    
+	"\0\s[0]Ummm\w8\w5 could you push Ctrl-Shift-F12?"
+}
+ 
+EndMikireTalk
+{
+    
+	"\0\s[0]I'm back\w8 thanks!\e"
+}
+
+OnSurfaceRestore
+{
+	if tooln == "ON"
+	{
+		"%(lightdark)"
+	}
+	--
+	//Hiding Story Options
+	tentruth = 0
+	//truth = 0
+	AI = "OFF"
+	//----
+	--
+	"\0\s[0]\1\s[-1]\e"
+}
+
+OnKeyPress
+{
+	case reference0
+	{
+		when "t"
+		{
+			OnAiTalk
+		}
+		when "r"
+		{
+			OnLastTalk
+		}
+		when "f1"
+		{
+			"\![open,readme]"
+		}
+		when "b"
+		{
+			BinaryTalk
+		}
+		when "b"
+		{
+			BinaryTalk
+		}
+		when "z"
+		{
+			Select.LOG
+		}
+		when "g"
+		{
+			if devop == 1
+			{
+				"\![reload,ghost]\e"
+			}
+		}
+		when "h"
+		{
+			if devop == 1
+			{
+				"\![reload,shiori]\e"
+			}
+		}
+		when "s"
+		{
+			if devop == 1
+			{
+				"\![reload,shell]\e"
+			}
+		}
+		when "l"
+		{
+			if devop == 1
+			{
+				"\![reload,shell]\e"
+			}
+		}
+
+	}
+}
+
+
+BinaryTalk
+{
+	if tentruth == 1
+	{
+		_glbinary = glbinbin
+		_glletterB = _gbinary[0] 
+		_glbcode = _gbinary[1] 
+		"\0In binary '%(_glletterB)' is '%(_glbcode)'"
+		"\0In binary '%(_glbcode)' is '%(_glletterB)'"
+	}
+	else
+	{
+		_binary = binbin
+		_letter = _binary[0] 
+		_bcode = _binary[1] 
+		"\0In binary '%(_letter)' is '%(_bcode)'"
+		"\0In binary '%(_bcode)' is '%(_letter)'"
+	}
+}
+
+Select.zodiacwrong
+{
+    
+	"\0Oh i got it wrong?\w8 what is your correct sign then?\![open,inputbox,OnZodiacSet,-1]"
+}
+
+Select.zodiaccorect
+{
+    
+	askzoidac = 1
+	"\0I got it right then!\e"
+}
+
+OnZodiacSet
+{
+    
+	askzoidac = 1
+	corzodiac = reference0
+	corzodiac = TOLOWER(reference0)
+	if corzodiac == zodiac
+	{
+		"\0So i did get it right?\w8 I'm\w8 confused"
+	}
+	else
+	{
+		zodiac = reference0
+		"\0 so your correct sign is %(zodiac)?\w8 I will remember!\e" 
+	}
+}
+
+scrible
+{
+	se = FUNCTIONEX('saori\\scribble.dll' ,'Width')
+	--
+	"%(se)\e"
+}

@@ -1,0 +1,22 @@
+﻿On_\person
+{
+ 	person
+}
+
+meows
+{ 
+	"meow7.wav" 
+	"meow6.wav" 
+	"meow5.wav" 
+	"meow4.wav" 
+	"meow3.wav" 
+	"meow1.wav" 
+}
+
+purrs
+{
+	"purring1.wav"
+	"purring2.wav"
+	"purring3.wav"
+	"long purr.wav" 
+} 

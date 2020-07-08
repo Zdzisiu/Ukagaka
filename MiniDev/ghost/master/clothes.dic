@@ -1,0 +1,679 @@
+Select.clothesmenu
+{
+    //Select.cust2
+	"\b[2]\![*]\q[Monitor,monitor]\n/
+	\![*]\q[Screen,screen]\n/
+	\![*]\q[Expression,expr]\n/
+	\![*]\q[Skin,skin]\n/
+	\![*]\q[Hoodies,hoodie]\n/
+	\![*]\q[Sweater,sweater]\n/
+	\![*]\q[Shirts,shirt]\n/
+	\![*]\q[Pants,pants]\n/
+	\![*]\q[Dresses,dress]\n/
+	\![*]\q[Shoes,shoes]\n/
+	\![*]\q[Outfits,OnOutfit]\n\n[half]"
+	--
+	"\![*]\q[Nevermind,CANCEL]"
+
+}
+
+Select.skin
+{
+	"\_q\b[4]\f[bold,1]Light\f[bold,0]\n\n[half]"
+	--
+	"\q[#1,OnSkin,light #1]\n/
+	\q[#2,OnSkin,light #2]\n/
+	\q[#3,OnSkin,light #3]\n/
+	\q[#4,OnSkin,dark on light]\n\n[half]"
+	--
+	"\f[bold,1]Dark\f[bold,0]\n"
+	--
+	"\q[#1,OnSkin,dark #1]\n/
+	\q[#2,OnSkin,dark #2]\n/
+	\q[#3,OnSkin,dark #3]\n/
+	\q[#4,OnSkin,dark #4]\n/
+	\q[#5,OnSkin,dark #5]\n/
+	\q[#6,OnSkin,light on dark]\n\n[half]"
+	--
+	"\f[bold,1]Plain Colors\f[bold,0]\n\n[half]"
+	--
+	"\q[Black,OnSkin,black]\n/
+	\q[White,OnSkin,white]\n/
+	\q[Light Green,OnSkin,light green]\n/
+	\q[Light Blue,OnSkin,light blue]\n/
+	\q[Light Orange,OnSkin,light orange]\n/
+	\q[Pink,OnSkin,pink]\n/
+	\q[purple,OnSkin,purple]\n\n[half]"
+	--
+	"\f[bold,1]Other\f[bold,0]\n\n[half]"
+	--
+	"\q[Fish,OnSkin,fish]\n/
+	\q[Flower,OnSkin,flower]\n/
+	\q[Doll,OnSkin,doll]\n/
+	\q[Crystal,OnSkin,crystal]\n"
+	--
+	"\n[half]\q[Nevermind,CANCEL]\n/
+	\q[Back,clothesmenu]"
+}
+
+OnSkin
+{
+	clothes = "skin," + reference0 + ". "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,skin,%(reference0)]"
+	--
+	Select.skin
+}
+
+OnOutfit
+{
+	"\b[2]\![*]\q[Wilson,wilson]\n"
+	--
+	if outfitS == 1
+	{
+		"\![*]\q[S the Skeleton,sout]\n"
+	}
+	--
+	"\![*]\q[Stelluna,stel]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n/
+	\![*]\q[Back,clothesmenu]"
+}
+
+Select.stel
+{
+	clothes = "outfit,stelluna. "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,outfit,stelluna]"
+	--
+	OnOutfit
+}
+
+Select.wilson
+{
+	clothes = "outfit,wilson. "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,outfit,wilson]"
+	--
+	OnOutfit
+}
+
+Select.sout
+{
+	clothes = "outfit,s. "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,outfit,s]"
+	--
+	OnOutfit
+}
+
+//------------------------------------------------------------
+Select.monitor
+{
+	ctype="monitor"
+	cnum=""
+	--
+	OnColorPick
+}
+
+Select.screen
+{
+	ctype="screen"
+	cnum=""
+	--
+	OnColorPick
+}
+
+Select.expr
+{
+	ctype="expr"
+	--
+	"\![*]\q[X,OnExp,1]\n/
+	\![*]\q[X X,OnExp,2]\n/
+	\![*]\q[O O,OnExp,3]\n/
+	\![*]\q[OwO,OnExp,5]\n/
+	\![*]\q[UwU,OnExp,4]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n/
+	\![*]\q[Back,clothesmenu]"
+}
+
+OnExp
+{
+	cnum = reference0
+	--
+	OnColorPick
+}
+
+Select.hoodie
+{
+	ctype="hoodie"
+	--
+	"\![*]\q[Kangaroo,OnHoo,1]\n/
+	\![*]\q[Open,OnHoo,2]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n/
+	\![*]\q[Back,clothesmenu]"
+}
+
+OnHoo
+{
+	cnum = reference0
+	--
+	OnColorPick
+}
+
+Select.sweater
+{
+	ctype="sweater"
+	cnum=""
+	--
+	OnColorPick
+}
+
+Select.pants
+{
+	ctype="pants"
+	--
+	"\![*]\q[Long,OnPan,1]\n/
+	\![*]\q[Short,OnPan,2]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n/
+	\![*]\q[Back,clothesmenu]"
+}
+
+OnPan
+{
+	cnum = reference0
+	--
+	OnColorPick
+}
+
+Select.dress
+{
+	ctype="dress"
+	--
+	"\![*]\q[#1,OnDress,1]\n/
+	\![*]\q[#2,OnDress,2]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n/
+	\![*]\q[Back,clothesmenu]"
+}
+
+OnDress
+{
+	cnum = reference0
+	--
+	OnColorPick
+}
+
+Select.shoes
+{
+	ctype="shoes"
+	cnum=""
+	--
+	OnColorPick
+}
+
+Select.shirt
+{
+	ctype="shirt"
+	--
+	"\![*]\q[#1,OnShi,1]\n/
+	\![*]\q[#2,OnShi,2]\n/
+	\![*]\q[#3,OnShi,3]\n/
+	\![*]\q[#4,OnShi,4]\n/
+	\![*]\q[#5,OnShi,5]\n/
+	\![*]\q[#6,OnShi,6]\n/"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n/
+	\![*]\q[Back,clothesmenu]"
+	
+}
+
+OnShi
+{
+	cnum = reference0
+	--
+	OnColorPick
+}
+
+OnColorPick
+{
+	"\_q\0\b[4]\*\f[size,10]"
+	--
+	if colorty == ""
+	{
+		colorty = "p"
+	}
+    --
+    if colorty == "p"
+    {
+        "\f[color,27, 204, 41]\n\![*]\q[Plain,plain]\f[color,default] \![*]\q[Pastel,pastele] \![*]\q[Dark,dark] \![*]\q[Bright,bright]"
+    }
+    elseif colorty == "pl"
+    {
+        "\n\![*]\q[Plain,plain] \f[color,27, 204, 41] \![*]\q[Pastel,pastele]\f[color,default]\![*]\q[Dark,dark] \![*]\q[Bright,bright]"
+    }
+    elseif colorty == "d"
+    {
+        "\n\![*]\q[Plain,plain] \![*]\q[Pastel,pastele] \![*]\f[color,27, 204, 41]\q[Dark,dark]\f[color,default] \![*]\q[Bright,bright]"
+    }
+    elseif colorty == "b"
+    {
+        "\n\![*]\q[Plain,plain] \![*]\q[Pastel,pastele] \![*]\q[Dark,dark]   \f[color,27, 204, 41]\![*]\q[Bright,bright]\f[color,default]"
+    }
+    --
+    "\f[size,default]\n\n[half]"
+    --
+	"\![*]\q[Yellow,OnBindCol,yellow]\n/
+	\![*]\q[Orange,OnBindCol,orange]\n/
+	\![*]\q[Red,OnBindCol,red]\n/
+	\![*]\q[Pink,OnBindCol,pink]\n/
+	\![*]\q[Purple,OnBindCol,purple]\n/
+	\![*]\q[Dark Blue,OnBindCol,dark blue]\n/
+	\![*]\q[Blue,OnBindCol,blue]\n/
+	\![*]\q[Green,OnBindCol,green]\n"
+	--
+	"\![*]\q[Black,bla]\n/
+	\![*]\q[Gray,gra]\n/
+	\![*]\q[White,why]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n/
+	\![*]\q[Back,clothesmenu]"
+}
+
+OnBindCol
+{
+	clothes = ctype + "," + colorty + cnum + " " + reference0 + ". "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,%(ctype),%(colorty)%(cnum) %(reference0)]"
+	--
+	OnColorPick
+}
+
+Select.why
+{
+	clothes = ctype + "," + "p" + cnum + " white. "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,%(ctype),p%(cnum) white]"
+	--
+	OnColorPick
+}
+
+Select.gra
+{
+	clothes = ctype + "," + "p" + cnum + " gray. "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,%(ctype),p%(cnum) gray]"
+	--
+	OnColorPick
+}
+
+Select.bla
+{
+	clothes = ctype + "," + "p" + cnum + " black. "
+	--
+	if clothes _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,clothes,"")
+	}	
+	else
+	{
+		clothesstring += clothes
+	}
+	--
+	"\![bind,%(ctype),p%(cnum) black]"
+	--
+	OnColorPick
+}
+
+
+Select.pastele
+{
+    colorty = "pl"
+    --
+    OnColorPick
+}
+
+Select.bright
+{
+    colorty = "b"
+    --
+    OnColorPick
+}
+
+Select.plain
+{
+    colorty = "p"
+    --
+   OnColorPick
+}
+
+Select.dark
+{
+    colorty = "d"
+    --
+   OnColorPick
+}
+
+/*
+Select.cust2
+{
+    nonpal  = "Skin skin"
+    --
+    "\_q\0\b[4]\*\f[size,10]"
+    --
+    if colorty == "p "
+    {
+        "\f[color,27, 204, 41]\n\![*]\q[Plain,plain]\f[color,default] \![*]\q[Pastele,pastele] \![*]\q[Dark,dark] \![*]\q[Bright,bright]"
+    }
+    elseif colorty == "pl "
+    {
+        "\n\![*]\q[Plain,plain] \f[color,27, 204, 41] \![*]\q[Pastele,pastele]\f[color,default]\![*]\q[Dark,dark] \![*]\q[Bright,bright]"
+    }
+    elseif colorty == "d "
+    {
+        "\n\![*]\q[Plain,plain] \![*]\q[Pastele,pastele] \![*]\f[color,27, 204, 41]\q[Dark,dark]\f[color,default] \![*]\q[Bright,bright]"
+    }
+    elseif colorty == "b "
+    {
+        "\n\![*]\q[Plain,plain] \![*]\q[Pastele,pastele] \![*]\q[Dark,dark]   \f[color,27, 204, 41]\![*]\q[Bright,bright]\f[color,default]"
+    }
+    --
+    "\f[size,default]\n\n[half]"
+    --
+	_print = "\b[4]\![set,autoscroll,disable]Customization"
+	_print += "\_l[@20]\![*]\q[Collapse,OnCustomization_Collapse]\n\n[half]"
+	_priorLine = ""
+	_categorynb = -1
+    _bigcategorynb = -1
+	
+		//random customization
+		//default outfit
+	_print += "\![*]\q[Reset Look,OnCustomization_Reset]"
+	//_print += "\_l[@20]\![*]\q[Random Look,OnCustomization_Shuffle]\n\n[half]"
+	
+	foreach dresslog; _line
+	{
+		
+         
+       if _priorLine[1] != _line[1]
+		{
+			_categoryName = TOSTR(_line[1])
+			_categoryName = REPLACE(_categoryName,"_"," ")
+			_buffer = SUBSTR(_categoryName,0,1)
+			_categoryName = ERASE(_categoryName,0,1)
+			_categoryName = INSERT(_categoryName,0,TOUPPER(_buffer))
+			_categorynb++
+            
+            if "#2" _in_ _categoryName || "#3" _in_ _categoryName || "#4" _in_ _categoryName || "#5" _in_ _categoryName || "#6" _in_ _categoryName
+            {
+                _categoryName = REPLACE(_categoryName,"Shirt","")
+                _categoryName = REPLACE(_categoryName,"Pants","")
+                _categoryName = REPLACE(_categoryName,"Dress","")
+                _categoryName = REPLACE(_categoryName,"Hoodie","")
+                _categoryName = REPLACE(_categoryName,"Accesories","")
+                _print += " \q[" + _categoryName + ",OnCustomization_Category," + _categorynb + "]"
+            }
+            else
+			{
+                _print += "\n\n[half]\q[" + _categoryName + ",OnCustomization_Category," + _categorynb + "]"
+            }
+		}
+		//print item if category is expanded
+		if categoryArray[_categorynb] == 1
+		{
+            _categoryName = TOSTR(_line[1])
+            _truenameItem = REPLACE(_line[2],"_","")
+            if colorty _in_ _truenameItem && _categoryName !_in_ nonpal
+            {
+                 _print += "\n\_l[10]"
+			    _nameItem = REPLACE(_line[2],"%(colorty)","")
+		    	_marker = TOINT(ARRAYSIZE(_line)-2)
+			    _stateItem = _line[_marker]
+			
+                if _line[_marker] == "1";
+                    _print += "*"
+                //information for \![bind] function
+                _print += "\_l[15]\q[" + _nameItem + ",OnCustomization_Item,"
+                _print += _line[1] + "," + _line[2] + "," + _stateItem
+                _print += "]"
+
+            }
+            elseif _categoryName _in_ nonpal
+            {
+                _print += "\n\_l[10]"
+                _nameItem = REPLACE(_line[2],"_","")
+                _marker = TOINT(ARRAYSIZE(_line)-2)
+                _stateItem = _line[_marker]
+                
+                if _line[_marker] == "1";
+                    _print += "*"
+                //information for \![bind] function
+                    _print += "\_l[15]\q[" + _nameItem + ",OnCustomization_Item,"
+                    _print += _line[1] + "," + _line[2] + "," + _stateItem
+                    _print += "]"
+            }
+		}
+		_priorLine = _line
+	}
+	_print += "\n\n[half]\![*]\q[Back,OnMenu]"
+	_print
+}
+
+OnCustomization_Collapse
+{
+	categoryArray = (0,0,0,0,0,0,0,0,0)
+	--
+	Select.cust2
+}
+OnCustomization_Reset
+{
+	_print = ""
+	--
+		clothesstring = ""
+	--
+	for _i = 0; _i < ARRAYSIZE(dresslog); _i++
+	{
+		_item = SPLIT(dresslog[_i],",")
+		_category = TOSTR(_item[1])
+		_name = TOSTR(_item[2])
+		--
+		if TOSTR(_item[3]) == "default"
+		{
+			_print += "\![bind,%(_category),%(_name),1]"
+		}
+		else
+		{
+			_print += "\![bind,%(_category),%(_name),0]"
+		}
+	}
+	--
+	_print
+	--
+	if _argv[0] != "shuffle";
+		Select.cust2
+}
+
+OnShuffle
+{
+    OnCustomization_Reset("shuffle")
+    --
+
+}
+
+Select.pastele
+{
+    colorty = "pl "
+    --
+    Select.cust2
+}
+
+Select.bright
+{
+    colorty = "b "
+    --
+    Select.cust2
+}
+
+Select.plain
+{
+    colorty = "p "
+    --
+    Select.cust2
+}
+
+Select.dark
+{
+    colorty = "d "
+    --
+    Select.cust2
+}
+
+OnCustomization_Shuffle
+{
+	OnCustomization_Reset("shuffle")
+	--
+	_print = ""
+	_priorLine = ""
+	_categoryItems = IARRAY
+	_i = -1
+	--
+	//count items in category
+	for _x = 0; _x < ARRAYSIZE(dresslog); _x++
+	{
+		_line = dresslog[_x]
+		if _priorLine[1] != _line[1]//new category
+		{
+			_categoryItems ,= 1
+			_i++
+		}
+		else
+		{
+			_categoryItems[_i] = _categoryItems[_i]+1
+		}
+		_priorLine = _line
+	}
+	--
+	_tick = 0
+	//draw 1 random item to bind for each category
+	for _x = 0; _x < ARRAYSIZE(_categoryItems); _x++
+	{
+		_rand = RAND(_categoryItems[_x]+1)
+		--
+		_category = dresslog[_tick+_rand][1]
+		_name = dresslog[_tick+_rand][2]
+        --
+		_print += "\![bind,%(_category),%(_name),1]"
+		--
+		_tick += _categoryItems[_x]
+	}
+	--
+	_print
+}
+
+OnCustomization_BigCategory
+{
+	_i = TOINT(reference0)
+	bigcategoryArray[_i] = (bigcategoryArray[_i] + 1) % 2
+	--
+	Select.cust2
+}
+
+OnCustomization_Category
+{
+	_i = TOINT(reference0)
+	categoryArray[_i] = (categoryArray[_i] + 1) % 2
+	--
+	Select.cust2
+}
+
+OnCustomization_Item
+{
+	_state = TOINT(reference2)
+	_state = (_state + 1) % 2
+	--
+	if reference0 _in_ clothesstring
+	{
+		clothesstring = REPLACE(clothesstring,reference0 + "," + reference1 + "," + _state,reference0 + "," + reference1 + "," + (_state%2))
+	}	
+	else
+	{
+		clothesstring += " " + reference0 + "," + reference1 + "," + _state
+	}
+	--
+	"\![bind,%(reference0),%(reference1),%(_state)]"
+}
+
+
+OnNotifyDressupInfo
+{
+	//"0,legs,white_sandals,default,mustselect,0,,"
+	dresslog = reference
+	
+	OnColorPick
+}*/

@@ -1,0 +1,234 @@
+ToBinaryCheck
+{
+    
+    "What do you want to translate?\![open,inputbox,OnToBinaryEnd,-1]"
+}
+
+OnToBinaryEnd
+{
+    
+    binarycode = reference0
+    --
+    binarycode = REPLACE(binarycode,"A"," 01000001 ")
+    binarycode = RE_REPLACE(binarycode,"B"," 01000010 ")
+    binarycode = RE_REPLACE(binarycode,"C"," 01000011 ")
+    binarycode = RE_REPLACE(binarycode,"D"," 01000100 ")
+    binarycode = RE_REPLACE(binarycode,"E"," 01000101 ")
+    binarycode = RE_REPLACE(binarycode,"F"," 01000110 ")
+    binarycode = RE_REPLACE(binarycode,"G"," 01000111 ")
+    binarycode = RE_REPLACE(binarycode,"H"," 01001000 ")
+    binarycode = RE_REPLACE(binarycode,"I"," 01001001 ")
+    binarycode = RE_REPLACE(binarycode,"J"," 01001010 ")
+    binarycode = RE_REPLACE(binarycode,"K"," 01001011 ")
+    binarycode = RE_REPLACE(binarycode,"L"," 01001100 ")
+    binarycode = RE_REPLACE(binarycode,"M"," 01001101 ")
+    binarycode = RE_REPLACE(binarycode,"N"," 01001110 ")
+    binarycode = RE_REPLACE(binarycode,"O"," 01001111 ")
+    binarycode = RE_REPLACE(binarycode,"P"," 01010000 ")
+    binarycode = RE_REPLACE(binarycode,"Q"," 01010001 ")
+    binarycode = RE_REPLACE(binarycode,"R"," 01010010 ")
+    binarycode = RE_REPLACE(binarycode,"S"," 01010011 ")
+    binarycode = RE_REPLACE(binarycode,"T"," 01010100 ")
+    binarycode = RE_REPLACE(binarycode,"U"," 01010101 ")
+    binarycode = RE_REPLACE(binarycode,"V"," 01010110 ")
+    binarycode = RE_REPLACE(binarycode,"W"," 01010111 ")
+    binarycode = RE_REPLACE(binarycode,"X"," 01011000 ")
+    binarycode = RE_REPLACE(binarycode,"Y"," 01011001 ")
+    binarycode = RE_REPLACE(binarycode,"Z"," 01011010 ")
+    binarycode = RE_REPLACE(binarycode,"a"," 01100001 ")
+    binarycode = RE_REPLACE(binarycode,"b"," 01100010 ")
+    binarycode = RE_REPLACE(binarycode,"c"," 01100011 ")
+    binarycode = RE_REPLACE(binarycode,"d"," 01100100 ")
+    binarycode = RE_REPLACE(binarycode,"e"," 01100101 ")
+    binarycode = RE_REPLACE(binarycode,"f"," 01100110 ")
+    binarycode = RE_REPLACE(binarycode,"g"," 01100111 ")
+    binarycode = RE_REPLACE(binarycode,"h"," 01101000 ")
+    binarycode = RE_REPLACE(binarycode,"i"," 01101001 ")
+    binarycode = RE_REPLACE(binarycode,"j"," 01101010 ")
+    binarycode = RE_REPLACE(binarycode,"k"," 01101011 ")
+    binarycode = RE_REPLACE(binarycode,"l"," 01101100 ")
+    binarycode = RE_REPLACE(binarycode,"m"," 01101101 ")
+    binarycode = RE_REPLACE(binarycode,"n"," 01101110 ")
+    binarycode = RE_REPLACE(binarycode,"o"," 01101111 ")
+    binarycode = RE_REPLACE(binarycode,"p"," 01110000 ")
+    binarycode = RE_REPLACE(binarycode,"q"," 01110001 ")
+    binarycode = RE_REPLACE(binarycode,"r"," 01110010 ")
+    binarycode = RE_REPLACE(binarycode,"s"," 01110011 ")
+    binarycode = RE_REPLACE(binarycode,"t"," 01110100 ")
+    binarycode = RE_REPLACE(binarycode,"u"," 01110101 ")
+    binarycode = RE_REPLACE(binarycode,"v"," 01110110 ")
+    binarycode = RE_REPLACE(binarycode,"w"," 01110111 ")
+    binarycode = RE_REPLACE(binarycode,"x"," 01111000 ")
+    binarycode = RE_REPLACE(binarycode,"y"," 01111001 ")
+    binarycode = RE_REPLACE(binarycode,"z"," 01111010 ")
+    --
+    "%(binarycode)\![open,inputbox,OnToBinaryEnd,-1]\e"
+}
+
+FromBinaryCheck
+{
+    
+    "What do you want to translate?\![open,inputbox,OnFromBinaryEnd,-1]"
+}
+
+OnFromBinaryEnd
+{
+    binarycode = reference0
+    binarycode = REPLACE(binarycode,"01000001","A")
+    binarycode = RE_REPLACE(binarycode,"01000010","B")
+    binarycode = RE_REPLACE(binarycode,"01000011","C")
+    binarycode = RE_REPLACE(binarycode,"01000100","D")
+    binarycode = RE_REPLACE(binarycode,"01000101","E")
+    binarycode = RE_REPLACE(binarycode,"01000110","F")
+    binarycode = RE_REPLACE(binarycode,"01000111","G")
+    binarycode = RE_REPLACE(binarycode,"01001000","H")
+    binarycode = RE_REPLACE(binarycode,"01001001","I")
+    binarycode = RE_REPLACE(binarycode,"01001010","J")
+    binarycode = RE_REPLACE(binarycode,"01001011","K")
+    binarycode = RE_REPLACE(binarycode,"01001100","L")
+    binarycode = RE_REPLACE(binarycode,"01001101","M")
+    binarycode = RE_REPLACE(binarycode,"01001110","N")
+    binarycode = RE_REPLACE(binarycode,"01001111","O")
+    binarycode = RE_REPLACE(binarycode,"01010000","P")
+    binarycode = RE_REPLACE(binarycode,"01010001","Q")
+    binarycode = RE_REPLACE(binarycode,"01010010","R")
+    binarycode = RE_REPLACE(binarycode,"01010011","S")
+    binarycode = RE_REPLACE(binarycode,"01010100","T")
+    binarycode = RE_REPLACE(binarycode,"01010101","U")
+    binarycode = RE_REPLACE(binarycode,"01010110","V")
+    binarycode = RE_REPLACE(binarycode,"01010111","W")
+    binarycode = RE_REPLACE(binarycode,"01011000","X")
+    binarycode = RE_REPLACE(binarycode,"01011001","Y")
+    binarycode = RE_REPLACE(binarycode,"01011010","Z")
+    binarycode = RE_REPLACE(binarycode,"01100001","a")
+    binarycode = RE_REPLACE(binarycode,"01100010","b")
+    binarycode = RE_REPLACE(binarycode,"01100011","c")
+    binarycode = RE_REPLACE(binarycode,"01100100","d")
+    binarycode = RE_REPLACE(binarycode,"01100101","e")
+    binarycode = RE_REPLACE(binarycode,"01100110","f")
+    binarycode = RE_REPLACE(binarycode,"01100111","g")
+    binarycode = RE_REPLACE(binarycode,"01101000","h")
+    binarycode = RE_REPLACE(binarycode,"01101001","i")
+    binarycode = RE_REPLACE(binarycode,"01101010","j")
+    binarycode = RE_REPLACE(binarycode,"01101011","k")
+    binarycode = RE_REPLACE(binarycode,"01101100","l")
+    binarycode = RE_REPLACE(binarycode,"01101101","m")
+    binarycode = RE_REPLACE(binarycode,"01101110","n")
+    binarycode = RE_REPLACE(binarycode,"01101111","o")
+    binarycode = RE_REPLACE(binarycode,"01110000","p")
+    binarycode = RE_REPLACE(binarycode,"01110001","q")
+    binarycode = RE_REPLACE(binarycode,"01110010","r")
+    binarycode = RE_REPLACE(binarycode,"01110011","s")
+    binarycode = RE_REPLACE(binarycode,"01110100","t")
+    binarycode = RE_REPLACE(binarycode,"01110101","u")
+    binarycode = RE_REPLACE(binarycode,"01110110","v")
+    binarycode = RE_REPLACE(binarycode,"01110111","w")
+    binarycode = RE_REPLACE(binarycode,"01111000","x")
+    binarycode = RE_REPLACE(binarycode,"01111001","y")
+    binarycode = RE_REPLACE(binarycode,"01111010","z")
+    --
+    "%(binarycode)\![open,inputbox,OnFromBinaryEnd,-1]\e"
+}
+
+ToMorseCheck
+{
+    
+    "What do you want to translate?\![open,inputbox,OnToMorseEnd,-1]"
+}
+
+OnToMorseEnd
+{
+    
+    morsecode = reference0
+    morsecode = TOUPPER(reference0)
+    --
+    morsecode = REPLACE(morsecode,"A","| . — |")
+    morsecode = RE_REPLACE(morsecode,"B","| — . . . |")
+    morsecode = RE_REPLACE(morsecode,"C","| — . — . |")
+    morsecode = RE_REPLACE(morsecode,"D","| — . . |")
+    morsecode = RE_REPLACE(morsecode,"E","| . |")
+    morsecode = RE_REPLACE(morsecode,"F","| . . — . |")
+    morsecode = RE_REPLACE(morsecode,"G","| — — . |")
+    morsecode = RE_REPLACE(morsecode,"H","| . . . . |")
+    morsecode = RE_REPLACE(morsecode,"I","| . . — |")
+    morsecode = RE_REPLACE(morsecode,"J","| . — — — |")
+    morsecode = RE_REPLACE(morsecode,"K","| — . — |")
+    morsecode = RE_REPLACE(morsecode,"L","| . — . . |")
+    morsecode = RE_REPLACE(morsecode,"M","| — — |")
+    morsecode = RE_REPLACE(morsecode,"N","| — . |")
+    morsecode = RE_REPLACE(morsecode,"O","| — — — |")
+    morsecode = RE_REPLACE(morsecode,"P","| . — — . |")
+    morsecode = RE_REPLACE(morsecode,"Q","| — — . — |")
+    morsecode = RE_REPLACE(morsecode,"R","| . — . |")
+    morsecode = RE_REPLACE(morsecode,"S","| . . . |")
+    morsecode = RE_REPLACE(morsecode,"T","| — |")
+    morsecode = RE_REPLACE(morsecode,"U","| . . — |")
+    morsecode = RE_REPLACE(morsecode,"V","| . . . — |")
+    morsecode = RE_REPLACE(morsecode,"W","| . — — |")
+    morsecode = RE_REPLACE(morsecode,"X","| — . . — |")
+    morsecode = RE_REPLACE(morsecode,"Y","| — . — — |")
+    morsecode = RE_REPLACE(morsecode,"Z","| — — . . |")
+    morsecode = RE_REPLACE(morsecode,"1","| . — — — — |")
+    morsecode = RE_REPLACE(morsecode,"2","| . . — — — |")
+    morsecode = RE_REPLACE(morsecode,"3","| . . . — — |")
+    morsecode = RE_REPLACE(morsecode,"4","| . . . . — |")
+    morsecode = RE_REPLACE(morsecode,"5","| . . . . . |")
+    morsecode = RE_REPLACE(morsecode,"6","| — . . . . |")
+    morsecode = RE_REPLACE(morsecode,"7","| — — . . . |")
+    morsecode = RE_REPLACE(morsecode,"8","| — — — . . |")
+    morsecode = RE_REPLACE(morsecode,"9","| — — — — . |")
+    morsecode = RE_REPLACE(morsecode,"0","| — — — — - |")
+    --
+    "%(morsecode)\![open,inputbox,OnToMorseEnd,-1]\e"
+}
+
+FromMorseCheck
+{
+    
+    "What do you want to translate?\_q(use space after every symbol an | after every letter example: | . - |)![open,inputbox,OnFromMorseEnd,-1]"
+}
+
+OnFromMorseEnd
+{
+    
+    morsecode = reference0
+    --
+    morsecode = REPLACE(morsecode,"| . — |","A")
+    morsecode = RE_REPLACE(morsecode,"| — . . . |","B")
+    morsecode = RE_REPLACE(morsecode,"| — . — . |","C",)
+    morsecode = RE_REPLACE(morsecode,"| — . . |","D")
+    morsecode = RE_REPLACE(morsecode,"| . |","E")
+    morsecode = RE_REPLACE(morsecode,"|. . — . |","F",)
+    morsecode = RE_REPLACE(morsecode,"| — — . |","G")
+    morsecode = RE_REPLACE(morsecode,"| . . . . |","H")
+    morsecode = RE_REPLACE(morsecode,"| . . |","I")
+    morsecode = RE_REPLACE(morsecode,"| . — — — |","J")
+    morsecode = RE_REPLACE(morsecode,"| — . — |","K")
+    morsecode = RE_REPLACE(morsecode,"| . — . . |","L")
+    morsecode = RE_REPLACE(morsecode,"| — — |","M")
+    morsecode = RE_REPLACE(morsecode,"| — . |","N")
+    morsecode = RE_REPLACE(morsecode,"| — — — |"," O ")
+    morsecode = RE_REPLACE(morsecode,"| . — — . |","P")
+    morsecode = RE_REPLACE(morsecode,"| . — . |","R")
+    morsecode = RE_REPLACE(morsecode,"| . . . |","S")
+    morsecode = RE_REPLACE(morsecode,"| — |","T")
+    morsecode = RE_REPLACE(morsecode,"| . . — |","U")
+    morsecode = RE_REPLACE(morsecode,"| . — — |","W")
+    morsecode = RE_REPLACE(morsecode,"| — . . — |","X")
+    morsecode = RE_REPLACE(morsecode,"| — . — — |","Y")
+    morsecode = RE_REPLACE(morsecode,"| — — . . |","Z")
+    morsecode = RE_REPLACE(morsecode,"| . . . — |","V")
+    morsecode = RE_REPLACE(morsecode,"| — — . — |","Q")
+    morsecode = RE_REPLACE(morsecode,"| . — — — — |","1")
+    morsecode = RE_REPLACE(morsecode,"| . . — — — |","2")
+    morsecode = RE_REPLACE(morsecode,"| . . . — — |","3")
+    morsecode = RE_REPLACE(morsecode,"| . . . . — |","4")
+    morsecode = RE_REPLACE(morsecode,"| . . . . . |","5")
+    morsecode = RE_REPLACE(morsecode,"| — . . . . |","6")
+    morsecode = RE_REPLACE(morsecode,"| — — . . . |","7")
+    morsecode = RE_REPLACE(morsecode,"| — — — . . |","8")
+    morsecode = RE_REPLACE(morsecode,"| — — — — . |","9")
+    morsecode = RE_REPLACE(morsecode,"| — — — — - |","0")
+    --
+    "%(morsecode)\![open,inputbox,OnFromBinaryEnd,-1]\e"
+}

@@ -1,0 +1,172 @@
+﻿OnFirstBoot
+{
+
+ 	lastTalk = "" 
+	passmin = 0 
+	passsec = 0 
+ 	username         = "USER" 
+	stroke           = 0	
+ 	teachusername    = 0	
+	mikireflag       = 0	
+	purrmode		 = "OFF"
+	silence			 = "OFF"
+ 	aitalkinterval = 400 
+ 	birthdayprint = "????" 
+	talktime = "5 minutes" 
+	deleteshitai = "OFF" 
+	nowshell = "master" 
+	
+	if reference0 == 0 
+ 	{		
+		"\0\s[0]\0\s[0]\![sound,play,s/%(meows)]\e"
+ 	}
+	else
+ 	{
+		
+ 		{
+ 		"\0\s[0]\0\s[0]\![sound,play,s/%(meows)]\e"
+		}
+ 	}
+}  
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+} 
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+} 
+
+OnBoot
+ {
+	lastTalk = "" 
+	passmin = 0
+	passsec = 0
+	
+ 	"\0\s[0]\0\s[0]" 
+	--
+	"%(normalboottalk)"
+} 
+
+normalboottalk
+{
+	if silence != "ON"
+	{
+		"\![sound,play,s/%(meows)]"
+	}
+	else
+	{
+		"Meow"
+	}
+	
+} 
+
+OnClose
+ {
+ timeslot = GetTimeSlot
+ --
+	"Meow"
+ 	--
+	"\-\e"
+ }
+
+OnWindowStateRestore 
+{
+	if silence != "ON"
+	{
+	"\0\s[0]\![sound,play,s/%(meows)]\e"
+	}
+	else
+	{
+		"Meow"
+	}
+} 
+
+OnGhostChanging
+ {
+	if reference0 == "Girl" 
+	{
+		
+		if silence != "ON"
+		{
+		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		}
+		else
+		{
+			"Meow"
+		}
+		
+	}
+ 	else 
+	{
+		if silence != "ON"
+		{
+		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		}
+		else
+		{
+			"Meow"
+		}
+		
+		
+	}
+} 
+
+OnGhostChanged
+{
+	"\0\s[0]\0\s[0]" 
+	--
+	if reference0 == "Girl" 
+	{
+		if silence != "ON"
+		{
+		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		}
+		else
+		{
+			"Meow"
+		}
+	}
+	else 
+	{
+		if silence != "ON"
+		{
+		"\0\s[0]\![sound,play,s/%(meows)]\w8\e"
+		}
+		else
+		{
+			"Meow"
+		}
+	}
+}
+
+

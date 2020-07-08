@@ -1,0 +1,2091 @@
+﻿OpenSakuraMenu
+{
+	MenuRun
+}
+
+MenuRun
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	--
+	"\n\_q\b2"
+	--
+	
+	/*if tentruth == 1
+	{
+		"\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
+	}
+	elseif tentruth == 2
+	{
+		"\![*]\q[Reboot,rebot]\n\n[half]"
+	}
+	elseif glitchboot <= 5
+	{
+		"\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,gboot]\n\n[half]"
+	}*/
+	--
+	if lastTalk != "" 
+	{
+	  "\![*]\q[Repeat,OnLastTalk] or "
+	}
+	--
+ 	"\![*]\q[Say something,altalk]\n"
+	--
+	"\![*]\q[Config Menu,configmenu]\n/
+	\![*]\q[Customize,clothesmenu]\n/
+	\![*]\q[Functions,dosomething]\n\n[half]/
+	\![*]\q[Questions,ques]\n/
+	\![*]\q[Recommend,req]\n/
+	\![*]\q[Quote,quote]\n/
+	\![*]\q[Open an app or project,oapp]\n/
+	\![*]\q[User Logs,LOG]\n"
+	--
+	//"\![*]\q[Recommend,req]\n"
+	--
+	if AI == "ON"
+	{
+		"\![*]\q[AI chat,saysmth]\n"
+	}
+	--
+	/*if tentruth == 1 || glitchboot <= 5
+	{
+		"\![*]\q[L̷̜̚o̶̭̾g̵̨̽s̶͇̅,log]\n"
+	}
+	--*/
+	"\n\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(timeformat), %(dateformat)" 
+	--
+	if weathermenu == "ON" {
+        "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
+    }
+	--
+	if moonmenu == "ON"
+	{
+		"\nMoon: %(phase)"
+	}	
+	--
+	"\e"
+	//
+}
+
+
+timeformat
+{
+	if timeformatype == "STANDARD"
+	{
+		"%(nowhour):%(nowmin) %(ap)"
+	}
+	elseif timeformatype == "MILITARY" // & miltype == "1"
+	{
+		"%(hour):%(nowmin)"
+	}
+}
+
+dateformat
+{
+	if dateformatype == "dd/mm/yyyy"
+	{
+		"%(day)/%(month)/%(year)"
+	}
+	elseif dateformatype == "yyyy/mm/dd"
+	{
+		"%(year)/%(month)/%(day)"
+	}
+	elseif dateformatype == "mm/dd/yyyy"
+	{
+		"%(month)/%(day)/%(year)"
+	}
+}
+
+Select.quote
+{
+        
+    "\![execute,http-get,http://www.quotationspage.com/random.php,--async=OnQuoteFound,--file=quote.html,--timeout=200]"
+}
+
+OnQuoteFound
+{
+        
+    _file = "var\\quote.html"
+    _buff=""
+    _regquote = '.html">(.*)</a> </dt><dd class="author"><div class="icons">'
+    _regeauthor = '/">(.*)</a> (.*)</b></dd>'
+    quote = ""
+    author = ""
+    _found = 0
+    FCHARSET(1)
+    --
+    
+    if FOPEN(_file,'r') {
+            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+
+                    if RE_SEARCH ( _buff, _regquote ) {
+                            
+                            quote = RE_GETSTR[1]
+                    }
+                    
+                    if RE_SEARCH ( _buff, _regeauthor ) {
+                            
+                            author = RE_GETSTR[1]  
+                            _found = 1;     
+                    }
+            }
+    }
+    --
+    
+    FCLOSE(_file);
+    --
+    "\b2%(quote)\n\n[half]         -%(author)"
+}
+
+//Weather Checking -------------------------------------------------------
+//following functions can go in menu dic, or a seperate dic entirely
+//functions for scraping weather.com for weather data.
+//author: vita @yuyudev on twitter
+//referenced zarla's hunter and smoker ghost, and https://forum.rainmeter.net/viewtopic.php?t=34470
+//
+//please add the following variables to your bootend dic in the function OnFirstBoot
+//curlocation = ""
+//locationcode = ""
+//these two I also added to OnBoot
+//intalkconfig = 0
+//weatherquiet = 0
+
+
+//starting the weather checking
+OnCheckWeather
+{
+        
+        "\0\s[0]\b[2]\_qWanna check the weather? No problem!\n\n\f[bold,1]Current Location:\f[bold,0] %(curlocation)\n\n"
+        --
+        //if first time opening there will be no location so user needs to set location b4 anything else. except moon phase
+
+        if (locationcode == ""){
+
+        "\![*]\q[Set Location,OnWeatherLocation]\n/
+        \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n\n[half]"
+
+
+        } else {
+
+        "\![*]\q[Set Location,OnWeatherLocation]\n/
+        \![*]\q[Check Current Weather,OnDownloadCurWeather]\n/
+        \![*]\q[Check 10 Day Forecast,OnDownloadForecast]\n/
+        \![*]\q[Check Hourly Forecast,OnDownloadHourly]\n/
+        \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n\n[half]"
+
+        }
+        --
+        "\![*]\q[Main menu,OnBACKTOMENU]\e"
+}
+    
+OnWeatherLocation
+{
+
+        
+    "\0\s[0]First, I need to know where you are. Are you in the USA or not?\n\n"
+
+
+    --
+    "\![*]\q[USA,OnUSALoc]\n/
+    \![*]\q[Outside the USA,OnOtherLoc]\n\e"
+
+
+
+
+}
+
+
+OnUSALoc
+{  
+    "\0\s[0]Alright! Just let me know your zipcode!\![open,inputbox,OnLocCode,-1]"
+}
+
+
+OnOtherLoc
+{     
+    "\0\s[0]This gets a little more complicated. Please go to weather.com, search your city, and give me the long series of letters and numbers at the end of the URL.\![open,inputbox,OnLocCode,-1]"
+}
+
+
+
+
+OnLocCode
+{
+        locationcode = reference0
+        OnDownloadCurWeather
+}
+
+OnDownloadCurWeather
+{
+    "\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
+
+}
+
+OnCurWeatherFound
+{
+    
+    //initialize variables
+    _file = "var\\weather.html"
+    _buff=""
+    _regtemp = ''
+    _regdegree = ''
+    _regfeels = ''
+    _reghumidity = ''
+    _regwind = ''
+    _regstate = ''
+    _regloc = ''
+    _regpollen = ''
+    FCHARSET(1)
+    //array to hold current weather data
+    //[temp, degrees, feels like temp, humidity, wind, state (cloudy, rainy, etc), pollen alert (yes/no)]
+    currentweatherarray = ("","","","","","","")
+    
+    --
+    
+    if FOPEN(_file,'r') {
+    
+   	 _buff = FREAD(_file) //get the first line of the HTML to check what type of page we got
+   	 temp = _buff
+   	 
+   	 if RE_SEARCH(_buff, '<html dir="ltr" lang="en-US"><head>') { //reg expressions for chrome formatted page
+		_regtemp = 'CurrentConditions--tempValue--MHmYY">(-?\d*)°</span><div'
+		_regdegree = '(°C|°F)'
+		_regfeels = 'feelsLikeTempValue--2icPt">(-?\d*)°</span><span data'
+		_reghumidity = 'estid="PercentageValue">(\d*)%</span></div>'
+		_regwind = '6.44z"></path></svg>([\w|\s|\d]*)</span></div></div>'
+		_regstate = 'phraseValue--mZC_p">([\w|\s]*)</div></div>'
+ 		_regloc = 'Conditions--location--1YWj_">(.*) Weather</h1><div class='
+		_regpollen = 'iesListItem--description--2eNsW">([\w|\s]*) pollen is very high in your area</p></'
+   	 }
+   	 else {
+   	 //reg expressions for firefox formatted page
+   		 _regtemp = '<div class="today_nowcard-temp"><span class="">(-?\d*)<sup>'
+   		 _regdegree = '(°C|°F)'
+   		 _regfeels = '<span class="btn-text">Feels Like<!----> </span><span class="deg-feels" className="deg-feels">(-?\d*)<sup>'
+   		 _reghumidity = '</tr><tr><th>Humidity</th><td><span class=""><span>(\d*)<span class="Percentage__percentSymbol__2Q_AR">%'
+   		 _regwind = '<tr><th>Wind</th><td><span class="">([\w|\s|\d]*)</span></td></tr><tr><th>'
+   		 _regstate = '<div class="today_nowcard-phrase">([\w|\s]*)'
+   		 _regloc = 'className="h4 today_nowcard-location">(.*)<span class="icon icon-font iconset-social icon-share-circle" className="icon icon-font iconset-social icon-share-circle"></span>'
+   		 _regpollen = ' title="Local Pollen Alert"'
+   	 }
+
+   	 for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) 
+	{
+		//current temp
+		if RE_SEARCH ( _buff, _regtemp ) {
+			
+			currentweatherarray[0] = RE_GETSTR[1]
+			
+		}
+		--
+		//degrees (F or C)
+		if RE_SEARCH ( _buff, _regdegree ) {
+			currentweatherarray[1] = RE_GETSTR[1]
+			
+		}
+		--
+		//feels like temp
+		if RE_SEARCH ( _buff, _regfeels ) {
+			currentweatherarray[2] = RE_GETSTR[1]
+			
+		}
+		--
+		//humidity
+		if RE_SEARCH ( _buff, _reghumidity ) {
+			currentweatherarray[3] = RE_GETSTR[1]
+			
+		}
+		--
+		//wind
+		if RE_SEARCH ( _buff, _regwind) {
+			currentweatherarray[4] = RE_GETSTR[1]
+			
+		}
+		
+		--
+		//state (cloudy, sunny, etc)
+		if RE_SEARCH ( _buff, _regstate ) {
+			
+			currentweatherarray[5] = RE_GETSTR[1]
+			
+		}
+		--
+		//set location
+		if RE_SEARCH ( _buff, _regloc ) {
+			
+			curlocation = RE_GETSTR[1]
+			
+		}
+		--
+		//search for pollen stuff
+		if RE_SEARCH ( _buff, _regpollen ) {
+			
+			currentweatherarray[6] = "Local Pollen Alert"
+			
+		}
+		
+	}
+}
+
+    --
+    
+    FCLOSE(_file);
+    
+    if (intalkconfig) {
+    
+   	 intalkconfig = 0
+   	 TalkConfig
+   	 --
+   	 "\e"
+    
+    }
+    --
+    if weatherquiet {
+   	 weatherquiet = 0
+   	 --
+   	 "\e"
+	}
+	--
+	if bootweater == 1
+	{
+		"\0\s[0]Downloading moon phase...\![execute,http-get,https://www.moongiant.com/phase/today/,--async=OnMoonBoot,--file=moon.html,--timeout=200]"
+	}
+	else
+    {
+		--
+		"\0\s[0]\_qRight now in %(curlocation) ...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
+		\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+		--
+		if currentweatherarray[6] == "Local Pollen Alert" {
+		"\nThere's a local pollen alert!"
+		}
+		--
+		"\n\n[half]Back to...\n\n[half]"
+		--
+		"\![*]\q[Weather menu,OnCheckWeather]\n/
+		\![*]\q[Misc menu,OnMiscMenu]\n/
+		\![*]\q[Main menu,OnBACKTOMENU]\e"
+	}
+
+}
+
+
+
+//forecast functions
+OnDownloadForecast{
+
+    "\0\s[0]Downloading forecast... \![execute,http-get,https://weather.com/weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
+
+}
+
+
+OnForecastFound
+{
+    
+    //file to be read
+    _file = "var\\forecast.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _regdate=''
+    _regdesc=''
+    _reghigh=''
+    _reglow=''
+    _regprecip=''
+    _regwind=''
+    _reghumidity=''
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //strings for holding and parsing each bit of data
+    _singleday = (IARRAY, "")
+    _temp = ""
+    
+    //jank
+    _state = ""
+    
+    //2D array for forecast data
+    //15 days? each day has (date, description, high,low, precip %, wind, humidity)
+    forecastarray = (_singleday, _singleday)
+
+    
+    --
+    
+    if FOPEN(_file,'r') {
+    
+    
+   	 _buff = FREAD(_file) //get the first line of the HTML to check what type of page we got
+   	 temp = _buff
+   	 
+   	 if RE_SEARCH(_buff, '<html dir="ltr" lang="en-US"><head>') { //reg expressions for chrome formatted page
+   		 _regdate='-daypartName--kbngc">([\w|\s]*)</h3><div '
+   		 _regdesc='extendedData--307Ax">([\w|\s]*)</span></div>'
+   		 _reghigh='Summary-DetailsSummary--highTempValue--3PjlX">(--|(-?\d*)).</span>'
+   		 _reglow='Summary--lowTempValue--2tesQ">(-?\d*)°</span'
+   		 _regprecip='<span data-testid="PercentageValue">(\d*)%</span></div>'
+   		 _regwind='3Ly7c undefined">([\w|\s]*)<!-- -->([\w|\s]*)</span></div>'
+   		 _reghumidity='Details-DetailsTable-DetailsTable--value--2YD0-">(\d*)%</span></div></li><li data-testid="uvIndexSection" class="_-_-components-src-molecule-DaypartDetails-DetailsTable-DetailsTable--listItem--Z-5Vi">'
+   	 }
+   	 else {
+   		 //reg expressions for firefox formatted page
+   		 _regdate='</div><span class="day-detail clearfix">([\w|\s]*)</span></div>'
+   		 _regdesc='data-track-string="ls_24_hour_ls_24_hour_toggle" className="description"><span>([\w|\s]*)</span></td>'
+   		 _reghigh='className="temp"><div><span class="">(--|(-?\d*))<sup>.</sup></span>'
+   		 _reglow='<span class="slash" className="slash"></span><span class="">(-?\d*)<sup>.</sup></span></div>'
+   		 _regprecip='icon-drop-1"></span><span class=""><span>(\d*)<span class="Percentage__percentSymbol__2Q_AR">.</span>'
+   		 _regwind='className="wind"><span class="">([\w|\s]*)</span>'
+   		 _reghumidity='className="humidity"><span class=""><span>(\d*)<span class="Percentage__percentSymbol__2Q_AR">'
+   		 _state = "firefox"
+   	 }
+   	 
+   	 for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+   		 
+
+   		 //date
+   		 //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+   		 if RE_GREP( _buff, _regdate ) {
+   		 
+   			 //clear out singleday string, use a temp string to hold the results of the regexpr search
+   			 _singleday = NULL
+   			 _temp = RE_GETSTR
+   			 
+   			 //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+   			 for i = 0; i < ARRAYSIZE(_temp); i++ {
+   				 
+   				 if RE_SEARCH(_temp[i], _regdate) {
+   					 _singleday = _singleday + RE_GETSTR[1] + ","
+   				 }
+   				 
+   			 
+   			 }   	 
+   			 //add singleday contents to relevant row of data in forecast array
+   			 forecastarray[0] = forecastarray[0] + _singleday
+   			 
+   		 }
+   		 
+   		 //rinse and repeat for rest of data
+   		 //desc
+   		 if RE_GREP( _buff, _regdesc ) {
+   			 
+   			 _singleday = NULL
+   			 _temp = RE_GETSTR
+   			 
+   			 for i = 0; i < ARRAYSIZE(_temp); i++ {
+   				 
+   				 if RE_SEARCH(_temp[i], _regdesc) {
+   					 _singleday = _singleday + RE_GETSTR[1] + ","
+   				 }
+   				 
+   			 
+   			 }   	 
+   			 
+   			 forecastarray[1] = forecastarray[1] + _singleday
+   			 
+   		 }
+
+   		 //high temps
+   		 if RE_GREP( _buff, _reghigh ) {
+   			 
+   			 _singleday = NULL
+   			 _temp = RE_GETSTR
+   			 
+   			 for i = 0; i < ARRAYSIZE(_temp); i++ {
+   				 
+   				 if RE_SEARCH(_temp[i], _reghigh) {
+   					 _singleday = _singleday + RE_GETSTR[1] + ","
+   				 }
+   				 
+   			 
+   			 }   	 
+   			 
+   			 forecastarray[2] = forecastarray[2] + _singleday
+   			 
+   		 }
+   		 
+   		 //low temps
+   		 if RE_GREP( _buff, _reglow ) {
+   			 
+   			 _singleday = NULL
+   			 _temp = RE_GETSTR
+   			 
+   			 for i = 0; i < ARRAYSIZE(_temp); i++ {
+   				 
+   				 if RE_SEARCH(_temp[i], _reglow) {
+   					 _singleday = _singleday + RE_GETSTR[1] + ","
+   				 }
+   				 
+   			 
+   			 }   	 
+   			 
+   			 forecastarray[3] = forecastarray[3] + _singleday
+   			 
+   		 }
+   		 //precip
+   		 if RE_GREP( _buff, _regprecip ) {
+   			 
+   			 _singleday = NULL
+   			 _temp = RE_GETSTR
+   			 
+   			 for i = 0; i < ARRAYSIZE(_temp); i++ {
+   				 
+   				 if RE_SEARCH(_temp[i], _regprecip) {
+   					 _singleday = _singleday + RE_GETSTR[1] + ","
+   				 }
+   				 
+   			 
+   			 }   	 
+   			 
+   			 forecastarray[4] = forecastarray[4] + _singleday
+   			 
+   		 }
+    
+   		 //wind
+   		 if RE_GREP( _buff, _regwind ) {
+   			 
+   			 _singleday = NULL
+   			 _temp = RE_GETSTR
+   			 
+   			 for i = 0; i < ARRAYSIZE(_temp); i++ {
+   				 
+   				 if RE_SEARCH(_temp[i], _regwind) {
+   					 _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
+   				 }
+   				 
+   			 
+   			 }   	 
+   			 
+   			 forecastarray[5] = forecastarray[5] + _singleday
+   			 
+   		 }
+   		 
+   		 //this is gonna be the quirky section LOL
+   		 //humidity
+   		 if RE_GREP( _buff, _reghumidity ) {
+   			 
+   			 _singleday = NULL
+   			 _temp = RE_GETSTR
+   			 
+   			 for i = 0; i < ARRAYSIZE(_temp); i++ {
+   				 
+   				 if RE_SEARCH(_temp[i], _reghumidity) {
+   					 
+   					 if _state == "firefox"  { //ff format is nice and doesnt have anything special
+   					 
+   						 _singleday = _singleday + RE_GETSTR[1] + ","
+   					 
+   					 } elseif _state == "" { //state has not been set yet so we are in one of the weird chrome ones
+   					 
+   						 _singleday = _singleday + RE_GETSTR[1] + "," //take the first humidity we get to normally
+   						 
+   						 if forecastarray[2][0] == "-" {
+   						 //indicates that first humidity was in the night stage of today's forecast, so we don't want to skip the next humidity
+   							 _state = "chrome"   							 
+   						 }
+   						 else {
+   							 _state = "chromeskip"
+   						 }
+   					 
+   					 } elseif _state == "chrome" {
+   					 
+   						 _singleday = _singleday + RE_GETSTR[1] + ","
+   						 _state = "chromeskip"
+   					 
+   					 } else { //_state = chromeskip
+   						 _state = "chrome"
+   					 }
+   					 //otherwise do nothing, essentially skipping this one
+   					 
+   				 
+   					 
+   				 }
+   				 
+   			 
+   			 }    
+   			 
+   			 forecastarray[6] = forecastarray[6] + _singleday
+   			 
+   		 }
+   	 }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0\s[8]\b2\f[bold,1]10 Day Forecast\f[bold,0] \n\n[half]\_q/
+    
+    %(forecastarray[0][0]): %(forecastarray[1][0])\n/
+    H:%(forecastarray[2][0])°/L:%(forecastarray[3][0])°; Wind:%(forecastarray[5][0])\n/
+    %(forecastarray[4][0])% chance of precipitation\nHumidity:%(forecastarray[6][0])%\n\n[half]/
+    
+    %(forecastarray[0][1]): %(forecastarray[1][1])\n/
+    H:%(forecastarray[2][1])°/L:%(forecastarray[3][1])°; Wind:%(forecastarray[5][1])\n/
+    %(forecastarray[4][1])% chance of precipitation\nHumidity:%(forecastarray[6][1])%\n\n[half]/
+    
+    %(forecastarray[0][2]): %(forecastarray[1][2])\n/
+    H:%(forecastarray[2][2])°/L:%(forecastarray[3][2])°; Wind:%(forecastarray[5][2])\n/
+    %(forecastarray[4][2])% chance of precipitation \nHumidity:%(forecastarray[6][2])%\n\n[half]/
+    
+    %(forecastarray[0][3]): %(forecastarray[1][3])\n/
+    H:%(forecastarray[2][3])°/L:%(forecastarray[3][3])°; Wind:%(forecastarray[5][3])\n/
+    %(forecastarray[4][3])% chance of precipitation\nHumidity:%(forecastarray[6][3])%\n\n[half]/
+    
+    %(forecastarray[0][4]): %(forecastarray[1][4])\n/
+    H:%(forecastarray[2][4])°/L:%(forecastarray[3][4])°; Wind:%(forecastarray[5][4])\n/
+    %(forecastarray[4][4])% chance of precipitation\nHumidity:%(forecastarray[6][4])%\n\n[half]/
+    
+    %(forecastarray[0][5]): %(forecastarray[1][5])\n/
+    H:%(forecastarray[2][5])°/L:%(forecastarray[3][5])°; Wind:%(forecastarray[5][5])\n/
+    %(forecastarray[4][5])% chance of precipitation\nHumidity:%(forecastarray[6][5])%\n\n[half]/
+    
+    %(forecastarray[0][6]): %(forecastarray[1][6])\n/
+    H:%(forecastarray[2][6])°/L:%(forecastarray[3][6])°; Wind:%(forecastarray[5][6])\n/
+    %(forecastarray[4][6])% chance of precipitation\nHumidity:%(forecastarray[6][6])%\n\n[half]/
+    
+    %(forecastarray[0][7]): %(forecastarray[1][7])\n/
+    H:%(forecastarray[2][7])°/L:%(forecastarray[3][7])°; Wind:%(forecastarray[5][7])\n/
+    %(forecastarray[4][7])% chance of precipitation\nHumidity:%(forecastarray[6][7])%\n\n[half]/
+    
+    %(forecastarray[0][8]): %(forecastarray[1][8])\n/
+    H:%(forecastarray[2][8])°/L:%(forecastarray[3][8])°; Wind:%(forecastarray[5][8])\n/
+    %(forecastarray[4][8])% chance of precipitation\nHumidity:%(forecastarray[6][8])%\n\n[half]/
+
+    %(forecastarray[0][9]): %(forecastarray[1][9])\n/
+    H:%(forecastarray[2][9])°/L:%(forecastarray[3][9])°; Wind:%(forecastarray[5][9])\n/
+    %(forecastarray[4][9])% chance of precipitation\nHumidity:%(forecastarray[6][9])%"
+    
+    --
+    "\n\n[half]Back to...\n\n[half]"
+    --
+    "\![*]\q[Weather menu,OnCheckWeather]\n/
+    \![*]\q[Misc menu,OnMiscMenu]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+    
+
+}
+
+
+
+//
+//hourly forecast
+OnDownloadHourly{
+
+
+    "\0\s[0]Downloading hourly forecast... \![execute,http-get,https://weather.com/weather/hourbyhour/l/%(locationcode),--async=OnHourlyFound,--file=hourly.html,--timeout=200]"
+
+
+}
+
+
+//basically copied over from the 10 day forecast function, since the two pages share some of the same data
+OnHourlyFound
+{
+    
+    //file to be read
+    _file = "var\\hourly.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _reghour=''
+    _regdesc=''
+    _regtemp=''
+    _regfeels=''
+    _regprecip=''
+    _regwind=''
+    _reghumidity=''
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //strings for holding and parsing each bit of data
+    _singleday = (IARRAY, "")
+    _temp = ""
+    
+    //2D array for forecast data
+    //(hour, description, temp,feels like, precip %, wind, humidity)
+    hourlyarray = (_singleday, _singleday)
+    
+
+
+    
+    --
+    
+    if FOPEN(_file,'r') {
+		 _buff = FREAD(_file) //get the first line of the HTML to check what type of page we got
+			temp = _buff
+			
+			if RE_SEARCH(_buff, '<html dir="ltr" lang="en-US"><head>') { //reg expressions for chrome formatted page
+				_reghour='mmary-DetailsSummary--daypartName--kbngc">(\d* [p|a]m)</h3><div data-te'
+				_regdesc='y--extendedData--307Ax">([\w|\s]*)</span></div>'
+				_regtemp='tailsSummary--tempValue--jEiXE">(-?\d*)°</span></div><div data-testid="wxIcon'
+				_regfeels='qspW">Feels Like</span><span data-testid="TemperatureValue" class="_-_-components-src-molecule-DaypartDetails-DetailsTable-DetailsTable--value--2YD0-">(-?\d*)°</span></div><'
+				_regprecip='</svg><span data-testid="PercentageValue">(\d*)%</span></div><div data-testid="'
+				_regwind='Wrapper--3Ly7c undefined">([\w|\s]*)<!-- -->([\w|\s]*)</span></div></'
+				_reghumidity='-DetailsTable-DetailsTable--value--2YD0-">(\d*)%</span></div></li><li data-testid="uvIndexSection"'
+			}
+			else {
+				//reg expressions for firefox formatted page
+				_reghour='<span class="dsx-date">(\d*:\d* [p|a]m)'
+				_regdesc='className="hidden-cell-sm description"><span>([\w|\s]*)</span>'
+				_regtemp='className="temp"><span class="">(-?\d*)<sup>'
+				_regfeels='className="feels"><span class="">(-?\d*)<sup>'
+				_regprecip='iconset-weather-data icon-drop-1"></span><span class=""><span>(\d*)<span class="Percentage__percentSymbol'
+				_regwind='className="wind"><span class="">([\w|\s]*)</span>'
+				_reghumidity='className="humidity"><span class=""><span>(\d*)<span class="Percentage__percentSymbol__2Q_AR">'
+			}
+
+
+            for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+                    
+
+
+                    //hour
+                    //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+                    if RE_GREP( _buff, _reghour ) {
+                    
+                            //clear out singleday string, use a temp string to hold the results of the regexpr search
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _reghour) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            //add singleday contents to relevant row of data in forecast array
+                            hourlyarray[0] = hourlyarray[0] + _singleday
+                            
+                    }
+                    
+                    //rinse and repeat for rest of data
+                    //desc
+                    if RE_GREP( _buff, _regdesc ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regdesc) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[1] = hourlyarray[1] + _singleday
+                            
+                    }
+
+
+                    //temp
+                    if RE_GREP( _buff, _regtemp ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regtemp) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[2] = hourlyarray[2] + _singleday
+                            
+                    }
+                    
+                    //feels like
+                    if RE_GREP( _buff, _regfeels ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regfeels) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[3] = hourlyarray[3] + _singleday
+                            
+                    }
+                    //precip
+                    if RE_GREP( _buff, _regprecip ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regprecip) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[4] = hourlyarray[4] + _singleday
+                            
+                    }
+    
+                    //wind
+                    if RE_GREP( _buff, _regwind ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regwind) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[5] = hourlyarray[5] + _singleday
+                            
+                    }
+                    
+                    //humidity
+                    if RE_GREP( _buff, _reghumidity ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _reghumidity) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[6] = hourlyarray[6] + _singleday
+                            
+                    }
+            }
+    }
+    --
+    
+    FCLOSE(_file);
+    //change dialogue as you like
+    --
+    
+    "\0\s[0]\b2\f[bold,1]Hourly Forecast\f[bold,0] \n\n[half]\_q/
+    
+    %(hourlyarray[0][0]): %(hourlyarray[1][0])\n/
+    Temp:%(hourlyarray[2][0])°; Feels like:%(hourlyarray[3][0])°; \nWind:%(hourlyarray[5][0])\n/
+    %(hourlyarray[4][0])% chance of precipitation\nHumidity:%(hourlyarray[6][0])%\n\n[half]"
+    --
+    "\![*]\q[Weather menu,OnCheckWeather]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+    
+
+
+}
+
+OnBACKTOMENU
+{
+	OpenSakuraMenu
+}
+
+//extra functions for moon phase
+OnDownloadMoonPhase
+{
+        
+    "\0\s[0]Downloading moon phase... \![execute,http-get,https://www.moongiant.com/phase/today/,--async=OnMoonFound,--file=moon.html,--timeout=200]"
+
+
+}
+
+
+OnMoonFound{
+
+
+    //file to be read
+    _file = "var\\moon.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _regphase=',"Phase: <span>([\w|\s]*)<./span>'
+    _found = 0;
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //string for holding phase
+    phase = ""
+    
+
+
+    
+    --
+    
+    if FOPEN(_file,'r') {
+            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+                    
+
+
+                    if RE_SEARCH ( _buff, _regphase ) {
+                            
+                            phase = RE_GETSTR[1]
+                            _found = 1; //break loop since we dont need to continue parsing
+                            
+                    }
+            }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0\s[0]The moon is currently in its %(phase) phase.\n\n[half]"
+    --
+    "\![*]\q[Weather menu,OnCheckWeather]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+
+
+}
+
+Select.req
+{
+	
+	"\b2What would you want?\n\n[half]\_q"
+	--
+	//"\![*]\q[Books,bookr]\n"
+	"\![*]\f[strike,1]Books\f[strike,0]\n"
+	--
+	"\![*]\q[Animes,randanime]\n"
+	--
+	//"\![*]\q[Mangas,mangar]\n"
+	"\![*]\f[strike,1]Mangas\f[strike,0]\n"
+	--
+	//"\![*]\q[Movies,mobier]\n"
+	"\![*]\f[strike,1]Movies\f[strike,0]\n"
+	--
+	//"\![*]\q[Cartoons,cartoonr]\n"
+	"\![*]\f[strike,1]Cartoons\f[strike,0]\n"
+	--
+	//"\![*]\q[Serials,serialr]\n\n[half]"
+	"\![*]\f[strike,1]Serials\f[strike,0]\n\n[half]"
+	--
+	"\![*]\q[Back to main menu,BACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.bookr
+{
+	BookLib
+	--
+	num = RAND(100)
+	--
+	"\b4\_q%(book[num][0])\n/
+	-%(book[num][1])\n\n[half]"
+	--
+	for _i=2;_i<100;_i++
+	{
+		desc += book[num][_i]
+	}
+	--
+	"%(desc)"
+	--
+	"\n\n\![*]\q[Again,bookr] or \![*]\q[cancel,CANCEL]\e"
+	desc = ""
+}
+
+Select.mangar
+{
+	MangaLib
+	--
+	num = RAND(100)
+	--
+	"\b4\_q%(manga[num][0])\n/
+	-%(manga[num][1])\n\n[half]"
+	--
+	for _i=2;_i<100;_i++
+	{
+		desc += manga[num][_i]
+	}
+	--
+	"%(desc)"
+	--
+	"\n\n\![*]\q[Again,mangar] or \![*]\q[cancel,CANCEL]\e"
+	desc = ""
+}
+
+Select.mobier
+{
+	MovieLib
+	--
+	num = RAND(100)
+	--
+	"\b4\_q%(movie[num][0])\n/
+	-%(movie[num][1])\n\n[half]"
+	--
+	for _i=2;_i<100;_i++
+	{
+		desc += movie[num][_i]
+	}
+	--
+	"%(desc)"
+	--
+	"\n\n\![*]\q[Again,mobier] or \![*]\q[cancel,CANCEL]\e"
+	desc = ""
+}
+
+Select.cartoonr
+{
+	CartoonLib
+	--
+	num = RAND(100)
+	--
+	"\b4\_q%(cartoon[num][0])\n/
+	-%(cartoon[num][1])\n\n[half]"
+	--
+	for _i=2;_i<100;_i++
+	{
+		desc += cartoon[num][_i]
+	}
+	--
+	"%(desc)"
+	--
+	"\n\n\![*]\q[Again,cartoonr] or \![*]\q[cancel,CANCEL]\e"
+	desc = ""
+}
+
+Select.serialr
+{
+	SerialLib
+	--
+	num = RAND(100)
+	--
+	"\b4\_q%(serial[num][0])\n/
+	-%(serial[num][1])\n\n[half]"
+	--
+	for _i=2;_i<100;_i++
+	{
+		desc += serial[num][_i]
+	}
+	--
+	"%(desc)"
+	--
+	"\n\n\![*]\q[Again,serialr] or \![*]\q[cancel,CANCEL]\e"
+	desc = ""
+}
+
+
+Select.gboot
+{
+	
+	glitchboot = 100
+	"REBOOT\w8\s[-1]\c\w8\w8\w8\w8\s[0]REBOOT COMPETE"
+	username = truename
+	userbirthday = truebirth 
+	presuffix = truepresuffix
+	himher = truehimher
+	heshe = trueheshe
+	hisher = truehisher
+}
+
+Select.log
+{
+	
+	logpage = 1
+	"SEARCHING FOR LOGS\w8\w8\w8\w8\w8\w8\cLOGS:\n%(logdisplay)"
+}
+
+Select.rebot
+{
+	
+	if tentruth == 1
+	{
+		"REBOOT\w8\s[-1]\c\w8\w8\w8\w8\s[0]REBOOT COMPETE"
+		tentruth = 2
+		username = truename
+		userbirthday = truebirth 
+		presuffix = truepresuffix
+		himher = truehimher
+		heshe = trueheshe
+		hisher = truehisher
+	}
+	elseif tentruth == 2
+	{
+		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\s[-1]\c\w8\w8\w8\w8\s[0]R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛ COMPETE"
+		tentruth = 1
+	}
+}
+
+Select.ques
+{
+	
+ 	"\b2What would you like to know?\n\n[half]"
+	--
+	if tentruth == 1
+	{
+		"\![*]\q[A̵͈͊.̵͔̚R̶̠̽.̵͇̀Ỉ̶͇,ariq]\n/
+		\![*]\q[MiniDev,mdevq]\n/
+		\![*]\q[Functions,funq]\n/
+		\![*]\q[Shortcut keys,skeyq]\n"
+		--
+		if scode == 1
+		{
+			"\![*]\q[Serial codes,secode]"
+		}
+		--
+		if truth >= 3
+		{
+			"\![*]\q[M̷̯̅-̷͚̎2̴̛ͅ0̵̺̅1̵̫͠z̴̤̃,m201z]"
+		}
+	}
+	else
+	{
+		
+		"\![*]\q[A.R.I,ariq]\n/
+		\![*]\q[MiniDev,mdevq]\n/
+		\![*]\q[Functions,funq]\n/
+		\![*]\q[Shortcut keys,skeyq]\n"
+		--
+		if scode == 1
+		{
+			"\![*]\q[Serial codes,secode]\n"
+		}
+		--
+		if truth >= 1
+		{
+			"\![*]\q[M-201z,m201z]\n"
+		}
+		--
+		if truth >= 1
+		{
+			"\![*]\q[Generation z,mz]\n"
+		}
+	}
+	--
+	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.funq
+{
+	"\b2Which feature are you curious about?\n\n[half]"
+	--
+	"\![*]\q[To-Do list,OnFunInfo,to-od]\n/
+	\![*]\q[Apps,OnFunInfo,apps]\n/
+	\![*]\q[Projects,OnFunInfo,projects]\n/
+	\![*]\q[Logs,OnFunInfo,logs]\n/
+	\![*]\q[Quick Tools,OnFunInfo,quick tool]\n\n[half]"
+	--
+	"\![*]\q[Back,ques]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnFunInfo
+{
+	case reference0
+	{
+		when "tool"
+		{
+			"Quick tools are shortcuts for my functions\x\cYou can customize them in the config menu\e"
+		}
+		when "logs"
+		{
+			"To acces your logs choose in menu 'User Logs' or click on a quick tool\x\cYou can use logs as a notes, jorunal or anything else of you choice\e"
+		}
+		when "to-od"
+		{
+			"To acces To-Do list you need to go to function menu and choose 'To-Do List' or click on a quick tool\x\cTo make a task click '+' and name the task. You don't need to number them,\w3 I do it automatically\x\cTo delete task click '-'\w3 and then click on a task you want to delete,\w4 you can only delete task that are undone that way\x\cTo delete a task marked as done click 'delete'\x\cTo mark task as done click on it\w3 (make sure that '-' is white)\e"
+		}
+		when "apps"
+		{
+			"To acces your apps choose in menu 'Open apps or projects'\x\cTo add apps to list you can drop a shortcut for them on me and i will automatically add them to your list\x\cTo open an app click it's name in the app menu\x\cTo delete an app click '-' and click on the app you want to delete\x\cTo rename an app click 'RENAME' and click on the app you want to rename"
+		}
+		when "projects"
+		{
+			"To acces your projects choose in menu 'Open apps or projects'\x\cTo add projects to list you can drop them on me and i will automatically add them to your list (if their extension is on the extension list)\x\cTo open a project click it's name in the project menu\x\cTo delete a projects click '-' and click on the project you want to delete\x\cTo rename a project click 'RENAME' and click on the project you want to rename"
+		}
+	}
+	--
+	"\n\![*]\q[Back to questions,funq] or \![*]\q[I'm Done,CANCEL]\e"
+
+}
+
+Select.mz
+{
+	truth += 1
+	--
+	{
+		"ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
+	}
+		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE"
+		"ERROR\w8\w8\w8GENERATION NOT FOUND"
+	{
+		"ERROR\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE\x\c\0\s[0]Hello there human!\x\c My code is M̴̨̹̭̯͖̥̱̪͗̎̄̈̏͑̇͂͆̽͑̂̄͠-̶̨̛̺̲͖͉͔̮̺̺̤̼̌̀2̷̧̣̲͈̦̖̞̞͇̗̭̐͛͛̾͐̂͛̊̉́͘͜͜1̷͔̦̘͚͈͕̹̒͂̋̈́͂̅̃͑̈́̅̐8̵͔͔̭̯̥̮̪̼͈̘͚̙̲̰̽͊̾̒͋̄̐͑́̊̚͠͝Ṕ̴̡̜̘͉͉̤̘̳̦̬̠̿̄̑͛̋͊͋̌̕͠\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by \_qẠ̶̯̘́͆̔̏͋͘͜Å̸̝̹͓̙̾͑̓̿̂͆̒̂͋̅̚͘͠A̴̰̤̥͎̥̗͔͔̯̠̝̤͕̺͒̒́͛̈́̈́̾Ą̶̡̧̛̮̤̻͉̻͉̺̖̳̐̄̓̏̉͐̀̾͆̈́̽̓̚̕Ä̸̭̖͕̟̻̘́͗̅͗̉͊͊̚͠Ȃ̵̛͇͕̠̣̥͈̼̙͇͔̳̗͑̿͋͊̓͝A̷͉̜̥͗̏̆͘Ą̵̨̣̭̱̱̼͎̜̟́̾͒͐̂͜ͅ\_qA̶̫̳̯͖̫͍̜͈͊̋̍̚ͅÁ̷̢̹̥͚̝͙̈́̏͜Ä̴̛͇́̋͗̈́̄̓̓̀̚̕ͅÂ̵̩̮̪͓̲̘Â̵̗A̵̡̡̮͕̱͍̜̜͇̣̬̐͗A̸͇̪̽͝\_qẠ̷͈̲̟̹̞̖̖͕̲̤͚͓͆̎͆͋̉̀͋A̶̧̫̖͖̤̣͇̓A̴̛͈̺͉̪̜͇̭͖͗͛́͑̍͂̓̓̆̒͠A̷̹̺̜͇͛͝ͅ\_qA̸͚͋̓͐̍̓̅̀̄̐̽̍̊̚̕͝Å̷̢̘̘͔͔̿͠A̵̧̹͋̉̾̾̎̿̅̃͘͝A̵̧̳̲̥͚̣͔̩͗̀͐͝ͅĄ̷̭̟̭̬̱̼̑̌͂͠Ă̷̙\_qÄ̶̧̧̹̖͈̖̟̙̭̺̹͇́͌̕ͅĄ̴̢̹̜̩̘͍̜̼̮̱̍̑̊̚̚͠ͅḀ̷̢̛̲̱̃̓̔͒́̿͂͂̌̄͗̋͘̚Ą̶̛̲̖̥̠̘̜̳̟͆͊͂̿͐̾͝Â̶̬͒̏͂͐̔̈́͗̊̿̓͘͘̚͝Ḁ̵͎̫̪̖̻̤̭͎̘̳̫͙̤̿̓̅̈͗̀̔̏\_qẮ̶̡̰̰̪̼̦̝͚̗̻̹͚̆̀̀̎̾͘̕ͅA̶̧̨͓͇̰̦̯̪̪̤̳͓̩̅̓̚͜͠ͅÄ̸̧͙̫̭̲̺͖̙͙̪̻̺̼͗̍͐͂̎͑͗̾̀͂͒͗́͜ͅA̴̛̲̱̜̯̟͇̖̐͂͛̂̌̂͛̇̌̋͆̚A̴̧̟̙̺̹͍̰͎͇̣͖̚͜A̵̡̧͈͎͇̥̞͌̄͆͑̔̇͛̈͊̕͝͝\_qA̷̠̪̰̳̅̊̂̏͆A̴̟̗̠̩̪̝̜̼͌̆ͅA̶̡̨̯̼̤̓͋͊̾́̚͝"
+		--
+		"\-\e"
+	}
+
+}
+
+Select.ariq
+{
+	
+	if tentruth == 1
+	{
+		"\0A̶̠͐.̴͖̅R̴͍̕.̷̢͒I̵̧̎ stands for L̶̼̏İ̶̭A̷͇͝Ṛ̷͘Ṣ̸̋ ̵̰̉,\w8 You bought me from them, d̵͔̾i̷̘͊d̸̃ͅn̷̨̾'̷̺̆ť̵͉ ̸͇̈́ỳ̵̯o̷̼͌u̶̱͛?\e"
+		"\0It's a company selling L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ.\w8 L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ, L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ, L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ and many more!\e"
+		"\0It's an international company selling s̴̱̍l̵͔̊a̶͇͋v̵̺̔ë̴͎s̸̳̈́.\e"
+	}
+	else
+	{
+		"\0A.R.I stands for 'Assistant Robots International' of course,\w8 You bought me from them, didn't you?\e"
+		"\0It's a company selling assistant robots.\w8 Roombas, AI, ChatBots and many more!\e"
+		"\0It's an international company selling robots and AI software.\e"
+	}
+}
+
+Select.mdevq
+{
+	
+	scode = 1
+	--
+	if tentruth == 1
+	{
+		"\0My serial code is M̴͈̚-̸̻͆2̴̣̇0̷͉̓1̵̫̈z̶̭͝,\w3 which basically means\w5 I'm 2̴̣̇0̷͉̓1̵̫̈ s̴̱̍l̵͔̊a̶͇͋v̵̺̔ë̴͎ of z̶̨̢̛̛̜͎̯͓̹̘̳̣͖͊́̂̅̓̈́̏̑͋̈̉̊͘͠ generation.\e"
+	}
+	else
+	{
+		{				
+			truth += 1
+			"\0My serial code is M̴͈̚-̸̻͆2̴̣̇0̷͉̓1̵̫̈z̶̭͝,\w3 which basically means\w5 I'm software number %(modelp) of Pgeneratione"
+		}		
+		"\0My serial code is M-%(modelp)P,\w3 which basically means\w5 I'm software number %(modelp) of Pgeneration\e"
+	}
+	
+}
+
+Select.skeyq
+{
+	"Click 't' and i will say something\x\cclick 'r' and i will repeat what i said\x\cclick 'f1' to open software description\x\cclick 'b' for binary\x\cclick 'z' to open your logs"
+}
+
+Select.secode
+{
+	
+	serialnum = RAND(500)
+	gener = "%(gen)"
+	--
+	if serialnum == 201 && gener == "z"
+	{
+			truth += 1
+			"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
+	}
+		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '%(serialnum)' and then generation, for example '%(gener)',\w5 marking complexity of certain model\x\cJoining them you get M-%(serialnum)%(gener)\e"
+
+	{
+		truth += 1
+		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
+	}
+}
+
+Select.m201z
+{
+	
+	truth += 1
+	--
+	{
+		"ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
+		--
+		"\-\e"
+	}
+		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE"
+		"ERROR\w8\w8\w8SERIAL CODE DOESN'T EXIST"
+	{
+		"ERROR\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE\x\c\0\s[0]Hello there human!\x\c My code is M̴̨̹̭̯͖̥̱̪͗̎̄̈̏͑̇͂͆̽͑̂̄͠-̶̨̛̺̲͖͉͔̮̺̺̤̼̌̀2̷̧̣̲͈̦̖̞̞͇̗̭̐͛͛̾͐̂͛̊̉́͘͜͜1̷͔̦̘͚͈͕̹̒͂̋̈́͂̅̃͑̈́̅̐8̵͔͔̭̯̥̮̪̼͈̘͚̙̲̰̽͊̾̒͋̄̐͑́̊̚͠͝Ṕ̴̡̜̘͉͉̤̘̳̦̬̠̿̄̑͛̋͊͋̌̕͠\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by \_qẠ̶̯̘́͆̔̏͋͘͜Å̸̝̹͓̙̾͑̓̿̂͆̒̂͋̅̚͘͠A̴̰̤̥͎̥̗͔͔̯̠̝̤͕̺͒̒́͛̈́̈́̾Ą̶̡̧̛̮̤̻͉̻͉̺̖̳̐̄̓̏̉͐̀̾͆̈́̽̓̚̕Ä̸̭̖͕̟̻̘́͗̅͗̉͊͊̚͠Ȃ̵̛͇͕̠̣̥͈̼̙͇͔̳̗͑̿͋͊̓͝A̷͉̜̥͗̏̆͘Ą̵̨̣̭̱̱̼͎̜̟́̾͒͐̂͜ͅ\_qA̶̫̳̯͖̫͍̜͈͊̋̍̚ͅÁ̷̢̹̥͚̝͙̈́̏͜Ä̴̛͇́̋͗̈́̄̓̓̀̚̕ͅÂ̵̩̮̪͓̲̘Â̵̗A̵̡̡̮͕̱͍̜̜͇̣̬̐͗A̸͇̪̽͝\_qẠ̷͈̲̟̹̞̖̖͕̲̤͚͓͆̎͆͋̉̀͋A̶̧̫̖͖̤̣͇̓A̴̛͈̺͉̪̜͇̭͖͗͛́͑̍͂̓̓̆̒͠A̷̹̺̜͇͛͝ͅ\_qA̸͚͋̓͐̍̓̅̀̄̐̽̍̊̚̕͝Å̷̢̘̘͔͔̿͠A̵̧̹͋̉̾̾̎̿̅̃͘͝A̵̧̳̲̥͚̣͔̩͗̀͐͝ͅĄ̷̭̟̭̬̱̼̑̌͂͠Ă̷̙\_qÄ̶̧̧̹̖͈̖̟̙̭̺̹͇́͌̕ͅĄ̴̢̹̜̩̘͍̜̼̮̱̍̑̊̚̚͠ͅḀ̷̢̛̲̱̃̓̔͒́̿͂͂̌̄͗̋͘̚Ą̶̛̲̖̥̠̘̜̳̟͆͊͂̿͐̾͝Â̶̬͒̏͂͐̔̈́͗̊̿̓͘͘̚͝Ḁ̵͎̫̪̖̻̤̭͎̘̳̫͙̤̿̓̅̈͗̀̔̏\_qẮ̶̡̰̰̪̼̦̝͚̗̻̹͚̆̀̀̎̾͘̕ͅA̶̧̨͓͇̰̦̯̪̪̤̳͓̩̅̓̚͜͠ͅÄ̸̧͙̫̭̲̺͖̙͙̪̻̺̼͗̍͐͂̎͑͗̾̀͂͒͗́͜ͅA̴̛̲̱̜̯̟͇̖̐͂͛̂̌̂͛̇̌̋͆̚A̴̧̟̙̺̹͍̰͎͇̣͖̚͜A̵̡̧͈͎͇̥̞͌̄͆͑̔̇͛̈͊̕͝͝\_qA̷̠̪̰̳̅̊̂̏͆A̴̟̗̠̩̪̝̜̼͌̆ͅA̶̡̨̯̼̤̓͋͊̾́̚͝"
+		--
+		"\-\e"
+	}
+}
+
+//\![*]\q[Lessons,leson]\n/
+Select.stats
+{
+	
+	"Chose statistics:"
+	--
+	"\n\n\_q\![*]\q[Ghost Usage,gusage]\n/
+	\![*]\q[Balloon Usage,busage]\x\e"
+}
+
+Select.gusage
+{
+	"\![open,rateofusegraph]\e"
+}
+
+Select.busage
+{
+	"\![open,rateofusegraphballoon]\e"
+}
+
+Select.altalk
+{
+	AiTalk
+}
+
+OnLastTalk 
+{
+	
+	"%(lastTalk)\e"
+}
+
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else
+	{"Sat"}
+}
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+	{
+		"AM"
+	}
+ 	else
+	{
+		"PM"
+	}
+}
+
+
+Getnowmin
+{
+	if minute >= 0 && minute <=9
+	{
+		"0%(minute)"
+	}
+	else
+	{
+		"%(minute)"
+	}
+}
+
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9
+	{
+		"0%(hour12)"
+	}
+	else
+	{
+		"%(hour12)"
+	}
+}
+
+Select.BACKTOMENU
+{
+	MenuRun
+}
+
+Select.CANCEL
+{
+	"\0\s[0]Okay\e"
+}
+
+Select.dosomething
+{
+	
+	"\0\s[0]\b2What shall I do?\n\n"
+	--
+	"\_q\![*]\q[Open Calendar,CALENDAR]\n/
+	\![*]\q[Weather,weath]\n/
+	\![*]\q[To-Do list,todo]\n/
+	\![*]\q[Statistics,stats]\n/
+	\![*]\q[Check Email,MailCheck]\n/
+	\![*]\q[Open SSP Preferences,sspconfig]\n/
+	\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
+	\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+
+Select.todo
+{
+	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
+
+	"\_q\1\b[4]"
+	--
+	taskforpage = ''
+	--
+		"\*\f[bold,1]%(namepage)\n\n[half]\f[bold,0]"
+		--
+		"Number of Tasks: \f[bold,1]%(taskamount)\f[bold,0]\n\n[half]"
+		--
+		for _i=1;_i<=taskamount;_i++
+		{
+			if "\f[strike,1]" _in_ todos[_i]
+			{
+				taskforpage +=  _i + ". " + todos[_i] + "\n"
+			}
+			else
+			{
+				taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
+			}
+		}
+		--
+		"%(taskforpage)"
+		--
+		"\n\f[height,20]\q[+,qcrtsk] | "
+		--
+		if deltasks != 1
+		{
+			"\q[-,crtsk]\n"
+		}
+		else
+		{
+			"\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
+		}
+		
+		--
+		"\f[height,10]\q[Clear page,delpage]  | \q[Rename Page,repage] | \q[Delete,deltask]\n\n[half]/
+		\![*]\q[Close,closetodo]\f[height,default]\e"
+}
+
+Select.crtsk
+{
+	if deltasks != 1
+	{
+		deltasks = 1
+	}
+	else
+	{
+		deltasks = 0
+	}
+	--
+	Select.todo
+}
+
+Select.deltask
+{
+	"\_qWrite number of a task you want to delete\![open,inputbox,OnDelTask,-1]"
+}
+
+OnDelTask
+{
+	todos[rederence0] = ''
+	taskamount -= 1
+	--
+	Select.todo
+}
+
+Select.repage
+{
+	"\_q\![open,inputbox,OnRename,-1]"
+}
+
+OnRename
+{
+	namepage = reference0
+	--
+	Select.todo
+}
+
+OnMarkTask
+{
+	done = TOINT(reference0)
+	--
+	if deltasks !=1
+	{
+		todos[done] = '\f[strike,1]' + todos[done] + '\f[strike,0]'
+	}
+	else
+	{
+		todos[done] = ""
+		taskamount -= 1
+		deltasks = 0
+
+	}
+	--
+	Select.todo
+}
+
+Select.closetodo
+{
+
+}
+
+Select.qcrtsk
+{
+	
+	"\![open,inputbox,OnNamedTask,-1]"
+}
+
+
+OnNamedTask
+{
+	tasktosave = reference0
+	taskamount += 1
+	todos[taskamount] = tasktosave
+	--
+	Select.todo
+}
+
+Select.pretodo
+{
+	pagenum -=1
+	--
+	Select.todo
+}
+
+Select.netodo
+{
+	pagenum += 1
+	--
+	Select.todo
+}
+
+Select.delpage
+{
+	for _i=1;_i<=taskamount;_i++
+	{
+		todos[_i] = ''
+	}
+	--
+	taskamount = 0
+	--
+	Select.todo
+}
+
+Select.weath
+{
+	OnCheckWeather
+}
+
+Select.CALENDAR
+{
+	
+	"\0\s[0]Opening the calender.\![open,calendar]\e"
+}
+
+Select.sspconfig
+{
+	
+	"\0\s[0]Opening the SSP config menu.\![open,configurationdialog]\e"
+}
+
+Select.ChoiceGarbagecan
+{
+	
+	_gomicheck = FUNCTIONEX("saori\\gomi.dll", "-n")	
+
+	if _gomicheck == 0 
+	{
+		"\0\s[0]You want me to empty your garbage?\w8Okay\w8\w8\w8\s[-1]\w8\w8\w8\w8It's empty already\e"
+		
+	}
+	elseif _gomicheck >= 1 
+	{
+		"\0\s[0]You want me to empty your garbage?\w8Okay\w8\w8\w8\s[-1]\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[0]\cDone.\e"
+	}
+}
+
+
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("saori\\gomi.dll", "-f")
+}
+
+Select.ChoiceSystemInformation
+{
+	
+	os_name = FUNCTIONEX("saori\\saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori\\saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori\\saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori\\saori_cpuid.dll","cpu.clockex")
+	--
+	"/
+	\0\s[0]\b[2]\_q/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+	
+Select.MailCheck
+{
+	
+	"\![biff]\e"
+}
+
+
+Select.HEADLINECANCEL
+{
+	
+	"\0\s[0]Finished with headlines.\e"
+}
+
+OnChoiceTimeout
+{
+	"\0\s[0]So you're just killing time?\e"
+}
+
+OnZodiacCheck
+{
+	askzoidac = 0
+	zodiaccheck = 1
+	if bornmonth == 1 
+	{
+		if bornday >= 20
+		{
+			zodiac = "aquarius"
+		}
+		else
+		{
+			zodiac = "capricorn"
+		}
+	}
+	elseif bornmonth == 2 
+	{
+		if bornday >= 19
+		{
+			zodiac = "pisces"
+		}
+		else
+		{
+			zodiac = "aquarius"
+		}
+	}
+	elseif bornmonth == 3 
+	{
+		if bornday >= 21
+		{
+			zodiac = "aries"
+		}
+		else
+		{
+			zodiac = "pisces"
+		}
+	}
+	elseif bornmonth == 4 
+	{
+		if bornday >= 20
+		{
+			zodiac = "taurus"
+		}
+		else
+		{
+			zodiac = "aries"
+		}
+	}
+	elseif bornmonth == 5 
+	{
+		if bornday >= 21
+		{
+			zodiac = "gemini"
+		}
+		else
+		{
+			zodiac = "taurus"
+		}	
+	}
+	elseif bornmonth == 6 
+	{
+		if bornday >= 21
+		{
+			zodiac = "cancer"
+		}
+		else
+		{
+			zodiac = "gemini"
+		}
+	}
+	elseif bornmonth == 7 
+	{
+		if bornday >= 23
+		{
+			zodiac = "leo"
+		}
+		else
+		{
+			zodiac = "cancer"
+		}	
+	}
+	elseif bornmonth == 8 
+	{
+		if bornday >= 23
+		{
+			zodiac = "virgo"
+		}
+		else
+		{
+			zodiac = "leo"
+		}	
+	}
+	elseif bornmonth == 9 
+	{
+		if bornday >= 23
+		{
+			zodiac = "libra"
+		}
+		else
+		{
+			zodiac = "virgo"
+		}	
+	}
+	elseif bornmonth == 10 
+	{
+		if bornday >= 23
+		{
+			zodiac = "scorpio"
+		}
+		else
+		{
+			zodiac = "libra"
+		}	
+	}
+	elseif bornmonth == 11 
+	{
+		if bornday >= 22
+		{
+			zodiac = "sagittarius"
+		}
+		else
+		{
+			zodiac = "scorpio"
+		}	
+	}
+	elseif bornmonth == 12 
+	{
+		if bornday >= 22
+		{
+			zodiac = "capricorn"
+		}
+		else
+		{
+			zodiac = "sagittarius"
+		}	
+	}
+	else
+	{
+		zodiac = "NULL"
+	}
+}
+
+
+OnAI
+{
+	
+	AI = "ON"
+	"EXPERIMENTAL AI CHAT ON"
+}
+
+Select.oapp
+{
+	/*if apps != 1
+	{
+		"To open app you need to place shortcut for it in the folder\![open,file,app]\x\cRemember to name it something you will remember"
+		apps = 1
+	}
+	else
+	{	
+		"What app do you want to open?\![open,inputbox,OnOpenApp,-1]"
+	}*/
+	appcontent = ""
+	appcontent +="\f[bold,1]\_q\b[4]Your apps\f[bold,0]:\n\n"
+	--
+	_apps = FENUM('app','+')
+	if _apps == ""
+	{
+		appcontent +="\f[bold,1]You don't have any apps\f[bold,0]\nTo open app you need to place shortcut for it in the folder\![open,file,app]"
+	}
+	else
+	{
+		_trueapp = RE_SPLIT(_apps,'+')
+		_apps = REPLACE(_apps,'.lnk','')
+		_apps = RE_REPLACE(_apps,'.url','')
+		_apps = RE_SPLIT(_apps,'+')
+		--
+		for _i=0;_i<ARRAYSIZE(_apps);_i++
+		{
+			appcontent += "\q[" + TOUPPER(_apps[_i]) + ",OnOpenAPPP," + _apps[_i] + "," + _trueapp[_i] +"]\n"
+		}
+		
+	}
+	--
+	appcontent +="\n\f[bold,1]\b[4]Your projects\f[bold,0]:\n\n"
+	--
+
+	_proj = FENUM('projects','+')
+	if _proj == ""
+	{
+		appcontent +="\f[bold,1]You don't have any projects\f[bold,0]\n\![open,file,pojects]"
+	}
+	else
+	{
+		_tureproj = _proj
+		_proj = REPLACE(_proj,'.png','')
+		_proj = RE_REPLACE(_proj,'.sai2','')
+		_proj = RE_REPLACE(_proj,'.sai','')
+		_proj = RE_REPLACE(_proj,'.mdp','')
+		_proj = RE_REPLACE(_proj,'.kra','')
+		_proj = RE_REPLACE(_proj,'.blend','')
+		_proj = RE_SPLIT(_proj,'+')
+		_tureproj = RE_SPLIT(_tureproj,'+')
+		--
+		for _i=0;_i<ARRAYSIZE(_proj);_i++
+		{
+			appcontent += "\q[" + TOUPPER(_proj[_i]) + ",OnOpenPRJ," + _tureproj[_i] + ","+ _proj[_i] + "]\n"
+		}
+		
+	}
+	--
+	if delapp == "ON"
+	{
+		appcontent += "\f[size,20]\n\f[color,230, 39, 25]\q[-,delap]\f[color,default] | \f[size,default]"
+
+	}
+	else
+	{
+		appcontent += "\f[size,20]\n\q[-,delap] | \f[size,default]"
+	}
+	--
+	if editap == "ON"
+	{
+		appcontent += "\f[color,230, 39, 25]\q[RENAME,edap]\f[color,default]"
+
+	}
+	else
+	{
+		appcontent += "\q[RENAME,edap]"
+	}
+	--
+	appcontent += "\n[half]\n\![*]\q[ADD PROJECT TYPE,projtype]\n[half]\n\![*]\q[Nevermind,CANCEL]\n"
+	--
+	appcontent
+}
+
+Select.delap
+{
+	if delapp == "ON"
+	{
+		delapp = "OFF"
+	}
+	else
+	{
+		delapp = "ON"
+		editap = "OFF"
+	}
+	--
+	Select.oapp
+}
+
+Select.edap
+{
+	if editap == "ON"
+	{
+		editap = "OFF"
+	}
+	else
+	{
+		editap = "ON"
+		delapp = "OFF"
+	}
+	--
+	Select.oapp
+}
+
+Select.projtype
+{
+	projtyp = SPLIT(projecttypes,' ')
+	prtypcontent = ""
+	prtypcontent += "\_q\b[2]CURRENT TYPES (CLICK TO DELETE):\n"
+	--
+	for _i=0;_i<ARRAYSIZE(projtyp);_i++
+	{
+		if projtyp[_i] != ""
+		{	
+			prtypcontent += "\![*] \q[" + TOUPPER(projtyp[_i]) + ",OnProject_del," + projtyp[_i] + "]\n"
+		}	
+	}
+	--
+	prtypcontent += "\n\![*]\q[ADD TYPE,OnProject_ADD]"
+	--
+	prtypcontent += "\n[half]\f[bold,1]\n\![*]\q[GO BACK,oapp]\f[bold,0] OR \![*]\f[bold,1]\q[CANCEL,CANCEL]\f[bold,0]\n"
+	--
+	prtypcontent
+}
+
+OnProject_del
+{
+	projecttypes = REPLACE(projecttypes,reference0,NULL,1)
+	--
+	Select.projtype
+}
+
+OnProject_ADD
+{
+		"\![open,inputbox,OnProject_ADDED,-1]"
+}
+
+OnProject_ADDED
+{
+	projecttypes += " " + REPLACE(TOLOWER(reference0),".",NULL,1)
+	--
+	Select.projtype
+}
+
+OnOpenPRJ
+{
+	projectthing = reference0
+	--
+	if delapp == "ON"
+	{
+		FDEL("projects/%(reference0)")
+		--
+		"\c"
+	}
+	elseif editap == "ON"
+	{
+		"\![open,inputbox,OnRePro,-1]"
+	}
+	else
+	{
+		"\![open,file,projects/%(reference0)]"
+	}
+	--
+	Select.oapp
+}
+
+OnOpenAPPP
+{
+	appthing = reference0
+	appthing2 = reference1
+	--
+	if delapp == "ON"
+	{
+		FDEL("app/%(reference1)")
+		--
+		"\c"
+	}
+	elseif editap == "ON"
+	{
+		"\![open,inputbox,OnReApp,-1]"
+	}
+	else
+	{
+		"\![open,file,app/%(reference0)]"
+	}
+	--
+	Select.oapp
+}
+
+OnReApp
+{
+	editap = "OFF"
+	appre = SPLIT(appthing2,".")
+	FRENAME("app/%(appre[0]).%(appre[1])","app/" +reference0 + "." + appre[1])
+	--
+	"\c"
+	--
+	Select.oapp
+}
+
+OnRePro
+{
+	editap = "OFF"
+	projectre = SPLIT(projectthing,".")
+	FRENAME("projects/%(projectre[0]).%(projectre[1])","projects/" + reference0 + "." + projectre[1])
+	--
+	"\c"
+	--
+	Select.oapp
+}
+
+
+Select.randanime
+{
+	animerand = RAND(1400)
+	animerecom = "\_q\0\b[4]\*"
+	animes = 0
+    --
+    "\![execute,http-get,https://www.randomanime.org/anime/%(animerand)/,--async=OnAnimeRand,--file=rananime.html,--timeout=200]"
+}
+
+OnAnimeRand
+{
+        
+    _file = "var\\rananime.html"
+    _buff=""
+	_reganimename = '<span class="fluid-top-header" itemprop="name">(.*)<'
+    _reganimegenre = '<li itemprop="genre">(.*)</ul>'
+	_regepnum = '<p itemprop="numberOfEpisodes">(.*)</p>'
+    animename = ''
+    animegenre = ''
+	epnum = ''
+    _found = 0
+    FCHARSET(1)
+    --
+    
+    if FOPEN(_file,'r') {
+		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+
+			if RE_SEARCH ( _buff, _reganimename ) {
+					
+				animename = RE_GETSTR[1]
+			}
+			--               
+			if RE_SEARCH ( _buff, _reganimegenre ) {
+					
+				animegenre = RE_GETSTR[1]    
+				animegenre = REPLACE(animegenre,'</li>',' ')
+				animegenre = REPLACE(animegenre,'<li itemprop="genre">',' ')
+			}
+			--
+			if RE_SEARCH ( _buff, _regepnum ) {
+					
+				epnum = RE_GETSTR[1]    
+			}
+		}
+    }
+    --
+    FCLOSE(_file);
+	--
+    animerecom += "\f[bold,1]" + animename + "\nEpisodes: " + epnum + "\f[bold,0]\n\f[size,10]" + animegenre + "\f[size,default]\n\n"
+	animes++
+	--
+	if animes != 5
+	{
+		animerand = RAND(1400)
+		--
+		"\_qSearching for anime . . . \![execute,http-get,https://www.randomanime.org/anime/%(animerand)/,--async=OnAnimeRand,--file=rananime.html,--timeout=200]"
+	}
+	else
+	{
+		animerecom
+	}
+	
+}
