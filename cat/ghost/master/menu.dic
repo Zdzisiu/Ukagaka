@@ -236,6 +236,8 @@ Select.TalksTill
 	{
 		"Meow"
 	}
+	--
+	TalkConfig
 }
 
 
@@ -259,7 +261,7 @@ Select.TALKHIGH
 {
 	talktime = "minute"
 	aitalkinterval = 90
-	
+	--
 	if silence != "ON" 
 	{
 		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
@@ -292,7 +294,7 @@ Select.TALKPOOR
 {
 	talktime = "5 minutes"
 	aitalkinterval = 400
-	
+	--
 	if silence != "ON" 
 	{
 		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
@@ -345,7 +347,7 @@ Select.dosomething
 { 
 	if silence != "ON" 
 	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]"
 	}
 	else
 	{
