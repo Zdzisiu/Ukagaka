@@ -1,11 +1,6 @@
-﻿OnMenuback
+﻿OpenSakuraMenu
 {
-	OpenSakuraMenu
-}
-
-OpenSakuraMenu
-{
-	"\_q\b2%(ch)..."
+	"\_q\b4%(ch)..."
 	--
 	MenuRun
 }
@@ -17,7 +12,7 @@ MenuRun
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
-	"\n" 
+	"\n\n" 
 	--
 	if lastTalk != "" 
 	{
@@ -30,13 +25,11 @@ MenuRun
 	\![*]\q[Generators,generators]\n/
 	\![*]\q[World Planning,worldplan]\n/
 	\![*]\q[Images,imglib]\n/
-	\![*]\q[Ask,askomega]\n"
-	--
-	"\![*]\q[Update English Dictionary,updatelib]\n\n[half]"
+	\![*]\q[Ask,askomega]\n\n[half]"
 	--
 	"\![*]\q[Config Menu,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n\n[half]/
- 	\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+ 	\![*]\q[Nevermind,CANCEL]\n\n%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 }
 
 Select.askomega
@@ -53,7 +46,7 @@ Select.askomega
 	--
 	"\![*]\q[Who are you?,OnAskOmega,him]\n/
 	\![*]\q[How old are you?,OnAskOmega,age]\n/
-	\n\n[half]\![*]\q[Nevermind,Cancel] or \![*]\q[Go back,OnMenuback]\e"
+	\n\n[half]\![*]\q[Nevermind,Cancel] or \![*]\q[Go back,BACKTOMENU]\e"
 }
 
 OnAskOmega
@@ -62,35 +55,35 @@ OnAskOmega
 	{
 		when "port"
 		{
-			"%(ch)Make a portrait according to this\![open,file,template.png] templates size, when you upload it, it will be shown above all info"
+			"%(ch)Make a portrait according to this\![open,file,template.png] templates size, when you upload it, it will be shown above all info."
 		}
 		when "map"
 		{
-			"%(ch)To show maps click 'show map', on the bottom of the info"
+			"%(ch)To show maps click 'show map', on the bottom of the info."
 		}
 		when "ref"
 		{
-			"%(ch)You can have one main reference sheet that you will be able to access directly for the page, the rest is saved separatly"
+			"%(ch)You can have one main reference sheet that you will be able to access directly for the page, the rest is saved separatly."
 		}
 		when "imgs"
 		{
-			"\b4%(ch)If you want me to save an image you have to drop it on me\n\n[half]If you want to upload a portrait name the image the same as the character/plant/animal/place/item\n\n[half]If you want to save a map name the image like the country/place or add '_map' to the end\n\n[half]If you want to save a reference sheet add '_ref' to the end of the images name.\n\n[half]Any other images I can save in one of my books if you want me to do it"
+			"\b4%(ch)If you want me to save an image you have to drop it on me.\n\n[half]If you want to upload a portrait name the image the same as the character/plant/animal/place/item.\n\n[half]If you want to save a map name the image like the country/place or add '_map' to the end.\n\n[half]If you want to save a reference sheet add '_ref' to the end of the images name.\n\n[half]Any other images I can save in one of my books if you want me to do it."
 		}
 		when "law"
 		{
-			"%(ch)To delete a law click on 'remove law' and then on the number of the law you want to delete"
+			"%(ch)To delete a law click on 'remove law' and then on the number of the law you want to delete."
 		}
 		when "him"
 		{
-			"%(ch)I'm a librarian"
-			"%(ch)I'm a guardian"
-			"%(ch)I'm gods servant"
+			"%(ch)I'm a librarian."
+			"%(ch)I'm a guardian."
+			"%(ch)I'm gods servant."
 		}
 		when "age"
 		{
-			"%(ch)Age doesn't matter when you are already dead"
-			"%(ch)Guardians live outside of time"
-			"%(ch)I don't know but it doesn't really matter"
+			"%(ch)Age doesn't matter when you are already dead."
+			"%(ch)Guardians live outside of time."
+			"%(ch)I don't know but it doesn't really matter."
 		}
 	}
 	--
@@ -146,7 +139,7 @@ Select.imglib
 		imglist += "\q[RENAME,edig]"
 	}
 	--
-	imglist += "\n[half]\n\![*]\q[Nevermind,CANCEL] or \![*]\q[Go Back,OnMenuback]\n"
+	imglist += "\n[half]\n\![*]\q[Nevermind,CANCEL] or \![*]\q[Go Back,BACKTOMENU]\n"
 	--
 	imglist
 }
@@ -228,8 +221,9 @@ Select.langstuff
 	--
 	"\![*]\q[Generator Config,OnGenConfig,config]\n/
 	\![*]\q[Languages,OnLanguages]\n/
+	\![*]\q[Update English Dictionary,updatelib]\n/
 	\![*]\q[Translate,OnTranslateLang]\n\n[half]/
-	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,OnMenuback]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,BACKTOMENU]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 }
 
 Select.worldplan
@@ -243,7 +237,7 @@ Select.worldplan
 	\![*]\q[Plants,OnPlants]\n/
 	\![*]\q[Items,OnItems]\n/
 	\![*]\q[Races,OnRaces]\n\n[half]/
-	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,OnMenuback]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,BACKTOMENU]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 
 }
 
@@ -256,7 +250,7 @@ Select.generators
 	\![*]\q[Countries,OnCountriesGen]\n/
 	\![*]\q[Races,OnRaceGen]\n\n[half]/
 	\![*]\q[Config,OnCharacterGen,config]\n\n[half]/
-	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,OnMenuback]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,BACKTOMENU]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 
 }
 //==========================================AI TALK==========================================
@@ -441,7 +435,7 @@ Getnowhour
 
 Select.BACKTOMENU
 {
-	MenuRun
+	OpenSakuraMenu
 }
 Select.configmenu
 {
@@ -718,15 +712,15 @@ OnTalkCustom
 	{
 		when "seconds"
 		{
-			"%(ch)I should speak every . . . seconds\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
+			"%(ch)I should speak every . . . seconds.\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
 		}
 		when "minutes"
 		{
-			"%(ch)I should speak every . . . minutes\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
+			"%(ch)I should speak every . . . minutes.\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
 		}
 		when "hours"
 		{
-			"%(ch)I should speak every . . . hours\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
+			"%(ch)I should speak every . . . hours.\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
 		}
 	}
 }
@@ -921,7 +915,7 @@ OnLanguageGenerator_one
 	alph = "s t th ba ca da fa ga ha ja ka la ma na pa ra sa ta va wa qa xa ya za be ce de fe ge he je ke le me ne pe re se te ve we qe xe ye ze bi ci di fi gi hi ji ki li mi ni pi ri si ti vi wi qi xi yi zi bo co do fo go ho jo ko lo mo no po ro so to vo wo qo xo yo zo bu cu du fu gu hu ju ku lu mu nu pu ru su tu vu wu qu xu yu zu a e I j o u ' -"
 	alphabettemp = SPLIT(alph," ")
 	--
-	"Language name\![open,inputbox,OnLanguageGenerator_save,-1]"
+	"Language name:\![open,inputbox,OnLanguageGenerator_save,-1]"
 }
 
 OnLanguageGenerator_save
@@ -937,7 +931,10 @@ OnLanguageGenerator_save
 		--
 		if num < minletter
 		{
-			num = minletter
+			for num = RAND(maxletter);num >= minletter;_let++
+			{
+				
+			}
 		}
 		--
 		for _j=0;_j<=num;_j++
@@ -1231,7 +1228,7 @@ OnGenConfig
 		type = reference0
 	}
 	--
-	"%(ch)\q[Max letters: %(maxletter),maxlet]\n/
+	"\b2\_q%(ch)\q[Max letters: %(maxletter),maxlet]\n/
 	\q[Min letters: %(minletter),minlet]\n"
 	--
 	"\n[half]Rules:\n\n[half]"
@@ -2079,8 +2076,9 @@ OnCountryPage
 		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racenacounnameme[choosennum] + "]\n\n"
 	}
 	--
-	countrypage += "\n\n[half]\![*]\q[Laws,laws]\n\![*]\q[Stories,stories]" + "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnCountries]"
+	countrypage += "\n\n[half]\![*]\q[Laws,laws]\n" + "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnCountries]"
 	--
+	//\![*]\q[Stories,OnStoriesC]"
 	countrypage = REPLACE(countrypage,"+",",")
 }
 
@@ -2097,6 +2095,182 @@ OnOtherCharacterPage
 	--
 	charpage
 }
+//===========================================STORIES=========================================
+OnStoriesC
+{
+	countrynum = choosennum
+	storylist = "\_q\b2%(ch)"
+	storynames = SPLIT(counstorynames[choosennum],"+")
+	stories = SPLIT(counstory[choosennum],"+")
+	storynum = ARRAYSIZE(storynames[choosennum])
+	--
+	if storynum != 0
+	{
+		storylist += "\f[bold,1]%(counname[choosennum]) Stories:\f[bold,0]\n\n[half]"
+		--
+		for _i=0;_i<=storynum;_i++
+		{
+			storylist += "\![*]\q[" + storynames[_i] + ",OnCStoryClick," + _i +"]\n"
+		}
+	}
+	else
+	{
+		storylist += "%(counname[choosennum]) doesn't have any stories\n\n[half]"
+	}
+	--
+	storylist += "\f[size,10]\n\![*]\q[Add Story,OnAddStory]\n"
+	--
+	if removestory == 1
+	{
+		storylist += "\f[color,230, 39, 25]\![*]\q[Remove Story,OnRemoveEditS,rem]\f[color,default]\n"
+	}
+	else
+	{
+		storylist += "\![*]\q[Remove Story,OnRemoveEditS,rem]\n"
+	}
+	--
+	if editstory == 1
+	{
+		storylist += "\f[color,230, 39, 25]\![*]\q[Edit Story,OnRemoveEditS,edi]\f[color,default]"
+	}
+	else
+	{
+		storylist += "\![*]\q[Edit Story,OnRemoveEditS,edi]"
+	}
+	--
+	storylist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	--
+	storylist
+}
+
+OnRemoveEditS
+{
+	if reference0 == "edi"
+	{
+		if editstory == 1
+		{
+			editstory = 0
+		}
+		else
+		{
+			removestory = 0
+			editstory = 1
+		}
+	}
+	if reference0 == "edi"
+	{
+		if removestory == 1
+		{
+			removestory = 0
+		}
+		else
+		{
+			editstory = 0
+			removestory = 1
+		}
+	}
+	--
+	OnStoriesC
+}
+
+OnCStoryClick
+{
+	choosennum = reference0
+	--
+	if removestory == 1
+	{
+		for _i=choosennum;_i<racecount;_i++
+		{
+			counstorynames[_i] = counstorynames[_i+1]
+			counstory[_i] = counstory[_i+1]
+		}
+		OnStoriesC
+	}
+	elseif editstory == 1
+	{
+		"\_q\b2%(ch)What do you want to edit?\n\n"
+		--
+		"\![*]\q[Name,OnEditStory,name]\n/
+		\![*]\q[Story,OnEditStory,descr]\n"
+		--
+		"\n[half]\![*]\q[Go Back,OnRaces]\n/
+		\![*]\q[Nevermind,Cancel]\e"
+	}
+	else
+	{
+		OnStoriesC
+	}
+}
+
+OnEditStory
+{
+	case reference0
+	{
+		when "name"
+		{
+			"\![open,input,OnSCNameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnSCStoryChange,-1]"
+		}
+	}
+}
+
+OnSCNameChange
+{
+	storynames[choosennum] = REPLACE(reference0,",","#")
+	counstorynames[countrynum] = REPLACE(storynames,",","+")
+	--
+	"\b4Done\x\c" 
+	--
+	OnStoryPage
+}
+
+OnSCStoryChange
+{
+	stories[choosennum] = REPLACE(reference0,",","#")
+	counstory[countrynum] = REPLACE(stories,",","+")
+	--
+	"\b4Done\x\c" 
+	--
+	OnStoryPage
+}
+
+OnAddStory
+{
+	"%(ch)Name: \![open,inputbox,OnAddStory_desc,-1]"
+}
+
+OnAddStory_desc
+{
+	storynames[choosennum] += "," + REPLACE(reference0,",","#")
+	storynum = ARRAYSIZE(storynames[choosennum])
+	choosennum = storynum + 1
+	--
+	"%(ch)Story: \![open,inputbox,OnAddStory_end,-1]"
+}
+
+OnAddStory_end
+{
+	counstory[choosennum] += "," + REPLACE(reference0,",","#")
+	--
+	"\b4Done, here is your Story:\x\c\b4\_q"
+	--
+	OnStoryPage
+}
+
+OnStoryPage
+{
+	storypage = "\b4\_q%(ch)"
+	--
+	storypage += "\f[bold,1]" + REPLACE(storynames[choosennum],"#",",") + "\f[bold,0]:\n\n[half]" + REPLACE(stories[choosennum],"#",",")
+	--
+	storypage += "\n\n[half]\![*]\q[End,Cancel],\q[Go back to the list,OnStoriesC," + countrynum + "]\n"
+	--
+	storypage
+}
+
 //===========================================OPEN MAP=========================================
 Select.omap
 {
@@ -2123,7 +2297,7 @@ Select.laws
 	lawsforpage = SPLIT(counlaws[choosennum],"+")
 	lawnum = ARRAYSIZE(lawsforpage)
 	--
-	if counlaws[choosennum] == ""
+	if lawnum == ""
 	{
 		lawpage += "%(counname[choosennum]) doesn't have any laws yet\n"
 	}
@@ -2138,7 +2312,7 @@ Select.laws
 	{
 		for _i=0;_i<lawnum;_i++
 		{
-			lawpage += (_i + 1) + ". " + REPLACE(lawsforpage[_i],"!",",") + "\n"
+			lawpage += (_i + 1) + ". " + REPLACE(lawsforpage[_i],"#",",") + "\n"
 		}
 	}
 	--
@@ -2182,11 +2356,11 @@ OnNewLaw
 {
 	if counlaws[choosennum] != ""
 	{
-		counlaws[choosennum] += "+" + REPLACE(reference0,",","!")
+		counlaws[choosennum] += "+" + REPLACE(reference0,",","#")
 	}
 	else
 	{
-		counlaws[choosennum] += REPLACE(reference0,",","!")
+		counlaws[choosennum] += REPLACE(reference0,",","#")
 	}
 	--
 	Select.laws
@@ -2247,16 +2421,12 @@ OnLawClick
 
 OnEditLaw
 {
-	lawsforpage[choosennum] = REPLACE(reference0,",","!")
+	lawsforpage[choosennum] = REPLACE(reference0,",","#")
 	counlaws[choosennum] = REPLACE(lawsforpage,",","+")
 	--
 	Select.laws
 }
 
-Select.stories
-{
-	
-}
 //===================================CHARACTER GENERATOR=================================================
 OnCharacterGen
 {
@@ -2300,7 +2470,7 @@ OnGenerateChar
 	--
 	OnCharacterPage
 	--
-	charpage += "\n\n[half]\![*]\q[Generate Again,OnCharacterGen,generator]"
+	charpage += "\n\n[half]\![*]\q[Generate Again,OnCharacterGen,generator]\n\n[half]\![*]\q[I'm Done,Cancel]"
 	--
 	charpage = REPLACE(charpage,"\![*]\q[Show Full Story,fullstory]\n","")
 	charpage
@@ -2308,13 +2478,69 @@ OnGenerateChar
 //=================================RAND CONFIG=================================================== 
 OnRandGenConfig
 {
-	"\_q%(ch)\f[bold,1]Character Settings:\f[bold,]\n\n[half]"
+	"\_q%(ch)\b4\f[bold,1]Character Settings:\f[bold,]\n\n[half]"
 	--
 	"Max age: \f[bold,1]\q[%(maxage),maxagechange]\f[bold,0]\n"
 	--
 	"Minimum age: \f[bold,1]\q[%(minage),minagechange]\f[bold,0]\n"
 	--
 	"Generate dead characters?: \f[bold,1]\q[%(deadyn),deadchange]\f[bold,0]\n"
+	--
+	"\n[half]\f[bold,1]Gender Toggles:\n\n[half]\f[bold,0]"
+	--
+	if male == "ON"
+	{
+		"Male: \f[bold,1]\f[color,#047111]\q[%(male),OnChangeGender,male]\f[color,default]\f[bold,0]\n"
+	}
+	else
+	{
+		"Male: \f[bold,1]\q[%(male),OnChangeGender,male]\f[bold,0]\n"
+	}
+	--
+	if female == "ON"
+	{
+		"Female: \f[bold,1]\f[color,#047111]\q[%(female),OnChangeGender,female]\f[color,default]\f[bold,0]\n"
+	}
+	else
+	{
+		"Female: \f[bold,1]\q[%(female),OnChangeGender,female]\f[bold,0]\n"
+	}
+	--
+	if mtf == "ON"
+	{
+		"Male (FTM): \f[bold,1]\f[color,#047111]\q[%(mtf),OnChangeGender,mtf]\f[color,default]\f[bold,0]\n"
+	}
+	else
+	{
+		"Male (FTM): \f[bold,1]\q[%(mtf),OnChangeGender,mtf]\f[bold,0]\n"
+	}
+	--
+	if ftm == "ON"
+	{
+		"Female (MTF): \f[bold,1]\f[color,#047111]\q[%(ftm),OnChangeGender,ftm]\f[color,default]\f[bold,0]\n"
+	}
+	else
+	{
+		"Female (MTF): \f[bold,1]\q[%(ftm),OnChangeGender,ftm]\f[bold,0]\n"
+	}
+	--
+	if nonbinary == "ON"
+	{
+		"Non-binary: \f[bold,1]\f[color,#047111]\q[%(nonbinary),OnChangeGender,nonbinary]\f[color,default]\f[bold,0]\n"
+	}
+	else
+	{
+		"Non-binary: \f[bold,1]\q[%(nonbinary),OnChangeGender,nonbinary]\f[bold,0]\n"
+	}
+	--
+	if genfluid == "ON"
+	{
+		"Gender Fluid: \f[bold,1]\f[color,#047111]\q[%(genfluid),OnChangeGender,genfluid]\f[color,default]\f[bold,0]\n"
+	}
+	else
+	{
+		"Gender Fluid: \f[bold,1]\q[%(genfluid),OnChangeGender,genfluid]\f[bold,0]\n"
+	}
 	--
 	if type == "generator"
 	{
@@ -2324,6 +2550,81 @@ OnRandGenConfig
 	{
 		"\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,generators]"
 	}
+}
+
+OnChangeGender
+{
+	case reference0
+	{
+		when "male"
+		{
+			if male == "ON"
+			{
+				male = "OFF"
+			}
+			else
+			{
+				male = "ON"
+			}
+		}
+		when "female"
+		{
+			if female == "ON"
+			{
+				female = "OFF"
+			}
+			else
+			{
+				female = "ON"
+			}
+		}
+		when "mtf"
+		{
+			if mtf == "ON"
+			{
+				mtf = "OFF"
+			}
+			else
+			{
+				mtf = "ON"
+			}
+		}
+		when "ftm"
+		{
+			if ftm == "ON"
+			{
+				ftm = "OFF"
+			}
+			else
+			{
+				ftm = "ON"
+			}
+		}
+		when "nonbinary"
+		{
+			if nonbinary == "ON"
+			{
+				nonbinary = "OFF"
+			}
+			else
+			{
+				nonbinary = "ON"
+			}
+		}
+		when "genfluid"
+		{
+			if genfluid == "ON"
+			{
+				genfluid = "OFF"
+			}
+			else
+			{
+				genfluid = "ON"
+			}
+		}
+	}
+	--
+	OnRandGenConfig
 }
 
 Select.deadchange
@@ -2347,9 +2648,16 @@ Select.minagechange
 
 OnChangedAgeMin
 {
-	minage = TOINT(reference0)
-	--
-	OnRandGenConfig
+	if TOINT(reference0) > maxage
+	{
+		"%(ch)This number is bigger then your maximum age\![open,inputbox,OnChangedAgeMin,-1]"
+	}
+	else
+	{
+		minage = TOINT(reference0)
+		--
+		OnRandGenConfig
+	}
 }
 
 Select.maxagechange
@@ -2359,9 +2667,16 @@ Select.maxagechange
 
 OnChangedAge
 {
-	maxage = TOINT(reference0)
-	--
-	OnRandGenConfig
+	if TOINT(reference0) > minage
+	{
+		"%(ch)This number is smaller then your minimum age\![open,inputbox,OnChangedAgeMin,-1]"
+	}
+	else
+	{
+		maxage = TOINT(reference0)
+		--
+		OnRandGenConfig
+	}
 }
 //===================================RACES=================================================
 OnRaces
@@ -2626,8 +2941,9 @@ OnRacePage
 		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racename[choosennum] + "]\n\n"
 	}
 	--
-	racepage += "\n\n[half]\![*]\q[Stories,racestories]" + "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnRaces]"
+	racepage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnRaces]"
 	--
+	//"\n\n[half]\![*]\q[Stories,racestories]" +
 	racepage = REPLACE(racepage,"+",",")
 }
 //===================================PLACES=================================================

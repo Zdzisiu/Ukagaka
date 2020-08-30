@@ -2702,12 +2702,35 @@ isdead
 
 gender
 {
-	"Male"
-	"Female"
-	"Male (FTM)"
-	"Female (MTF)"
-	"Genderfluid"
-	"Non-binary"
+	if male == "ON"
+	{
+		"Male"
+	}
+
+	if female == "ON"
+	{
+		"Female"
+	}
+
+	if mtf == "ON"
+	{
+		"Male (FTM)"
+	}
+
+	if ftm == "ON"
+	{
+		"Female (MTF)"
+	}
+
+	if nonbinary == "ON"
+	{
+		"Non-binary"
+	}
+
+	if genfluid == "ON"
+	{
+		"Gender Fluid"
+	}
 }
 
 race

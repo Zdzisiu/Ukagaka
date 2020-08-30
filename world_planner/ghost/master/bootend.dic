@@ -15,6 +15,8 @@
 	deleteshitai = "OFF" 
 	nowshell = "Default Omega" 
 	--
+	OnVariables
+	--
 	"\1\s[10]\0\s[0]"
 	--
 	FOPEN("write.txt","r")
@@ -30,10 +32,50 @@
 	FCLOSE("write.txt")
 	--
 	"Welcome human\e"
-	--
-	OnVariables
 }
 
+OnBootVariables
+{
+	if 	igsave == ""
+	{
+		igsave = "ON"
+	}
+	--
+	if 	male == ""
+	{
+		male = "ON"
+	}
+	--
+	if 	female == ""
+	{
+		female = "ON"
+	}
+	--
+	if 	mtf == ""
+	{
+		mtf = "ON"
+	}
+	--
+	if 	ftm == ""
+	{
+		ftm = "ON"
+	}
+	--
+	if 	nonbinary == ""
+	{
+		nonbinary = "ON"
+	}
+	--
+	if 	genfluid == ""
+	{
+		genfluid = "ON"
+	}
+	--
+	if 	deadyn == ""
+	{
+		deadyn = "ON"
+	}
+}
 
 OnVariables
 {
@@ -43,6 +85,12 @@ OnVariables
 	minage = 16
 	charcount = 2
 	igsave = "ON"
+	male = "ON"
+	female = "ON"
+	mtf = "ON"
+	ftm = "ON"
+	nonbinary = "ON"
+	genfluid = "ON"
 	--
 	charname[0] = "Character's name"
 	charage[0] =	"Character's age"
@@ -71,7 +119,7 @@ OnVariables
 	counname[1] = "Galmar"
 	countryhistory[1] = "Galmar was made by gods for their servants"
 	countrystate[1] = "Garmar is hidden behind the even of horizon with portals to it hidden all around the universe. Citizens are god's servants choosen personaly by them to carry out various tasks"
-	counlaws[1] = "Placement of portals is to be always a secret! no mortal should know where they are hidden+Gods' word is the law"
+	counlaws[1] = "Placement of portals is to be always a secret# no mortal should know where they are hidden!Gods' word is the law"
 	counstorynames[1] = ""
 	counstory[1] = ""
 	couneventname[1] = ""
@@ -80,9 +128,9 @@ OnVariables
 	counname[0] = "Country's name"
 	countryhistory[0] = "Country's history"
 	countrystate[0] = "Country's description"
-	counlaws[0] = "First Law of your country!Second Law in your country"
-	counstorynames[0] = "Name of the story"
-	counstory[0] = "The story"
+	counlaws[0] = "First Law of your country+Second Law in your country"
+	counstorynames[0] = "Name of the story+Name of Other Story"
+	counstory[0] = "The story+Other story#the other story"
 	couneventname[0] = "Name of the event"
 	counevent[0] = "The event"
 	--
