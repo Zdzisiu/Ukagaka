@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,World Planner
+directory,world_planner
+
+balloon.directory,old_paper

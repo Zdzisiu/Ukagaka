@@ -1,0 +1,27 @@
+OnCommunicate
+ {
+	if reference0 == "user" || reference0 == "User"
+ 	{
+
+ 		ReplyToUser
+	}
+ 	else
+	{	
+		ReplyToGhost
+ 	}
+}
+
+ReplyToUser
+{
+	TalkToUser
+}
+
+ReplyToGhost
+{
+ 	res_reference0 = reference0 
+	{
+	"\0\s[0]Hello, %(res_reference0).\w8Hope you're doing well.\e"
+	
+	"Hey, %(res_reference0).\e"
+	}
+}

@@ -1,0 +1,481 @@
+﻿OnFileDrop2
+{
+	file = reference0
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+	case _fileext
+	{
+		when ".jpg", ".jpeg", ".bmp", ".png"
+		{
+			if TOLOWER(_filename) _in_ TOLOWER("%(charname)")
+			{
+				"Is this a portrait for '%(_filename)?'\n\n[half]"
+				--
+				"\![*]\q[Yes,OnPortraitUpload,%(file)]\n/
+				\![*]\q[No,script:\cThe file you dropped is %(_filename)%(_fileext)]\e"
+			}
+			elseif "_map" _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(counname)")
+			{
+				whatmap = REPLACE(_filename,"_map","")
+				"Is this a map for '%(whatmap)?'\n\n[half]"
+				--
+				"\![*]\q[Yes,OnMapUpload,%(file)]\n/
+				\![*]\q[No,script:\cThe file you dropped is %(_filename)%(_fileext)]\e"
+			}
+			elseif TOLOWER(_filename) _in_ TOLOWER("%(racename)")
+			{
+				"Is this a reference sheet for '%(_filename)?'\n\n[half]"
+				--
+				"\![*]\q[Yes,OnRefUpload,%(file)]\n/
+				\![*]\q[No,script:\cThe file you dropped is %(_filename)%(_fileext)]\e"
+			}
+			else
+			{
+				if igsave == "ON"
+				{
+					e = FCOPY(reference0,"images")
+					--
+					if e == 1
+					{
+						"I saved %(_filename)%(_fileext)"
+					}
+				}
+				else
+				{
+					"\0\s[0]This is a nice image but i don't think i will have any use for it."
+				}
+			}
+		}
+		when ".mid", ".wav", ".mp3", ".wma", ".au" 
+		{
+			"%(_filename)%(_fileext) is a music file.\e"
+		}
+		others
+		{
+			"\0\s[0]This is %(_filename)%(_fileext).\e"
+		}
+	}
+}
+
+OnRefUpload
+{
+	e = FCOPY(reference0,"races")
+	--
+	if e == 1
+	{
+		"Reference Sheet Saved"
+	}
+}
+
+OnPortraitUpload
+{
+	e = FCOPY(reference0,"portraits")
+	--
+	if e == 1
+	{
+		"Portrait Saved"
+	}
+}
+
+OnMapUpload
+{
+	e = FCOPY(reference0,"maps")
+	--
+	if e == 1
+	{
+		"Map Saved"
+	}
+}
+
+OnInstallBegin
+{
+	"\0\s[0]This file contains instal.txt, wait a second and I will instal it\e"
+}
+
+OnInstallComplete
+ {
+	 installed = reference1
+	"\0"
+ 	--
+	if reference0 == "shell" 
+ 	{	
+		if reference1 == "Hypothetical Shell that doesn't actually exist" 
+		{
+		"\s[0]We have installed Hypothetical Shell.\w8Truncated for space.\e"
+
+		}
+		elseif reference1 == "Another totally real shell wow"
+		{
+		"\s[0]We have installed another totally real shell.\e"
+
+		}
+		else 
+		{
+		"\s[0]I have installed a new shell.\w8It's called  %(reference1).\e"
+		}
+ 	}
+	elseif reference0 == "ghost"
+ 	{
+		"\s[0]I have installed a new Ghost.\w8It's called %(reference1)\n\n[half]Do you want to me to call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall].\e"
+ 	}
+	elseif reference0 == "balloon"
+ 	{
+		"\s[0]I have installed a new balloon.\w8It's called %(reference1).\e"
+ 	}
+	elseif reference0 == "plugin"
+ 	{
+		"\s[0]I have installed a plug-in.\w8It's called %(reference1).\e"
+ 	}
+}
+
+Select.callghost
+{
+	"\![call,ghost,%(installed)]\e"
+}
+
+Select.nocall
+{
+	"...\e"
+}
+
+OnInstallFailure
+{
+	"\0\s[0]The installation has failed.\n\n[half]\w5"
+	--
+	if reference0 == "unsupported"
+	{
+	"This file is unsupported.\e"
+	}	
+	elseif reference0 == "extraction"
+	{
+	"The file could not be extracted properly.\e"
+	}
+}
+
+OnInstallRefuse
+{
+	"\0\s[0]I can't install this. \w4It may be for %(reference0) instead.\e"
+}
+
+OnVanishSelecting
+{
+	"\0\s[0]...\e"
+}
+
+OnVanishSelected
+{
+	"\0\s[0]Goodbye\e"
+}
+
+OnVanishCancel
+{
+	"\0\s[0]Seems like I'm staing here\e"
+}
+
+OnVanished
+{
+	"\0\s[0]Goodbye %(reference0)\e"
+}
+
+OnBIFFBegin
+{
+	"\0\s[0]...\e"
+}
+
+OnBIFFComplete
+ {
+	if reference0 == 0
+ 	{
+ 		"\0\s[0]There is no new mail.\e"
+	}
+	elseif reference0 == 1
+ 	{
+ 		"\0\s[0]There is one new email.\e"
+	}
+	elseif reference0 > 1 && reference0 < 11
+	{
+		"\0\s[0]There are %(reference0) emails.\e"
+	}
+	elseif reference0 > 100
+	{
+		"\0\s[0]There are %(reference0) emails unread\e"
+	}
+ 	else
+	{
+		"\0\s[0]There are %(reference0) emails.\e"
+ 	}
+}
+
+OnBIFFFailure
+ {
+	if reference0 == "timeout"
+ 	{
+ 		"\0\s[0]The connection has timed out.\e"
+	}
+ 	elseif reference0 == "kick"
+	{
+		"\0\s[0]I can't access the account.\e"
+ 	}
+	elseif reference0 == "defect" 
+ 	{
+ 		"\0\s[0]The email account was not set up properly.\w8 It can be reset at the POP menu.\![open,configurationdialog]\e"
+	}
+ 	else
+	{
+		"\0\s[0]We can't connect to the account.\w8 The error returned is '%(reference[0])'.\e"
+		
+ 	}
+}
+
+OnUpdateBegin
+{
+	"\0\s[0]Wait a second please, I will check if there is something new in the Eternal Library\w8\e"
+}
+ 
+OnUpdateReady
+ {
+	"\0There are %(reference[0]) new things.\w8\e"
+	
+}
+
+OnUpdateComplete
+{
+	if reference0 == "none"
+ 	{
+ 		"There is nothing new\e"
+	}
+ 	else
+	{
+		"New books have been put in their place\e"
+ 	}
+}
+
+OnUpdateFailure
+{
+	if reference0 == "timeout"
+ 	{
+ 		"The connection has timed out.\e"
+	}
+ 	elseif reference0 == "md5 miss"
+	{
+		"The MD5 ID of the materials doesn't match.\e"
+ 	}
+	else
+ 	{
+ 		"The update could not be completed.\w8\0\s[0]The error is '%(reference0)'.\e"
+	}
+}
+
+OnUpdate.OnDownloadBegin
+{
+	"\_qNew book\e"
+	"\_qAnother new book\e"
+	"\_qNew jorunal\e"
+	"\_qAnother jorunal\e"
+	"\_qAnother Magazine\e"
+	"\_qNew Magazine\e"
+}
+
+OnUpdate.OnMD5CompareBegin
+{
+	"I have to check the MD5 ID.\e"
+}
+
+OnUpdate.OnMD5CompareComplete
+{
+	"\0\s[0]MD5 ID is correct.\e"
+}
+
+OnUpdate.OnMD5CompareFailure
+{
+	"\0\s[0]The MD5 ID of the materials doesn't match.\w8\e"
+}
+
+OnHeadlinesenseBegin
+{
+	"\0\s[0]You've selected %(reference0).\e"
+}
+
+OnHeadlinesense.OnFind
+{
+ 	if reference2 == "First" || reference2 == "First and Last"
+	{
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	elseif reference2 == "Next"
+ 	{
+ 		"\0\b2\s[0]%(reference0):"
+	}
+ 	elseif reference2 == "Last"
+	{
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	--
+	"\n\n%reference3\n"
+ 	--
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+		
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	
+}
+
+Select.Headline_Cancel
+{
+	"\0\s[0]Headline viewing complete.\e"
+}
+ 
+OnHeadlinesenseComplete
+{
+	"\0\s[0]No update. %(reference0).\e"
+}
+
+OnHeadlinesenseFailure
+{
+	"\0\s[0]The feed can't updated.\w8Why not?\w8\0\s[0]\n\n[half]"
+ 	--
+	if reference0 == "can't download" 
+ 	{
+		"It can't be downloaded."
+ 	}
+	elseif reference0 == "can't analyze"
+ 	{
+		"It can't be analyzed."
+ 	}
+	else
+ 	{
+		"I don't know."
+ 	}
+	--
+ 	"\e" 
+}
+
+OnUpdatedataCreating
+{
+	"Wait a second please.\e"
+}
+
+OnUpdatedataCreated
+{
+	"\0\s[0]Successfully created updates2.dau.\e"
+}
+
+OnNarCreating
+{
+	"\0\s[0]Wait a second please.\e"
+}
+
+OnNarCreated
+{
+	"\0\s[0]Successfully created '%(reference0)'.\e"
+}
+
+OnSNTPBegin
+{
+	"\0\s[0]I will check the time.\w9I'm connecting to %(reference0).\e"
+}
+
+OnSNTPCompare
+{
+ 	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
+	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n/
+ 	\n"
+	--
+ 	if reference3 == 0
+	{
+ 		"\0\s[0]Your clock is accurate.\e"
+	}
+ 	else
+	{
+ 		"\0\s[0]Your clock doesn't match.\w6\nShould I fix it?\n\n[half]/
+		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
+ 		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+	}
+}
+
+OnSNTPEXECUTE
+{
+	"\0\s[0]The clock has been fixed.\6\e"
+}
+
+OnSNTPCANCEL
+{
+	"\0\s[0]...\e"
+}
+
+OnSNTPFailure
+{
+	"\0\s[0]I couldn't change the clock.\w8Something went wrong.\e"
+}
+
+OnDisplayChange
+{
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+}
+
+OnScreenSaverStart
+{
+	"\0\s[0]The screensaver is starting.\e"
+	//Replace with what you want.
+}
+
+OnScreenSaverEnd
+{
+	"\0\s[0]...\e"
+	//Replace with what you want.
+}
+
+OnApplicationBoot
+{
+	"\0\s[0]%(reference0) just started.\e"
+}
+
+OnApplicationClose
+{
+	"\0\s[0]%(reference0) has closed.\e"
+}
+
+OnApplicationFileOpen
+{
+	"\0\s[0]Opening %(reference1).\e"
+}
+
+OnBatteryLow
+{
+	"The laptop's battery is low. \w8There is %(reference0) power left.\e"
+	//reference0 here is the amount of battery power. Replace as you like.
+}
+
+OnBatteryCritical
+{
+	"\0\s[0]The laptop's battery is critically low.\e"
+}
+
+OnSysResourceLow
+{
+	"\0\s[0]The system resources are low.\e"
+}
+
+OnShellScaling
+{
+	if reference0 >= 150 //this number is the percentage that you're scaling the ghost up to. In this case, it's 150%.
+	{
+		"\0\s[0]I'm now 150% my original size.\w8Bigger.\e"
+	}
+	elseif reference0 == 100 //this is 100%
+	{
+		"I'm normal sized.\e"
+	}
+	elseif reference0 == 50 //this is 50%. You can add any percentage that's listed under shell scaling if you want using more elseifs.
+	{
+		"\0\s[0]I'm now 50% my original size.\w8Smaller.\e"
+	}
+}

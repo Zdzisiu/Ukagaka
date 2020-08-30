@@ -1,0 +1,122 @@
+﻿/*
+OnMouseMove
+-----
+Reference0: X coordinate of mouse cursor (local coordinate)
+Reference1: Y coordinate of mouse cursor (local coordinate)
+Reference2: The amount and direction of mouse wheel rotation.
+Reference3: 0 for main body, 1 for partner. In SSP/CROW, there are 2 or more.
+Reference4: The hit determination identifier.
+Reference5: * Always 0 for SSP.
+Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not supported) in multi-touch environment, mouse with input from mouse etc. 
+*/
+
+OnMouseMove
+{
+	if nowmode != "QUIZ"
+	{
+		if reference3 == 0 
+		{
+			MouseMoveSakura
+		}
+		else 
+		{
+			MouseMoveKero
+		}
+	}
+}
+
+MouseMoveSakura
+{
+	if reference4 != "" 
+ 	{
+ 		stroke++ 
+ 		if stroke >= 40 
+		{
+ 			stroke = 0 
+			if reference4 == "Head" 
+ 			{
+				"\0\s[0]...\e"
+ 			}
+ 			elseif reference4 == "Face" 
+ 			{
+ 				"\0\s[0]...\e"
+ 			}
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+MouseMoveKero
+{
+	if reference4 != ""
+ 	{
+ 		stroke++
+ 		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "Head" 
+ 			{
+				"\0\s[0]...\e"
+ 			}
+ 			elseif reference4 == "Face" 
+ 			{
+ 				"\0\s[0]...\e"
+ 			}
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+/*
+OnMouseDoubleClick
+-----
+Reference0: X coordinate of mouse cursor (local coordinate)
+Reference1: Y coordinate of mouse cursor (local coordinate)
+Reference2: Always 0.
+Reference3: 0 for main body, 1 for partner. In SSP/CROW, there are 2 or more.
+Reference4: The hit determination identifier.
+Reference5: Left click is 0, right click is 1.
+Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not supported) in multi-touch environment, mouse with input from mouse etc. 
+*/
+
+OnMouseDoubleClick
+{
+ 	if reference3 == 0 
+	{
+		MouseDoubleClickSakura
+ 	}
+	else
+ 	{
+ 		MouseDoubleClickKero
+	}
+}
+
+MouseDoubleClickSakura
+ {
+ 	if reference4 == "Head" || reference4 == "Face" 
+	{
+		"\0\s[0]...\e"
+ 	}
+	else
+ 	{
+ 		OpenSakuraMenu
+	}
+ }
+ 
+MouseDoubleClickKero
+ {
+ 	if reference4 == "Face" 
+	{
+		"\1\s[10]...\e"
+ 	}
+	else 
+ 	{
+		OpenKeroMenu 
+	}
+ }

@@ -1,0 +1,268 @@
+﻿OnFirstBoot
+{
+ 	lastTalk = "" 
+	passmin = 0 
+	passsec = 0 
+ 	username         = "human" 
+	stroke           = 0	
+ 	teachusername    = 0	
+	mikireflag       = 0	
+	x = 0
+ 	aitalkinterval = 400 
+	charcount = 0
+ 	birthdayprint = "????" 
+	talktime = "5 minutes" 
+	deleteshitai = "OFF" 
+	nowshell = "Default Omega" 
+	--
+	"\1\s[10]\0\s[0]"
+	--
+	FOPEN("write.txt","r")
+	for _i=0;x != 1;_i++
+	{
+		englib[_i] = FREAD("write.txt")
+		--
+		if englib[_i] == "-1"
+		{
+			x = 1
+		}
+	}
+	FCLOSE("write.txt")
+	--
+	"Welcome human\e"
+	--
+	OnVariables
+}
+
+
+OnVariables
+{
+	characterstuff = "\f[bold+1]Name: \f[bold+0],\f[bold+1]Age: \f[bold+0],\f[bold+1]Dead?: \f[bold+0],\f[bold+1]Gender: \f[bold+0],\f[bold+1]Race: \f[bold+0],\f[bold+1]Proffesion: \f[bold+0],\f[bold+1]Nationality: \f[bold+0],\f[bold+1]Description:\n\n[half]\f[bold+0],\f[bold+1]Shortend Story:\n\n[half]\f[bold+0],\f[bold+1]Full Story:\n\n[half]\f[bold+0]"
+	maxage = 100
+	deadyn = "ON"
+	minage = 16
+	charcount = 2
+	igsave = "ON"
+	--
+	charname[0] = "Character's name"
+	charage[0] =	"Character's age"
+	chardead[0] =	"Is the character dead?"
+	chargender[0] =	"Character's gender"
+	charrace[0] =	"Character's race"
+	charprof[0] =	"Character's profesion/occupation/class"
+	charnat[0] =	"Character's nationality"
+	chardesc[0] =	"Character's description"
+	charshortstory[0] =	"Character's story - short version"
+	charlongstory[0] =	"Character's story - full version"
+	--
+	charname[1] = "Omega"
+	charage[1] =	"Unknown"
+	chardead[1] =	"No"
+	chargender[1] =	"Male"
+	charrace[1] =	"Guardian"
+	charprof[1] =	"Guardian of Knowledge/Librarian"
+	charnat[1] =	"Galmarian"
+	chardesc[1] =	"Omega is one of the Guardians, he guards the Eternal Library.\nOmega is a black and red Guardian with golden eye and red horns.\nHe's calm to the point of seeming emotionless."
+	charshortstory[1] =	"Omega was previously a human working in the library, after his death gods reincarnated him into the Guardian of Knowledge"
+	charlongstory[1] =	"Omega who was previously a human doesn't remember his true name, it was hidden after his death, he still has his memories but names and faces have been hidden by gods to make sure Omega won't go searching after his lost life. Currently he lives in the Eternal Library in Galmar making sure no one tries to steal it's hidden knowledge"
+	--
+	countrytuff = "\f[bold+1]Name: \f[bold+0],\f[bold+1]History:\n\n[half]\f[bold+0],\f[bold+1]Description:\n\n[half]\f[bold+0]"
+	countrycount = 2
+	counname[1] = "Galmar"
+	countryhistory[1] = "Galmar was made by gods for their servants"
+	countrystate[1] = "Garmar is hidden behind the even of horizon with portals to it hidden all around the universe. Citizens are god's servants choosen personaly by them to carry out various tasks"
+	counlaws[1] = "Placement of portals is to be always a secret! no mortal should know where they are hidden+Gods' word is the law"
+	counstorynames[1] = ""
+	counstory[1] = ""
+	couneventname[1] = ""
+	counevent[1] = ""
+	--
+	counname[0] = "Country's name"
+	countryhistory[0] = "Country's history"
+	countrystate[0] = "Country's description"
+	counlaws[0] = "First Law of your country!Second Law in your country"
+	counstorynames[0] = "Name of the story"
+	counstory[0] = "The story"
+	couneventname[0] = "Name of the event"
+	counevent[0] = "The event"
+	--
+	racestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Culture:\f[bold+0]\n\n[half],\f[bold+1]Beliefs:\f[bold+0]\n\n[half]"
+	racecount = 2
+	racename[0] = "Race Name"
+	racedesc[0] =  "Race's description"
+	racehistory[0] = "Race's history"
+	raceculture[0] = "Race's culture"
+	racebeliefs[0] = "Race's beliefs"
+	--
+	racename[1] = "Guardians"
+	racedesc[1] =  "Guardians are a race made by gods to - like the name implies, guard different trsures"
+	racehistory[1] = "Guardians were made by gods to - like the name implies, guard different trsures"
+	raceculture[1] = "Guardians are gods' servants and therefore they loyal to them and carry out any task given to them"
+	racebeliefs[1] = "Guardians beliefs are different depending on their god patron"
+	--
+	placestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half]"
+	placecount = 2
+	placename[0] = "Place's Name"
+	placedesc[0] =  "Place's description"
+	placehistory[0] = "Place's history"
+	--
+	placename[1] = "Eternal Library"
+	placedesc[1] =  "Eternal Library is an endless library with the knowledge from all times, places, universes and timelines. It is currently guarded by Omega"
+	placehistory[1] = "Not even gods know when or why was the Eternal Library created"
+	-- 
+	faunastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Behavior:\f[bold+0]\n\n[half]"
+	faunacount = 1
+	faunaname[0] = "Animal's name"
+	faunadesc[0] =  "Animal's description"
+	faunabehavior[0] = "Animal's behavior"
+	--
+	florastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Growth conditions:\f[bold+0]\n\n[half]"
+	floracount = 1
+	floraaname[0] = "Plant's name"
+	floradesc[0] =  "Plant's description"
+	floralivingcon[0] = "Growth conditions"
+	-- 
+	florastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Abilities:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Owner:\f[bold+0]\n\n[half]"
+	itemcount = 1
+	itemsaname[0] = "Items's name"
+	itemsdesc[0] =  "Items's description"
+	itemsability[0] =  "Items's abilities"
+	itemshistory[0] =  "Items's history"
+	itemsowner[0] =  "Items's Owner"
+}
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+}
+
+timeofdayown
+{
+	if hour >= 5 && hour <= 8
+	{
+		"morning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"afternoon"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"evening"
+	}
+	else
+	{
+		"evening"
+	}
+}
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+}
+
+OnBoot
+{
+	lastTalk = "" 
+	passmin = 0
+	passsec = 0
+ 	"\0\s[0]\1\s[10]" 
+	--
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot
+
+	--
+	"\0\s[0]Good %(timeofdayown), %(username)"
+	--
+}
+
+OnClose
+{
+	timeslot = GetTimeSlot 
+	--
+	if passmin >= 5	
+	{
+		"\0\s[0]...\w8\w8"
+	}
+	else 
+	{
+		"\0\s[0]...\w8\w8"
+	}
+	--
+	"\-\e" 
+}
+
+OnWindowStateRestore
+{
+	"\0\s[0]...\e"
+}
+
+OnGhostChanging
+ {
+	if reference0 == "Conlanger" 
+	{
+		"\0\s[0]...\w8\w8\e"
+	}
+ 	else 
+	{
+		"\0\s[0]...\e"
+	}
+}
+
+OnGhostChanged
+{
+	"\0\s[0]\1\s[10]" 
+	--
+	if reference0 == "Conlanger" 
+	{
+		"\0\s[0]...\e"
+	}
+	else 
+	{
+		"...\e"
+	}
+}
+
+OnShellChanged
+{
+	nowshell = reference0
+}
