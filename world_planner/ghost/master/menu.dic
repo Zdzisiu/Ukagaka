@@ -74,7 +74,7 @@ OnAskOmega
 		}
 		when "imgs"
 		{
-			"\b4%(ch)If you want me to save an image you have to drop it on me\n\n[half]If you want to upload a portrait name the image the same as the character/plant/animal/place/item\n\n[half]If you want to save a map name the image like the country/place or add '_map' to the end\n\n[half]If you want to save a reference sheet add '_ref' to the end of the images name\n\n[half]Any other images i can save in one of my books if you want me to do it"
+			"\b4%(ch)If you want me to save an image you have to drop it on me\n\n[half]If you want to upload a portrait name the image the same as the character/plant/animal/place/item\n\n[half]If you want to save a map name the image like the country/place or add '_map' to the end\n\n[half]If you want to save a reference sheet add '_ref' to the end of the images name.\n\n[half]Any other images I can save in one of my books if you want me to do it"
 		}
 		when "law"
 		{
@@ -918,7 +918,7 @@ OnLanguageGenerator_one
 {
 	//alphabettemp = SPLIT(reference0," ")
 	//--
-	alph = "s t th ba ca da fa ga ha ja ka la ma na pa ra sa ta va wa qa xa ya za be ce de fe ge he je ke le me ne pe re se te ve we qe xe ye ze bi ci di fi gi hi ji ki li mi ni pi ri si ti vi wi qi xi yi zi bo co do fo go ho jo ko lo mo no po ro so to vo wo qo xo yo zo bu cu du fu gu hu ju ku lu mu nu pu ru su tu vu wu qu xu yu zu a e i j o u ' -"
+	alph = "s t th ba ca da fa ga ha ja ka la ma na pa ra sa ta va wa qa xa ya za be ce de fe ge he je ke le me ne pe re se te ve we qe xe ye ze bi ci di fi gi hi ji ki li mi ni pi ri si ti vi wi qi xi yi zi bo co do fo go ho jo ko lo mo no po ro so to vo wo qo xo yo zo bu cu du fu gu hu ju ku lu mu nu pu ru su tu vu wu qu xu yu zu a e I j o u ' -"
 	alphabettemp = SPLIT(alph," ")
 	--
 	"Language name\![open,inputbox,OnLanguageGenerator_save,-1]"
@@ -1383,7 +1383,7 @@ OnTransl
 	}
 	FCLOSE("languages/%(file)")
 	--
-	"\cwhat should i translate?\![open,inputbox,OnTranslatetwo,-1]\e"
+	"\cwhat should I translate?\![open,inputbox,OnTranslatetwo,-1]\e"
 }
 
 loadlang

@@ -45,7 +45,7 @@
 				}
 				else
 				{
-					"\0This is a nice image but i don't think i will have any use for it."
+					"\0This is a nice image but I don't think I will have any use for it."
 				}
 			}
 		}
@@ -76,7 +76,7 @@ Select.noupload
 	}
 	else
 	{
-		"\0In that case i don't think I will have any use for this image, sorry."
+		"\0In that case I don't think I will have any use for this image, sorry."
 	} 
 }
 
@@ -265,9 +265,8 @@ OnUpdateBegin
 }
  
 OnUpdateReady
- {
+{
 	"\0There are %(reference[0]) new things.\w8\e"
-	
 }
 
 OnUpdateComplete
@@ -294,7 +293,7 @@ OnUpdateFailure
  	}
 	else
  	{
- 		"The update could not be completed.\w8\0The error is '%(reference0)'.\e"
+ 		"The update could not be completed.\w8\0 The error is '%(reference0)'.\e"
 	}
 }
 

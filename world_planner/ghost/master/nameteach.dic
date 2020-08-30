@@ -2,7 +2,7 @@
 {
 	if reference0 == "TEACHNAME" 
 	{
-		"\0What should i call you?\![open,inputbox,OnNameTeach,-1]\e"
+		"\0What should I call you?\![open,inputbox,OnNameTeach,-1]\e"
 	}
 	else
 	{
