@@ -44,6 +44,9 @@ Select.askomega
 	"\b2\_qWhat would you like to know?\n\n[half]\f[bold,1]Functions:\f[bold,0]\n\n[half]"
 	--
 	"\![*]\q[Uploading images,OnAskOmega,imgs]\n/
+	\![*]\q[Portraits,OnAskOmega,port]\n/
+	\![*]\q[Maps,OnAskOmega,map]\n/
+	\![*]\q[Reference Sheets,OnAskOmega,ref]\n/
 	\![*]\q[Deleting laws,OnAskOmega,law]\n"
 	--
 	"\n\n[half]\f[bold,1]Omega:\f[bold,0]\n\n[half]"
@@ -57,13 +60,25 @@ OnAskOmega
 {
 	case reference0
 	{
+		when "port"
+		{
+			"Make a portrait according to this\![open,file,template.png] templates size, when you upload it, it will be shown above all info"
+		}
+		when "map"
+		{
+			"To show maps click 'show map', on the bottom of the info"
+		}
+		when "ref"
+		{
+			"You can have one main reference sheet that you will be able to access directly for the page, the rest is saved separatly"
+		}
 		when "imgs"
 		{
-			"\b2\_qIf you want me to save an image you have to drop it on me\n\n[half]If you want to upload a character portrait name the image the same as character\n\n[half]If you want to save a map name the image like the country or add '_map'\n\n[half]If you want to save a reference sheet of a race name it the same as the said race\n\n[half]Any other images i can save in one of my books if you want me to do it\_q"
+			"\b4If you want me to save an image you have to drop it on me\n\n[half]If you want to upload a portrait name the image the same as the character/plant/animal/place/item\n\n[half]If you want to save a map name the image like the country/place or add '_map' to the end\n\n[half]If you want to save a reference sheet add '_ref' to the end of the images name\n\n[half]Any other images i can save in one of my books if you want me to do it"
 		}
 		when "law"
 		{
-			"\_qTo delete a law click on 'remove law' and then on the number of the law you want to delete\_q"
+			"To delete a law click on 'remove law' and then on the number of the law you want to delete"
 		}
 		when "him"
 		{
@@ -1446,7 +1461,7 @@ OnCharacterList
 	--
 	if charcount != 0
 	{
-		charlist += "Your Characters:\n\n[half]"
+		charlist += "\f[bold,1]Your Characters:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<charcount;_i++
 		{
@@ -1536,7 +1551,7 @@ OnCharcterClick
 	}
 	elseif editchar == 1
 	{
-		"\_q\b2What do you want to edit?"
+		"\_q\b2What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEdit,name]\n/
 		\![*]\q[Age,OnEdit,age]\n/
@@ -1812,7 +1827,7 @@ OnCountries
 	--
 	if countrycount != 0
 	{
-		countrylist += "Your Characters:\n\n[half]"
+		countrylist += "\f[bold,1]Your Characters:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<countrycount;_i++
 		{
@@ -1897,7 +1912,7 @@ OnCountryClick
 	}
 	elseif editcoun == 1
 	{
-		"\_q\b2What do you want to edit?"
+		"\_q\b2What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditCountry,name]\n/
 		\![*]\q[History,OnEditCountry,history]\n/
@@ -1937,7 +1952,7 @@ OnCNameChange
 {
 	counname[choosennum] = reference0
 	--
-	"\b4Done" 
+	"\b4Done\x\c" 
 	--
 	OnCountryPage
 	--
@@ -2017,6 +2032,10 @@ OnCharacterPage
 			{
 				charpage += "\_b[portraits/Omega 2.png,inline,--option=use_self_alpha]\n\n"
 			}
+			elseif nowshell == "Omega human ver." && "Omega 3" _in_ portraits
+			{
+				charpage += "\_b[portraits/Omega 3.png,inline,--option=use_self_alpha]\n\n"
+			}
 			else
 			{
 				charpage += "\_b[portraits/" + charname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
@@ -2028,8 +2047,16 @@ OnCharacterPage
 		}
 	}
 	--
-	charpage += characterstuff[0] + charname[choosennum] + "\n\n[half]" + characterstuff[1] + charage[choosennum] + "\n\n[half]" + characterstuff[2] + chardead[choosennum] + "\n\n[half]" + characterstuff[3] + chargender[choosennum] + "\n\n[half]" + characterstuff[4] + charrace[choosennum] + "\n\n[half]" + characterstuff[5] + charprof[choosennum] + "\n\n[half]" + characterstuff[6] + charnat[choosennum] + "\n\n[half]" + characterstuff[7] + chardesc[choosennum] + "\n\n[half]" + characterstuff[8] + charshortstory[choosennum] + "\n" + "\n\n[half]\![*]\q[Show Full Story,fullstory]\n\![*]\q[End,Cancel]"
+	charpage += characterstuff[0] + charname[choosennum] + "\n\n[half]" + characterstuff[1] + charage[choosennum] + "\n\n[half]" + characterstuff[2] + chardead[choosennum] + "\n\n[half]" + characterstuff[3] + chargender[choosennum] + "\n\n[half]" + characterstuff[4] + charrace[choosennum] + "\n\n[half]" + characterstuff[5] + charprof[choosennum] + "\n\n[half]" + characterstuff[6] + charnat[choosennum] + "\n\n[half]" + characterstuff[7] + chardesc[choosennum] + "\n\n[half]" + characterstuff[8] + charshortstory[choosennum] + "\n" + "\n\n[half]\![*]\q[Show Full Story,fullstory]"
 	--
+	refsheets = FENUM('refsheets','+')
+	--
+	if TOLOWER(charname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + charname[choosennum] + "]\n\n"
+	}
+	--
+	cahrpage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnCharacterList]"
 	charpage = REPLACE(charpage,"+",",")
 }
 //=========================================COUNTRY PAGE===========================================
@@ -2048,6 +2075,13 @@ OnCountryPage
 	if TOLOWER(counname[choosennum]) _in_ TOLOWER(maps)
 	{
 		countrypage += "\n\n\![*]\q[Show the map,omap]"
+	}
+	--
+	refsheets = FENUM('refsheets','+')
+	--
+	if TOLOWER(counname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racenacounnameme[choosennum] + "]\n\n"
 	}
 	--
 	countrypage += "\n\n[half]\![*]\q[Laws,laws]\n\![*]\q[Stories,stories]" + "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnCountries]"
@@ -2083,13 +2117,14 @@ Select.omap
 	--
 	"\![open,file,maps/%(maparray[foundnum])]"
 }
+
 //=========================================LAWS===========================================
 Select.laws
 {
 	lawpage = "\c"
 	--
 	lawpage += "\b4\_q\*"
-	lawpage += "%(counname[choosennum])'s laws:\n\n[half]"
+	lawpage += "\f[bold,1]%(counname[choosennum])'s laws:\f[bold,0]\n\n[half]"
 	lawsforpage = SPLIT(counlaws[choosennum],"+")
 	lawnum = ARRAYSIZE(lawsforpage)
 	--
@@ -2278,7 +2313,7 @@ OnGenerateChar
 //=================================RAND CONFIG=================================================== 
 OnRandGenConfig
 {
-	"\_qCharacter Settings:\n\n[half]"
+	"\_q\f[bold,1]Character Settings:\f[bold,]\n\n[half]"
 	--
 	"Max age: \f[bold,1]\q[%(maxage),maxagechange]\f[bold,0]\n"
 	--
@@ -2340,7 +2375,7 @@ OnRaces
 	--
 	if racecount != 0
 	{
-		racelist += "Your Races:\n\n[half]"
+		racelist += "\f[bold,1]Your Races:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<racecount;_i++
 		{
@@ -2352,7 +2387,7 @@ OnRaces
 		racelist += "You don't have any races yet\n\n[half]"
 	}
 	--
-	racelist += "\f[size,10]\n\![*]\q[Add Race,OnAddCountry]\n"
+	racelist += "\f[size,10]\n\![*]\q[Add Race,OnAddRace]\n"
 	--
 	if removerace == 1
 	{
@@ -2363,7 +2398,7 @@ OnRaces
 		racelist += "\![*]\q[Remove Race,removeraces]\n"
 	}
 	--
-	if editcoun == 1
+	if editrace == 1
 	{
 		racelist += "\f[color,230, 39, 25]\![*]\q[Edit Race,edrace]\f[color,default]"
 	}
@@ -2426,7 +2461,7 @@ OnRaceClick
 	}
 	elseif editrace == 1
 	{
-		"\_q\b2What do you want to edit?"
+		"\_q\b2What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditRace,name]\n/
 		\![*]\q[Description,OnEditRace,descr]\n/
@@ -2472,11 +2507,59 @@ OnEditRace
 	}
 }
 
+OnRBeliefesChange
+{
+	racebeliefs[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnRacePage
+	--
+	racepage
+
+}
+
+OnRCultureChange
+{
+	raceculture[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnRacePage
+	--
+	racepage
+
+}
+
+OnRHistoryChange
+{
+	racehistory[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnRacePage
+	--
+	racepage
+
+}
+
+OnRDescChange
+{
+	racedesc[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnRacePage
+	--
+	racepage
+
+}
+
 OnRNameChange
 {
 	racename[choosennum] = reference0
 	--
-	"\b4Done" 
+	"\b4Done\x\c" 
 	--
 	OnRacePage
 	--
@@ -2523,7 +2606,7 @@ OnAddRace_end
 	racecount += 1
 	choosennum = racecount - 1
 	--
-	"\b4Done, here is your country:\x\c\b4\_q"
+	"\b4Done, here is your race:\x\c\b4\_q"
 	--
 	OnRacePage
 	--
@@ -2541,8 +2624,961 @@ OnRacePage
 	--
 	racepage += racestuff[0] + racename[choosennum] + "\n\n[half]" + racestuff[1] + racedesc[choosennum] + "\n\n[half]" + racestuff[2] + racehistory[choosennum] + "\n\n[half]" + racestuff[4] + raceculture[choosennum] + "\n\n[half]" + racestuff[4] + racebeliefs[choosennum] 
 	--
+	refsheets = FENUM('refsheets','+')
+	--
+	if TOLOWER(racename[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racename[choosennum] + "]\n\n"
+	}
+	--
 	racepage += "\n\n[half]\![*]\q[Stories,racestories]" + "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnRaces]"
 	--
 	racepage = REPLACE(racepage,"+",",")
 }
-//====================================================================================
+//===================================PLACES=================================================
+OnPlances
+{
+	placelist = "\_q\b2"
+	--
+	if placecount != 0
+	{
+		placelist += "\f[bold,1]Your Places:\f[bold,0]\n\n[half]"
+		--
+		for _i=0;_i<placecount;_i++
+		{
+			placelist += "\![*]\q[" + placename[_i] + ",OnPlaceClick," + _i +"]\n"
+		}
+	}
+	else
+	{
+		placelist += "You don't have any places yet\n\n[half]"
+	}
+	--
+	placelist += "\f[size,10]\n\![*]\q[Add Place,OnAddPlace]\n"
+	--
+	if removeplaces == 1
+	{
+		placelist += "\f[color,230, 39, 25]\![*]\q[Remove Place,removeplace]\f[color,default]\n"
+	}
+	else
+	{
+		placelist += "\![*]\q[Remove Place,removeplace]\n"
+	}
+	--
+	if editplace == 1
+	{
+		placelist += "\f[color,230, 39, 25]\![*]\q[Edit Place,edplace]\f[color,default]"
+	}
+	else
+	{
+		placelist += "\![*]\q[Edit Place,edplace]"
+	}
+	--
+	placelist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	--
+	placelist
+}
+
+Select.edplace
+{
+	if editplace == 1
+	{
+		editplace = 0
+	}
+	else
+	{
+		removeplaces = 0
+		editplace = 1
+	}
+	--
+	OnRaces
+}
+
+Select.removeplace
+{
+	if removeplaces == 1
+	{
+		removeplaces = 0
+	}
+	else
+	{
+		editplace = 0
+		removeplaces = 1
+	}
+	--
+	OnPlances
+}
+
+OnPlaceClick
+{
+	choosennum = reference0
+	--
+	if removeplaces == 1
+	{
+		for _i=choosennum;_i<placecount;_i++
+		{
+			placename[_i] = placename[_i+1]
+			placedesc[_i] = placedesc[_i+1]
+			placehistory[_i] = placehistory[_i+1]
+		}
+		placecount -= 1
+		OnPlances
+	}
+	elseif editplace == 1
+	{
+		"\_q\b2What do you want to edit?\n\n"
+		--
+		"\![*]\q[Name,OnEditPlace,name]\n/
+		\![*]\q[Description,OnEditPlace,descr]\n/
+		\![*]\q[History,OnEditPlace,history]\n"
+		--
+		"\n[half]\![*]\q[Go Back,OnPlances]\n/
+		\![*]\q[Nevermind,Cancel]\e"
+	}
+	else
+	{
+		OnPlacePage
+		--
+		placepage
+	}
+}
+
+OnEditPlace
+{
+	case reference0
+	{
+		when "name"
+		{
+			"\![open,input,OnPNameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnPDescChange,-1]"
+		}
+		when "history"
+		{
+			"\![open,input,OnPHistoryChange,-1]"
+		}
+	}
+}
+
+OnPNameChange
+{
+	placename[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnPlacePage
+	--
+	placepage
+
+}
+
+OnPDescChange
+{
+	placedesc[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnPlacePage
+	--
+	placepage
+}
+
+OnPHistoryChange
+{
+	placehistory[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnPlacePage
+	--
+	placepage
+}
+
+OnAddPlace
+{
+	"Name: \![open,inputbox,OnAddPlace_desc,-1]"
+}
+
+OnAddPlace_desc
+{
+	placename[placecount] = reference0
+	--
+	"History: \![open,inputbox,OnAddPlace_history,-1]"
+}
+
+OnAddPlace_history
+{
+	placedesc[placecount] = REPLACE(reference0,",","+")
+	--
+	"Description: \![open,inputbox,OnAddPlace_end,-1]"
+}
+
+OnAddPlace_end
+{
+	placehistory[placecount] = REPLACE(reference0,",","+")
+	placecount += 1
+	choosennum = placecount - 1
+	--
+	"\b4Done, here is your place:\x\c\b4\_q"
+	--
+	OnPlacePage
+	--
+	placepage
+}
+
+OnPlacePage
+{
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
+	--
+	placepage = "\b4\_q\*"
+	--
+	placepage += placestuff[0] + placename[choosennum] + "\n\n[half]" + placestuff[1] + placedesc[choosennum] + "\n\n[half]" + placestuff[2] + placehistory[choosennum]
+	--
+	refsheets = FENUM('refsheets','+')
+	--
+	if TOLOWER(placename[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + placename[choosennum] + "]\n\n"
+	}
+	--
+	placepage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnPlance]"
+	--
+	placepage = REPLACE(placepage,"+",",")
+}
+//===================================ANIMALS=================================================
+OnAnimals
+{
+	animlist = "\_q\b2"
+	--
+	if faunacount != 0
+	{
+		animlist += "\f[bold,1]Your Animals:\f[bold,0]\n\n[half]"
+		--
+		for _i=0;_i<faunacount;_i++
+		{
+			animlist += "\![*]\q[" + faunaname[_i] + ",OnAnimalClick," + _i +"]\n"
+		}
+	}
+	else
+	{
+		animlist += "You don't have any animals yet\n\n[half]"
+	}
+	--
+	animlist += "\f[size,10]\n\![*]\q[Add Animal,OnAddAnimal]\n"
+	--
+	if removeanima == 1
+	{
+		animlist += "\f[color,230, 39, 25]\![*]\q[Remove Animal,removeanim]\f[color,default]\n"
+	}
+	else
+	{
+		animlist += "\![*]\q[Remove Animal,removeanim]\n"
+	}
+	--
+	if editanim == 1
+	{
+		animlist += "\f[color,230, 39, 25]\![*]\q[Edit Animal,edanim]\f[color,default]"
+	}
+	else
+	{
+		animlist += "\![*]\q[Edit Animal,edanim]"
+	}
+	--
+	animlist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	--
+	animlist
+}
+
+Select.edanim
+{
+	if editanim == 1
+	{
+		editanim = 0
+	}
+	else
+	{
+		removeanima = 0
+		editanim = 1
+	}
+	--
+	OnAnimals
+}
+
+Select.removeanim
+{
+	if removeanima == 1
+	{
+		removeanima = 0
+	}
+	else
+	{
+		editanim = 0
+		removeanima = 1
+	}
+	--
+	OnAnimals
+}
+
+OnAnimalClick
+{
+	choosennum = reference0
+	--
+	if removeanima == 1
+	{
+		for _i=choosennum;_i<faunacount;_i++
+		{
+			placename[_i] = placename[_i+1]
+			placedesc[_i] = placedesc[_i+1]
+			placehistory[_i] = placehistory[_i+1]
+		}
+		faunacount -= 1
+		OnAnimals
+	}
+	elseif editanim == 1
+	{
+		"\_q\b2What do you want to edit?\n\n"
+		--
+		"\![*]\q[Name,OnEditAnimal,name]\n/
+		\![*]\q[Description,OnEditAnimal,descr]\n/
+		\![*]\q[Behavior,OnEditAnimal,behavior]\n"
+		--
+		"\n[half]\![*]\q[Go Back,OnAnimals]\n/
+		\![*]\q[Nevermind,Cancel]\e"
+	}
+	else
+	{
+		OnAnimalPage
+		--
+		animalpage
+	}
+}
+
+OnEditAnimal
+{
+	case reference0
+	{
+		when "name"
+		{
+			"\![open,input,OnANameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnADescChange,-1]"
+		}
+		when "behavior"
+		{
+			"\![open,input,OnABehavior,-1]"
+		}
+	}
+}
+
+OnANameChange
+{
+	placename[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnAnimalPage
+	--
+	animalpage
+
+}
+
+OnADescChange
+{
+	faunadesc[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnAnimalPage
+	--
+	animalpage
+
+}
+
+OnABehavior
+{
+	faunabehavior[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnAnimalPage
+	--
+	animalpage
+}
+
+OnAddAnimal
+{
+	"Name: \![open,inputbox,OnAddAnimal_desc,-1]"
+}
+
+OnAddAnimal_desc
+{
+	faunaname[faunacount] = reference0
+	--
+	"Description: \![open,inputbox,OnAddAnimal_behavior,-1]"
+}
+
+OnAddAnimal_behavior
+{
+	faunadesc[faunacount] = REPLACE(reference0,",","+")
+	--
+	"Behavior: \![open,inputbox,OnAddAnimal_end,-1]"
+}
+
+OnAddAnimal_end
+{
+	faunabehavior[faunacount] = REPLACE(reference0,",","+")
+	faunacount += 1
+	choosennum = faunacount - 1
+	--
+	"\b4Done, here is your animal:\x\c\b4\_q"
+	--
+	OnAnimalPage
+	--
+	animalpage
+}
+
+OnAnimalPage
+{
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
+	--
+	animalpage = "\b4\_q\*"
+	--
+	portraits = FENUM('portraits','+')
+	--
+	if TOLOWER(faunaname[choosennum]) _in_ TOLOWER(portraits)
+	{
+		animalpage += "\_b[portraits/" + faunaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	}
+	animalpage += faunastuff[0] + faunaname[choosennum] + "\n\n[half]" + faunastuff[1] + faunadesc[choosennum] + "\n\n[half]" + faunastuff[2] + faunabehavior[choosennum]
+	--
+	refsheets = FENUM('refsheets','+')
+	--
+	if TOLOWER(faunaname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		animalpage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + faunaname[choosennum] + "]\n\n"
+	}
+	--
+	animalpage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnAnimals]"
+	--
+	animalpage = REPLACE(animalpage,"+",",")
+}
+//===================================PLANTS=================================================
+OnPlants
+{
+	plantlist = "\_q\b2"
+	--
+	if floracount != 0
+	{
+		plantlist += "\f[bold,1]Your Plants:\f[bold,0]\n\n[half]"
+		--
+		for _i=0;_i<floracount;_i++
+		{
+			plantlist += "\![*]\q[" + floraaname[_i] + ",OnPlantClick," + _i +"]\n"
+		}
+	}
+	else
+	{
+		plantlist += "You don't have any plants yet\n\n[half]"
+	}
+	--
+	plantlist += "\f[size,10]\n\![*]\q[Add Plant,OnAddPlant]\n"
+	--
+	if removeplant == 1
+	{
+		plantlist += "\f[color,230, 39, 25]\![*]\q[Remove Plant,removeplan]\f[color,default]\n"
+	}
+	else
+	{
+		plantlist += "\![*]\q[Remove Plant,removeplan]\n"
+	}
+	--
+	if editplant == 1
+	{
+		plantlist += "\f[color,230, 39, 25]\![*]\q[Edit Plant,edplan]\f[color,default]"
+	}
+	else
+	{
+		plantlist += "\![*]\q[Edit Plant,edplan]"
+	}
+	--
+	plantlist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	--
+	plantlist
+}
+
+Select.edplan
+{
+	if editplant == 1
+	{
+		editplant = 0
+	}
+	else
+	{
+		removeplant = 0
+		editplant = 1
+	}
+	--
+	OnPlants
+}
+
+Select.removeplan
+{
+	if removeplant == 1
+	{
+		removeplant = 0
+	}
+	else
+	{
+		editplant = 0
+		removeplant = 1
+	}
+	--
+	OnPlants
+}
+
+OnPlantClick
+{
+	choosennum = reference0
+	--
+	if removeplant == 1
+	{
+		for _i=choosennum;_i<floracount;_i++
+		{
+			floraaname[_i] = floraaname[_i+1]
+			floradesc[_i] = floradesc[_i+1]
+			floralivingcon[_i] = floralivingcon[_i+1]
+		}
+		floracount -= 1
+		OnPlants
+	}
+	elseif editplant == 1
+	{
+		"\_q\b2What do you want to edit?\n\n"
+		--
+		"\![*]\q[Name,OnEditPlant,name]\n/
+		\![*]\q[Description,OnEditPlant,descr]\n/
+		\![*]\q[Conditions,OnEditPlant,conditions]\n"
+		--
+		"\n[half]\![*]\q[Go Back,OnAnimals]\n/
+		\![*]\q[Nevermind,Cancel]\e"
+	}
+	else
+	{
+		OnPlantPage
+		--
+		plantpage
+	}
+}
+
+OnEditPlant
+{
+	case reference0
+	{
+		when "name"
+		{
+			"\![open,input,OnPlNameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnPlDescChange,-1]"
+		}
+		when "conditions"
+		{
+			"\![open,input,OnPlConditions,-1]"
+		}
+	}
+}
+
+OnPlNameChange
+{
+	floraaname[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnPlantPage
+	--
+	plantpage
+
+}
+
+OnPlDescChange
+{
+	floradesc[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnPlantPage
+	--
+	plantpage
+
+}
+
+OnPlConditions
+{
+	floralivingcon[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnPlantPage
+	--
+	plantpage
+}
+
+OnAddPlant
+{
+	"Name: \![open,inputbox,OnAddPlant_desc,-1]"
+}
+
+OnAddPlant_desc
+{
+	floraaname[floracount] = reference0
+	--
+	"Description: \![open,inputbox,OnAddPlant_conditions,-1]"
+}
+
+OnAddPlant_conditions
+{
+	floradesc[floracount] = REPLACE(reference0,",","+")
+	--
+	"Behavior: \![open,inputbox,OnAddPlant_end,-1]"
+}
+
+OnAddPlant_end
+{
+	floralivingcon[floracount] = REPLACE(reference0,",","+")
+	floracount += 1
+	choosennum = floracount - 1
+	--
+	"\b4Done, here is your plant:\x\c\b4\_q"
+	--
+	OnPlantPage
+	--
+	plantpage
+}
+
+OnPlantPage
+{
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
+	--
+	plantpage = "\b4\_q\*"
+	--
+	portraits = FENUM('portraits','+')
+	--
+	if TOLOWER(floraaname[choosennum]) _in_ TOLOWER(portraits)
+	{
+		plantpage += "\_b[portraits/" + floraaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	}
+	--
+	plantpage += florastuff[0] + floraaname[choosennum] + "\n\n[half]" + florastuff[1] + floradesc[choosennum] + "\n\n[half]" + florastuff[2] + floralivingcon[choosennum]
+	--
+	refsheets = FENUM('refsheets','+')
+	--
+	if TOLOWER(floraaname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		plantpage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + floraaname[choosennum] + "]\n\n"
+	}
+	--
+	plantpage += "\n\n\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnPlants]"
+	--
+	plantpage = REPLACE(plantpage,"+",",")
+}
+//===================================OPEN REF SHEET=================================================
+OnOpenRef
+{
+	thingforref = reference0
+	reffarray = SPLIT(refsheets,"+")
+	for _i=0,_x=0;_x!=1;_i++
+	{
+		if TOLOWER(thingforref) _in_ TOLOWER(reffarray[_i])
+		{
+			_x=1
+			foundnum = _i
+		}
+	}
+	--
+	"\![open,file,refsheets/%(reffarray[foundnum])]"
+}
+//===================================PLANTS=================================================
+OnItems
+{
+	itemlist = "\_q\b2"
+	--
+	if itemcount != 0
+	{
+		itemlist += "\f[bold,1]Your Items:\f[bold,0]\n\n[half]"
+		--
+		for _i=0;_i<itemcount;_i++
+		{
+			itemlist += "\![*]\q[" + itemsaname[_i] + ",OnItemClick," + _i +"]\n"
+		}
+	}
+	else
+	{
+		itemlist += "You don't have any items yet\n\n[half]"
+	}
+	--
+	itemlist += "\f[size,10]\n\![*]\q[Add Item,OnAddItem]\n"
+	--
+	if removeitems == 1
+	{
+		itemlist += "\f[color,230, 39, 25]\![*]\q[Remove Item,removeitm]\f[color,default]\n"
+	}
+	else
+	{
+		itemlist += "\![*]\q[Remove Item,removeitm]\n"
+	}
+	--
+	if edititem == 1
+	{
+		itemlist += "\f[color,230, 39, 25]\![*]\q[Edit Item,editm]\f[color,default]"
+	}
+	else
+	{
+		itemlist += "\![*]\q[Edit Item,editm]"
+	}
+	--
+	itemlist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	--
+	itemlist
+}
+
+Select.editm
+{
+	if edititem == 1
+	{
+		edititem = 0
+	}
+	else
+	{
+		removeitems = 0
+		edititem = 1
+	}
+	--
+	OnItems
+}
+
+Select.removeitm
+{
+	if removeitems == 1
+	{
+		removeitems = 0
+	}
+	else
+	{
+		edititem = 0
+		removeitems = 1
+	}
+	--
+	OnItems
+}
+
+OnItemClick
+{
+	choosennum = reference0
+	--
+	if removeitems == 1
+	{
+		for _i=choosennum;_i<itemcount;_i++
+		{
+			itemsaname[_i] = itemsaname[_i+1]
+			itemsdesc[_i] = itemsdesc[_i+1]
+			itemsability[_i] = itemsability[_i+1]
+			itemshistory[_i] = itemshistory[_i+1]
+			itemsowner[_i] = itemsowner[_i+1]
+		}
+		itemcount -= 1
+		OnItems
+	}
+	elseif edititem == 1
+	{
+		"\_q\b2What do you want to edit?\n\n"
+		--
+		"\![*]\q[Name,OnEditItem,name]\n/
+		\![*]\q[Description,OnEditItem,descr]\n/
+		\![*]\q[Abilities,OnEditItem,ability]\n/
+		\![*]\q[History,OnEditItem,history]\n/
+		\![*]\q[Owner,OnEditItem,owner]\n"
+		--
+		"\n[half]\![*]\q[Go Back,OnItems]\n/
+		\![*]\q[Nevermind,Cancel]\e"
+	}
+	else
+	{
+		OnItemPage
+		--
+		itempage
+	}
+}
+
+OnEditItem
+{
+	case reference0
+	{
+		when "name"
+		{
+			"\![open,input,OnINameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnIDescChange,-1]"
+		}
+		when "ability"
+		{
+			"\![open,input,OnIAbility,-1]"
+		}
+		when "history"
+		{
+			"\![open,input,OnIHistory,-1]"
+		}
+		when "owner"
+		{
+			"\![open,input,OnIOwner,-1]"
+		}
+	}
+}
+
+OnINameChange
+{
+	itemsaname[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnItemPage
+	--
+	itempage
+
+}
+
+OnIDescChange
+{
+	itemsdesc[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnItemPage
+	--
+	itempage
+
+}
+
+OnIAbility
+{
+	itemsability[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnItemPage
+	--
+	itempage
+}
+
+OnIHistory
+{
+	itemshistory[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnItemPage
+	--
+	itempage
+}
+
+OnIOwner
+{
+	itemsowner[choosennum] = reference0
+	--
+	"\b4Done\x\c" 
+	--
+	OnItemPage
+	--
+	itempage
+}
+
+OnAddItem
+{
+	"Name: \![open,inputbox,OnAddItem_desc,-1]"
+}
+
+OnAddItem_desc
+{
+	itemsaname[itemcount] = reference0
+	--
+	"Description: \![open,inputbox,OnAddItem_ability,-1]"
+}
+
+OnAddItem_ability
+{
+	itemsdesc[itemcount] = REPLACE(reference0,",","+")
+	--
+	"Abilities: \![open,inputbox,OnAddItem_history,-1]"
+}
+
+OnAddItem_history
+{
+	itemsability[itemcount] = REPLACE(reference0,",","+")
+	--
+	"History: \![open,inputbox,OnAddItem_owner,-1]"
+}
+
+OnAddItem_owner
+{
+	itemshistory[itemcount] = REPLACE(reference0,",","+")
+	--
+	"Owner: \![open,inputbox,OnAddItem_end,-1]"
+}
+
+OnAddItem_end
+{
+	itemsowner[itemcount] = REPLACE(reference0,",","+")
+	itemcount += 1
+	choosennum = itemcount - 1
+	--
+	"\b4Done, here is your plant:\x\c\b4\_q"
+	--
+	OnItemPage
+	--
+	itempage
+}
+
+OnItemPage
+{
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
+	--
+	itempage = "\b4\_q\*"
+	--
+	portraits = FENUM('portraits','+')
+	--
+	if TOLOWER(itemsaname[choosennum]) _in_ TOLOWER(portraits)
+	{
+		itempage += "\_b[portraits/" + itemsaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	}
+	--
+	itempage += itemstuff[0] + itemsaname[choosennum] + "\n\n[half]" + itemstuff[1] + itemsdesc[choosennum] + "\n\n[half]" + itemstuff[2] + itemsability[choosennum] + "\n\n[half]" + itemshistory[3] + floralivingcon[choosennum] + "\n\n[half]" + itemstuff[4] + itemsowner[choosennum]
+	--
+	refsheets = FENUM('refsheets','+')
+	--
+	if TOLOWER(itemsaname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		itempage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + itemsaname[choosennum] + "]\n\n"
+	}
+	--
+	itempage += "\n\n\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnItems]"
+	--
+	itempage = REPLACE(itempage,"+",",")
+}

@@ -8,27 +8,29 @@
 	{
 		when ".jpg", ".jpeg", ".bmp", ".png"
 		{
-			if TOLOWER(_filename) _in_ TOLOWER("%(charname)")
+			if "_ref" _in_ _filename
+			{	
+				whatref = REPLACE(_filename,"_ref","")
+				--
+				"Is this a reference sheet for '%(whatref)?'\n\n[half]"
+				--
+				"\![*]\q[Yes,OnRefUpload,%(file)]\n/
+				\![*]\q[No,noupload]\e"
+			}
+			elseif TOLOWER(_filename) _in_ TOLOWER("%(charname)") || TOLOWER(_filename) _in_ TOLOWER("%(faunaname)") || TOLOWER(_filename) _in_ TOLOWER("%(placename)") || TOLOWER(_filename) _in_ TOLOWER("%(floraaname)") || TOLOWER(_filename) _in_ TOLOWER("%(itemsaname)")
 			{
 				"Is this a portrait for '%(_filename)?'\n\n[half]"
 				--
 				"\![*]\q[Yes,OnPortraitUpload,%(file)]\n/
-				\![*]\q[No,script:\cThe file you dropped is %(_filename)%(_fileext)]\e"
+				\![*]\q[No,noupload]\e"
 			}
-			elseif "_map" _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(counname)")
+			elseif "_map" _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(counname)") _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(placename)")
 			{
 				whatmap = REPLACE(_filename,"_map","")
 				"Is this a map for '%(whatmap)?'\n\n[half]"
 				--
 				"\![*]\q[Yes,OnMapUpload,%(file)]\n/
-				\![*]\q[No,script:\cThe file you dropped is %(_filename)%(_fileext)]\e"
-			}
-			elseif TOLOWER(_filename) _in_ TOLOWER("%(racename)")
-			{
-				"Is this a reference sheet for '%(_filename)?'\n\n[half]"
-				--
-				"\![*]\q[Yes,OnRefUpload,%(file)]\n/
-				\![*]\q[No,script:\cThe file you dropped is %(_filename)%(_fileext)]\e"
+				\![*]\q[No,noupload]\e"
 			}
 			else
 			{
@@ -38,7 +40,7 @@
 					--
 					if e == 1
 					{
-						"I saved %(_filename)%(_fileext)"
+						"I copied this image to my book"
 					}
 				}
 				else
@@ -58,13 +60,36 @@
 	}
 }
 
+Select.noupload
+{
+	if igsave == "ON"
+	{
+		e = FCOPY(reference0,"images")
+		--
+		if e == 1
+		{
+			"I copied this image to my book"
+			"I saved this image to my book"
+			"Image saved"
+			"I saved it"
+		}
+	}
+	else
+	{
+		"\0\s[0]In that case i don't think I will have any use for this image, sorry."
+	} 
+}
+
 OnRefUpload
 {
-	e = FCOPY(reference0,"races")
+	e = FCOPY(reference0,"refsheets")
 	--
 	if e == 1
 	{
-		"Reference Sheet Saved"
+		"I copied this reference sheet to my book"
+		"I saved this reference sheet to my book"
+		"Reference sheet saved"
+		"I saved it"
 	}
 }
 
@@ -74,7 +99,10 @@ OnPortraitUpload
 	--
 	if e == 1
 	{
-		"Portrait Saved"
+		"I copied this portrait to my book"
+		"I saved this portrait to my book"
+		"Portrait saved"
+		"I saved it"
 	}
 }
 
@@ -84,13 +112,16 @@ OnMapUpload
 	--
 	if e == 1
 	{
-		"Map Saved"
+		"I copied this Map to my book"
+		"I saved this Map to my book"
+		"Map saved"
+		"I saved it"
 	}
 }
 
 OnInstallBegin
 {
-	"\0\s[0]This file contains instal.txt, wait a second and I will instal it\e"
+	"\0\s[0]This file contains instal.txt, wait a second and I will install it\e"
 }
 
 OnInstallComplete

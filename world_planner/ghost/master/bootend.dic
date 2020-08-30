@@ -57,7 +57,7 @@ OnVariables
 	--
 	charname[1] = "Omega"
 	charage[1] =	"Unknown"
-	chardead[1] =	"No"
+	chardead[1] =	"Yes"
 	chargender[1] =	"Male"
 	charrace[1] =	"Guardian"
 	charprof[1] =	"Guardian of Knowledge/Librarian"
@@ -122,13 +122,13 @@ OnVariables
 	floradesc[0] =  "Plant's description"
 	floralivingcon[0] = "Growth conditions"
 	-- 
-	florastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Abilities:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Owner:\f[bold+0]\n\n[half]"
+	itemstuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Abilities:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Owner:\f[bold+0]\n\n[half]"
 	itemcount = 1
-	itemsaname[0] = "Items's name"
-	itemsdesc[0] =  "Items's description"
-	itemsability[0] =  "Items's abilities"
-	itemshistory[0] =  "Items's history"
-	itemsowner[0] =  "Items's Owner"
+	itemsaname[0] = "Item's name"
+	itemsdesc[0] =  "Item's description"
+	itemsability[0] =  "Item's abilities"
+	itemshistory[0] =  "Item's history"
+	itemsowner[0] =  "Item's Owner"
 }
 
 GetTimeSlot
