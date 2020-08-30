@@ -233,7 +233,7 @@ OnClose
 
 OnWindowStateRestore
 {
-	"\0...\e"
+	"\0\s[0]...\e"
 }
 
 OnGhostChanging

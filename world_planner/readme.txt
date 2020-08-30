@@ -1,5 +1,5 @@
 --Readme--
-World Planner v.1.0.1a
+World Planner v.1.0.3a
 
 Welcome beta tester.
 

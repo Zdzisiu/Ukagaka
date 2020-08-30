@@ -1,6 +1,6 @@
 file,ghost/master/aitalk.dica6b04ab041d0c191eebead5cdd5c5cfbsize=2097
 file,ghost/master/anchor.dicc5944b6687ac92c7dcfe5519759d0f7dsize=1161
-file,ghost/master/bootend.dicafaef7a5d94c86d8f43035d678e76db4size=7174
+file,ghost/master/bootend.dic6b45d2c007d0242876d5fa86b031dcedsize=7179
 file,ghost/master/commu.dic34873d3441936732276a248c7858cb93size=322
 file,ghost/master/descript.txt7471579b862bc7fbd7ffd59251783530size=222
 file,ghost/master/etc.dic8f6bd88e15a12dee0cf56c543b52b57fsize=9265
@@ -75,7 +75,7 @@ file,old_paper/online5.pngb11d8ec1387e34eed191d50d42780ef4size=1058
 file,old_paper/online6.png5d2a369f347cbbee19b14cb59719233bsize=1212
 file,old_paper/readme.txtd41d8cd98f00b204e9800998ecf8427esize=0
 file,old_paper/sstp.png8342fe30f685b5f7756da3062e906a1bsize=1155
-file,readme.txta359baf09811c44d4a9cd0051d13024csize=330
+file,readme.txt0e2d1762236452f325a1396f29c259f9size=330
 file,shell/human/descript.txt7c80bbcba86d25fde12d1a3d3e7c60e6size=1035
 file,shell/human/surface0.kra5ced326e9fb423073bc039574053f3c4size=253760
 file,shell/human/surface0.kra~cd1031aab7308fd7da62e4cc9e115cd5size=245159
