@@ -2,16 +2,13 @@
  {
   	if nowmode != "QUIZ"
  	{
-		if boooting != 1
+		if reference3 == 0 
 		{
-			if reference3 == 0 
-			{
-				MouseMoveSakura
-			}
-			else 
-			{
-				MouseMoveKero
-			}
+			MouseMoveSakura
+		}
+		else 
+		{
+			MouseMoveKero
 		}
 	}
  }
@@ -142,16 +139,13 @@ MouseMoveKero
 
 OnMouseDoubleClick
  {
-	if boooting != 1
+ 	if reference3 == 0 
 	{
-		if reference3 == 0 
-		{
-			MouseDoubleClickSakura
-		}
-		else
-		{
-			MouseDoubleClickKero
-		}
+		MouseDoubleClickSakura
+ 	}
+	else
+ 	{
+ 		MouseDoubleClickKero
 	}
  }
 
@@ -180,77 +174,74 @@ MouseDoubleClickKero
 
 OnMouseClick
 {
-	if boooting != 1
+	if reference3 == 3
 	{
-		if reference3 == 3
+		if reference4 == "a"
 		{
-			if reference4 == "a"
-			{
-				Select.LOG
-			}
+			Select.LOG
+		}
+	}
+	--
+	if reference3 == 4
+	{
+		if reference4 == "a"
+		{ 
+			mode = 1
+		}
+		else
+		{
+			mode = 2
 		}
 		--
-		if reference3 == 4
+		"%(lightdark)"
+		
+	}
+	--
+	if reference3 == 5
+	{
+		if reference4 == "a"
 		{
-			if reference4 == "a"
-			{ 
-				mode = 1
-			}
-			else
-			{
-				mode = 2
-			}
-			--
-			"%(lightdark)"
-			
+			OnCheckWeather
 		}
-		--
-		if reference3 == 5
+	}
+	--
+	if reference3 == 6
+	{
+		if reference4 == "a"
 		{
-			if reference4 == "a"
-			{
-				OnCheckWeather
-			}
+			Select.stats
 		}
-		--
-		if reference3 == 6
+	}
+	--
+	if reference3 == 7
+	{
+		if reference4 == "a"
 		{
-			if reference4 == "a"
-			{
-				Select.stats
-			}
+			Select.todo
 		}
-		--
-		if reference3 == 7
+	}
+	--
+	if reference3 == 8
+	{
+		if reference4 == "a"
 		{
-			if reference4 == "a"
-			{
-				Select.todo
-			}
+			Select.configmenu
 		}
-		--
-		if reference3 == 8
+	}
+	--
+	if reference3 == 9
+	{
+		if reference4 == "a"
 		{
-			if reference4 == "a"
-			{
-				Select.configmenu
-			}
+			Select.clothesmenu
 		}
-		--
-		if reference3 == 9
+	}
+	--
+	if reference3 == 10
+	{
+		if reference4 == "a"
 		{
-			if reference4 == "a"
-			{
-				Select.clothesmenu
-			}
-		}
-		--
-		if reference3 == 10
-		{
-			if reference4 == "a"
-			{
-				Select.oapp
-			}
+			Select.oapp
 		}
 	}
 }

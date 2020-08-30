@@ -1,6 +1,9 @@
 Charset,UTF-8
 install,647396977
+homeurl_found,1
 surfacecount,785
+homeurl,http://zdzichu.atwebpages.com/MiniDev/
+update_result,OK(2)
 firstboot,647396977
 commitmemorysize,8560772
-lastboot,647396977
+lastboot,648415641

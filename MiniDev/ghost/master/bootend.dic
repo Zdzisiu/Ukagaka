@@ -42,8 +42,6 @@
 	//\![bind,skin,p white,1]\![bind,shirt_#1,p white,1]\![bind,shoes,p white,1]\![bind,pants_#1,p white,1]\![bind,screen,p white,1]\![bind,monitor,p white,1]\![bind,OO,p black,1]
 	if reference0 == 0 
  	{
-		 boooting = 1
-		 --
 		"\![enter,passivemode]\![open,file,ghost/master/credits-readme.txt]\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
 		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
@@ -122,9 +120,7 @@ Select.choicefirsttheythem
 
 NameInput
 {
-	introduction = 0
-	booting = 0
-	--
+	introduction = 0 
 	if tentruth == 1 //story boot
 	{
 		truthboot = 1
