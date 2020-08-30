@@ -45,7 +45,7 @@
 				}
 				else
 				{
-					"\0\s[0]This is a nice image but i don't think i will have any use for it."
+					"\0This is a nice image but i don't think i will have any use for it."
 				}
 			}
 		}
@@ -55,7 +55,7 @@
 		}
 		others
 		{
-			"\0\s[0]This is %(_filename)%(_fileext).\e"
+			"\0This is %(_filename)%(_fileext).\e"
 		}
 	}
 }
@@ -76,7 +76,7 @@ Select.noupload
 	}
 	else
 	{
-		"\0\s[0]In that case i don't think I will have any use for this image, sorry."
+		"\0In that case i don't think I will have any use for this image, sorry."
 	} 
 }
 
@@ -121,7 +121,7 @@ OnMapUpload
 
 OnInstallBegin
 {
-	"\0\s[0]This file contains instal.txt, wait a second and I will install it\e"
+	"\0This file contains instal.txt, wait a second and I will install it\e"
 }
 
 OnInstallComplete
@@ -133,30 +133,30 @@ OnInstallComplete
  	{	
 		if reference1 == "Hypothetical Shell that doesn't actually exist" 
 		{
-		"\s[0]We have installed Hypothetical Shell.\w8Truncated for space.\e"
+		"We have installed Hypothetical Shell.\w8Truncated for space.\e"
 
 		}
 		elseif reference1 == "Another totally real shell wow"
 		{
-		"\s[0]We have installed another totally real shell.\e"
+		"We have installed another totally real shell.\e"
 
 		}
 		else 
 		{
-		"\s[0]I have installed a new shell.\w8It's called  %(reference1).\e"
+		"I have installed a new shell.\w8It's called  %(reference1).\e"
 		}
  	}
 	elseif reference0 == "ghost"
  	{
-		"\s[0]I have installed a new Ghost.\w8It's called %(reference1)\n\n[half]Do you want to me to call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall].\e"
+		"I have installed a new Ghost.\w8It's called %(reference1)\n\n[half]Do you want to me to call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall].\e"
  	}
 	elseif reference0 == "balloon"
  	{
-		"\s[0]I have installed a new balloon.\w8It's called %(reference1).\e"
+		"I have installed a new balloon.\w8It's called %(reference1).\e"
  	}
 	elseif reference0 == "plugin"
  	{
-		"\s[0]I have installed a plug-in.\w8It's called %(reference1).\e"
+		"I have installed a plug-in.\w8It's called %(reference1).\e"
  	}
 }
 
@@ -172,7 +172,7 @@ Select.nocall
 
 OnInstallFailure
 {
-	"\0\s[0]The installation has failed.\n\n[half]\w5"
+	"\0The installation has failed.\n\n[half]\w5"
 	--
 	if reference0 == "unsupported"
 	{
@@ -186,55 +186,55 @@ OnInstallFailure
 
 OnInstallRefuse
 {
-	"\0\s[0]I can't install this. \w4It may be for %(reference0) instead.\e"
+	"\0I can't install this. \w4It may be for %(reference0) instead.\e"
 }
 
 OnVanishSelecting
 {
-	"\0\s[0]...\e"
+	"\0...\e"
 }
 
 OnVanishSelected
 {
-	"\0\s[0]Goodbye\e"
+	"\0Goodbye\e"
 }
 
 OnVanishCancel
 {
-	"\0\s[0]Seems like I'm staing here\e"
+	"\0Seems like I'm staing here\e"
 }
 
 OnVanished
 {
-	"\0\s[0]Goodbye %(reference0)\e"
+	"\0Goodbye %(reference0)\e"
 }
 
 OnBIFFBegin
 {
-	"\0\s[0]...\e"
+	"\0...\e"
 }
 
 OnBIFFComplete
  {
 	if reference0 == 0
  	{
- 		"\0\s[0]There is no new mail.\e"
+ 		"\0There is no new mail.\e"
 	}
 	elseif reference0 == 1
  	{
- 		"\0\s[0]There is one new email.\e"
+ 		"\0There is one new email.\e"
 	}
 	elseif reference0 > 1 && reference0 < 11
 	{
-		"\0\s[0]There are %(reference0) emails.\e"
+		"\0There are %(reference0) emails.\e"
 	}
 	elseif reference0 > 100
 	{
-		"\0\s[0]There are %(reference0) emails unread\e"
+		"\0There are %(reference0) emails unread\e"
 	}
  	else
 	{
-		"\0\s[0]There are %(reference0) emails.\e"
+		"\0There are %(reference0) emails.\e"
  	}
 }
 
@@ -242,26 +242,26 @@ OnBIFFFailure
  {
 	if reference0 == "timeout"
  	{
- 		"\0\s[0]The connection has timed out.\e"
+ 		"\0The connection has timed out.\e"
 	}
  	elseif reference0 == "kick"
 	{
-		"\0\s[0]I can't access the account.\e"
+		"\0I can't access the account.\e"
  	}
 	elseif reference0 == "defect" 
  	{
- 		"\0\s[0]The email account was not set up properly.\w8 It can be reset at the POP menu.\![open,configurationdialog]\e"
+ 		"\0The email account was not set up properly.\w8 It can be reset at the POP menu.\![open,configurationdialog]\e"
 	}
  	else
 	{
-		"\0\s[0]We can't connect to the account.\w8 The error returned is '%(reference[0])'.\e"
+		"\0We can't connect to the account.\w8 The error returned is '%(reference[0])'.\e"
 		
  	}
 }
 
 OnUpdateBegin
 {
-	"\0\s[0]Wait a second please, I will check if there is something new in the Eternal Library\w8\e"
+	"\0Wait a second please, I will check if there is something new in the Eternal Library\w8\e"
 }
  
 OnUpdateReady
@@ -294,7 +294,7 @@ OnUpdateFailure
  	}
 	else
  	{
- 		"The update could not be completed.\w8\0\s[0]The error is '%(reference0)'.\e"
+ 		"The update could not be completed.\w8\0The error is '%(reference0)'.\e"
 	}
 }
 
@@ -315,32 +315,32 @@ OnUpdate.OnMD5CompareBegin
 
 OnUpdate.OnMD5CompareComplete
 {
-	"\0\s[0]MD5 ID is correct.\e"
+	"\0MD5 ID is correct.\e"
 }
 
 OnUpdate.OnMD5CompareFailure
 {
-	"\0\s[0]The MD5 ID of the materials doesn't match.\w8\e"
+	"\0The MD5 ID of the materials doesn't match.\w8\e"
 }
 
 OnHeadlinesenseBegin
 {
-	"\0\s[0]You've selected %(reference0).\e"
+	"\0You've selected %(reference0).\e"
 }
 
 OnHeadlinesense.OnFind
 {
  	if reference2 == "First" || reference2 == "First and Last"
 	{
-		"\0\b2\s[0]%(reference0):"
+		"\0\b2%(reference0):"
  	}
 	elseif reference2 == "Next"
  	{
- 		"\0\b2\s[0]%(reference0):"
+ 		"\0\b2%(reference0):"
 	}
  	elseif reference2 == "Last"
 	{
-		"\0\b2\s[0]%(reference0):"
+		"\0\b2%(reference0):"
  	}
 	--
 	"\n\n%reference3\n"
@@ -359,17 +359,17 @@ OnHeadlinesense.OnFind
 
 Select.Headline_Cancel
 {
-	"\0\s[0]Headline viewing complete.\e"
+	"\0Headline viewing complete.\e"
 }
  
 OnHeadlinesenseComplete
 {
-	"\0\s[0]No update. %(reference0).\e"
+	"\0No update. %(reference0).\e"
 }
 
 OnHeadlinesenseFailure
 {
-	"\0\s[0]The feed can't updated.\w8Why not?\w8\0\s[0]\n\n[half]"
+	"\0The feed can't updated.\w8Why not?\w8\0\n\n[half]"
  	--
 	if reference0 == "can't download" 
  	{
@@ -394,22 +394,22 @@ OnUpdatedataCreating
 
 OnUpdatedataCreated
 {
-	"\0\s[0]Successfully created updates2.dau.\e"
+	"\0Successfully created updates2.dau.\e"
 }
 
 OnNarCreating
 {
-	"\0\s[0]Wait a second please.\e"
+	"\0Wait a second please.\e"
 }
 
 OnNarCreated
 {
-	"\0\s[0]Successfully created '%(reference0)'.\e"
+	"\0Successfully created '%(reference0)'.\e"
 }
 
 OnSNTPBegin
 {
-	"\0\s[0]I will check the time.\w9I'm connecting to %(reference0).\e"
+	"\0I will check the time.\w9I'm connecting to %(reference0).\e"
 }
 
 OnSNTPCompare
@@ -420,11 +420,11 @@ OnSNTPCompare
 	--
  	if reference3 == 0
 	{
- 		"\0\s[0]Your clock is accurate.\e"
+ 		"\0Your clock is accurate.\e"
 	}
  	else
 	{
- 		"\0\s[0]Your clock doesn't match.\w6\nShould I fix it?\n\n[half]/
+ 		"\0Your clock doesn't match.\w6\nShould I fix it?\n\n[half]/
 		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
  		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
 	}
@@ -432,17 +432,17 @@ OnSNTPCompare
 
 OnSNTPEXECUTE
 {
-	"\0\s[0]The clock has been fixed.\6\e"
+	"\0The clock has been fixed.\6\e"
 }
 
 OnSNTPCANCEL
 {
-	"\0\s[0]...\e"
+	"\0...\e"
 }
 
 OnSNTPFailure
 {
-	"\0\s[0]I couldn't change the clock.\w8Something went wrong.\e"
+	"\0I couldn't change the clock.\w8Something went wrong.\e"
 }
 
 OnDisplayChange
@@ -454,29 +454,29 @@ OnDisplayChange
 
 OnScreenSaverStart
 {
-	"\0\s[0]The screensaver is starting.\e"
+	"\0The screensaver is starting.\e"
 	//Replace with what you want.
 }
 
 OnScreenSaverEnd
 {
-	"\0\s[0]...\e"
+	"\0...\e"
 	//Replace with what you want.
 }
 
 OnApplicationBoot
 {
-	"\0\s[0]%(reference0) just started.\e"
+	"\0%(reference0) just started.\e"
 }
 
 OnApplicationClose
 {
-	"\0\s[0]%(reference0) has closed.\e"
+	"\0%(reference0) has closed.\e"
 }
 
 OnApplicationFileOpen
 {
-	"\0\s[0]Opening %(reference1).\e"
+	"\0Opening %(reference1).\e"
 }
 
 OnBatteryLow
@@ -487,19 +487,19 @@ OnBatteryLow
 
 OnBatteryCritical
 {
-	"\0\s[0]The laptop's battery is critically low.\e"
+	"\0The laptop's battery is critically low.\e"
 }
 
 OnSysResourceLow
 {
-	"\0\s[0]The system resources are low.\e"
+	"\0The system resources are low.\e"
 }
 
 OnShellScaling
 {
 	if reference0 >= 150 //this number is the percentage that you're scaling the ghost up to. In this case, it's 150%.
 	{
-		"\0\s[0]I'm now 150% my original size.\w8Bigger.\e"
+		"\0I'm now 150% my original size.\w8Bigger.\e"
 	}
 	elseif reference0 == 100 //this is 100%
 	{
@@ -507,6 +507,6 @@ OnShellScaling
 	}
 	elseif reference0 == 50 //this is 50%. You can add any percentage that's listed under shell scaling if you want using more elseifs.
 	{
-		"\0\s[0]I'm now 50% my original size.\w8Smaller.\e"
+		"\0I'm now 50% my original size.\w8Smaller.\e"
 	}
 }

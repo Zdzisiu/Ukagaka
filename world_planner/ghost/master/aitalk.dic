@@ -86,12 +86,12 @@ OnSecondChange
 
 MikireTalk
 {
-	"\0\s[0]Push Ctrl-Shift-F12 to bring me back."
+	"Push Ctrl-Shift-F12 to bring me back."
 }
 
 EndMikireTalk
 {
-	"\0\s[0]...\e"
+	"...\e"
 }
 
 /*

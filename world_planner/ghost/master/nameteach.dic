@@ -24,7 +24,7 @@ OnNameTeach
 	}
 	else 
 	{
-		"\b2\0\s[0]Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+		"\b2\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
 		--
 		if presuffix == "masculine" 
 		{
@@ -128,5 +128,5 @@ Select.titlesan
 
 NameDone
 {
-	"\0\s[0]I will call you %(username) from now on.\e"
+	"\0I will call you %(username) from now on.\e"
 }

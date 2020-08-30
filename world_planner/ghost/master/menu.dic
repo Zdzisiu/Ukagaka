@@ -5,7 +5,7 @@
 
 OpenSakuraMenu
 {
-	"\_q\0\s[0]\b2..."
+	"\_q\b2%(ch)..."
 	--
 	MenuRun
 }
@@ -41,7 +41,7 @@ MenuRun
 
 Select.askomega
 {
-	"\b2\_qWhat would you like to know?\n\n[half]\f[bold,1]Functions:\f[bold,0]\n\n[half]"
+	"\b2\_q%(ch)What would you like to know?\n\n[half]\f[bold,1]Functions:\f[bold,0]\n\n[half]"
 	--
 	"\![*]\q[Uploading images,OnAskOmega,imgs]\n/
 	\![*]\q[Portraits,OnAskOmega,port]\n/
@@ -62,35 +62,35 @@ OnAskOmega
 	{
 		when "port"
 		{
-			"Make a portrait according to this\![open,file,template.png] templates size, when you upload it, it will be shown above all info"
+			"%(ch)Make a portrait according to this\![open,file,template.png] templates size, when you upload it, it will be shown above all info"
 		}
 		when "map"
 		{
-			"To show maps click 'show map', on the bottom of the info"
+			"%(ch)To show maps click 'show map', on the bottom of the info"
 		}
 		when "ref"
 		{
-			"You can have one main reference sheet that you will be able to access directly for the page, the rest is saved separatly"
+			"%(ch)You can have one main reference sheet that you will be able to access directly for the page, the rest is saved separatly"
 		}
 		when "imgs"
 		{
-			"\b4If you want me to save an image you have to drop it on me\n\n[half]If you want to upload a portrait name the image the same as the character/plant/animal/place/item\n\n[half]If you want to save a map name the image like the country/place or add '_map' to the end\n\n[half]If you want to save a reference sheet add '_ref' to the end of the images name\n\n[half]Any other images i can save in one of my books if you want me to do it"
+			"\b4%(ch)If you want me to save an image you have to drop it on me\n\n[half]If you want to upload a portrait name the image the same as the character/plant/animal/place/item\n\n[half]If you want to save a map name the image like the country/place or add '_map' to the end\n\n[half]If you want to save a reference sheet add '_ref' to the end of the images name\n\n[half]Any other images i can save in one of my books if you want me to do it"
 		}
 		when "law"
 		{
-			"To delete a law click on 'remove law' and then on the number of the law you want to delete"
+			"%(ch)To delete a law click on 'remove law' and then on the number of the law you want to delete"
 		}
 		when "him"
 		{
-			"I'm a librarian"
-			"I'm a guardian"
-			"I'm gods servant"
+			"%(ch)I'm a librarian"
+			"%(ch)I'm a guardian"
+			"%(ch)I'm gods servant"
 		}
 		when "age"
 		{
-			"Age doesn't matter when you are already dead"
-			"Guardians live outside of time"
-			"I don't know but it doesn't really matter"
+			"%(ch)Age doesn't matter when you are already dead"
+			"%(ch)Guardians live outside of time"
+			"%(ch)I don't know but it doesn't really matter"
 		}
 	}
 	--
@@ -103,7 +103,7 @@ OnAskOmega
 Select.imglib
 {
 	imglist = ""
-	imglist +="\f[bold,1]\_q\b[4]Your images\f[bold,0]:\n\n"
+	imglist +="\f[bold,1]\_q\b4%(ch)Your images\f[bold,0]:\n\n"
 	--
 	_imgs = FENUM('images','+')
 	if _imgs == ""
@@ -217,7 +217,7 @@ OnReImg
 //=======================================SUB MENUS=============================================
 Select.langstuff
 {
-	"\_q\b2" 
+	"\_q\b2%(ch)" 
 	--
 	"\![*]\q[Generate Language,OnGenConfig,save]\n"
 	--
@@ -234,7 +234,7 @@ Select.langstuff
 
 Select.worldplan
 {
-	"\_q\b2" 
+	"\_q\b2%(ch)" 
 	--
 	"\![*]\q[Characters,OnCharacterList]\n/
 	\![*]\q[Countries,OnCountries]\n/
@@ -250,7 +250,7 @@ Select.worldplan
 
 Select.generators
 {
-	"\_q\b2" 
+	"\_q\b2%(ch)" 
 	--
 	"\![*]\q[Characters,OnCharacterGen,generator]\n/
 	\![*]\q[Countries,OnCountriesGen]\n/
@@ -274,7 +274,7 @@ OnLanguages
 {
 	langcontent = ""
 	--
-	langcontent +="\f[bold,1]\_q\b[4]Your Languages:\f[bold,0]:\n\n"
+	langcontent +="\f[bold,1]\_q\b4%(ch)Your Languages:\f[bold,0]:\n\n"
 	--
 	langfile = FENUM('languages','+')
 	if langfile == ""
@@ -450,7 +450,7 @@ Select.configmenu
 
 TalkConfig
 {
-	"\0\b[2]\_q" 
+	"\b[2]\_q%(ch)" 
 	--
 	"\f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
 	--
@@ -483,7 +483,7 @@ Select.imgs
 
 Select.TEACHPRONOUN
 {
-	"\0\s[0]What pronouns do you want?\w5\n\n[half]\_q/
+	"%(ch)What pronouns do you want?\w5\n\n[half]\_q/
 		\![*]\q[He-His-Him,choicemasc]\n/
 		\![*]\q[She-Her-Her,choicefem]\n/	
 		\![*]\q[They-Their-Them,choiceneither]\e"
@@ -496,7 +496,7 @@ Select.choicemasc
 	heshe = "he"
 	hisher = "his"
 	--
-	"\0\s[0]The pronouns are now he him and his.\e"
+	"The pronouns are now he him and his.\e"
 }
 
 Select.choicefem
@@ -506,7 +506,7 @@ Select.choicefem
 	heshe = "she"
 	hisher = "her"
 	--
-	"\0\s[0]The pronouns are now she her and her.\e"
+	"The pronouns are now she her and her.\e"
 }
 
 Select.choiceneither
@@ -516,7 +516,7 @@ Select.choiceneither
 	heshe = "they"
 	hisher = "their"
 	--
-	"\0\s[0]The pronouns are now they them and their.\e"
+	"The pronouns are now they them and their.\e"
 }
 
 Select.deleteon
@@ -535,7 +535,7 @@ Select.TEACHBDAY
 {
 	dayslot = GetDaySlot 
 	--
-	"\0\s[0]What month were you born? \w8Write the number.\![open,inputbox,OnUserBornMonth,-1]\e"
+	"%(ch)What month were you born? \w8Write the number.\![open,inputbox,OnUserBornMonth,-1]\e"
 }
 
 OnUserBornMonth
@@ -546,11 +546,11 @@ OnUserBornMonth
 	{
 	bornmonth = _tempmonth
 	bornmonthprint = Printmonth
-	"\0\s[0]So you were born in %(bornmonthprint).\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
+	"%(ch)So you were born in %(bornmonthprint).\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
 	}
 	else 
 	{
-	"\0\s[0]That's not a valid month. Try again.\![open,inputbox,OnUserBornMonth,-1]\e"
+	"%(ch)That's not a valid month. Try again.\![open,inputbox,OnUserBornMonth,-1]\e"
 	}
 }
 
@@ -641,7 +641,7 @@ OnUserBornDay
 		}
 		else 
 		{
-			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+			"%(ch)That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
 		}
 	}
 	elseif bornmonth == 2 
@@ -656,7 +656,7 @@ OnUserBornDay
 		}
 		else
 		{
-			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+			"That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
 		}
 	}
 	else 
@@ -671,7 +671,7 @@ OnUserBornDay
 		}
 		else
 		{
-			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+			"%(ch)That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
 		}
 	}		
 }
@@ -680,18 +680,18 @@ birthchecked
 {
 	if userbirthday == dayslot 
 	{
-		"\0\s[0]So your birthday is today, happy birthday then %(username).\e"
+		"So your birthday is today, happy birthday then %(username).\e"
 	}
 	else 
 	{
-		"\0\s[0]Your birthday is %(bornmonthprint) %(borndayprint). I will remember.\e"
+		"Your birthday is %(bornmonthprint) %(borndayprint). I will remember.\e"
 	}
 }
 
 Select.talkinter
 {
-	"\0\s[0]\b2The interval is currently set to %(talktime)./
-	\0\n\n[half]/
+	"\b2The interval is currently set to %(talktime)./
+	\n\n[half]/
 	\![*]\q[Every 30 seconds,TALKMAX]\n/
 	\![*]\q[Every minute,TALKHIGH]\n/
 	\![*]\q[Every 3 minutes,TALKNORMAL]\n/
@@ -703,7 +703,7 @@ Select.talkinter
 
 Select.TALKCUSTOM
 {
-	"Which time interval do you want to use?\n\n[half]"
+	"%(ch)Which time interval do you want to use?\n\n[half]"
 	--
 	"\![*]\q[Seconds,OnTalkCustom,seconds]\n/
 	\![*]\q[Minutes,OnTalkCustom,minutes]\n/
@@ -718,15 +718,15 @@ OnTalkCustom
 	{
 		when "seconds"
 		{
-			"I should speak every . . . seconds\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
+			"%(ch)I should speak every . . . seconds\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
 		}
 		when "minutes"
 		{
-			"I should speak every . . . minutes\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
+			"%(ch)I should speak every . . . minutes\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
 		}
 		when "hours"
 		{
-			"I should speak every . . . hours\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
+			"%(ch)I should speak every . . . hours\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
 		}
 	}
 }
@@ -741,7 +741,7 @@ OnTalkCustomize
 		{
 			talktime = "%(timecustom) seconds" 
 			aitalkinterval = timecustom 
-			"\0\s[0]I will speak every %(timecustom) seconds.\e"
+			"I will speak every %(timecustom) seconds.\e"
 		}
 		when "minutes"
 		{
@@ -749,13 +749,13 @@ OnTalkCustomize
 			{
 				talktime = "minute" 
 				aitalkinterval = timecustom * 60
-				"\0\s[0]I will speak every minute.\e"
+				"I will speak every minute.\e"
 			}
 			else
 			{
 				talktime = "%(timecustom) minutes" 
 				aitalkinterval = timecustom * 60
-				"\0\s[0]I will speak every %(talktime) minutes.\e"
+				"I will speak every %(talktime) minutes.\e"
 			}
 		}
 		when "hours"
@@ -764,13 +764,13 @@ OnTalkCustomize
 			{
 				talktime = "hour" 
 				aitalkinterval = timecustom * 3600
-				"\0\s[0]I will speak every hour.\e"
+				"I will speak every hour.\e"
 			}
 			else
 			{
 				talktime = "%(talktime) hours" 
 				aitalkinterval = timecustom * 3600
-				"\0\s[0]I will speak every %(talktime) hours.\e"
+				"I will speak every %(talktime) hours.\e"
 			}
 		}
 	}
@@ -778,28 +778,28 @@ OnTalkCustomize
 
 Select.TalksTill
 {
-	"\0\s[0]Nothing changed.\e"
+	"Nothing changed.\e"
 }
 
 Select.TALKMAX
 {
 	talktime = "30 seconds" 
 	aitalkinterval = 30 
-	"\0\s[0]I will speak every 30 seconds.\e"
+	"I will speak every 30 seconds.\e"
 }
 
 Select.TALKHIGH
 {
 	talktime = "minute"
 	aitalkinterval = 60
-	"\0\s[0]I will speak every minute.\e"
+	"I will speak every minute.\e"
 }
 
 Select.TALKNORMAL
 {
 	talktime = "3 minutes"
 	aitalkinterval = 180
-	"\0\s[0]I will speak every three minutes.\e"
+	"I will speak every three minutes.\e"
 }
 
 Select.TALKPOOR
@@ -813,7 +813,7 @@ Select.TALKNONE
 {
 	talktime = "silence"
 	aitalkinterval = 0
-	"\0\s[0]I will be silent\e"
+	"I will be silent\e"
 }
 
 Select.TEACHNAME
@@ -823,12 +823,12 @@ Select.TEACHNAME
 
 Select.CANCEL
 {
-	"\0\s[0]...\e"
+	"...\e"
 }
 
 Select.dosomething
 {
-	"\0\s[0]\b2...\n\n"
+	"\b2%(ch)...\n\n"
 	--
 	"\![*]\q[Open Calendar,CALENDAR]\n/
 	\![*]\q[Check Email,MailCheck]\n/
@@ -840,12 +840,12 @@ Select.dosomething
 
 Select.CALENDAR
 {
-	"\0\s[0]...\![open,calendar]\e"
+	"...\![open,calendar]\e"
 }
 
 Select.sspconfig
 {
-	"\0\s[0]...\![open,configurationdialog]\e"
+	"...\![open,configurationdialog]\e"
 }
 
 Select.ChoiceGarbagecan
@@ -853,11 +853,11 @@ Select.ChoiceGarbagecan
 	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	
 	if _gomicheck == 0 
 	{
-		"\0\s[0]... It's empty.\e"
+		"... It's empty.\e"
 	}
 	elseif _gomicheck >= 1 
 	{
-		"\0\s[0]...Done.\e"
+		"\![raise,OnGarbagecanEmpty]...Done.\e"
 	}
 }
 
@@ -873,7 +873,7 @@ Select.ChoiceSystemInformation
 	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
 	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
 	"/
-	\0\s[0]\b[2]/
+	\b[2]/
 	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
 	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
 	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
@@ -889,27 +889,22 @@ Select.MailCheck
 
 Select.HEADLINECANCEL
 {
-	"\0\s[0]Finished with headlines.\e"
+	"Finished with headlines.\e"
 }
 
 OnChoiceTimeout
 {
-	"\0\s[0]The menu has timed out.\e"
+	"The menu has timed out.\e"
 }
 
 OpenKeroMenu
 {
-	"\1\s[10]\b[2]"
- 	--
-	"..."
- 	--
-	"\n\n[half]/
-	\![*]\q[Nothing,keroCANCEL]\e"
+
 }
 
 Select.keroCANCEL
 {
-	"\1\s[10]...\e"
+	"...\e"
 }
 
 //=======================================LANGUAGE STUFF=============================================
@@ -1236,7 +1231,7 @@ OnGenConfig
 		type = reference0
 	}
 	--
-	"\q[Max letters: %(maxletter),maxlet]\n/
+	"%(ch)\q[Max letters: %(maxletter),maxlet]\n/
 	\q[Min letters: %(minletter),minlet]\n"
 	--
 	"\n[half]Rules:\n\n[half]"
@@ -1457,7 +1452,7 @@ OnTranslatetwo
 //===================================CHARACTER STUFF=================================================
 OnCharacterList
 {
-	charlist = "\_q\b2"
+	charlist = "\_q\b2%(ch)"
 	--
 	if charcount != 0
 	{
@@ -1551,7 +1546,7 @@ OnCharcterClick
 	}
 	elseif editchar == 1
 	{
-		"\_q\b2What do you want to edit?\n\n"
+		"\_q\b2%(ch)What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEdit,name]\n/
 		\![*]\q[Age,OnEdit,age]\n/
@@ -1735,77 +1730,77 @@ OnLStoryChange
 
 Select.fullstory
 {
-	page = "\_q\b4" + REPLACE(characterstuff[8],"+",",") + REPLACE(charlongstory[choosennum],"+",",") + "\n" + "\n[half]\![*]\q[End,Cancel]"
+	page = "\_q\b4%(ch)" + REPLACE(characterstuff[8],"+",",") + REPLACE(charlongstory[choosennum],"+",",") + "\n" + "\n[half]\![*]\q[End,Cancel]"
 	--
 	page
 }
 
 OnAddCharacter
 {
-	"Name: \![open,inputbox,OnAddCharacter_age,-1]"
+	"%(ch)Name: \![open,inputbox,OnAddCharacter_age,-1]"
 }
 
 OnAddCharacter_age
 {
 	charname[charcount] = reference0
 	--
-	"Age: \![open,inputbox,OnAddCharacter_gender,-1]"
+	"%(ch)Age: \![open,inputbox,OnAddCharacter_gender,-1]"
 }
 
 OnAddCharacter_gender
 {
 	charage[charcount] = reference0
 	--
-	"Gender: \![open,inputbox,OnAddCharacter_dead,-1]"
+	"%(ch)Gender: \![open,inputbox,OnAddCharacter_dead,-1]"
 }
 
 OnAddCharacter_dead
 {
 	chargender[charcount] = reference0
 	--
-	"Are they dead?: \![open,inputbox,OnAddCharacter_race,-1]"
+	"%(ch)Are they dead?: \![open,inputbox,OnAddCharacter_race,-1]"
 }
 
 OnAddCharacter_race
 {
 	chardead[charcount] = reference0
 	--
-	"Race: \![open,inputbox,OnAddCharacter_prof,-1]"
+	"%(ch)Race: \![open,inputbox,OnAddCharacter_prof,-1]"
 }
 
 OnAddCharacter_prof
 {
 	charrace[charcount] = reference0
 	--
-	"Profesion: \![open,inputbox,OnAddCharacter_nationality,-1]"
+	"%(ch)Profesion: \![open,inputbox,OnAddCharacter_nationality,-1]"
 }
 
 OnAddCharacter_nationality
 {
 	charprof[charcount] = reference0
 	--
-	"Nationality: \![open,inputbox,OnAddCharacter_descripton,-1]"
+	"%(ch)Nationality: \![open,inputbox,OnAddCharacter_descripton,-1]"
 }
 
 OnAddCharacter_descripton
 {
 	charnat[charcount] = reference0
 	--
-	"Description: \![open,inputbox,OnAddCharacter_shortendstory,-1]"
+	"%(ch)Description: \![open,inputbox,OnAddCharacter_shortendstory,-1]"
 }
 
 OnAddCharacter_shortendstory
 {
 	chardesc[charcount] = REPLACE(reference0,",","+")
 	--
-	"Shortened Story: \![open,inputbox,OnAddCharacter_longstory,-1]"
+	"%(ch)Shortened Story: \![open,inputbox,OnAddCharacter_longstory,-1]"
 }
 
 OnAddCharacter_longstory
 {
 	charshortstory[charcount] = REPLACE(reference0,",","+")
 	--
-	"Full Story: \![open,inputbox,OnAddCharacter_End,-1]"
+	"%(ch)Full Story: \![open,inputbox,OnAddCharacter_End,-1]"
 }
 
 OnAddCharacter_End
@@ -1823,7 +1818,7 @@ OnAddCharacter_End
 //=========================================COUNTRY STUFF===========================================
 OnCountries
 {
-	countrylist = "\_q\b2"
+	countrylist = "\_q\b2%(ch)"
 	--
 	if countrycount != 0
 	{
@@ -1912,7 +1907,7 @@ OnCountryClick
 	}
 	elseif editcoun == 1
 	{
-		"\_q\b2What do you want to edit?\n\n"
+		"\_q\b2%(ch)What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditCountry,name]\n/
 		\![*]\q[History,OnEditCountry,history]\n/
@@ -1984,21 +1979,21 @@ OnStateChange
 
 OnAddCountry
 {
-	"Name: \![open,inputbox,OnAddCountry_history,-1]"
+	"%(ch)Name: \![open,inputbox,OnAddCountry_history,-1]"
 }
 
 OnAddCountry_history
 {
 	counname[countrycount] = reference0
 	--
-	"History: \![open,inputbox,OnAddCountry_state,-1]"
+	"%(ch)History: \![open,inputbox,OnAddCountry_state,-1]"
 }
 
 OnAddCountry_state
 {
 	countryhistory[countrycount] = REPLACE(reference0,",","+")
 	--
-	"Description: \![open,inputbox,OnAddCountry_end,-1]"
+	"%(ch)Description: \![open,inputbox,OnAddCountry_end,-1]"
 }
 
 OnAddCountry_end
@@ -2021,7 +2016,7 @@ OnCharacterPage
 		choosennum = reference1
 	}
 	--
-	charpage = "\b4\_q\*" 
+	charpage = "\b4\_q%(ch)" 
 	portraits = FENUM('portraits','+')
 	--
 	if TOLOWER(charname[choosennum]) _in_ TOLOWER(portraits)
@@ -2068,7 +2063,7 @@ OnCountryPage
 	}
 	--
 	maps = FENUM('maps','+')
-	countrypage = "\b4\_q\*"
+	countrypage = "\b4\_q%(ch)"
 	--
 	countrypage += countrytuff[0] + counname[choosennum] + "\n\n[half]" + countrytuff[1] + countryhistory[choosennum] + "\n\n[half]" + countrytuff[2] + countrystate[choosennum]
 	--
@@ -2123,7 +2118,7 @@ Select.laws
 {
 	lawpage = "\c"
 	--
-	lawpage += "\b4\_q\*"
+	lawpage += "\b4\_q%(ch)"
 	lawpage += "\f[bold,1]%(counname[choosennum])'s laws:\f[bold,0]\n\n[half]"
 	lawsforpage = SPLIT(counlaws[choosennum],"+")
 	lawnum = ARRAYSIZE(lawsforpage)
@@ -2180,7 +2175,7 @@ OnCountryPageBack
 
 Select.addlaw
 {
-	"Don't write a number, I add them by myself\![open,inputbox,OnNewLaw,-1]"
+	"%(ch)Write a law. Don't write a number, I add them by myself\![open,inputbox,OnNewLaw,-1]"
 }
 
 OnNewLaw
@@ -2244,7 +2239,7 @@ OnLawClick
 	}
 	elseif editlaw == 1
 	{
-		"Don't write a number, I add them by myself\![open,inputbox,OnEditLaw,-1]"
+		"%(ch)Don't write a number, I add them by myself\![open,inputbox,OnEditLaw,-1]"
 	}
 	--
 	Select.laws
@@ -2271,7 +2266,7 @@ OnCharacterGen
 
 OnGenerateChar
 {
-	randcharpage = "\b4\_q\*"
+	randcharpage = "\b4\_q%(ch)"
 	charname[charcount] = namerand + " " + surname
 	--
 	for _x=0;_x!=1;_i++
@@ -2313,7 +2308,7 @@ OnGenerateChar
 //=================================RAND CONFIG=================================================== 
 OnRandGenConfig
 {
-	"\_q\f[bold,1]Character Settings:\f[bold,]\n\n[half]"
+	"\_q%(ch)\f[bold,1]Character Settings:\f[bold,]\n\n[half]"
 	--
 	"Max age: \f[bold,1]\q[%(maxage),maxagechange]\f[bold,0]\n"
 	--
@@ -2371,7 +2366,7 @@ OnChangedAge
 //===================================RACES=================================================
 OnRaces
 {
-	racelist = "\_q\b2"
+	racelist = "\_q\b2%(ch)"
 	--
 	if racecount != 0
 	{
@@ -2461,7 +2456,7 @@ OnRaceClick
 	}
 	elseif editrace == 1
 	{
-		"\_q\b2What do you want to edit?\n\n"
+		"\_q\b2%(ch)What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditRace,name]\n/
 		\![*]\q[Description,OnEditRace,descr]\n/
@@ -2569,35 +2564,35 @@ OnRNameChange
 
 OnAddRace
 {
-	"Name: \![open,inputbox,OnAddRace_desc,-1]"
+	"%(ch)Name: \![open,inputbox,OnAddRace_desc,-1]"
 }
 
 OnAddRace_desc
 {
 	racename[racecount] = reference0
 	--
-	"History: \![open,inputbox,OnAddRace_history,-1]"
+	"%(ch)Description: \![open,inputbox,OnAddRace_history,-1]"
 }
 
 OnAddRace_history
 {
 	racedesc[racecount] = REPLACE(reference0,",","+")
 	--
-	"Description: \![open,inputbox,OnAddRace_culture,-1]"
+	"%(ch)History: \![open,inputbox,OnAddRace_culture,-1]"
 }
 
 OnAddRace_culture
 {
 	racehistory[racecount] = REPLACE(reference0,",","+")
 	--
-	"Description: \![open,inputbox,OnAddRace_beliefs,-1]"
+	"%(ch)Beliefs: \![open,inputbox,OnAddRace_beliefs,-1]"
 }
 
 OnAddRace_beliefs
 {
 	raceculture[racecount] = REPLACE(reference0,",","+")
 	--
-	"Description: \![open,inputbox,OnAddRace_end,-1]"
+	"%(ch)Culture: \![open,inputbox,OnAddRace_end,-1]"
 }
 
 OnAddRace_end
@@ -2620,7 +2615,7 @@ OnRacePage
 		choosennum = reference1
 	}
 	--
-	racepage = "\b4\_q\*"
+	racepage = "\b4\_q%(ch)"
 	--
 	racepage += racestuff[0] + racename[choosennum] + "\n\n[half]" + racestuff[1] + racedesc[choosennum] + "\n\n[half]" + racestuff[2] + racehistory[choosennum] + "\n\n[half]" + racestuff[4] + raceculture[choosennum] + "\n\n[half]" + racestuff[4] + racebeliefs[choosennum] 
 	--
@@ -2638,7 +2633,7 @@ OnRacePage
 //===================================PLACES=================================================
 OnPlances
 {
-	placelist = "\_q\b2"
+	placelist = "\_q\b2%(ch)"
 	--
 	if placecount != 0
 	{
@@ -2726,7 +2721,7 @@ OnPlaceClick
 	}
 	elseif editplace == 1
 	{
-		"\_q\b2What do you want to edit?\n\n"
+		"\_q\b2%(ch)What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditPlace,name]\n/
 		\![*]\q[Description,OnEditPlace,descr]\n/
@@ -2798,21 +2793,21 @@ OnPHistoryChange
 
 OnAddPlace
 {
-	"Name: \![open,inputbox,OnAddPlace_desc,-1]"
+	"%(ch)Name: \![open,inputbox,OnAddPlace_desc,-1]"
 }
 
 OnAddPlace_desc
 {
 	placename[placecount] = reference0
 	--
-	"History: \![open,inputbox,OnAddPlace_history,-1]"
+	"%(ch)History: \![open,inputbox,OnAddPlace_history,-1]"
 }
 
 OnAddPlace_history
 {
 	placedesc[placecount] = REPLACE(reference0,",","+")
 	--
-	"Description: \![open,inputbox,OnAddPlace_end,-1]"
+	"%(ch)Description: \![open,inputbox,OnAddPlace_end,-1]"
 }
 
 OnAddPlace_end
@@ -2835,7 +2830,7 @@ OnPlacePage
 		choosennum = reference1
 	}
 	--
-	placepage = "\b4\_q\*"
+	placepage = "\b4\_q%(ch)"
 	--
 	placepage += placestuff[0] + placename[choosennum] + "\n\n[half]" + placestuff[1] + placedesc[choosennum] + "\n\n[half]" + placestuff[2] + placehistory[choosennum]
 	--
@@ -2853,7 +2848,7 @@ OnPlacePage
 //===================================ANIMALS=================================================
 OnAnimals
 {
-	animlist = "\_q\b2"
+	animlist = "\_q\b2%(ch)"
 	--
 	if faunacount != 0
 	{
@@ -2941,7 +2936,7 @@ OnAnimalClick
 	}
 	elseif editanim == 1
 	{
-		"\_q\b2What do you want to edit?\n\n"
+		"\_q\b2%(ch)What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditAnimal,name]\n/
 		\![*]\q[Description,OnEditAnimal,descr]\n/
@@ -3014,21 +3009,21 @@ OnABehavior
 
 OnAddAnimal
 {
-	"Name: \![open,inputbox,OnAddAnimal_desc,-1]"
+	"%(ch)Name: \![open,inputbox,OnAddAnimal_desc,-1]"
 }
 
 OnAddAnimal_desc
 {
 	faunaname[faunacount] = reference0
 	--
-	"Description: \![open,inputbox,OnAddAnimal_behavior,-1]"
+	"%(ch)Description: \![open,inputbox,OnAddAnimal_behavior,-1]"
 }
 
 OnAddAnimal_behavior
 {
 	faunadesc[faunacount] = REPLACE(reference0,",","+")
 	--
-	"Behavior: \![open,inputbox,OnAddAnimal_end,-1]"
+	"%(ch)Behavior: \![open,inputbox,OnAddAnimal_end,-1]"
 }
 
 OnAddAnimal_end
@@ -3051,7 +3046,7 @@ OnAnimalPage
 		choosennum = reference1
 	}
 	--
-	animalpage = "\b4\_q\*"
+	animalpage = "\b4\_q%(ch)"
 	--
 	portraits = FENUM('portraits','+')
 	--
@@ -3075,7 +3070,7 @@ OnAnimalPage
 //===================================PLANTS=================================================
 OnPlants
 {
-	plantlist = "\_q\b2"
+	plantlist = "\_q\b2%(ch)"
 	--
 	if floracount != 0
 	{
@@ -3163,7 +3158,7 @@ OnPlantClick
 	}
 	elseif editplant == 1
 	{
-		"\_q\b2What do you want to edit?\n\n"
+		"\_q\b2%(ch)What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditPlant,name]\n/
 		\![*]\q[Description,OnEditPlant,descr]\n/
@@ -3236,21 +3231,21 @@ OnPlConditions
 
 OnAddPlant
 {
-	"Name: \![open,inputbox,OnAddPlant_desc,-1]"
+	"%(ch)Name: \![open,inputbox,OnAddPlant_desc,-1]"
 }
 
 OnAddPlant_desc
 {
 	floraaname[floracount] = reference0
 	--
-	"Description: \![open,inputbox,OnAddPlant_conditions,-1]"
+	"%(ch)Description: \![open,inputbox,OnAddPlant_conditions,-1]"
 }
 
 OnAddPlant_conditions
 {
 	floradesc[floracount] = REPLACE(reference0,",","+")
 	--
-	"Behavior: \![open,inputbox,OnAddPlant_end,-1]"
+	"%(ch)Behavior: \![open,inputbox,OnAddPlant_end,-1]"
 }
 
 OnAddPlant_end
@@ -3273,7 +3268,7 @@ OnPlantPage
 		choosennum = reference1
 	}
 	--
-	plantpage = "\b4\_q\*"
+	plantpage = "\b4\_q%(ch)"
 	--
 	portraits = FENUM('portraits','+')
 	--
@@ -3314,7 +3309,7 @@ OnOpenRef
 //===================================PLANTS=================================================
 OnItems
 {
-	itemlist = "\_q\b2"
+	itemlist = "\_q\b2%(ch)"
 	--
 	if itemcount != 0
 	{
@@ -3404,7 +3399,7 @@ OnItemClick
 	}
 	elseif edititem == 1
 	{
-		"\_q\b2What do you want to edit?\n\n"
+		"\_q\b2%(ch)What do you want to edit?\n\n"
 		--
 		"\![*]\q[Name,OnEditItem,name]\n/
 		\![*]\q[Description,OnEditItem,descr]\n/
@@ -3509,35 +3504,35 @@ OnIOwner
 
 OnAddItem
 {
-	"Name: \![open,inputbox,OnAddItem_desc,-1]"
+	"%(ch)Name: \![open,inputbox,OnAddItem_desc,-1]"
 }
 
 OnAddItem_desc
 {
 	itemsaname[itemcount] = reference0
 	--
-	"Description: \![open,inputbox,OnAddItem_ability,-1]"
+	"%(ch)Description: \![open,inputbox,OnAddItem_ability,-1]"
 }
 
 OnAddItem_ability
 {
 	itemsdesc[itemcount] = REPLACE(reference0,",","+")
 	--
-	"Abilities: \![open,inputbox,OnAddItem_history,-1]"
+	"%(ch)Abilities: \![open,inputbox,OnAddItem_history,-1]"
 }
 
 OnAddItem_history
 {
 	itemsability[itemcount] = REPLACE(reference0,",","+")
 	--
-	"History: \![open,inputbox,OnAddItem_owner,-1]"
+	"%(ch)History: \![open,inputbox,OnAddItem_owner,-1]"
 }
 
 OnAddItem_owner
 {
 	itemshistory[itemcount] = REPLACE(reference0,",","+")
 	--
-	"Owner: \![open,inputbox,OnAddItem_end,-1]"
+	"%(ch)Owner: \![open,inputbox,OnAddItem_end,-1]"
 }
 
 OnAddItem_end
@@ -3546,7 +3541,7 @@ OnAddItem_end
 	itemcount += 1
 	choosennum = itemcount - 1
 	--
-	"\b4Done, here is your plant:\x\c\b4\_q"
+	"\b4%(ch)Done, here is your plant:\x\c\b4\_q"
 	--
 	OnItemPage
 	--
@@ -3560,7 +3555,7 @@ OnItemPage
 		choosennum = reference1
 	}
 	--
-	itempage = "\b4\_q\*"
+	itempage = "\b4\_q%(ch)"
 	--
 	portraits = FENUM('portraits','+')
 	--

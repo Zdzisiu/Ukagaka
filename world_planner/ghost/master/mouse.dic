@@ -35,11 +35,11 @@ MouseMoveSakura
  			stroke = 0 
 			if reference4 == "Head" 
  			{
-				"\0\s[0]...\e"
+				"\0...\e"
  			}
  			elseif reference4 == "Face" 
  			{
- 				"\0\s[0]...\e"
+ 				"\0...\e"
  			}
  		}
 	}
@@ -59,11 +59,11 @@ MouseMoveKero
 			stroke = 0
 			if reference4 == "Head" 
  			{
-				"\0\s[0]...\e"
+				"\0...\e"
  			}
  			elseif reference4 == "Face" 
  			{
- 				"\0\s[0]...\e"
+ 				"\0...\e"
  			}
  		}
 	}
@@ -101,7 +101,7 @@ MouseDoubleClickSakura
  {
  	if reference4 == "Head" || reference4 == "Face" 
 	{
-		"\0\s[0]...\e"
+		"\0...\e"
  	}
 	else
  	{

@@ -3226,3 +3226,8 @@ color
 	"pink"
 	"magents"
 }
+
+ch
+{
+	"\![set,balloontimeout,0]"
+}

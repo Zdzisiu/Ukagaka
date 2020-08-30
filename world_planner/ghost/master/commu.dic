@@ -20,7 +20,7 @@ ReplyToGhost
 {
  	res_reference0 = reference0 
 	{
-	"\0\s[0]Hello, %(res_reference0).\w8Hope you're doing well.\e"
+	"\0Hello, %(res_reference0).\w8Hope you're doing well.\e"
 	
 	"Hey, %(res_reference0).\e"
 	}
