@@ -52,7 +52,7 @@ TalkConfig
 	//--
     if weathermenu != "ON"
 	{
-		"\f[color,default]\f[bold,0]Weather: \f[color,230, 39, 25] \q[%(weathermenu),weatheron]\f[color,default]\f[sup,0]n"
+		"\f[color,default]\f[bold,0]Weather: \f[color,230, 39, 25] \q[%(weathermenu),weatheron]\f[color,default]\f[sup,0]\n"
 	}
 	else
 	{

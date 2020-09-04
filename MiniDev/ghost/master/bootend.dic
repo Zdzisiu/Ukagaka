@@ -333,54 +333,6 @@ normalboottalk
 	
 }
 
-OnMoonBoot
-{
-	//file to be read
-    _file = "var\\moon.html"
-    //line being read
-    _buff=""
-    //regular expressions to extract data
-    _regphase=',"Phase: <span>([\w|\s]*)<./span>'
-    _found = 0;
-    //using UTF-8 charset
-    FCHARSET(1)
-    
-    //string for holding phase
-    phase = ""
-    
-
-
-    
-    --
-    
-    if FOPEN(_file,'r') {
-            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
-                    
-
-
-                    if RE_SEARCH ( _buff, _regphase ) {
-                            
-                            phase = RE_GETSTR[1]
-                            _found = 1; //break loop since we dont need to continue parsing
-                            
-                    }
-            }
-    }
-    --
-    
-    FCLOSE(_file);
-	--
-	if upchec == "ON"
-	{
-		"Searching for software updates....\![updatebymyself,checkonly]\e"
-	}
-	else
-	{
-		"\0All done\e"
-	}
-	
-}
-
 OnClose
  {
 	timeslot = GetTimeSlot 

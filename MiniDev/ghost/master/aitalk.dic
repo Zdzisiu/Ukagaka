@@ -158,11 +158,11 @@ OnMinuteChange
 		{
 			if remindring[_i] == "SILENCE"
 			{
-				"%(cha)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c"
+				"%(cha)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c\e"
 			}
 			else
 			{
-				"%(cha)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]"
+				"%(cha)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]\e"
 			}
 			--
 			break
@@ -171,7 +171,11 @@ OnMinuteChange
 	--
  	if minute == 0 
 	{
- 		if hour == 12 
+		if weathermenu == "ON" {
+            weatherquiet = 1
+            "\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
+        }
+ 		elseif hour == 12 
 		{
  			"\0\s[0]It's HiGh NoOn\e"
 			"\0\s[0]It's noon\e"
