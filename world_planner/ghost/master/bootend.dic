@@ -10,12 +10,15 @@
 	x = 0
  	aitalkinterval = 400 
 	charcount = 0
+	moodminute = 0
  	birthdayprint = "????" 
 	talktime = "5 minutes" 
 	deleteshitai = "OFF" 
 	nowshell = "Default Omega" 
 	--
 	OnVariables
+	--
+	OnMood
 	--
 	"\1\s[10]\0\s[0]"
 	--
@@ -32,6 +35,83 @@
 	FCLOSE("write.txt")
 	--
 	"Welcome human\e"
+}
+
+//\s[0]\![raise,OnMood]%(moodpage)
+OnMood
+{
+	moodlib = "thoughtfull,happy,relaxed,sleepy,bored,sad,annoyed,angry,exited,tired"
+	//reset mood
+	mood = 0
+	moodsize = ARRAYSIZE(moodlib)
+	--
+	for _i=0;_i<moodsize;_i++
+	{
+		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "
+		{
+			mood[_i] = 0
+		}
+	}
+	--
+	moodnumss = RAND(moodsize)
+	--
+	for _i=0;_i<moodnumss;_i++
+	{
+		ranmood = RAND(moodsize)
+		randmoodvar = RAND(10)
+		--
+		if mood[ranmood] = 0
+		{
+			mood[ranmood] = TOINT(randmoodvar)
+		}
+		else
+		{
+			mood[ranmood] += TOINT(randmoodvar)
+		}
+	}
+	--
+	OnMoodCheck
+}
+
+OnMoodCheck
+{
+	moodstring = ""
+	--
+	arr[0] = mood[0]
+	--
+	for _j=0;_j<moodsize;_j++
+	{
+		if arr[0] < TOINT(mood[_j])
+		{
+			arr[0] = mood[_j]
+			numofmood = _j
+		}
+		elseif arr[0] == TOINT(mood[_j])
+		{
+			ramod = RAND(2)
+			--
+			if ramod == 1
+			{
+				arr[0] = mood[_j]
+				numofmood = _j
+			}
+		}
+		
+	}
+	--
+	moodstring = moodlib[numofmood]
+	currmood = numofmood
+	--
+	moodpage = "\_q\b4Mood for today: %(moodstring)\n\n[half]"
+	--
+	for _i=0;_i<ARRAYSIZE(moodlib);_i++
+	{
+		moodpage += moodlib[_i] + ": " + mood[_i] + "\n"
+	}
+	--
+	//moodpage
+	--
+
 }
 
 OnBootVariables
@@ -257,7 +337,9 @@ OnBoot
 	--
 	dayslot = GetDaySlot
 	timeslot = GetTimeSlot
-
+	--
+	OnBootVariables
+	OnMood
 	--
 	"\0Good %(timeofdayown), %(username)"
 	--

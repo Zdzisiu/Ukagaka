@@ -37,8 +37,6 @@ MenuRun
 	\![*]\q[Customize,clothesmenu]\n/
 	\![*]\q[Functions,dosomething]\n\n[half]/
 	\![*]\q[Questions,ques]\n/
-	\![*]\q[Recommend,req]\n/
-	\![*]\q[Quote,quote]\n/
 	\![*]\q[Open an app or project,oapp]\n/
 	\![*]\q[User Logs,LOG]\n"
 	--
@@ -1421,6 +1419,9 @@ Select.dosomething
 	"\_q\![*]\q[Open Calendar,CALENDAR]\n/
 	\![*]\q[Weather,weath]\n/
 	\![*]\q[To-Do list,todo]\n/
+	\![*]\q[Reminders,OnReminders]\n/
+	\![*]\q[Recommend,req]\n/
+	\![*]\q[Quote,quote]\n/
 	\![*]\q[Statistics,stats]\n/
 	\![*]\q[Check Email,MailCheck]\n/
 	\![*]\q[Open SSP Preferences,sspconfig]\n/

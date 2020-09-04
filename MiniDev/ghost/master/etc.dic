@@ -20,7 +20,7 @@
 		{
 			"I'm adding '%(_filename)' to your music directory\e"
 			--
-			FCOPY(reference0,"music")
+			FCOPY(reference0,"aud")
 		}
 		when ".txt"
 		{
@@ -99,7 +99,8 @@ OnInstallComplete
  	}
 	elseif reference0 == "ghost" 
  	{
-		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\e"
+		installed = reference1
+		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should i call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall].\e"
 		--
 		OnCountGhosts
  	}
@@ -112,6 +113,16 @@ OnInstallComplete
 		"\s[0]I've installed a plug-in.\w8\0\s[0] It's called %(reference1).\e"
 		
  	}
+}
+
+Select.callghost
+{
+	"\![call,ghost,%(installed)]\e"
+}
+
+Select.nocall
+{
+	"...\e"
 }
 
 OnInstallFailure

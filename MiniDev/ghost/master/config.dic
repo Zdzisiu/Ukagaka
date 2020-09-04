@@ -185,17 +185,20 @@ TalkConfig
 
 Select.datetype
 {
-	if dateformatype == "dd/mm/yyyy"
+	case dateformatype
 	{
-		dateformatype = "yyyy/mm/dd"
-	}
-	elseif dateformatype == "yyyy/mm/dd"
-	{
-		dateformatype = "mm/dd/yyyy"
-	}
-	elseif dateformatype == "mm/dd/yyyy"
-	{
-		dateformatype = "dd/mm/yyyy"
+		when "dd/mm/yyyy"
+		{
+			dateformatype = "yyyy/mm/dd"
+		}
+		when "yyyy/mm/dd"
+		{
+			dateformatype = "mm/dd/yyyy"
+		}
+		when "mm/dd/yyyy"
+		{
+			dateformatype = "dd/mm/yyyy"
+		} 
 	}
 	--
 	TalkConfig
@@ -203,13 +206,16 @@ Select.datetype
 
 Select.timetype
 {
-	if timeformatype == "STANDARD"
+	case timeformatype
 	{
-		timeformatype = "MILITARY"
-	}
-	else
-	{
-		timeformatype = "STANDARD"
+		when "STANDARD"
+		{
+			timeformatype = "MILITARY"
+		}
+		when "MILITARY"
+		{
+			timeformatype = "STANDARD"
+		}
 	}
 	--
 	TalkConfig
@@ -218,13 +224,16 @@ Select.timetype
 
 Select.upcheck
 {
-	if upchec == "ON"
+	case upchec
 	{
-		upchec = "OFF"
-	}
-	else
-	{
-		upchec = "ON"
+		when "ON"
+		{
+			upchec = "OFF"
+		}
+		when "OFF"
+		{
+			upchec = "ON"
+		}
 	}
 	--
 	TalkConfig
@@ -232,13 +241,16 @@ Select.upcheck
 
 Select.apbtn
 {
-	if appbtn == "ON"
+	case appbtn
 	{
-		appbtn = "OFF"
-	}
-	else
-	{
-		appbtn = "ON"
+		when "ON"
+		{
+			appbtn = "OFF"
+		}
+		when "OFF"
+		{
+			appbtn = "ON"
+		}
 	}
 	--
 	"%(lightdark)"
@@ -249,17 +261,20 @@ Select.apbtn
 
 Select.sticbtn
 {
-	if sticky == "ON"
+	case sticky
 	{
-		"\![reset,sticky-window]"
-		--
-		sticky = "OFF"
-	}
-	else
-	{
-		"\![set,sticky-window,1,0,3,4,5,6,7,8,9,10]"
-		--
-		sticky = "ON"
+		when "ON"
+		{
+			"\![reset,sticky-window]"
+			--
+			sticky = "OFF"
+		}
+		when "OFF"
+		{
+			"\![set,sticky-window,1,0,3,4,5,6,7,8,9,10]"
+			--
+			sticky = "ON"
+		}
 	}
 	--
 	TalkConfig

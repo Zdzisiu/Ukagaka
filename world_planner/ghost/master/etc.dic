@@ -266,7 +266,9 @@ OnUpdateBegin
  
 OnUpdateReady
 {
-	"\0There are %(reference[0]) new things.\w8\e"
+	reference0 += 1
+	--
+	"\0There are %(reference0) new things.\w8\e"
 }
 
 OnUpdateComplete

@@ -14,6 +14,11 @@
 	"\i[11]"
 }*/
 
+cha
+{
+	"\![set,balloontimeout,0]"
+}
+
 gen
 {
 	"a"

@@ -25,6 +25,584 @@
 
 RandomTalk : nonoverlap
 {
+	/*case currmood
+	{
+		when 0 //thoughtfull
+		{
+			if mood[1] > 5
+			{
+				"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry i got lost in thoughts"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+			
+			"%(ch).\w7 . \w7 .\w7 oh, did you say something?\w4 Sorry i got lost in thoughts"
+		}
+		when 1 //happy
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 2 //relaxed
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 3 //sleepy
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 4 //bored
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 5 //sad
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 6 //flushed
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 7 //annoyed
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 8 //angry
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 9 //exited
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[10] > 5
+			{
+				"%(ch)"
+			}
+		}
+		when 10 //tired
+		{
+			if mood[0] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[1] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[2] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[3] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[4] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[5] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[6] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[7] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[8] > 5
+			{
+				"%(ch)"
+			}
+
+			if mood[9] > 5
+			{
+				"%(ch)"
+			}
+		}
+
+	}*/
 	"..."
 }
 
@@ -41,6 +619,11 @@ Reference4: *SSP only (at OS level) Time left unattended. In seconds.
 OnMinuteChange
 {
 	timeslot = GetTimeSlot 
+	moodminute += 1
+	if moodminute == 30
+	{
+		OnMoodCheck
+	}
 	--
  	if minute == 0 
 	{

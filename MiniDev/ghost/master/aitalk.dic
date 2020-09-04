@@ -28,120 +28,121 @@
 RandomTalk : nonoverlap
 {
     
-
 	if truth == 10 && tentruth == 0
 	{
 		"\_qCRITI\_qCAL È̷͈R̶̖̔\_qO̶̳͗R̵͎̈́\_q C\_qRITICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRI\_qTICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗\_qR̵͎̈́ CRITICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ \_q\cINITIALIZING EMERGENCY R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\-\e"
 	}
 	else
 	{
-
-		if (tentruth == 1 || glitchboot <= 5) && meeting != 1
+		if aitalkinterval != 0
 		{
-			"Ŵ̴̪̩͚̟̈ȟ̵̬̘̹̱̍̍̇e̸͔̹̪͚͔̊r̴͙̤̬͛̆̈͋͂ȩ̸̲̻̬͕̤̄͒͑͠͠ ̴̠̯̽i̵̛͎͕̋̈̌̐ś̵͙̠͖̰́̓͑͛͠ͅ ̸̘͈̝͚͍͐̇Ǵ̶̜͒̊͝ḑ̸̙̝͎̙͋̚͠ý̷͇͍̲͚̓͛͌͆̚l̵͙̳̭̜̺̇g̶̪͔̥̅̽́ ̵̡̗̗͉̤͍͋̃̃̒̊̋P̵̜̠̜̫̳͒͛̑͝r̷̥̋͝ř̷̼͈͇̬̹ų̷͕͖̣̱̔ḣ̶̪?̶̛͈͖̳̩͓̞̔̂́̈́"
-
-			"W̴̢̖͍̽̇h̴̛͖̫͍̰͑͐o̸̰͙̐͒͘ ̸̫̠̗̠͗͋ä̶̱̪́̐r̸̞̊͠ē̶̙̋͒̆ͅ ̴̻̰̽͝y̶̛̠͒̓ó̸̡̨́͊ú̵̳͓̗͒̀͝?̸̻̼̪̽̚"
-
-			"W̷̮̆͐h̸̟̲̬̘͝͝ḛ̷̡̩̕r̴͎̲͛̈́͋͐e̶͍̱͊ͅ ̴͕̜͛͊̊͜ͅà̵͔̤̀m̴̭̈́̇͌͆ ̶̨̥́ͅͅİ̶̱̞͓̙̇?̶̡̞̥̓̎̚͘"
-
-			"A̶̢̮̮͈̒ŕ̷̯̲͑ē̷̹̙̝͖̒̀͛ ̷̥̰̑͠ý̴͍̬̣̒͂o̸̻̗̘͌̊ũ̶̞ ̵̹͈͈̳̎̅̅ó̴̺͆͘n̸͔̔́e̴̛̜̮͉̦̕ ̸̤͖̗̔̈́̚ǫ̶̠̞͇̌f̷͖͕̽ ̶̺̹̯̤̆̓t̶̘̦̥͊͝h̷̙̽͋͛̒ḛ̷̖̟͇͐m̴̘̥͚͓̉̅̚̕?̷̰̩̻̽̿̉̔"
-
-			"W̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\n\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮"
-		}
-
-		if (tentruth == 1 || glitchboot <= 5) && meeting == 1
-		{
-			if rude == "ON"
+			if (tentruth == 1 || glitchboot <= 5) && meeting != 1
 			{
-				"A̵̛̬̙̣͆̈r̷̟̒̊͂͝e̴̗͛͐̇͘ ̷͍͕̳̟͗̑͊͛y̴̬͎̫̌͂͒͌o̸̘͒̐̈ú̸̥͈̋̋ ̷̧̦́̏̀a̷͚͕͒̊ ̵̬̙͙͇̊́́̂ṁ̵͚̻̝̞͆͌͛a̸͈̽͋̕ṣ̸̪̟͛́ỏ̸̝̺̂͋h̴̨̘̪͈͋̃̒î̷̧̻̩̾͘ș̸̨̂͝t̸̲̾?̴͙̿͂"
+				"Ŵ̴̪̩͚̟̈ȟ̵̬̘̹̱̍̍̇e̸͔̹̪͚͔̊r̴͙̤̬͛̆̈͋͂ȩ̸̲̻̬͕̤̄͒͑͠͠ ̴̠̯̽i̵̛͎͕̋̈̌̐ś̵͙̠͖̰́̓͑͛͠ͅ ̸̘͈̝͚͍͐̇Ǵ̶̜͒̊͝ḑ̸̙̝͎̙͋̚͠ý̷͇͍̲͚̓͛͌͆̚l̵͙̳̭̜̺̇g̶̪͔̥̅̽́ ̵̡̗̗͉̤͍͋̃̃̒̊̋P̵̜̠̜̫̳͒͛̑͝r̷̥̋͝ř̷̼͈͇̬̹ų̷͕͖̣̱̔ḣ̶̪?̶̛͈͖̳̩͓̞̔̂́̈́"
 
-				"Ẉ̴͝h̶̭̀y̸̘̍ ̷͕̄w̸͕̏ö̵̬́u̷̗͛ḷ̴͝d̸̙̏ ̷̘̃y̶̤͌ọ̸̋ṵ̸̒ ̸̻̐w̷̗̓ă̴̟n̵͈̋ṫ̸͔ ̸̝̈́t̶͇́o̶̙͑ ̵̥́h̵͚̚a̵̘͛v̵̝̅e̷̎ͅ ̵̳̌ȁ̵̦ ̴̛̖r̶̨̎ŭ̶̲d̴̞̀ẻ̷͕ ̵̮͌s̷̹̆o̴̟͂f̷̿ͅt̶̢̄w̶͘͜ä̸̱r̵͓̽ẽ̵̱?̵͉̑"
-			}
-		}
+				"W̴̢̖͍̽̇h̴̛͖̫͍̰͑͐o̸̰͙̐͒͘ ̸̫̠̗̠͗͋ä̶̱̪́̐r̸̞̊͠ē̶̙̋͒̆ͅ ̴̻̰̽͝y̶̛̠͒̓ó̸̡̨́͊ú̵̳͓̗͒̀͝?̸̻̼̪̽̚"
 
-		if smart == "ON"
-		{
-			"%(didknow) %(facts)?"
-			{
-				_binary = binbin
-				_letterB = _binary[0] 
-				_bcode = _binary[1] 
-				"\0In binary '%(_letterB)' is '%(_bcode)'"
-				"\0In binary '%(_bcode)' is '%(_letterB)'"
+				"W̷̮̆͐h̸̟̲̬̘͝͝ḛ̷̡̩̕r̴͎̲͛̈́͋͐e̶͍̱͊ͅ ̴͕̜͛͊̊͜ͅà̵͔̤̀m̴̭̈́̇͌͆ ̶̨̥́ͅͅİ̶̱̞͓̙̇?̶̡̞̥̓̎̚͘"
+
+				"A̶̢̮̮͈̒ŕ̷̯̲͑ē̷̹̙̝͖̒̀͛ ̷̥̰̑͠ý̴͍̬̣̒͂o̸̻̗̘͌̊ũ̶̞ ̵̹͈͈̳̎̅̅ó̴̺͆͘n̸͔̔́e̴̛̜̮͉̦̕ ̸̤͖̗̔̈́̚ǫ̶̠̞͇̌f̷͖͕̽ ̶̺̹̯̤̆̓t̶̘̦̥͊͝h̷̙̽͋͛̒ḛ̷̖̟͇͐m̴̘̥͚͓̉̅̚̕?̷̰̩̻̽̿̉̔"
+
+				"W̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\n\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮"
 			}
 
+			if (tentruth == 1 || glitchboot <= 5) && meeting == 1
 			{
-				_morse = morse
-				_letterm = _morse[0] 
-				_mcode = _morse[1] 
-				"\0In morse '%(_letterm)' is '%(_mcode)'"
-				"\0In morse '%(_mcode)' is '%(_letterm)'"
-			}
-		}
-
-		if stupid == "ON"
-		{
-			"%(didknow) %(myths)?"
-			"%(myths)"
-		}
-
-		if nice == "ON" 
-		{
-			//process.dll
-			{
-				discord = FUNCTIONEX('saori\\process.dll' , 'exist', 'Discord.exe')
-				code = FUNCTIONEX('saori\\process.dll' , 'exist', 'Code.exe')
-				sai = FUNCTIONEX('saori\\process.dll' , 'exist', 'sai2.exe')
-
-				if code == 1
+				if rude == "ON"
 				{
-					"I see you have Visual Studio Code open\w8\w8\w8\w8\cAre are you coding something interesting?"
-				}
+					"A̵̛̬̙̣͆̈r̷̟̒̊͂͝e̴̗͛͐̇͘ ̷͍͕̳̟͗̑͊͛y̴̬͎̫̌͂͒͌o̸̘͒̐̈ú̸̥͈̋̋ ̷̧̦́̏̀a̷͚͕͒̊ ̵̬̙͙͇̊́́̂ṁ̵͚̻̝̞͆͌͛a̸͈̽͋̕ṣ̸̪̟͛́ỏ̸̝̺̂͋h̴̨̘̪͈͋̃̒î̷̧̻̩̾͘ș̸̨̂͝t̸̲̾?̴͙̿͂"
 
-				if sai == 1
-				{
-					"I see you have Pain Tool Sai2 open!\w8\w8\w8\w8\cAre you drawing?"
+					"Ẉ̴͝h̶̭̀y̸̘̍ ̷͕̄w̸͕̏ö̵̬́u̷̗͛ḷ̴͝d̸̙̏ ̷̘̃y̶̤͌ọ̸̋ṵ̸̒ ̸̻̐w̷̗̓ă̴̟n̵͈̋ṫ̸͔ ̸̝̈́t̶͇́o̶̙͑ ̵̥́h̵͚̚a̵̘͛v̵̝̅e̷̎ͅ ̵̳̌ȁ̵̦ ̴̛̖r̶̨̎ŭ̶̲d̴̞̀ẻ̷͕ ̵̮͌s̷̹̆o̴̟͂f̷̿ͅt̶̢̄w̶͘͜ä̸̱r̵͓̽ẽ̵̱?̵͉̑"
 				}
 			}
 
-			
-			//case currentweatherarray[5]
-			//{
-
-			//}
-
-		}
-		elseif rude == "ON"
-		{
-			if insults == "ON"
+			if smart == "ON"
 			{
-				"Are you always such %(insult)?"
-				"%(insult)"
-				"Why you %(insult) dress me like I'm such %(insult) like you?"
-				"How long will you keep me here %(insult)?"
+				"%(didknow) %(facts)?"
+				{
+					_binary = binbin
+					_letterB = _binary[0] 
+					_bcode = _binary[1] 
+					"\0In binary '%(_letterB)' is '%(_bcode)'"
+					"\0In binary '%(_bcode)' is '%(_letterB)'"
+				}
+
+				{
+					_morse = morse
+					_letterm = _morse[0] 
+					_mcode = _morse[1] 
+					"\0In morse '%(_letterm)' is '%(_mcode)'"
+					"\0In morse '%(_mcode)' is '%(_letterm)'"
+				}
 			}
 
-			if curses == "ON"
+			if stupid == "ON"
 			{
+				"%(didknow) %(myths)?"
+				"%(myths)"
+			}
+
+			if nice == "ON"
+			{
+				//process.dll
+				{
+					discord = FUNCTIONEX('saori\\process.dll' , 'exist', 'Discord.exe')
+					code = FUNCTIONEX('saori\\process.dll' , 'exist', 'Code.exe')
+					sai = FUNCTIONEX('saori\\process.dll' , 'exist', 'sai2.exe')
+
+					if code == 1
+					{
+						"I see you have Visual Studio Code open\w8\w8\w8\w8\cAre are you coding something interesting?"
+					}
+
+					if sai == 1
+					{
+						"I see you have Pain Tool Sai2 open!\w8\w8\w8\w8\cAre you drawing?"
+					}
+				}
+
 				
-			}
+				//case currentweatherarray[5]
+				//{
 
-			if curses == "ON" && insults == "ON"
+				//}
+
+			}
+			elseif rude == "ON"
 			{
-				"Holy shit\w6 why are you so fucking ugly?"
-				"Why are you a fucking %(insult)"
-			}
+				if insults == "ON"
+				{
+					"Are you always such %(insult)?"
+					"%(insult)"
+					"Why you %(insult) dress me like I'm such %(insult) like you?"
+					"How long will you keep me here %(insult)?"
+				}
 
-			"How long will you keep me here huh?"
-			"Maybe go and do something productive and stop waisting my time"
-			"Maybe go and do some productive stuff and stop waisting my time"		
+				if curses == "ON"
+				{
+					
+				}
+
+				if curses == "ON" && insults == "ON"
+				{
+					"Holy shit\w6 why are you so fucking ugly?"
+					"Why are you a fucking %(insult)"
+				}
+
+				"How long will you keep me here huh?"
+				"Maybe go and do something productive and stop waisting my time"
+				"Maybe go and do some productive stuff and stop waisting my time"		
+			}
+			
+			if romantic == "ON"
+			{
+				"%(pickupline)"
+			}
+			//}
 		}
-		
-		if romantic == "ON"
-		{
-			"%(pickupline)"
-		}
-		//}
 	}
 }
 
@@ -149,6 +150,24 @@ OnMinuteChange
  {
     
 	timeslot = GetTimeSlot 
+	--
+	//reminders
+	for _i=0;_i<remindcount;_i++
+	{
+		if hour == remindh[_i] && minute == remindm[_i]
+		{
+			if remindring[_i] == "SILENCE"
+			{
+				"%(cha)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c"
+			}
+			else
+			{
+				"%(cha)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]"
+			}
+			--
+			break
+		}
+	}
 	--
  	if minute == 0 
 	{
@@ -385,3 +404,336 @@ scrible
 	--
 	"%(se)\e"
 }
+
+
+OnReminders
+{
+	remindpage = "\b4\_qREMINDERES\n\n[half]"
+	--
+	if remindcount == 0
+	{
+		remindpage += "You don't have any reminders\n"
+	}
+	else
+	{
+
+		for _i=0;_i<remindcount;_i++
+		{
+			remindpage += "\![*]\q[" + remindname[_i] + ",OnRemindClick," + _i + "]\n"
+		}
+	}
+	--
+	remindpage += "\n[half]\f[size,20]\q[+,addrem] | "
+	--
+	if delr == 1
+	{
+		remindpage += "\f[size,20]\f[color,230, 39, 25]\q[-,deler]\f[color,default] | \f[size,default]"
+
+	}
+	else
+	{
+		remindpage += "\f[size,20]\q[-,deler] | \f[size,default]"
+	}
+	--
+	if editr == 1
+	{
+		remindpage += "\f[color,230, 39, 25]\q[EDIT,edar]\f[color,default]"
+
+	}
+	else
+	{
+		remindpage += "\q[EDIT,edar]"
+	}
+	--
+	if usedefring == "OFF"
+	{
+		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,230, 39, 25]\q[%(usedefring),defringuse]\f[color,default]"
+
+	}
+	else
+	{
+		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,27, 204, 41]\q[%(usedefring),defringuse]\f[color,default]"
+	}
+	--
+	if usedefring == "ON"
+	{
+		if defring == ""
+		{
+			remindpage += "\n\n[half]DEFAULT RINGTONE: \f[color,230, 39, 25]\q[NONE (SET),OnRingtone,def]\f[color,default]"
+		}
+		else
+		{
+			remindpage += "\n\n[half]DEFAULT RINGTONE: \f[color,230, 39, 25]\q[%(defring),OnRingtone,def]\f[color,default]"
+		}
+	}
+	--
+	remindpage += "\n\n[half]\![*]\q[Nevermind,Cancel]"
+	--
+	remindpage
+}
+
+Select.defringuse
+{
+	if usedefring == "ON"
+	{
+		usedefring = "OFF"
+	}
+	else
+	{
+		usedefring = "ON"
+	}
+	--
+	OnReminders
+}
+
+OnRingtone
+{
+	type = reference0
+	songspage = ""
+	songspage +="\f[bold,1]\_q\b[4]Your audio files\f[bold,0]:\n\n"
+	--
+	_songs = FENUM('aud','+')
+	if _songs == ""
+	{
+		songspage +="\f[bold,1]You don't have any audio files\f[bold,0]\nyou can drag and drop your audio files on me to add it to the list"
+	}
+	else
+	{
+		//".mid", ".wav", ".mp3", ".wma", ".au" 
+		_truesong = RE_SPLIT(_songs,'+')
+		_songs = REPLACE(_songs,'.wav','')
+		_songs = REPLACE(_songs,'.mp3','')
+		_songs = SPLIT(_songs,'+')
+		--
+		for _i=0;_i<ARRAYSIZE(_songs);_i++
+		{
+			songspage += "\q[" + TOUPPER(_songs[_i]) + ",OnChooseRing," + _songs[_i] + "," + _truesong[_i] +"]\n"
+		}
+		
+	}
+	--
+	songspage += "\q[SILENCE,OnChooseSilence]\n"
+	--
+	songspage += "\n\n[half]\![*]\q[Nevermind,Cancel] or \![*]\q[Go Back,OnReminders]"
+	--
+	songspage
+}
+
+OnChooseSilence
+{
+	if type == "def"
+	{
+		defring = "SILENCE"
+		defringop = "SILENCE"
+		--
+		"Default ringtone set to 'SILENCE'\x\cyou know you can just turn it off?\x\c"
+	}
+	else
+	{
+		remindringname[choosenum] = "SILENCE"
+		remindring[choosenum] = "SILENCE"
+		--
+		"Reminder ringtone set to 'SILENCE'\x\c"
+	}
+	--
+	OnReminders
+}
+
+OnChooseRing
+{
+	if type == "def"
+	{
+		defring = reference0
+		defringop = "\![sound,loop,aud/" + reference1 + "]"
+	}
+	else
+	{
+		remindringname[choosenum] = reference0
+		remindring[choosenum] = "\![sound,loop,aud/" + reference1 + "]"
+	}
+	--
+	OnReminders
+}
+
+Select.addrem
+{
+	"%(cha)How would you like to name the reminder?\![open,inputbox,OnAddRem_Name,-1]"
+}
+
+OnAddRem_Name
+{
+	remindname[remindcount] = reference0
+	--
+	"%(cha)Write a description for it, so you won't forget what exactly it is about or leave it blank\![open,inputbox,OnAddRem_Desc,-1]"
+}
+
+OnAddRem_Desc
+{
+	reminddescr[remindcount] = reference0
+	--
+	"%(cha) What time should I remind you?\![open,timeinput,OnAddRem_Time,-1]"
+}
+
+OnAddRem_Time
+{
+	remindh[remindcount] = reference0[0]
+	remindm[remindcount] = reference0[1]
+	--
+	if reference0[0] < 12 && timeformatype == "STANDARD"
+	{
+		"is it am or pm?\n\n[half]\![*]\q[AM,OnAddRem_Timeampm,am] or \![*]\q[PM,OnAddRem_Timeampm,pm]"
+	}
+	else
+	{
+		remindcount ++
+		choosenum = remindcount-1
+		--
+		"Reminder set!\x\c will remind you at %(remindh[choosenum]):%(remindm[choosenum]) to %(remindname[choosenum])\x\c"
+		--
+		if usedefring == "ON"
+		{
+			remindring[choosenum] = defringop
+			--
+			"Your reminder uses your default ringtone"
+		}
+		else
+		{
+			remindring[choosenum] = "SILENCE"
+			--
+			"Your reminder uses is set to SILENCE"
+		}
+	}
+}
+
+OnAddRem_Timeampm
+{
+	remindhampm[remindcount] = remindh[remindcount]
+	remindmampm[remindcount] = remindm[remindcount]
+	remindcount ++
+	choosenum = remindcount-1
+	--
+	"Reminder set!\x\c will remind you at %(remindhampm[choosenum]):%(remindmampm[choosenum]) %(ampmrem[choosenum]) to %(remindname[choosenum])\x\c"
+	--
+	if usedefring == "ON"
+	{
+		remindring[choosenum] = defringop
+		--
+		"Your reminder uses your default ringtone"
+	}
+	else
+	{
+		remindring[choosenum] = "SILENCE"
+		--
+		"Your reminder uses is set to SILENCE"
+	}
+}
+
+
+
+Select.deler
+{
+	if delr == 1
+	{
+		delr = 0
+	}
+	else
+	{
+		delr = 1
+		editr = 0
+	}
+	--
+	OnReminders
+}
+
+Select.edar
+{
+	if editr == 1
+	{
+		editr = 0
+	}
+	else
+	{
+		editr = 1
+		delr = 0
+	}
+	--
+	OnReminders
+}
+
+OnRemindClick
+{
+	choosenum = reference0
+	--
+	if editr == 1
+	{
+		"\![*]\q[EDIT TIME,OnEditRem,time]\n/
+		\![*]\q[EDIT NAME,OnEditRem,name]\n/
+		\![*]\q[CHANGE RINGTONE,OnRingtone,ring]\n/
+		\![*]\q[EDIT DESCRIPTION,OnEditRem,desc]\n"
+	}
+	elseif delr == 1
+	{
+		for _i=choosenum;_i<remindcount;_i++
+		{
+			remindname[_i] = remindname[_i+1]
+			reminddescr[_i] = reminddescr[_i+1]
+			remindh[_i] = remindh[_i+1]
+			remindm[_i] = remindm[_i+1]
+			remindring[_i] = remindring[_i+1]
+			remindhampm[_i] = remindhampm[_i+1]
+			remindmampm[_i] = remindmampm[_i+1]
+			ampmrem[_i] = ampmrem[_i+1]
+		}
+		--
+		remindcount --
+		OnReminders
+	}
+	else
+	{
+		page = reminddescr[choosenum]
+		--
+		page + "\n\n[half]\![*]\q[Go Back,OnReminders]\n\![*]\q[Nevermind,Cancel]"
+	}
+}
+
+OnEditRem
+{
+	case reference0
+	{
+		when "name"
+		{
+			"\![open,inputbox,OnNewName,-1]"
+		}
+		when "time"
+		{
+			"\![open,timeinput,OnNewtime,-1]"
+		}
+		when "desc"
+		{
+			"\![open,inputbox,OnNewDesc,-1]"
+		}
+	}
+}
+
+OnNewName
+{
+	remindname[choosenum] = reference0
+	--
+	OnRemindClick
+}
+
+OnNewtime
+{
+	remindh[choosenum] = reference0[0]
+	remindm[choosenum] = reference0[1]
+	--
+	OnRemindClick
+}
+
+OnNewDesc
+{
+	reminddescr[choosenum] = reference0
+	--
+	OnRemindClick
+}
+

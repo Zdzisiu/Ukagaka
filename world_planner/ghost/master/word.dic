@@ -3254,3 +3254,610 @@ ch
 {
 	"\![set,balloontimeout,0]"
 }
+
+//\![raise,OnMapgen]
+OnMapgen
+{
+	genmap = "\b6\_q"
+	--
+	for _x=0,_i=0;_i<=2554;_x++,_i++
+	{
+		//if "\f[color,000000]" _in_ genmapar[_i-1]
+		//{
+		//	if RAND(3) == 2
+		//	{
+		//		genmap += "!+%(mapwhite)"
+		//	}
+		//	else
+		//	{
+		//		genmap += "!+%(mappiece)"
+		//	}
+		//}
+		//else
+		//{
+			genmap += "!+%(mappiece)"
+		//}
+		--
+		genmapar = SPLIT(genmap,"!")
+	}
+	--
+	genmap = REPLACE(genmap,"!","")
+	genmapar = SPLIT(genmap,"+")
+	mapp = "\b6"
+	--
+	for _i=0;_i<=2554;_i++
+	{
+		mapp += genmapar[_i]
+	}
+	--
+	mapp
+}
+
+mappiece
+{
+	//mapblack
+	mapwhite
+
+	if RAND(2) == 1
+	{
+		forest
+	}
+
+	if RAND(3) == 2
+	{
+		lake
+	}
+}
+
+
+mapblack
+{
+
+	"\f[color,000000]#"
+	"\f[color,000000]#+#"
+	"\f[color,000000]#+#+#"
+	"\f[color,000000]#+#+#+#"
+	"\f[color,000000]#+#+#+#+#"
+	"\f[color,000000]#+#+#+#+#+#"
+	"\f[color,000000]#+#+#+#+#+#+#"
+	"\f[color,000000]#+#+#+#+#+#+#+#"
+}
+
+mapwhite
+{
+	"\f[color,FFFFFF]#"
+	"\f[color,FFFFFF]#+#"
+	"\f[color,FFFFFF]#+#+#"
+	"\f[color,FFFFFF]#+#+#+#"
+	"\f[color,FFFFFF]#+#+#+#+#"
+	"\f[color,FFFFFF]#+#+#+#+#+#"
+	"\f[color,FFFFFF]#+#+#+#+#+#+#"
+	"\f[color,FFFFFF]#+#+#+#+#+#+#+#"
+	"\f[color,FFFFFF]#+#+#+#+#+#+#+#+#"
+	"\f[color,FFFFFF]#+#+#+#+#+#+#+#+#+#"
+}
+
+forest
+{
+	"\f[color,048b1d]#+#+#"
+	"\f[color,048b1d]#+#+#+#"
+	"\f[color,048b1d]#+#+#+#+#"
+	"\f[color,048b1d]#+#+#+#+#+#"
+	"\f[color,048b1d]#+#+#+#+#+#+#"
+	"\f[color,048b1d]#+#+#+#+#+#+#+#"
+}
+
+lake
+{
+	"\f[color,0972ae]#+#+#"
+	"\f[color,0972ae]#+#+#+#"
+	"\f[color,0972ae]#+#+#+#+#"
+	"\f[color,0972ae]#+#+#+#+#+#"
+	"\f[color,0972ae]#+#+#+#+#+#+#"
+	"\f[color,0972ae]#+#+#+#+#+#+#+#"
+}
+
+OnPix
+{
+	test="\b6\_q"
+	--
+	for _i=0;_i<(37*30);_i++
+	{
+		test += "%(signs)"
+	}
+	--
+	test
+}
+
+signs
+{
+	/*if RAND(30) == 1
+	{
+		forestsign
+		//villagesign
+		//riversign = "\_b[water.png,inline,--option=use_self_alpha]"//"\f[color,0972ae]#"
+		forestsign = "\_b[tree.png,inline,--option=use_self_alpha]"//"\f[color,109320]#"
+		villagesign = "\_b[home.png,inline,--option=use_self_alpha]"//"\f[color,FFFFFF]#"
+	}
+	//elseif RAND(3) == 1
+	//{
+		//riversign = "\_b[water.png,inline,--option=use_self_alpha]"//"\f[color,0972ae]#"
+	//}
+	else
+	{*/
+		groundsign = "\_b[grass.png,inline,--option=use_self_alpha]"//"\f[color,472810]#"
+		groundsign
+	//}
+	//--
+	//riversign
+	//groundsign
+}
+
+//\![raise,OnMapGenVar]
+//%(howlongmap)
+OnMapGenVar
+{
+	riversign = "\_b[water.png,inline,--option=use_self_alpha]"//"\f[color,0972ae]#"
+	groundsign = "\_b[grass.png,inline,--option=use_self_alpha]"//"\f[color,472810]#"
+	forestsign = "\_b[tree.png,inline,--option=use_self_alpha]"//"\f[color,109320]#"
+	villagesign = "\_b[home.png,inline,--option=use_self_alpha]"//"\f[color,FFFFFF]#"
+	riverwide = RAND(10) + 2
+	forestx = RAND(30) + 3
+	forestwide = RAND(30) + 5
+	forestheight = RAND(50)
+	foresty = RAND(20) + 5
+	rivery = RAND(5) + 5
+	riverx = RAND(30)
+	villagex = RAND(30) + 5
+	villagewide = RAND(30) + 5
+	villageheight = RAND(30)
+	villagey = RAND(20)
+	villaged = 0
+	mapgtwo = "\1\b6\_q"
+	//mapgtwonew = IARRAY
+	foresd = 0
+	riverd = 0
+	--
+	for _i=0;_i<1010;_i++
+	{
+		mapgtwonew[_i] = ""
+	}
+	--
+	OnMapgentwo
+}
+
+OnMapgentwo
+{
+	for _i=0,_z=0,_s=0,_x;_i<1015;_i++,_z++
+	{
+		
+		if _z == 35
+		{
+			mapgtwo += "\n"
+			_z=0
+			_s+=1
+		}
+		--
+		if _z == riverx && riverd != 1 && _s == rivery
+		{
+			for _x=0;_x<riverwide;_x++,_i++
+			{
+				mapgtwo += riversign
+				_z++
+				--
+				if _z == 35
+				{
+					_x = riverwide
+					mapgtwo += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			riverx += riveroffset
+			rivery += 1
+			--
+			if riverx == 36
+			{
+				riverx = 0
+				riverd = 1
+			}
+			--
+			riveroffset = RAND(5)
+			riverwide = RAND(10) + 2
+		}
+		elseif _z == forestx && foresd != 1 && _s == foresty
+		{
+			for _x=0;_x<forestwide;_x++,_z++,_i++
+			{
+				mapgtwo += forestsign
+				--
+				if _z == 35
+				{
+					_x = forestwide
+					mapgtwo += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			if RAND(2) == 1
+			{
+				forestx += forestoffset
+			}
+			else
+			{
+				forestx -= forestoffset
+			}
+			--
+			foresty += 1
+			--
+			if _s == forestheight
+			{
+				foresx = 0
+				foresd = 1
+			}
+			--
+			forestoffset = RAND(5)
+			forestwide = RAND(30) + 2
+		}
+		elseif _z == villagex && villaged != 1 && _s == villagey
+		{
+			for _x=0;_x<villagewide;_x++,_z++,_i++
+			{
+				mapgtwo += villagesign
+				--
+				if _z == 35
+				{
+					_x = villagewide
+					mapgtwo += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			if RAND(2) == 1
+			{ 
+				villageoffset += RAND(5)
+				villagewide += villageoffset
+				villagex -=  RAND(5)
+			}
+			else
+			{
+				villageoffset -= RAND(5)
+				villagewide -= villageoffset
+				villagex +=  RAND(5)
+			}
+			--
+			villagey += 1
+			--
+			if _s == villageheight
+			{
+				villaged = 0
+				villaged = 1
+			}
+			--
+			//villageoffset = RAND(5)
+			//if _s == (villageheight/2)
+		//	{
+				//villagewide = villagewide - RAND(5)
+				//villagex +=  RAND(5)
+			//}
+			//else
+			//{
+			//	villagewide = villagewide + RAND(5)
+				//villagex -= RAND(5)
+			//}
+		}
+		else
+		{
+			mapgtwo += groundsign
+		}
+
+	}
+	--
+	mapgtwo += "\0\![*]\q[I'm Done,Cancel] or \![*]\q[Generate Again,OnMapGenVar]"
+	--
+	mapgtwo
+
+}
+
+OnMapgentwotwo
+{
+	for _i=0,_z=0,_s=0,_x;_i<(37*30);_i++,_z++
+	{
+		if _z == 36
+		{
+			//mapgtwonew[_i] += "\n"
+			_z=0
+			_s+=1
+		}
+		--
+		if _z == riverx && riverd != 1 && _s == rivery
+		{
+			for _x=0;_x<=riverwide;_x++,_z++,_i++
+			{
+				mapgtwonew[_i] = riversign
+				--
+				if _z == 36
+				{
+					_x = riverwide
+					//mapgtwonew[_i] += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			riverx += riveroffset
+			rivery += 1
+			--
+			if riverx == 36
+			{
+				riverx = 0
+				riverd = 1
+			}
+			--
+			riveroffset = RAND(5)
+			riverwide = RAND(10) + 2
+		}
+		elseif _z == forestx && foresd != 1 && _s == foresty
+		{
+			for _x=0;_x<=forestwide;_x++,_z++,_i++
+			{
+				mapgtwonew[_i] = forestsign
+				--
+				if _z == 36
+				{
+					_x = forestwide
+					//mapgtwonew[_i] += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			if RAND(2) == 1
+			{
+				forestx += forestoffset
+			}
+			else
+			{
+				forestx -= forestoffset
+			}
+			--
+			foresty += 1
+			--
+			if _s == forestheight
+			{
+				foresx = 0
+				foresd = 1
+			}
+			--
+			forestoffset = RAND(5)
+			forestwide = RAND(30) + 2
+		}
+		elseif _z == villagex && villaged != 1 && _s == villagey
+		{
+			for _x=0;_x<=villagewide;_x++,_z++,_i++
+			{
+				mapgtwonew[_i] = villagesign
+				--
+				if _z == 36
+				{
+					_x = villagewide
+					//mapgtwonew[_i] += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			//if RAND(2) == 1
+			//{
+			//	villagex += villageoffset
+			//}
+			//else
+			//{
+			//	villagex -= villageoffset
+			//}
+			//--
+			villagey += 1
+			--
+			if _s == villageheight
+			{
+				villaged = 0
+				villaged = 1
+			}
+			--
+			//villageoffset = RAND(5)
+			if _s == villageheight/2
+			{
+				villagewide = villagewide - RAND(5)
+				villagex +=  RAND(5)
+			}
+			else
+			{
+				villagewide = villagewide + RAND(5)
+				villagex -= RAND(5)
+			}
+		}
+		else
+		{
+			mapgtwonew[_i] = groundsign
+		}
+	}
+	--
+	mapp = "\b6\_q"
+	--
+	for _i=0,_z=0,_x=0;_i<(37*30);_i++,_z++
+	{
+		if _z == _x
+		{
+			mapgtwonew[_i] = groundsign
+			_x++
+		}
+		--
+		if _z == 35
+		{
+			_z = 0
+		}
+		--
+		if mapgtwonew[_i] == ""
+		{
+			mapgtwonew[_i] = groundsign
+		}
+		--
+		mapp += mapgtwonew[_i]
+	}
+	--
+	"%(mapp)"
+	
+}
+
+//\![raise,OnMapGenVarold]
+OnMapGenVarold
+{
+	riversign = "\f[color,0972ae]&"
+	groundsign = "\f[color,472810]#"
+	forestsign = "\f[color,109320]^"
+	villagesign = "\f[color,FFFFFF]+"
+	riverwide = RAND(10) + 2
+	forestx = RAND(60) + 3
+	forestwide = RAND(30) + 5
+	forestheight = RAND(100) + forestx
+	foresty = RAND(20) + 5
+	rivery = RAND(5) + 5
+	riverx = RAND(50) + 3
+	villagex = RAND(60) + 5
+	villagewide = RAND(30) + 5
+	villageheight = RAND(50) + villagex
+	villagey = RAND(20)
+	villaged = 0
+	mapgtwo = "\b6\_q"
+	foresd = 0
+	riverd = 0
+	--
+	OnMapgenold
+}
+
+OnMapgenold
+{
+	for _i=0,_z=0,_s=0,_x;_i<=2255;_i++,_z++
+	{
+		if _z == riverx && riverd != 1 && _s == rivery
+		{
+			for _x=0;_x<=riverwide;_x++,_z++,_i++
+			{
+				mapgtwo += riversign
+				--
+				if _z == 73
+				{
+					_x = riverwide
+					mapgtwo += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			riverx += riveroffset
+			rivery += 1
+			--
+			if riverx == 73
+			{
+				riverx = 0
+				riverd = 1
+			}
+			--
+			riveroffset = RAND(5)
+			riverwide = RAND(10) + 2
+		}
+		elseif _z == forestx && foresd != 1 && _s == foresty
+		{
+			for _x=0;_x<=forestwide;_x++,_z++,_i++
+			{
+				mapgtwo += forestsign
+				--
+				if _z == 73
+				{
+					_x = forestwide
+					mapgtwo += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			if RAND(2) == 1
+			{
+				forestx += forestoffset
+			}
+			else
+			{
+				forestx -= forestoffset
+			}
+			--
+			foresty += 1
+			--
+			if _s == forestheight
+			{
+				foresd = 1
+			}
+			--
+			forestoffset = RAND(5)
+			forestwide = RAND(60) + 2
+		}
+		elseif _z == villagex && villaged != 1 && _s == villagey
+		{
+			for _x=0;_x<=villagewide;_x++,_z++,_i++
+			{
+				mapgtwo += villagesign
+				--
+				if _z == 73
+				{
+					_x = villagewide
+					mapgtwo += "\n"
+					_z=0
+					_s+=1
+				}
+			}
+			--
+			//if RAND(2) == 1
+			//{
+			//	villagex += villageoffset
+			//}
+			//else
+			//{
+			//	villagex -= villageoffset
+			//}
+			//--
+			villagey += 1
+			--
+			if _s == villageheight
+			{
+				villaged = 1
+			}
+			--
+			//villageoffset = RAND(5)
+			if _s == villageheight/5
+			{
+				villagewide = villagewide - RAND(5)
+				villagex +=  RAND(5)
+			}
+			else
+			{
+				villagewide = villagewide + RAND(5)
+				villagex -= RAND(5)
+			}
+		}
+		else
+		{
+			mapgtwo += groundsign
+		}
+		--
+		if _z == 73
+		{
+			mapgtwo += "\n"
+			_z=0
+			_s+=1
+		}
+	}
+	--
+	mapgtwo
+}

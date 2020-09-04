@@ -604,6 +604,16 @@ FirstBootVariables
 
 OnToolCheck
 {
+	if usedefring == ""
+	{
+		usedefring = "OFF"
+	}
+	--
+	if remindcount == ""
+	{
+		remindcount = 0
+	}
+	--
 	if weathermenu == ""
 	{
 		weathermenu = "OFF"
