@@ -142,7 +142,40 @@ RandomTalk : nonoverlap
 				"%(pickupline)"
 			}
 			//}
+
+			if lefttask != 0
+			{
+				if lefttask == 1
+				{
+					"You still have a 1 task to do"
+				}
+				else
+				{
+					"You still have %(lefttask) tasks to do"
+				}
+
+				{
+					randtask = RAND(taskamount) - 1
+					//%(todos[RAND(taskamount)])'
+					for x=0,_i=0;x==0 || _i<=taskamount;_i++
+					{
+						if todostatus[randtask] != 1
+						{
+							x=1
+						}
+						else
+						{
+							randtask = RAND(taskamount)
+						}
+						
+					}
+					--
+					"You should try completing one of the tasks, maybe try completing '%(todos[randtask])' "
+				}
+			}
 		}
+		
+		"remember to take breaks from your computer, it's not healthy to sit like that for long periods of time"
 	}
 }
 

@@ -525,17 +525,18 @@ RespondingToCherry
 RespondingToS
 {
 	if "GetMiniDevStats01" _in_ reference4 
+	{
+		if "hoodie p1 red,1" _in_ clothesstring && "shirt d1 purple,1" _in_ clothesstring && "pants p1 black,1" _in_ clothesstring && "shoes p gray,1" _in_ clothesstring 
 		{
-			if "hoodie,p1 red." _in_ clothesstring && "shirt,d1 purple." _in_ clothesstring && "pants,p1 black." _in_ clothesstring && "shoes,p gray." _in_ clothesstring 
-			{
-				outfitS = 1
-				--
-				res_reference0 = RYS-0825
-				"\e GetMiniDevStats02, %(outfitS)"
-			}
+			outfitS = 1
+			--
+			res_reference0 = RYS-0825
+
+			"ye\eGetMiniDevStats02, %(outfitS)"
 		}
-		elseif "MiniDev" _in_ reference4 
-		{
-			"Hi"
-		}
+	}
+	elseif "MiniDev" _in_ reference4
+	{
+		"Hi"
+	}
 }

@@ -5,7 +5,6 @@ Select.saysmth
 
 OnSayedThing
 {
-    sayed = reference0
     sayed = TOLOWER(reference0)
     positives = IARRAY
     --
@@ -15,7 +14,77 @@ OnSayedThing
     --
     BeingLib
     --
-    ProcessSayed
+    //ProcessSayed
+    Analize
+}
+
+
+Library
+{
+
+}
+
+Analize
+{
+    /*sentences = SPLIT(sayed,".")
+    --
+    for _i=0;_i<ARRAYSIZE(sentences);_i++,_x++
+    {
+        sentences[_i] = REPLACE(sentences[_i],"!","")
+        sentences[_i] = REPLACE(sentences[_i],",","")
+        sentences[_i] = REPLACE(sentences[_i],"?","")
+        words[_x] = REPLACE(sentences[_i]," ","+")
+    }*/
+    sayed = REPLACE(sayed,"!","")
+    sayed = REPLACE(sayed,",","")
+    sayed = REPLACE(sayed,"?","")
+    words = SPLIT(sayed," ")
+    wordcount = ARRAYSIZE(words)
+    --
+    for _i=0;_i<wordcount;_i++
+    {
+        case words[_i]
+        {
+            when "no","don't","cannot"
+            {
+                wordan[_i] = "no"
+            }
+            when "you","your","you're","yours"
+            {
+                wordan[_i] = "you"
+            }
+            when "i'm","i"
+            {
+                wordan[_i] = "i"
+            }
+            when "she","he","they","she's","he's","they're"
+            {
+                wordan[_i] = words[_i]
+            }
+            when "are","is","am"
+            {
+                wordan[_i] = ""
+            }
+            when "was","were"
+            {
+                wordan[_i] = "was"
+            }
+            other
+            {
+                wordan[_i] = words[_i]
+            }
+        }
+    }
+    --
+    //reconstruct
+    reconstructed = ""
+    --
+    for _i=0;_i<wordcount;_i++
+    {
+        reconstructed += wordan[_i] + " "
+    }
+    --
+    "%(reconstructed)"
 }
 
 ProcessSayed

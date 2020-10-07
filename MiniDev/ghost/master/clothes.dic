@@ -319,18 +319,32 @@ OnColorPick
 	\![*]\q[Back,clothesmenu]"
 }
 
+OnDressupChanged
+{
+	dressup = reference3 + " " + reference1 + ","+ reference2 + "."
+	dressupcheck = reference3 + " " + reference1
+	--
+	if dressupcheck _in_ clothesstring
+	{
+		if reference2 == 0
+		{
+			clothesstring = REPLACE(clothesstring,dressupcheck+",1.",dressup)
+		}
+		else
+		{
+			clothesstring = REPLACE(clothesstring,dressupcheck+",0.",dressup)
+		}
+		
+	}
+	else
+	{
+		clothesstring += dressup
+	}
+}
+
 OnBindCol
 {
 	clothes = ctype + "," + colorty + cnum + " " + reference0 + ". "
-	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
 	--
 	"\![bind,%(ctype),%(colorty)%(cnum) %(reference0)]"
 	--
@@ -341,15 +355,6 @@ Select.why
 {
 	clothes = ctype + "," + "p" + cnum + " white. "
 	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
-	--
 	"\![bind,%(ctype),p%(cnum) white]"
 	--
 	OnColorPick
@@ -359,15 +364,6 @@ Select.gra
 {
 	clothes = ctype + "," + "p" + cnum + " gray. "
 	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
-	--
 	"\![bind,%(ctype),p%(cnum) gray]"
 	--
 	OnColorPick
@@ -376,15 +372,6 @@ Select.gra
 Select.bla
 {
 	clothes = ctype + "," + "p" + cnum + " black. "
-	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
 	--
 	"\![bind,%(ctype),p%(cnum) black]"
 	--

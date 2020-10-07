@@ -8,6 +8,7 @@
 	stroke           = 0	
  	teachusername    = 0	
 	mikireflag       = 0
+	completed = 0
 	apps = 0 //Apps tutorial 
 	tooln = "ON" //q-tools on
 	weathermenu = "OFF" //weather on menu
@@ -390,10 +391,6 @@ OnShellChanged
 
 }
 
-OnDressupChanged
-{
-}
-
 OnSurfacesTrue
 {
 	"\![set,othersurfacechange,true]"
@@ -554,8 +551,21 @@ FirstBootVariables
 	AI = "OFF"
 }
 
+//\![raise,OnToolCheck]
 OnToolCheck
 {
+	for _i=0;_i<=taskamount;_i++
+	{
+		if "\f[" _in_ todos[_i]
+		{
+			todostatus[_i] = 1
+		}	
+		else
+		{
+			todostatus[_i] = 0
+		}
+	}
+	--
 	if usedefring == ""
 	{
 		usedefring = "OFF"
@@ -727,7 +737,6 @@ OnToolCheck
 	{
 		timeformatype = "STANDARD"
 	}
-
 }
 
 Select.move
