@@ -1,0 +1,9 @@
+Charset,UTF-8
+install,650752674
+homeurl_found,1
+surfacecount,3
+homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/cat/
+update_result,OK(1)
+firstboot,650752677
+commitmemorysize,32154
+lastboot,655483367

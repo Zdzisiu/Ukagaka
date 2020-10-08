@@ -532,7 +532,7 @@ RespondingToS
 			--
 			res_reference0 = RYS-0825
 
-			"ye\eGetMiniDevStats02, %(outfitS)"
+			"\eGetMiniDevStats02, %(outfitS)"
 		}
 	}
 	elseif "MiniDev" _in_ reference4

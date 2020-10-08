@@ -6,11 +6,27 @@ collision2,57,219,157,236,Tail
 
 element0,overlay,surface0.png,0,0
 
-0interval,random,4
-0pattern0,1001,10,overlay,0,0
-0pattern1,1000,10,overlay,0,0
-0pattern2,1001,10,overlay,0,0
-0pattern3,-1,10,overlay,0,0
+0interval,always
+0pattern0,1001,30,overlay,0,0
+0pattern1,1000,30,overlay,0,0
+0pattern2,1001,30,overlay,0,0
+0pattern3,-1,20,overlay,0,0
+
+1interval,bind
+1pattern0,1100,1,overlay,0,0
+
+
+2interval,bind
+2pattern0,1101,1,overlay,0,0
+
+
+3interval,bind
+3pattern0,1102,1,overlay,0,0
+
+
+4interval,bind
+4pattern0,1103,1,overlay,0,0
+
 }
 
 Surface10
