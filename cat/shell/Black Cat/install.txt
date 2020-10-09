@@ -1,0 +1,4 @@
+Charset,UTF-8
+type,shell
+name,Black Cat
+directory,Black Cat

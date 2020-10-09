@@ -3,9 +3,9 @@ seriko.use_self_alpha, 10
 
 charset,UTF-8
 type,shell
-name,Black Cat
+name,Old Cat
 craftman,Zdzisiu
-craftmanurl,
+craftmanurl,http://www.ashido.com/ukagaka/walkthrough.html
 
 sakura.balloon.offsetx,0
 sakura.balloon.offsety,0
@@ -79,11 +79,6 @@ menu.sidebar.bitmap.filename,menu_sidebar.png
 
 //kero.bindgroup55.name,face,glasses
 //kero.bindgroup57.name,hair,hairpins
-
-sakura.bindgroup1.name,tail,white tip
-sakura.bindgroup2.name,leg,white heart
-sakura.bindgroup3.name,leg,white dot
-sakura.bindgroup4.name,leg,white spot
 
 
 //Dress-Up Menu Organization

@@ -9,7 +9,7 @@
 		{
 			Wallpaperfile = reference0
 			
-			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8How would you like us to set this picture as your wallpaper?\n\n[half]/
+			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8How would you like me to set this picture as your wallpaper?\n\n[half]/
 			\q[Centered,SetWallpaper_0]\n/
 			\q[Tiled,SetWallpaper_1]\n/
 			\q[Stretched,SetWallpaper_2]\n\n[half]/
@@ -17,7 +17,23 @@
 		}
 		when ".mid", ".wav", ".mp3", ".wma", ".au" //Other file formats you might want to give your ghost a specific response to.
 		{
-			"%(_filename)%(_fileext) is a music file.\e"
+			if _filename _in_ musicfiles
+			{
+				FCOPY(_filename+_fileext,"s")
+				--
+				if silence != "ON"
+				{
+					"\![sound,play,s/%(meows),--volume=%(volume)]"
+				}
+				else
+				{
+					"Meow"
+				}
+			}
+			else
+			{
+				"%(_filename)%(_fileext) is a music file.\e"
+			}
 		}
 		others //Any other file format. As a note here, if you drop something ghost-related on them that does not have an install.txt, then they won't install it and will just say this response. If you are testing your balloon or nar files and you get this response instead of a proper installation, you should check and make sure you have an install.txt in the file!
 		{

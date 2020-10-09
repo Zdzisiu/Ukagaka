@@ -75,10 +75,51 @@ OnBoot
 	--
 	OnBootStuff
 	--
+	OnSoundCheck
+	--
  	"\0\s[0]\0\s[0]" 
 	--
 	"%(normalboottalk)"
 } 
+//\![raise,OnSoundCheck]
+OnSoundCheck
+{
+	missingfile = ""
+	misnum = 0
+	musicfiles = "long purr,meow1,meow3,meow4,meow5,meow6,meow7,purring1,purring2,purring3,sneeze"
+	files = FENUM("s",",")
+	files = REPLACE(files,".wav","")
+	--
+	for _i=0;_i<12;_i++
+	{
+		if musicfiles[_i] !_in_ "%(files)"
+		{
+			missingfile += musicfiles[_i] + ","
+			misnum ++
+			--
+			"\_q(Downloading missing sound files)\![execute,http-get,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/cat/ghost/master/s/%(musicfiles[_i]).wav]"
+			--
+			FCOPY("var/" + musicfiles[_i]+".wav","s")
+		}
+	}
+	--
+	if misnum != 0 
+	{
+		page = "There are missing sound files\n Missing Files:"
+
+		for _i=0;_i<=misnum;_i++
+		{
+			page += missingfile[_i] +".wav\n"
+		}
+	}
+	else
+	{
+		page = "No missing files\n"
+	}
+	
+	//--
+	//page
+}
 
 OnBootStuff
 {

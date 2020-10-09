@@ -1,4 +1,0 @@
-Charset,UTF-8
-type,shell
-name,Old Cat
-directory,Old Cat

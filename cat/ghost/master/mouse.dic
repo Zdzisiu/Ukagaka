@@ -21,11 +21,16 @@ MouseMoveSakura
 	if reference4 != "" 
  	{
  		stroke++ 
-		if reference4 == "Head" || reference4 == "Back"
+		--
+		if reference4 == "Head" || reference4 == "Back" || reference4 == "Tail"
 		{
 			if stroke >= 40 
 			{
-				if purrmode == "OFF" 
+				if silence == "ON" 
+				{
+					"Meow"
+				}
+				elseif purrmode == "OFF" 
 				{
 					"\![sound,stop]"
 					--
@@ -33,37 +38,11 @@ MouseMoveSakura
 					"\![sound,play,s/purring2.wav,--volume=%(volume)]\e" 
 					"\![sound,play,s/purring3.wav,--volume=%(volume)]\e" 
 				}
-				elseif silence == "ON" 
-				{
-					"Meow"
-				}
-			}
-		}
-		elseif reference4 == "Tail"
-		{
-			if stroke >= 40 
-			{
-				if purrmode == "OFF" 
-				{
-					"\![sound,stop]"
-				}
 				--
-				if silence != "ON" 
-				{
-				
-					"\![sound,play,s/meow5.wav,--volume=%(volume)]\e"
-					"\![sound,play,s/meow1.wav,--volume=%(volume)]\e"
-					"\![sound,play,s/meow6.wav,--volume=%(volume)]\e"
-					"\![sound,play,s/meow3.wav,--volume=%(volume)]\e"
-					"\![sound,play,s/meow4.wav,--volume=%(volume)]\e"
-					"\![sound,play,s/meow7.wav,--volume=%(volume)]\e" 
-				}
-				else
-				{
-					"Meow"
-				}
+				stroke = 0
 				
 			}
+
 		}
 	}
  	else
