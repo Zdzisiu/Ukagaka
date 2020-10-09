@@ -28,6 +28,8 @@
  		"\0\s[0]\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
 		}
  	}
+	--
+	OnSoundCheck
 }  
 
 GetTimeSlot
