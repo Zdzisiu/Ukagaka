@@ -1,13 +1,11 @@
 ﻿logdisplay
 { 
-     logcont[logpage] = ""
+    logcont[logpage] = ""
      --
     truth += 1
     "\*\_q\b4\f[bold,1]LOG#%(logpage)\n/
-    \f[bold,1]Date of creation:\f[bold,default] %(logdate[logpage])\n/
     \f[bold,1]Log creator:\f[bold,default] %(logname[logpage])\n/
-    \f[bold,1]Generation:\f[bold,default] %(loggen[logpage])\n/
-    \f[bold,1]Test Model:\f[bold,default] %(logmod[logpage])\n"
+    \f[bold,1]Current Generation:\f[bold,default] %(loggen[logpage])\n"
     --
     //"\n%(logcont[logpage])\n\n[half]"
     _file = "logs/Log#%(logpage).txt"
@@ -50,9 +48,7 @@ Select.ulog
 {
     
     "\q[DATE OF CREATION,docu]\n/
-    \q[LOG CREATOR,lcu]\n/
-    \q[GENERATION,gu]\n/
-    \q[TEST MODEL,tmu]\n"
+    \q[GENERATION,gu]\n"
 }
 
 Select.cont
@@ -192,11 +188,11 @@ devlog
 
 clear
 {
-        for _i = 1; _i <= devlogcount; _i++
-        {
-            devlogcontent[_i] = ""
-        }
-        devlogcount=1
+    for _i = 1; _i <= devlogcount; _i++
+    {
+        devlogcontent[_i] = ""
+    }
+    devlogcount=1
 }
 
 Select.crdlog
@@ -297,7 +293,7 @@ userslog
         --
         "\n\q[CREATE LOG,crelog] or \q[UPDATE LOG,uulog]\n\n[half]/
         \q[CHANGE LOG NAME,namlog]\n\n[half]/
-        \q[DELETE ALL LOGS,delalllog] or \q[CLEAR LOG,dellog]\n\n[half]/
+        \q[DELETE ALL LOGS,delalllog] or \q[DELETE LOG,dellog]\n\n[half]/
         \q[CLOSE LOGS,clog]\_q"
     }
     --
@@ -326,11 +322,22 @@ Select.delalllog
 
 Select.dellog
 {
-    userlogcontent[userlogpage] = ""
-    logupdatedata[userlogpage] = ""
-    logusername[userlogs] = ""
-    ulogname[userlogpage] = ""
-    userlogdata[userlogpage] = ""
+    for _i=userlogpage;_i<=userlogs;_i++
+    {
+        userlogcontent[_i] = userlogcontent[_i+1]
+        logupdatedata[_i] = logupdatedata[_i+1]
+        logusername[_i] = logusername[_i+1]
+        ulogname[_i] = ulogname[_i+1]
+        userlogdata[_i] = userlogdata[_i+1]
+    }
+    --
+    if userlogcontent[userlogpage] == ""
+    {
+        userlogpage -= 1
+    }
+    --
+    userlogs -= 1
+    --
     "%(userslog)"
 }
 
@@ -391,6 +398,7 @@ Select.yesdellog
         userlogdata[_i] = ""
     }
     userlogs = 0
+    userlogpage = 1
     --
     "LOGS DELETED\x%(userslog)"
 }

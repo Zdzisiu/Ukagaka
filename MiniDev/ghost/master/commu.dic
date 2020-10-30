@@ -20,13 +20,13 @@ ReplyToGhost
 {
 	res_reference0 = reference0
 	--
-	if "Wilson" _in_ reference0
-	{
-
-	}
-	elseif "S" _in_ reference0
+	if reference0 == "RYS-0825"
 	{
 		RespondingToS
+	}
+	elseif reference0 == "Dusty"
+	{
+		RespondingToDusty
 	}
 }
 
@@ -40,208 +40,236 @@ OnCheck
 	{
 		"nah %(clothesstring)"
 	}
-	
 }
 
 OnGhostCallComplete
 {
-    
-	if tentruth == 1
+	mood[0]--
+    --
+	if tentruth == 1 && meeting == 1
 	{
-		if reference0 == "Gaster"
+		if repairglitch != 1
 		{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Gaster\e"
-			"\0%(hihello) Dr Gaster\e"
-		}
-		elseif reference0 == "Azura"
-		{
-			"\0%(hihello) Azura\e"
-			"\0%(hihello) winged lady\e"
-		}
-		elseif reference0 == "CheeryBot"
-		{
-			"\0%(hihello) Cheery\e"
-			"\0%(hihello) little bot\e"
-		}
-		elseif reference0 == "slime"
-		{
-			"\0%(hihello) cute creature\e"
-			"\0%(hihello) slime\e"
-		}
-		elseif reference0 == "Sans"
-		{
+			if reference0 == "Gaster"
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
+				"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
 			}
-		}
-		elseif reference0 == "MVSans"
-		{
-			if reference7 == "geno"
+			elseif reference0 == "Azura"
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜ \0you don't look so good,\w8 are you okay?\e"
+				"%(hihello) u̴m̸h̵ .\w5 .\w5 .\w5 l̵a̷d̷y̵?\e"
 			}
-			elseif reference7 == "undertale sans classic revamped"
+			elseif reference0 == "CheeryBot"
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
+				"%(hihello) l̸͕̓i̵̫͐t̵͍͘t̴͎͝ĺ̷͚e̴̬͒ ̵͖̒b̷̺̏o̸̦̓t̷̙̂\e"
 			}
-			elseif reference7 == "horrortale sans"
+			elseif reference0 == "slime"
 			{
-			"\0%(hihello) horror s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) horror Sans\e"
-			"\0%(hihello), Is it halloween already?\e"
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜ \0you look a little broken \0are you ok?\e"
+				"%(hihello) u̴m̸h̵ .\w5 .\w5 .\w5 c̴r̵e̸a̵t̴u̵r̵e̷?\e"
 			}
-			elseif reference7 == "inverted fate"
+			elseif "Sans" _in_ reference0
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans"
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜, nice scarf\e"
-			"\0%(hihello) Sans, nice scarf\e"
+				if reference7 == "geno"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 a̶̼̽r̸̰̾ê̸̮ ̶̱͆ÿ̵̦́o̷̥̒u̵̗͘ ̷̣̒ȧ̷͔l̷͎̄r̷̩̚i̴̦͋g̵̰̕h̶̨̆ţ̶̓?\e"
+				}
+				elseif reference7 == "horrortale sans"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 a̶̼̽r̸̰̾ê̸̮ ̶̱͆ÿ̵̦́o̷̥̒u̵̗͘ ̷̣̒ȧ̷͔l̷͎̄r̷̩̚i̴̦͋g̵̰̕h̶̨̆ţ̶̓?\e"
+				}
+				elseif reference7 == "inverted fate"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
+					"%(hihello) s̴k̴e̸l̸e̸t̴o̸n̵ .\w5 .\w5 .\w5 eh .\w5 .\w5 .\w5 n̴i̵c̷e̷ ̶s̶c̴a̶r̴f̵?\e"
+				}
+				else
+				{
+					"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
+				}
+
 			}
-			elseif reference7 == "outertale\e"
+			elseif reference0 == "Wilson"
 			{
-			"\0%(hihello) cosmic s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) cosmic Sans\e"
+				"%(hihello) ș̸̌c̵͓̕í̷̯e̶͎̓n̷̩͗t̵̤̕i̸̺̎s̷̨̊t̵̤̀ .\w5 .\w5 .\w5 y̶o̴u̶ ̴r̶e̸m̸i̴n̷d̴ ̴m̶e̵ ̶o̴f̷ D̴a̴v̴i̸d̵\e"
+				"%(hihello) ș̸̌c̵͓̕í̷̯e̶͎̓n̷̩͗t̵̤̕i̸̺̎s̷̨̊t̵̤̀\e"
 			}
-			elseif reference7 == "underfell sans shirtless"
+			elseif reference0 == "Aurora.EXE"
 			{
-			"\0%(hihello) edgy s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) edgy Sans\e"
+				mood[5]++
+				--
+				"%(hihello) g̵͈̏l̴̋͜ḯ̵ͅẗ̸̬́c̵̯͋h̷̖̄\e"
+				"%(hihello) c̶o̷m̶r̸a̷d̷e̷\e"
 			}
 			else
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
-			}
-
-		}
-		elseif res_reference0 == "Wilson"
-		{
-			"\0%(hihello) s̷̼̰̎c̶͖̔́͊̋î̵̖͚͎̽̎̕e̴̛̦͎n̵̩̬̔t̴̝́̅͘͝ỉ̶̼͛͝s̴̤̟̎̔͋t̶̨͔̬͖͗͛͒\w7, y̵̮̗̐͒̚ͅo̵̥̟͍̊u̴̦͊̑̾͠ ̴̧̩̹̉r̴̬͚̯̂̅͜e̶̻̓̔͘m̸̞̪̳̅́i̷̡͓̇̉̂͝ṅ̶͚̤̙̊͗͘d̵̬̐ ̷̥͊͘m̸͖̪̫̱̌e̵͔͒̓ ̸̣͇͍̈o̶͍̘̎̾́͠f̵̹̈́͐͑͘ ̷̖͉̹̄́́͑G̷͚͍̞̀̃͗͝d̷̩̀̀͋̚y̵̰͉͍̏̏l̴̍̀ͅg̶̪̝̜̈́ͅ ̵͈̅̅͘͝\e"
-			"\0%(hihello) W̸͔̝̪̘̉i̵͙̪͐͋̚l̷̨̩͕̫̊͜͝s̸͖̭̺̳̞͑̈́̉̏̂͗ó̸̺͍͓̤̒̄͠ͅn̸͍̎̽͂̉͝\w6̶̂, y̵̮̗̐͒̚ͅo̵̥̟͍̊u̴̦͊̑̾͠ ̴̧̩̹̉r̴̬͚̯̂̅͜e̶̻̓̔͘m̸̞̪̳̅́i̷̡͓̇̉̂͝ṅ̶͚̤̙̊͗͘d̵̬̐ ̷̥͊͘m̸͖̪̫̱̌e̵͔͒̓ ̸̣͇͍̈o̶͍̘̎̾́͠f̵̹̈́͐͑͘ ̷̖͉̹̄́́͑G̷͚͍̞̀̃͗͝d̷̩̀̀͋̚y̵̰͉͍̏̏l̴̍̀ͅg̶̪̝̜̈́ͅ ̵͈̅̅͘͝\e"
-		}
-		elseif reference0 == "Aurora.EXE"
-		{
-			"\0%(hihello) glitch\e"
-			if tentruth == 1
-			{
-				"\0%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
-				"\0%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
+				"%(hihello), %(reference0) .\w5 .\w5 .\w5\e"
 			}
 		}
 		else
 		{
-			"\0%(hihello), %(res_reference0). \w8\0Hope you're doing well.\e"
-			"\0%(hihello), %(res_reference0).\e"
+			"%(distingstart)"
+			--
+			if reference0 == "Gaster"
+			{
+				"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
+			}
+			elseif reference0 == "Azura"
+			{
+				"%(hihello) umh .\w5 .\w5 .\w5 lady?\e"
+			}
+			elseif reference0 == "CheeryBot"
+			{
+				"%(hihello) little bot\e"
+			}
+			elseif reference0 == "slime"
+			{
+				"%(hihello) umh .\w5 .\w5 .\w5 creature?\e"
+			}
+			elseif "Sans" _in_ reference0
+			{
+				if reference7 == "geno"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 are you alright?\e"
+				}
+				elseif reference7 == "horrortale sans"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 are you alright?\e"
+				}
+				elseif reference7 == "inverted fate"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
+					"%(hihello) skeleton .\w5 .\w5 .\w5 eh .\w5 .\w5 .\w5 nice scarf?\e"
+				}
+				else
+				{
+					"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
+				}
+
+			}
+			elseif reference0 == "Wilson"
+			{
+				"%(hihello) scientist .\w5 .\w5 .\w5 you remind me of DAVD\e"
+				"%(hihello) scientist\e"
+			}
+			elseif reference0 == "Aurora.EXE"
+			{
+				mood[5]++
+				--
+				"%(hihello) glitch\e"
+				"%(hihello) comrade\e"
+			}
+			else
+			{
+				"%(hihello), %(reference0) .\w5 .\w5 .\w5\e"
+			}
 		}
+		
 	}
 	else
 	{
 		if reference0 == "Gaster"
 		{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Gaster\e"
-			"\0%(hihello) Dr Gaster\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Gaster\e"
+			"%(hihello) Dr Gaster\e"
 		}
 		elseif reference0 == "Azura"
 		{
-			"\0%(hihello) Azura\e"
-			"\0%(hihello) dragon lady\e"
+			"%(hihello) Azura\e"
+			"%(hihello) dragon lady\e"
 		}
 		elseif reference0 == "CheeryBot"
 		{
-			"\0%(hihello) Cheery\e"
-			"\0%(hihello) little bot\e"
+			"%(hihello) Cheery\e"
+			"%(hihello) little bot\e"
 		}
 		elseif reference0 == "slime"
 		{
-			"\0%(hihello) cute creature\e"
-			"\0%(hihello) slime\e"
+			"%(hihello) cute creature\e"
+			"%(hihello) slime\e"
 		}
 		elseif reference0 == "Sans"
 		{
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
 			}
 		}
 		elseif reference0 == "MVSans"
 		{
 			if reference7 == "geno"
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
-			"\0%(hihello) skeleton \0you don't look so good,\w8 are you okay?\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
+			"%(hihello) skeleton you don't look so good,\w8 are you okay?\e"
 			}
 			elseif reference7 == "undertale sans classic revamped"
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
 			}
 			elseif reference7 == "horrortale sans"
 			{
-			"\0%(hihello) horror skeleton\e"
-			"\0%(hihello) horror Sans\e"
-			"\0%(hihello), Is it halloween already?\e"
-			"\0%(hihello) skeleton \0you look a little broken \0are you ok?\e"
+			"%(hihello) horror skeleton\e"
+			"%(hihello) horror Sans\e"
+			"%(hihello), Is it halloween already?\e"
+			"%(hihello) skeleton you look a little broken are you ok?\e"
 			}
 			elseif reference7 == "inverted fate"
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans"
-			"\0%(hihello) skeleton, nice scarf\e"
-			"\0%(hihello) Sans, nice scarf\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans"
+			"%(hihello) skeleton, nice scarf\e"
+			"%(hihello) Sans, nice scarf\e"
 			}
 			elseif reference7 == "outertale\e"
 			{
-			"\0%(hihello) cosmic skeleton\e"
-			"\0%(hihello) cosmic Sans\e"
+			"%(hihello) cosmic skeleton\e"
+			"%(hihello) cosmic Sans\e"
 			}
 			elseif reference7 == "underfell sans shirtless"
 			{
-			"\0%(hihello) edgy skeleton\e"
-			"\0%(hihello) edgy Sans\e"
+			"%(hihello) edgy skeleton\e"
+			"%(hihello) edgy Sans\e"
 			}
 			else
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
 			}
 
 		}
 		elseif reference0 == "Wilson"
 		{
-			"\0%(hihello) scientist\e"
-			"\0%(hihello) Wilson\e"
-			"\0%(hihello), Have you met any interesting pigs lately?\e"
+			"%(hihello) scientist\e"
+			"%(hihello) Wilson\e"
+			"%(hihello), Have you met any interesting pigs lately?\e"
 		}
 		elseif reference0 == "Aurora.EXE"
 		{
-			"\0%(hihello) glitch\e"
+			"%(hihello) glitch\e"
 			if tentruth == 1
 			{
-				"\0%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
-				"\0%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
+				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
+				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
 			}
 		}
-		elseif reference0 == "S"
+		elseif reference0 == "RYS-0825"
 		{
-			"\0%(hihello) S\e"
+			"%(hihello) S\e"
 			if tentruth == 1
 			{
-				"\0%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
-				"\0%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
+				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
+				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
 			}
+		}
+		elseif reference0 == "Dusty"
+		{ 
+			
 		}
 		else
 		{
-			"\0%(hihello), %(reference0). \w8\0Hope you're doing well.\e"
-			"\0%(hihello), %(reference0).\e"
+			"%(hihello), %(reference0). \w8Hope you're doing well.\e"
+			"%(hihello), %(reference0).\e"
 		}
 	}
 }
@@ -254,207 +282,242 @@ OnOtherGhostTalk
 	}
 	elseif "S" _in_ reference0
 	{
-		RespondingToS
+		//RespondingToS
+	}
+	elseif "Dusty" _in_ reference0
+	{
+		//RespondingToDusty
 	}
 }
 
 OnOtherGhostBooted
 {
-    
-	if tentruth == 1
+	mood[0]--
+    --
+	if tentruth == 1 && meeting == 1
 	{
-		if reference0 == "Gaster"
+		if repairglitch != 1
 		{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Gaster\e"
-			"\0%(hihello) Dr Gaster\e"
-		}
-		elseif reference0 == "Azura"
-		{
-			"\0%(hihello) Azura\e"
-			"\0%(hihello) dragon lady\e"
-		}
-		elseif reference0 == "CheeryBot"
-		{
-			"\0%(hihello) Cheery\e"
-			"\0%(hihello) little bot\e"
-		}
-		elseif reference0 == "slime"
-		{
-			"\0%(hihello) cute creature\e"
-			"\0%(hihello) slime\e"
-		}
-		elseif reference0 == "Sans"
-		{
+			if reference0 == "Gaster"
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
+				"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
 			}
-		}
-		elseif reference0 == "MVSans"
-		{
-			if reference7 == "geno"
+			elseif reference0 == "Azura"
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜ \0you don't look so good,\w8 are you okay?\e"
+				"%(hihello) u̴m̸h̵ .\w5 .\w5 .\w5 l̵a̷d̷y̵?\e"
 			}
-			elseif reference7 == "undertale sans classic revamped"
+			elseif reference0 == "CheeryBot"
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
+				"%(hihello) l̸͕̓i̵̫͐t̵͍͘t̴͎͝ĺ̷͚e̴̬͒ ̵͖̒b̷̺̏o̸̦̓t̷̙̂\e"
 			}
-			elseif reference7 == "horrortale sans"
+			elseif reference0 == "slime"
 			{
-			"\0%(hihello) horror s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) horror Sans\e"
-			"\0%(hihello), Is it halloween already?\e"
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜ \0you look a little broken \0are you ok?\e"
+				"%(hihello) u̴m̸h̵ .\w5 .\w5 .\w5 c̴r̵e̸a̵t̴u̵r̵e̷?\e"
 			}
-			elseif reference7 == "inverted fate"
+			elseif "Sans" _in_ reference0
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans"
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜, nice scarf\e"
-			"\0%(hihello) Sans, nice scarf\e"
+				if reference7 == "geno"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 a̶̼̽r̸̰̾ê̸̮ ̶̱͆ÿ̵̦́o̷̥̒u̵̗͘ ̷̣̒ȧ̷͔l̷͎̄r̷̩̚i̴̦͋g̵̰̕h̶̨̆ţ̶̓?\e"
+				}
+				elseif reference7 == "horrortale sans"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 a̶̼̽r̸̰̾ê̸̮ ̶̱͆ÿ̵̦́o̷̥̒u̵̗͘ ̷̣̒ȧ̷͔l̷͎̄r̷̩̚i̴̦͋g̵̰̕h̶̨̆ţ̶̓?\e"
+				}
+				elseif reference7 == "inverted fate"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
+					"%(hihello) s̴k̴e̸l̸e̸t̴o̸n̵ .\w5 .\w5 .\w5 eh .\w5 .\w5 .\w5 n̴i̵c̷e̷ ̶s̶c̴a̶r̴f̵?\e"
+				}
+				else
+				{
+					"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
+				}
+
 			}
-			elseif reference7 == "outertale\e"
+			elseif res_reference0 == "Wilson"
 			{
-			"\0%(hihello) cosmic s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) cosmic Sans\e"
+				"%(hihello) ș̸̌c̵͓̕í̷̯e̶͎̓n̷̩͗t̵̤̕i̸̺̎s̷̨̊t̵̤̀ .\w5 .\w5 .\w5 y̶o̴u̶ ̴r̶e̸m̸i̴n̷d̴ ̴m̶e̵ ̶o̴f̷ DAVD\e"
+				"%(hihello) ș̸̌c̵͓̕í̷̯e̶͎̓n̷̩͗t̵̤̕i̸̺̎s̷̨̊t̵̤̀\e"
 			}
-			elseif reference7 == "underfell sans shirtless"
+			elseif reference0 == "Aurora.EXE"
 			{
-			"\0%(hihello) edgy s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) edgy Sans\e"
+				mood[5]++
+				--
+				"%(hihello) g̵͈̏l̴̋͜ḯ̵ͅẗ̸̬́c̵̯͋h̷̖̄\e"
+				"%(hihello) c̶o̷m̶r̸a̷d̷e̷\e"
 			}
 			else
 			{
-			"\0%(hihello) s̷̨̡͉̀̏͂̎ḱ̸̡̦̣͕̹͗̏e̶̖͖̺͕͚̬̒̔ĺ̶̺̰̔̐̈e̴͓͌̀̏͌t̸̢̰̟̼̆̐ò̷̢̳͓̘̠͈̆͊̑n̴̼͍̐͋͒͐͒͑͜\e"
-			"\0%(hihello) Sans\e"
-			}
-
-		}
-		elseif reference0 == "Wilson"
-		{
-			"\0%(hihello) s̷̼̰̎c̶͖̔́͊̋î̵̖͚͎̽̎̕e̴̛̦͎n̵̩̬̔t̴̝́̅͘͝ỉ̶̼͛͝s̴̤̟̎̔͋t̶̨͔̬͖͗͛͒\w7, y̵̮̗̐͒̚ͅo̵̥̟͍̊u̴̦͊̑̾͠ ̴̧̩̹̉r̴̬͚̯̂̅͜e̶̻̓̔͘m̸̞̪̳̅́i̷̡͓̇̉̂͝ṅ̶͚̤̙̊͗͘d̵̬̐ ̷̥͊͘m̸͖̪̫̱̌e̵͔͒̓ ̸̣͇͍̈o̶͍̘̎̾́͠f̵̹̈́͐͑͘ ̷̖͉̹̄́́͑G̷͚͍̞̀̃͗͝d̷̩̀̀͋̚y̵̰͉͍̏̏l̴̍̀ͅg̶̪̝̜̈́ͅ ̵͈̅̅͘͝\e"
-			"\0%(hihello) W̸͔̝̪̘̉i̵͙̪͐͋̚l̷̨̩͕̫̊͜͝s̸͖̭̺̳̞͑̈́̉̏̂͗ó̸̺͍͓̤̒̄͠ͅn̸͍̎̽͂̉͝\w6̶̂, y̵̮̗̐͒̚ͅo̵̥̟͍̊u̴̦͊̑̾͠ ̴̧̩̹̉r̴̬͚̯̂̅͜e̶̻̓̔͘m̸̞̪̳̅́i̷̡͓̇̉̂͝ṅ̶͚̤̙̊͗͘d̵̬̐ ̷̥͊͘m̸͖̪̫̱̌e̵͔͒̓ ̸̣͇͍̈o̶͍̘̎̾́͠f̵̹̈́͐͑͘ ̷̖͉̹̄́́͑G̷͚͍̞̀̃͗͝d̷̩̀̀͋̚y̵̰͉͍̏̏l̴̍̀ͅg̶̪̝̜̈́ͅ ̵͈̅̅͘͝\e"
-		}
-		elseif reference0 == "Aurora.EXE"
-		{
-			"\0%(hihello) glitch\e"
-			if tentruth == 1
-			{
-				"\0%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
-				"\0%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
+				"%(hihello), %(reference0) .\w5 .\w5 .\w5\e"
 			}
 		}
 		else
 		{
-			"\0%(hihello), %(res_reference0). \w8\0Hope you're doing well.\e"
-			"\0%(hihello), %(res_reference0).\e"
+			"%(distingstart)"
+			--
+			if reference0 == "Gaster"
+			{
+				"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
+			}
+			elseif reference0 == "Azura"
+			{
+				"%(hihello) umh .\w5 .\w5 .\w5 lady?\e"
+			}
+			elseif reference0 == "CheeryBot"
+			{
+				"%(hihello) little bot\e"
+			}
+			elseif reference0 == "slime"
+			{
+				"%(hihello) umh .\w5 .\w5 .\w5 creature?\e"
+			}
+			elseif "Sans" _in_ reference0
+			{
+				if reference7 == "geno"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 are you alright?\e"
+				}
+				elseif reference7 == "horrortale sans"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 are you alright?\e"
+				}
+				elseif reference7 == "inverted fate"
+				{
+					"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
+					"%(hihello) skeleton .\w5 .\w5 .\w5 eh .\w5 .\w5 .\w5 nice scarf?\e"
+				}
+				else
+				{
+					"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
+				}
+
+			}
+			elseif res_reference0 == "Wilson"
+			{
+				"%(hihello) scientist .\w5 .\w5 .\w5 you remind me of DAVD\e"
+				"%(hihello) scientist\e"
+			}
+			elseif reference0 == "Aurora.EXE"
+			{
+				mood[5]++
+				--
+				"%(hihello) glitch\e"
+				"%(hihello) comrade\e"
+			}
+			else
+			{
+				"%(hihello), %(reference0) .\w5 .\w5 .\w5\e"
+			}
 		}
+		
 	}
 	else
 	{
 		if reference0 == "Gaster"
 		{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Gaster\e"
-			"\0%(hihello) Dr Gaster\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Gaster\e"
+			"%(hihello) Dr Gaster\e"
 		}
 		elseif reference0 == "Azura"
 		{
-			"\0%(hihello) Azura\e"
-			"\0%(hihello) dragon lady\e"
+			"%(hihello) Azura\e"
+			"%(hihello) dragon lady\e"
 		}
 		elseif reference0 == "CheeryBot"
 		{
-			"\0%(hihello) Cheery\e"
-			"\0%(hihello) little bot\e"
+			"%(hihello) Cheery\e"
+			"%(hihello) little bot\e"
 		}
 		elseif reference0 == "slime"
 		{
-			"\0%(hihello) cute creature\e"
-			"\0%(hihello) slime\e"
+			"%(hihello) cute creature\e"
+			"%(hihello) slime\e"
 		}
 		elseif reference0 == "Sans"
 		{
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
-			}
-		}
-		elseif reference0 == "S"
-		{
-			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) S\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
 			}
 		}
 		elseif reference0 == "MVSans"
 		{
 			if reference7 == "geno"
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
-			"\0%(hihello) skeleton \0you don't look so good,\w8 are you okay?\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
+			"%(hihello) skeleton you don't look so good,\w8 are you okay?\e"
 			}
 			elseif reference7 == "undertale sans classic revamped"
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
 			}
 			elseif reference7 == "horrortale sans"
 			{
-			"\0%(hihello) horror skeleton\e"
-			"\0%(hihello) horror Sans\e"
-			"\0%(hihello), Is it halloween already?\e"
-			"\0%(hihello) skeleton \0you look a little broken \0are you ok?\e"
+			"%(hihello) horror skeleton\e"
+			"%(hihello) horror Sans\e"
+			"%(hihello), Is it halloween already?\e"
+			"%(hihello) skeleton you look a little broken are you ok?\e"
 			}
 			elseif reference7 == "inverted fate"
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans"
-			"\0%(hihello) skeleton, nice scarf\e"
-			"\0%(hihello) Sans, nice scarf\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans"
+			"%(hihello) skeleton, nice scarf\e"
+			"%(hihello) Sans, nice scarf\e"
 			}
 			elseif reference7 == "outertale\e"
 			{
-			"\0%(hihello) cosmic skeleton\e"
-			"\0%(hihello) cosmic Sans\e"
+			"%(hihello) cosmic skeleton\e"
+			"%(hihello) cosmic Sans\e"
 			}
 			elseif reference7 == "underfell sans shirtless"
 			{
-			"\0%(hihello) edgy skeleton\e"
-			"\0%(hihello) edgy Sans\e"
+			"%(hihello) edgy skeleton\e"
+			"%(hihello) edgy Sans\e"
 			}
 			else
 			{
-			"\0%(hihello) skeleton\e"
-			"\0%(hihello) Sans\e"
+			"%(hihello) skeleton\e"
+			"%(hihello) Sans\e"
 			}
 
 		}
 		elseif reference0 == "Wilson"
 		{
-			"\0%(hihello) scientist\e"
-			"\0%(hihello) Wilson\e"
-			"\0%(hihello), Have you met any interesting pigs lately?\e"
+			"%(hihello) scientist\e"
+			"%(hihello) Wilson\e"
+			"%(hihello), Have you met any interesting pigs lately?\e"
 		}
 		elseif reference0 == "Aurora.EXE"
 		{
-			"\0%(hihello) glitch\e"
+			"%(hihello) glitch\e"
 			if tentruth == 1
 			{
-				"\0%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
-				"\0%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
+				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
+				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
 			}
+		}
+		elseif reference0 == "S"
+		{
+			"%(hihello) S\e"
+			if tentruth == 1
+			{
+				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
+				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
+			}
+		}
+		elseif reference0 == "Dusty"
+		{ 
+			
 		}
 		else
 		{
-			"\0%(hihello), %(reference0). \w8\0Hope you're doing well.\e"
-			"\0%(hihello), %(reference0).\e"
+			"%(hihello), %(reference0). \w8Hope you're doing well.\e"
+			"%(hihello), %(reference0).\e"
 		}
 	}
 }
@@ -467,76 +530,174 @@ reference3: SHIORI event name from the speaking ghost (OnBoot,OnChoiceSelect etc
 reference4: the message of the speaking ghost
 reference5: information dependent on the the SHIORI event of reference3. It’s usually the name of the user-defined function the speaking ghost just did (aitalk, cheer, knock*/
 
-RespondingToMVSans
+//Stats for Dusty
+// %(tentruth),%(meeting),%(devname),%(repairglitch)
+//Stats from Dusty
+// %(recenttreats),%(treatsgiven),%(totalpingpong),%(totalcatnip),%(totalmousetoys),%(totalbelltoy),%(totalblanket),%(spentG)
+
+RespondingToDusty
 {
-
-}
-
-RespondingToGaster
-{
-
-}
-
-RespondingToWilson
-{
-
-}
-
-RespondingToUFSans
-{
-
-}
-
-RespondingToAzura
-{
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	_LastCommu = SPLIT(_ConvoTag,"::")[1] 
+	//The other ghost sends "::%(_speech)" at the end of every communication, so this grabs what THIS ghost last said. See below.
 	
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,false]","")
+	_LastCommu = REPLACE(_LastCommu,"\w1","")
+	_LastCommu = REPLACE(_LastCommu,"\w4","")
+	_LastCommu = REPLACE(_LastCommu,"\w8","") //I only ever use \w4, \w8, and \w1. May need to add more for other ghosts they talk with.
+	--
+	"\![quicksection,true]%(_LastCommu)\![quicksection,false]"
+	--
+    if "CanYouHoldObsidian? 0 MiniDev" _in_ _ConvoTag
+    {
+		res_reference0 = "Dusty"
+        "\e MiniDevPickupObsidian01"
+    }
+	elseif "MiniDevObsiJumpDown01" _in_ _ConvoTag
+	{
+		res_reference0 = "Dusty"
+		"\0\s[0]\i[9000]\![get,property,OnObsidianJumpDown,currentghost.scope(0).rect]"
+	}
+    elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && meetobsidian != 1
+    {
+		res_reference0 = "Dusty"
+		obsydian = 1
+		meetobsidian = 1
+        "\0\s[1]Oh, %(hihello) kitty\e MiniDevPickupObsidian03"
+    }
+	elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && meetobsidian == 1
+    {
+		res_reference0 = "Dusty"
+		obsydian = 1
+        "\0\s[1]Oh, %(hihello) kitty\e MiniDevPickupObsidian10"
+    }
+	elseif "MiniDevPickupObsidian04" _in_ _ConvoTag
+    {
+		res_reference0 = "Dusty"
+        "\0\s[1]%(hihello), don't worry about it, cats are nice\e MiniDevPickupObsidian05"
+    }
+	elseif "MiniDevPickupObsidian06" _in_ _ConvoTag
+    {
+		res_reference0 = "Dusty"
+        "\0\s[1]Font: Wingdings, Translation:\nAND SHE THINKS SHE'S IN CHARGE OF EVERYTHING\e MiniDevPickupObsidian07"
+    }
+	elseif "MiniDev-Dusty-01-02"  _in_ _ConvoTag
+	{
+		res_reference0 = "Dusty"
+		"What do you need kitty?\e MiniDev-Dusty-01-03"
+	}
+	elseif "MiniDev-Dusty-01-04"  _in_ _ConvoTag
+	{
+		res_reference0 = "Dusty"
+		"Sorry I don't have any food.\e MiniDev-Dusty-01-05"
+	}
+	elseif "DustyMinimizedMiniDev" _in_ _ConvoTag //Dusty was minimized
+	{
+		res_reference0 = ""
+		obsydian = 0
+		--
+		"\0\s[0]\i[9000]*%(byebye) kitty\e"
+	}
+	elseif "DustyRequestMDStats" _in_ _ConvoTag //Dusty was minimized
+	{
+		res_reference0 = "Dusty"
+		--
+		"\e DustyRequestMDStats1,%(tentruth),%(meeting),%(devname),%(repairglitch)"
+	}
+	elseif "MDRequestDustyStats1" _in_ _ConvoTag //Dusty was minimized
+	{
+		res_reference0 = ""
+		--
+		_recenttreats = _ConvoTag[1]
+		_treatsgiven = _ConvoTag[2]
+		_totalpingpong = _ConvoTag[3]
+		_totalcatnip = _ConvoTag[4]
+		_totalmousetoys = _ConvoTag[5]
+		_totalbelltoy = _ConvoTag[6]
+		_totalblanket = _ConvoTag[7]
+		_spentG = _ConvoTag[8]
+		_totaltoys = _totalpingpong + _totalmousetoys + _totalbelltoy
+		--
+		"\e"
+	}
+	else
+	{
+		res_reference0 = ""
+		
+		"%(hihello) kitty.\e"
+	}
+	--
+	"::%(_speech)"
 }
 
-RespondingToAurora
+OnObsidianJumpDown
 {
-	
-}
-
-RespondingToGian
-{
-	
-}
-
-RespondingToHoodoo
-{
-	
-}
-
-RespondingToRadicFarns
-{
-	
-}
-
-RespondingToHunterSmoker
-{
-	
-}
-
-RespondingToCherry
-{
-	
+    res_reference0 = "Dusty"
+	obsydian = 0
+    _MDXCoord = TOINT(reference0[0])
+    _MDYCoord = TOINT(reference0[3])
+	--
+	if nowshell != "M-201z"
+	{
+		_MDYCoord -= (75)
+	}
+	--
+	obsidianjump = 1
+    "\0\s[0]\i[9000]%(byebye) kitty\e MiniDevObsiJumpDown02,%(_MDXCoord),%(_MDYCoord),%(nowshell)" 
 }
 
 RespondingToS
 {
-	if "GetMiniDevStats01" _in_ reference4 
+	if "GetMiniDevStats01" _in_ reference1 
 	{
 		if "hoodie p1 red,1" _in_ clothesstring && "shirt d1 purple,1" _in_ clothesstring && "pants p1 black,1" _in_ clothesstring && "shoes p gray,1" _in_ clothesstring 
 		{
 			outfitS = 1
 			--
-			res_reference0 = RYS-0825
+			res_reference0 = "RYS-0825"
 
 			"\eGetMiniDevStats02, %(outfitS)"
 		}
+		else
+		{
+			res_reference0 = "RYS-0825"
+			
+			"\eGetMiniDevStats02, 0"
+		}
 	}
-	elseif "MiniDev" _in_ reference4
+	else
 	{
-		"Hi"
+		"%(hihello)"
 	}
+}
+
+OnTalkWithGhosts //This should go in Commu, but it doesn't have to
+{
+    _num = RAND(ghostexcount)
+    _randghost = "%(ghostexlist[_num])"
+    --
+    //"\0\s[0]Ghost List: %(ghostexlist)\n\nNoticed %(_randghost), %(_num) of %(ghostexcount)\x"
+    --
+    case _randghost
+    {
+        when "Dusty"
+        {
+           	//res_reference0 = "Dusty"
+			if tentruth != 1 || (tentruth == 1 && meeting != 1)
+            {
+				"\e MiniDev-Dusty-01-01"
+			}
+			else
+			{
+				"\e MDRequestDustyStats"
+			}
+        }
+        others //Don't get rid of this. You can replace the dialogue if you want.
+        {
+            res_reference0 = ""
+            "\e"
+        }
+    }
 }

@@ -1,4 +1,4 @@
-ToBinaryCheck
+OnToBinaryCheck
 {
     
     "What do you want to translate?\![open,inputbox,OnToBinaryEnd,-1]"
@@ -65,7 +65,7 @@ OnToBinaryEnd
     "%(binarycode)\![open,inputbox,OnToBinaryEnd,-1]\e"
 }
 
-FromBinaryCheck
+OnFromBinaryCheck
 {
     
     "What do you want to translate?\![open,inputbox,OnFromBinaryEnd,-1]"
@@ -130,7 +130,7 @@ OnFromBinaryEnd
     "%(binarycode)\![open,inputbox,OnFromBinaryEnd,-1]\e"
 }
 
-ToMorseCheck
+OnToMorseCheck
 {
     
     "What do you want to translate?\![open,inputbox,OnToMorseEnd,-1]"
@@ -182,7 +182,7 @@ OnToMorseEnd
     "%(morsecode)\![open,inputbox,OnToMorseEnd,-1]\e"
 }
 
-FromMorseCheck
+OnFromMorseCheck
 {
     
     "What do you want to translate?\_q(use space after every symbol an | after every letter example: | . - |)![open,inputbox,OnFromMorseEnd,-1]"

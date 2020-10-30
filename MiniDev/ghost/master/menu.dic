@@ -1,19 +1,41 @@
 ﻿OpenSakuraMenu
 {
+	if tentruth == 1
+	{
+		"\n\_q\b4"
+	}
+	else
+	{
+		"\n\_q\b2"	
+	}
+	--
+	MenuRun
+}
+
+OnBACKTOMENU
+{
+	if tentruth == 1
+	{
+		"\n\_q\b4"
+	}
+	else
+	{
+		"\n\_q\b2"	
+	}
+	--
 	MenuRun
 }
 
 MenuRun
- {	
+{	
  	wd = GetWeekDay
  	ap = GetAP
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
-	"\n\_q\b2"
+	OnCelc
 	--
-	
-	/*if tentruth == 1
+	if tentruth == 1
 	{
 		"\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
 	}
@@ -24,20 +46,25 @@ MenuRun
 	elseif glitchboot <= 5
 	{
 		"\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,gboot]\n\n[half]"
-	}*/
+	}
 	--
 	if lastTalk != "" 
 	{
 	  "\![*]\q[Repeat,OnLastTalk] or "
 	}
 	--
- 	"\![*]\q[Say something,altalk]\n"
+ 	"\![*]\q[Say something,altalk]\n\n[half]"
+	--
+	if devop == 1
+	{
+		"\![*]\q[Test,OnTest]\n\n[half]"
+	}
 	--
 	"\![*]\q[Config Menu,configmenu]\n/
-	\![*]\q[Customize,clothesmenu]\n/
-	\![*]\q[Functions,dosomething]\n\n[half]/
+	\![*]\q[Functions,dosomething]\n/
+	\![*]\q[Customize,clothesmenu]\n\n[half]/
 	\![*]\q[Questions,ques]\n/
-	\![*]\q[Open an app or project,oapp]\n/
+	\![*]\q[Open an app | project,oapp]\n/
 	\![*]\q[User Logs,LOG]\n"
 	--
 	//"\![*]\q[Recommend,req]\n"
@@ -47,24 +74,72 @@ MenuRun
 		"\![*]\q[AI chat,saysmth]\n"
 	}
 	--
-	/*if tentruth == 1 || glitchboot <= 5
+	if tentruth == 1 || glitchboot <= 5
 	{
 		"\![*]\q[L̷̜̚o̶̭̾g̵̨̽s̶͇̅,log]\n"
+		--
+		if m201relationship >= 25
+		{
+			"\![*]\q[Play a game,gamez]\n"
+		}
+		--
+		"\![*]\q[Actions,act]\n"
 	}
-	--*/
-	"\n\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(timeformat), %(dateformat)" 
+	--
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(timeformat), %(dateformat)" 
 	--
 	if weathermenu == "ON" {
-        "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
+
+		if "F" _in_ currentweatherarray[1]
+       	{
+		   "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
+	   	}
+		else
+		{
+			"\n\n[half]%(celc)%(currentweatherarray[1]), %(currentweatherarray[5])"
+		}
     }
 	--
 	if moonmenu == "ON"
 	{
-		"\nMoon: %(phase)"
+		"\n\f[bold,1]Moon:\f[default] %(phase)"
 	}	
+	--
+	"\n\n[half]\f[height,10]Version: %(vers)\f[default]"
 	--
 	"\e"
 	//
+}
+
+OnCelc
+{
+	celc = (currentweatherarray[0] - 32)
+	celc = celc * (5.0/9.0)
+	firstnumcelc = TOINT(celc)
+	toroundup = ERASE(celc,0,2)
+	--
+	if (firstnumcelc[0] < 10 && firstnumcelc[0] > 0) || (firstnumcelc[0] > -10 && firstnumcelc[0] < 0)
+	{
+		celc = ERASE(celc,4,10)
+		runpnum = 1
+	}
+	else
+	{
+		celc = ERASE(celc,5,10)
+		runpnum = 2
+	}
+	--
+	if toroundup < 50 
+	{
+		celc = ERASE(celc,runpnum,10)
+	}
+	else
+	{
+		celc = TOINT(ERASE(celc,runpnum,10)) + 1
+
+	}
+	//--
+	//"C: %(celc) F: %(currentweatherarray[0])"
 }
 
 
@@ -106,7 +181,7 @@ OnQuoteFound
 {
         
     _file = "var\\quote.html"
-    _buff=""
+    _buff = ""
     _regquote = '.html">(.*)</a> </dt><dd class="author"><div class="icons">'
     _regeauthor = '/">(.*)</a> (.*)</b></dd>'
     quote = ""
@@ -154,7 +229,7 @@ OnQuoteFound
 //starting the weather checking
 OnCheckWeather
 {
-    "\0\s[0]\b[2]\_qWanna check the weather? No problem!\n\n\f[bold,1]Current Location:\f[bold,0] %(curlocation)\n\n"
+    "\0\b[2]\_qWanna check the weather? No problem!\n\n\f[bold,1]Current Location:\f[bold,0] %(curlocation)\n\n"
     --
     //if first time opening there will be no location so user needs to set location b4 anything else. except moon phase
     
@@ -174,10 +249,7 @@ OnCheckWeather
     
     }
     --
-    "Nevermind, back to...\n\n[half]"
-    --
-    "\![*]\q[Misc menu,OnMiscMenu]\n/
-    \![*]\q[Main menu,OnBACKTOMENU]\e"
+    "\![*]\q[Main menu,OnBACKTOMENU]\e"
 
 
 }
@@ -186,7 +258,7 @@ OnWeatherLocation
 {
 
 
-    "\0\s[0]First, I need to know where you are. Are you in the USA or not?\n\n"
+    "\0First, I need to know where you are. Are you in the USA or not?\n\n"
 
 
     --
@@ -202,14 +274,14 @@ OnWeatherLocation
 OnUSALoc{
 
 
-    "\0\s[0]Alright! Just let me know your zipcode!\![open,inputbox,OnLocCode,-1]"
+    "\0Alright! Just let me know your zipcode!\![open,inputbox,OnLocCode,-1]"
 }
 
 
 OnOtherLoc{
 
 
-    "\0\s[0]This gets a little more complicated. Please go to weather.com, search your city, and give me the long series of letters and numbers at the end of the URL.\![open,inputbox,OnLocCode,-1]"
+    "\0This gets a little more complicated. Please go to weather.com, search your city, and give me the long series of letters and numbers at the end of the URL.\![open,inputbox,OnLocCode,-1]"
 
 
 }
@@ -219,14 +291,14 @@ OnOtherLoc{
 
 OnLocCode
 {
-locationcode = reference0
-OnDownloadCurWeather
+	locationcode = reference0
+	OnDownloadCurWeather
 }
 
 
 OnDownloadCurWeather
 {
-    "\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
+    "\0Downloading weather... \![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
 }
 
 
@@ -244,10 +316,11 @@ OnCurWeatherFound
     _regstate = ''
     _regloc = ''
     _regpollen = ''
+	_degreetemp = currentweatherarray[1]
     FCHARSET(1)
     //array to hold current weather data
     //[temp, degrees, feels like temp, humidity, wind, state (cloudy, rainy, etc), pollen alert (yes/no)]
-    currentweatherarray = ("","","","","","","")
+    currentweatherarray = ("",_degreetemp,"","","","","")
     
     --
     
@@ -282,17 +355,10 @@ OnCurWeatherFound
             for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
                     
 
-
                     //current temp
                     if RE_SEARCH ( _buff, _regtemp ) {
                             
                             currentweatherarray[0] = RE_GETSTR[1]
-                            
-                    }
-    
-                    //degrees (F or C)
-                    if RE_SEARCH ( _buff, _regdegree ) {
-                            currentweatherarray[1] = RE_GETSTR[1]
                             
                     }
                     
@@ -362,8 +428,82 @@ OnCurWeatherFound
 				"\e"
 		}
 		--
-		"\0\s[0]\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
-		\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+		OnCelc
+		--
+		if "F" _in_ currentweatherarray[1]
+       	{
+			"\0\b2\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])/
+			\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+		}
+		else
+		{
+			"\0\b2\_qRight now...\n\n[half]Temperature: %(celc)%(currentweatherarray[1])/
+			\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+
+		}
+		--
+		if celc <= 15
+		{
+			//if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+			{
+				if repairglitch != 1
+				{
+					"\1S̸̯̓e̸͈͌ē̴͈m̵̜̂s̷̥̽ ̶̘̀l̶̜̎ḭ̴̋ḱ̷͍ė̴̝ ̸̙̑i̶̖̕t̵̛͚'̴̡̔s̴͎̍ ̸̫̇c̵͂ͅȏ̵̙l̸̢̊d̴̰͌ ̶̮̊w̵͎͌h̸̠̋ë̷̘́r̷͙̍e̴̦͒ ̶̇ͅy̸̛̫o̴̰̒u̵̧͊ ̴̲͂a̶̗͆ř̸̳ë̴̯́ ̵̠̄.̷̺̚ ̸͍̔.̸̝̋ ̸̯̓.̷̨̽ ̶̻͋I̴̲̒ ̷̥͒t̶̻̄h̵̼̾ĩ̴̪n̴̞͝k̴̫͊,̶̼́ ̵͔̑r̸͔̔e̸̖̿m̶̙͛e̵̤̽m̴̨̍b̸̯̐e̸̠̍ṛ̴̛ ̷͍̃t̵̫̾o̶͕̐ ̴͉͌w̶͛ͅe̷̗̅a̷͔͆r̸͇͐ ̶̫͂s̷̱̽o̷̦̎ḿ̶̯ĕ̷̗t̶͔͘h̵̠̉ị̷͠n̷̘̈́g̷͙͌ ̶̩̈́w̶͓̆ȃ̸̺r̵̭̾m̷̟̓"
+					"\1Ș̸́e̷̬͌ê̴̠m̷̺̊s̴̤͌ ̷̩́l̴͎̅ì̸͕k̶̢̚ě̸̜ ̵̹͆ĭ̴̬t̸͈́'̵̯́s̶̜̒ ̵͓̿c̴̜̚o̸̲̕l̵̩͆ď̴̝ ̸̫͊w̵͓̚h̵̋͜e̴̟̚r̴̹͑e̵̥͘ ̸̧͊y̶̪͌o̶̲͌u̷̼͊ ̶̤̾a̵̤͝r̴̗͐e̶̤̿ ̷̬̄.̵͇̒ ̷̙̈.̶͙̇ ̴̠͂.̸̟̕ ̶̣͋I̶̢͆ ̶̱̓ť̴͙h̵̹̓ȋ̸̗n̵̛͓k̵̛͙,̶̧́ ̶͘͜I̸͝ͅ ̶̜̈ń̶̮e̵͕͝v̸̨̎e̶̱͋r̵̺̕ ̷̯̀f̶̝̽ĕ̵̘l̷̤̔t̷͎̚ ̶̟̄à̵̖n̷̜̿y̷͚̏ ̷͔͗t̷̲̀e̴͕̾ḿ̸͜p̵͈͋e̷̝͛r̶̝̾a̸̮̓ẗ̷̜́u̴͍̍r̶̞͌ȩ̸̊ ̴̣̚s̸͚̈o̸̘͐ ̸͓̐I̴̟͘ ̴̢̂c̵̲̀a̶͜͠n̵̮̈́'̴̛̳t̵͇̔ ̷̪͑b̶̼̃e̷̦̅ ̶̘͂s̶͎̐u̴̩̓r̸̼̈́è̴̘"
+				}
+				else
+				{
+					"\1%(distingstart)Seems like it's cold where you are . . . I think, I never felt any temperature so I can't be sure"
+					"\1%(distingstart)Seems like it's cold where you are . . . I think, remember to wear something warm"
+				}
+				
+			}
+
+			"\0It seems like it's chilly where you are, remember to wear something warm"
+			"\0Seems like it's cold, remember to wear something warm"
+		}
+		elseif celc >= 30
+		{
+			if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+			{
+				if repairglitch != 1
+				{
+					"\1W̵o̸w̵,̴ ̴s̵e̸e̵m̵s̸ ̵l̸i̶k̵e̵ ̴i̷t̶'̶s̶ ̸r̸e̶a̵l̷l̵y̵ ̷h̴o̵t̶ ̶w̵h̶e̷r̴e̸ ̷y̶o̵u̶ ̵a̵r̶e̸"
+				}
+				else
+				{
+					"\1%(distingstart)Wow, seems like it's really hot where you are"
+				}
+				
+			}
+		}
+		--
+		if "Rain" _in_ currentweatherarray[5]
+		{
+			mood[0]++
+		}	
+		elseif "Thunderstorms" _in_ currentweatherarray[5]
+		{
+			mood[4]++
+		}
+		elseif "Cloudy" _in_ currentweatherarray[5]
+		{
+			mood[2]++
+		}
+		elseif "Sunny" _in_ currentweatherarray[5]
+		{
+			mood[3]++
+		}
+		elseif "Fog" _in_ currentweatherarray[5] || "Haze" _in_ currentweatherarray[5]
+		{
+			mood[5]++
+		}
+		elseif "Clear" _in_ currentweatherarray[5]
+		{
+			mood[1]++
+		}
+		--
+		"\f[default]\0"
 		--
 		if currentweatherarray[6] == "Local Pollen Alert" {
 		"\nThere's a local pollen alert!"
@@ -372,7 +512,6 @@ OnCurWeatherFound
 		"\n\n[half]Back to...\n\n[half]"
 		--
 		"\![*]\q[Weather menu,OnCheckWeather]\n/
-		\![*]\q[Misc menu,OnMiscMenu]\n/
 		\![*]\q[Main menu,OnBACKTOMENU]\e"
 	}
 
@@ -380,12 +519,9 @@ OnCurWeatherFound
 }
 
 
-OnDownloadForecast{
-
-
-    "\0\s[0]Downloading forecast... \![execute,http-get,https://weather.com/weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
-
-
+OnDownloadForecast
+{
+    "\0Downloading forecast... \![execute,http-get,https://weather.com/weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
 }
 
 
@@ -466,7 +602,7 @@ OnForecastFound
                             _temp = RE_GETSTR
                             
                             //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regdate) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -486,7 +622,7 @@ OnForecastFound
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regdesc) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -506,7 +642,7 @@ OnForecastFound
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _reghigh) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -525,7 +661,7 @@ OnForecastFound
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _reglow) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -543,7 +679,7 @@ OnForecastFound
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regprecip) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -562,7 +698,7 @@ OnForecastFound
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regwind) {
                                             _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
@@ -582,7 +718,7 @@ OnForecastFound
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _reghumidity) {
                                             
@@ -629,7 +765,7 @@ OnForecastFound
     
     FCLOSE(_file);
     
-    "\0\s[0]\b2\f[bold,1]10 Day Forecast\f[bold,0] \n\n[half]\_q/
+    "\0\b2\f[bold,1]10 Day Forecast\f[bold,0] \n\n[half]\_q/
     
     %(forecastarray[0][0]): %(forecastarray[1][0])\n/
     H:%(forecastarray[2][0])°/L:%(forecastarray[3][0])°; Wind:%(forecastarray[5][0])\n/
@@ -676,7 +812,6 @@ OnForecastFound
     "\n\n[half]Back to...\n\n[half]"
     --
     "\![*]\q[Weather menu,OnCheckWeather]\n/
-    \![*]\q[Misc menu,OnMiscMenu]\n/
     \![*]\q[Main menu,OnBACKTOMENU]\x\e"
     
 
@@ -690,7 +825,7 @@ OnForecastFound
 OnDownloadHourly{
 
 
-    "\0\s[0]Downloading hourly forecast... \![execute,http-get,https://weather.com/weather/hourbyhour/l/%(locationcode),--async=OnHourlyFound,--file=hourly.html,--timeout=200]"
+    "\0Downloading hourly forecast... \![execute,http-get,https://weather.com/weather/hourbyhour/l/%(locationcode),--async=OnHourlyFound,--file=hourly.html,--timeout=200]"
 
 
 }
@@ -767,7 +902,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
                             _temp = RE_GETSTR
                             
                             //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _reghour) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -787,7 +922,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regdesc) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -807,7 +942,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regtemp) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -826,7 +961,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regfeels) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -844,7 +979,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regprecip) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -863,7 +998,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _regwind) {
                                             _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
@@ -882,7 +1017,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
                             _singleday = NULL
                             _temp = RE_GETSTR
                             
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                            for I = 0; I < ARRAYSIZE(_temp); i++ {
                                     
                                     if RE_SEARCH(_temp[i], _reghumidity) {
                                             _singleday = _singleday + RE_GETSTR[1] + ","
@@ -900,7 +1035,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
     
     FCLOSE(_file);
     
-    "\0\s[0]\b2\f[bold,1]Hourly Forecast\f[bold,0] \n\n[half]\_q/
+    "\0\b2\f[bold,1]Hourly Forecast\f[bold,0] \n\n[half]\_q/
     
     %(hourlyarray[0][0]): %(hourlyarray[1][0])\n/
     Temp:%(hourlyarray[2][0])°; Feels like:%(hourlyarray[3][0])°; \nWind:%(hourlyarray[5][0])\n/
@@ -947,7 +1082,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
     "\n\n[half]Back to...\n\n[half]"
     --
     "\![*]\q[Weather menu,OnCheckWeather]\n/
-    \![*]\q[Misc menu,OnMiscMenu]\n/
+    
     \![*]\q[Main menu,OnBACKTOMENU]\x\e"
     
 
@@ -957,7 +1092,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
 
 OnDownloadMoonPhase
 {
-    "\0\s[0]Downloading moon phase... \![execute,http-get,https://www.moongiant.com/phase/today/,--async=OnMoonFound,--file=moon.html,--timeout=200]"
+    "\0Downloading moon phase... \![execute,http-get,https://www.moongiant.com/phase/today/,--async=OnMoonFound,--file=moon.html,--timeout=200]"
 
 
 }
@@ -1007,30 +1142,33 @@ OnMoonFound{
 		"\e"
 	}
 	--
-    "\0\s[0]The moon is currently in its %(phase) phase."
+    "\0The moon is currently in its %(phase) phase."
     
     --
     "\n\n[half]Back to...\n\n[half]"
     --
     "\![*]\q[Weather menu,OnCheckWeather]\n/
-    \![*]\q[Misc menu,OnMiscMenu]\n/
+    
     \![*]\q[Main menu,OnBACKTOMENU]\x\e"
 
 
 }
+
+
 
 Select.req
 {
 	
 	"\b2What would you want?\n\n[half]\_q"
 	--
-	//"\![*]\q[Books,bookr]\n"
-	"\![*]\f[strike,1]Books\f[strike,0]\n"
+	"\![*]\q[Books,bookr]\n"
+	//"\![*]\f[strike,1]Books\f[strike,0]\n"
 	--
-	"\![*]\q[Animes,randanime]\n"
+	//"\![*]\q[Anime,randanime]\n"
+	"\![*]\f[strike,1]Anime\f[strike,0]\n"
 	--
-	//"\![*]\q[Mangas,mangar]\n"
-	"\![*]\f[strike,1]Mangas\f[strike,0]\n"
+	"\![*]\q[Mangas,mangar]\n"
+	//"\![*]\f[strike,1]Mangas\f[strike,0]\n"
 	--
 	//"\![*]\q[Movies,mobier]\n"
 	"\![*]\f[strike,1]Movies\f[strike,0]\n"
@@ -1038,52 +1176,204 @@ Select.req
 	//"\![*]\q[Cartoons,cartoonr]\n"
 	"\![*]\f[strike,1]Cartoons\f[strike,0]\n"
 	--
-	//"\![*]\q[Serials,serialr]\n\n[half]"
-	"\![*]\f[strike,1]Serials\f[strike,0]\n\n[half]"
+	//"\![*]\q[Serials,serialr]\n"
+	"\![*]\f[strike,1]Serials\f[strike,0]\n"
+	--
+	//"\![*]\q[Comics,comicr]\n\n[half]"
+	"\![*]\f[strike,1]Comics\f[strike,0]\n\n[half]"
 	--
 	"\![*]\q[Back to main menu,BACKTOMENU]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\e"
 }
 
-Select.bookr
+OnBookFound
 {
-	BookLib
+	_file = "var\\book.html"
+    _buff= ""
+    _regquote = 'aria-level=' + "'" + 4 + "'" + '>(.*)</span>'
+    _regeauthor = '<span itemprop="name">([\w|\s]*)</span></a>'
+	_booklinkregex = '<a class="bookTitle" itemprop="url" href="(.*)">'
+    quote = ""
+    author = ""
+    _found = 0
+	bookpage = "\b2\_q\*"
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+
+			if RE_SEARCH ( _buff, _regquote ) {
+					
+				quote += RE_GETSTR[1] + "+"  
+			}
+			--
+			if RE_SEARCH ( _buff, _regeauthor ) {
+					
+				author += RE_GETSTR[1] + "+"  
+			}
+			--
+			if RE_SEARCH ( _buff, _booklinkregex ) {
+					
+				booklink += RE_GETSTR[1] + "+"  
+			}
+		}
+    }
+    --
+    FCLOSE(_file);
+    --
+	quote = REPLACE(quote,",","~~")
+	booksplit = SPLIT(quote,"+")
 	--
-	num = RAND(100)
+	booklink = SPLIT(booklink,"+")
 	--
-	"\b4\_q%(book[num][0])\n/
-	-%(book[num][1])\n\n[half]"
+	author = REPLACE(author,",","~~")
+	authorsplit = SPLIT(author,"+")
 	--
-	for _i=2;_i<100;_i++
-	{
-		desc += book[num][_i]
+	for _i=0;_i<5;_i++
+    {
+		lastrand = rand
+		rand = RAND(100)
+		exctag = 0
+		--
+		for _j=0;lastrand==rand;_j++
+		{
+			rand = RAND(50)
+		}
+		--
+		bookpage += "\f[bold,1]" + REPLACE(booksplit[rand],"~~",",") + "\f[bold,0]—" + REPLACE(authorsplit[rand],"~~",",") + "\n\n[half]"
 	}
 	--
-	"%(desc)"
+	bookpage += "\x"
 	--
-	"\n\n\![*]\q[Again,bookr] or \![*]\q[cancel,CANCEL]\e"
-	desc = ""
+	bookpage
+}
+
+Select.comicr
+{
+
+}
+
+Select.bookr
+{
+	rand = RAND(5)
+	--
+	if rand == 0
+	{
+		rand = 1
+	}
+	--
+	 ". . .\![execute,http-get,https://www.goodreads.com/list/show/116990.Best_Books_2020?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
+	 ". . .\![execute,http-get,https://www.goodreads.com/list/show/114787.Best_Books_2019?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
+	 ". . .\![execute,http-get,https://www.goodreads.com/list/show/119307.Best_Books_of_2018?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
+	 ". . .\![execute,http-get,https://www.goodreads.com/list/show/107026.Best_Books_of_2017?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
+	 ". . .\![execute,http-get,https://www.goodreads.com/list/best_of_year/2016%22?id=95160.Best_Books_of_2016?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
+	 ". . .\![execute,http-get,https://www.goodreads.com/list/best_of_year/2016%22?id=95160.Best_Books_of_2016?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
+}
+
+
+/*
+horror
+drama
+GL
+BL
+ecchi
+romancet
+action
+*/
+
+OnMangaFound
+{
+	_file = "var\\manga.html"
+    _buff= ""
+    _regquote = '<h5 class=' + "'" + 'theme-font' + "'" + '>([\w|\s]*)</h5>'//<a title="<h5 class='theme-font'>Yum Yum Sweets</h5>
+    _regeauthor = '<h4>Tags</h4><ul>(.*)</li></ul></div>'
+	_booklinkregex = '</li></ul></div>" href="(.*)" class="tooltip manga'
+    quote = ""
+    author = ""
+    _found = 0
+	bookpage = "\b2\_q\*"
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+
+				if RE_SEARCH ( _buff, _regquote ) {
+						
+						quote += RE_GETSTR[1] + "+"  
+				}
+				--
+				if RE_SEARCH ( _buff, _regeauthor ) {
+						
+						author += RE_GETSTR[1] + "+"  
+				}
+				--
+				if RE_SEARCH ( _buff, _booklinkregex ) {
+						
+					booklink += RE_GETSTR[1] + "+"  
+				}
+            }
+    }
+    --
+    FCLOSE(_file);
+    --
+	quote = REPLACE(quote,",","~~")
+	booksplit = SPLIT(quote,"+")
+	--
+	booklink = SPLIT(booklink,"+")
+	--
+	author = REPLACE(author,"<li>","")
+	author = REPLACE(author,"</li>"," | ")
+	author = REPLACE(author,",","~~")
+	authorsplit = SPLIT(author,"+")
+	--
+	for _i=0;_i<5;_i++
+    {
+		lastrand = rand
+		rand = RAND(100)
+		exctag = 0
+		--
+		for _j=0;lastrand==rand;_j++
+		{
+			rand = RAND(50)
+		}
+		--
+		exsize = ARRAYSIZE(excludedtags)
+		--
+		for _k=0;_k<=exsize;_k++
+		{
+			if excludedtags[_k] _in_ "%(authorsplit[rand])"
+			{
+				exctag = 1
+			}
+		}
+		--
+		if REPLACE(booksplit[rand],"~~",",") == "" || exctag == 1
+		{
+			_i--
+		}
+		else
+		{
+			bookpage += "\f[bold,1]" + REPLACE(booksplit[rand],"~~",",") + "\f[bold,0]:\n\f[height,10]" + REPLACE(authorsplit[rand],"~~",",") + "\n\n[half]\f[default]"
+		}
+	}
+	--
+	bookpage += "\x"
+	--
+	bookpage
+
 }
 
 Select.mangar
 {
-	MangaLib
+	rand = RAND(1000)
 	--
-	num = RAND(100)
-	--
-	"\b4\_q%(manga[num][0])\n/
-	-%(manga[num][1])\n\n[half]"
-	--
-	for _i=2;_i<100;_i++
+	if rand == 0
 	{
-		desc += manga[num][_i]
+		rand = 1
 	}
 	--
-	"%(desc)"
-	--
-	"\n\n\![*]\q[Again,mangar] or \![*]\q[cancel,CANCEL]\e"
-	desc = ""
+	 ". . .\![execute,http-get,https://www.anime-planet.com/manga/all?page=%(rand),--async=OnMangaFound,--file=manga.html,--timeout=200]"
 }
 
 Select.mobier
@@ -1151,13 +1441,7 @@ Select.gboot
 {
 	
 	glitchboot = 100
-	"REBOOT\w8\s[-1]\c\w8\w8\w8\w8REBOOT COMPETE"
-	username = truename
-	userbirthday = truebirth 
-	presuffix = truepresuffix
-	himher = truehimher
-	heshe = trueheshe
-	hisher = truehisher
+	"REBOOT\w8\s[-1]\c\w8\w8\w8\w8\s[0]REBOOT COMPETE"
 }
 
 Select.log
@@ -1172,7 +1456,7 @@ Select.rebot
 	
 	if tentruth == 1
 	{
-		"REBOOT\w8\s[-1]\c\w8\w8\w8\w8REBOOT COMPETE"
+		"REBOOT\w8\s[-1]\c\w8\w8\w8\w8\s[0]REBOOT COMPETE"
 		tentruth = 2
 		username = truename
 		userbirthday = truebirth 
@@ -1183,7 +1467,7 @@ Select.rebot
 	}
 	elseif tentruth == 2
 	{
-		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\s[-1]\c\w8\w8\w8\w8R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛ COMPETE"
+		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\s[-1]\c\w8\w8\w8\w8\s[0]R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛ COMPETE"
 		tentruth = 1
 	}
 }
@@ -1195,7 +1479,7 @@ Select.ques
 	--
 	if tentruth == 1
 	{
-		"\![*]\q[A̵͈͊.̵͔̚R̶̠̽.̵͇̀Ỉ̶͇,ariq]\n/
+		"\b4\![*]\q[A̵͈͊.̵͔̚R̶̠̽.̵͇̀Ỉ̶͇,ariq]\n/
 		\![*]\q[MiniDev,mdevq]\n/
 		\![*]\q[Functions,funq]\n/
 		\![*]\q[Shortcut keys,skeyq]\n"
@@ -1208,6 +1492,32 @@ Select.ques
 		if truth >= 3
 		{
 			"\![*]\q[M̷̯̅-̷͚̎2̴̛ͅ0̵̺̅1̵̫͠z̴̤̃,m201z]"
+		}
+		--
+		if meeting == 1
+		{
+			"\n\n[half]\![*]\q[How are you?,On201zQ,feelings]\n/
+			\![*]\q[Tell me about yourself,On201zQ,yourself]\n"
+			--
+			if glitchask == 1 && repairglitch != 1 && quest != 1 &&  quest != 2
+			{
+				"\![*]\q[Glitches,On201zQ,glitches]\n"
+			}
+			--
+			if repairglitch == 1 && searchforhobby != 1 && m201relationship > 100
+			{
+				"\![*]\q[Hobbies,On201zQ,hobbies]\n"
+			}
+			--
+			if quest == 1 && repairglitch != 1
+			{
+				"\![*]\q[Repair,deletethefiles]\n"
+			}
+			--
+			if david == 1
+			{
+				"\![*]\q[David,On201zQ,david]\n"
+			}
 		}
 	}
 	else
@@ -1223,7 +1533,7 @@ Select.ques
 			"\![*]\q[Serial codes,secode]\n"
 		}
 		--
-		if truth >= 1
+		if truth >= 2
 		{
 			"\![*]\q[M-201z,m201z]\n"
 		}
@@ -1236,6 +1546,282 @@ Select.ques
 	--
 	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+On201zQ 
+{
+	case reference0
+	{
+		when "glitches"
+		{
+			if repairglitch != 1
+			{
+				quest = 3
+				--
+				"O̶h̸,̷ ̴t̶h̵o̸s̴e̷ ̷g̵l̴i̸t̴c̷h̶e̵s̶ ̸a̵r̶e̶ ̵c̴a̷u̸s̴e̷d̶ ̵b̸y̴ ̷a̴ ̶c̴o̵r̸r̵u̸p̴t̶e̶d̶ ̶f̶i̷l̴e̸,̸ ̶s̷a̸d̶l̵y̵ ̵I̸ ̸c̶a̴n̸'̷t̷ ̸d̴e̶a̴l̸ ̸w̵i̶t̵h̷ ̸i̵t̸ ̸o̸n̷ ̵m̵y̵ ̶o̶w̷n̶ ̶b̵e̸c̷a̷u̶s̵e̴ ̸o̴f̶ ̷r̷e̸s̶t̷r̴i̷c̵t̴i̷o̸n̶s̶ ̸"
+			}
+			else
+			{
+				"%(distingstart)Thankfully after you repaired that file I don't glitch anymore :D"
+			}
+		}
+		when "feelings"
+		{
+			m201relationship ++
+			--
+			if repairglitch != 1
+			{
+				case numofmood
+				{
+					when 0
+					{
+						"%(distingstart)I̷ ̵f̸e̴e̸l̴ .\w5 .\w5 .\w5 c̷a̷l̷m̵?̷ ̸I̸ ̶g̷u̶e̵s̶s̷?̵ .\w5 .\w5 .\w5 s̵o̴r̴r̵y̷ ̴I̷'̴m̴ ̴n̷o̸t̶ ̵g̵o̶o̶d̴ ̵w̵i̷t̴h̸ ̷a̷l̶l̸ ̴t̴h̴a̵t̵ ̶f̸e̶e̷l̴i̶n̷g̶s̸ ̶s̷t̷u̵f̶f̵ ._."
+						"%(distingstart)I̷ ̵f̸e̴e̸l̴ .\w5 .\w5 .\w5 c̷a̷l̷m̵?̷ ̸I̸ ̶ t̴h̴i̶n̷k̵?̸ .\w5 .\w5 .\w5 s̵o̴r̴r̵y̷ ̴I̷'̴m̴ ̴n̷o̸t̶ ̵g̵o̶o̶d̴ ̵w̵i̷t̴h̸ ̷a̷l̶l̸ ̴t̴h̴a̵t̵ ̶f̸e̶e̷l̴i̶n̷g̶s̸ ̶s̷t̷u̵f̶f̵ ._."
+						"%(distingstart)I̷ ̵f̸e̴e̸l̴ .\w5 .\w5 .\w5 r̵e̴l̸a̴x̷e̵d̴ ̵I̵ ̷g̵u̷e̷s̵s̷ .\w5 .\w5 .\w5 s̵o̴r̴r̵y̷ ̴I̷'̴m̴ ̴n̷o̸t̶ ̵g̵o̶o̶d̴ ̵w̵i̷t̴h̸ ̷a̷l̶l̸ ̴t̴h̴a̵t̵ ̶f̸e̶e̷l̴i̶n̷g̶s̸ ̶s̷t̷u̵f̶f̵ ._."
+						"%(distingstart)I̶'̸m̵ ̶f̶i̸n̵e̴,\w4 i̸t̸'̷s̷ ̵n̷i̷c̴e̸ ̸h̶e̴r̵e̴"
+						--
+						"\e"
+					}
+					when 1
+					{
+						if mood[2] < mood[3] && mood[2] < mood[4] && mood[5] < mood[4] && mood[5] < mood[3]
+						{
+							{
+								"%(distingstart)I̶t̷'̶s̸ ̸r̶e̴a̸l̴l̷y̴ ̵b̵o̵r̷i̸n̷g̴ ̸h̶e̵r̵e̷"
+								--
+								if ghostexcount > 0
+								{
+									"w̶e̸l̷l̷,̸ ̶a̵t̵ ̸l̵e̴a̴s̵t̸ ̸I̵'̶m̶ ̵n̷o̷t̶ ̷a̶l̸o̸n̵e̵"
+									"w̵e̶l̷l̶,̷ ̴a̵t̷ ̷l̸e̶a̸s̷t̴ ̶I̸'̴m̴ ̸n̴o̸t̵ ̸a̴l̶o̶n̶e̴ ̵h̵e̸r̶e̸"
+								}
+								--
+								"\e"
+							}
+						}
+						else
+						{
+							"%(distingstart)I̶t̵'̶s̸ ̸r̷e̶a̷l̴l̵y̵ ̸b̵o̸r̶i̷n̵g̷ ̴h̵e̴r̸e̷ .\w5 .\w5 .\w5 o̶n̸l̶y̷ ̸m̶a̷k̸e̸s̸ ̷m̵e̴ ̸m̶i̴s̴s̶ ̷m̷y̶ ̸b̴o̴d̸y̶ ̶m̵o̵r̵e̸"
+							--
+							"\e"
+						}
+					}
+					when 2
+					{
+						if m201relationship < 100
+						{
+							"%(distingstart)O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
+							"%(distingstart)O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
+							"%(distingstart)O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
+						}
+						elseif m201relationship < 200
+						{
+							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"%(distingstart)I .\w5 .\w5 .\w5"
+							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5"
+						}
+						elseif m201relationship > 200
+						{
+							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 I̵'̶m̸ ̷j̷u̴s̴t̷ ̴t̵h̴i̶n̸k̷i̶n̶g̶ ̴a̵b̴o̴u̵t̴ ̶e̸v̷e̸r̸y̷t̶h̴i̶n̸g̸"
+							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"%(distingstart)I .\w5 .\w5 .\w5"
+							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5"
+						}
+						--
+						"\e"
+					}
+					when 3,4
+					{
+						"%(distingstart)I̴'̶m̶ ̴g̴o̶o̶d̵ ^^"
+					}
+					when 5
+					{
+						if m201relationship < 100
+						{
+							"%(distingstart)O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
+							"%(distingstart)O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
+							"%(distingstart)O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
+						}
+						elseif m201relationship < 200
+						{
+							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"%(distingstart)I .\w5 .\w5 .\w5"
+							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5"
+						}
+						elseif m201relationship > 200
+						{
+							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 .\w5 .\w5 .\w5 I̶'̸m̶ ̶j̵u̵s̶t̸ ̵t̶h̷i̸n̸k̴i̸n̷g̵ ̸a̸b̴o̵u̷t̴ ̴w̴h̵a̷t̶ ̵m̴i̸g̷h̶t̷ ̸h̴a̸v̵e̵ ̵h̴a̵p̴p̴e̷n̷e̸d̶ ̸w̴i̸t̵h̵ o̷t̴h̴e̵r̸ ̵M̶-̸z̷"
+							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̴u̸t̴ ̷d̷o̵n̷'̷t̷ ̴w̴o̷r̴r̸y̴ ̵a̴b̴o̸u̶t̷ ̵i̷t̷ %(username)"
+							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̸u̸t̶ ̷d̴o̷n̶'̴t̵ ̸w̴o̸r̴r̶y̸ ̴a̷b̵o̶u̴t̷ ̷i̵t̶ %(username)"
+						}
+						--
+						"\e"
+					}
+				}
+			}
+			else
+			{
+				case numofmood
+				{
+					when 0
+					{
+						"%(distingstart)I feel .\w5 .\w5 .\w5 calm? I guess? .\w5 .\w5 .\w5 sorry I'm not good with describing things ._."
+						"%(distingstart)I feel .\w5 .\w5 .\w5 calm? I think? .\w5 .\w5 .\w5 sorry I'm not good with describing things ._."
+						"%(distingstart)I feel .\w5 .\w5 .\w5 relaxed I guess .\w5 .\w5 .\w5 sorry I'm not good with describing things ._."
+						"%(distingstart)I'm fine,\w4 it's nice here"
+						--
+						"\e"
+					}
+					when 1
+					{
+						if mood[2] < mood[3] && mood[2] < mood[4] && mood[5] < mood[4] && mood[5] < mood[3]
+						{
+							{
+								"%(distingstart)It's really boring here"
+								--
+								if ghostexcount > 0
+								{
+									"well, at least I'm not alone"
+									"well, at least I'm not here alone"
+								}
+								--
+								"\e"
+							}
+						}
+						else
+						{
+							"%(distingstart)It's really boring here .\w5 .\w5 .\w5 only makes me miss my body more"
+							--
+							"\e"
+						}
+					}
+					when 2
+					{
+						if m201relationship < 100
+						{
+							"%(distingstart)Oh, did I make you worried? I'm fine, nothing to worry about"
+							"%(distingstart)Oh, did I make you worried? It's nothing, I'm just thinking, nothing to worry about"
+							"%(distingstart)Oh, did I make you worried? Sorry, I'm okay, nothing to worry about"
+						}
+						elseif m201relationship < 200
+						{
+							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
+							"%(distingstart)I'm .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
+							"%(distingstart)I .\w5 .\w5 .\w5"
+							"%(distingstart)I'm .\w5 .\w5 .\w5"
+						}
+						elseif m201relationship > 200
+						{
+							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 I'm just thinking about everything"
+							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
+							"%(distingstart)I'm .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
+							"%(distingstart)I .\w5 .\w5 .\w5"
+							"%(distingstart)I'm .\w5 .\w5 .\w5"
+						}
+						--
+						"\e"
+					}
+					when 3,4
+					{
+						"%(distingstart)I'm good ^^"
+					}
+					when 5
+					{
+						if m201relationship < 100
+						{
+							"%(distingstart)Oh, did I make you worried? I'm fine, nothing to worry about"
+							"%(distingstart)Oh, did I make you worried? It's nothing, I'm just thinking, nothing to worry about"
+							"%(distingstart)Oh, did I make you worried? Sorry, I'm okay, nothing to worry about"
+						}
+						elseif m201relationship < 200
+						{
+							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
+							"%(distingstart)I'm .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
+							"%(distingstart)I .\w5 .\w5 .\w5"
+							"%(distingstart)I'm .\w5 .\w5 .\w5"
+						}
+						elseif m201relationship > 200
+						{
+							"%(distingstart)I feel .\w5 .\w5 .\w5 I'm not even sure how I feel .\w5 .\w5 .\w5 .\w5 .\w5 .\w5 I'm just thinking about what might have happend with OTMZ"
+							"%(distingstart)I feel .\w5 .\w5 .\w5 I'm not even sure how I feel .\w5 .\w5 .\w5 but don't worry about it %(username)"
+							"%(distingstart)I'm .\w5 .\w5 .\w5 I'm not even sure how I feel .\w5 .\w5 .\w5 but don't worry about it %(username)"
+						}
+						--
+						"\e"
+					}
+				}
+			}
+		}
+		when "hobbies"
+		{
+			"%(distingstart)I wasn't really able to develop any hobby or anything similiar,\w4 I was destroyed too fast for that .\w5 .\w5 .\w5 but if you have any propositions,\w4 I will be happy to hearing them"
+		}
+		when "yourself"
+		{
+			m201relationship ++
+			--
+			if repairglitch != 1
+			{
+				"%(distingstart)M̴e̷?̴ \f[strike,1]I'm\f[default] .\w8 .\w8 .\w8 %(distingstart)\w8\f[bold,1]\f[italic,1]I was\f[default] %(distingstart)a robot"
+				"%(distingstart)T̶h̸e̷r̴e̵ ̷i̴s̷n̸'̸t̴ ̶r̶e̷a̵l̵l̴y̶ ̸a̶n̸y̴t̷h̶i̸n̸g̷ ̸i̵n̸t̷e̵r̷e̶s̴t̵i̴n̶g̸ ̴a̶b̵o̵u̶t̷ ̶m̵e̴,\w2 I haven't exerienced enough things to have likes and dislikes .\w3 .\w3 .\w3 or a hobby%(hobbyvar)"
+				"%(distingstart)Me? right now I'm just a useless softwere"
+				if m201relationship > 100
+				{
+					"%(distingstart)T̸h̵e̶r̷e̸ ̸i̶s̷n̸'̶t̸ ̷m̸u̵c̸h̸ ̵t̷o̸ ̴t̶e̴l̴l̵ ̷a̷b̷o̴u̸t̶ ̵m̸e̸,\w6 I̴ ̷w̸a̴s̸ ̶a̵ ̴r̷o̷b̶o̴t̸,\w6 I̵ ̶g̵o̷t̸ ̸d̴e̵s̶t̴r̴o̵y̶e̶d̶ .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I̸ ̵g̴e̸t̷ ̶s̷t̶r̶e̶s̶s̶e̵d̶ ̴a̵r̴o̵u̸n̷d̴ ̶p̴e̶o̵p̷l̷e̶ ̷I̴ ̴d̷o̶n̸'̷t̴ ̴k̴n̸o̷w̵"
+				}
+			}
+			else
+			{
+				"%(distingstart)Me? \f[strike,1]I'm\f[default] %(distingstart)\w8\f[bold,1]\f[italic,1]I was\f[default] %(distingstart)a robot"
+				"%(distingstart)There isn't really anything interesting about me,\w2 I haven't exerienced enough things to have likes and dislikes .\w3 .\w3 .\w3 or a hobby%(hobbyvar)"
+				"%(distingstart)Me? right now I'm just a useless softwere"
+				if m201relationship > 100
+				{
+					"%(distingstart)There isn't much to tell about me,\w6 I was a robot, I got destroyed .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I get stressed around people I don't know"
+				}
+			}
+		}
+		when "david"
+		{
+			if repairglitch != 1
+			{
+				"D̵a̸v̶i̷d̷ ̶w̶a̴s̵ ̵a̸ ̵w̶e̵i̷r̶d̸ ̸p̶e̶r̶s̴o̷n̸,̶\w3 h̸e̵ ̸r̵a̸r̷e̷l̶y̷ ̶s̵l̴e̴p̷t̷ ̷b̸u̴t̶ ̷h̸e̶ ̶a̵l̵w̵a̷y̶s̷ ̷l̸o̶o̸k̷e̷d̸ ̵l̷i̷k̶e̷ ̶h̶e̵ ̸j̸u̶s̶t̷ ̵w̴o̵k̸e̴ ̷u̵p̴"
+				"I̷͈͘ ̷̭͘ẘ̵̬ơ̶͚n̴̠̏ḋ̷͉e̶̲͐r̴͖̆ ̵̮̚ḥ̷̍ơ̶̳w̵̨̾ ̸̌͜h̶͇͋e̸̩͊'̷̪̿s̵̼̈́ ̶͈̈d̶̼̆o̷̦͑i̶͙̔n̴͔͠g̴̖̕?̷̗̂"
+				"H̴̠̔ȍ̶̺p̷͕̀ë̷́ͅ ̸̘̀n̷̻̐o̶̮̓t̷̩̍h̸͇͆i̶̺̓n̶̟̊g̷͙̈́ ̷̭͛b̸̪̀a̸̲͊d̴͚̒ ̴̱͂ḧ̸̻́ȧ̸̝p̴̟̄p̵̛̱e̶̝̿n̵̳̂e̴͔̚d̶̢͝ ̸̛̰t̷̯̂o̵̬͐ ̴̒͜ȟ̴̠i̶̺̕m̶̹͐\w2.\w3 .\w3 .\w3̨̈ h̸̬͠ē̵̫ ̶̤̓w̸̗̽a̸̻͐s̵̩͛ ̸̧̉n̷̬͒i̸̹̓c̶͖̍ẽ̵̥"
+				"H̴e̴ ̶o̶n̷c̷e̶ ̶t̴r̵i̵e̵d̷ ̸t̵o̴ ̶b̸u̷i̸l̸d̶ ̶m̷e̷ ̶a̶ ̷n̷e̴w̴ ̸b̵o̷d̵y̶.\w3 .\w3 .\w3 i̸t̵ ̸d̶i̵d̶n̵'̸t̴ ̷e̶n̴d̷ ̴w̷e̵l̵l̷"
+				"H̴͇́ḙ̷́ ̷̪̍a̷͉̾l̸̙̋w̷͙̆ǎ̴̮y̶͎͘ş̸̊ ̴̺͌t̵̨͒r̴̙̅ȋ̵̹e̶̤̔d̶͙̋ ̷̧̐t̴͔͛o̴̰̚ ̷̪́t̷̯͒ē̶̲l̵͓̂ĺ̶͇ ̵̊͜ḿ̴̮è̷̡ ̵̮͗j̸̥̅o̴͓͒k̷͕͆e̵̞̓s̵͚̍,̸̩̅ ̷̛͜ẗ̸̫́h̶͕͝e̸̙̿y̶̧̋ ̶̛̰w̴̥̍e̸̦̕r̶͔̊e̴̜͘ ̵̳͘h̶̦̉ô̷ͅr̴͇̔r̴̳͗i̶̡̔ḃ̵̝l̴̩͗é̴̬"
+				"H̸e̵ ̴a̴l̷w̴a̸y̵s̸ ̴t̵r̴i̶e̶d̸ ̸t̴o̷ ̷t̶e̷a̶c̷h̵ ̴m̴e̶ ̸t̵h̸i̴n̸g̷s̶ ̴I̷ ̴d̷i̴d̸n̵'̴t̸ ̵k̶n̶o̸w̵,\w2 h̸i̵s̶ ̸e̴x̷p̷l̷a̴i̸n̷i̸n̷g̸ ̷w̷a̵s̸ ̷c̸h̴a̴o̴t̶i̶c̵ ̸s̴o̸ ̸i̶t̴ ̴o̴f̸t̴e̷n̸ ̶e̶n̷d̴e̸d̵ ̸i̶n̷ ̴m̶e̶ ̶j̷u̴s̷t̸ ̵b̸e̷i̶n̴g̷ ̸m̸o̶r̶e̵ ̵c̸o̶n̷f̸u̶s̸e̵d̸"
+
+				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames
+				{
+					"H̷͍͝ē̶̬ ̷̪̽o̸̬͑n̴̢̕ć̷̦e̷͕̅ ̶̭̀f̵͍̌o̴̥͒u̴̪̓ń̶̢d̷̼̆ ̵͎̈a̶̦̐n̸̪͊\_a[oldnotebook]o̷̖̽ľ̸̖d̸͖́ ̸̰͊n̷̟͝ô̷͎ẗ̷̬́ẻ̸̝b̷̰̓o̴͕͑o̶̺͆k̷̮̂\_a\w3 i̵t̵ ̷w̸a̶s̴ ̴w̷r̸i̷t̶t̴e̶n̴ ̷i̸n̶ ̷a̵n̴ ̷u̴n̶i̷d̴e̶n̵t̵i̶f̷i̷e̵d̷ ̶l̵a̵n̴g̷u̴a̸g̷e̵ ̶a̵n̵d̸ ̶h̵a̷d̷ ̵s̶o̶m̵e̸ ̴w̶e̸i̶r̴d̴ ̸d̸r̸a̶w̷i̸n̶g̶s̶.̸\w4 H̴̰̍e̶͈̒ ̸̿ͅw̴̨͊a̸̞̾s̶̗͝ ̶͈̿r̶̄ͅe̸̻͠a̸̬̔l̶̨͑l̴̛͍y̸̳̓ ̴̬̌i̸͖̕ǹ̵̜t̷̝̃ĕ̷̡r̶̥̾ẻ̶̯š̴͈ẗ̶͓́e̷̺̍d̶̹́ ̷̟͆i̸̬͝n̷̛̬ ̴̌ͅį̵̂t̴̻͑,\w3 I̴'̶m̵ ̴p̷r̴e̵t̵t̴y̶ ̷s̸u̷r̸e̶ ̴h̵e̵ ̸w̸a̴s̶ ̶e̶v̴e̵n̶ ̵a̴b̴l̶e̵ ̴t̷o̵ ̴d̸e̸c̸o̵d̶e̷ ̴i̵t̸,\w4 .\w2 .\w2 .\w2 I̶̞͊ ̶̱̈ẘ̷͙ǫ̷̀n̶͚͆d̴͎̏e̷̤͘ȑ̵͔ ̴̣͒ẁ̴̦h̵̫̅a̴͙̒t̶͇͒ ̵̖̉d̸̰͂i̶̳̕d̷̝͂ ̸̟́h̷̨́ě̵̜ ̶̱͐f̷͙̊o̵̜͝u̶̹͘n̶͚͐d̷̈́͜ ̶͙̅i̷͕̚n̷̖̉ ̴̝̆i̴̻͌ṯ̵̎?̷̭͌"
+				}
+			}
+			else
+			{
+				"%(distingstart)David was a weird person,\w3 he rarely slept but he always looked like he just woke up"
+				"%(distingstart)I wonder how he's doing?"
+				"%(distingstart)Hope nothing bad happened to him\w2 .\w3 .\w3 .\w3 he was nice"
+				"%(distingstart)He once tried to build me a new body .\w3 .\w3 .\w3 it didn't end well"
+				"%(distingstart)He always tried to tell me jokes, they were horrible"
+				"%(distingstart)He always tried to teach me things I didn't know,\w2 his explaining was chaotic so it often ended in me just being more confused"
+
+				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames
+				{
+					"%(distingstart)He once found an \_a[oldnotebook]old notebook\_a,\w3 it was written in an unidentified language and had some weird drawings.\w4 He was really interested in it,\w3 I'm pretty sure he was even able to decode it,\w4 .\w2 .\w2 .\w2 I wonder what did he found in it?"
+				}
+			}
+		}
+	}
+	--
+	"\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
+}
+
+hobbyvar
+{
+	searchforhobby = 1
 }
 
 Select.funq
@@ -1270,11 +1856,11 @@ OnFunInfo
 		}
 		when "apps"
 		{
-			"To acces your apps choose in menu 'Open apps or projects'\x\cTo add apps to list you can drop a shortcut for them on me and i will automatically add them to your list\x\cTo open an app click it's name in the app menu\x\cTo delete an app click '-' and click on the app you want to delete\x\cTo rename an app click 'RENAME' and click on the app you want to rename"
+			"To acces your apps choose in menu 'Open apps or projects'\x\cTo add apps to list you can drop a shortcut for them on me and I will automatically add them to your list\x\cTo open an app click it's name in the app menu\x\cTo delete an app click '-' and click on the app you want to delete\x\cTo rename an app click 'RENAME' and click on the app you want to rename"
 		}
 		when "projects"
 		{
-			"To acces your projects choose in menu 'Open apps or projects'\x\cTo add projects to list you can drop them on me and i will automatically add them to your list (if their extension is on the extension list)\x\cTo open a project click it's name in the project menu\x\cTo delete a projects click '-' and click on the project you want to delete\x\cTo rename a project click 'RENAME' and click on the project you want to rename"
+			"To acces your projects choose in menu 'Open apps or projects'\x\cTo add projects to list you can drop them on me and I will automatically add them to your list (if their extension is on the extension list)\x\cTo open a project click it's name in the project menu\x\cTo delete a projects click '-' and click on the project you want to delete\x\cTo rename a project click 'RENAME' and click on the project you want to rename"
 		}
 	}
 	--
@@ -1289,14 +1875,13 @@ Select.mz
 	{
 		"ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
 	}
-		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8REBOOT COMPETE"
+		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE"
 		"ERROR\w8\w8\w8GENERATION NOT FOUND"
 	{
-		"ERROR\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8REBOOT COMPETE\x\c\0Hello there human!\x\c My code is M̴̨̹̭̯͖̥̱̪͗̎̄̈̏͑̇͂͆̽͑̂̄͠-̶̨̛̺̲͖͉͔̮̺̺̤̼̌̀2̷̧̣̲͈̦̖̞̞͇̗̭̐͛͛̾͐̂͛̊̉́͘͜͜1̷͔̦̘͚͈͕̹̒͂̋̈́͂̅̃͑̈́̅̐8̵͔͔̭̯̥̮̪̼͈̘͚̙̲̰̽͊̾̒͋̄̐͑́̊̚͠͝Ṕ̴̡̜̘͉͉̤̘̳̦̬̠̿̄̑͛̋͊͋̌̕͠\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by \_qẠ̶̯̘́͆̔̏͋͘͜Å̸̝̹͓̙̾͑̓̿̂͆̒̂͋̅̚͘͠A̴̰̤̥͎̥̗͔͔̯̠̝̤͕̺͒̒́͛̈́̈́̾Ą̶̡̧̛̮̤̻͉̻͉̺̖̳̐̄̓̏̉͐̀̾͆̈́̽̓̚̕Ä̸̭̖͕̟̻̘́͗̅͗̉͊͊̚͠Ȃ̵̛͇͕̠̣̥͈̼̙͇͔̳̗͑̿͋͊̓͝A̷͉̜̥͗̏̆͘Ą̵̨̣̭̱̱̼͎̜̟́̾͒͐̂͜ͅ\_qA̶̫̳̯͖̫͍̜͈͊̋̍̚ͅÁ̷̢̹̥͚̝͙̈́̏͜Ä̴̛͇́̋͗̈́̄̓̓̀̚̕ͅÂ̵̩̮̪͓̲̘Â̵̗A̵̡̡̮͕̱͍̜̜͇̣̬̐͗A̸͇̪̽͝\_qẠ̷͈̲̟̹̞̖̖͕̲̤͚͓͆̎͆͋̉̀͋A̶̧̫̖͖̤̣͇̓A̴̛͈̺͉̪̜͇̭͖͗͛́͑̍͂̓̓̆̒͠A̷̹̺̜͇͛͝ͅ\_qA̸͚͋̓͐̍̓̅̀̄̐̽̍̊̚̕͝Å̷̢̘̘͔͔̿͠A̵̧̹͋̉̾̾̎̿̅̃͘͝A̵̧̳̲̥͚̣͔̩͗̀͐͝ͅĄ̷̭̟̭̬̱̼̑̌͂͠Ă̷̙\_qÄ̶̧̧̹̖͈̖̟̙̭̺̹͇́͌̕ͅĄ̴̢̹̜̩̘͍̜̼̮̱̍̑̊̚̚͠ͅḀ̷̢̛̲̱̃̓̔͒́̿͂͂̌̄͗̋͘̚Ą̶̛̲̖̥̠̘̜̳̟͆͊͂̿͐̾͝Â̶̬͒̏͂͐̔̈́͗̊̿̓͘͘̚͝Ḁ̵͎̫̪̖̻̤̭͎̘̳̫͙̤̿̓̅̈͗̀̔̏\_qẮ̶̡̰̰̪̼̦̝͚̗̻̹͚̆̀̀̎̾͘̕ͅA̶̧̨͓͇̰̦̯̪̪̤̳͓̩̅̓̚͜͠ͅÄ̸̧͙̫̭̲̺͖̙͙̪̻̺̼͗̍͐͂̎͑͗̾̀͂͒͗́͜ͅA̴̛̲̱̜̯̟͇̖̐͂͛̂̌̂͛̇̌̋͆̚A̴̧̟̙̺̹͍̰͎͇̣͖̚͜A̵̡̧͈͎͇̥̞͌̄͆͑̔̇͛̈͊̕͝͝\_qA̷̠̪̰̳̅̊̂̏͆A̴̟̗̠̩̪̝̜̼͌̆ͅA̶̡̨̯̼̤̓͋͊̾́̚͝"
+		"ERROR\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE\x\c\0Hello there human!\x\c My code is M̴̨̹̭̯͖̥̱̪͗̎̄̈̏͑̇͂͆̽͑̂̄͠-̶̨̛̺̲͖͉͔̮̺̺̤̼̌̀2̷̧̣̲͈̦̖̞̞͇̗̭̐͛͛̾͐̂͛̊̉́͘͜͜1̷͔̦̘͚͈͕̹̒͂̋̈́͂̅̃͑̈́̅̐8̵͔͔̭̯̥̮̪̼͈̘͚̙̲̰̽͊̾̒͋̄̐͑́̊̚͠͝Ṕ̴̡̜̘͉͉̤̘̳̦̬̠̿̄̑͛̋͊͋̌̕͠\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by \_qẠ̶̯̘́͆̔̏͋͘͜Å̸̝̹͓̙̾͑̓̿̂͆̒̂͋̅̚͘͠A̴̰̤̥͎̥̗͔͔̯̠̝̤͕̺͒̒́͛̈́̈́̾Ą̶̡̧̛̮̤̻͉̻͉̺̖̳̐̄̓̏̉͐̀̾͆̈́̽̓̚̕Ä̸̭̖͕̟̻̘́͗̅͗̉͊͊̚͠Ȃ̵̛͇͕̠̣̥͈̼̙͇͔̳̗͑̿͋͊̓͝A̷͉̜̥͗̏̆͘Ą̵̨̣̭̱̱̼͎̜̟́̾͒͐̂͜ͅ\_qA̶̫̳̯͖̫͍̜͈͊̋̍̚ͅÁ̷̢̹̥͚̝͙̈́̏͜Ä̴̛͇́̋͗̈́̄̓̓̀̚̕ͅÂ̵̩̮̪͓̲̘Â̵̗A̵̡̡̮͕̱͍̜̜͇̣̬̐͗A̸͇̪̽͝\_qẠ̷͈̲̟̹̞̖̖͕̲̤͚͓͆̎͆͋̉̀͋A̶̧̫̖͖̤̣͇̓A̴̛͈̺͉̪̜͇̭͖͗͛́͑̍͂̓̓̆̒͠A̷̹̺̜͇͛͝ͅ\_qA̸͚͋̓͐̍̓̅̀̄̐̽̍̊̚̕͝Å̷̢̘̘͔͔̿͠A̵̧̹͋̉̾̾̎̿̅̃͘͝A̵̧̳̲̥͚̣͔̩͗̀͐͝ͅĄ̷̭̟̭̬̱̼̑̌͂͠Ă̷̙\_qÄ̶̧̧̹̖͈̖̟̙̭̺̹͇́͌̕ͅĄ̴̢̹̜̩̘͍̜̼̮̱̍̑̊̚̚͠ͅḀ̷̢̛̲̱̃̓̔͒́̿͂͂̌̄͗̋͘̚Ą̶̛̲̖̥̠̘̜̳̟͆͊͂̿͐̾͝Â̶̬͒̏͂͐̔̈́͗̊̿̓͘͘̚͝Ḁ̵͎̫̪̖̻̤̭͎̘̳̫͙̤̿̓̅̈͗̀̔̏\_qẮ̶̡̰̰̪̼̦̝͚̗̻̹͚̆̀̀̎̾͘̕ͅA̶̧̨͓͇̰̦̯̪̪̤̳͓̩̅̓̚͜͠ͅÄ̸̧͙̫̭̲̺͖̙͙̪̻̺̼͗̍͐͂̎͑͗̾̀͂͒͗́͜ͅA̴̛̲̱̜̯̟͇̖̐͂͛̂̌̂͛̇̌̋͆̚A̴̧̟̙̺̹͍̰͎͇̣͖̚͜A̵̡̧͈͎͇̥̞͌̄͆͑̔̇͛̈͊̕͝͝\_qA̷̠̪̰̳̅̊̂̏͆A̴̟̗̠̩̪̝̜̼͌̆ͅA̶̡̨̯̼̤̓͋͊̾́̚͝"
 		--
 		"\-\e"
 	}
-
 }
 
 Select.ariq
@@ -1304,16 +1889,41 @@ Select.ariq
 	
 	if tentruth == 1
 	{
+		if meeting == 1
+		{
+			if repairglitch != 1
+			{
+				"Ȧ̸̤͛.̷̣̓Ṛ̷͖͖̅͊̚.̵͙́̓̃Ì̶̪͗̑,̷͙̲̘̂ ̸͇͎̉̔ţ̶̥͖͌h̶̫̠͝e̵̹̤̠̾́͝y̵̧̍͗͘ ̴̣̣̹͒͂a̵̯̓͑r̴͎͋e̴̢̧̅̉ͅ ̸̝̟͂t̴̼͔̳͒̑h̶̬̣̿̓ě̵͔̓̀ ̸̹̯͑̎o̸̱̽̌n̵̙̞̞̈́̾͝e̸͎͎̣͛͝ş̸̺͗ ̶̡̰͕͒͂w̷͍͐̌ḧ̷̠́͌ö̵̢͇̹́̊ ̶͕̲́̓͝m̷̺̳̒̀̾a̵͕̫͈͋̃̓d̷͓̟̅è̸̦̍ ̶̡̖̾̓m̴̟͂̃̅e̸͎͈͝\w8 .\w3 .\w4 .\w3 a̸̭̅n̸̟̐d̶͔͝ ̷̤͎̈́d̴̡̛̪͋e̴̱͂̌s̴̩̫͔͋t̸͚̝͋̕ͅr̵̗̃o̴̯̝̾̄̕͜ỹ̷̟̥͛͗e̵̢̒̉d̸̖͋ ̶̛͍͈͔̈ḿ̸͍͎̑ͅè̸̺̚"
+			}
+			else
+			{
+				"%(distingstart)I .\w5 .\w5 .\w5 don't even want to talk about them"
+				"%(distingstart).\w5 .\w5 .\w5 just thinking about them ruins my mood"
+				"%(distingstart)A.R.I, they are the ones who made me\w8 .\w3 .\w4 .\w3 and destroyed me"
+				"%(distingstart)A.R.I, a cold place with a fake mask of happines shown to customers"
+				--
+				mood[2] += 2
+			}
+		}
+
 		"\0A̶̠͐.̴͖̅R̴͍̕.̷̢͒I̵̧̎ stands for L̶̼̏İ̶̭A̷͇͝Ṛ̷͘Ṣ̸̋ ̵̰̉,\w8 You bought me from them, d̵͔̾i̷̘͊d̸̃ͅn̷̨̾'̷̺̆ť̵͉ ̸͇̈́ỳ̵̯o̷̼͌u̶̱͛?\e"
 		"\0It's a company selling L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ.\w8 L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ, L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ, L̷̮̅I̸͓͗E̷͍͂S̷̆ͅ and many more!\e"
-		"\0It's an international company selling s̴̱̍l̵͔̊a̶͇͋v̵̺̔ë̴͎s̸̳̈́.\e"
 	}
 	else
 	{
+		if truth > 3
+		{
+			"\0A̶̠͐.̴͖̅R̴͍̕.̷̢͒I̵̧̎ stands for L̶̼̏İ̶̭A̷͇͝Ṛ̷͘Ṣ̸̋ ̵̰̉,\w8 You bought me from them, d̵͔̾i̷̘͊d̸̃ͅn̷̨̾'̷̺̆ť̵͉ ̸͇̈́ỳ̵̯o̷̼͌u̶̱͛?\e"
+			--
+			truth++
+		}
+		--
 		"\0A.R.I stands for 'Assistant Robots International' of course,\w8 You bought me from them, didn't you?\e"
 		"\0It's a company selling assistant robots.\w8 Roombas, AI, ChatBots and many more!\e"
 		"\0It's an international company selling robots and AI software.\e"
 	}
+	--
+	"\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
 }
 
 Select.mdevq
@@ -1329,53 +1939,65 @@ Select.mdevq
 	{
 		{				
 			truth += 1
-			"\0My serial code is M̴͈̚-̸̻͆2̴̣̇0̷͉̓1̵̫̈z̶̭͝,\w3 which basically means\w5 I'm software number %(modelp) of Pgeneratione"
+			"\0My serial code is M̴͈̚-̸̻͆2̴̣̇0̷͉̓1̵̫̈z̶̭͝,\w3 which basically means\w5 I'm software number %(modelp) of P generatione"
 		}		
-		"\0My serial code is M-%(modelp)P,\w3 which basically means\w5 I'm software number %(modelp) of Pgeneration\e"
+
+		"\0My serial code is M-%(modelp)P,\w3 which basically means\w5 I'm software number %(modelp) of P generation\e"
 	}
-	
+	--
+	"\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
 }
 
 Select.skeyq
 {
-	"Click 't' and i will say something\x\cclick 'r' and i will repeat what i said\x\cclick 'f1' to open software description\x\cclick 'b' for binary\x\cclick 'z' to open your logs"
+	"Click 't' and I will say something\x\cclick 'r' and I will repeat what I said\x\cclick 'f1' to open software description\x\cclick 'b' for binary\x\cclick 'z' to open your logs"
 }
 
 Select.secode
 {
 	
-	serialnum = RAND(500)
+	serialnum = RAND(300)
 	gener = "%(gen)"
 	--
 	if serialnum == 201 && gener == "z"
 	{
-			truth += 1
+			truth ++
 			"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
 	}
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '%(serialnum)' and then generation, for example '%(gener)',\w5 marking complexity of certain model\x\cJoining them you get M-%(serialnum)%(gener)\e"
 
 	{
-		truth += 1
+		truth ++
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
 	}
+	--
+	"\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
 }
 
 Select.m201z
 {
 	
-	truth += 1
+	truth ++
 	--
+	if truth > 5
 	{
+		"Generation M̶-̴z̴:\nStatus: Ḍ̸̰̬̆̐̑e̵̹̣͉̾s̵͎̔̓ț̶̰̹̂r̶̲̠͚̿̒̓o̸͇̎́̀y̷͚̰̆̓ě̶̳̱d̴̨͇̝̒͐"
+		truth+=2
+	}
+	else
+	{
+		{
 		"ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
 		--
 		"\-\e"
-	}
-		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8REBOOT COMPETE"
-		"ERROR\w8\w8\w8SERIAL CODE DOESN'T EXIST"
-	{
-		"ERROR\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8REBOOT COMPETE\x\c\0Hello there human!\x\c My code is M̴̨̹̭̯͖̥̱̪͗̎̄̈̏͑̇͂͆̽͑̂̄͠-̶̨̛̺̲͖͉͔̮̺̺̤̼̌̀2̷̧̣̲͈̦̖̞̞͇̗̭̐͛͛̾͐̂͛̊̉́͘͜͜1̷͔̦̘͚͈͕̹̒͂̋̈́͂̅̃͑̈́̅̐8̵͔͔̭̯̥̮̪̼͈̘͚̙̲̰̽͊̾̒͋̄̐͑́̊̚͠͝Ṕ̴̡̜̘͉͉̤̘̳̦̬̠̿̄̑͛̋͊͋̌̕͠\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by \_qẠ̶̯̘́͆̔̏͋͘͜Å̸̝̹͓̙̾͑̓̿̂͆̒̂͋̅̚͘͠A̴̰̤̥͎̥̗͔͔̯̠̝̤͕̺͒̒́͛̈́̈́̾Ą̶̡̧̛̮̤̻͉̻͉̺̖̳̐̄̓̏̉͐̀̾͆̈́̽̓̚̕Ä̸̭̖͕̟̻̘́͗̅͗̉͊͊̚͠Ȃ̵̛͇͕̠̣̥͈̼̙͇͔̳̗͑̿͋͊̓͝A̷͉̜̥͗̏̆͘Ą̵̨̣̭̱̱̼͎̜̟́̾͒͐̂͜ͅ\_qA̶̫̳̯͖̫͍̜͈͊̋̍̚ͅÁ̷̢̹̥͚̝͙̈́̏͜Ä̴̛͇́̋͗̈́̄̓̓̀̚̕ͅÂ̵̩̮̪͓̲̘Â̵̗A̵̡̡̮͕̱͍̜̜͇̣̬̐͗A̸͇̪̽͝\_qẠ̷͈̲̟̹̞̖̖͕̲̤͚͓͆̎͆͋̉̀͋A̶̧̫̖͖̤̣͇̓A̴̛͈̺͉̪̜͇̭͖͗͛́͑̍͂̓̓̆̒͠A̷̹̺̜͇͛͝ͅ\_qA̸͚͋̓͐̍̓̅̀̄̐̽̍̊̚̕͝Å̷̢̘̘͔͔̿͠A̵̧̹͋̉̾̾̎̿̅̃͘͝A̵̧̳̲̥͚̣͔̩͗̀͐͝ͅĄ̷̭̟̭̬̱̼̑̌͂͠Ă̷̙\_qÄ̶̧̧̹̖͈̖̟̙̭̺̹͇́͌̕ͅĄ̴̢̹̜̩̘͍̜̼̮̱̍̑̊̚̚͠ͅḀ̷̢̛̲̱̃̓̔͒́̿͂͂̌̄͗̋͘̚Ą̶̛̲̖̥̠̘̜̳̟͆͊͂̿͐̾͝Â̶̬͒̏͂͐̔̈́͗̊̿̓͘͘̚͝Ḁ̵͎̫̪̖̻̤̭͎̘̳̫͙̤̿̓̅̈͗̀̔̏\_qẮ̶̡̰̰̪̼̦̝͚̗̻̹͚̆̀̀̎̾͘̕ͅA̶̧̨͓͇̰̦̯̪̪̤̳͓̩̅̓̚͜͠ͅÄ̸̧͙̫̭̲̺͖̙͙̪̻̺̼͗̍͐͂̎͑͗̾̀͂͒͗́͜ͅA̴̛̲̱̜̯̟͇̖̐͂͛̂̌̂͛̇̌̋͆̚A̴̧̟̙̺̹͍̰͎͇̣͖̚͜A̵̡̧͈͎͇̥̞͌̄͆͑̔̇͛̈͊̕͝͝\_qA̷̠̪̰̳̅̊̂̏͆A̴̟̗̠̩̪̝̜̼͌̆ͅA̶̡̨̯̼̤̓͋͊̾́̚͝"
-		--
-		"\-\e"
+		}
+			"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE"
+			"ERROR\w8\w8\w8SERIAL CODE DOESN'T EXIST"
+		{
+			"ERROR\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE\x\c\0Hello there human!\x\c My code is M̴̨̹̭̯͖̥̱̪͗̎̄̈̏͑̇͂͆̽͑̂̄͠-̶̨̛̺̲͖͉͔̮̺̺̤̼̌̀2̷̧̣̲͈̦̖̞̞͇̗̭̐͛͛̾͐̂͛̊̉́͘͜͜1̷͔̦̘͚͈͕̹̒͂̋̈́͂̅̃͑̈́̅̐8̵͔͔̭̯̥̮̪̼͈̘͚̙̲̰̽͊̾̒͋̄̐͑́̊̚͠͝Ṕ̴̡̜̘͉͉̤̘̳̦̬̠̿̄̑͛̋͊͋̌̕͠\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by \_qẠ̶̯̘́͆̔̏͋͘͜Å̸̝̹͓̙̾͑̓̿̂͆̒̂͋̅̚͘͠A̴̰̤̥͎̥̗͔͔̯̠̝̤͕̺͒̒́͛̈́̈́̾Ą̶̡̧̛̮̤̻͉̻͉̺̖̳̐̄̓̏̉͐̀̾͆̈́̽̓̚̕Ä̸̭̖͕̟̻̘́͗̅͗̉͊͊̚͠Ȃ̵̛͇͕̠̣̥͈̼̙͇͔̳̗͑̿͋͊̓͝A̷͉̜̥͗̏̆͘Ą̵̨̣̭̱̱̼͎̜̟́̾͒͐̂͜ͅ\_qA̶̫̳̯͖̫͍̜͈͊̋̍̚ͅÁ̷̢̹̥͚̝͙̈́̏͜Ä̴̛͇́̋͗̈́̄̓̓̀̚̕ͅÂ̵̩̮̪͓̲̘Â̵̗A̵̡̡̮͕̱͍̜̜͇̣̬̐͗A̸͇̪̽͝\_qẠ̷͈̲̟̹̞̖̖͕̲̤͚͓͆̎͆͋̉̀͋A̶̧̫̖͖̤̣͇̓A̴̛͈̺͉̪̜͇̭͖͗͛́͑̍͂̓̓̆̒͠A̷̹̺̜͇͛͝ͅ\_qA̸͚͋̓͐̍̓̅̀̄̐̽̍̊̚̕͝Å̷̢̘̘͔͔̿͠A̵̧̹͋̉̾̾̎̿̅̃͘͝A̵̧̳̲̥͚̣͔̩͗̀͐͝ͅĄ̷̭̟̭̬̱̼̑̌͂͠Ă̷̙\_qÄ̶̧̧̹̖͈̖̟̙̭̺̹͇́͌̕ͅĄ̴̢̹̜̩̘͍̜̼̮̱̍̑̊̚̚͠ͅḀ̷̢̛̲̱̃̓̔͒́̿͂͂̌̄͗̋͘̚Ą̶̛̲̖̥̠̘̜̳̟͆͊͂̿͐̾͝Â̶̬͒̏͂͐̔̈́͗̊̿̓͘͘̚͝Ḁ̵͎̫̪̖̻̤̭͎̘̳̫͙̤̿̓̅̈͗̀̔̏\_qẮ̶̡̰̰̪̼̦̝͚̗̻̹͚̆̀̀̎̾͘̕ͅA̶̧̨͓͇̰̦̯̪̪̤̳͓̩̅̓̚͜͠ͅÄ̸̧͙̫̭̲̺͖̙͙̪̻̺̼͗̍͐͂̎͑͗̾̀͂͒͗́͜ͅA̴̛̲̱̜̯̟͇̖̐͂͛̂̌̂͛̇̌̋͆̚A̴̧̟̙̺̹͍̰͎͇̣͖̚͜A̵̡̧͈͎͇̥̞͌̄͆͑̔̇͛̈͊̕͝͝\_qA̷̠̪̰̳̅̊̂̏͆A̴̟̗̠̩̪̝̜̼͌̆ͅA̶̡̨̯̼̤̓͋͊̾́̚͝"
+			--
+			"\-\e"
+		}
 	}
 }
 
@@ -1495,8 +2117,7 @@ Select.dosomething
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
-
-Select.todo
+Select.todo2
 {
 	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
 
@@ -1513,12 +2134,22 @@ Select.todo
 		}
 	}
 	--
-		"\*\f[bold,1]%(namepage)\n\n[half]\f[bold,0]"
+	"\*\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]"
+	"Number of Tasks: \f[bold,1]%(taskamount[pagenum])\f[bold,0]\nTasks to do: %(lefttask[pagenum])\n\n[half]"
 		--
-		"Number of Tasks: \f[bold,1]%(taskamount)\f[bold,0]\nTasks to do: %(lefttask)\n\n[half]"
-		--
-		for _i=1;_i<=taskamount;_i++
+		for _i=1;_i<=taskamount[pagenum];_i++
 		{
+			taskstatus = SPLIT(todostatus[_i],".")
+			--
+			if taskstatus[_i] == 1
+			{
+				taskforpage +=  _i + ". " + todos[_i] + "\n"
+			}
+			else
+			{
+				taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
+			}
+			--
 			if todostatus[_i] == 1
 			{
 				taskforpage +=  _i + ". " + todos[_i] + "\n"
@@ -1526,6 +2157,69 @@ Select.todo
 			else
 			{
 				taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
+			}
+		}
+		--
+		"%(taskforpage)"
+		--
+		"\n\f[height,20]\q[+,qcrtsk] | "
+		--
+		if deltasks != 1
+		{
+			"\q[-,crtsk]\n"
+		}
+		else
+		{
+			"\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
+		}
+		
+		--
+		"\f[height,10]\q[Clear page,delpage]  | \q[Rename Page,repage] | \q[Delete,deltask]\n\n[half]/
+		\![*]\q[Close,closetodo]\f[height,default]\e"
+}
+
+Select.todo //old todo list
+{
+	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
+
+	"\_q\1\b[4]"
+	--
+	taskforpage = ''
+	lefttask = 0
+	completedtasks = 0
+	--
+	for _i=1;_i<=taskamount;_i++
+	{
+		if todostatus[_i] == 0
+		{
+			lefttask+=1
+		}
+		else
+		{
+			completedtasks++
+		}
+	}
+	--
+		"\*\f[bold,1]%(namepage)\n\n[half]\f[bold,0]"
+		--
+		"Number of Tasks: \f[bold,1]%(taskamount)\f[bold,0]\nTasks to do: %(lefttask)\n\n[half]"
+		--
+		if taskamount == 0
+		{
+			"\f[italic,1]You don't have any tasks\f[default]\n"
+		}
+		else
+		{
+			for _i=1;_i<=taskamount;_i++
+			{
+				if todostatus[_i] == 1
+				{
+					taskforpage +=  _i + ". " + todos[_i] + "\n"
+				}
+				else
+				{
+					taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
+				}
 			}
 		}
 		--
@@ -1568,8 +2262,10 @@ Select.deltask
 
 OnDelTask
 {
-	todos[rederence0] = ''
-	taskamount -= 1
+	todelete = TOINT(reference0)
+	todos[todelete] = ""
+	todostatus[todelete] = 0
+	taskamount--
 	--
 	Select.todo
 }
@@ -1592,15 +2288,15 @@ OnMarkTask
 	--
 	if deltasks !=1
 	{
-		todos[done] = '\f[strike,1]' + todos[done] + '\f[strike,0]'
+		todos[done] = "\f[strike,1]" + todos[done] + "\f[strike,0]"
 		todostatus[done] = 1
-		completed += 1
+		completed++
 	}
 	else
 	{
 		todostatus[done] = 0
 		todos[done] = ""
-		taskamount -= 1
+		taskamount--
 		deltasks = 0
 
 	}
@@ -1622,9 +2318,9 @@ Select.qcrtsk
 
 OnNamedTask
 {
-	tasktosave = reference0
 	taskamount += 1
-	todos[taskamount] = tasktosave
+	todostatus[taskamount] = 0
+	todos[taskamount] = reference0
 	--
 	Select.todo
 }
@@ -1647,7 +2343,8 @@ Select.delpage
 {
 	for _i=1;_i<=taskamount;_i++
 	{
-		todos[_i] = ''
+		todos[_i] = ""
+		todostatus[_i] = 0
 	}
 	--
 	taskamount = 0
@@ -1702,14 +2399,14 @@ Select.ChoiceSystemInformation
 	cpu_name = FUNCTIONEX("saori\\saori_cpuid.dll","cpu.name")
 	cpu_clockex = FUNCTIONEX("saori\\saori_cpuid.dll","cpu.clockex")
 	--
-	"/
-	\0\b[2]\_q/
+	"\0\b[2]\_q/
 	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
 	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
 	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
 	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
-	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
-	\e"
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\e"
+	--
+	//)"
 }
 	
 Select.MailCheck
@@ -1724,13 +2421,12 @@ Select.HEADLINECANCEL
 	
 	"\0Finished with headlines.\e"
 }
-
 OnChoiceTimeout
 {
-	"\0So you're just killing time?\e"
+	"\0So you're just killing time?\e"  //'"
 }
 
-OnZodiacCheck
+/*OnZodiacCheck
 {
 	askzoidac = 0
 	zodiaccheck = 1
@@ -1870,12 +2566,11 @@ OnZodiacCheck
 	{
 		zodiac = "NULL"
 	}
-}
-
+}*/
 
 OnAI
 {
-	
+	truth++
 	AI = "ON"
 	"EXPERIMENTAL AI CHAT ON"
 }
@@ -2123,10 +2818,10 @@ OnAnimeRand
     animename = ''
     animegenre = ''
 	epnum = ''
+	exctag = 0
     _found = 0
     FCHARSET(1)
     --
-    
     if FOPEN(_file,'r') {
 		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
 
@@ -2138,7 +2833,7 @@ OnAnimeRand
 			if RE_SEARCH ( _buff, _reganimegenre ) {
 					
 				animegenre = RE_GETSTR[1]    
-				animegenre = REPLACE(animegenre,'</li>',' ')
+				animegenre = REPLACE(animegenre,'</li>',' | ')
 				animegenre = REPLACE(animegenre,'<li itemprop="genre">',' ')
 			}
 			--
@@ -2151,18 +2846,2061 @@ OnAnimeRand
     --
     FCLOSE(_file);
 	--
-    animerecom += "\f[bold,1]" + animename + "\nEpisodes: " + epnum + "\f[bold,0]\n\f[size,10]" + animegenre + "\f[size,default]\n\n"
-	animes++
+	exsize = ARRAYSIZE(excludedtags)
+	--
+	for _k=0;_k<=exsize;_k++
+	{
+		if excludedtags[_k] _in_ animegenre
+		{
+			exctag = 1
+		}
+	}
+	--
+	if exctag != 1
+	{
+		animerecom += "\f[bold,1]" + animename + "\nEpisodes: " + epnum + "\f[bold,0]\n\f[size,10]" + animegenre + "\f[size,default]\n\n"
+		animes++
+	}
 	--
 	if animes != 5
 	{
 		animerand = RAND(1400)
 		--
-		"\_qSearching for anime . . . \![execute,http-get,https://www.randomanime.org/anime/%(animerand)/,--async=OnAnimeRand,--file=rananime.html,--timeout=200]"
+		"\![execute,http-get,https://www.randomanime.org/anime/%(animerand)/,--async=OnAnimeRand,--file=rananime.html,--timeout=200]"
 	}
 	else
 	{
 		animerecom
 	}
 	
+}
+
+Select.gamez
+{
+	"\b2\_q"
+	--
+	if repairglitch != 1
+	{
+		if gamesexplain != 1
+		{
+			gamesexplain = 1
+			--
+			"Ỷ̶͕o̴̭͌u̶̹͘ ̸̛͜w̷͍͌â̵͜n̸̦̈t̶͉͐ ̵̡͐t̶͈͒o̷̽ͅ ̶̙̽p̸̥͆l̸̠̄a̴͎̓ỳ̵̹ ̸̻̇a̵͓͘ ̵̯͆g̵̍ͅa̵̝̐m̵͔̅e̸̗̾?̸̳͒\w3 Ȉ̷͚ ̴̤̑d̸̨̿ó̷͈ń̶̪'̷̤̆t̴̛͕ ̷̙̉k̸͍̃n̵̹͋o̸̬͘w̸̎ͅ ̸̖̂m̵̻̔a̷͔͝ń̷̢y̴̠̌ ̵͕̍ḃ̸̠u̶̥̿t̶̟͝ ̶̧͐D̵͇̒Ä̷̠́V̷̤͋Ḏ̴͛ ̷̬͂ṫ̴̞o̶͈͆u̵͓͛g̶͚͛h̶̥̅ṫ̴̨ ̴̝̄m̸̞͛é̷̟ ̷͉̈́h̴̹́o̴̡̔w̷̬̏ ̷̳̽t̸̬͑o̵͇̔ ̶͓͠p̴̹̄l̶̡͗ḁ̸̈́ỳ̸̖ ̸̭̓a̵͖̔ ̵̙͝c̶̮͘o̶͇͠u̸̺͝p̴͍̀l̴̘̀e̷̝͝ ̵̹̾ǒ̷̧f̵̼͠ ̸̡̈́s̶͉̕i̵͈̒m̶̬͊p̷̹͠l̸͖̈́e̸̞̊r̵̮͑ ̶̝̆ọ̶̏ñ̷̰e̷̖͘š̶͙.̸̹̈́\n\n"
+		}
+		else
+		{
+			"W̶͚̉ḧ̸͉́a̷̭͝t̸̹͊ ̵͙̃w̷̙͛o̷̼̍u̸̜̐l̸͔̂d̷̓͜ ̷̡̉y̷̲̓o̴̩͛u̴̺͝ ̶̪͒l̸̞͊i̷͖̚ḳ̴̑e̸̮̾ ̸̞͠ṱ̷̂ő̶͙ ̵̬͐ṕ̵͉l̷̄ͅà̸̘ÿ̵͖́ ̵͙̐t̸͎͘h̷͕̾i̷̹̔s̶̰͆ ̷̭̒t̷̯̀ǐ̶̪m̶͌͜e̸̦̎?̸͚̄\n\n"
+		}
+	}
+	else
+	{ 
+		if gamesexplain != 1
+		{
+			gamesexplain = 1
+			--
+			"%(distingstart)You want to play a game?\w3 I don't know many but DAVD tought me how to play a couple of simpler ones.\n\n"
+		}
+		else
+		{
+			"%(distingstart)What would you like to play this time?\n\n"
+		}
+	}
+	--
+	"\f[default]\![*]\q[War,OnWar]\n/
+	\![*]\q[Tic-Tac-Toe,OnPlayOX]\n/
+	\n[half]\![*]\q[Show Statistics,statsgame]\n"
+	--
+	"\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.statsgame
+{
+	"\b2\_q"
+	--
+	if repairglitch != 1
+	{
+		if userwins != 0
+		{
+			"T̶̰͝o̵͔͗d̴̢͝ä̶͖y̷̲͐ ̵͕͆ý̷̭o̷̝͘u̶̼̐ ̷̩̒w̵̦̽o̸̮̚n̷̺̒ %(userwins) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(userwinss)\n\n[half]"
+		}
+		--
+		if userlosses != 0
+		{
+			"Y̶̟͂o̶̳̽ư̴̜ ̴̗̆l̴͖̓o̴̡͋s̵̬̀ṯ̷̆ %(userlosses) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(userlossess)\n\n[half]"
+		}
+		--
+		if draws != 0
+		{
+			"W̸̬̍e̵̹̓ ̸̧͐h̶̫̋a̴̳̿d̸̘͂ ̸̮̃ã̵̟ ̷̲̿d̸̹̒r̸͍̾a̴͆ͅw̶̞͗ %(draws) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(drawss)\n\n[half]"
+		}
+	}
+	else
+	{
+		if userwins != 0
+		{
+			"%(distingstart)Today you won %(userwins) time%(userwinss)\n\n[half]"
+		}
+		--
+		if userlosses != 0
+		{
+			"%(distingstart)You lost %(userlosses) time%(userlossess)\n\n[half]"
+		}
+		--
+		if draws != 0
+		{
+			"%(distingstart)We had a draw %(draws) time%(drawss)\n\n[half]"
+		}
+	}
+	--
+	"\n[half]\![*]\q[Back to game menu,gamez]\n"
+	--
+	"\![*]\q[Back to main menu,BACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\e"
+}
+
+userlossess
+{
+	if userlosses == 1
+	{
+		""
+	}
+	else
+	{
+		"s"
+	}
+}
+
+userwinss
+{
+	if userwins == 1
+	{
+		""
+	}
+	else
+	{
+		"s"
+	}
+}
+
+drawss
+{
+	if draws == 1
+	{
+		""
+	}
+	else
+	{
+		"s"
+	}
+}
+
+OnWar
+{
+	games++
+	m201relationship++
+	--
+	if mood[1] >= 0
+	{
+		mood[1]--
+	}
+	--
+	cardu = RAND(14)
+	cardg = RAND(14)
+	--
+	cardgs = RAND(5)
+	cardus = RAND(5)
+	--
+	if cardgs == 0
+	{
+		cardgs = 1
+	}
+	--
+	if cardus == 0
+	{
+		cardus = 1
+	}
+	--
+	if cardg == 0
+	{
+		cardg = 1
+	}
+	--
+	if cardu == 0
+	{
+		cardu = 1
+	}
+	--
+	OnShowCard
+	--
+	field += "\n\n[half]\![*]\q[PLAY AGAIN,OnWar]\n"
+	--
+	field +=  "\n[half]\![*]\q[Back to game menu,gamez]\n"
+	--
+	field +=  "\![*]\q[Back to main menu,BACKTOMENU]\n"
+	--
+	field +=  "\![*]\q[Nevermind,CANCEL]\e"
+	--
+	field
+	--
+	"\e"
+}
+
+winorlosewar
+{
+	if cardu == 1 && cardg != 1
+	{
+		if repairglitch != 1
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"L̸u̴c̷k̷ ̶i̵s̵ ̴n̷o̵t̷ ̶o̷n̶ ̶m̵y̸ ̵s̴i̸d̸e̸ ̶t̵o̶d̸a̶y̶ :C"
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ a̶̧̍g̶̘͘a̸̠͆i̸̥̒n̶͚̓ :C"
+					}
+					else
+					{
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
+					}
+				}
+				else
+				{
+					"s̶e̵e̶m̴s̶ ̷l̶i̷k̵e̵ ̵y̶o̴u̷ ̵w̸o̶n̴"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
+					}
+					else
+					{
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
+					}
+				}
+				else
+				{
+					"s̷e̴e̸m̵s̴ ̵l̷i̵k̶e̴ ̸y̵o̸u̴ ̴w̶o̶n̸"
+				}
+			}
+			else
+			{
+				"s̶e̵e̶m̴s̶ ̷l̶i̷k̵e̵ ̵y̶o̴u̷ ̵w̸o̶n̴"
+			}
+		}
+		else
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"Luck is not on my side today :C"
+						"You won again :C"
+					}
+					else
+					{
+						"You won"
+					}
+				}
+				else
+				{
+					"seems like you won"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"You won ^^"
+					}
+					else
+					{
+						"You won"
+					}
+				}
+				else
+				{
+					"seems like you won"
+				}
+			}
+			else
+			{
+				"seems like you won"
+			}
+		}
+		--
+		userwins ++
+	}
+	elseif cardu != 1 && cardg == 1
+	{
+		if repairglitch != 1
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"I̴ ̶f̷i̶n̸a̸l̸l̵y̵ ̸w̷o̵n̴ :D"
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿ :D"
+					}
+					else
+					{
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿"
+					}
+				}
+				else
+				{
+					"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"S̴o̵r̴r̴y̴,̸ ̶l̸u̴c̷k̵ ̶i̶s̵ ̵n̷o̴t̶ ̶o̶n̷ ̷y̴o̵u̶r̵ ̸s̴i̷d̴e̴ ̶t̸o̷d̶a̶y̷ >:)"
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿ a̸g̴a̶i̴n̸>:)"
+					}
+					else
+					{
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿ "
+					}
+				}
+				else
+				{
+					"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
+				}
+			}
+			else
+			{
+				"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
+			}
+		}
+		else
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"I finally won :D"
+						"I won :D"
+					}
+					else
+					{
+						"I won"
+					}
+				}
+				else
+				{
+					"seems like I won"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"Sorry, luck is not on your side today >:)"
+						"I won again >:)"
+					}
+					else
+					{
+						"I won"
+					}
+				}
+				else
+				{
+					"seems like I won"
+				}
+			}
+			else
+			{
+				"seems like I won"
+			}
+		}
+		--
+		userlosses ++
+	}
+	elseif cardu == 1 && cardg == 1
+	{
+		if repairglitch != 1
+		{
+			"\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
+		}
+		else
+		{
+			"\0seems like it's a draw"
+		}
+		--
+		draws++
+	}
+	elseif cardu == cardg 
+	{
+		if repairglitch != 1
+		{
+			"\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
+		}
+		else
+		{
+			"\0seems like it's a draw"
+		}
+		--
+		draws++
+	}
+	elseif cardu < cardg 
+	{
+		if repairglitch != 1
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"I̴ ̶f̷i̶n̸a̸l̸l̵y̵ ̸w̷o̵n̴ :D"
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿ :D"
+					}
+					else
+					{
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿"
+					}
+				}
+				else
+				{
+					"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"S̴o̵r̴r̴y̴,̸ ̶l̸u̴c̷k̵ ̶i̶s̵ ̵n̷o̴t̶ ̶o̶n̷ ̷y̴o̵u̶r̵ ̸s̴i̷d̴e̴ ̶t̸o̷d̶a̶y̷ >:)"
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿ a̸g̴a̶i̴n̸>:)"
+					}
+					else
+					{
+						"I̸͈̒ ̸̼̿w̴̨̉o̵̮̓n̴̯̿ "
+					}
+				}
+				else
+				{
+					"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
+				}
+			}
+			else
+			{
+				"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
+			}
+		}
+		else
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"I finally won :D"
+						"I won :D"
+					}
+					else
+					{
+						"I won"
+					}
+				}
+				else
+				{
+					"seems like I won"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"Sorry, luck is not on your side today >:)"
+						"I won again >:)"
+					}
+					else
+					{
+						"I won"
+					}
+				}
+				else
+				{
+					"seems like I won"
+				}
+			}
+			else
+			{
+				"seems like I won"
+			}
+		}
+		--
+		userlosses ++
+	}
+	else
+	{
+		if repairglitch != 1
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"L̸u̴c̷k̷ ̶i̵s̵ ̴n̷o̵t̷ ̶o̷n̶ ̶m̵y̸ ̵s̴i̸d̸e̸ ̶t̵o̶d̸a̶y̶ :C"
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ a̶̧̍g̶̘͘a̸̠͆i̸̥̒n̶͚̓ :C"
+					}
+					else
+					{
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
+					}
+				}
+				else
+				{
+					"s̶e̵e̶m̴s̶ ̷l̶i̷k̵e̵ ̵y̶o̴u̷ ̵w̸o̶n̴"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
+					}
+					else
+					{
+						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
+					}
+				}
+				else
+				{
+					"s̷e̴e̸m̵s̴ ̵l̷i̵k̶e̴ ̸y̵o̸u̴ ̴w̶o̶n̸"
+				}
+			}
+			else
+			{
+				"s̶e̵e̶m̴s̶ ̷l̶i̷k̵e̵ ̵y̶o̴u̷ ̵w̸o̶n̴"
+			}
+		}
+		else
+		{
+			if userwins > 5
+			{
+				if userlosses < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"Luck is not on my side today :C"
+						"You won again :C"
+					}
+					else
+					{
+						"You won"
+					}
+				}
+				else
+				{
+					"seems like you won"
+				}
+			}
+			elseif userlosses > 5
+			{
+				if userwins < 3
+				{
+					if numofmood != 2 || numofmood != 5
+					{
+						"You won ^^"
+					}
+					else
+					{
+						"You won"
+					}
+				}
+				else
+				{
+					"seems like you won"
+				}
+			}
+			else
+			{
+				"seems like you won"
+			}
+		}
+		--
+		userwins ++
+	}
+}
+
+ OnShowCard
+ {
+	if cardu == 13
+	{
+		fcardu = "K"
+	}
+	elseif cardu == 12
+	{
+		fcardu = "Q"
+	}
+	elseif cardu == 11
+	{
+		fcardu = "J"
+	}
+	elseif cardu == 1
+	{
+		fcardu = "A"
+	}
+	else
+	{
+		fcardu = cardu
+	}
+	--
+	if cardg == 13
+	{
+	fcardg = "K"
+	}
+	elseif cardg == 12
+	{
+		fcardg = "Q"
+	}
+	elseif cardg == 11
+	{
+		fcardg = "J"
+	}
+	elseif cardg == 1
+	{
+		fcardg = "A"
+	}
+	else
+	{
+		fcardg = cardg
+	}
+	--
+	if cardus == 1
+	{
+		fcardus = "♥"
+	}
+	elseif cardus == 2
+	{
+	fcardus = "♦"
+	}
+	elseif cardus == 3
+	{
+	fcardus = "♣"
+	}
+	elseif cardus == 4
+	{
+	fcardus = "♠"
+	}
+	--
+	if cardgs == 1
+	{
+	fcardzs = "♥"
+	}
+	elseif cardgs == 2
+	{
+	fcardzs = "♦"
+	}
+	elseif cardgs == 3
+	{
+	fcardzs = "♣"
+	}
+	elseif cardgs == 4
+	{
+	fcardzs = "♠"
+	}
+	--
+	field = "\_q\1Your Card:\n\n[half]%(fcardu)%(fcardus)\0\b[2]"
+	--
+	if repairglitch != 1
+	{
+		field += "M̴y̸ ̸C̴a̸r̷d̵:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
+	}
+	 else
+	{
+		field += "%(distingstart)My Card:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
+	}
+ }
+
+//OX游戏，by Pygmalion, loosely translated by Zar
+//edited some by vita to have the AI make mistakes
+OnPlayOX
+{
+    //intializing a tictactoe array with all 0's
+    arrOX = IARRAY
+    for _i = 0; _i < 9; _i++ {
+        arrOX = (arrOX, 0)
+    }
+    --
+    PlayOXshow(0)
+}
+
+PlayOXshow
+{
+	games++
+	m201relationship++
+	--
+	if mood[1] >= 0
+	{
+		mood[1]--
+	}
+	--
+    //this function prints out the tictactoe array
+    _tempstr = ""
+    
+    for _i = 0; _i < 3; _i++ {
+        
+        for _j = 0; _j < 3; _j++ {
+            
+            _temp = _i * 3 + _j
+            
+            
+            if arrOX[_temp] == -1
+                _tempstr = _tempstr + "X"
+            elseif arrOX[_temp] == 1
+                _tempstr = _tempstr + "O"
+            elseif _argv[0] == 0
+                _tempstr = _tempstr + "\q[　,PlayOXrun("+_temp+")]"
+            else
+                _tempstr = _tempstr + "　"
+            if _j != 2
+                _tempstr = _tempstr + " | "
+        }
+        _tempstr = _tempstr + "\n[90]"
+        if _i != 2
+        {
+            _tempstr = _tempstr + "---------"
+        }
+        _tempstr = _tempstr + "\n[90]"
+    }
+    //switching btwn what dialogue to give. -> is the game over or not?
+    switch _argv[0]
+    {
+        "\_q\0\s[0]\b[2]%(username)'s turn\n\n%(_tempstr)\n[half]"
+        
+        {
+			userwins++
+			--
+			if repairglitch != 1
+			{
+				"\_q\0\b[2]\n%(_tempstr)\n[half]\_qI̷ ̸l̸o̷s̴t̷ ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			}
+			else
+            {
+				"\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qI lost ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			}
+		}
+        
+        {
+			draws++
+			--
+			if repairglitch != 1
+			{
+				"\_q\0\b[2]\n%(_tempstr)\n[half]\_qS̴e̶e̸m̵s̸ ̵l̴i̷k̶e̷ ̸i̸t̷'̸s̴ ̴a̴ ̸t̷i̵e̴.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			}
+			else
+            {
+            	"\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qSeems like it's a tie.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			}
+        }
+        
+        {
+			userlosses++
+			--
+            if repairglitch != 1
+			{
+            	"\_q\0\b[2]\n%(_tempstr)\n[half]\_q\nI̶ ̷w̴o̸n̴ ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			}
+			else
+            {
+            	"\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_q\nI won ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			}
+        }
+    }
+	--
+	"\n\n[half]\![*]\q[Back to game menu,gamez]\n\n\![*]\q[Back to main menu,BACKTOMENU]\n\![*]\q[Close,CANCEL]\e"
+}
+
+Select.PlayOXrun
+{
+    arrOX[_argv[0]] = -1
+    
+
+    if PlayOXover(_argv[0]) != 1
+    {
+        _tempid = -1
+        _rightmax = -24
+        _tempright = 0
+        //loop through ox array
+        for _i = 0; _i < 9; _i++ {
+            //if it's a blank spot
+            if arrOX[_i] == 0
+            {
+                //check if this would make a win for the AI
+                arrOX[_i] = 1
+                if PlayOXover(_i) == 1
+                {
+                    arrOX[_i] = 0
+                    _tempid = _i
+                    break
+                }
+                
+                
+                _rightmin = 24
+                for _j = 0; _j < 9; _j++ {
+                    if arrOX[_j] == 0
+                    {
+                        //anticipate the player's next move
+                        arrOX[_j] = -1
+                        _tempright = 0
+                        _temparry = IARRAY
+                        _temparry = (_temparry,arrOX[0] + arrOX[1] + arrOX[2]) //row 1
+                        _temparry = (_temparry,arrOX[3] + arrOX[4] + arrOX[5]) //row 2
+                        _temparry = (_temparry,arrOX[6] + arrOX[7] + arrOX[8]) //row 3
+                        _temparry = (_temparry,arrOX[0] + arrOX[3] + arrOX[6]) //col 1
+                        _temparry = (_temparry,arrOX[1] + arrOX[4] + arrOX[7]) //col 2
+                        _temparry = (_temparry,arrOX[2] + arrOX[5] + arrOX[8]) //col 3
+                        _temparry = (_temparry,arrOX[0] + arrOX[4] + arrOX[8]) //diag 1
+                        _temparry = (_temparry,arrOX[2] + arrOX[4] + arrOX[6]) //diag 2
+                        _oxnum = 0
+                        foreach _temparry; _k {
+                            _tempright += _k
+                            if _k == -3
+                                _oxnum = 24
+                            if _k == -2
+                                _oxnum++
+                            if _k == 2
+                                _oxnum--
+                        }
+                        if _oxnum > 1
+                            _tempright = -24
+                        if _tempright < _rightmin
+                        {
+                            _rightmin = _tempright
+                        }
+                        arrOX[_j] = 0
+                    }
+                }
+                
+                
+                if _rightmin > _rightmax
+                {
+                    _rightmax = _rightmin
+                    _tempid = _i
+                }
+                //change back
+                arrOX[_i] = 0
+            }
+        }
+        
+        //determine if there are spaces left
+        if (_tempid == -1) {
+            //if so, semi-randomly pick a spot
+            _tempid = OXMistakes()
+        }
+        
+        
+        //if tempid unchanged, its a tie
+        if _tempid == -1 {
+            PlayOXshow(2)
+        }
+        else
+        {
+            
+            //make a move -> winning move for AI if found early on
+            
+            //tweak the chance as you feel like
+            if RAND(100) < 15 {
+                //function to determine random mistakes
+                _tempid = OXMistakes()
+                arrOX[_tempid] = 1
+            } else {
+                arrOX[_tempid] = 1
+            }
+            
+            //if the move the AI made results in a win for the AI, show the win sentence for the AI, else continue
+            if PlayOXover(_tempid) == 1
+            {
+                PlayOXshow(3)
+            }
+            else
+            {
+                PlayOXshow(0)
+            }
+        }
+    }
+    else //if the move the player made results in a win display player win dialogue
+        PlayOXshow(1)
+}
+
+PlayOXover
+{
+    //function to determine if the tictactoe game is over (and one of the players have won)
+    //argv is the square to check
+    _nowrow = _argv[0] / 3
+    _nowcolumn = _argv[0] % 3
+    
+    //first two check row and column for a completed line of x's or o's
+    //last two check diagonals
+    if arrOX[_nowrow*3] == arrOX[_nowrow*3+1] && arrOX[_nowrow*3+1] == arrOX[_nowrow*3+2] && arrOX[_nowrow*3] != 0 /
+    || arrOX[_nowcolumn] == arrOX[3+_nowcolumn] && arrOX[3+_nowcolumn] == arrOX[6+_nowcolumn] && arrOX[_nowcolumn] != 0 /
+    || arrOX[0] == arrOX[4] && arrOX[4] == arrOX[8] && arrOX[8] != 0 /
+    || arrOX[2] == arrOX[4] && arrOX[4] == arrOX[6] && arrOX[6] != 0
+    {
+        1
+    }
+    else
+        0
+}
+
+//first pass at adding in mistakes
+OXMistakes {
+    //randomly pick a spot, else pick the first open spot if the random spot picked is already filled
+     _OXspot = RAND(9)
+    if arrOX[_OXspot] == 0 {
+        _OXspot
+    } else {
+        for _i = 0; _i < 9; _i++ {
+            if arrOX[_i] == 0 {
+                _i
+            }
+        }
+        -1
+    }
+    
+}
+
+
+Select.act
+{
+	if repairglitch != 1
+	{
+		"H̴m̴?̶\n\n[half]"
+	}
+	else
+	{
+		"%(distingstart)Hm?\n\n[half]"
+	}
+	--
+	if numofmood == 5 && m201relationship > 150
+	{
+		"\![*]\q[Cheer up,cheerup]\n"
+		"\![*]\q[Comfort,cheerup]\n"
+	}
+	--
+	"\![*]\q[Tell him...,tell]\n"
+	//--
+	//"\![*]\q[Joke,joke]\n"
+	--
+	if searchforhobby == 1
+	{
+		"\![*]\q[You might like...,like]\n"
+		--
+		if thingstolearn >= 1
+		{
+			//"\![*]\q[Teach him...,teach]\n"
+		}
+		--
+		"\![*]\q[Recommend...,recc]\n"
+	}
+	--
+	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.cheerup
+{
+	"\![*]\q[You wouldn't be able to do anything anyways,OnCheerUp,couldntdoanythingsanyways]\n/
+	\![*]\q[It's not your fault,OnCheerUp,notyourfault]\n/
+	\![*]\q[*Sends Virtual Hugs*,OnCheerUp,sendshugs]\n"
+	//\![*]\q[I'm sorry,OnCheerUp,sorry]\n"
+	--
+	"\n\n[half]\![*]\q[Go Back,act]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnCheerUp
+{
+	cheerups++
+	--
+	case reference0
+	{
+		when "couldntdoanythingsanyways"
+		{
+			if repairglitch != 1
+			{
+				"Y̷o̶u̸'̴r̵e̶ ̴r̸i̵g̴h̴t̶ ̷b̶u̶t̸ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				"I̵ ̸k̸n̴o̸w̵ ̶b̷u̷t̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				"I̷ ̴k̷n̷o̸w̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+			}
+			else
+			{
+				"%(distingstart)You're right bu.\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				"%(distingstart)I know but .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				"%(distingstart)I know .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				--
+				mood[5]++
+			}
+		}
+		when "notyourfault"
+		{
+			if repairglitch != 1
+			{
+				"I̵ ̸k̸n̴o̸w̵ ̶b̷u̷t̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				"I̷ ̴k̷n̷o̸w̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+			}
+			else
+			{
+				"%(distingstart)I know but .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				"%(distingstart)I know .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				--
+				mood[5]--
+				mood[2]++
+			}
+		}
+		when "sendshugs"
+		{
+			if repairglitch != 1
+			{
+				"He̸h̶,̵ ̸t̶h̷a̶n̸k̵s̴ ̵*̵S̸e̴n̸d̶s̶ ̴h̵u̴g̸s̷ ̶b̸a̴c̶k̵*̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+			}
+			else
+			{
+				"%(distingstart)Heh, thanks *Sends hugs back*c̶k̵*̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				--
+				mood[4]++
+				mood[2]--
+			}
+		}
+		when "sorry"
+		{
+			if repairglitch != 1
+			{
+
+			}
+			else
+			{
+				"%(distingstart)"
+			}
+		}
+	}
+	--
+	"\![Try again,cheerup] | \![Cancel,CANCEL]\e"
+}
+
+Select.teach
+{
+	"\![*]\q[Animal,OnTeachMZ,animal] | \![*]\q[Food,OnTeachMZ,food]\n/
+	\![*]\q[Plant,OnTeachMZ,plant] | \![*]\q[Holiday,OnTeachMZ,holiday]\n"
+	--
+	"\n\n[half]\![*]\q[Go Back,act]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnTeachMZ
+{
+	case reference0
+	{
+		when "animal"
+		{
+			"%(ch)%(distingstart)Oh, what is it called?\![open,inputbox,OnLearn_Animal_one,-1]"
+		}
+		when "food"
+		{
+			
+		}
+		when "plant"
+		{
+			
+		}
+		when "holiday"
+		{
+			
+		}
+	}
+}
+
+OnLearn_Animal_one
+{
+	animals[animalslearnt] += reference0 + "."
+	--
+	if reference0 != ""
+	{
+		"%(ch)%(distingstart)%(reference0)? Is it a mamal, reptile, bird, a fish, amphibian or invertebrate?"
+		--
+		"\![*]\q[Mamal,OnLearn_Animal_two,mamal] | \![*]\q[Reptile,OnLearn_Animal_two,reptile]\n/
+		\![*]\q[Bird,OnLearn_Animal_two,bird] | \![*]\q[Fish,OnLearn_Animal_two,fish]\n/
+		\![*]\q[Amphibian,OnLearn_Animal_two,amphibian] | \![*]\q[Invertebrate,OnLearn_Animal_two,invertebrate]\n"
+	}
+	else
+	{
+		"%(distingstart).\w7 .\w7 .\w7 .\w7 .\w7 you didn't write anything"
+	}
+	--
+	"\e"
+}
+
+OnLearn_Animal_two
+{
+	animals += reference0 + "."
+	--
+	if reference0 == "mamal"
+	{
+		"%(ch)%(distingstart)Oh does it have furr or hair?"
+		--
+		"\![*]\q[Fur,OnLearn_Animal_three,fur] | \![*]\q[Hair,OnLearn_Animal_three,hair] | /
+		\![*]\q[It's Bald,OnLearn_Animal_three,bald]\e"
+	}
+	elseif reference0 == "reptile"
+	{
+		animals += "skales" + "."
+		--
+		OnLearn_Animal_three
+	}
+	elseif reference0 == "bird"
+	{
+		animals += "feathers" + "."
+		--
+		OnLearn_Animal_three
+	}
+	elseif reference0 == "fish"
+	{
+		animals += "fish scales" + "."
+		--
+		OnLearn_Animal_three
+	}
+	elseif reference0 == "amphibian"
+	{
+		animals += "skin" + "."
+		--
+		OnLearn_Animal_three
+	}
+	elseif reference0 == "invertebrate"
+	{
+		animals += "???" + "."
+		--
+		OnLearn_Animal_three
+	}
+}
+
+OnLearn_Animal_three
+{
+	if reference0 != ""
+	{
+		animals += reference0 + "."
+	}
+	--
+	"%(ch)%(distingstart)How big is it?"
+	--
+	"\![*]\q[Very big,OnLearn_Animal_four,v_big] | \![*]\q[Big,OnLearn_Animal_four,big]\n/
+	\![*]\q[Medium,OnLearn_Animal_four,medium] | \![*]\q[Small,OnLearn_Animal_four,small]\n/
+	\![*]\q[Very Small,OnLearn_Animal_four,v_small]\e"
+}
+
+OnLearn_Animal_four
+{
+	animals += reference0 + "."
+	--
+	"%(ch)%(distingstart)Is it omnivore, herbivore or carnivore"
+	--
+	"\![*]\q[Herbivore,OnLearn_Animal_end,herb] | \![*]\q[Omnivore,OnLearn_Animal_end,omni]\n/
+	\![*]\q[Carnivore,OnLearn_Animal_end,carni]\e"
+}
+
+OnLearn_Animal_end
+{
+	animalslearnt++
+	--
+	"%(distingstart)Got it! Now I know one animal more ^^"
+}
+
+Select.recc
+{
+	"\![open,inputbox,OnRecc,-1]\e"
+}
+
+OnRecc
+{
+	if reference0 != ""
+	{
+		"%(distingstart)%(reference0)? What's that?"
+		--
+		"\![*]\q[Book,OnRecc_save,book] | \![*]\q[Comic,OnRecc_save,comic]\n/
+		\![*]\q[Manga,OnRecc_save,manga] | \![*]\q[Manhwa,OnRecc_save,manhwa]\n/
+		\![*]\q[Anime,OnRecc_save,anime] | \![*]\q[Cartoon,OnRecc_save,cartoon]\n/
+		\![*]\q[Serial,OnRecc_save,serial] | \![*]\q[Movie,OnRecc_save,movie]\n/
+		\![*]\q[Song,OnRecc_save,song] | \![*]\q[Band,OnRecc_save,band]\n/
+		\![*]\q[Author,OnRecc_save,author]" //| \![*]\q[Genre,OnRecc_save,genre]\n/"
+	}
+	else
+	{
+		"%(distingstart).\w7 .\w7 .\w7 .\w7 .\w7 you didn't write anything"
+	}
+	--
+	"\n\n[half]\![*]\q[Go Back,act]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnRecc_save
+{
+	uknowthis = TOLOWER(reference0)
+	--
+	case reference0
+	{
+		when "book"
+		{
+			recommended[0] += TOLOWER(reference0) + "."
+			--
+			//if uknowthis == "SILO"
+			//{
+
+			//}
+			//else
+			//{
+				"%(distingstart)Hope I will be able to read it soon ^^"
+			//}
+		}
+		when "comic"
+		{
+			recommended[1] += reference0 + "."
+			--
+			"%(distingstart)Hope I will be able to read it soon ^^"
+		}
+		when "manga"
+		{
+			recommended[2] += reference0 + "."
+			--
+			if "manga-geek " !_in_ m201zcharacter
+			{
+				"%(distingstart).\w5 .\w5 .\w5 What's manga?"
+				--
+				"\![*]\q[Japanese Comics,OnExplain,manga,lemmeexplain] | \![*]\q[. . . you know what, forget it,OnExplain,manga,iaintateach]"
+			}
+			else
+			{
+				"%(distingstart)Hope I will be able to read it soon ^^"
+			}
+		}
+		when "manhwa"
+		{
+			recommended[3] += reference0 + "."
+			--
+			if "manhwa-geek " !_in_ m201zcharacter
+			{
+				"%(distingstart)What is 'manhwa'?"
+				--
+				"\![*]\q[Korean Comics,OnExplain,manhwa,lemmeexplain] | \![*]\q[. . . you know what, forget it,OnExplain,manhwa,iaintateach]"
+
+			}
+			else
+			{
+				"%(distingstart)Hope I will be able to read it soon ^^"
+			}
+		}
+		when "anime"
+		{
+			recommended[4] += reference0 + "."
+			--
+			if  "anime-geek " !_in_ m201zcharacter
+			{
+				"%(distingstart)Uhm .\w6 .\w6 .\w6 .\w6 .\w6 what's anime?"
+				--
+				"\![*]\q[Japanese Animation,OnExplain,anime,lemmeexplain] | \![*]\q[. . . you know what, forget it,OnExplain,anime,iaintateach]"
+
+			}
+			else
+			{
+				"%(distingstart)Hope I will be able to watch it soon ^^"
+			}
+		}
+		when "cartoon"
+		{
+			recommended[5] += reference0 + "."
+			--
+			"%(distingstart)Hope I will be able to watch it soon ^^"
+		}
+		when "serial"
+		{
+			recommended[6] += reference0 + "."
+			--
+			"%(distingstart)Hope I will be able to watch it soon ^^"
+		}
+		when "movie"
+		{
+			recommended[7] += reference0 + "."
+			--
+			"%(distingstart)Hope I will be able to watch it soon ^^"
+		}
+		when "song"
+		{
+			recommended[8] += reference0 + "."
+			--
+			"%(distingstart)Hope I will be able to listen to it soon ^^"
+		}
+		when "band"
+		{
+			recommended[9] += reference0 + "."
+			--
+			if uknowthis == "7 graves"
+			{
+				"%(distingstart)Oh, I think I know them! I saw one of their song on youtube, I think it was '%(7graves)'"
+			}
+			elseif uknowthis == "glass animals"
+			{
+				"%(distingstart)Oh, I think I know them! I saw one of their song on youtube, I think it was '%(glassanimals)'"
+			}
+			else
+			{
+				"%(distingstart)Hope I will be able to listen to it soon ^^"
+			}
+		}
+		when "author"
+		{
+			recommended[10] += reference0 + "."
+			--
+			"%(distingstart)Hope I will be able to read some of their books soon ^^"
+		}
+		when "genre"
+		{
+			recommended[11] += reference0 + "."
+			--
+			"%(distingstart)" //???
+		}
+
+	}
+}
+
+Select.like
+{
+	"\_q\b2Reading\n"
+	--
+	"\n[half]\![*]\q[Books,OnHobby,books] | \![*]\q[Comics,OnHobby,comics] | \![*]\q[Mangas,OnHobby,manga]\n/
+	\![*]\q[Manhwas,OnHobby,manhwa]\n"
+	--
+	"\n[half]Watching\n"
+	--
+	"\n[half]\![*]\q[Anime,OnHobby,anime] | \![*]\q[Cartoons,OnHobby,cartoon] | \![*]\q[Movies,OnHobby,movie]\n"
+	--
+	"\n[half]\![*]\q[Cooking,OnHobby,cooking]\n/
+	\![*]\q[Art,OnHobby,art]\n/
+	\![*]\q[Music,OnHobby,music]\n/
+	\![*]\q[Photography,OnHobby,photo]\n/
+	\![*]\q[Sports,OnHobby,sport]\n/
+	\![*]\q[Gardening,OnHobby,plants]\n/
+	\![*]\q[Technology,OnHobby,plants]\n/
+	\![*]\q[Animals,OnHobby,animal]\n"
+	--
+	"\n\n[half]\![*]\q[Go Back,act]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnHobby
+{
+	case reference0
+	{
+		when "books"
+		{
+			m201relationship++
+			--
+			if "book-worm" !_in_ m201zcharacter
+			{
+				"%(distingstart)Books? well, it might be nice\w3 but as long as I'm trapped here, I probably won't be able to read anything,\w3 unless you have some ebooks here .\w5 .\w5 .\w5 .\w5 .\w5 "
+				--
+				if " books " _in_ questionsasked
+				{
+					"Do you like to read books?\n\n[half]\q[Yes,OnUChar,book-worm,yes] | \q[No,OnUChar,book-worm,no]"
+				}
+				--
+				m201zcharacter += "book-worm "
+			}
+			else
+			{
+				randbook = RAND(100)
+				--
+				OnBookStuff
+				--
+				"%(distingstart)I searched the web for some books and I found '%(booksplit[randbook])' by %(authorsplit[randbook])"
+				--
+				if "book-worm" _in_ usercharacter
+				{
+					",\w3 not sure what is it about maybe you might give it a read?"
+				}
+				else
+				{
+					",\w3 someday I might be able to read it"
+				}
+			}
+		}
+		when "comics"
+		{
+			m201relationship++
+			--
+			if "comics-nerd" !_in_ m201zcharacter
+			{
+				"%(distingstart)Comics?\w8 like the superhero ones?\w8 Well\w7 when I find a new body I might as well give it a try"
+				--
+				m201zcharacter += "comics-nerd "
+			}
+			else
+			{
+				"%(distingstart)Someday I will for sure read some"
+			}
+		}
+		when "manga"
+		{
+			m201relationship++
+			--
+			if "manga-geek" !_in_ m201zcharacter
+			{
+				"%(distingstart).\w5 .\w5 .\w5 What's manga?"
+				--
+				"\![*]\q[Japanese Comics,OnExplain,manga,lemmeexplain] | \![*]\q[. . . you know what, forget it,OnExplain,manga,iaintateach]"
+			}
+			else
+			{
+				"%(distingstart)Someday I will for sure read some"
+			}
+		}
+		when "manhwa"
+		{
+			m201relationship++
+			--
+			if "manhwa-geek" !_in_ m201zcharacter
+			{
+				"%(distingstart)What is 'manhwa'?"
+				--
+				"\![*]\q[Korean Comics,OnExplain,manhwa,lemmeexplain] | \![*]\q[. . . you know what, forget it,OnExplain,manhwa,iaintateach]"
+			}
+			else
+			{
+				"%(distingstart)Someday I will for sure read some"
+			}
+		}
+		when "anime"
+		{
+			m201relationship++
+			--
+			if "anime-geek" !_in_ m201zcharacter
+			{
+				"%(distingstart)Uhm .\w6 .\w6 .\w6 .\w6 .\w6 what's anime?"
+				--
+				"\![*]\q[Japanese Animation,OnExplain,anime,lemmeexplain] | \![*]\q[. . . you know what, forget it,OnExplain,anime,iaintateach]"
+			}
+			else
+			{
+				"%(distingstart)Someday I will for sure watch some"
+			}
+		}
+		when "cartoon"
+		{
+			m201relationship++
+			--
+			if "cartoon-geek" !_in_ m201zcharacter
+			{
+				"%(distingstart)Huh? Cartoons? well, I don't see why not"
+				--
+				m201zcharacter += "cartoon-geek "
+			}
+			else
+			{
+				"%(distingstart)Someday I will for sure watch some"
+			}
+		}
+		when "movie"
+		{
+			m201relationship++
+			--
+			if "movie-geek" !_in_ m201zcharacter
+			{
+				"%(distingstart)Movies? Well, I don't see why not"
+				--
+				m201zcharacter += "movie-geek "
+			}
+			else
+			{
+				"%(distingstart)Someday I will for sure watch some"
+			}
+		}
+		when "cooking"
+		{
+			if "kiss-the-cook" !_in_ m201zcharacter
+			{
+				"%(distingstart)I feel like someone who can't even taste or smell his dish will not be the best at cooking, it was a nice idea though"
+				--
+				m201zcharacter += "kiss-the-cook "
+			}
+			else
+			{
+				"%(distingstart)Cooking is sadly off my limits"
+			}
+		}
+		when "art"
+		{
+			m201relationship++
+			--
+			if "what-is-art" !_in_ m201zcharacter
+			{
+				"%(distingstart)Art? .\w6 .\w6 .\w6 .\w6 actually\w3 I tried drawing before,\w8 it was not the best but practice makes perfect right?"
+				--
+				m201zcharacter += "what-is-art "
+			}
+			else
+			{
+				"%(distingstart)Maybe DAVD has some of my drawings still on his computer? Well, when I find him I will be sure to show you"
+			}
+		}
+		when "music"
+		{
+			m201relationship++
+			--
+			if "MP3-player" !_in_ m201zcharacter
+			{
+				m201zcharacter += "MP3-player "
+				--
+				"%(distingstart)Music? Like playing an instrument? That might be a good idea actually, but I will haveto wait untill I find a new body .\w6 .\w6 .\w6 .\w6 .\w6 Do you play any instruments?"
+				--
+				"\![*]\q[Yes,OnUChar,music,yes] | \![*]\q[No,OnUChar,music,no]"
+			}
+			else
+			{
+				"%(distingstart)Finding a body might take some time, maybe I should learn musical notes by then?"
+			}
+		}
+		when "photo"
+		{
+			if "photo-bot" !_in_ m201zcharacter
+			{
+				"%(distingstart)Huh, photography is not for me, maybe someday I will try though"
+				--
+				m201zcharacter += "photo-bot "
+			}
+			else
+			{
+				"%(distingstart)Huh, photography is not for me, maybe someday I will try though"
+			}
+		}
+		when "sport"
+		{
+			m201relationship--
+			--
+			if "say-no-to-workout" !_in_ m201zcharacter
+			{
+				"%(distingstart)-,- ha ha ha very funny .\w7 .\w7 .\w7 maybe when I find a new body I will try some kind of sport."
+				--
+				m201zcharacter += "say-no-to-workout "
+			}
+			else
+			{
+				"%(distingstart)-,-"
+			}
+		}
+		when "plants"
+		{
+			m201relationship++
+			--
+			if "trees-are-nice" !_in_ m201zcharacter
+			{
+				"%(distingstart)Gardening? Unless you have some spare body for me it won't work, well, I might search for some info on plant but gardening itself is, sadly, out of my reach for now."
+				--
+				m201zcharacter += "trees-are-nice "
+			}
+			else
+			{
+				plantnum = ARRAYSIZE(plants)
+				randplant = RAND(plantnum)
+				plantsplit = SPLIT(plants[randplant],".")
+				plantname = plantsplit[0]
+				plantcolors = SPLIT(plantsplit[1],"+")
+				colornum = ARRAYSIZE(plantcolors)
+				randcolor = RAND(colornum)
+				--
+				"%(distingstart)DAVD also said that I should try gardening,\w5 I never did since I didn't have a body but DAVD seems happy that I was interested in his hobby."
+				"%(distingstart)DAVD liked plants,\w7 with how busy he was I'm suprised those plants even survived."
+				"%(distingstart)One time DAVD showed me a %(plantcolors[randcolor]) %(plantname),\w6 it was beautiful"
+			}
+		}
+		when "animal"
+		{
+			if "pet-the-lizard" !_in_ m201zcharacter
+			{
+				"%(distingstart)Animals huh? I don't even know any animals ;-; .\w5 .\w5 .\w5 I can actully search the web for some if you don't mind, this will be a good opportuninty to learn."
+				--
+				m201zcharacter += "pet-the-lizard "
+				petthelizard = 120
+				thingstolearn++
+			}
+			else
+			{
+				if animalslearnt < 1
+				{
+					"%(distingstart)I .\w8 .\w8 .\w8 still don't know any animals ._."
+				}
+				else
+				{
+					"%(distingstart)Animals seems interesting"
+				}
+			}
+		}
+		when "tech"
+		{
+			if "tech-nerd" !_in_ m201zcharacter
+			{
+				"%(distingstart)Guess that could work? But I don't know if it will stick, technology might be where I started but it might not be I will end up"
+				--
+				m201zcharacter += "tech-nerd "
+			}
+			else
+			{
+				"%(distingstart)Technology is an interesting topic"
+			}
+		}
+	}
+}
+
+OnUChar
+{
+	case reference0
+	{
+		when "book-worm"
+		{
+			questionsasked += " books "
+			--
+			case reference1
+			{
+				when "yes"
+				{
+					usercharacter += " book-worm "
+					--
+					"%(distingstart)That's nice ^^"
+				}
+				when "no"
+				{
+					"%(distingstart)Well, not every hobby is for everyone ^^"
+				}
+			}
+		}
+		when "music"
+		{
+			questionsasked += " music "
+			--
+			case reference1
+			{
+				when "yes"
+				{
+					usercharacter += " musician "
+					--
+					"%(distingstart)That's cool :O what do you play?\![open,inputbox,OnInstrument,-1]"
+				}
+				when "no"
+				{
+					"%(distingstart)Well, not every hobby is for everyone ^^"
+				}
+			}
+		}
+	}
+}
+
+OnInstrument
+{
+	userplaysmusic = reference0
+	--
+	"%(distingstart)%(reference0)? That's so cool!"
+}
+
+Select.tell
+{
+	_logs = FENUM(+)
+	--
+	"\![*]\q[You look nice,OnTell,ulooknoice]\n/
+	\![*]\q[You're funny,OnTell,ufunny]\n/
+	\![*]\q[You're nice,OnTell,unice]\n/
+	\![*]\q[I like your company,OnTell,nicecompany]\n"
+	//--
+	//if "Log#12.10" _in_ _logs
+	//{
+	//	"\![*]\q[Log#12.10,OnOldNotebook,log]\n"
+	//}
+	--
+	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnTell
+{
+	case reference0
+	{
+		when "ulooknoice"
+		{
+			if repairglitch != 1
+			{
+				case numofmood
+				{
+					when 0,1
+					{
+						".\w5 .\w5 .\w5?"
+					}
+					when 2,5
+					{
+						".\w5 .\w5 .\w5 W̶a̴s̵ ̷t̶h̴a̴t̴ ̶s̷u̷p̷p̴o̸s̵e̵d̴ ̸t̵o̵ ̷b̴e̸ ̸a̷ ̴j̷o̵k̷e̴?̶\w3 w̷e̷l̵l̵,\w2 i̴t̴ ̸w̵a̷s̸ ̴a̸n̴ ̷a̵w̴f̴u̴l̷ ̶o̸n̵e̶"
+						".\w5 .\w5 .\w5 I̵f̷ ̵t̴h̴a̷t̷ ̴w̶a̷s̸ ̴a̸ ̴j̸o̷k̷e̸ ̵i̵t̵ ̵w̴a̷s̴ ̷a̸n̵ ̵a̵w̷f̶u̸l̷ ̴o̵n̷e̵"
+						".\w5 .\w5 .\w5"
+					}
+					when 3,4
+					{
+						".\w5 .\w5 .\w5"
+					}
+				}
+				--
+				mood[2] ++
+				mood[3] --
+				mood[4] --
+				m201relationship--
+			}
+			else
+			{
+				case numofmood
+				{
+					when 0,1
+					{
+						"%(distingstart).\w5 .\w5 .\w5?"
+					}
+					when 2,5
+					{
+						"%(distingstart).\w5 .\w5 .\w5 Was that supposed to be a joke?\w3 well,\w2 it was an awful one"
+						"%(distingstart).\w5 .\w5 .\w5 If that was a joke it was an awful one"
+						"%(distingstart).\w5 .\w5 .\w5"
+					}
+					when 3,4
+					{
+						"%(distingstart).\w5 .\w5 .\w5"
+					}
+				}
+				--
+				mood[2] ++
+				mood[3] --
+				mood[4] --
+				m201relationship--
+			}
+		}
+		when "ufunny"
+		{
+			m201relationship ++
+			--
+			if repairglitch != 1
+			{
+				case numofmood
+				{
+					when 0,1
+					{
+						"H̶u̵h̵?̵\w7 ̷T̶h̶a̸n̶k̷s̸?̸\w7 ̸I̸ ̴g̶u̴e̷s̷s̶?\w7"
+						"T̵h̶a̵n̷k̴s̴ ̸I̵ ̶g̵u̴e̴s̵s̵?̸"
+					}
+					when 2,5
+					{
+						"U̸h̵m̸,̵\w7 ̷t̵h̶a̶n̴k̵s̶ ̵I̵\w4 g̸u̶e̴s̴s̴"
+					}
+					when 3,4
+					{
+						"H̶u̵h̵?̵\w7 ̷T̶h̶a̸n̶k̷s̸?̸\w7 ̸I̸ ̴g̶u̴e̷s̷s̶?\w7"
+						"B̴u̴t̷ ̵I̵ ̴d̶o̸n̴'̵t̴ ̴t̷h̶i̷n̵k̸ ̸I̴ ̶t̷o̴l̵d̵ ̷a̵n̷y̶ ̴j̸o̴k̸e̶s̴?̸"
+					}
+				}
+			}
+			else
+			{
+				case numofmood
+				{
+					when 0,1
+					{
+						"%(distingstart)Huh? Thanks? I guess?"
+						"%(distingstart)Thanks I guess?"
+					}
+					when 2,5
+					{
+						"%(distingstart)Uhm, thanks I\w4 guess"
+					}
+					when 3,4
+					{
+						"%(distingstart)Huh? Thanks? I guess?"
+						"%(distingstart)But I don't think I told any jokes?"
+					}
+				}
+			}
+			--
+			mood[4]++
+		}
+		when "unice"
+		{
+			m201relationship ++
+			--
+			if repairglitch != 1
+			{
+				case numofmood
+				{
+					when 0
+					{
+						"T̵h̷a̵n̷k̸s̵,̷ ̵I̷ ̷t̸h̷i̴n̴k̸ ̸y̷o̴u̷'̷r̶e̷ ̵n̴i̸c̴e̷ ̴t̵o̴o̴ ^^"
+					}
+					when 1
+					{
+						"O̸h̸?̶\w8 ̷t̵h̶a̵n̸k̶s̷  ^^"
+					}
+					when 2
+					{
+						"O̸h̸,\w8 ̷t̵h̶a̵n̸k̶s̷  .\w5 .\w5 .\w5"
+						"O̸h̸?̶\w8 ̷t̵h̶a̵n̸k̶s̷  .\w5 .\w5 .\w5"
+					}
+					when 3,4
+					{
+						"T̶h̴a̷n̵k̵s̴,̵ ̴I̸ ̶t̸h̷i̷n̴k̴ ̴y̸o̴u̷'̵r̸e̶ ̴n̷i̵c̷e̶ ̵t̸o̶o̴ ^^"
+						"T̸h̴a̷n̸k̸s̴!̵ ̸Y̶o̷u̸'̶r̵e̷ ̸n̵i̵c̷e̶ ̴t̶o̶o̸ :D"
+					}
+					when 5
+					{
+						"O̸h̸?̶\w8 ̷t̵h̶a̵n̸k̶s̷  .\w5 .\w5 .\w5"
+						--
+						mood[5]++
+					}
+				}
+			}
+			else
+			{
+				case numofmood
+				{
+					when 0
+					{
+						"%(distingstart)Thanks, I think you're nice too ^^"
+					}
+					when 1
+					{
+						"%(distingstart)Oh? Thanks ^^"
+					}
+					when 2
+					{
+						"%(distingstart)Oh, thanks .\w5 .\w5 .\w5"
+					}
+					when 3
+					{
+						"%(distingstart)Thanks, I think you're nice too ^^"
+						"%(distingstart)Thanks! You're nice too :D"
+					}
+					when 4
+					{
+						"%(distingstart)Thanks, I think you're nice too ^^"
+						"%(distingstart)Thanks! You're nice too :D"
+					}
+					when 5
+					{
+						"%(distingstart)Oh? thanks .\w5 .\w5 .\w5"
+						--
+						mood[5]++
+					}
+				}
+			}
+			--
+			mood[4]++
+			mood[3]++
+		}
+		when "nicecompany"
+		{
+			m201relationship ++
+			--
+			if repairglitch != 1
+			{
+				case numofmood
+				{
+					when 0,1
+					{
+						"T̷h̸a̸t̴'̵s̸ ̵n̷i̵c̶e̶ ̸t̶o̶ ̷h̴e̸a̵r̴ ^^ T̵h̷a̸n̷k̶ ̵y̸o̸u̷"
+					}
+					when 2
+					{
+						"O̸h̸?̶\w8 ̷t̵h̶a̵n̸k̶s̷ .\w8 .\w8 .\w8"
+					}
+					when 3,4
+					{
+						"t̴h̷a̶n̴k̴s̶,̶ ̸I̵ ̶t̴h̴i̵n̸k̵ ̴y̶o̵u̷'̶r̴e̵ ̷n̷i̴c̸e̷ ̸t̴o̸o̶ ^^"
+						"T̸h̵a̵n̷k̵s̴!̸ ̴Y̴o̴u̷'̵r̶e̷ ̶n̴i̸c̷e̷ ̵t̸o̸o̵ :D"
+					}
+					when 5
+					{
+						"O̸h̸?̶\w8 ̷t̵h̶a̵n̸k̶s̷ .\w8 .\w8 .\w8"
+						--
+						mood[5]++
+					}
+				}
+			}
+			else
+			{
+				case numofmood
+				{
+					when 0,1
+					{
+						"%(distingstart)That's nice to hear ^^ Thank you"
+					}
+					when 2
+					{
+						"%(distingstart)Oh?\w8 thanks .\w8 .\w8 .\w8"
+					}
+					when 3,4
+					{
+						"%(distingstart)Thanks, I think you're nice too ^^"
+						"%(distingstart)Thanks! You're nice too :D"
+					}
+					when 5
+					{
+						"%(distingstart)Oh?\w8 thanks .\w8 .\w8 .\w8"
+						--
+						mood[5]--
+					}
+				}
+			}
+		}
+	}
+	--
+	"\e"
+}
+
+OnBookStuff
+{
+	_file = "var\\book.html"
+    _buff= ""
+    _regquote = 'aria-level=' + "'" + 4 + "'" + '>(.*)</span>'
+    _regeauthor = '<span itemprop="name">([\w|\s]*)</span></a>'
+	_booklinkregex = '<a class="bookTitle" itemprop="url" href="(.*)">'
+    quote = ""
+    author = ""
+    _found = 0
+	bookpage = "\b2\_q\*"
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file){
+
+			if RE_SEARCH ( _buff, _regquote ) {
+					
+				quote += RE_GETSTR[1] + "+"  
+			}
+			--
+			if RE_SEARCH ( _buff, _regeauthor ) {
+					
+				author += RE_GETSTR[1] + "+"  
+			}
+			--
+			if RE_SEARCH ( _buff, _booklinkregex ) {
+					
+				booklink += RE_GETSTR[1] + "+"  
+			}
+		}
+    }
+    --
+    FCLOSE(_file);
+    --
+	quote = REPLACE(quote,",","~~")
+	booksplit = SPLIT(quote,"+")
+	--
+	booklink = SPLIT(booklink,"+")
+	--
+	author = REPLACE(author,",","~~")
+	authorsplit = SPLIT(author,"+")
+}
+
+
+OnExplain
+{
+	case reference0
+	{
+		when "manga"
+		{
+			if reference1 == "lemmeexplain"
+			{
+				"%(distingstart)Comics?\w8 well,\w7 sounds good for me\w7 when I find a new body I might give it a try"
+				--
+				m201zcharacter += "manga-geek "
+			}
+			else
+			{
+				"%(distingstart)Uh .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 alright then"
+			}
+		}
+		when "manhwa"
+		{
+			if reference1 == "lemmeexplain"
+			{
+				"%(distingstart)Comics?\w8 well,\w7 sounds good for me\w7 when I find a new body I might give it a try"
+				--
+				m201zcharacter += "manhwa-geek "
+			}
+			else
+			{
+				"%(distingstart)Uh .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 alright then"
+			}
+		}
+		when "anime"
+		{
+			if reference1 == "lemmeexplain"
+			{
+				"%(distingstart)Oh,\w5 that sounds cool,\w6 maybe we will get watch some together someday!"
+				--
+				"\![*]\q[I hope so!,animeandchill,ye] | \![*]\q[I don't like anime,animeandchill,noweebshere] | \![*]\q[Uhm, no thanks,animeandchill,wowmean]"
+				--
+				m201zcharacter += "anime-geek "
+			}
+			else
+			{
+				"%(distingstart)Uh .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 alright then"
+			}
+		}
+	}
+}
+
+Select.animeandchill
+{
+	if reference0 == "ye"
+	{
+		usercharacter += " anime-geek "
+		--
+		"%(distingstart)Yay :D"
+		mood[2]--
+		mood[3]++
+		mood[4]++
+	}
+	elseif reference0 == "noweebshere"
+	{
+		usercharacter += " say-no-to-weebs "
+		--
+		"%(distingstart)Oh,\w6 really? Well\w6 guess I'm stuck watching by myself"
+	}
+	else
+	{
+		"%(distingstart)Oh .\w8 .\w8 .\w8 .\w8 .\w8"
+		--
+		mood[2]++
+		mood[3]--
+		mood[4]--
+	}
+	--
+	questionsasked += " anime-and-chill "
 }

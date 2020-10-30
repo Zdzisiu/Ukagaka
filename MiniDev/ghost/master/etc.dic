@@ -10,7 +10,7 @@
 		{
 			Wallpaperfile = reference0
 			
-			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8\0\s[0]How would you like us to set this picture as your wallpaper?\n\n[half]/
+			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8 How would you like me to set this picture as your wallpaper?\n\n[half]/
 			\q[Centered,SetWallpaper_0]\n/
 			\q[Tiled,SetWallpaper_1]\n/
 			\q[Stretched,SetWallpaper_2]\n\n[half]/
@@ -24,7 +24,32 @@
 		}
 		when ".txt"
 		{
-			"\0\s[0]Opening %(_filename)%(_fileext)\![open,file,%(_filename)%(_fileext)].\e"
+			if (tentruth == 1 || glitchboot <= 5)  && meeting == 1
+			{
+				if repairglitch != 1
+				{
+					if "Log#" _in_ _filename
+					{
+						"Ò̵̬h̴̳͊̈?̶̫̔̉ ̶̛̜̲́Ÿ̷̨̝́o̸̬͊u̶͓̼̕͠ ̷̉͜f̴͓͌ơ̷͎u̵̙̎n̷͖͌d̷͍͛ ̴̫͋o̶̢̼̒̎ṋ̷̓̈́ȩ̶̟̎ ̶̬͖̈́o̸̼͠f̶͍͐̈ ̴̛͖̒h̶͖̳̑̓ỉ̴̜̔s̴͔̺͌̅ ̵̤̄͑l̵̲̅o̶̠̱̓ģ̷̺́̀s̴̻̺̃?̶͈̜̒͋ ̵̩̌͗W̵̮̠͌̑a̵͉̓̇ỉ̶̖̘t̵̳͎̾ ̷̪͂͝ä̸̹̂ ̷̩͑̃s̵͎̞̆͌e̷̦̐̀c̷͇̘̾̀o̷͕̝̐̓n̵͓̮̍̃d̵͖̐̋ ̸̛̤̹̄I̵͎̓̏ ̶̗͠͝w̸̯̠͒ĩ̶͙̗l̶̞̺͐͝l̸̹̣̐ ̵̱̮̔͠p̸̖͗̚u̸̞̻͑͠t̶͉̽ ̶̲̦̓̀i̸̗̙̕n̴̏ͅ ̸̦̍͠i̴̺̣̋t̸̟̽̂s̷̞̅̍ ̶͔͖̽p̷̨̡̊l̶̯͊̃a̸̼͑ç̶̹̽̋ĕ̵̤̲"
+						--
+						FCOPY(file,"logs")
+					}
+				}
+				else
+				{
+					if "Log#" _in_ _filename
+					{
+						"%(distingstart)Oh? You found one of his logs? Wait a second I will put in its place"
+						--
+						FCOPY(file,"logs")
+					}
+				}
+				
+			}
+			else
+			{
+				"\0\s[0]Opening %(_filename)%(_fileext)\![open,file,%(_filename)%(_fileext)].\e"
+			}
 		}
 		when ".lnk", ".url"
 		{
@@ -100,7 +125,21 @@ OnInstallComplete
 	elseif reference0 == "ghost" 
  	{
 		installed = reference1
-		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should i call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall].\e"
+		--
+		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should i call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall]."
+		--
+		if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+		{
+			if repairglitch != 1
+			{
+				"O̴h̸,̷ ̵a̶ ̵n̵e̴w̸ ̸p̸r̴o̷g̸r̸a̸m̶?̶"
+			}
+			else
+			{
+				"\1%(distingstart)Oh, a new program?"
+			}
+			
+		}
 		--
 		OnCountGhosts
  	}
@@ -132,12 +171,12 @@ OnInstallFailure
 	--
 	if reference0 == "unsupported" 
 	{
-	"This file is unsupported.\e"
+		"This file is unsupported.\e"
 	
 	}	
 	elseif reference0 == "extraction" 
 	{
-	"The file could not be extracted properly.\e"
+		"The file could not be extracted properly.\e"
 	}
  }
  
@@ -256,6 +295,8 @@ OnUpdateComplete
  	else
 	{
 		"\0\s[0]Update successful!\e"
+		--
+		OnToolCheck
  	}
 }
  
@@ -307,7 +348,6 @@ OnUpdate.OnDownloadBegin
 	}
 	elseif "clothes" _in_ reference1
 	{
-		logt = 1
 		"Change in clothing system found\e"
 	}
 	else //for files not specified above
@@ -353,11 +393,10 @@ OnUpdateCheckComplete
 		}
 		elseif "clothes" _in_ reference1
 		{
-			logt = 1
 			"Change in clothing system found\e"
 		}
 		--
-		"\n\![*]\q[Update softwere,up]\n\n[half]\![*]\q[Update later,lat]\e"
+		"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
 	}
 }
 
@@ -563,7 +602,7 @@ OnScreenSaverStart
 OnScreenSaverEnd
  {
     
-	"\0\s[0]Back to work!.\e"
+	"\0\s[0]Back to work!\e"
  }
 
  
@@ -619,5 +658,23 @@ OnShellScaling
 	elseif reference0 == 50
 	{
 		"\0\s[0]Im now 50% of my size!\e"
+	}
+}
+
+OnDeviceArrival
+{
+	_device = reference[0][0,","] + reference[0][1,","] + reference[0][2,","] + reference[0][4,","]
+	_device = TOLOWER(_device) 
+	
+	if ("wacom" _in_ "%(_device)" || "tablet" _in_ "%(_device)") && (tentruth == 1 || glitchboot <= 5)
+	{
+		if repairglitch != 1
+		{
+			"H̷m̴?̷ ̴I̵s̵ ̵t̵h̴a̴t̷ ̴a̵ ̷d̸r̷a̵w̸i̵n̵g̵ ̴t̸a̸b̷l̸e̶t?\e"
+		}
+		else
+		{
+			"%(distingstart)Hm? Is that a drawing tablet?\e"
+		}
 	}
 }

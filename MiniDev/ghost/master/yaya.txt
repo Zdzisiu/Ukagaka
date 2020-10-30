@@ -1,6 +1,4 @@
-﻿//These define what character set your ghost will be using. Don't touch any of them.
-
-charset, UTF-8
+﻿charset, UTF-8
 charset.dic, UTF-8
 charset.output, UTF-8
 charset.file, UTF-8
@@ -24,7 +22,6 @@ dic, commu.dic
 dic, nameteach.dic
 dic, anchor.dic
 dic, translations.dic
-dic, calculator.dic
 dic, log.dic
 dic, AI.dic
 dic, clothes.dic

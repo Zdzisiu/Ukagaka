@@ -1,5 +1,4 @@
-//Pastel Dev
-surface0
+surface0-1
 {
     collision0,61,53,179,69,Head
     collision1,73,65,166,122,Face
@@ -2283,7 +2282,34 @@ surface0
     2002interval,bind
     2002pattern0,7002,0,overlay,0,0
 
+    3000interval,bind
+    3000pattern0,5150,0,overlay,0,0
+}
 
+surface0
+{
+    9000interval,never
+    9000pattern0,9910,6,overlay,0,50
+    9000pattern1,9910,6,overlay,0,100
+    9000pattern2,9910,6,overlay,0,150
+    9000pattern3,-1,10,overlay,0,0
+}
+
+surface1
+{
+    9000interval,always
+    9000pattern0,9900,6,overlay,0,0
+
+    9001interval,always
+    9001pattern0,9902,15,overlay,0,0
+    9001pattern1,9903,15,overlay,0,0
+    9001pattern2,9904,15,overlay,0,0
+    9001pattern3,9905,15,overlay,0,0
+    9001pattern4,9906,15,overlay,0,0
+    9001pattern5,9905,15,overlay,0,0
+    9001pattern6,9904,15,overlay,0,0
+    9001pattern7,9903,15,overlay,0,0
+    9001pattern8,9902,15,overlay,0,0
 }
 
 //--------------------------------------------------------------

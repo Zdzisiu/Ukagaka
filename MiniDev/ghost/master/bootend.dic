@@ -4,17 +4,17 @@
 	passmin = 0 
 	passsec = 0 
  	username         = "USER"
-	introduction 	 = 1
-	stroke           = 0	
- 	teachusername    = 0	
-	mikireflag       = 0
+	introduction 	 = 1 
+	stroke           = 0 	
+ 	teachusername    = 0 	
+	mikireflag       = 0 
 	completed = 0
 	apps = 0 //Apps tutorial 
 	tooln = "ON" //q-tools on
 	weathermenu = "OFF" //weather on menu
 	moonmenu = "OFF" //moonphase on menu
 	curlocation = "" 
-	locationcode = ""
+	locationcode = "" 
 	hoodoo = 0 //skin hoodoo
 	gian = 0 //skin gian
 	kagamari = 0 //skin kagamari
@@ -22,11 +22,13 @@
  	aitalkinterval = 400 
  	birthdayprint = "????" 
 	talktime = "5 minutes" 
+	animalslearnt = 0
 	deleteshitai = "OFF" 
+	m201relationship = 0 
 	nowshell = "Original Dev" 
 	devname = "MiniDev" //MD name
 	mode = 2 //dark mode/ligt mode
-	modelp = RAND(300)//MD Model
+	modelp = RAND(300) //MD Model
 	--
 	FirstBootArrays // log arrays
 	--
@@ -34,13 +36,12 @@
 	--
 	OnSurfacesTrue //Surface true
 	--
-	OnCommTrue // Communication true
+	OnCommTrue //Communication true
 	--
 	OnToolCheck //Check tools for blank variables
 	--
 	OnMoveQTool 
 	--
-	//\![bind,skin,p white,1]\![bind,shirt_#1,p white,1]\![bind,shoes,p white,1]\![bind,pants_#1,p white,1]\![bind,screen,p white,1]\![bind,monitor,p white,1]\![bind,OO,p black,1]
 	if reference0 == 0 
  	{
 		"\![enter,passivemode]\![open,file,ghost/master/credits-readme.txt]\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
@@ -52,26 +53,96 @@
 	else
  	{
  		{
- 		"\![open,file,ghost/master/credits-readme.txt]\0\s[0]\0\s[0]Hello again %(users)!\e"
+ 			"\![open,file,ghost/master/credits-readme.txt]\0\s[0]\0\s[0]Hello again %(users)!\e"
 		}
  	}
 }
-
-/*how should I refer to you, user?\n\n[half]/
-		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
-		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
-		\![*]\q[They/Them/Their,choicefirsttheythem]\e
-*/
 
 OnTenTruth //story boot
 {
 	tentruth = 1
 
 	"\![enter,passivemode]\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M̸̡̂-̸̜̀2̵͚̿0̶͚̊1̵̨́ẕ̶̈́\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by A̶̬͓̗͖͇̻̲̥̬͖͕̙̦͗̿ͅ.̷̞̼̬͇̰̪̫̍̉͆́͌̒̓͝R̴͉̎̐.̸̨̘̳̣̲̰̟̜̤̰̫́̎̋̓̌͋̇̓̀͒͜ͅỊ̵̄—̶̖̒ ̸͙̇À̸̹s̶̢̎s̶̭͐i̵̳͆s̷̲͒t̴͎̍ą̴͝n̵̜͛ẗ̵͜ ̷̘̑R̸̭͌ǫ̴͘b̸̻͠o̶̮̅t̷͚̽ṡ̷̘ ̷͖̌I̵̻͌n̴̥͠t̸͎̔ȩ̶͛r̷̥̽n̶̰͛ă̸̻t̵̼̏i̴̼̓o̵̙͊n̴̰̔a̵͈̋l̶̕ͅ\x\cYou can customize my look, traits, likes and dislikes, and change m̵̮̒y̶̟͘ ̸̳̀n̷̬̍a̷̓ͅm̴̲͂ẻ̸͚ in the config menu\x\cI can tell you weather forecast and moon phase,\w8 translate b̸̝̔i̵̟̐n̷͔̈ā̴̙r̴͉̈́y̸̮̔ and M̴̧̿õ̶̝r̵̲̒s̶̛͖ę̵̿\x\cYou can save notes inside my l̸͓͛o̸̗͠g̶̮͘s̸̗͑ and make to-do lists.\w\cI also have a calculator and can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
-		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
-		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
-		\![*]\q[They/Them/Their,choicefirsttheythem]\n/
-    	\![*]\q[Your own,choiceown]\e"
+	\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
+	\![*]\q[She/Her/Hers,choicefirstsheher]\n/
+	\![*]\q[They/Them/Their,choicefirsttheythem]\n/
+	\![*]\q[Your own,choiceown]\e"
+}
+
+//\![raise,OnMood]
+OnMood
+{
+	moodlib = "relaxed,bored,gloomy,happy,cheerful,guilty" //just words for me to keep track of his moods
+	mood = 0
+	moodsize = ARRAYSIZE(moodlib) //this lets me easily check how many moods he can have without having to change any numbers
+	--
+	for _i = 0 ; _i < moodsize ; _i ++ //reset mood
+	{
+		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "
+		{
+			mood[_i] = 0
+		}
+	}
+	--
+	for _i=0;_i<moodsize;_i++ // set moods to random numbers
+	{
+		ranmood = RAND(moodsize)//get a random mood
+		--
+		if mood[ranmood] == 0 // set the random mood to the number
+		{
+			mood[ranmood] = RAND(10)
+		}
+		else // add to the random mood the number
+		{
+			mood[ranmood] += RAND(5)
+		}
+	}
+	--
+	if m201relationship < 100
+	{
+		mood[0] = 0
+	}
+	--
+	OnMoodCheck
+}
+
+OnMoodCheck //evaluating the dominating mood
+{
+	moodstring = "" //clear the string
+	--
+	arr[0] = mood[0] //get the value of the first mood
+	--
+	for _j=0;_j<moodsize;_j++
+	{
+		if arr[0] < TOINT(mood[_j]) //if the other mood is higher: change it
+		{
+			arr[0] = mood[_j]
+			numofmood = _j // save the number of the highest mood
+		}
+		elseif arr[0] == TOINT(mood[_j]) //if two moods have the same value, take one randomly
+		{
+			ramod = RAND(2)
+			--
+			if ramod == 1
+			{
+				arr[0] = mood[_j]
+				numofmood = _j
+			}
+		}
+		
+	}
+	--
+	moodstring = moodlib[numofmood]
+	currmood = numofmood
+	--
+	moodpage = "\_q\b4Mood for today: %(moodstring)\n\n[half]"
+	--
+	for _i=0;_i<ARRAYSIZE(moodlib);_i++
+	{
+		moodpage += moodlib[_i] + ": " + mood[_i] + "\n"
+	}
+	--
+	//moodpage
 }
 
 Select.choicefirsthehim
@@ -122,6 +193,7 @@ Select.choicefirsttheythem
 NameInput
 {
 	introduction = 0 
+	--
 	if tentruth == 1 //story boot
 	{
 		truthboot = 1
@@ -171,26 +243,25 @@ GetDaySlot
 }
 
 OnBoot
- {
+{
 	lastTalk = "" 
 	passmin = 0
 	passsec = 0
 	numcheck = 0
-    divide = 0
-    multiply = 0
-    minus = 0
-    plus = 0
+	userlosses = 0
+	userwins = 0
+	cheerups = 0
+	draws = 0
+	games = 0
 	//Story functions OFF
-	tentruth = 0
-	truth = 0
-	AI = "OFF"
+	//tentruth = 0
+	//truth = 0
+	//AI = "OFF"
 	//----
-	intalkconfig = 0
-	weatherquiet = 0
-	exponentiation = 0
-	//glitchboot = RAND(100)
-	--
-    
+	intalkconfig = 0 
+	weatherquiet = 0 
+	exponentiation = 0 
+	glitchboot = RAND(100) // random chance to get a glitched boot
     --
  	"\0\s[0]\1\s[-1]%(lightdark)" 
 	--
@@ -199,29 +270,33 @@ OnBoot
 	--
 	OnSurfacesTrue
 	--
+	OnMood
+	--
 	OnCommTrue
 	--
 	OnToolCheck
 	--
 	OnArraysCheck
 	--
+	OnCharacterCheck
+	--
 	if truth >= 10 && truthboot == 0
 	{
 		OnTenTruth
 	}
-	elseif tentruth == 1 //|| glitchboot <= 5
+	elseif tentruth == 1 || glitchboot <= 5
 	{
 		if dayslot == userbirthday 
 		{
-			"\0\s[0]Happy B̶͉̕ï̴͓r̵̞̕t̷̠̀h̸́ͅd̵̀͜ǎ̸͕y̷̪͋ %(username)\e" 			
+			"\0Happy B̶͉̕ï̴͓r̵̞̕t̷̠̀h̸́ͅd̵̀͜ǎ̸͕y̷̪͋ %(username)\e" 			
 		}
 		elseif dayslot == "6month 6day" 	
 		{
-			"\0\s[0]Today is June 6th.\e"
+			"\0Today is June 6th.\e"
 		}
 		elseif dayslot == "7month 4day"
 		{
-			"\0\s[0]It's the fourth of July.\e"		
+			"\0It's the fourth of July.\e"		
 		}
 		else
 		{
@@ -232,20 +307,38 @@ OnBoot
 	{
 		if dayslot == userbirthday 
 		{
-			"\0\s[0]Happy Birthday %(username)\e" 			
+			"\0Happy Birthday %(username)\e" 			
 		}
 		elseif dayslot == "6month 6day" 	
 		{
-			"\0\s[0]Today is June 6th.\e"
+			"\0Today is June 6th.\e"
 		}
 		elseif dayslot == "7month 4day"
 		{
-			"\0\s[0]It's the fourth of July.\e"		
+			"\0It's the fourth of July.\e"		
 		}
 		else
 		{
 			"%(normalboottalk)" 
 		}
+	}
+}
+
+OnCharacterCheck
+{
+	if mornings > 75 && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter
+	{
+		m201zcharacter += "mornings-bird "
+	}
+	--
+	if midnight > 75 && "late-night-owl" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter
+	{
+		m201zcharacter += "late-night-owl "
+	}
+	--
+	if midnight > 75 && "afternoon-cat" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter
+	{
+		m201zcharacter += "afternoon-cat "
 	}
 }
 
@@ -258,55 +351,101 @@ normalboottalk
 	}
 	else 
 	{*/
-		if sticky == "ON"
+	if tentruth == 1 || meeting == 1
+	{
+		if timeslot == "morning" || timeslot == "earlymorning"
 		{
-			"\![set,sticky-window,1,0,3,4,5,6,7,8,9,10,11,12,13,14]"
+			if "mornings-bird" !_in_ m201zcharacter
+			{
+				mornings++
+			}
+			--
+			if "late-night-owl" _in_ m201zcharacter
+			{
+				mood[2]++
+				--
+				if repairglitch != 1
+				{
+					"H̸o̷w̷ ̶c̴a̷n̶ ̶y̷o̵u̶ ̸e̶v̴e̵n̵ ̴l̶i̷v̶e̵ ̵t̴h̴i̵s̴ ̵e̸a̷r̷l̸y̷"
+				}
+				else
+				{
+					"%(distingstart)How can you even live this early"
+				}
+			}
+			--
+			if "mornings-bird" _in_ m201zcharacter
+			{
+				if repairglitch != 1
+				{
+					"O̵h̶,̷ ̵y̸o̷u̴'̷r̶e̴ ̵u̴p̷ ̵e̴a̸r̵l̴y̶,̶ ̸g̴o̵o̶d̵ ̸m̶o̶r̴n̶i̸n̵g̸ ^^"
+				}
+				else
+				{
+					"%(distingstart)Oh, you're up early, good morning"
+				}
+			}
 		}
-		--
-		"\0\s[0]%(hihello)%(users)\x\c"
-	//}
-	//}
- 	/*else
- 	{
-		if timeslot == "earlymorning"
-		{ 
-		"\0\s[0]This is an early morning boot dialogue.\w8\0\s[0]Between the hours of five and eight.\e"
-		"\0\s[0]This is another early morning boot dialogue.\w8\0\s[0]Again, between the hours of five and eight.\e"
-		"\0\s[0]This is the third early morning boot dialogue.\w8\0\s[0]Between the hours of five and eight.\e"
-		}
-		elseif timeslot == "morning"
+		elseif timeslot == "midnight" || timeslot == "latenight"
 		{
-		"\0\s[0]This is a morning boot dialogue.\e"
-		"\0\s[0]This is another morning boot dialogue.\w8\0\s[0]Yup.\e"
+			if "mornings-bird" _in_ m201zcharacter
+			{
+				mood[2]++
+				--
+				if repairglitch != 1
+				{
+					"Y̷o̶u̷ ̴s̸h̸o̸u̵l̴d̶ ̷g̴o̶ ̶t̸o̵ ̷s̷l̷e̶e̶p̶ ̴i̴n̸s̸t̴e̵a̷d̴ ̷o̸f̵ ̷u̴s̶i̷n̶g̴ ̸a̴ ̶c̷o̷m̸p̵u̶t̸e̵r̵"
+				}
+				else
+				{
+					"%(distingstart)You should go to sleep instead of using a computer"
+				}
+			}
+			--
+			if "late-night-owl" !_in_ m201zcharacter
+			{
+				midnight++
+			}
+			--
+			if "late-night-owl" _in_ m201zcharacter
+			{
+				if repairglitch != 1
+				{
+					"W̵o̸w̵,̸ ̴y̷o̸u̸'̵r̸e̸ ̸u̶p̷ ̵l̶a̸t̴e̴\w6 \f[height,7]w̴e̴l̸l̶ ̴n̴o̵t̸ ̷t̴h̴a̴t̶ ̸I̸ ̴m̵i̸n̶d̸"
+				}
+				else
+				{
+					"%(distingstart)Wow, you're up late\w6 \f[height,7]well not that I mind"
+				}
+			}
 		}
-		elseif timeslot == "lunch"
+		else
 		{
-		"\0\s[0]This is a lunch boot dialogue.\0\s[0]Sure is.\e"
-		"\0\s[0]This is another lunch boot dialogue.\e"
+			if "afternoon-cat" !_in_ m201zcharacter
+			{
+				afternoon++
+			}
+			else
+			{
+				if repairglitch != 1
+				{
+					"P̴e̴r̶f̶e̷c̶t̶ ̶t̶i̵m̴e̶ ̵t̴o̸ ̶b̴e̵ ̵p̷r̵o̶d̸u̶c̵t̴i̴v̴e̶ ̶h̶u̴h̵?̶"
+				}
+				else
+				{
+					"%(distingstart)Perfect time to be productive huh?"
+				}
+			}
 		}
-		elseif timeslot == "afternoon"
-		{
-		"\0\s[0]This is an afternoon boot dialogue.\w8\0\s[0]That it is.\e"
-		}
-		elseif timeslot == "evening"
-		{
- 		"\0\s[0]This is an evening boot dialogue.\0\s[0]Between the hours of 18 and 20.\e"
-		}
-		elseif timeslot == "latenight"
-		{
- 		"\0\s[0]This is a late night boot dialogue.\0\w8\s[10]Between 21 and 24.\e"
- 		"\0\s[0]This is another late night boot dialogue.\0\w8\s[10]That it is.\e"
- 		"\0\s[0]This is the third late night boot dialogue.\w8\0\s[0]Between 21 and 24.\e"
-		}
-		else 
-		{
-		"\0\s[0]This is a middle of the night boot dialogue.\0\w8\s[10]From midnight to five.\e"
- 		"\0\s[0]This is another middle of the night boot dialogue.\0\w8\s[10]That it is.\e"
- 		"\0\s[0]This is the third middle of the night boot dialogue.\w8\0\s[0]Very late at night.\e"
-		}
-	}*/
+	}
 	--
-
+	if sticky == "ON"
+	{
+		"\![set,sticky-window,1,0,3,4,5,6,7,8,9,10,11,12,13,14]"
+	}
+	--
+	"\0\s[0]%(hihello)%(users)\x\c"
+	--
 	if weathermenu == "ON" || moonmenu == "ON"
 	{
 		if locationcode != ""
@@ -325,13 +464,7 @@ normalboottalk
 	elseif upchec == "ON"
 	{
 		"Searching for software updates....\![updatebymyself,checkonly]\e"
-	}
-	else
-	{
-		
-	}
-	
-	
+	}	
 }
 
 OnClose
@@ -340,15 +473,49 @@ OnClose
 	--
 	if passmin >= 5	
 	{
-		"\0\s[0]%(byebye)%(users)\w8\w8"		
+		if obsydian == 1
+    	{
+			if reference0 == "Dusty"
+			{
+				obsydian = 0
+				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)"
+			}
+		}
+		else
+		{
+			"\0%(byebye) %(users)"
+		}	
  	}	
  	else 
  	{
- 		"\0\s[0]Woah,\w8 that was quick\w8\w8\w8\w8\c\%(byebye)%(users)\w8\w8\w8\w8"
+		 if obsydian == 1
+    	{
+			if reference0 == "Dusty"
+			{
+				obsydian = 0
+				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)"
+			}
+		}
+		else
+		{
+ 			"\0Woah,\w8 that was quick\w8\w8\w8\w8\c\%(byebye)%(users)\w8\w8\w8\w8"
+		}
  	}
  	--
 	"\-\e" 
  }
+
+OnWindowStateMinimize
+{
+	if obsydian == 1
+	{
+		if reference0 == "Dusty"
+		{
+			obsydian = 0
+			"\0\s[0]\i[9000]%(byebye) kitty\e"
+		}
+	}
+}
 
 OnWindowStateRestore
 {
@@ -362,33 +529,55 @@ OnWindowStateRestore
  
 OnGhostChanging
  {
-	if reference0 == "MiniDev"  //when changes to itself/reloads, start
+	if reference0 == "MiniDev"  //when changes to itself/reload, start
 	{
-		"\0\s[0]Reload!\w8\w8\e"
+		"\0Reload!\w8\w8\e"
 	}
  	else 
 	{
-		"\0\s[0]%(byebye)%(users).\w8\w8\e"
+		if obsydian == 1
+    	{
+			if reference0 == "Dusty"
+			{
+				obsydian = 0
+				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(reference0)\e"
+			}
+		}
+		else
+		{
+			"\0%(byebye) %(reference0)\e"
+		}
 	}
 }
 
 OnGhostChanged
 {
-	"\0\s[0]\1\s[10]" 
+	"\0\1\s[10]" 
 	--
-	if reference0 == "MiniDev"   //when changes to itself/reloads, end
+	if reference0 == "MiniDev"   //when changes to itself/reload, end
 	{
-		"\0\s[0]Done!\e"
+		"\0Done!\e"
 	}
 	else 
 	{
-		"\0\s[0]%(byebye) %(reference0)\e"
+		if obsydian == 1
+    	{
+			if reference0 == "Dusty"
+			{
+				obsydian = 0
+				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(reference0)\e"
+			}
+		}
+		else
+		{
+			"\0%(byebye) %(reference0)\e"
+		}
 	}
 }
  
 OnShellChanged
 {
-
+	nowshell = reference0
 }
 
 OnSurfacesTrue
@@ -401,7 +590,7 @@ OnCommTrue
 	"\![set,otherghosttalk,after]"
 }
 
-OnArraysCheck
+OnArraysCheck //set arrays for logs
 {
 	if logdate == ""
 	{
@@ -435,7 +624,7 @@ OnArraysCheck
 
 }
 
-FirstBootArrays
+FirstBootArrays //set arrays for logs
 {
 	templogdate = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
 	logdate = SPLIT(templogdate,",")
@@ -455,56 +644,6 @@ FirstBootArrays
 	devlogcontent[1] = "201: Look what i can do :D\w8\n201: You can update log to respond to me\w8\n201: It's like a chat!\w8\n201: So,\w5 how are you?\n"
 }
 
-//Getting ghost names
-OnCountGhosts
-{
-	"\![get,property,OnCounted,ghostlist.count]"
-}
-
-OnCounted
-{
-	ghostcount = TOINT(reference0)
-	namesfound = 0
-	--
-	OnGetNames
-}
-
-OnGetNames
-{
-	if ghostcount >= namesfound
-	{
-		"\![get,property,OnGetNamesTwo,ghostlist.index(%(namesfound)).name]"
-	}
-	else
-	{
-		OnFoundAll
-	}
-}
-
-OnGetNamesTwo
-{
-	names[namesfound] = reference0
-	namesfound++
-	--
-	OnGetNames
-}
-
-OnFoundAll
-{
-	//if hoodoo != 1 && "Hoodoo" _in_ "%(names)"
-	//{
-		//"I see you have Hoodoo Dolls\x\cI have updated my functions,\w5 now you can play games with me and transfer won gold to Basil"
-		//hoodoo = 1
-	//}
-	//else
-	//{
-		
-	//}
-	//--
-	
-
-}
-
 //Triats OFF
 OnTriats
 {
@@ -513,229 +652,284 @@ OnTriats
 	smart  = "OFF"
 	optimistic  = "OFF"
 	//NEGATIVE TRIATS:
-	rude  = "OFF"
-		curses = "OFF"
-		insults = "OFF"
 	pessimistic = "OFF"
 	stupid = "OFF"
 	//NEUTRAL TRIATS:
 	funny = "OFF"
-	outgoing = "OFF"
-	loner = "OFF"
 	romantic = "OFF"
-	//LIKES AND DISLIKES:
-	books = "OFF"
-	comics  = "OFF"
-	manga  = "OFF"
-	anime = "OFF"
-	videogames = "OFF"
-	animals = "OFF"
-	food = "OFF"
-	art = "OFF"
-	music = "OFF"
-	sport = "OFF"
-	fashion = "OFF"
-	cosplay = "OFF"
-	photography = "OFF"
-	plants = "OFF"
-	magic = "OFF"
 }
 
-FirstBootVariables
+FirstBootVariables 
 {
 	truth = 0
 	tentruth = 0
 	truthboot = 0
 	userlogs = 0
+	meeting = 0
 	devlogcount	= 1
 	AI = "OFF"
 }
 
 //\![raise,OnToolCheck]
-OnToolCheck
+OnToolCheck //adding stuff after updates
 {
-	for _i=0;_i<=taskamount;_i++
+	if vers == ""
 	{
-		if "\f[" _in_ todos[_i]
+		vers = "1.0.0"
+		--
+		quest = 0
+		//Name,color
+		colormeanings = "red.respect+desire+courage+true love+passion,yellow.happiness+joy+friendship+unrequited love,pink.love+happiness,orange.excitment+enthusiasm,white.purity+innocence+sympathy+truth,blue.peace+tranqility+relaxation,purple.success+royality+admiration,lavender.grace+elegance+youth,green.rebith+renewal+good fortune+youthfulness"
+		plants = "rose.red+orange+white+pink+yellow+green+blue+purple+bicolor+black.spring+summer+fall.full sun.none.roses,tulip.cream+white+yellow+orange+pink+red+purple+violet+black.spring.full sun+part sun.none.tulips,orchid.blue+magenta+purple+red+pink+white+yellow+orange+green+orange.varies.part sun.none.orchids,aster.blue+pink+purple+red+white.summer+fall.full sun+part sun.attracts butterflies.asters,dahlia.multicolor+orange+pink+purple+red+white+yellow.summer+fall.full sun.none.dahlias,sunflower.yellow+orange+red.summer.full sun.attracts birds and butterflies.sunflowers,astilbe.pink+red+white.spring+summer.part sun+shade.attracts butterflies.astilbes"
+		//Name,type,fluff or nah
+		animals = ""
+		animalslearnt = 0
+		questionsasked  = ""
+		m201zcharacter = ""
+		usercharacter = ""
+		--
+		if BL == ""
 		{
-			todostatus[_i] = 1
-		}	
-		else
+			BL = "ON"
+		}
+		--
+		if GL == ""
 		{
-			todostatus[_i] = 0
+			GL = "ON"
+		}
+		--
+		if ecchi == ""
+		{
+			ecchi = "ON"
+		}
+		--
+		if romancet == ""
+		{
+			romancet = "ON"
+		}
+		--
+		if action == ""
+		{
+			action = "ON"
+		}
+		--
+		if drama == ""
+		{
+			drama = "ON"
+		}
+		--
+		if horror == ""
+		{
+			horror = "ON"
+		}
+		--
+		if m201relationship == ""
+		{
+			m201relationship = 0
+		}
+		--
+		for _i=0;_i<=taskamount;_i++
+		{
+			if "\f[" _in_ todos[_i]
+			{
+				todostatus[_i] = 1
+			}	
+			else
+			{
+				todostatus[_i] = 0
+			}
+		}
+		--
+		if hsphere == ""
+		{
+			hsphere = "Northern"
+		}
+		--
+		if usedefring == ""
+		{
+			usedefring = "OFF"
+		}
+		--
+		if remindcount == ""
+		{
+			remindcount = 0
+		}
+		--
+		if weathermenu == ""
+		{
+			weathermenu = "OFF"
+		}
+		--
+		if moonmenu == ""
+		{
+			moonmenu = "OFF"
+		}
+		--
+		if tooln == ""
+		{
+			tooln = "OFF"
+		}
+		--
+		if dlbtn == ""
+		{
+			dlbtn = "OFF"
+		}
+		--
+		calcbtn = "OFF"
+		--
+		if logbtn == ""
+		{
+			logbtn = "OFF"
+		}
+		--
+		if lesbtn == ""
+		{
+			lesbtn = "OFF"
+		}
+		--
+		if webtn == ""
+		{
+			webtn = "OFF"
+		}
+		--
+		if setbtn == ""
+		{
+			setbtn = "OFF"
+		}
+		--
+		if statbtn == ""
+		{
+			statbtn = "OFF"
+		}
+		--
+		if trabtn == ""
+		{
+			trabtn = "OFF"
+		}
+		--
+		if todobtn == ""
+		{
+			todobtn = "OFF"
+		}
+		--
+		if cusbtn == ""
+		{
+			cusbtn = "OFF"
+		}
+		--
+		if appbtn == ""
+		{
+			appbtn = "OFF"
+		}
+		--
+		if sticky == ""
+		{
+			sticky = "OFF"
+		}
+		--
+		if nice == ""
+		{
+			nice = "OFF"
+		}
+		--
+		if rude == ""
+		{
+			rude = "OFF"
+		}
+		--
+		if curses == ""
+		{
+			curses = "OFF"
+		}
+		--
+		if insults == ""
+		{
+			insults = "OFF"
+		}
+		--
+		if stupid == ""
+		{
+			stupid = "OFF"
+		}
+		--
+		if smart == ""
+		{
+			smart = "OFF"
+		}
+		--
+		if romantic == ""
+		{
+			romantic = "OFF"
+		}
+		--
+		if outgoing == ""
+		{
+			outgoing = "OFF"
+		}
+		--
+		if loner == ""
+		{
+			loner = "OFF"
+		}
+		--
+		if optimistic == ""
+		{
+			optimistic = "OFF"
+		}
+		--
+		if pessimistic == ""
+		{
+			pessimistic = "OFF"
+		}
+		--
+		if djokes == ""
+		{
+			djokes = "OFF"
+		}
+		--
+		if pessimistic == ""
+		{
+			pessimistic = "OFF"
+		}
+		--
+		if pocket == ""
+		{
+			pocket = "OFF"
+		}
+		--
+		if projecttypes == ""
+		{
+			projecttypes = "sai sai2 mdp kra blend"
+		}
+		--
+		if upchec == ""
+		{
+			upchec = "OFF"
+		}
+		--
+		if dateformatype == ""
+		{
+			dateformatype = "dd/mm/yyyy"
+		}
+		--
+		if timeformatype == ""
+		{
+			timeformatype = "STANDARD"
+		}
+		--
+		if mornings == ""
+		{
+			mornings = 0
+		}
+		--
+		if midnight == ""
+		{
+			midnight = 0
 		}
 	}
-	--
-	if usedefring == ""
+	else
 	{
-		usedefring = "OFF"
-	}
-	--
-	if remindcount == ""
-	{
-		remindcount = 0
-	}
-	--
-	if weathermenu == ""
-	{
-		weathermenu = "OFF"
-	}
-	--
-	if moonmenu == ""
-	{
-		moonmenu = "OFF"
-	}
-	--
-	if tooln == ""
-	{
-		tooln = "OFF"
-	}
-	--
-	if dlbtn == ""
-	{
-		dlbtn = "OFF"
-	}
-	--
-	calcbtn = "OFF"
-	--
-	if logbtn == ""
-	{
-		logbtn = "OFF"
-	}
-	--
-	if lesbtn == ""
-	{
-		lesbtn = "OFF"
-	}
-	--
-	if webtn == ""
-	{
-		webtn = "OFF"
-	}
-	--
-	if setbtn == ""
-	{
-		setbtn = "OFF"
-	}
-	--
-	if statbtn == ""
-	{
-		statbtn = "OFF"
-	}
-	--
-	if trabtn == ""
-	{
-		trabtn = "OFF"
-	}
-	--
-	if todobtn == ""
-	{
-		todobtn = "OFF"
-	}
-	--
-	if cusbtn == ""
-	{
-		cusbtn = "OFF"
-	}
-	--
-	if appbtn == ""
-	{
-		appbtn = "OFF"
-	}
-	--
-	if sticky == ""
-	{
-		sticky = "OFF"
-	}
-	--
-	if nice == ""
-	{
-		nice = "OFF"
-	}
-	--
-	if rude == ""
-	{
-		rude = "OFF"
-	}
-	--
-	if curses == ""
-	{
-		curses = "OFF"
-	}
-	--
-	if insults == ""
-	{
-		insults = "OFF"
-	}
-	--
-	if stupid == ""
-	{
-		stupid = "OFF"
-	}
-	--
-	if smart == ""
-	{
-		smart = "OFF"
-	}
-	--
-	if romantic == ""
-	{
-		romantic = "OFF"
-	}
-	--
-	if outgoing == ""
-	{
-		outgoing = "OFF"
-	}
-	--
-	if loner == ""
-	{
-		loner = "OFF"
-	}
-	--
-	if optimistic == ""
-	{
-		optimistic = "OFF"
-	}
-	--
-	if pessimistic == ""
-	{
-		pessimistic = "OFF"
-	}
-	--
-	if djokes == ""
-	{
-		djokes = "OFF"
-	}
-	--
-	if pessimistic == ""
-	{
-		pessimistic = "OFF"
-	}
-	--
-	if pocket == ""
-	{
-		pocket = "OFF"
-	}
-	--
-	if projecttypes == ""
-	{
-		projecttypes = "sai sai2 mdp kra blend"
-	}
-	--
-	if upchec == ""
-	{
-		upchec = "OFF"
-	}
-	--
-	if dateformatype == ""
-	{
-		dateformatype = "dd/mm/yyyy"
-	}
-	--
-	if timeformatype == ""
-	{
-		timeformatype = "STANDARD"
+		OnUpdateVariables
 	}
 }
 
@@ -746,5 +940,54 @@ Select.move
 
 OnMoveQTool
 {
-	"\p[3]\![move,--X=1100,--Y=800]\p[4]\![move,--X=1100,--Y=800]\p[5]\![move,--X=1100,--Y=800]\p[6]\![move,--X=1100,--Y=800]\p[7]\![move,--X=1100,--Y=800]\p[8]\![move,--X=1100,--Y=800]\p[9]\![move,--X=1100,--Y=800]\p[10]\![move,--X=1100,--Y=800]"
+	if sticky == "ON"
+	{
+		"\![reset,sticky-window]"
+		--
+		"\p[3]\![move,--X=1100,--Y=800]\p[4]\![move,--X=1100,--Y=800]\p[5]\![move,--X=1100,--Y=800]\p[6]\![move,--X=1100,--Y=800]\p[7]\![move,--X=1100,--Y=800]\p[8]\![move,--X=1100,--Y=800]\p[9]\![move,--X=1100,--Y=800]\p[10]\![move,--X=1100,--Y=800]"
+		--
+		"\![set,sticky-window,1,0,3,4,5,6,7,8,9,10]"
+	}
+	else
+	{
+		"\p[3]\![move,--X=1100,--Y=800]\p[4]\![move,--X=1100,--Y=800]\p[5]\![move,--X=1100,--Y=800]\p[6]\![move,--X=1100,--Y=800]\p[7]\![move,--X=1100,--Y=800]\p[8]\![move,--X=1100,--Y=800]\p[9]\![move,--X=1100,--Y=800]\p[10]\![move,--X=1100,--Y=800]"
+	}
+}
+
+OnOtherGhostChanged
+{
+    if obsydian == 1
+    {
+        if reference0 == "Dusty"
+        {
+            obsydian = 0
+            "\0\s[0]\i[9000]%(byebye) kitty\e"
+        }
+    }
+}
+
+OnOtherGhostClosed
+{
+    if obsydian == 1
+    {
+        if reference0 == "Dusty"
+        {
+            obsydian = 0
+            "\0\s[0]\i[9000]%(byebye) kitty\e"
+        }
+    }
+}
+
+// %(installedghostlist)
+//ghostexlist
+
+
+OnUpdateVariables
+{
+
+}
+
+OnTest
+{
+
 }

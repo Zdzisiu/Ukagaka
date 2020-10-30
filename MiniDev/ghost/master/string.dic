@@ -70,9 +70,9 @@ On_portalrootbutton.caption
  
 On_sakura.portalsites
  {
- 	"Wattpad"
+ 	"Instagram"
 	--
-	"%ASC(1)https://www.wattpad.com/user/Zdzisiu%ASC(2)"
+	"https://www.instagram.com/gremlin_zdzisiu/"
 	--
  }
 
@@ -103,7 +103,7 @@ On_kero.recommendsites
  //What it will say on the menu for the option to Update.
  
 On_updatebutton.caption
- {
+{
 	"Search for updates"
 }
 
@@ -154,7 +154,7 @@ On_shellrootbutton.caption
  
 On_ghostrootbutton.caption
  {
-	"Change Ghost"
+	"Change Softwere"
 }
 
 //---- Call Ghosts Caption -----------------------------------------------------
@@ -162,7 +162,7 @@ On_ghostrootbutton.caption
  
 On_callghostrootbutton.caption
  {
-	"Call Ghost"
+	"Call Softwere"
 }
 
 //---- Quit Caption -----------------------------------------------------

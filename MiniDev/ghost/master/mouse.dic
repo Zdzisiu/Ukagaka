@@ -15,48 +15,93 @@
 
 MouseMoveSakura
 {
-	
 	if reference4 != "" 
  	{
  		stroke++ 
+		--
  		if stroke >= 40 
 		{
  			stroke = 0 
-			if reference4 == "Head" 
+			--
+			if reference4 == "Obsidian" //If your collision is named Obsidian
 			{
-				if nice == "ON"
+				stroke++
+				if stroke >= 40
 				{
-					"\0That's nice!"
-					"\0Thanks."
+					stroke = 0
+					res_reference0 = "Dusty"
+
+					"\e MiniDevObsiPets"
 				}
-				elseif rude == "ON"
+			}
+			elseif reference4 == "Head" 
+			{
+				if (tentruth == 1 || meeting == 1 || petmz != 1 || petmz != 2) && m201relationship > 100
 				{
-					"Stop touching me."
-					"Don't."
-					"Hands off."
-					"Go away."
-
-					if curses == "ON"
+					if petmz != 1 || petmz != 2
 					{
-						"Fuck off."
+						if repairglitch != 1
+						{
+							"W̸h̵a̴t̷ ̷a̸r̸e̶ ̴y̴o̸u̵ ̵d̵o̶i̵n̴g̷?̷\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
+						}
+						else
+						{
+							"%(distingstart)What are you doing?\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
+						}
 					}
-
-					if insults == "ON"
+				}
+				elseif tentruth == 1 || meeting == 1 || petmz == 1
+				{
+					if repairglitch != 1
 					{
-						"Hands off %(insult)."
-						"Go away %(insult)."
+						if numofmood != 2 || numofmood != 5
+						{
+							"(￣ω￣)"
+							"(* ^ w ^)"
+							"(─‿‿─)"
+							"(⁀ᗢ⁀)"
+							"(.❛ ᴗ ❛.)"
+							"(⌒ω⌒)"
+							"(*≧ω≦*)"
+							"☆*:.｡.o(≧▽≦)o.｡.:*☆"
+							"ヽ(o＾▽＾o)ノ"
+						}
+						else
+						{
+							".\w7 .\w7 .\w7 .\w7"
+						}
 					}
-
-					if insults == "ON" && curses == "ON"
+					else
 					{
-						"Fuck off %(insult)."
+						if numofmood != 2 || numofmood != 5
+						{
+							"%(distingstart)(￣ω￣)"
+							"%(distingstart)(* ^ w ^)"
+							"%(distingstart)(─‿‿─)"
+							"%(distingstart)(⁀ᗢ⁀)"
+							"%(distingstart)(.❛ ᴗ ❛.)"
+							"%(distingstart)(⌒ω⌒)"
+							"%(distingstart)(*≧ω≦*)"
+							"%(distingstart)☆*:.｡.o(≧▽≦)o.｡.:*☆"
+							"%(distingstart)ヽ(o＾▽＾o)ノ"
+						}
 					}
+					--
+					m201relationship++
 				}
 				else
-				{
-					"\0Oh?\w8 your petting me?\w8 isn't it unpleasant because of that display?"
-					"\0Thanks I guess."
-					"Thanks?"
+				{ 
+					if nice == "ON"
+					{
+						"\0That's nice!"
+						"\0Thanks."
+					}
+					else
+					{
+						"\0Oh?\w8 your petting me?\w8 isn't it unpleasant because of that display?"
+						"\0Thanks I guess."
+						"Thanks?"
+					}
 				}
 				--
 				"\e"
@@ -64,33 +109,10 @@ MouseMoveSakura
  			}
  			elseif reference4 == "Face" 
 		 	{
-				 if nice == "ON"
+				if nice == "ON"
 				{
 					"\0That's nice!"
 					"\0Thanks."
-				}
-				elseif rude == "ON"
-				{
-					"Stop touching me."
-					"Don't."
-					"Hands off."
-					"Go away."
-					
-					if curses == "ON"
-					{
-						"Fuck off."
-					}
-
-					if insults == "ON"
-					{
-						"Hands off %(insult)."
-						"Go away %(insult)."
-					}
-
-					if insults == "ON" && curses == "ON"
-					{
-						"Fuck off %(insult)."
-					}
 				}
 				else
 				{
@@ -108,40 +130,52 @@ MouseMoveSakura
 		stroke = 0
  	}
 }
-MouseMoveKero
- {
-	 
-	if reference4 != ""
- 	{
- 		stroke++
- 		if stroke >= 40
-		{
-			stroke = 0
-			if reference4 == "Face" 
-			{
-				"\1\s[10]This is a face touching dialogue.\e"
-				"\1\s[10]This is another face touching dialogue.\e"
-				"\1\s[10]This is yet another face touching dialogue.\e"
- 			}
-			elseif reference4 == "Point" 
-			{
-				"\1\s[10]This is a point touching dialogue since I don't really have a head, being a triangle.\e"
-				"\1\s[10]This is another point touching dialogue.\e"
-				"\1\s[10]This is yet another point touching dialogue.\e"
-			}	
- 		}
-	}
- 	else
+
+Select.petm201z
+{
+	petmz = 1
+	--
+	if repairglitch != 1
 	{
-		stroke = 0
- 	}
+		"O̴H̸!̵ ̷w̴e̸l̷l̸ ̸I̸ ̵c̸a̴n̴'̴t̶ ̵f̵e̵e̴l̵ ̶i̸t̴ ̶b̸u̸t̴ ̵d̶o̸n̷'̴t̸ ̸l̸e̴t̷ ̵t̵h̶a̵t̵ ̵s̵t̵o̴p̶ ̷y̶o̴u̵ ^^'"
+	}
+	else
+	{
+		"%(distingstart)OH! well I can't feel it but don't let that stop you ^^'"
+	}
+}
+
+Select.petmd
+{
+	petmz = 2
+	--
+	if repairglitch != 1
+	{
+		"O̷H̴!̵ ̸t̴h̸a̸t̵'̵s̴ ̵c̵u̵t̸e̷ ^^'"
+	}
+	else
+	{
+		"%(distingstart)OH! that's cute ^^"
+	}
+}
+
+MouseMoveKero
+{
+
 }
 
 OnMouseDoubleClick
  {
  	if reference3 == 0 
 	{
-		MouseDoubleClickSakura
+		if obsydian == 1
+		{
+			"\0\s[1]\![get,property,OnObsidianJumpDown,currentghost.scope(0).rect]"
+		}
+		else
+		{
+			MouseDoubleClickSakura
+		}
  	}
 	else
  	{
@@ -156,20 +190,9 @@ MouseDoubleClickSakura
 
  
 MouseDoubleClickKero
- {
-	 
- 	if reference4 == "Face" 
-	{
-		"\1\s[10]This is hitting dialogue.\w8\0\s[5]ha ha\w8\1\s[19]\n\n[half]Quiet.\e"
-		"\1\s[10]This is another hit dialogue.\e"
-		"\1\s[10]This is yet another hit dialogue.\e"
-		"\1\s[10]This is the fourth hitting dialogue.\e"
- 	}
-	else 
- 	{
-		OpenKeroMenu
-	}
- }
+{
+
+}
 
 
 OnMouseClick
@@ -244,10 +267,4 @@ OnMouseClick
 			Select.oapp
 		}
 	}
-}
-
-OnDisplayClick
-{
-	numberstring += reference0
-	"\p[2]\* %(numberstring)"
 }

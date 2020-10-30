@@ -3,32 +3,10 @@
 	
 	if reference0 == "TEACHNAME" //ignore this
 	{
-		if rude == "ON"
-		{
-			if curses == "ON" && insults == "ON"
-			{
-				"\0\s[0]You want me to call you diffrent %(insult)?\w8\w8 How the fuck should i call you then?\![open,inputbox,OnNameTeach,-1]\e"
-			}
-			elseif isnuslts == "ON"
-			{		
-				"\0\s[0]You want me to call you diffrent %(insult)?\w8\w8 How should i call you then?\![open,inputbox,OnNameTeach,-1]\e"
-			}	
-			elseif curses == "ON"
-			{
-				"\0\s[0]You want me to call you diffrent?\w8\w8 How the fuck should i call you then?\![open,inputbox,OnNameTeach,-1]\e"
-			}
-			else
-			{
-				"\0\s[0]You want me to call you diffrent?\w8\w8 How should i call you?\![open,inputbox,OnNameTeach,-1]\e"
-			}
-			
-		}
-		else
-		{
-			"\0\s[0]You want me to call you diffrent?\w8\w8 How should i call you?\![open,inputbox,OnNameTeach,-1]\e"
-		}
+		"\0You want me to call you diffrent?\w8\w8 How should i call you?\![open,inputbox,OnNameTeach,-1]\e"
 	}
 }
+
 OnNameTeach
 {
 	
@@ -36,7 +14,7 @@ OnNameTeach
 	--
 	if reference0 == "Gremlin Zdzich"
 	{
-		"\0\s[0]Welcome Developer"
+		"\0Welcome Developer"
 		--
 		devop = 1
 		--
@@ -53,6 +31,7 @@ OnNameTeach
 		-- 
 		"\![*]\q[-ssi,titlessi]\n/
 		\![*]\q[-san,titlesan]\n/
+		\![*]\q[none,titlenone]\n/
 		\![*]\q[Your own,titleown]\e"
 	}
 	else
@@ -63,35 +42,32 @@ OnNameTeach
 		{
 			if nice == "ON"
 			{
-				"Sorry,\w6 thats my serial code so you will have to choose something else\![open,inputbox,OnNameTeach,-1]"
-			}
-			elseif rude == "ON"
-			{
-				if isnuslts == "ON"
-				{		
-					"\0\s[0]Thats my serial code %(insult).\w8Choose something else\![open,inputbox,OnNameTeach,-1]"
-				}	
-
-				if curses == "ON"
-				{
-					"\0\s[0]Thats my fucking serial code.\w8Better fucking choose something else\![open,inputbox,OnNameTeach,-1]"
-				}	
-
-				if curses == "ON" && insults == "ON"
-				{
-					"\0\s[0]Thats my fucking serial code %(insult).\w8Choose something else\![open,inputbox,OnNameTeach,-1]"
-				}
+				"Sorry,\w6 that's my serial code so you will have to choose something else\![open,inputbox,OnNameTeach,-1]"
 			}
 			else
 			{
-				"\0\s[0]Oh,\w8 thats my serial code.\w8Better choose something else\w4 or it may become confusing\![open,inputbox,OnNameTeach,-1]"
+				"\0Oh,\w8 that's my serial code.\w8 Better choose something else\w4 or it may become confusing\![open,inputbox,OnNameTeach,-1]"
 			}
 		}
 		elseif reference0 == "M-201z"
 		{
 			if tentruth == 1
 			{
-				"T̴̟͝h̵̨͋a̶̧͊t̸͖̆ ̵̝͠ẁ̵͚â̸̩s̵͈̽ ̶͔͗m̵̻̈́ỳ̴̫ ̴̧̀s̵̻̔e̶̛͍r̵̛̹i̷͆ͅȃ̷̲l̴̯̓ ̸̣́n̶̜͐ǘ̸͖m̴̺̚b̷̭̓e̶̫͌r̷̳̆ ̴͙͘y̷̌ͅo̵͍̒ü̸̞k̸̬̓ṋ̶̏o̸̯̕w̷͖̅?̸̰̀"
+				if meeting == 1
+				{
+					if repairglitch != 1
+					{
+						"W̵̭̕h̷̪̅y̴̻͐ ̸̯̈́w̵̫͑ȯ̸͜u̷̙̔l̵̖̏d̴̳͊ ̵͉̌y̶͍̓ő̶͉u̷̡͋ ̷̳͒e̷̦͗v̴͎͋e̶̻͑ǹ̸̜ ̸̀ͅẁ̷̳a̸͙̽n̷̓ͅt̴̥͊ ̵͙̇ȟ̶͎i̵̫͘ṁ̵͍ ̸̖̀t̶͎͋o̵̥̐ ̵̼͛c̵̙̎a̵̠̐l̴̤̂l̷̪̽ ̵͉̌y̵̰̍ȯ̶̬ȗ̷͔ ̵͇̊b̵͚̄y̸̧̏ ̴̫̄m̵̳͑ÿ̷͎ ̴͍̋s̵̰͝e̵̱͝r̶͉̓ȉ̷̟a̶̟̒l̴̪͠ ̷̥͝n̷͊ͅù̶̻m̴̝̃b̷̻̾e̷̕͜r̷̺̕?̴̧̈́\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂"
+					}
+					else
+					{
+						"%(distingstart)Why would you even want him to call you by my serial number?\w7 Well, do what you want"
+					}
+				}
+				else
+				{
+					"T̴̟͝h̵̨͋a̶̧͊t̸͖̆ ̵̵̴͠i̸s̸ ̶͔͗m̵̻̈́ỳ̴̫ ̴̧̀s̵̻̔e̶̛͍r̵̛̹i̷͆ͅȃ̷̲l̴̯̓ ̸̣́n̶̜͐ǘ̸͖m̴̺̚b̷̭̓e̶̫͌r̷̳̆ ̴͙͘y̷̌ͅo̵ü̸̞ k̸̬̓ṋ̶̏o̸̯̕w̷͖̅?̸̰̀"
+				}
 				--
 				if presuffix == "masculine" 
 				{
@@ -106,24 +82,36 @@ OnNameTeach
 				-- 
 				"\![*]\q[-ssi,titlessi]\n/
 				\![*]\q[-san,titlesan]\n/
+				\![*]\q[none,titlenone]\n/
 				\![*]\q[Your own,titleown]\e"	
 			}
 			else
 			{
 				truth += 1
-				"\0\s[0]\i[4]ERROR #7\w8\i[4] TRY AGAIN AFTER REBOOT\w8\w8\c\0\s[-1]\w8\w8\w8\w8\w8\0\s[0]REBOOT COMPETED\x\c/
-				\0\s[0]You want me to call you diffrent?\w8\w8 How should i call you?\![open,inputbox,OnNameTeach,-1]\e"
+				"\0ERROR #7\w8 TRY AGAIN AFTER REBOOT\w8\w8\c\0\s[-1]\w8\w8\w8\w8\w8\0REBOOT COMPETED\x\c/
+				\0You want me to call you diffrent?\w8\w8 How should i call you?\![open,inputbox,OnNameTeach,-1]\e"
 			}
 		}
 		elseif "M-" _in_ reference0
 		{
-			if tentruth == 1
+			if tentruth == 1 && meeting != 1
 			{
-				"A̸͐͜r̴̝̊e̷̬̚ ̵̡̄y̶̐͜ō̸̹u̷̗̽ ̵̃ͅl̴̨̏ḭ̶͛k̶̳̃ę̸̈ ̸̳̀m̸̈́͜e̸̡͐?̸̰̓"
+				"A̸̝̋ř̴̖e̸̱̓ ̴̺̅y̷̠͒o̸̘̿u̴̘̓ ̶͇͆l̶̼͋ị̷̕k̶̖̒e̷͙̎ ̷̝̊u̸͔̾s̵͇̐?"
+			}
+			elseif tentruth == 1 && meeting == 1
+			{
+				if repairglitch != 1
+				{
+					"W̶̱̔h̴̜͝y̴̮͑ ̴̳͛w̴̖͆o̷̦̚u̵͖̽l̸͍͝d̵͓̐ ̴̙͑y̵̱͊o̷̟̊ư̷͇ ̵̫̿e̸̢̿v̴̤͗e̴̠͌ņ̸̅ ̴͓͑ẅ̵͎́a̷̞̅n̸͍͂t̷̬̾ ̶̺͛h̵͍͛i̴̱̎m̴͐͜ ̷̼̊t̵͚̄ó̶̤ ̴̡̀c̸͚̕ă̵͉l̷̫̈́l̴͖̆ ̵̻͘y̷͉͋o̸̮̔u̸̖̎ ̶̭̉b̸̖͝ẏ̵͍ ̴̳͆à̴̢ ̵̧́s̵̲̆ȅ̵̩r̶͉͌ĭ̷̻a̸̡͗l̷̳̋ ̵͉̇n̷͝ͅų̶̛m̴̞̐b̸̪͠e̶̘̕r̸͋ͅ?̶̱̇\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂"
+				}
+				else
+				{
+					"%(distingstart)Why would you even want him to call you by a serial number?\w7 Well, do what you want"
+				}
 			}
 			else
 			{	
-				"\0\s[0]Oh,\w8 that looks like a serial code of one A.R.I products\x\cWell,\w4 do you want a title?"
+				"\0Oh,\w8 that looks like a serial code of one A.R.I products\x\cWell,\w4 do you want a title?"
 			}
 			--
 			if presuffix == "masculine" 
@@ -139,28 +127,21 @@ OnNameTeach
 			-- 
 			"\![*]\q[-ssi,titlessi]\n/
 			\![*]\q[-san,titlesan]\n/
+			\![*]\q[none,titlenone]\n/
 			\![*]\q[Your own,titleown]\e"
 		}
 		elseif reference0 == "" || reference0 == " " || reference0 == "   " 
 		{
-			if rude == "ON" && insults == "ON"
-			{
-				username = "%(insult)" 
-				"\0\s[0]You .\w8 .\w8 .\w8 left it blank?.\w8\0\s[0]Okey then %(insult)"
-			}
-			else
-			{
-				username = "NULL" 
-				"\0\s[0]You .\w8 .\w8 .\w8 left it blank?.\w8\0\s[0]I will call you NULL then"
-			}
+			username = "NULL" 
+			"\0You .\w8 .\w8 .\w8 left it blank?.\w8\0I will call you NULL then"
 		}
 		elseif reference0 == "MiniDev" || reference0 == "minidev" || reference0 == "miniDev" || reference0 == "Minidev" || reference0 == devname
 		{
-			"\0\s[0]Oh,\w8 thats my nickname.\w8Better choose something else\w4 or it may become confusing\![open,inputbox,OnNameTeach,-1]"
+			"\0Oh,\w8 that's my nickname.\w8Better choose something else\w4 or it may become confusing\![open,inputbox,OnNameTeach,-1]"
 		}
 		else 
 		{
-			"\0\s[0]Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+			"\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
 			--
 			if presuffix == "masculine" 
 			{
@@ -175,6 +156,7 @@ OnNameTeach
 			-- 
 			"\![*]\q[-ssi,titlessi]\n/
 			\![*]\q[-san,titlesan]\n/
+			\![*]\q[none,titlenone]\n/
 			\![*]\q[Your own,titleown]\e"
 		}
 
@@ -270,5 +252,5 @@ NameDone
 	
 	truename = username
 	--
-	"\0\s[0]I will call you %(username) from now on.\e"
+	"\0I will call you %(username) from now on.\e"
 }

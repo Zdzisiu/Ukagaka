@@ -11,12 +11,6 @@ Your M-P will say optimistic and inspirational quotes.
 ----------------
 
 NEGATIVE TRAITS:
-Rude 
-Basic trait that makes your M-P mean, he will put you down and overall act rude.
-    - Curses:
-	Your M-P will curse.
-    - Insults:
-	Your M-P will insult you.
 
 Unintelligent
 Your M-P will randomly say scientific myths and false facts about various topics and conspiracy theories.
@@ -39,4 +33,16 @@ Your M-P will compilment you and randomly say pickup lines (not all will be good
 
 ADDITIONAL INFO:
 If you don't choose any traits: M-P will say generic and neutral things
+
+
+
+
+
+
+
+
+
+//\![raise,OnFromBinaryCheck]
+//d2hvIGlzIE0tMjAxej8=
+//64
 

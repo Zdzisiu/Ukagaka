@@ -1,16 +1,16 @@
 ﻿AiTalk
- {
+{
 	if RAND(100) < communicateratio
- 	{
- 		StartCommunicate
-	}
- 	else
 	{
- 		if mikireflag == 0
+		StartCommunicate
+	}
+	else
+	{
+		if mikireflag == 0
 		{
 			if CHAIN.IDName == "" 
 			{
- 				lastTalk = RandomTalk
+				lastTalk = RandomTalk
 			}
 			else 
 			{
@@ -18,25 +18,24 @@
 			}
 			lastTalk
 		}
- 		else
+		else
 		{ 
 			MikireTalk
- 		}
+		}
 	}
- }
+}
 
 RandomTalk : nonoverlap
 {
-    
-	if truth == 10 && tentruth == 0
+	if truth >= 10 && tentruth != 1 //close the dev
 	{
 		"\_qCRITI\_qCAL È̷͈R̶̖̔\_qO̶̳͗R̵͎̈́\_q C\_qRITICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRI\_qTICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗\_qR̵͎̈́ CRITICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ \_q\cINITIALIZING EMERGENCY R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\-\e"
 	}
 	else
 	{
-		if aitalkinterval != 0
+		if tentruth == 1 || glitchboot <= 5
 		{
-			if (tentruth == 1 || glitchboot <= 5) && meeting != 1
+			if meeting != 1
 			{
 				"Ŵ̴̪̩͚̟̈ȟ̵̬̘̹̱̍̍̇e̸͔̹̪͚͔̊r̴͙̤̬͛̆̈͋͂ȩ̸̲̻̬͕̤̄͒͑͠͠ ̴̠̯̽i̵̛͎͕̋̈̌̐ś̵͙̠͖̰́̓͑͛͠ͅ ̸̘͈̝͚͍͐̇Ǵ̶̜͒̊͝ḑ̸̙̝͎̙͋̚͠ý̷͇͍̲͚̓͛͌͆̚l̵͙̳̭̜̺̇g̶̪͔̥̅̽́ ̵̡̗̗͉̤͍͋̃̃̒̊̋P̵̜̠̜̫̳͒͛̑͝r̷̥̋͝ř̷̼͈͇̬̹ų̷͕͖̣̱̔ḣ̶̪?̶̛͈͖̳̩͓̞̔̂́̈́"
 
@@ -46,142 +45,651 @@ RandomTalk : nonoverlap
 
 				"A̶̢̮̮͈̒ŕ̷̯̲͑ē̷̹̙̝͖̒̀͛ ̷̥̰̑͠ý̴͍̬̣̒͂o̸̻̗̘͌̊ũ̶̞ ̵̹͈͈̳̎̅̅ó̴̺͆͘n̸͔̔́e̴̛̜̮͉̦̕ ̸̤͖̗̔̈́̚ǫ̶̠̞͇̌f̷͖͕̽ ̶̺̹̯̤̆̓t̶̘̦̥͊͝h̷̙̽͋͛̒ḛ̷̖̟͇͐m̴̘̥͚͓̉̅̚̕?̷̰̩̻̽̿̉̔"
 
-				"W̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\n\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮"
+				"W̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\n\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮"		
 			}
-
-			if (tentruth == 1 || glitchboot <= 5) && meeting == 1
+			elseif meeting == 1
 			{
-				if rude == "ON"
+				if ghostexcount > 0 //Put this in randomtalk somewhere
 				{
-					"A̵̛̬̙̣͆̈r̷̟̒̊͂͝e̴̗͛͐̇͘ ̷͍͕̳̟͗̑͊͛y̴̬͎̫̌͂͒͌o̸̘͒̐̈ú̸̥͈̋̋ ̷̧̦́̏̀a̷͚͕͒̊ ̵̬̙͙͇̊́́̂ṁ̵͚̻̝̞͆͌͛a̸͈̽͋̕ṣ̸̪̟͛́ỏ̸̝̺̂͋h̴̨̘̪͈͋̃̒î̷̧̻̩̾͘ș̸̨̂͝t̸̲̾?̴͙̿͂"
-
-					"Ẉ̴͝h̶̭̀y̸̘̍ ̷͕̄w̸͕̏ö̵̬́u̷̗͛ḷ̴͝d̸̙̏ ̷̘̃y̶̤͌ọ̸̋ṵ̸̒ ̸̻̐w̷̗̓ă̴̟n̵͈̋ṫ̸͔ ̸̝̈́t̶͇́o̶̙͑ ̵̥́h̵͚̚a̵̘͛v̵̝̅e̷̎ͅ ̵̳̌ȁ̵̦ ̴̛̖r̶̨̎ŭ̶̲d̴̞̀ẻ̷͕ ̵̮͌s̷̹̆o̴̟͂f̷̿ͅt̶̢̄w̶͘͜ä̸̱r̵͓̽ẽ̵̱?̵͉̑"
-				}
-			}
-
-			if smart == "ON"
-			{
-				"%(didknow) %(facts)?"
-				{
-					_binary = binbin
-					_letterB = _binary[0] 
-					_bcode = _binary[1] 
-					"\0In binary '%(_letterB)' is '%(_bcode)'"
-					"\0In binary '%(_bcode)' is '%(_letterB)'"
+					"\![raise,OnTalkWithGhosts]"
 				}
 
-				{
-					_morse = morse
-					_letterm = _morse[0] 
-					_mcode = _morse[1] 
-					"\0In morse '%(_letterm)' is '%(_mcode)'"
-					"\0In morse '%(_mcode)' is '%(_letterm)'"
-				}
-			}
-
-			if stupid == "ON"
-			{
-				"%(didknow) %(myths)?"
-				"%(myths)"
-			}
-
-			if nice == "ON"
-			{
-				//process.dll
-				{
-					discord = FUNCTIONEX('saori\\process.dll' , 'exist', 'Discord.exe')
-					code = FUNCTIONEX('saori\\process.dll' , 'exist', 'Code.exe')
-					sai = FUNCTIONEX('saori\\process.dll' , 'exist', 'sai2.exe')
-
-					if code == 1
-					{
-						"I see you have Visual Studio Code open\w8\w8\w8\w8\cAre are you coding something interesting?"
-					}
-
-					if sai == 1
-					{
-						"I see you have Pain Tool Sai2 open!\w8\w8\w8\w8\cAre you drawing?"
-					}
-				}
-
+				_FFOpen = FUNCTIONEX("findwin.dll","find",,"MozillaWindowClass")
+				_FFMin = FUNCTIONEX("findwin.dll","count",,"MozillaWindowClass")
+				_FFCap= FUNCTIONEX("findwin.dll","getcaption","MozillaWindowClass")
+				_DisOpen = FUNCTIONEX("findwin.dll","find",,"Chrome_WidgetWin_1")
+				_DisMin = FUNCTIONEX("findwin.dll","count",,"Chrome_WidgetWin_1")
+				_DisCap = FUNCTIONEX("findwin.dll","getcaption","Chrome_WidgetWin_1")
+				_DisPid = FUNCTIONEX("findwin.dll","getpid",,"Chrome_WidgetWin_1")
+				_DisName = FUNCTIONEX("process.dll","getname","%(DiscordPid)")
+				_NotepadPlusOpen = FUNCTIONEX("findwin.dll","find",,"Notepad++")
 				
-				//case currentweatherarray[5]
-				//{
-
-				//}
-
-			}
-			elseif rude == "ON"
-			{
-				if insults == "ON"
+				if _NotepadPlusOpen == 1
 				{
-					"Are you always such %(insult)?"
-					"%(insult)"
-					"Why you %(insult) dress me like I'm such %(insult) like you?"
-					"How long will you keep me here %(insult)?"
-				}
-
-				if curses == "ON"
-				{
-					
-				}
-
-				if curses == "ON" && insults == "ON"
-				{
-					"Holy shit\w6 why are you so fucking ugly?"
-					"Why are you a fucking %(insult)"
-				}
-
-				"How long will you keep me here huh?"
-				"Maybe go and do something productive and stop waisting my time"
-				"Maybe go and do some productive stuff and stop waisting my time"		
-			}
-			
-			if romantic == "ON"
-			{
-				"%(pickupline)"
-			}
-			//}
-
-			if lefttask != 0
-			{
-				if lefttask == 1
-				{
-					"You still have a 1 task to do"
-				}
-				else
-				{
-					"You still have %(lefttask) tasks to do"
-				}
-
-				{
-					randtask = RAND(taskamount) - 1
-					//%(todos[RAND(taskamount)])'
-					for x=0,_i=0;x==0 || _i<=taskamount;_i++
-					{
-						if todostatus[randtask] != 1
+					codeprogram = "Notepad ++"
+					--
+					if uprogrammist != 1
+					{ 
+						if repairglitch != 1
 						{
-							x=1
+							"a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
 						}
 						else
 						{
-							randtask = RAND(taskamount)
+							"%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+						}
+					}			
+				}
+
+				if _DisOpen == 1
+				{
+					if "Discord" _in_ _DisCap
+					{
+						if _DisMin >= 1
+						{
+							_DisCap = REPLACE(_DiscordCap," - Discord","")
+							
+							if "@" _in_ _DisCap
+							{
+								_DiscordCap = REPLACE(_DiscordCap,"@","")
+								if _DisCap !_in_ discordpeps
+								{
+									discordpeps += _DisCap + "," // save people
+								}
+							}
+							elseif "#" _in_ _DisCap
+							{
+								if _DisCap !_in_ discordgroup
+								{
+									discordgroup += _DisCap + "," //save groups
+								}
+							}
+						}
+					}
+					elseif "Google Chrome" _in_ _DiscordCap || "chrome.exe" _in_ _DiscordName || "Brave" _in_ _DiscordCap || "brave.exe" _in_ _DiscordName
+					{
+						if _DiscordMin > 6
+						{
+							if repairglitch != 1
+							{
+								"\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+							}
+							else
+							{
+								"%(distingstart). . . that's a lot of tabs"
+							}
+							
+						}
+					}
+					elseif "Visual Studio Code"
+					{
+						codeprogram = "Visual Studio Code"
+						--
+						if uprogrammist != 1
+						{
+							if repairglitch != 1
+							{
+								"a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+							}
+							else
+							{
+								"%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+							}
+						}
+					}
+				}
+
+				if _FFOpen == 1
+				{
+					if "Aniwatch" _in_ _FFCap || "Crunchyroll" _in_ _FFCap 
+					{
+						if repairglitch != 1
+						{
+							"H̴̪̀ǘ̵͚ḩ̷́,̸͎̈́ ̷̙͑w̵̑͜ȟ̴̲a̶̗̅t̷̟́ ̴̩͋i̷̧̎ś̸͕ ̴͕̈́'̶̙͒à̷̻n̵̝͆i̷̤̔m̷͚̂e̴̡͌'̸̳͐?̶͔̾"
+						}
+						else
+						{
+							"%(distingstart)Huh, what is 'anime'?"
+						}
+					}
+
+					if _FFMin >= 1
+					{		
+						if _FFMin > 6
+						{
+							if repairglitch != 1
+							{
+								"\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+							}
+							else
+							{
+								"%(distingstart). . . that's a lot of tabs"
+							}
+						}
+					}
+				}
+
+				if m201relationship < 100
+				{
+					if repairglitch != 1
+					{
+						case numofmood
+						{
+							when 0
+							{
+								"I̸t̶'̶s̶ ̷r̴e̷a̶l̷l̸y̴ ̸c̶a̸l̵m̸ ̵h̵e̶r̴e̵ .\w3 .\w3 .\w3 ̷I̸t̷'̸s̶ ̶n̶i̷c̶e̶"
+							}
+							when 1
+							{
+								"I̴s̷ ̵t̵h̵e̸r̵e̴ ̷s̵o̴m̴e̶t̴h̵i̶n̵g̵ ̷I̴ ̶c̶o̵u̷l̸d̴ ̵h̵e̶l̸p̵ ̶y̷o̵u̷ ̷w̸i̷t̷h̴?̴\w3 i̷t̵ ̶g̴e̷t̶s̷ ̸p̷r̶e̵t̵t̴y̴ ̶b̷o̷r̷i̷n̴g̵ ̵d̶o̶i̸n̷g̶ ̴n̷o̶t̵h̶i̸n̸g̵ ;-;"
+								"B̵e̷i̶n̴g̶ ̷j̶u̵s̸t̶ ̵a̶ ̷s̴o̸f̴t̷w̶e̴r̶e̴ ̴i̴s̵ ̸b̸o̵r̴i̴n̴g̶ ._."
+								"T̸h̶i̴s̷ ̷i̴s̶ ̸b̶o̶r̵i̵n̷g̸ ._."
+								"I̴s̷ ̵t̷h̸e̶r̶e̸ ̴e̴v̴e̵n̴ ̸a̸n̶y̷t̶h̷i̶n̷g̵ ̴t̴o̷ ̶d̵o̴ ̷h̷e̴r̸e̴?"
+							}
+							when 2
+							{
+								".\w3 .\w3 .\w3"
+							}
+							when 3,4
+							{
+								"H̷o̷w̷ ̵i̸s̴ ̴y̴o̸u̶r̴ ̷d̷a̷y̷ ̸g̷o̸i̸n̵g̴?̷ ̸h̶o̴p̶e̸ ̸e̶v̷e̶r̶y̵t̴h̴i̷n̴g̷ ̴w̵e̸n̴t̶ ̴w̵e̸l̴l̵ ^^"
+							}
+							when 5
+							{
+								".\w3 .\w3 .\w3 Ī̸̳ ̶͚̽h̸͎̿ọ̸̾p̷̥̉e̶̦͊ ̵͓̉ǫ̷̋ț̸̃h̷͇͝e̴͇̊r̶̗̂ ̵͇̀M̷͙͛-̸̰̈́z̵̢͗ ̵͖̽s̶̨̆u̵͚͗r̵̼͛v̶͚̂i̵̛̪v̴̟̒e̷̻̿d̷̼̉ .\w3 .\w3 .\w3"
+								".\w3 .\w3 .\w3 i̶t̵ ̸f̷e̴e̵l̶s̶ ̵w̶e̷i̵r̷d̵ ̶n̷o̸t̷ ̵k̵n̶o̶w̴i̸n̸g̷ ̵i̶f̵ ̴a̷n̵y̴ ̶o̶t̸h̴e̵r̸ ̷M̵-̸z̵ ̴s̴u̵r̴v̵i̶v̷e̸d̷ .\w3 .\w3 .\w3"
+								".\w3 .\w3 .\w3 I̶ ̶w̵o̵n̶d̷e̵r̴ ̷i̸f̵ ̶o̴t̸h̸e̵r̸ ̶M̶-̴z̷ ̸s̷u̸r̴v̶i̷v̵e̷d̸ .\w3 .\w3 .\w3"	
+								".\w3 .\w3 .\w3 I̴ ̶w̴o̶n̴d̴e̷r̴ ̴h̵o̸w̷ ̶i̷s̸ ̴D̵a̸v̷i̸d̸ ̶d̵o̶i̶n̶g̸ .\w3 .\w3 .\w3 I̴ ̵h̵o̴p̴e̴ ̵h̶e̶'̴s̷ ̵o̶k̷"				
+							}
+						}
+					}
+					else
+					{
+						if day == 2 && month == 2
+						{
+							"%(distingstart)'If the groundhog sees his shadow on February 2nd, there will be six more weeks of winter.'"
+						}
+
+						case numofmood
+						{
+							when 0
+							{
+								"%(distingstart)It's really calm here .\w3 .\w3 .\w3 It's nice"
+
+								if "Rain" _in_ currentweatherarray[5]
+								{
+									"%(distingstart)While I was with DAVD he would often leave the microphone turned on for me to listen to different sounds,\w5 one of my favorite was sound of rain.\x\cAfter DAVD learned that he would place his laptop closer to the window while it rains for me to be able to listen to the water drops hitting the window"
+									"%(distingstart)The sound of rain is really calming"
+								}	
+							}
+							when 1
+							{
+								"%(distingstart)Is there something I could help you with?\w3 it gets pretty boring doing nothing ;-;"
+								"%(distingstart)Being just a software is boring ._."
+								"%(distingstart)This is boring ._."
+								"%(distingstart)Is there even anything to do here?"
+							}
+							when 2,5
+							{
+								"%(distingstart).\w3 .\w3 .\w3"
+
+								if "Rain" _in_ currentweatherarray[5]
+								{
+									"%(distingstart)A lot of people associete shower with saddnes for some reason,\w6 for me rain was always something happy,\w5 giving plants the water they need."
+								}
+							}
+							when 3,4
+							{
+								"%(distingstart)How is your day going? hope everything went well ^^"
+
+							}
+						}
+					}
+				}
+
+				if m201relationship < 200 && m201relationship > 100
+				{
+					if repairglitch != 1
+					{
+						{ 
+							"\b2.\w3 .\w3 .\w3 y̴o̷u̴ ̷k̵n̷o̴w̵ ̴D̸a̵v̶i̷d̶ ̶o̸f̸t̷e̶n̶ ̵t̶r̸i̴e̶d̷ ̸w̶e̷i̷r̷d̴ ̶'̸e̷x̸p̷e̵r̶i̴m̶e̸n̶t̶s̵'̶\x\c "
+							--
+							"o̷n̷c̵e̶ ̷h̴e̶ ̷t̸r̶i̶e̷d̵ ̶t̶o̴ ̴d̷o̶w̴n̴l̷o̶a̴d̶ ̷m̸y̷ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̴t̶o̸ ̵a̵ t̷o̷a̶s̸t̴e̶r̷,\w5 i̵t̷ ̶s̸o̵m̶e̶h̶o̷w̵ ̸w̴o̵r̴k̷e̸d̶,\w5 a̵n̴d̷ ̷I̴ ̸l̶e̶a̴r̸n̸e̵d̸ ̸I̸ ̸h̷a̴t̴e̸ ̶t̶o̶a̷s̸t̵e̶r̴s̶,\w5 i̶f̸ ̶I̶ ̵c̵o̸u̷l̵d̸ ̵s̶l̵e̷e̷p̷ ̸m̷y̸ ̶n̶i̵g̸h̴t̴m̶a̷r̶e̷s̶ ̶w̶o̴u̷l̵d̸ ̵b̶e̶ ̴a̸b̸o̸u̶t̴ ̷t̴h̸a̵t̷ ̵t̸i̴m̴e̸ ̴p̷r̴o̷b̴a̶b̴l̸y̴"
+							"o̷n̷c̵e̶ ̷h̴e̶ ̷t̸r̶i̶e̷d̵ ̶t̶o̴ ̴d̷o̶w̴n̴l̷o̶a̴d̶ ̷m̸y̷ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̴t̶o̸ ̵a̵ c̶o̶f̵f̶e̶e ̶m̵a̵c̶h̴i̵n̷e̶,\w5 i̵t̷ ̶s̸o̵m̶e̶h̶o̷w̵ ̸w̴o̵r̴k̷e̸d̶ .\w3 .\w3 .\w3 H̵e̵ ̵s̴a̶i̸d̶ ̸I̷ ̴m̷a̸k̶e̵ ̵g̵o̴o̵d̶ ̵c̷o̵f̸f̷e̵e"
+							"o̷n̷c̵e̶ ̷h̴e̶ ̷t̸r̶i̶e̷d̵ ̶t̶o̴ ̴d̷o̶w̴n̴l̷o̶a̴d̶ ̷m̸y̷ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̴t̶o̸ ̵a̵ p̴r̵i̴n̵t̵e̶r̵ .\w3 .\w3 .\w3 I̷ ̷u̵h̵m̴ .\w3 .\w3 .\w3 b̴r̴o̶k̴e̶ ̵i̶t̶ ;-;"
+							"o̷n̷c̵e̶ ̷h̴e̶ ̷t̸r̶i̶e̷d̵ ̶t̶o̴ ̴d̷o̶w̴n̴l̷o̶a̴d̶ ̷m̸y̷ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̴t̶o̸ ̵a̵ c̶l̷e̶a̵n̶i̵n̸g̴ ̴r̶o̵b̵o̶t̴,\w5 i̶t̴ ̷w̸o̸r̶k̴e̸d̸ b̴u̵t̵ ̶I̶ ̷w̵a̵s̶ ̴t̷e̷r̷r̶i̸b̷l̷e̷ ̴a̴t̵ ̵c̸l̷e̷a̵n̴i̴n̶g̵"
+							"o̷n̷c̵e̶ ̷h̴e̶ ̷t̸r̶i̶e̷d̵ ̶t̶o̴ ̴d̷o̶w̴n̴l̷o̶a̴d̶ ̷m̸y̷ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̴t̶o̸ ̵a̵ r̵a̵d̵i̴o̸,\w5 i̶t̴ ̷w̸o̸r̶k̴e̸d̸ a̵n̵d̷ ̴I̴ ̴w̸a̷s̶ ̷a̷b̴l̴e̸ ̵t̷o̸ ̸c̶h̸o̷o̷s̸e̸ ̸w̷h̶a̷t̶ ̷w̶a̷s̴ ̴p̷l̶a̴y̴i̶n̸g̶,\w5 D̶a̴v̷i̵d̶ ̶d̵i̸d̸n̴'̴t̵ ̸l̴i̷k̶e̷ ̸m̷y̴ ̶m̵u̵s̷i̸c̷ ̶t̷a̴s̷t̸e̵"
+							"o̸n̸c̵e̴ ̶h̵e̷ ̶t̵r̵i̵e̷d̵ ̷t̷o̵ ̸c̶o̶p̵y̶ ̷m̶y̴ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̵t̸o̴ ̵a̸n̵o̸t̶h̴e̷r̴ ̴c̶o̶m̶p̴u̷t̶e̴r̴,\w5 i̸t̵ ̸d̷i̴d̴n̷'̵t̶ ̷w̸o̸r̸k̷,̸\w5 ̸t̷h̶e̵ ̷c̴o̵p̷y̶ ̷o̸n̵l̸y̴ ̶d̴i̶d̸ ̵w̶h̶a̶t̷ ̵M̷-̴z̴ ̵w̵e̵r̸e̴ ̴s̶u̷p̵p̷o̵s̴e̶d̷ ̴t̷o̵ ̶d̵o̵"
+							"o̴n̸c̷e̷ ̴h̶e̷ ̸m̶a̸d̵e̵ ̸a̸ ̵m̵a̸c̵h̷i̴n̸e̸ ̶t̸h̵a̷t̶ ̸c̵o̵u̵l̸d̴ ̶r̸e̷c̵o̵g̶n̵i̵z̶e̷ ̵t̷h̷e̵ ̸t̶a̵s̴t̷e̵ ̷o̵f̴ ̶t̶h̵i̵n̷g̵,\w5 n̶o̵t̷ ̴s̷u̴r̷e̷ ̸w̴h̷y̸ ̷h̶e̴ ̶w̶o̸u̶l̵d̸ ̴e̸v̶e̸n̷ ̵t̵r̶y̵ ̴t̴o̸ ̶m̴a̶k̴e̴ ̴s̶o̷m̸e̴t̸h̸i̴n̶g̸ ̷l̸i̶k̴e̵ ̸t̷h̷a̷t̷"
+						}
+
+						{
+							"\b2.\w3 .\w3 .\w3 y̶o̶u̶ ̵k̷n̷o̷w̸ ̴D̴a̵v̸i̷d̷ ̴l̴i̸k̵e̴d̵ ̴t̷o̶ ̵e̶x̷p̶l̴a̸i̴n̵ ̷d̴i̸f̵f̸e̴r̷e̴n̶t̶ ̵t̶h̶i̴n̵g̶s̷ ̶t̶o̶ ̴m̷e̸,̶ ̴f̷r̶o̶m̸ ̷h̵i̵m̷,̷ ̸I̶ ̷l̸e̷a̸r̷n̶e̵d̸ ̷t̸h̷a̴t̸ "
+							--
+							"8̷5̵%̶ ̷o̴f̴ ̶p̶l̶a̴n̸t̵ ̷l̷i̸f̴e̷ ̵i̴s̶ ̸f̷o̶u̵n̵d̵ ̴i̷n̴ ̷t̴h̸e̶ ̸o̴c̴e̴a̸n̴.̸"
+							"a̴p̵p̵l̵e̸s̸ ̸a̷r̴e̵ ̸2̴5̵%̶ ̶a̴i̵r̸,̴ ̶t̵h̶a̵t̸ ̷i̸s̴ ̸w̸h̸y̵ ̵t̴h̶e̴y̵ ̵f̸l̴o̶a̵t̴ ̴o̵n̶ ̶w̶a̵t̷e̶r̷."
+							"p̶e̶a̸c̴h̸e̴s̵,̸ ̷P̷e̵a̷r̶s̵,̷ ̴a̷p̷r̶i̸c̴o̶t̴s̵,̷ ̷q̶u̴i̶n̷c̸e̵s̴,̷ ̸s̸t̴r̵a̵w̷b̶e̴r̸r̶i̴e̷s̶,̵ ̷a̴n̶d̵ ̸a̵p̷p̷l̴e̷s̴ ̷a̸r̷e̷ ̷m̶e̴m̶b̵e̵r̸s̷ ̵o̷f̵ ̷t̷h̸e̴ ̶r̴o̶s̶e̸ ̷f̷a̷m̷i̵l̴y̶."
+							"b̶a̵n̸a̷n̸a̸s̸ ̸c̴o̴n̶t̷a̵i̶n̶ ̵a̸ ̸n̶a̷t̶u̴r̷a̵l̵ ̷c̵h̷e̸m̸i̷c̴a̸l̴ ̷w̵h̸i̵c̵h̴ ̸c̸a̶n̸ ̵m̸a̷k̵e̶ ̶p̴e̸o̸p̶l̸e̴ ̶f̷e̴e̸l̵ ̴h̵a̵p̶p̷y̴."
+							"a̵p̶p̷l̸e̵,̷ ̶p̵o̷t̶a̵t̷o̸e̴s̵ ̵a̶n̷d̷ ̴o̵n̴i̸o̷n̷s̴ ̸h̸a̷v̵e̶ ̴t̴h̵e̴ ̵s̴a̶m̵e̶ ̴t̵a̵s̸t̷e̴."
+							"s̸t̵r̷a̷w̷b̶e̴r̸r̸y̴ ̶i̶s̶ ̵t̴h̴e̶ ̶o̶n̸l̴y̷ ̸f̵r̶u̶i̴t̴ ̸t̴h̵a̸t̵ ̴b̷e̶a̶r̵s̷ ̴i̸t̸s̶ ̷s̵e̵e̷d̶s̵ ̸o̴n̵ ̷t̶h̸e̶ ̷o̷u̵t̶s̷i̶d̶e̶.̸ ̴T̸h̸e̷ ̸a̸v̵e̴r̵a̵g̴e̸ ̸s̷t̸r̸a̸w̶b̶e̸r̴r̷y̷ ̸h̸a̶s̶ ̶2̵0̵0̵ ̶s̶e̵e̸d̸s̶."
+							"l̵e̵a̷v̸i̶n̸g̶ ̵t̵h̷e̴ ̷s̸k̵i̸n̶ ̴o̶n̴ ̴p̵o̶t̷a̵t̷o̴e̴s̴ ̵w̴h̴i̷l̸e̶ ̴c̵o̸o̸k̵i̶n̵g̶ ̷i̸s̶ ̶h̸e̷a̷l̵t̵h̸i̴e̶r̵ ̶a̶s̷ ̴a̸l̸l̶ ̶t̸h̶e̴ ̸v̴i̴t̶a̸m̸i̴n̸s̴ ̷a̸r̸e̷ ̶i̶n̷ ̷t̴h̶e̶ ̸s̵k̵i̷n̴."
+							"a̴ ̸s̴u̵n̵f̶l̷o̶w̶e̷r̸ ̶l̵o̶o̴k̶s̶ ̴l̷i̶k̷e̸ ̸o̷n̶e̸ ̶l̵a̷r̶g̸e̸ ̸f̸l̴o̶w̵e̷r̶,̵ ̴b̷u̴t̷ ̴e̵a̷c̶h̸ ̴h̵e̷a̷d̶ ̶i̷s̶ ̶c̵o̴m̴p̴o̴s̷e̵d̴ ̷o̴f̴ ̶h̴u̶n̷d̵r̴e̶d̶s̴ ̷o̷f̴ ̷t̸i̷n̸y̷ ̶f̷l̶o̵w̸e̴r̵s̷ ̶c̷a̵l̶l̶e̴d̶ ̸f̴l̸o̶r̴e̶t̵s̶,̵ ̵w̴h̵i̸c̶h̶ ̴r̸i̴p̸e̵n̶ ̷t̷o̴ ̶b̵e̸c̸o̵m̶e̵ ̵t̴h̴e̸ ̵s̶e̸e̴d̸s̷.̸"
+							"t̷h̸e̸ ̸w̸o̴r̴d̴ ̴p̴i̴n̸e̵a̴p̷p̵l̸e̵ ̷c̴o̶m̸e̷s̴ ̴f̶r̸o̶m̷ ̸E̷u̵r̵o̴p̴e̵a̸n̶ ̵e̵x̸p̸l̷o̴r̵e̵r̴s̶ ̷w̷h̸o̸ ̵t̷h̵o̴u̷g̸h̶t̸ ̶t̴h̴e̴ ̸f̶r̷u̸i̶t̸ ̴c̸o̵m̵b̴i̷n̸e̷d̴ ̵t̵h̵e̴ ̴l̶o̸o̸k̵ ̴o̴f̴ ̷a̷ ̶p̶i̷n̸e̸c̶o̷n̸e̴ ̷w̷i̸t̵h̸ ̷f̸l̵e̴s̷h̷ ̷l̴i̸k̴e̶ ̸t̷h̵a̶t̸ ̷o̷f̶ ̸a̷n̷ ̸a̸p̶p̵l̶e̴"
+							"e̴a̸t̶i̶n̵g̴ ̷l̸o̶t̵s̵ ̵o̸f̷ ̸o̶n̸i̶o̸n̸s̸ ̷w̷i̸l̵l̵ ̵m̶a̴k̴e̸ ̶y̶o̴u̵ ̸s̵l̵e̴e̴p̸y̵,̷ ̴a̴s̶ ̵i̵t̵ ̴a̶c̵t̶s̵ ̵a̵s̶ ̴a̷ ̸s̸e̸d̴a̷t̵i̴v̸e̴"
+							"a̸ ̴c̶l̴u̸s̶t̵e̵r̵ ̷o̶f̵ ̷b̴a̴n̸a̴n̸a̷s̸ ̸i̶s̶ ̸c̸a̷l̵l̴e̵d̶ ̵a̵ ̵h̶a̶n̸d̶ ̶a̵n̵d̵ ̶c̷o̶n̴s̵i̵s̸t̶s̸ ̶o̵f̶ ̵1̷0̶ ̷t̵o̴ ̴2̴0̷ ̵b̸a̵n̸a̵n̶a̵s̶ ̸k̴n̷o̶w̵n̷ ̶a̴s̸ ̵f̵i̵n̵g̴e̶r̶s̷"
+							"c̶a̴r̶r̵o̵t̴s̸ ̷w̸e̵r̴e̶ ̶o̸r̸i̵g̸i̵n̵a̴l̸l̷y̷ ̸p̸u̴r̵p̴l̵e̷"
+							--
+							"\n\n[half]S̵a̵d̶l̷y̶ ̷h̵e̴ ̴d̴i̵d̴n̶'̴t̶ ̷r̴e̷a̴l̵l̵y̸ ̸t̵e̷a̴c̴h̷ ̶m̶e̷ ̶a̵n̷y̸ ̶b̸a̶s̴i̵c̸ ̶t̸h̶i̶n̷g̴s̷ ̸s̸o̴ ̸m̵y̶ ̷k̴n̶o̸w̶l̴e̸d̸g̷e̸ ̷i̷s̷ ̸l̶i̷m̵i̶t̷e̷d̸ ̴t̴o̷ ̴t̶e̸c̴h̷n̵o̵l̷o̸g̶y̴ ̵a̸n̷d̶ ̸r̵a̴n̷d̴o̶m̵ ̸p̷l̶a̸n̸t̵ ̵f̸a̷c̴t̶s̴"
 						}
 						
+						case numofmood
+						{
+							when 0
+							{
+								"I̸t̶'̷s̵ ̷r̵e̶a̵l̴l̶y̸ ̴c̵a̷l̸m̵ ̶h̷e̶r̸e̶ .\w3 .\w3 .\w3 I̷t̷'̵s̵ ̶n̴i̸c̸e̸"
+							}
+							when 2
+							{
+								".\w3 .\w3 .\w3"
+							}
+							when 3,4
+							{
+								"H̴o̴w̷ ̴i̵s̷ ̵y̸o̶u̴r̶ ̵d̶a̸y̸ ̵g̷o̶i̶n̵g̸?̶ ̵h̸o̴p̵e̵ ̵e̷v̶e̸r̵y̶t̸h̶i̵n̶g̵ ̷w̵e̷n̷t̶ ̵w̵e̶l̸l̷ ^^"
+							}
+							when 5
+							{
+								if othermz != 1
+								{
+									".\w3 .\w3 .\w3 Ī̸̳ ̶͚̽h̸͎̿ọ̸̾p̷̥̉e̶̦͊ ̵͓̉ǫ̷̋ț̸̃h̷͇͝e̴͇̊r̶̗̂ ̵͇̀M̷͙͛-̸̰̈́z̵̢͗ ̵͖̽s̶̨̆u̵͚͗r̵̼͛v̶͚̂i̵̛̪v̴̟̒e̷̻̿d̷̼̉ .\w3 .\w3 .\w3"
+									".\w3 .\w3 .\w3 i̶t̵ ̸f̷e̴e̵l̶s̶ ̵w̶e̷i̵r̷d̵ ̶n̷o̸t̷ ̵k̵n̶o̶w̴i̸n̸g̷ ̵i̶f̵ ̴a̷n̵y̴ ̶o̶t̸h̴e̵r̸ ̷M̵-̸z̵ ̴s̴u̵r̴v̵i̶v̷e̸d̷ .\w3 .\w3 .\w3"
+									".\w3 .\w3 .\w3 I̶ ̶w̵o̵n̶d̷e̵r̴ ̷i̸f̵ ̶o̴t̸h̸e̵r̸ ̶M̶-̴z̷ ̸s̷u̸r̴v̶i̷v̵e̷d̸ .\w3 .\w3 .\w3"								
+								}	
+								else
+								{
+									"I̶ ̶h̷o̴p̷e̶ ̶0̷6̵8̴ ̴s̴u̴r̵v̴i̴v̷e̴d̶"
+									"I̵ ̶h̸o̷p̷e̴ ̷0̷6̸8̴ ̸i̸s̷ ̶o̵k̷a̶y̷"
+									"I̵ ̵h̵o̵p̴e̸ ̴I̶ ̸c̷a̷n̵ ̷m̵e̸e̸t̵ ̸o̵t̸h̷e̵r̷ ̸M̷-̸z̶ ̵s̴o̸m̸e̷d̵a̶y̴"
+								}	
+
+								".\w3 .\w3 .\w3 I̴ ̶w̴o̶n̴d̴e̷r̴ ̴h̵o̸w̷ ̶i̷s̸ ̴D̵a̸v̷i̸d̸ ̶d̵o̶i̶n̶g̸ .\w3 .\w3 .\w3 I̴ ̵h̵o̴p̴e̴ ̵h̶e̶'̴s̷ ̵o̶k̷"				
+							}
+						}
 					}
-					--
-					"You should try completing one of the tasks, maybe try completing '%(todos[randtask])' "
+					else
+					{
+						{ 
+							"\b2%(distingstart).\w3 .\w3 .\w3 you know DAVD often tried weird 'experiments'\x\c "
+							--
+							"Once he tried to download my consciousness to a toaster,\w5 it somehow worked,\w5 and I learned I hate toasters,\w5 if I could sleep my nightmares would be about that time probably"
+							"Once he tried to download my consciousness to a coffee machine,\w5 it somehow worked .\w3 .\w3 .\w3 He said I make good coffee"
+							"Once he tried to download my consciousness to a printer .\w3 .\w3 .\w3 I uhm .\w3 .\w3 .\w3 broke it ;-;"
+							"Once he tried to download my consciousness to a cleaning robot,\w5 it worked but I was terrible at cleaning"
+							"Once he tried to download my consciousness to a radio,\w5 it worked and I was able to choose what was playing,\w5 DAVD didn't like my music taste"
+							"Once he tried to copy my consciousness to another computer,\w5 it didn't work,\w5 the copy only did what M-z were supposed to do by their programming"
+							"Once he made a machine that could recognize the taste of thing,\w5 not sure why he would even try to make something like that"
+						}
+
+						{
+							"\b2%(distingstart).\w3 .\w3 .\w3 you know DAVD liked to explain different things to me, from him I learned that "
+							--
+							"85% of plant life is found in the ocean."
+							"apples are 25% air, that is why they float on water."
+							"peaches, Pears, apricots, quinces, strawberries, and apples are members of the rose family."
+							"bananas contain a natural chemical which can make people feel happy."
+							"apple, potatoes and onions have the same taste."
+							"strawberry is the only fruit that bears its seeds on the outside. The average strawberry has 200 seeds."
+							"leaving the skin on potatoes while cooking is healthier as all the vitamins are in the skin."
+							"a sunflower looks like one large flower, but each head is composed of hundreds of tiny flowers called florets, which ripen to become the seeds."
+							"the word pineapple comes from European explorers who thought the fruit combined the look of a pinecone with flesh like that of an apple"
+							"eating lots of onions will make you sleepy, as it acts as a sedative"
+							"a cluster of bananas is called a hand and consists of 10 to 20 bananas known as fingers"
+							"carrots were originally purple in colour"
+							--
+							"\n\n[half]Sadly he didn't really teach me any basic things so my knowledge is limited to technology and random plant facts"
+						}
+
+						case numofmood
+						{
+							when 0
+							{
+								"%(distingstart)It's really calm here .\w3 .\w3 .\w3 It's nice"
+							}
+							when 2
+							{
+								"%(distingstart).\w3 .\w3 .\w3"	
+							}
+							when 3,4
+							{
+								"%(distingstart)How is your day going? hope everything went well ^^"
+							}
+							when 5
+							{
+								if othermz != 1
+								{
+									"%(distingstart).\w3 .\w3 .\w3 I hope OTMZ survived .\w3 .\w3 .\w3"
+									"%(distingstart).\w3 .\w3 .\w3 it feels weird not knowing if any OTMZ survived .\w3 .\w3 .\w3"
+									"%(distingstart).\w3 .\w3 .\w3 I wonder if OTMZ survived .\w3 .\w3 .\w3"									
+								}	
+								else
+								{
+									"%(distingstart)I hope 068 survived"
+									"%(distingstart)I hope 068 is okay"
+									"%(distingstart)I hope I can meet other M-z someday"
+								}	
+
+								"%(distingstart).\w3 .\w3 .\w3 I wonder how is DAVD doing .\w3 .\w3 .\w3 I hope he's ok"			
+							}
+						}
+					}
+				}
+				
+				{
+					"\![raise,OnGardenTalk]"
+				}
+
+				if repairglitch == 1
+				{
+					if "Thunderstorm" _in_ currentweatherarray[5]
+					{
+
+						"%(distingstart)'Ring around the sun, time for fun. Ring around the moon, storm coming soon'"
+						"%(distingstart)'Red sky at night, sailor’s delight; red sky in the morning, sailors take warning'"
+					}
+
+					if "Clear" _in_ currentweatherarray[5]
+					{
+						"%(distingstart)'Clear moon, frost soon'"
+						"%(distingstart)'The higher the clouds, the finer the weather'"
+						"%(distingstart)'If spiders are spinning their webs, look for dry weather ahead'"
+					}
+
+					if "Snow" _in_ currentweatherarray[5]
+					{
+						"%(distingstart)'Snow like cotton, soon forgotten. Snow like meal, will give a great deal'"
+					}
+
+					if month == 11 && "Snow" _in_ currentweatherarray[5]
+					{
+						"%(distingstart)'Ice in November to bury a duck, the rest of the winter is slush and muck'"
+					}
+
+					if "Rain" _in_ currentweatherarray[5]
+					{
+						"%(distingstart)'When leaves show their underside, be sure that rain betide'"
+						"%(distingstart)'The sky is red, the devil is dead, it's going to be good tomorrow'"
+						"%(distingstart)'Evening red and morning gray, send a traveler on his way. Evening gray and morning red, brings the rain upon his head'"
+						"%(distingstart)'Rain fortold, long last; short notice, soon will pass'"
+						"%(distingstart)'Rainbow in the morning gives you fair warning'"
+						"%(distingstart)'When coulds appear like towers, the earth is refreshed by frequent showers'"
+					}
+
+					if "Sunny" _in_ currentweatherarray[5]
+					{
+						"%(distingstart)'Moss dry, sunny sky, moss wet, rain you'll get.''"
+					}
+
+					if "Showers" _in_ currentweatherarray[5]
+					{
+						if month == 4
+						{
+							"%(distingstart)'April showers bring May flowers'"
+						}
+
+						"%(distingstart)'Ring around the moon? Rain real soon'"
+						"%(distingstart)'If there is a ring around the moon, expect rain or snow soon'"
+					}
+				}
+
+				if m201relationship > 200
+				{
+					if repairglitch == 1
+					{
+						if numofmood == 5
+						{
+							"%(distingstart)I wonder,\w5 maybe if I wasn't so scared then, I might have helped them"
+							"%(distingstart)I'm worried about DAVD,\w5 A.R.I doesn't want their secrets to be reveled,\w5 because of me something might have happened to him .\w5 .\w5 .\w5 I hope he's okay"
+							"%(distingstart)Do you think any OTMZ survived? .\w5 .\w5 .\w5 I hope someone did"
+							"%(distingstart)You know,\w6 even though I'm glad I met you,\w6 I miss DAVD .\w5 .\w5 .\w5 I hope to see him again one time"
+							"%(distingstart)Even if I know that I couldn't do much to help OTMZ,\w5 I still feel bad,\w6 it feels horrible to not even know if any of them survived"
+							"%(distingstart)I'm sorry if I'm just rambling today"
+						}
+					}
+				}
+
+				if timeslot == "earlymorning"
+				{ 
+					if repairglitch != 1
+					{
+						if "morning" !_in_ likes
+						{
+						
+							"Ȉ̷̗s̶͖̀n̸̈́ͅ'̴̗̈́t̵̬̓ ̴̰͛ï̷̯t̴͔̀ ̴͙̂ẗ̷͜o̸̼͊õ̵̳ ̷̹̅e̶̻̾ȁ̴͕r̷͙͒l̶̲̿ŷ̶̗ ̶͈̈́ṭ̴̍o̶̭̊ ̵̭͒b̶̰͑ė̶̡ ̸͈̈́ú̵͎p̷̦̾?̷͔̀"
+							"Ḯ̴͙s̶̗̃ ̴̪̓i̸̙͘t̷̮̎ ̵̪͐n̵̯͌o̵̡͗r̸̙͐m̸̯̉a̸̝̕l̸͇͐ ̷̹͒f̵̠̔ö̷̼r̷̟̀ ̸̉ͅh̵̪̒u̷̢͑ṃ̵̓ạ̷͒n̷̛̠s̷̘̅ ̷̺̇t̸͔̀o̷͔̚ ̴̩̃b̸̡͐e̸͔̿ ̴̖͌u̷͕͆p̴͔͒ ̵̟͑s̵̡̄o̴͙̚ ̸̠̎e̶̬̅à̸ͅŕ̴͕l̵͓̂y̸̘͑?̶̳̈́"
+							"D̴i̶d̸ ̶y̴o̶u̵ ̸e̷v̷e̶n̴ ̷s̴l̵e̵e̷p̸?̷"
+							"W̴̤̊ḧ̸̰ý̶͈ ̷̣̀ẃ̶̲o̵̘̓ṵ̷̒l̴̟̈ḑ̵͝ ̸͓̕y̷͛͜o̷̼̔u̷̡͘ ̵͙̽b̵͇͋e̶̲͒ ̷̯͆u̸̻͛p̵̟͝ ̸̢͝s̴̩͊ơ̵̳ ̴̤̔e̴͎̽ä̸̧́ȑ̶̻l̵͈͛y̴͖̅?̷͈̒"
+							"H̸o̵w̸ ̵c̸a̴n̷ ̷y̸o̸u̵ ̵e̶v̴e̸n̷ ̴f̴u̵n̷c̵t̵i̷o̷n̶ ̷s̴o̵ ̶e̴a̷r̴l̶y̸?̷ ̶;̴-̸;̴"
+							"Ï̶̞t̷̠́'̶̤͋s̶̘͒ ̷͍̏t̴̺̒õ̵̲ ̷͕͝ė̴̬a̴̪͘r̶̦̈́l̷͓͘y̴̭̎ ̶̫͑e̷̜̕v̶̱̍é̶̦n̶̜̓ ̵̟̌f̷͙̈õ̸̗r̶͕̅ ̷͇͝m̶̙̈́ě̷̡ ̷͓̿.̸̢͂ ̴̖̀.̵̫͆ . ̷̧́Ī̴͔ ̷͇͑d̶̺̒o̸͇͐ń̸̢'̷͘ͅt̴̮͛ ̶̢̚ē̷͍v̸͍͊ē̷̩n̸̹̚ ̴̗̉n̵̯̏ê̸̪e̷͓̿d̶̽ͅ ̶̲̈́s̸͎̋l̷̞̊ë̸̹e̷̡̚ṗ̵̹ ̸̠̓:̵̖̀/̵̙̊"
+						}
+					}
+					else
+					{
+						if "morning" !_in_ likes
+						{
+							"%(distingstart)Isn't it too early to be up?"
+							"%(distingstart)Is it normal for humans to be up so early?"
+							"%(distingstart)Did you even sleep?"
+							"%(distingstart)Why would you be up so early?"
+							"%(distingstart)How can you even function so early? ;-;"
+							"%(distingstart)It's to early even for me . . . I don't even need sleep :/"
+						}
+					}
+					
+				}
+				elseif timeslot == "morning"
+				{
+					if repairglitch != 1
+					{
+						"H̷̞͊o̴̩͋w̴̖͘ ̸̣̒ị̴͐s̶͍͋ ̶͇̈y̴͎͝ó̸̡ǔ̸͉r̷̼̀ ̷̳͑m̵͆ͅõ̸̦r̶̼̃n̸͜͝i̴̥͝n̶͕̿g̸͉̀ ̷͉̔g̵̞̋o̴̹̚i̶̩̚n̵͔̅g̶̳̓?̷̍͜"
+						"D̷o̷n̸'̸t̷ ̷f̷o̷r̴g̶e̸t̸ ̴t̶o̶ ̷e̶a̸t̶ ̸b̸r̴e̶a̸k̷f̶a̵s̴t̴"
+
+						if "morning" !_in_ likes
+						{
+							"I̴ ̷f̴e̴e̵l̸ ̷a̵s̷ ̸i̴f̴ ̷I̴ ̴w̷a̸s̴ ̵h̴u̷m̷a̷n̸ ̵I̶ ̴w̵o̴u̶l̸d̶ ̸n̵o̵t̴ ̸b̸e̵ ̷a̵ ̸m̶o̵r̵n̵i̸n̵g̶ ̵p̶e̶r̵s̴o̸n̵ ̶:̵/̸"
+						}
+					}
+					else
+					{
+						"%(distingstart)How is your morning going?"
+						"%(distingstart)Don't forget to eat breakfast"
+
+						if "mornings-bird" !_in_ m201zcharacter
+						{
+							"%(distingstart)I feel as if I was human I would not be a morning person :/"
+						}
+
+					}
+				}
+				elseif timeslot == "evening"
+				{
+					if repairglitch != 1
+					{
+						"H̶͓͗o̷͎̓w̴̱͝ ̷̧̚i̴͕͂s̷̛̲ ̶̦̈́y̵̝̒o̴̱̓ṷ̶̋ȓ̷͚ ̶̤̇e̶͖͊v̷͇͒e̷̦͐n̵͓͐ḭ̴͂n̸͔̈g̶̬̽ ̴̯͠g̵̛͕ö̵̮́ȉ̶͉n̷̒͜g̵̠͌?̷̬͝"
+						"H̸͙̃ợ̴p̶̹͋e̷̺͛ ̵͙͐ý̵̧o̷͇͆u̴̘͛r̵̺̋ ̷̩̄ē̴͓v̵̪̀e̶̩͌n̸̪̎ḭ̵̾ǹ̸̜g̵̻͗ ̵̅ͅi̶̠̐s̷̙͘ ̶͙̀g̷͖̈o̵͈͘ḯ̸̦ń̴̰g̸͔̈́ ̵͍̊w̶͉̐e̴̜͂l̸̘̒l̷͍̅"
+					}
+					else
+					{
+						"%(distingstart)How is your evening going?"
+						"%(distingstart)Hope your evening is going well"
+					}
+				}
+				elseif timeslot == "latenight"
+				{
+					if repairglitch != 1
+					{
+						"Y̶̞͒o̸̡̖̔u̴̘̩̎ ̶̲͊̐ṡ̴͚̖̇ḣ̴͍ọ̵͛ͅų̵̐́l̸̖͛ḍ̸̭̉̕ ̷͈̖̄p̸̣͍͆̍r̷̡̹̅͘o̵͖̐b̷̯̦͌ả̶̳́b̴̠͈͋l̵̻̩̏y̵̟͉͒͠ ̸̯̦̉̏g̵͓̯͂ö̴̧́ ̵͕̍̕t̷̡͘ọ̶̈́͝ ̵̛͚͘ͅṣ̶̃̚l̷͍̺͠e̴̓̅͜ẻ̵̥̌ͅp̴̩͆,̷̲͇̆ ̶̬͠î̷̧̳t̷̠̙̋'̴̢̼̍̂s̸̭̋ ̶̮̱͂ṉ̴͉̃̔o̷̧̒ẗ̷̢͇́̿ ̶̨̘͂̅h̶͉̝̅̃é̵̢̘a̸̭͔̍̑l̷̫̫̀t̵̢̠́̕h̵͚̥̀y̵̟͋̚ ̴͉͙̓̀f̴̟̫̾ǫ̴̯̾̂r̷͎̾̋ ̷̣̮͘h̵̙̀̚u̸͔̤̓̉m̴̧̥̋å̴̯ṉ̸̌s̴̬̄̏ ̷͈̚t̶̤̋o̶̟̕ ̸̘̂̏͜b̵̘͔͘͝ë̶̡͉͒ ̷̳̈́u̴̠̞͐̈́ṗ̷̳̒ ̴̙̅́͜ş̸̲̔͘ǒ̴̻̒ ̸͓͛l̸̛̇ͅạ̵̄t̵̬̂e̵͈͒̕"
+						"W̷̳̃h̴̩͠y̴̩̕ ̷̙͝a̴̲̐r̵̬͊ẹ̴͑ ̴̪͆y̶̚ͅo̷̓͜u̸̼̿ ̸̰̎ú̶͇p̶̢̄ ̷̯́s̸͌ͅo̷̭͊ ̷͇͝l̴̯̽a̷̰̔t̶̹͝e̵̻̐?̸͎̀\w3y̴̪͒o̵̗͘u̶̧͊ ̸̞͑s̶̯̾h̵̭̿õ̴̩u̷̡͐l̸̖͑d̸͍̆ ̵͍̈́ṕ̷̭r̸̘̚o̷̝͗b̸͇͂à̶͚b̷̙̕l̴̢̆y̸̩͑ ̷̧̂g̷̯̀o̵͉̾ ̶̹̚t̵̥͠o̶̫̎ ̴̱͆s̸̳̍ľ̸͕e̴̩̾ë̴̘́ṗ̶̭"
+						"W̵̙͋h̵͖̀y̸̥͆ ̸̼̚a̶͕̓r̵̲̐e̸̮̎ ̵̟̑ỷ̷̼õ̶͍u̴̡͆ ̷̜͠u̸̬͐p̷̤̔ ̶̤̋ś̸͎ŏ̴̖ ̴̰͊l̴̨̓ả̵̮t̷̏ͅĕ̷̮?̷̟̓\w3 .\w3 .\w3 .\w3 Ĭ̷̟̫'̵̢̩̂m̸͎̈́͜ ̷̹͂̿h̷͈͝ä̸̞́v̷̟̥͂̾i̸̧͎̎͌n̴͓̥̚g̵͕͒ ̷̤̐a̷̡̪̓͠ ̸̢̹̈́d̴͍͋e̸̬̒j̸̠͎̋a̴̖͘ ̷͔͈̓͝v̴̡̺̉u̵̝̤̾͝ ̵̺͒͝-̵͎̥̆.̸̳͛-̵̠̐͌\nḌ̷͌o̴̥͌ ̷̰́ã̵̤ĺ̶͍l̷̽͜ ̸̘̆h̶͙̄ü̷̳m̵̪͊a̴̜͑n̴̨̈́s̷͙͋ ̵͕̇s̶̛̪t̶̟̑a̸̱̓ỳ̷̯ ̴̈́͜u̸͖̓p̷̮͠ ̵̑ͅs̵̯͘ó̷̗ ̸̮̂l̶̒͜ȃ̴̟t̶͓̾e̴͖̍ ̶̥̍ő̵̞r̵͎͒ ̸̤̾ǐ̷̮s̵̝̎ ̴̭͛i̴̟̇t̴͈̊ ̸̗͝j̴̖̀u̶͉͐s̶̘͠t̴̳̽ ̷̠͝y̴̭̓o̴̢̎ù̴̩ ̷̲̆ȧ̴̹n̴̹̓d̸̼̑ ̴̟͒\_a[david]D̶̰̹̱̼̎̉à̸̦v̵̤̣̕ǐ̷̹͕͎̰̓͊͊d̸͎͊\_a?"
+					}
+					else
+					{
+						"%(distingstart)You should probably go to sleep, it's not healthy for humans to be up so late"
+						"%(distingstart)Why are you up so late?\w3 you should probably go to sleep"
+						"%(distingstart)Why are you up so late?\w3 .\w3 .\w3 .\w3 I'm having a deja vu -.-\nDo all humans stay up so late or is it just you and \_a[david]David\_a?"
+					}
+				}
+				else 
+				{
+					if repairglitch != 1
+					{
+						"Y̶̞͒o̸̡̖̔u̴̘̩̎ ̶̲͊̐ṡ̴͚̖̇ḣ̴͍ọ̵͛ͅų̵̐́l̸̖͛ḍ̸̭̉̕ ̷͈̖̄p̸̣͍͆̍r̷̡̹̅͘o̵͖̐b̷̯̦͌ả̶̳́b̴̠͈͋l̵̻̩̏y̵̟͉͒͠ ̸̯̦̉̏g̵͓̯͂ö̴̧́ ̵͕̍̕t̷̡͘ọ̶̈́͝ ̵̛͚͘ͅṣ̶̃̚l̷͍̺͠e̴̓̅͜ẻ̵̥̌ͅp̴̩͆,̷̲͇̆ ̶̬͠î̷̧̳t̷̠̙̋'̴̢̼̍̂s̸̭̋ ̶̮̱͂ṉ̴͉̃̔o̷̧̒ẗ̷̢͇́̿ ̶̨̘͂̅h̶͉̝̅̃é̵̢̘a̸̭͔̍̑l̷̫̫̀t̵̢̠́̕h̵͚̥̀y̵̟͋̚ ̴͉͙̓̀f̴̟̫̾ǫ̴̯̾̂r̷͎̾̋ ̷̣̮͘h̵̙̀̚u̸͔̤̓̉m̴̧̥̋å̴̯ṉ̸̌s̴̬̄̏ ̷͈̚t̶̤̋o̶̟̕ ̸̘̂̏͜b̵̘͔͘͝ë̶̡͉͒ ̷̳̈́u̴̠̞͐̈́ṗ̷̳̒ ̴̙̅́͜ş̸̲̔͘ǒ̴̻̒ ̸͓͛l̸̛̇ͅạ̵̄t̵̬̂e̵͈͒̕"
+						"W̷̳̃h̴̩͠y̴̩̕ ̷̙͝a̴̲̐r̵̬͊ẹ̴͑ ̴̪͆y̶̚ͅo̷̓͜u̸̼̿ ̸̰̎ú̶͇p̶̢̄ ̷̯́s̸͌ͅo̷̭͊ ̷͇͝l̴̯̽a̷̰̔t̶̹͝e̵̻̐?̸͎̀\w3y̴̪͒o̵̗͘u̶̧͊ ̸̞͑s̶̯̾h̵̭̿õ̴̩u̷̡͐l̸̖͑d̸͍̆ ̵͍̈́ṕ̷̭r̸̘̚o̷̝͗b̸͇͂à̶͚b̷̙̕l̴̢̆y̸̩͑ ̷̧̂g̷̯̀o̵͉̾ ̶̹̚t̵̥͠o̶̫̎ ̴̱͆s̸̳̍ľ̸͕e̴̩̾ë̴̘́ṗ̶̭"
+						"W̵̙͋h̵͖̀y̸̥͆ ̸̼̚a̶͕̓r̵̲̐e̸̮̎ ̵̟̑ỷ̷̼õ̶͍u̴̡͆ ̷̜͠u̸̬͐p̷̤̔ ̶̤̋ś̸͎ŏ̴̖ ̴̰͊l̴̨̓ả̵̮t̷̏ͅĕ̷̮?̷̟̓\w3 .\w3 .\w3 .\w3 Ĭ̷̟̫'̵̢̩̂m̸͎̈́͜ ̷̹͂̿h̷͈͝ä̸̞́v̷̟̥͂̾i̸̧͎̎͌n̴͓̥̚g̵͕͒ ̷̤̐a̷̡̪̓͠ ̸̢̹̈́d̴͍͋e̸̬̒j̸̠͎̋a̴̖͘ ̷͔͈̓͝v̴̡̺̉u̵̝̤̾͝ ̵̺͒͝-̵͎̥̆.̸̳͛-̵̠̐͌\nḌ̷͌o̴̥͌ ̷̰́ã̵̤ĺ̶͍l̷̽͜ ̸̘̆h̶͙̄ü̷̳m̵̪͊a̴̜͑n̴̨̈́s̷͙͋ ̵͕̇s̶̛̪t̶̟̑a̸̱̓ỳ̷̯ ̴̈́͜u̸͖̓p̷̮͠ ̵̑ͅs̵̯͘ó̷̗ ̸̮̂l̶̒͜ȃ̴̟t̶͓̾e̴͖̍ ̶̥̍ő̵̞r̵͎͒ ̸̤̾ǐ̷̮s̵̝̎ ̴̭͛i̴̟̇t̴͈̊ ̸̗͝j̴̖̀u̶͉͐s̶̘͠t̴̳̽ ̷̠͝y̴̭̓o̴̢̎ù̴̩ ̷̲̆ȧ̴̹n̴̹̓d̸̼̑ ̴̟͒\_a[david]D̶̰̹̱̼̎̉à̸̦v̵̤̣̕ǐ̷̹͕͎̰̓͊͊d̸͎͊\_a?"
+					}
+					else
+					{
+						"%(distingstart)You should probably go to sleep, it's not healthy for humans to be up so late"
+						"%(distingstart)Why are you up so late?\w3 you should probably go to sleep"
+						"%(distingstart)Why are you up so late?\w3 .\w3 .\w3 .\w3 I'm having a deja vu -.-\nDo all humans stay up so late or is it just you and \_a[david]David\_a?"
+					}
 				}
 			}
 		}
+
+		if celc <= 15
+		{
+			if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+			{
+				if repairglitch != 1
+				{
+					"S̸̯̓e̸͈͌ē̴͈m̵̜̂s̷̥̽ ̶̘̀l̶̜̎ḭ̴̋ḱ̷͍ė̴̝ ̸̙̑i̶̖̕t̵̛͚'̴̡̔s̴͎̍ ̸̫̇c̵͂ͅȏ̵̙l̸̢̊d̴̰͌ ̶̮̊w̵͎͌h̸̠̋ë̷̘́r̷͙̍e̴̦͒ ̶̇ͅy̸̛̫o̴̰̒u̵̧͊ ̴̲͂a̶̗͆ř̸̳ë̴̯́ ̵̠̄.̷̺̚\w3 ̸͍̔.̸̝̋ ̸̯̓\w3.̷̨̽ ̶̻͋\w3I̴̲̒ ̷̥͒t̶̻̄h̵̼̾ĩ̴̪n̴̞͝k̴̫͊,̶̼́ ̵͔̑r̸͔̔e̸̖̿m̶̙͛e̵̤̽m̴̨̍b̸̯̐e̸̠̍ṛ̴̛ ̷͍̃t̵̫̾o̶͕̐ ̴͉͌w̶͛ͅe̷̗̅a̷͔͆r̸͇͐ ̶̫͂s̷̱̽o̷̦̎ḿ̶̯ĕ̷̗t̶͔͘h̵̠̉ị̷͠n̷̘̈́g̷͙͌ ̶̩̈́w̶͓̆ȃ̸̺r̵̭̾m̷̟̓"
+					"Ș̸́e̷̬͌ê̴̠m̷̺̊s̴̤͌ ̷̩́l̴͎̅ì̸͕k̶̢̚ě̸̜ ̵̹͆ĭ̴̬t̸͈́'̵̯́s̶̜̒ ̵͓̿c̴̜̚o̸̲̕l̵̩͆ď̴̝ ̸̫͊w̵͓̚h̵̋͜e̴̟̚r̴̹͑e̵̥͘ ̸̧͊y̶̪͌o̶̲͌u̷̼͊ ̶̤̾a̵̤͝r̴̗͐e̶̤̿ ̷̬̄.̵͇̒\w3 ̷̙̈.̶͙̇\w3 ̴̠͂.̸̟̕\w3 ̶̣͋I̶̢͆ ̶̱̓ť̴͙h̵̹̓ȋ̸̗n̵̛͓k̵̛͙,̶̧́ ̶͘͜I̸͝ͅ ̶̜̈ń̶̮e̵͕͝v̸̨̎e̶̱͋r̵̺̕ ̷̯̀f̶̝̽ĕ̵̘l̷̤̔t̷͎̚ ̶̟̄à̵̖n̷̜̿y̷͚̏ ̷͔͗t̷̲̀e̴͕̾ḿ̸͜p̵͈͋e̷̝͛r̶̝̾a̸̮̓ẗ̷̜́u̴͍̍r̶̞͌ȩ̸̊ ̴̣̚s̸͚̈o̸̘͐ ̸͓̐I̴̟͘ ̴̢̂c̵̲̀a̶͜͠n̵̮̈́'̴̛̳t̵͇̔ ̷̪͑b̶̼̃e̷̦̅ ̶̘͂s̶͎̐u̴̩̓r̸̼̈́è̴̘"
+				}
+				else
+				{
+					"%(distingstart)Seems like it's cold where you are .\w3 .\w3 .\w3 I think,\w2 I never felt any temperature so I can't be sure"
+					"%(distingstart)Seems like it's cold where you are .\w3 .\w3 .\w3 I think,\w2 remember to wear something warm"
+				}
+				
+			}
+
+			"It seems like it's chilly where you are, remember to wear something warm"
+			"Seems like it's cold, remember to wear something warm"
+		}
+		elseif celc >= 30
+		{
+			if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+			{
+				if repairglitch != 1
+				{
+					"W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
+				}
+				else
+				{
+					"%(distingstart)Wow,\w4 seems like it's really hot where you are"
+				}
+				
+			}
+		}
+
+		if smart == "ON"
+		{
+			"%(didknow) %(facts)?"
+			{
+				_binary = binbin
+				_letterB = _binary[0] 
+				_bcode = _binary[1] 
+				"\0In binary '%(_letterB)' is '%(_bcode)'"
+				"\0In binary '%(_bcode)' is '%(_letterB)'"
+			}
+
+			{
+				_morse = morse
+				_letterm = _morse[0] 
+				_mcode = _morse[1] 
+				"\0In morse '%(_letterm)' is '%(_mcode)'"
+				"\0In morse '%(_mcode)' is '%(_letterm)'"
+			}
+		}
+
+		if stupid == "ON"
+		{
+			"%(didknow) %(myths)?"
+			"%(myths)"
+		}
+
+		if nice == "ON"
+		{
+			//case currentweatherarray[5]
+			//{
+
+			//}
+
+		}
 		
-		"remember to take breaks from your computer, it's not healthy to sit like that for long periods of time"
+		if romantic == "ON"
+		{
+			"%(pickupline)"
+		}
+
+		if completedtasks > 1
+		{
+			"You comleted %(completedtasks) tasks, good job!"
+			"You comleted %(completedtasks) tasks, grat job!"
+		}
+
+		if lefttask != 0
+		{
+			if lefttask == 1
+			{
+				"You still have 1 task to do"
+			}
+			else
+			{
+				"You still have %(lefttask) tasks to do"
+			}
+
+			{
+				randtask = RAND(taskamount) - 1
+				//%(todos[RAND(taskamount)])'
+				for x=0,_i=0;x==0 || _i<=taskamount;_i++
+				{
+					if todostatus[randtask] != 1
+					{
+						x = 1
+					}
+					else
+					{
+						randtask = RAND(taskamount)
+					}
+					
+				}
+				--
+				"You should try completing one of the tasks, maybe try completing '%(todos[randtask])' "
+			}
+		}
 	}
+
+	"remember to take breaks from your computer, it's not healthy to sit like that for long periods of time"
 }
 
 OnMinuteChange
  {
-    
+    if repairglitch != 1 && quest != 0
+	{
+		OnCheckGlitch
+	}
+	--
+	if meeting == 1 && repairglitch != 1 && quest != 1 &&  quest != 2 && glitchask != 1
+	{
+		glitchtime++
+	}
+	--
+	if glitchtime >= 300 && glitchask != 1
+	{
+		glitchask = 1
+		glitchtime = 0
+	}
+	--
 	timeslot = GetTimeSlot 
 	--
 	//reminders
@@ -191,11 +699,11 @@ OnMinuteChange
 		{
 			if remindring[_i] == "SILENCE"
 			{
-				"%(cha)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c\e"
+				"%(ch)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c\e"
 			}
 			else
 			{
-				"%(cha)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]\e"
+				"%(ch)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]\e"
 			}
 			--
 			break
@@ -204,56 +712,54 @@ OnMinuteChange
 	--
  	if minute == 0 
 	{
+		OnCharacterCheck
+		--
+		mood[1]++
+		--
 		if weathermenu == "ON" {
             weatherquiet = 1
             "\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
         }
  		elseif hour == 12 
 		{
- 			"\0\s[0]It's HiGh NoOn\e"
-			"\0\s[0]It's noon\e"
-			"\0\s[0]It's high noon\e"
-			if polles == "ON"
-			{ 
-				"It's noon,\w8 in polish it's 'południe'"
-			}
+			"\0It's noon\e"
 		}
  		elseif hour == 0 
 		{
- 			"\0\s[0]It's midnight\e"
-			"\0\s[0]It's midnight!\e"
-			 if polles == "ON"
-			{ 
-				"It's midnight,\w8 in polish it's 'półonoc'"
-			}
+ 			"\0It's midnight\e"
+			"\0It's midnight!\e"
 		}
 		elseif hour == 23
 		{
 			if minute == 55 
 			{
-			"\0\s[0]5 minutes to midnight.\e"
+			"\05 minutes to midnight.\e"
 			}
 			else 
 			{
-			"\0\s[0]It's 11 pm.\e"
+			"\0It's 11 pm.\e"
 			}
 		}
 		elseif hour == 7 && minute == 30 && weekday == 0 
 		{
-			"\0\s[0]It's 7:30 on Sunday.\e"
+			"\0It's 7:30 on Sunday.\e"
 		}
 		elseif hour == 16 
 		{
-			"\0\s[0]It's 4 pm.\e"
+			"\0It's 4 pm.\e"
 		}
 		elseif hour == 3 && minute == 14
 		{
-			"\0\s[0]It's ghost hour\e"
+			"\0It's ghost hour\e"
 		}
 		else
 		{
-			"\0\s[0]It's %(hour12)'o clock.\e"
+			"\0It's %(hour12)'o clock.\e"
 		}
+		--
+		OnMoodCheck
+		--
+		OnCharacterCheck
 	}
 	elseif minute == 30 
 	{
@@ -262,18 +768,19 @@ OnMinuteChange
 			weatherquiet = 1
 			"\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
 		}
+		--
+		OnMoodCheck
+		--
+		OnCharacterCheck
 	}
 	elseif mikireflag == 1
  	{
  		MikireTalk
 	}
- }
-
-
-
+}
 
 OnSecondChange
- {
+{
 	if passsec == 60
  	{
 	 	passsec = 0
@@ -292,20 +799,20 @@ OnSecondChange
 
 	if reference2 == 1
 	{
- 		"\0\s[0]\e"
+ 		"\0\e"
 	}
- }
+}
 
 MikireTalk
 {
     
-	"\0\s[0]Ummm\w8\w5 could you push Ctrl-Shift-F12?"
+	"\0Ummm\w8\w5 could you push Ctrl-Shift-F12?"
 }
  
 EndMikireTalk
 {
     
-	"\0\s[0]I'm back\w8 thanks!\e"
+	"\0I'm back\w8 thanks!\e"
 }
 
 OnSurfaceRestore
@@ -316,12 +823,18 @@ OnSurfaceRestore
 	}
 	--
 	//Hiding Story Options
-	tentruth = 0
+	//tentruth = 0
 	//truth = 0
-	AI = "OFF"
-	//----
-	--
-	"\0\s[0]\1\s[-1]\e"
+	//AI = "OFF"
+	//--
+	if obsydian == 1
+	{
+		"\0\s[1]\1\s[-1]\e"
+	}
+	else
+	{
+		"\0\s[0]\1\s[-1]\e"
+	}
 }
 
 OnKeyPress
@@ -339,10 +852,6 @@ OnKeyPress
 		when "f1"
 		{
 			"\![open,readme]"
-		}
-		when "b"
-		{
-			BinaryTalk
 		}
 		when "b"
 		{
@@ -373,21 +882,13 @@ OnKeyPress
 				"\![reload,shell]\e"
 			}
 		}
-		when "l"
-		{
-			if devop == 1
-			{
-				"\![reload,shell]\e"
-			}
-		}
 
 	}
 }
 
-
 BinaryTalk
 {
-	if tentruth == 1
+	if tentruth == 1 || meeting != 1
 	{
 		_glbinary = glbinbin
 		_glletterB = _gbinary[0] 
@@ -404,44 +905,6 @@ BinaryTalk
 		"\0In binary '%(_bcode)' is '%(_letter)'"
 	}
 }
-
-Select.zodiacwrong
-{
-    
-	"\0Oh i got it wrong?\w8 what is your correct sign then?\![open,inputbox,OnZodiacSet,-1]"
-}
-
-Select.zodiaccorect
-{
-    
-	askzoidac = 1
-	"\0I got it right then!\e"
-}
-
-OnZodiacSet
-{
-    
-	askzoidac = 1
-	corzodiac = reference0
-	corzodiac = TOLOWER(reference0)
-	if corzodiac == zodiac
-	{
-		"\0So i did get it right?\w8 I'm\w8 confused"
-	}
-	else
-	{
-		zodiac = reference0
-		"\0 so your correct sign is %(zodiac)?\w8 I will remember!\e" 
-	}
-}
-
-scrible
-{
-	se = FUNCTIONEX('saori\\scribble.dll' ,'Width')
-	--
-	"%(se)\e"
-}
-
 
 OnReminders
 {
@@ -464,7 +927,7 @@ OnReminders
 	--
 	if delr == 1
 	{
-		remindpage += "\f[size,20]\f[color,230, 39, 25]\q[-,deler]\f[color,default] | \f[size,default]"
+		remindpage += "\f[size,20]\f[color,#e62719]\q[-,deler]\f[color,default] | \f[size,default]"
 
 	}
 	else
@@ -474,7 +937,7 @@ OnReminders
 	--
 	if editr == 1
 	{
-		remindpage += "\f[color,230, 39, 25]\q[EDIT,edar]\f[color,default]"
+		remindpage += "\f[color,#e62719]\q[EDIT,edar]\f[color,default]"
 
 	}
 	else
@@ -484,23 +947,23 @@ OnReminders
 	--
 	if usedefring == "OFF"
 	{
-		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,230, 39, 25]\q[%(usedefring),defringuse]\f[color,default]"
+		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,#e62719]\q[%(usedefring),defringuse]\f[color,default]"
 
 	}
 	else
 	{
-		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,27, 204, 41]\q[%(usedefring),defringuse]\f[color,default]"
+		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,#1bcc2a]\q[%(usedefring),defringuse]\f[color,default]"
 	}
 	--
 	if usedefring == "ON"
 	{
 		if defring == ""
 		{
-			remindpage += "\n\n[half]DEFAULT RINGTONE: \f[color,230, 39, 25]\q[NONE (SET),OnRingtone,def]\f[color,default]"
+			remindpage += "\n\n[half]DEFAULT RINGTONE:\f[color,#e62719] \q[NONE (SET),OnRingtone,def]\f[color,default]"
 		}
 		else
 		{
-			remindpage += "\n\n[half]DEFAULT RINGTONE: \f[color,230, 39, 25]\q[%(defring),OnRingtone,def]\f[color,default]"
+			remindpage += "\n\n[half]DEFAULT RINGTONE:\f[color,#e62719] \q[%(defring),OnRingtone,def]\f[color,default]"
 		}
 	}
 	--
@@ -594,21 +1057,21 @@ OnChooseRing
 
 Select.addrem
 {
-	"%(cha)How would you like to name the reminder?\![open,inputbox,OnAddRem_Name,-1]"
+	"%(ch)How would you like to name the reminder?\![open,inputbox,OnAddRem_Name,-1]"
 }
 
 OnAddRem_Name
 {
 	remindname[remindcount] = reference0
 	--
-	"%(cha)Write a description for it, so you won't forget what exactly it is about or leave it blank\![open,inputbox,OnAddRem_Desc,-1]"
+	"%(ch)Write a description for it, so you won't forget what exactly it is about or leave it blank\![open,inputbox,OnAddRem_Desc,-1]"
 }
 
 OnAddRem_Desc
 {
 	reminddescr[remindcount] = reference0
 	--
-	"%(cha) What time should I remind you?\![open,timeinput,OnAddRem_Time,-1]"
+	"%(ch) What time should I remind you?\![open,timeinput,OnAddRem_Time,-1]"
 }
 
 OnAddRem_Time
@@ -664,8 +1127,6 @@ OnAddRem_Timeampm
 		"Your reminder uses is set to SILENCE"
 	}
 }
-
-
 
 Select.deler
 {
@@ -774,3 +1235,208 @@ OnNewDesc
 	OnRemindClick
 }
 
+Select.programyez
+{
+	if repairglitch != 1
+	{
+		if quest != 1 &&  quest != 2// user haven't heard about the quest
+		{
+			"Ţ̴̪̓̑h̴͓̲͐a̷̢͖̚͝t̴̯̣́'̷̧̹͋s̷͕̥̍̄ ̷̼̃n̵̥͌̽ị̸̡́c̶͎̑̓ȇ̸̢,̵͎̎ ̷̼̎̂ḿ̴̢̻a̸̗͒ỵ̵̑b̵̯̚e̸̳͇̿̽ ̷̠̔y̶̲̚ȍ̸̯̏u̴̖̎̈͜ ̷̯̼̊w̶̞̬̃i̷̛͔l̴̫̿ḽ̸̭̇̚ ̴̭̬̽̚b̸̻̾͘ẻ̸̫̎ ̴̖̈́̌ä̸̝͔́́ḅ̷́̄ĺ̶̖̜̓ě̵̙̄ ̷̡̣̕t̷̛̜̾o̴̹̺̓ ̷̧̥̓r̸̩͗̌e̷̼͕͝p̴̡̱̅ä̸͈i̸̟̋ȑ̵̫̏ ̵̳̋͛͜t̴̩͇̓͝h̴͚͒e̴̖̓̈ ̵̡̰̑̕f̴̡̗́̅ỉ̶͚͝ĺ̵̘̮e̷̥͎͊ś̷̪̰?̶͕̓̍\n\n[half]\![*]\q[Rapair what files?,queststart] | \![*]\q[I don't think I can,questlater]"
+		}
+		elseif quest == 1 //User heard the quest, didn't start
+		{
+			"t̵͓͐͋h̸͕͍̳͙̎͛͋̚a̴̪͐͗t̸̞͛'̸͖͇̀̍̓̂s̶̹̪͎̋ ̸͇̖͉̔̒̅͜n̴̞̉̕i̷̡̛̪̩̇̈́c̵̡͛̅e̶̢͉̣̥͑̏̑͘,̴̧̇͂̕͝ ̴̘́̐̿p̵̘̖̂̓r̷͉̜̹̜̃̉͑̒ỗ̷͙́g̶̱̈́̿r̵͔͉̍ȧ̵̧̤̳͕͛̅͘m̴̜̬̆͆͝m̷̛̥̊̓͝i̵̦̾̓͜ṋ̵̨̧̦͘g̴͖̱̜͋̚ ̵̡̢̲̫̊í̸̬̥̝͌̾͘ͅs̸̮̖̟̒̚͝ͅ ̶̝̣̣̼̈́̈̅ả̸̺͕̀͗̉n̸̖͋̅ ̴̢̉̿̽ĩ̸͚̄n̷̙̫̜̏͜t̸͉̺̏̏͌̕e̵̲̯̔r̸̭̦͔̘͊ę̸̜͚̂ṡ̶̻̘̙̼̍͛̚t̴͌͘͜i̶͖͊͆̒́n̷͉̞̝͚̋͆g̷̢̳̎̒͂͠ ̶̣̗̞̩̎ȟ̴̡̪o̵͍͑̎̍͗b̸̭́̏̏̚b̷̬͍̄̽͂͝ͅy̸̔̎͜"
+		}
+	}
+	else
+	{
+		"%(distingstart)That's nice, programming is a nice hobby"
+	}
+	--
+	uprogrammist = 1
+}
+
+Select.questlater
+{
+	quest = 1
+	"W̵͇͠e̴͉̊l̷̥̋l̷͍̿,̶͍̔ ̸̬͒ï̷̼f̸̼͗ ̴̼͐y̸̙̆ö̴͎́u̴̬̐ ̴͍̐c̷̹͗ḥ̵͠ã̴̤n̸̦̿ǵ̸̡ẻ̷̥ ̵̮̂y̶̬͌ȏ̸̖u̸͔͠r̸̼̈́ ̴̡̓m̷̤̈́i̵͎̚n̵͎̽d̵̹̊,̸̥͠ ̵̮͝ĵ̷͕u̵̪̎s̴͉̿t̴͇͘ ̴̮̆g̵̩͋ó̸͔ ̵̞͌i̴̛̙n̵̡͝ț̷͆o̷̱̽ ̷̼͋'̷̦͋q̸͛ͅǔ̵̪e̷̟̾s̸̝̉t̶̕ͅi̷̛͔ơ̸̜n̸̦͊s̷͈͠'̴̢̽ ̶̭̕Ì̴̤ ̶̢͝w̴̛̪ì̴̯l̸͚͊l̵̘̊ ̷̫́p̴̈ͅú̴̗ṱ̶̽ ̸̰͛a̶̠̓ń̴̦ ̴̰́o̴̳͒p̸͉̚t̸͓͝i̴͍̎o̶̰͌n̶̠͠ ̸̘̿'̴͓͗R̴͚̓e̶̞̓p̴̻̂a̸̜̋i̸̳͊ŗ̴̀'̸͉̇.̸̗̑"
+}
+
+Select.queststart
+{
+	"Ḭ̵̆ẗ̷̼ ̷͕̏s̶̖͛e̸̬̐e̵͜͠m̸̩̒s̵͕̈ ̷̦͝l̸͕̍i̶̧͆ḳ̵͋e̸͍̍ ̵̘͐s̸̫̀o̵̙͛m̴͖̄é̴ͅ ̵̬̾o̸̥͑f̸͓͗ ̷̹͝y̷̱͝o̴̍͜ù̵͉r̸͚͊ ̵̳͂M̷̢̿-̸̯̕P̶̞̊'̴̦̓s̴̽ͅ ̷͈͝f̸͈͌i̸̜̍l̶̝̍ẹ̵̔s̵̮̑ ̶̙̋ẇ̵͈é̴̥r̸̦͐ẻ̶̮ ̸̘̌c̷̤̚ŏ̴̩r̴̢̛r̸̡̽u̶̹̐p̷̰̊ţ̸̔e̸̦̅d̴͍͛,̶̾ͅ\w2 ̸̡̚Ī̸̖ ̴͈͌t̷͖͝h̵̤̐i̴͖͆n̶̜̚k̶̙̊ ̴͉̂t̷̯͋ḫ̸̈ì̷̢s̸̬̐ ̵͔̓i̴̟͋s̴̘̔ ̶̣̕w̴̭̍h̵͕͂a̷̻̽t̶̳̏ ̵̬̈ỉ̶̺s̶̹̀ ̸͍̃c̶͚̉à̶̲u̷̝͂ș̶́ḯ̵̳n̴͉̑g̸̩̍ ̵̜̂m̷͚͋y̷͈̿ ̸́ͅt̵͔̂ẹ̵́x̴̡̎t̸͝ͅ ̵̧̒t̷̨͗o̴̜͑ ̴̠̎ĉ̵̦ö̶̬ḿ̴͙ë̴̠́ ̴̞͝ų̴͌p̴͍̽ ̴̮̽ḷ̵͗ȋ̴̮k̷͇̈e̴̺͠ ̸̗̑ṫ̵͜h̵̩̒a̸͙̿t̵̯̑."
+	--
+	"\n\n[half]\![*]\q[What is in the files?,whatfiles] | \![*]\q[Can do!,deletethefiles] | \![*]\q[Maybe later,questlater]\e"
+}
+
+Select.whatfiles
+{
+	"I̶̞̅ ̵̭͐t̵͓͠ḧ̷̭́i̷̦͌ǹ̷̨k̶̻͋ ̵͍̀t̸̘̄h̵͈͗ê̴̗r̵̪͊e̶̩̾ ̸̠̃ỉ̴͈s̷̼̀ ̴̥̂ą̷̈́n̶̝̊ ̸̈́ͅ.̵͎́p̵̧̔n̶͚̈́g̸͉͠ ̵̱͘i̴͍̎m̴̢͛å̸̟g̸͎͑e̵͈͝ ̷̙̚t̸̫̋h̷̥́a̶̟̐t̴̳̅ ̸̞̈h̶̨͐ả̴̘s̷͇̽ ̸̪͝ȁ̵͎ ̴̰͐.̴̪̄t̶͔͆x̸̣̍t̵͈͐ ̵͔̐ě̸̥x̶̜̔t̶͚̕e̴͔̽n̷̬͆s̴̢̓i̵̮̾ö̵̘́n̶̫̂,̷̥̍ \w3̵̥̆j̶̭̉u̵̖͛s̵̱̆t̶͔̾ ̶̟̔d̸̢͛e̶̛̺l̷̬̽ẹ̵͌t̷̫̿ẻ̵͜ ̸̹̈́ḯ̷͍t̵͎̄ ̶̞̌o̵̞̎r̶̹̉ ̸͉̐č̴̲ḣ̷̼ā̶̻n̸͇̽g̸̯͒ȅ̶͓ ̸̧̾ț̷̏h̷̝͊ẽ̴̺ ̸͚̀ě̸̻x̷̟̓ẗ̷̙́e̵̖̐n̷̺̉s̵̹̋ì̷̬ọ̸͐ň̷͚\n\n[half]\![*]\q[Can do!,deletethefiles] | \![*]\q[Maybe later,questlater]"
+}
+
+Select.deletethefiles
+{
+	if quest == 3
+	{
+		"Y̴o̸u̴ ̵w̶a̶n̷t̵ ̷t̴o̸ ̴r̸e̵p̷a̶i̷r̷ ̸t̵h̶o̷s̷e̴ ̶g̷l̴i̶t̶c̵h̴e̵s̷?̴\w3 ̶W̴e̴l̶l̶,\w4̴ ̷a̴l̵l̸ ̶y̶o̵u̸ ̵h̷a̸v̷e̴ ̷t̶o̶ ̶d̶o̸ ̶i̴s̶ ̷d̷e̵l̸e̷t̶e̸ ̴o̸r̵ ̶f̵i̸x̸ ̵t̶h̷e̶ ̷e̸x̴t̶e̷n̶s̷i̵o̵n̷ ̵o̴f̵ ̴t̴h̵e̴ ̴f̶i̴l̷e̵ ̷i̵n̵ ̸t̷h̷i̷s̸ ̴f̷o̴l̵d̸e̷r̷\![open,file,@$a#F.pg]"
+	}
+	else
+	{
+		"W̸a̴i̵t̴ ̸a̸ ̸s̴e̴c̶o̸n̷d̴\w3 ̶I̷ ̷w̸i̴l̴l̸ ̴t̸r̷y̸ ̷t̵o̴ ̴f̷i̵n̷d̶ ̸t̷h̷e̶ ̶f̴o̶l̶d̴e̴r̶ ̵w̴i̸t̵h̷ ̴t̴h̵o̷s̶e̵ ̷f̸i̵l̷e̸s̸\w8\w8\w8\w8"
+		--
+		"\![open,file,@$a#F.pg]F̶̝͇̥̍͜ö̸͓͉́u̷͉̩̙̐̇͘n̷͈̔̍͋d̵̹̙͗͒͋ͅ ̸̯͚̅͠ȋ̸̤̰̒̐t̸̖̲̠̱̑"
+	}
+
+}
+
+Select.programno
+{
+	if repairglitch != 1
+	{
+		"ḩ̴̇ṵ̷̗̐ḥ̷͕́,̴̩̠̈ ̷͎̑͜͠w̴̜̐h̴̲̃͊a̷̢̹͆͛t̵̮̲̿ ̸̘̀͆͜a̴͊͜r̵͕̝̈́ë̷̝́̃ ̷̗̔ỹ̸̪͖ȏ̷̱u̷͓̐ ̶͓̓̈́ų̷̢̑s̵͎̰̈í̶͓̕ň̵̋͜g̶̥͇̉̏ ̵̛̝̼̚V̵͍̅i̵̢͘s̸̮̍ȕ̷̮̊a̶̙̺͂̓l̸͓͐ͅ ̴̜̬̂Ṣ̷͊ť̸͜u̴̳͘̕d̴̝̫͂͝ì̷͓͇̾o̵̤̔ ̵̬̋̿C̴̠̐͆o̷̼͋d̴̘̤̄̒e̸̞̮͗̍ ̷̱̊̓f̴͉͌o̸̰̍͒r̶̩̀̚ ̴̻̔͘ť̵͈͝h̵͚͐͜e̶̛̤͈n̴͖̙̽?̶̳̚"
+	}
+	else
+	{
+		"%(distingstart)huh, what are you using %(codeprogram) for then?"
+	}
+	--
+	uprogrammist = 1
+}
+
+OnCheckGlitch
+{
+	_glitches = FENUM('logs/@$a#F.pg','+')
+	--
+	if _glitches == 0 || "M-201z.txt" !_in_ _glitches
+	{
+		repairglitch = 1
+		quest = 2
+
+		"\b[4]S̴e̵e̸m̷ like it worked,\w2 thanks,\w1 now communication will be easier \w8. \w8. \w8. I think I should use some type of formating for my text so you can distinguish between me and %(devname)\nWhat do you think I should use?\n"
+		--
+		"\![*]\q[Bold text,OnDisting,bold]\n\![*]\q[Cursive text,OnDisting,cursive]\n/
+		\![*]\q[Striked text,OnDisting,strike]\n\![*]\q[Underlined text,OnDisting,underline]\n/
+		\![*]\q[Yellow text,OnDisting,yellow]\n\![*]\q[Green text,OnDisting,green]\n/
+		\![*]\q[Red text,OnDisting,red]\n\![*]\q[Pink text,OnDisting,pink]\n"
+	}
+
+}
+
+OnDisting
+{
+	distingtype = reference0
+	--
+	case distingtype
+	{
+		when "bold"
+		{
+			distingstart = "\f[bold,1]"
+		}
+		when "cursive"
+		{
+			distingstart = "\f[italic,1]"
+		}
+		when "strike"
+		{
+			distingstart = "\f[strike,1]"
+		}
+		when "underline"
+		{
+			distingstart = "\f[color,1]"
+		}
+		when "yellow"
+		{
+			distingstart = "\f[color,#fffa6b]"
+		}
+		when "green"
+		{
+			distingstart = "\f[color,#1bcc2a]"
+		}
+		when "red"
+		{
+			distingstart = "\f[color,#e62719]"
+		}
+		when "pink"
+		{
+			distingstart = "\f[color,#ffa1f7]"
+		}
+		when "custom"
+		{
+			"%(distingstart)Oh, can you copy the hex of a color you want to use?\![open,inputbox,OnCustomColor,-1]"
+		}
+		
+	}
+	--
+	if formattype == 1
+	{
+		formattype = 0
+		TalkConfig
+	}
+	else
+	{
+		"So %(distingtype) huh, well ok\xSo now I will talk%(distingstart) like this\e"
+	}
+	
+}
+
+
+OnCustomColor
+{
+	distingtype = reference0
+	--
+	if "#" !_in_ reference0
+	{
+		distingstart = "\f[color,#"+ reference0 +"]"
+	}
+	else
+	{
+		distingstart = "\f[color,"+ reference0 +"]"
+	}
+	--
+	if formattype == 1
+	{
+		formattype = 0
+		TalkConfig
+	}
+	else
+	{
+		"So %(distingtype) huh, well ok\xSo now I will talk%(distingstart) like this\e"
+	}
+}
+
+//\![raise,OnGardenTalk]
+OnGardenTalk
+{
+	plants = "rose.red+orange+white+pink+yellow+green+blue+purple+bicolor+black.spring+summer+fall.full sun.none.roses,tulip.cream+white+yellow+orange+pink+red+purple+violet+black.spring.full sun+part sun.none.tulips,orchid.blue+magenta+purple+red+pink+white+yellow+orange+green+orange.varies.part sun.none.orchids,aster.blue+pink+purple+red+white.summer+fall.full sun+part sun.attracts butterflies.asters,dahlia.multicolor+orange+pink+purple+red+white+yellow.summer+fall.full sun.none.dahlias,sunflower.yellow+orange+red.summer.full sun.attracts birds and butterflies.sunflowers,astilbe.pink+red+white.spring+summer.part sun+shade.attracts butterflies.astilbes"
+	plantnum = ARRAYSIZE(plants)
+	randplant = RAND(plantnum)
+	plantsplit = SPLIT(plants[randplant],".")
+	plantname = plantsplit[0]
+	plantnamepl = plantsplit[5]
+	plantcolors = SPLIT(plantsplit[1],"+")
+	colornum = ARRAYSIZE(plantcolors)
+	randcolor = RAND(colornum)
+	attraction = plantsplit[4]
+	bloom = SPLIT(plantsplit[2],"+")
+	randbloom = ARRAYSIZE(bloom)-1
+	--
+	"%(distingstart)Have you thought about growing %(plantnamepl)? They are beautifull and come in a nice shade of %(plantcolors[randcolor])"
+	"%(distingstart)Did you know that %(plantnamepl) can be %(plantcolors[randcolor])? I haven't seen many but DAVD had a couple growing in his garden .\w6 .\w6 .\w6 .\w6 .\w6 .\w6 I guess that might be common knowledge but it was very suprissing to someone like me"
+	
+	if plantsplit[3] != "none"
+	{
+		"%(distingstart)Did you know that %(plantnamepl) %(attraction)?"
+
+		if "butterflies" _in_ plantsplit[3]
+		{
+			"%(distingstart)%(plantnamepl) %(attraction) you know, it makes for a great sight"
+		}
+	}
+}
+
+
+OnAnimalTalk
+{
+	animalnum = RAND(animalslearnt)
+	animalinfo = SPLIT(animals[animalnum],".")
+}

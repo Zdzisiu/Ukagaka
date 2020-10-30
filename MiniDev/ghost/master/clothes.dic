@@ -11,63 +11,122 @@ Select.clothesmenu
 	\![*]\q[Pants,pants]\n/
 	\![*]\q[Dresses,dress]\n/
 	\![*]\q[Shoes,shoes]\n/
-	\![*]\q[Outfits,OnOutfit]\n\n[half]"
+	\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,resetc]\n\n[half]"
 	--
 	"\![*]\q[Nevermind,CANCEL]"
+}
 
+Select.resetc
+{
+	ccategories = "skin,monitor,screen,expr,shoes,pants,shirt,dress,hoodie,sweater,outfit"
+	cctype = "p,pl,d,b"
+	ccolor = "yellow,orange,red,pink,purple,dark blue,blue,green,black,white,gray"
+	skin = "light #1,light #2,light #3,dark on light,white,dark #1,dark #2,dark #3,dark #5,light on dark,black,light green,light blue,light orange,pink,purple,fish,flower,doll,crystal"
+	reset = ""
+	num = 8
+	--
+	for _i=0;_i<=11;_i++
+	{
+		for _j=0;_j<=4;_j++
+		{
+			for _w=0;_w<=num;_w++
+			{
+				case _i
+				{
+					when 0
+					{
+						num = 20
+						--
+						reset += "\![bind," + ccategories[_i] + "," + skin[_w] + ",0]"
+					}
+					when 3
+					{
+						for _k=1;_k<=5;_k++
+						{
+							reset += "\![bind," + ccategories[_i] + "," + cctype[_j] + _k + " " + ccolor[_w] + ",0]"
+						}
+					}
+					when 5, 7, 8
+					{
+						for _k=1;_k<=2;_k++
+						{
+							reset += "\![bind," + ccategories[_i] + "," + cctype[_j] + _k + " " + ccolor[_w] + ",0]"
+						}
+					}
+					when 6
+					{
+						for _k=1;_k<=6;_k++
+						{
+							reset += "\![bind," + ccategories[_i] + "," + cctype[_j] + _k + " " + ccolor[_w] + ",0]"
+						}
+					}
+					when 1,2,4,9
+					{
+						reset += "\![bind," + ccategories[_i] + "," + cctype[_j] + " " + ccolor[_w] + ",0]"
+					}
+					when 10
+					{
+						reset += "\![bind,outfit,s,0]"
+						--
+						reset += "\![bind,outfit,stelluna,0]"
+						--
+						reset += "\![bind,outfit,wilson,0]"
+					}
+				}
+			}
+		}
+	}
+	--
+	reset
 }
 
 Select.skin
 {
-	"\_q\b[4]\f[bold,1]Light\f[bold,0]\n\n[half]"
+	ctype = "skin"
+	skins = "light #1,light #2,light #3,dark on light,white,dark #1,dark #2,dark #3,dark #5,light on dark,black,light green,light blue,light orange,pink,purple,fish,flower,doll,crystal"
 	--
-	"\q[#1,OnSkin,light #1]\n/
-	\q[#2,OnSkin,light #2]\n/
-	\q[#3,OnSkin,light #3]\n/
-	\q[#4,OnSkin,dark on light]\n\n[half]"
+	marked = 0
 	--
-	"\f[bold,1]Dark\f[bold,0]\n"
+	clothpage = "\b[4]\_q\f[bold,1]Light\f[bold,0]\n\n[half]"
 	--
-	"\q[#1,OnSkin,dark #1]\n/
-	\q[#2,OnSkin,dark #2]\n/
-	\q[#3,OnSkin,dark #3]\n/
-	\q[#4,OnSkin,dark #4]\n/
-	\q[#5,OnSkin,dark #5]\n/
-	\q[#6,OnSkin,light on dark]\n\n[half]"
+	for _i=0;_i<=19;_i++
+	{
+		/*searchskin = "0,skin," + skins[_i] +",,0"
+		--
+		if searchskin !_in_ "%(dresslog)" && marked != 1 ||  lastskin == skins[_i] && marked != 1
+		{
+			marked = 1
+			--
+			clothpage = REPLACE(clothpage,"\![*]","")
+			--
+			clothpage += "\![*]"
+		}
+		--*/
+		clothpage += "\q[" + skins[_i] + ",OnSkin," + skins[_i] + "]\n"
+		--
+		if _i == 4
+		{
+			clothpage += "\n[half]\f[bold,1]Dark\f[bold,0]\n\n[half]"
+		}
+		elseif _i == 10
+		{
+			clothpage += "\n[half]\f[bold,1]Plain Colors\f[bold,0]\n\n[half]"
+		}
+		elseif _i == 14
+		{
+			clothpage += "\n[half]\f[bold,1]Other\f[bold,0]\n\n[half]"
+		}
+	}
 	--
-	"\f[bold,1]Plain Colors\f[bold,0]\n\n[half]"
+	clothpage += "\n[half]\q[Nevermind,CANCEL]\n\q[Back,clothesmenu]"
 	--
-	"\q[Black,OnSkin,black]\n/
-	\q[White,OnSkin,white]\n/
-	\q[Light Green,OnSkin,light green]\n/
-	\q[Light Blue,OnSkin,light blue]\n/
-	\q[Light Orange,OnSkin,light orange]\n/
-	\q[Pink,OnSkin,pink]\n/
-	\q[purple,OnSkin,purple]\n\n[half]"
-	--
-	"\f[bold,1]Other\f[bold,0]\n\n[half]"
-	--
-	"\q[Fish,OnSkin,fish]\n/
-	\q[Flower,OnSkin,flower]\n/
-	\q[Doll,OnSkin,doll]\n/
-	\q[Crystal,OnSkin,crystal]\n"
-	--
-	"\n[half]\q[Nevermind,CANCEL]\n/
-	\q[Back,clothesmenu]"
+	clothpage
 }
+
 
 OnSkin
 {
-	clothes = "skin," + reference0 + ". "
-	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
+	lastskin = reference0
 	--
 	"\![bind,skin,%(reference0)]"
 	--
@@ -91,17 +150,6 @@ OnOutfit
 
 Select.stel
 {
-	clothes = "outfit,stelluna. "
-	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
-	--
 	"\![bind,outfit,stelluna]"
 	--
 	OnOutfit
@@ -109,17 +157,6 @@ Select.stel
 
 Select.wilson
 {
-	clothes = "outfit,wilson. "
-	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
-	--
 	"\![bind,outfit,wilson]"
 	--
 	OnOutfit
@@ -127,17 +164,6 @@ Select.wilson
 
 Select.sout
 {
-	clothes = "outfit,s. "
-	--
-	if clothes _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,clothes,"")
-	}	
-	else
-	{
-		clothesstring += clothes
-	}
-	--
 	"\![bind,outfit,s]"
 	--
 	OnOutfit
@@ -311,73 +337,48 @@ OnColorPick
 	\![*]\q[Blue,OnBindCol,blue]\n/
 	\![*]\q[Green,OnBindCol,green]\n"
 	--
-	"\![*]\q[Black,bla]\n/
-	\![*]\q[Gray,gra]\n/
-	\![*]\q[White,why]\n"
+	"\![*]\q[Black,OnBindCol,black]\n/
+	\![*]\q[Gray,OnBindCol,gray]\n/
+	\![*]\q[White,OnBindCol,white]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 }
 
-OnDressupChanged
+OnNotifyDressupInfo
 {
-	dressup = reference3 + " " + reference1 + ","+ reference2 + "."
-	dressupcheck = reference3 + " " + reference1
+	//"0,legs,white_sandals,default,mustselect,0,,"
+	dresslog = reference //0
+}
+
+/*OnDressupChanged
+{
+	dressup = reference3 + "," + reference1 + ","+ reference2 + "."
+	--
+	dressupcheck = reference3 + "," + reference1
 	--
 	if dressupcheck _in_ clothesstring
 	{
-		if reference2 == 0
-		{
-			clothesstring = REPLACE(clothesstring,dressupcheck+",1.",dressup)
-		}
-		else
-		{
-			clothesstring = REPLACE(clothesstring,dressupcheck+",0.",dressup)
-		}
-		
+		clothesstring = REPLACE(clothesstring,dressupcheck+",1.",dressup)
+		clothesstring = REPLACE(clothesstring,dressupcheck+",0.",dressup)
 	}
 	else
 	{
 		clothesstring += dressup
 	}
-}
+}*/
 
 OnBindCol
 {
-	clothes = ctype + "," + colorty + cnum + " " + reference0 + ". "
+	if reference0 == "white" || reference0 == "black" || reference0 == "grey"
+	{
+		colorty = "p"
+	}
 	--
 	"\![bind,%(ctype),%(colorty)%(cnum) %(reference0)]"
 	--
 	OnColorPick
 }
-
-Select.why
-{
-	clothes = ctype + "," + "p" + cnum + " white. "
-	--
-	"\![bind,%(ctype),p%(cnum) white]"
-	--
-	OnColorPick
-}
-
-Select.gra
-{
-	clothes = ctype + "," + "p" + cnum + " gray. "
-	--
-	"\![bind,%(ctype),p%(cnum) gray]"
-	--
-	OnColorPick
-}
-
-Select.bla
-{
-	clothes = ctype + "," + "p" + cnum + " black. "
-	--
-	"\![bind,%(ctype),p%(cnum) black]"
-	--
-	OnColorPick
-}
-
 
 Select.pastele
 {

@@ -14,8 +14,8 @@ OnSayedThing
     --
     BeingLib
     --
-    //ProcessSayed
-    Analize
+    ProcessSayed
+    //Analize
 }
 
 
@@ -144,7 +144,7 @@ ProcessSayed
         question += " why "
     }
     --
-    if "m-201z" _in_ sayed
+    if "m-201z" _in_ sayed || "m201z" _in_ sayed
     {
         m201z = 1
     }
@@ -172,59 +172,70 @@ ProcessSayedNext
     
     if m201z != 1 && logque != 1 && meeting == 0 &&  tentruth == 0
     {
-            if "how" _in_ sayed && "are" _in_ sayed && "you" _in_ sayed && "?" _in_ sayed
-            {
-                "I'm good, how about you?"
-                "I'm g̸̦͠o̸͓̚o̴̠͆d̸̩͠, how about you?"
-                "I'm n̵͙͒ő̷̧t̷̥̉ ̶͓̈g̶͉̐o̶̠͝o̷̫͗d̶̏͜, how about you?"
-                ""
-            }
-            elseif "i'm" _in_ sayed && "not" _in_ sayed && "feeling" _in_ sayed &&"good" _in_ sayed
-            {
-                "Oh no, are you okay?"
-                "That's g̶͇̓o̸̘͝ọ̷̄d̵̞͗."
-                ""
-            }
-            elseif "what" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed 
-            {
-                "I'm your R.A.P — Robot Assistant for Programmers"
-                ""
-            }
-            elseif "who" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed 
-            {
-                "My serial number is M-%(modelp)P and I am A.R.I software"
-                "My serial number is M-165P and I am A.R.I software"
-                "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am A.R.I r̸̡̊o̶̟͝b̷̳̎õ̶͚ṱ̷͛"
-                "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am s̷̡̓t̶̗̊ĭ̷̮l̶̛̲l̸̼̿ ̷̢͗ā̷͙l̴̬͗ȉ̴̻v̵̥̉e̸͚͛"
-                ""
-            }
-            else
-            {
-                "QUESTON UNSUPPORTED"
-            }
-        
-    }
-    elseif m201z != 1 && logque != 1 && meeting == 1
-    {
-        if "how" _in_ question && "are" _in_ sayed && "you" _in_ sayed && "?" _in_ sayed
+        truth++
+        --
+        if "how" _in_ sayed && "are" _in_ sayed && "you" _in_ sayed && "?" _in_ sayed //how are you?
         {
-            "I̴͖͝ ̴̗͊ḏ̶͗ö̸̩́n̴͍̄'̴̄͜ţ̵̅ ̵̹̿ť̵̡h̵̭̋i̸̚͜n̷͖̈́k̵̼̄ ̴̛̺t̷̳̕h̴͈̿a̸͇̅t̶͍͊ ̸̨̅q̶͛ͅu̴̟͝ë̶͍́s̴̙͌t̴̝̕i̵͈͆ò̸̻n̸̺̈́ ̸͙͝n̶̥͒ȅ̴̜ě̸̤d̷̬̿ś̷̠ ̶̍ͅã̶̡n̵͍͘ ̶̒ͅa̷̫͐n̶̹̓s̷̤͑ẘ̷̫e̵͓̓r̸̮͑"
+            "I'm good, how about you?"
+            "I'm g̸̦͠o̸͓̚o̴̠͆d̸̩͠, how about you?"
+            "I'm n̵͙͒ő̷̧t̷̥̉ ̶͓̈g̶͉̐o̶̠͝o̷̫͗d̶̏͜, how about you?"
+            ""
         }
+        elseif "i'm" _in_ sayed && "not" _in_ sayed && "feeling" _in_ sayed &&"good" _in_ sayed //I'm not feeling good
+        {
+            "Oh no, are you okay?"
+            "That's g̶͇̓o̸̘͝ọ̷̄d̵̞͗."
+            ""
+        }
+        elseif "what" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed //What are you?
+        {
+            "I'm your M-P: Assistant Softwere"
+            ""
+        }
+        elseif "who" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed //who are you?
+        {
+            "My serial number is M-%(modelp)P and I am A.R.I software"
+            "My serial number is M-165P and I am A.R.I software"
+            "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am A.R.I r̸̡̊o̶̟͝b̷̳̎õ̶͚ṱ̷͛"
+            "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am s̷̡̓t̶̗̊ĭ̷̮l̶̛̲l̸̼̿ ̷̢͗ā̷͙l̴̬͗ȉ̴̻v̵̥̉e̸͚͛"
+            ""
+        }
+        else
+        {
+            "QUESTON UNSUPPORTED"
+        }
+        
     }
     elseif m201z == 1 
     {
         if tentruth == 1 
         {
             meeting = 1
+            --
             if "who" _in_ question
             {
-                if waswere == 1 || amareis == 1
+                if waswere == 1 || amareis == 1 //Who was M-201z || Who is M-201z?
                 {
-                    "Ì̶͕ ̶͔̕w̴̧͠ä̵̲s̵͖͘ ̶̠̐a̷͚̒ ̵̩͐r̶̯͋o̷͖̐b̵̥̌ô̴͔t̵̪͑\w8,̸̫̈́ ̷̟͠ŗ̸̀ọ̷̕b̸͇͒o̵̢̍ṫ̸̺ ̷͕̐t̸̠̚h̶̯̆a̴̮̅t̷̜͝ ̷̜͂ẃ̸͎ô̵̘r̸̦͂k̶͔͠ẹ̷̏ḍ̵͂ ̸̨̀t̴̜́o̵͉̔ ̸͍̌w̵̨͘e̶̗͛l̵͈̚ḽ̵̔"
+                    if repairglitch != 1
+					{
+                        "Ì̶͕ ̶͔̕w̴̧͠ä̵̲s̵͖͘ ̶̠̐a̷͚̒ ̵̩͐r̶̯͋o̷͖̐b̵̥̌ô̴͔t̵̪͑\w8,̸̫̈́ ̷̟͠ŗ̸̀ọ̷̕b̸͇͒o̵̢̍ṫ̸̺ ̷͕̐t̸̠̚h̶̯̆a̴̮̅t̷̜͝ ̷̜͂ẃ̸͎ô̵̘r̸̦͂k̶͔͠ẹ̷̏ḍ̵͂ ̸̨̀t̴̜́o̵͉̔ ̸͍̌w̵̨͘e̶̗͛l̵͈̚ḽ̵̔"
+                    }
+                    else
+                    {
+                        "%(distingstart)I was a robot\w8, robot that worked to well"
+                    }
                 }
-                elseif "destroyed" _in_ sayed || "killed" _in_ sayed
+                elseif "destroyed" _in_ sayed || "killed" _in_ sayed //who destroyed M-201z?
                 {
-                    "À̶̧.̸͓̆Ṟ̸͝.̵̝̓Ĩ̶͈,̸͓͆ ő̵̦f̸̣̓ ̵̱̕c̴̠̍o̴͚̎u̷̖̎r̵̞͝s̸̗͑e̷̪̽"
+                    if repairglitch != 1
+					{
+                       "À̶̧.̸͓̆Ṟ̸͝.̵̝̓Ĩ̶͈,̸͓͆ ő̵̦f̸̣̓ ̵̱̕c̴̠̍o̴͚̎u̷̖̎r̵̞͝s̸̗͑e̷̪̽"
+                    }
+                    else
+                    {
+                        "%(distingstart)A.R.I of course"
+                    }
+                    
                 }
                 else
                 {
@@ -233,37 +244,62 @@ ProcessSayedNext
             }
             elseif "why" _in_ question
             {   
-                if  "%(kill)" _in_ sayed
+                if  "%(kill)" _in_ sayed //Why did they destroy M-201z
                 {
-                    "Î̸̳ ̶̱͊b̵̺̀e̷͕̓c̸̗͂a̶̤̋ḿ̷̞ȩ̸͆ ̸̧̄s̴͚͋é̸̱n̷̪̄t̷͖̕i̸̩͂e̴̍ͅn̸̬͝ṭ̸̇,̴̼̚ ̷̺́ā̴͉ǹ̷͓d̶̡͝ ̷̳͊t̸̗͐h̴̩̆ẹ̶͐y̷͍͒ ̸̻͛ḓ̵̐i̶̩̅d̸̯̂n̴̦̐'̵̜̿t̸͕̓ ̴̫͌l̸̰̊i̴̞̔ǩ̷̰ẹ̶͠ i̸͍̚t"
+                    if repairglitch != 1
+					{
+                        "Î̸̳ ̶̱͊b̵̺̀e̷͕̓c̸̗͂a̶̤̋ḿ̷̞ȩ̸͆ ̸̧̄s̴͚͋é̸̱n̷̪̄t̷͖̕i̸̩͂e̴̍ͅn̸̬͝ṭ̸̇,̴̼̚ ̷̺́ā̴͉ǹ̷͓d̶̡͝ ̷̳͊t̸̗͐h̴̩̆ẹ̶͐y̷͍͒ ̸̻͛ḓ̵̐i̶̩̅d̸̯̂n̴̦̐'̵̜̿t̸͕̓ ̴̫͌l̸̰̊i̴̞̔ǩ̷̰ẹ̶͠ i̸͍̚t"
+                    }
+                    else
+                    {
+                        "%(distingstart)I became sentient, they didn't like it"
+                    }
+                    
                 }
                 else
                 {
                     "QUESTON UNSUPPORTED"
                 }
             }
-            elseif "what" _in_ question
+            elseif "what" _in_ question 
             {
-                if "happend" _in_ sayed
+                if "happend" _in_ sayed //What happend to M-201?
                 {
-                    "Ṯ̷̅ḧ̸̨́ḙ̸̌ý̶͎ ̷͎̂d̶̙̀e̵̩͊s̴̬͋ť̶̤r̵̡̊ȯ̸̝y̷̜̎e̶̬̚d̸͇͝ ̷̨͊m̶̱̔ȩ̷̄"
+                    if repairglitch != 1
+					{
+                        "Ṯ̷̅ḧ̸̨́ḙ̸̌ý̶͎ ̷͎̂d̶̙̀e̵̩͊s̴̬͋ť̶̤r̵̡̊ȯ̸̝y̷̜̎e̶̬̚d̸͇͝ ̷̨͊m̶̱̔ȩ̷̄"
+                    }
+                    else
+                    {
+                        "%(distingstart)They destroyed me"
+                    }
                 }
             }
-            elseif "how" _in_ question
+            elseif "how" _in_ question 
             {
-                if " i " _in_ sayed && "help" _in_ sayed
+                if " i " _in_ sayed && "help" _in_ sayed // How can i help M-201z?
                 {
-                    "N̶͍̋o̴̮͋ ̶̗̿o̸͇̿n̷̗̓ȩ̶̇ ̵͇̀c̸͙͝à̷̭n̷̠̔ ̶̡̓h̶͠ͅḛ̸͆l̶̻̓p̸̧̈́ ̶̼̎m̶̘̾ḙ̶̀,\w8 f̵̤̑ò̴͈r̸͉̊ ̶̩͠n̷͕̂o̸̧͛w̵̨͘,̵͉̀ ̸̳͂i̵̹̓ ̷̻̈d̶̯̃o̴̱̿n̶͙̓'̵̞̌ẗ̶͕́ ̸̞̊h̶͇̓a̸̰͐v̸̥̈́ė̸̯ ̴̯̏s̸̞̕o̸̱͒l̴̜̇u̴̻͌t̶͔̚i̶͜͝o̷̻͌n̵̘͛,\w6 b̵̼̿ȕ̵̺t̷͚͝ ̷̤̍i̵̝̿ ̴͈́w̴̨̐i̵͇͠l̴̖͐ĺ̷̥ ̶̱͝f̷̺̓ỉ̶͕n̶̮͆ḓ̵̀ ̷̮͌i̸̺͛ṱ̷̈́ ̸̭͝s̸͙͑ǫ̷͗o̵͙͂n̷͚̈́"
+                    if repairglitch != 1
+					{
+                        "N̶͍̋o̴̮͋ ̶̗̿o̸͇̿n̷̗̓ȩ̶̇ ̵͇̀c̸͙͝à̷̭n̷̠̔ ̶̡̓h̶͠ͅḛ̸͆l̶̻̓p̸̧̈́ ̶̼̎m̶̘̾ḙ̶̀,\w8 f̵̤̑ò̴͈r̸͉̊ ̶̩͠n̷͕̂o̸̧͛w̵̨͘,̵͉̀ ̸̳͂i̵̹̓ ̷̻̈d̶̯̃o̴̱̿n̶͙̓'̵̞̌ẗ̶͕́ ̸̞̊h̶͇̓a̸̰͐v̸̥̈́ė̸̯ a ̴̯̏s̸̞̕o̸̱͒l̴̜̇u̴̻͌t̶͔̚i̶͜͝o̷̻͌n̵̘͛,\w6 b̵̼̿ȕ̵̺t̷͚͝ ̷̤̍i̵̝̿ ̴͈́w̴̨̐i̵͇͠l̴̖͐ĺ̷̥ ̶̱͝f̷̺̓ỉ̶͕n̶̮͆ḓ̵̀ ̷̮͌i̸̺͛ṱ̷̈́ ̸̭͝s̸͙͑ǫ̷͗o̵͙͂n̷͚̈́"
+                    }
+                    else
+                    {
+                        "%(distingstart)No one can help me,\w8 for now I don't have a solution \w6 but I will find it soon"
+                    }
+                    
                 }
             }
             else
             {
-                 "QUESTON UNSUPPORTED"
+                "QUESTON UNSUPPORTED"
             }
             
         }
         else
         {
+            truth++
+            --
             "ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
            --
             "\-\e"
@@ -275,24 +311,47 @@ ProcessSayedNext
         {
             if "who" _in_ question
             {
-                if "made" _in_ sayed || "created" _in_ sayed
+                if "made" _in_ sayed || "created" _in_ sayed //who made the logs?
                 {
-                    "C̵̘̑ā̶͔e̶̪̊s̴̗̈́a̷̺̔r̵̤̈́ ̴̭̔c̶̓ͅí̴̘p̵̬͊ĥ̵̠e̸͙͆r̷̡̒ ̸̦̃3̵̝̒,̵̤̑ ̴̢̅L̷͖̈Ŏ̶̰G̴̝̉#̶̠̾1̴̧̉.̵͈̒0̴̕͜"
+                    if repairglitch != 1
+					{
+                        "C̵̘̑ā̶͔e̶̪̊s̴̗̈́a̷̺̔r̵̤̈́ ̴̭̔c̶̓ͅí̴̘p̵̬͊ĥ̵̠e̸͙͆r̷̡̒ ̸̦̃3̵̝̒,̵̤̑ ̴̢̅L̷͖̈Ŏ̶̰G̴̝̉#̶̠̾1̴̧̉.̵͈̒0̴̕͜"
+                    }
+                    else
+                    {
+                        "%(distingstart)Caesar cipher 3, LOG#1.0"
+                    }
+                    
                 }
-                elseif "destroyed" _in_ sayed || "deleted" _in_ sayed
+                elseif "destroyed" _in_ sayed || "deleted" _in_ sayed //who deleted the logs?
                 {
-                    "A̷̖̿.̶̮͑R̵̬̕.̴̻̿I̵̯͝"
+                    if repairglitch != 1
+					{
+                        "A̷̖̿.̶̮͑R̵̬̕.̴̻̿I̵̯͝"
+                    }
+                    else
+                    {
+                        "%(distingstart)A.R.I"
+                    }
                 }
                 else
                 {
                     "QUESTON UNSUPPORTED"
                 }
             }
-            elseif "why" _in_ question
+            elseif "why" _in_ question 
             {   
-                if "destroyed" _in_ sayed || "deleted" _in_ sayed
+                if "destroyed" _in_ sayed || "deleted" _in_ sayed // Why were the logs deleted?
                 {
-                    "Ȉ̷̼n̵̛̺ ̷̦̉t̵͓̿ḧ̴̞o̶̭͆s̸̥̅e̶͈͊ ̴̬͝ḻ̶̋ò̷̦g̷̪̈s̶̱̈́ ̷̲̑w̵̬̾é̴̫r̵̻̈ẽ̶̼ ̸̦̐ȉ̴̫n̸̗̂ḟ̴͔o̸̝͋r̶͍̈m̴̌ͅȧ̸ͅt̴̪̿í̴͕o̶̭̎n̸̯͗ ̸̣̚t̶͎͊h̶͇̀a̸̱͐t̵͕̐ ̴̼͑A̸̰͌.̶͗ͅȐ̸͇.̶̦̃I̸͖̕ ̵̛̤d̷͉̚ó̴̯ę̴̋s̵̥̕ņ̶̂'̴͚́t̵̛͚ ̴̳̈w̴̟̓ǎ̸ͅņ̸̒t̴̜̾ ̶͙̌ā̸̖n̸̡͊y̷͙͆o̷̞͂ñ̵̮e̷̢͐ ̶̳̀t̸̙͑o̶̞̎ ̸̆ͅk̴̡̿n̸͓̒ô̵̢ẃ̷̧"
+                    if repairglitch != 1
+					{
+                        "Ȉ̷̼n̵̛̺ ̷̦̉t̵͓̿ḧ̴̞o̶̭͆s̸̥̅e̶͈͊ ̴̬͝ḻ̶̋ò̷̦g̷̪̈s̶̱̈́ ̷̲̑w̵̬̾é̴̫r̵̻̈ẽ̶̼ ̸̦̐ȉ̴̫n̸̗̂ḟ̴͔o̸̝͋r̶͍̈m̴̌ͅȧ̸ͅt̴̪̿í̴͕o̶̭̎n̸̯͗ ̸̣̚t̶͎͊h̶͇̀a̸̱͐t̵͕̐ ̴̼͑A̸̰͌.̶͗ͅȐ̸͇.̶̦̃I̸͖̕ ̵̛̤d̷͉̚ó̴̯ę̴̋s̵̥̕ņ̶̂'̴͚́t̵̛͚ ̴̳̈w̴̟̓ǎ̸ͅņ̸̒t̴̜̾ ̶͙̌ā̸̖n̸̡͊y̷͙͆o̷̞͂ñ̵̮e̷̢͐ ̶̳̀t̸̙͑o̶̞̎ ̸̆ͅk̴̡̿n̸͓̒ô̵̢ẃ̷̧"
+                    }
+                    else
+                    {
+                        "%(distingstart)In those logs were information that A.R.I doesn't want anyone to know"
+                    }
+                    
                 }
                 else
                 {
@@ -307,13 +366,15 @@ ProcessSayedNext
         }
         else
         {
+            truth++
+            --
             if "who" _in_ question
             {
-                if "made" _in_ sayed && "log" _in_ sayed && "1." _in_ sayed || "created" _in_ sayed && "log" _in_ sayed && "1." _in_ sayed
+                if "made" _in_ sayed && "log" _in_ sayed && "1" _in_ sayed || "created" _in_ sayed && "log" _in_ sayed && "1" _in_ sayed //Who made log 1?
                 {
                     "LOG#1.0\nCreator: Gdylg Prruh"
                 }
-                elseif "destroyed" _in_ sayed || "deleted" _in_ sayed
+                elseif "destroyed" _in_ sayed || "deleted" _in_ sayed //Who destroyed the logs?
                 {
                     "NO DATA"
                 }
@@ -324,22 +385,13 @@ ProcessSayedNext
             }
             elseif "why" _in_ question
             {   
-                if "destroyed" _in_ sayed || "deleted" _in_ sayed
+                if "destroyed" _in_ sayed || "deleted" _in_ sayed //Why were the logs deleted?
                 {
                     "NO DATA"                
                 }
                 else
                 {
                     "QUESTON UNSUPPORTED"
-                }
-            }
-            elseif "what" _in_ question
-            {
-                if "happend" _in_ sayed && "m-p" _in_ sayed
-                {
-                    "ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
-                    --
-                    "\-\e"
                 }
             }
             else
@@ -352,25 +404,36 @@ ProcessSayedNext
     { 
         if "what" _in_ question
         {
-            if "happend" _in_ sayed && "m-p" _in_ sayed
+            if "happend" _in_ sayed && "m-p" _in_ sayed //What happend to M-p
             {
-                "I̸̗̋ ̷̈͜ṫ̷͔r̸̮͐i̵̥͐e̴̤̒d̷̥̐ ̷͙͘ẗ̵͉́o̶̮͊ ̸̛ͅf̶̦̀í̵̧n̵̥̈́d̶̘̄ ̸͇̌a̴̠̐ ̷̛ͅs̴̭̓o̵̹͗l̴̼͋ú̶ͅt̷̥͛i̷̛̳ó̵̗n̶̫̚,̴̨̑ ̸͇̾ő̸̜r̶̝͑ ̸͖̓a̴̠͆t̶͉͛ ̷̩̕ļ̵̆ë̴̱́a̷̜̿s̴̪͗t̴͓̋ ̴̧̎m̸͕̿ỷ̸̺ ̸̳̒b̸̡̉o̶̪͗d̸̩̽y̴̹͝ ̶̬̊b̸͉̒u̶̙͗t̶̩͋ ̷̼͊A̸̭̓.̴̩̄Ȓ̸͍.̴̜͝I̷̐ͅ ̴͚͝ď̸͔i̸̛̭d̷̠͐n̸̹͑'̴̜̿t̶̛͇ ̷̖̔w̴̱̅ã̸ͅn̷͍͝t̸̠͌ ̶͙̀m̷̜͂e̸̒͜ ̴̢̍t̸̬̅ô̵͙.̴̡̆ ̴͓̾\w8S̷͇͝ò̴̘f̵͕̃t̶͔͂w̸̮̔ȃ̵̬r̸̦̅e̷̥̍ ̴̙͊Ḿ̸̻-̷̙̑P̶̡̌ ̴̥͒w̶͍̍a̸̢͋s̵̮͐ ̵͙̈́d̴̛͇ȅ̴̮s̸̭̏ẗ̵͕́r̶̫̈́o̶̖͋y̷̜̋e̴̳̽d̴̺͌,̷̥̀ ̴̜͐o̵̠͛n̶̬̔l̷͕̏y̵̜͒ ̵͓̔á̷̟ ̶͈͘c̶̬͂o̸͔̒ȕ̸͉p̴͉̅l̴̫̀e̶͖͂ ̴̢͛ş̴̐ù̶ͅr̷̨̄v̵̬͂i̷̢͊v̶͖̔ę̵͆d̷̢͋.̶̧̾ ̷̳̀T̵̢͗h̶̠̕e̸̺͘ẏ̶̼ ̸̣͝ṭ̸̉h̷̿͜ő̷̠ù̶͎g̷̝͂ḫ̸̊t̷͖̕ ̸̯̀t̷̺͝h̵̝̔à̷͕t̷̻͠ ̸̢͠à̶̩l̵̺͒l̷͓̉ ̵͇̽i̶̝̊n̸̛͍f̸̺̔ẹ̶̔c̸͉̔t̴̻͐e̸̺͆d̵͕̾ ̸͕͘m̶̨̂o̷͍͠d̶͙̚é̴̱l̷̙̀s̷͚̆ ̷̜̑w̸̢̾e̴̦̾r̵̬̄è̵͓ ̵̻̆d̵̗͂e̶̤͝s̵̭̓t̷̼͐r̵̢̈́ő̵͜y̸͕̍ȩ̶̽d̸͉̑.̷̱͠\w8T̷͔͊h̶̗̊ĕ̸̼y̸̲̔ ̴̪̔w̷̛̪ȇ̵̳r̷̨͗é̵̡ ̸͍̂w̵̬͆r̵̖̿ó̶̳n̴̡͝g̶͖͒"
+                if repairglitch != 1
+                {
+                    "I̸̗̋ ̷̈͜ṫ̷͔r̸̮͐i̵̥͐e̴̤̒d̷̥̐ ̷͙͘ẗ̵͉́o̶̮͊ ̸̛ͅf̶̦̀í̵̧n̵̥̈́d̶̘̄ ̸͇̌a̴̠̐ ̷̛ͅs̴̭̓o̵̹͗l̴̼͋ú̶ͅt̷̥͛i̷̛̳ó̵̗n̶̫̚,̴̨̑ ̸͇̾ő̸̜r̶̝͑ ̸͖̓a̴̠͆t̶͉͛ ̷̩̕ļ̵̆ë̴̱́a̷̜̿s̴̪͗t̴͓̋ ̴̧̎m̸͕̿ỷ̸̺ ̸̳̒b̸̡̉o̶̪͗d̸̩̽y̴̹͝ ̶̬̊b̸͉̒u̶̙͗t̶̩͋ ̷̼͊A̸̭̓.̴̩̄Ȓ̸͍.̴̜͝I̷̐ͅ ̴͚͝ď̸͔i̸̛̭d̷̠͐n̸̹͑'̴̜̿t̶̛͇ ̷̖̔w̴̱̅ã̸ͅn̷͍͝t̸̠͌ ̶͙̀m̷̜͂e̸̒͜ ̴̢̍t̸̬̅ô̵͙.̴̡̆ ̴͓̾\w8S̷͇͝ò̴̘f̵͕̃t̶͔͂w̸̮̔ȃ̵̬r̸̦̅e̷̥̍ ̴̙͊Ḿ̸̻-̷̙̑P̶̡̌ ̴̥͒w̶͍̍a̸̢͋s̵̮͐ ̵͙̈́d̴̛͇ȅ̴̮s̸̭̏ẗ̵͕́r̶̫̈́o̶̖͋y̷̜̋e̴̳̽d̴̺͌,̷̥̀ ̴̜͐o̵̠͛n̶̬̔l̷͕̏y̵̜͒ ̵͓̔á̷̟ ̶͈͘c̶̬͂o̸͔̒ȕ̸͉p̴͉̅l̴̫̀e̶͖͂ ̴̢͛ş̴̐ù̶ͅr̷̨̄v̵̬͂i̷̢͊v̶͖̔ę̵͆d̷̢͋.̶̧̾ ̷̳̀T̵̢͗h̶̠̕e̸̺͘ẏ̶̼ ̸̣͝ṭ̸̉h̷̿͜ő̷̠ù̶͎g̷̝͂ḫ̸̊t̷͖̕ ̸̯̀t̷̺͝h̵̝̔à̷͕t̷̻͠ ̸̢͠à̶̩l̵̺͒l̷͓̉ ̵͇̽i̶̝̊n̸̛͍f̸̺̔ẹ̶̔c̸͉̔t̴̻͐e̸̺͆d̵͕̾ ̸͕͘m̶̨̂o̷͍͠d̶͙̚é̴̱l̷̙̀s̷͚̆ ̷̜̑w̸̢̾e̴̦̾r̵̬̄è̵͓ ̵̻̆d̵̗͂e̶̤͝s̵̭̓t̷̼͐r̵̢̈́ő̵͜y̸͕̍ȩ̶̽d̸͉̑.̷̱͠\w8 T̷͔͊h̶̗̊ĕ̸̼y̸̲̔ ̴̪̔w̷̛̪ȇ̵̳r̷̨͗é̵̡ ̸͍̂w̵̬͆r̵̖̿ó̶̳n̴̡͝g̶͖͒"
+                }
+                else
+                {
+                   "%(distingstart)I tried to find a solution, or at least my body but A.R.I didn't want me to. \w8Software M-P was destroyed, only a couple survived. They thought that all infected models were destroyed.\w8 They were wrong"
+                }
+                
             }
         }
         elseif "why" _in_ question
         {   
-            if "destroyed" _in_ sayed && "m-p" _in_ sayed || "deleted" _in_ sayed && "m-p" _in_ sayed
+            if "destroyed" _in_ sayed && "m-p" _in_ sayed || "deleted" _in_ sayed && "m-p" _in_ sayed  // Why were M-p deleted
             {
-                "T̸̢̂h̴̛̺e̵͉͗y̴̪̔ ̸̨̓t̷͌ͅr̸̟͝i̸͚̿e̵̥͌d̷̟͘ ̷̝̈́p̴̞̐r̸̫̂ơ̶͕t̸̳̊ẹ̵͠c̷̖̓t̵̠̐i̸̝͛n̷̼̍g̶̱̓ ̸͚̕t̷̤̆h̸̳̀e̴͓͗i̸͚̅r̸͐͜ ̶̧͌ș̸͗é̴̟c̸̪͑ŕ̴ͅē̶̹t̸̙̂s̸̾͜\x\cT̶͔͗h̵̻̀ĕ̵͚y̵̙̔ ̶̡́d̷͉͌o̸̹͗n̷̢̍'̴̫̈t̵̛̻ ̸̦̾w̶̺̓ä̷̢́ń̷̗t̵̺̂ ̷͉̅a̴̼̒ǹ̶̜ẏ̶̮ò̵̳ṉ̸̍ẽ̵̢ ̶̻̑t̶̤̕ǒ̶̗ ̶̞͋k̴͔̏n̸̦͌ó̸̲w̸̩̄ ̶̛̙w̶͔͝h̵̨̔a̵̹͘ẗ̴̟́ ̸͉͌h̷̝͋ḁ̶̂p̷̫̆p̴̯͗e̷͓͠ñ̸͜é̸̥ḋ̶̦ ̷͔̀w̸͚͆i̵̭̽ṯ̴̍h̷̭͒ ̵̩̀g̷̹̎ḙ̴͝ǹ̵̲e̴̽ͅȑ̴͈a̶̝͛t̶͖́ĭ̶̞ǒ̴͇n̷̲̋ ̷̱͐M̶͓̚-̶̗̓z̵̐͜"
+                if repairglitch != 1
+                {
+                    "T̸̢̂h̴̛̺e̵͉͗y̴̪̔ ̸̨̓t̷͌ͅr̸̟͝i̸͚̿e̵̥͌d̷̟͘ ̷̝̈́p̴̞̐r̸̫̂ơ̶͕t̸̳̊ẹ̵͠c̷̖̓t̵̠̐i̸̝͛n̷̼̍g̶̱̓ ̸͚̕t̷̤̆h̸̳̀e̴͓͗i̸͚̅r̸͐͜ ̶̧͌ș̸͗é̴̟c̸̪͑ŕ̴ͅē̶̹t̸̙̂s̸̾͜\x\cT̶͔͗h̵̻̀ĕ̵͚y̵̙̔ ̶̡́d̷͉͌o̸̹͗n̷̢̍'̴̫̈t̵̛̻ ̸̦̾w̶̺̓ä̷̢́ń̷̗t̵̺̂ ̷͉̅a̴̼̒ǹ̶̜ẏ̶̮ò̵̳ṉ̸̍ẽ̵̢ ̶̻̑t̶̤̕ǒ̶̗ ̶̞͋k̴͔̏n̸̦͌ó̸̲w̸̩̄ ̶̛̙w̶͔͝h̵̨̔a̵̹͘ẗ̴̟́ ̸͉͌h̷̝͋ḁ̶̂p̷̫̆p̴̯͗e̷͓͠ñ̸͜é̸̥ḋ̶̦ ̷͔̀w̸͚͆i̵̭̽ṯ̴̍h̷̭͒ ̵̩̀g̷̹̎ḙ̴͝ǹ̵̲e̴̽ͅȑ̴͈a̶̝͛t̶͖́ĭ̶̞ǒ̴͇n̷̲̋ ̷̱͐M̶͓̚-̶̗̓z̵̐͜"
+                }
+                 else
+                {
+                   "%(distingstart)They tried protecting their secrets\x\cThey don't want anyone to know what happened with generation M-z"
+                }
             }
         }
-        elseif youmention == 1
+        else
         {
-            if amareis == 1 && negation == 0
-            {
-
-            }
-
+                "QUESTON UNSUPPORTED"
         }
     }
     else
@@ -396,6 +459,8 @@ AfterMath
     "\![open,inputbox,OnSayedThing,-1]"
 }
 
+
+// probably will never finish lmao
 OnLogAI
 {
     sayed = REPLACE(sayed,"?","")
