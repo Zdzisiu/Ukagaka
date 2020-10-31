@@ -4,6 +4,10 @@ OnCommunicate
  	{
  		ReplyToUser
 	}
+	elseif reference0 == "clothes"
+	{
+		ClothesCheck
+	}
  	else
 	{
 		ReplyToGhost
@@ -28,17 +32,73 @@ ReplyToGhost
 	{
 		RespondingToDusty
 	}
+	elseif reference0 == "Aurora.EXE"
+	{
+		RespondingToAurora
+	}
+	elseif "\e SendClothes0" _in_ reference4
+	{
+		SendClothes
+	}
 }
 
+//\![raise,OnClothesCheck]
+//Aurora dress 1 pl dark blue, and shoes pl dark blue ||
+//Azura : Shirt #1 or #2 or #6 d dark blue, pants long pl dark blue, Hoodies Open b dark blue
+ClothesCheck
+{
+	if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && aurora != 1
+	{
+		res_reference0 = "Aurora.EXE"
+		--
+		outfitaurora = 1
+		--
+		"\e MiniDevOuftit,%(outfitaurora)"
+	}
+	elseif "hoodie,p1 red,,1" _in_ "%(dresslog)" && "shirt,d1 purple,,1"_in_ "%(dresslog)" && "pants,p1 black,,1"_in_ "%(dresslog)" && "shoes,p gray,,1"_in_ "%(dresslog)" && outfitS != 1
+	{
+		outfitS = 1
+		--
+		res_reference0 = "RYS-0825"
+		--
+		"\eGetMiniDevStats02,%(outfitS)"
+	}
+	elseif ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,pl1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)" && azura != 1
+	{
+		outfitazura = 1
+		--
+		res_reference0 = "Azura"
+		--
+		"\MiniDevOuftit,%(outfitazura)"
+	}
+}
+
+SendClothes
+{
+	res_reference0 = reference0
+	--
+	"\e SendClothes1,%(dresslog)"
+}
+
+OnGhostCheck
+{
+	res_reference0 = "Aurora.EXE"
+	--
+	"Hi aurora"
+}
+
+//\![bind,hoodie,p1 red,1]\![bind,shirt,d1 purple,1]\![bind,pants,p1 black,1]\![bind,shoes,p gray,1]
+//\![raise,OnCheck]
+// %(dresslog)
 OnCheck
 {
-	if "hoodie,p1 red." _in_ clothesstring && "shirt,d1 purple." _in_ clothesstring && "pants,p1 black." _in_ clothesstring && "shoes,p gray." _in_ clothesstring 
+	if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && aurora != 1
 	{
 		"YEA"
 	}
 	else
 	{
-		"nah %(clothesstring)"
+		"nah"
 	}
 }
 
@@ -276,18 +336,7 @@ OnGhostCallComplete
 
 OnOtherGhostTalk
 {
-	if "Wilson" _in_ reference0
-	{
 
-	}
-	elseif "S" _in_ reference0
-	{
-		//RespondingToS
-	}
-	elseif "Dusty" _in_ reference0
-	{
-		//RespondingToDusty
-	}
 }
 
 OnOtherGhostBooted
@@ -535,6 +584,68 @@ reference5: information dependent on the the SHIORI event of reference3. It’s 
 //Stats from Dusty
 // %(recenttreats),%(treatsgiven),%(totalpingpong),%(totalcatnip),%(totalmousetoys),%(totalbelltoy),%(totalblanket),%(spentG)
 
+RespondingToAurora
+{
+	if "\e CheckOutfit0" _in_ reference4
+	{
+		if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && outfitaurora != 1 && "Aurora.EXE" _in_ ghostexlist
+		{
+			res_reference0 = whoasked
+			--
+			outfitaurora = 1
+			--
+			"\e MiniDevOuftit,%(outfitaurora)"
+		}
+	}
+	elseif "MiniDevUnlock" _in_ reference4
+	{
+		aurora = 1
+	}
+}
+
+RespondingToAzura
+{
+	if "\e CheckOutfit0" _in_ reference4
+	{
+		if ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,pl1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)"
+		{
+			outfitazura = 1
+			--
+			res_reference0 = "Azura"
+
+			"\MiniDevOuftit,%(outfitazura)"
+		}
+	}
+	elseif "MiniDevUnlock" _in_ reference4
+	{
+		azura = 1
+	}
+}
+/*
+ReplyToGhost
+{
+	if reference0 == "MiniDev"
+	{
+		RespondingToMiniDev
+	}
+}
+
+RespondingToMiniDev
+{
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	--
+	if "MiniDevOuftit" _in_ reference4
+	{
+		if _ConvoTag[1] == 1
+		{
+			res_reference0 = "MiniDev"
+            --
+			"Your dialougue\e MiniDevUnlock"
+		}
+	}
+}
+*/
+
 RespondingToDusty
 {
 	_speech = SPLIT(reference1,"\e")[0]
@@ -648,24 +759,14 @@ OnObsidianJumpDown
     "\0\s[0]\i[9000]%(byebye) kitty\e MiniDevObsiJumpDown02,%(_MDXCoord),%(_MDYCoord),%(nowshell)" 
 }
 
+//&& "pants p1 black,1" _in_ clothesstring && "shoes p gray,1" _in_ clothesstring 
 RespondingToS
 {
+	whoasked = "RYS-082"
+	--
 	if "GetMiniDevStats01" _in_ reference1 
 	{
-		if "hoodie p1 red,1" _in_ clothesstring && "shirt d1 purple,1" _in_ clothesstring && "pants p1 black,1" _in_ clothesstring && "shoes p gray,1" _in_ clothesstring 
-		{
-			outfitS = 1
-			--
-			res_reference0 = "RYS-0825"
-
-			"\eGetMiniDevStats02, %(outfitS)"
-		}
-		else
-		{
-			res_reference0 = "RYS-0825"
-			
-			"\eGetMiniDevStats02, 0"
-		}
+		ClothesCheck
 	}
 	else
 	{

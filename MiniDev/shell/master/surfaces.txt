@@ -2282,6 +2282,15 @@ surface0-1
     2002interval,bind
     2002pattern0,7002,0,overlay,0,0
 
+    2003interval,bind
+    2003pattern0,7003,0,overlay,0,0
+
+    2004interval,bind
+    2004pattern0,7004,0,overlay,0,0
+
+    2005interval,bind
+    2005pattern0,7005,0,overlay,0,0
+
     3000interval,bind
     3000pattern0,5150,0,overlay,0,0
 }

@@ -170,7 +170,7 @@ ProcessSayed
 ProcessSayedNext
 {
     
-    if m201z != 1 && logque != 1 && meeting == 0 &&  tentruth == 0
+    if m201z != 1 && logque != 1 &&  tentruth == 0
     {
         truth++
         --

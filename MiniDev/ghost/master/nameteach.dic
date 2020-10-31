@@ -31,7 +31,6 @@ OnNameTeach
 		-- 
 		"\![*]\q[-ssi,titlessi]\n/
 		\![*]\q[-san,titlesan]\n/
-		\![*]\q[none,titlenone]\n/
 		\![*]\q[Your own,titleown]\e"
 	}
 	else
@@ -82,7 +81,6 @@ OnNameTeach
 				-- 
 				"\![*]\q[-ssi,titlessi]\n/
 				\![*]\q[-san,titlesan]\n/
-				\![*]\q[none,titlenone]\n/
 				\![*]\q[Your own,titleown]\e"	
 			}
 			else
@@ -127,7 +125,6 @@ OnNameTeach
 			-- 
 			"\![*]\q[-ssi,titlessi]\n/
 			\![*]\q[-san,titlesan]\n/
-			\![*]\q[none,titlenone]\n/
 			\![*]\q[Your own,titleown]\e"
 		}
 		elseif reference0 == "" || reference0 == " " || reference0 == "   " 
@@ -138,6 +135,43 @@ OnNameTeach
 		elseif reference0 == "MiniDev" || reference0 == "minidev" || reference0 == "miniDev" || reference0 == "Minidev" || reference0 == devname
 		{
 			"\0Oh,\w8 that's my nickname.\w8Better choose something else\w4 or it may become confusing\![open,inputbox,OnNameTeach,-1]"
+		}
+		elseif "David Moore" _in_ reference0
+		{
+			if tentruth == 1 && meeting != 1
+			{
+				"Y̵̛̩͊̚ơ̷͔u̷̟͉̾̈́̎'̶̣̜̇̆̔ͅř̵͉̟̓̒ȩ̶̪̈́ ̷̳͒̐̆n̷̞̼͙̉o̶̬͓͑t̷͓͘ ̵̝̐̈́D̸͔͕̙̓̽a̶̢̢̜̋v̸͔̞͋̔̕i̸̪̞̔̿̕ḓ̶̲̰̀̈́"
+			}
+			else
+			{
+				if repairglitch != 1
+				{
+					".̵\w7 ̷.̸\w7 ̶.̵\w7 ̴.̸\w7 ̵.̵\w7 ̵.̵\w7 ̶"
+				}
+				else
+				{
+					"%(distingstart).\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
+				}
+				--
+				mood[2]++
+			}
+			--
+			"\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+			--
+			if presuffix == "masculine" 
+			{
+			"\![*]\q[Mr.,titlemr]\n/
+			\![*]\q[Master,titlemaster]\n"
+			}
+			elseif presuffix == "feminine"
+			{
+			"\![*]\q[Ms.,titlems]\n/
+			\![*]\q[Lady,titlelady]\n"
+			}
+			-- 
+			"\![*]\q[-ssi,titlessi]\n/
+			\![*]\q[-san,titlesan]\n/
+			\![*]\q[Your own,titleown]\e"
 		}
 		else 
 		{
@@ -156,7 +190,6 @@ OnNameTeach
 			-- 
 			"\![*]\q[-ssi,titlessi]\n/
 			\![*]\q[-san,titlesan]\n/
-			\![*]\q[none,titlenone]\n/
 			\![*]\q[Your own,titleown]\e"
 		}
 

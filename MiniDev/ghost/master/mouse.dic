@@ -36,7 +36,7 @@ MouseMoveSakura
 			}
 			elseif reference4 == "Head" 
 			{
-				if (tentruth == 1 || meeting == 1 || petmz != 1 || petmz != 2) && m201relationship > 100
+				if (tentruth == 1 && meeting == 1 || petmz != 1 || petmz != 2) && m201relationship > 100
 				{
 					if petmz != 1 || petmz != 2
 					{
@@ -50,7 +50,7 @@ MouseMoveSakura
 						}
 					}
 				}
-				elseif tentruth == 1 || meeting == 1 || petmz == 1
+				elseif tentruth == 1 && meeting == 1 || petmz == 1
 				{
 					if repairglitch != 1
 					{

@@ -11,12 +11,12 @@ Select.clothesmenu
 	\![*]\q[Pants,pants]\n/
 	\![*]\q[Dresses,dress]\n/
 	\![*]\q[Shoes,shoes]\n/
-	\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,resetc]\n\n[half]"
+	\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,OnReset]\n\n[half]"
 	--
 	"\![*]\q[Nevermind,CANCEL]"
 }
 
-Select.resetc
+OnReset
 {
 	ccategories = "skin,monitor,screen,expr,shoes,pants,shirt,dress,hoodie,sweater,outfit"
 	cctype = "p,pl,d,b"
@@ -78,6 +78,8 @@ Select.resetc
 	}
 	--
 	reset
+	--
+	Select.clothesmenu
 }
 
 Select.skin
@@ -118,7 +120,7 @@ Select.skin
 		}
 	}
 	--
-	clothpage += "\n[half]\q[Nevermind,CANCEL]\n\q[Back,clothesmenu]"
+	clothpage += "\n\n[half]\q[Nevermind,CANCEL]\n\q[Back,clothesmenu]"
 	--
 	clothpage
 }
@@ -135,36 +137,38 @@ OnSkin
 
 OnOutfit
 {
-	"\b[2]\![*]\q[Wilson,wilson]\n"
+	"\b[2]\![*]\q[Wilson,OnOutfit_dress,wilson]\n"
 	--
 	if outfitS == 1
 	{
-		"\![*]\q[S the Skeleton,sout]\n"
+		"\![*]\q[S the Skeleton,OnOutfit_dress,s]\n"
 	}
 	--
-	"\![*]\q[Stelluna,stel]\n"
+	if aurora == 1
+	{
+		"\![*]\q[Aurora,OnOutfit_dress,aurora]\n"
+	}
 	--
-	"\![*]\q[Nevermind,CANCEL]\n/
+	if azura == 1
+	{
+		"\![*]\q[Azura,OnOutfit_dress,azura]\n"
+	}
+	--
+	if dusty == 1
+	{
+		"\![*]\q[Azura,OnOutfit_dress,dusty]\n"
+	}
+	--
+	"\![*]\q[Stelluna,OnOutfit_dress,stelluna]\n"
+	--
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 }
 
-Select.stel
+OnOutfit_dress
 {
-	"\![bind,outfit,stelluna]"
 	--
-	OnOutfit
-}
-
-Select.wilson
-{
-	"\![bind,outfit,wilson]"
-	--
-	OnOutfit
-}
-
-Select.sout
-{
-	"\![bind,outfit,s]"
+	"\![bind,outfit,%(reference0)]"
 	--
 	OnOutfit
 }
@@ -196,7 +200,7 @@ Select.expr
 	\![*]\q[OwO,OnExp,5]\n/
 	\![*]\q[UwU,OnExp,4]\n"
 	--
-	"\![*]\q[Nevermind,CANCEL]\n/
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 }
 
@@ -214,7 +218,7 @@ Select.hoodie
 	"\![*]\q[Kangaroo,OnHoo,1]\n/
 	\![*]\q[Open,OnHoo,2]\n"
 	--
-	"\![*]\q[Nevermind,CANCEL]\n/
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 }
 
@@ -240,7 +244,7 @@ Select.pants
 	"\![*]\q[Long,OnPan,1]\n/
 	\![*]\q[Short,OnPan,2]\n"
 	--
-	"\![*]\q[Nevermind,CANCEL]\n/
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 }
 
@@ -258,7 +262,7 @@ Select.dress
 	"\![*]\q[#1,OnDress,1]\n/
 	\![*]\q[#2,OnDress,2]\n"
 	--
-	"\![*]\q[Nevermind,CANCEL]\n/
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 }
 
@@ -288,7 +292,7 @@ Select.shirt
 	\![*]\q[#5,OnShi,5]\n/
 	\![*]\q[#6,OnShi,6]\n/"
 	--
-	"\![*]\q[Nevermind,CANCEL]\n/
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 	
 }
@@ -341,7 +345,7 @@ OnColorPick
 	\![*]\q[Gray,OnBindCol,gray]\n/
 	\![*]\q[White,OnBindCol,white]\n"
 	--
-	"\![*]\q[Nevermind,CANCEL]\n/
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n/
 	\![*]\q[Back,clothesmenu]"
 }
 

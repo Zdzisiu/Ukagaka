@@ -837,3 +837,6 @@ sakura.bindgroup1534.name,sweater,b green
 sakura.bindgroup2000.name,outfit,s
 sakura.bindgroup2001.name,outfit,stelluna
 sakura.bindgroup2002.name,outfit,wilson
+sakura.bindgroup2003.name,outfit,aurora
+sakura.bindgroup2004.name,outfit,dusty
+sakura.bindgroup2005.name,outfit,azura

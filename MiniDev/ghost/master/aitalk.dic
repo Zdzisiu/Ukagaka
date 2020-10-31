@@ -690,6 +690,11 @@ OnMinuteChange
 		glitchtime = 0
 	}
 	--
+	if ghostexcount != 0
+	{
+		OnClothesCheck
+	}
+	--
 	timeslot = GetTimeSlot 
 	--
 	//reminders
@@ -888,7 +893,7 @@ OnKeyPress
 
 BinaryTalk
 {
-	if tentruth == 1 || meeting != 1
+	if tentruth == 1 && meeting != 1
 	{
 		_glbinary = glbinbin
 		_glletterB = _gbinary[0] 
