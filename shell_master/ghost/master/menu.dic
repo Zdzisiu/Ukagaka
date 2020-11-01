@@ -1,0 +1,653 @@
+﻿OpenSakuraMenu
+{
+	"\0\s[0]\b2..."
+	--
+	MenuRun
+}
+
+MenuRun
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	--
+	"\n\n\_q\b2" 
+	--
+	if lastTalk != "" 
+	{
+	  "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n"
+	}
+	--
+ 	"\![*]\q[Say something,altalk]\n\n[half]"
+	--
+	"\![*]\q[Questions,ques]\n"
+	--
+	"\![*]\q[Change range of surfaces,changerane]\n\n[half]"
+	--
+	"\![*]\q[Config Menu,configmenu]\n/
+	\![*]\q[Functions,dosomething]\n\n[half]/
+ 	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+}
+
+Select.ques
+{
+	"\![*]\q[Conversion,OnQuestion,con]\n"
+	--
+	"\n[half]\![*]\q[I'm Done,CANCEL]"
+}
+
+Select.changerane
+{
+	"\![open,file,surface]Put the surfaces that you want to change here\![open,inputbox,OnBatchChange,-1] and write the starting number"
+}
+
+OnBatchChange
+{
+	_surfaces = FENUM("surface")
+	_surfnum = ARRAYSIZE(_surfaces)
+	_newnum = TOINT(reference0)
+	--
+	for _i=0;_i<=_surfnum;_i++
+	{
+		FRENAME("surface/%(_surfaces[_i])","surface/surface%(_newnum).png")
+		--
+		_newnum++ 
+	}
+	--
+	"\![open,file,surface]"
+}
+
+OnQuestion
+{
+	case reference0
+	{
+		when "con"
+		{
+			"To convert your surfaces.txt file drag and drop it on me"
+		}
+	}
+	--
+	"\n\n[half]\![*]\q[Ask something else,ques] | \![*]\q[I'm Done,CANCEL]"
+}
+
+Select.altalk
+{
+	AiTalk
+}
+
+OnLastTalk 
+{
+	"%(lastTalk)\e"
+}
+
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else
+	{"Sat"}
+}
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+	{
+		"AM"
+	}
+ 	else
+	{
+		"PM"
+	}
+}
+
+Getnowmin
+{
+	if minute >= 0 && minute <=9
+	{
+		"0%(minute)"
+	}
+	else
+	{
+		"%(minute)"
+	}
+}
+
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9
+	{
+		"0%(hour12)"
+	}
+	else
+	{
+		"%(hour12)"
+	}
+}
+
+Select.BACKTOMENU
+{
+	MenuRun
+}
+Select.configmenu
+{
+	TalkConfig
+}
+
+TalkConfig
+{
+	"\0\b[2]\_q" 
+	--
+	"\f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
+	--
+	"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
+	--
+	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n"
+	--
+	"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n"
+	--
+	"\f[bold,1]File Conversion:\f[bold,0]\n\n[half]"
+	--
+	"\f[bold,1]Name of a converted file:\f[bold,0] \q[%(afterconfile),filecon]\n"
+	--	
+	"\f[bold,1]Surface.txt Generation:\f[bold,0]\n\n[half]"
+	--
+	"\f[bold,1]Definition:\f[bold,0] \q[%(defi),defi]\n"
+	--		
+	{
+	"\n[half]\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	}
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+Select.defi
+{
+	if defi == "OLD"
+	{
+		defi = "NEW"
+	}
+	else
+	{
+		defi = "OLD"
+	}
+	--
+	TalkConfig
+}
+
+Select.filecon
+{
+	"\![open,inputbox,OnConFile,-1]"
+}
+
+OnConFile
+{
+	if ".txt" _in_ reference0
+	{
+		afterconfile = reference0
+	}
+	else
+	{
+		afterconfile = reference0 + ".txt"
+	}
+}
+
+Select.TEACHPRONOUN
+{
+	"\0\s[0]What pronouns do you want?\w5\n\n[half]\_q/
+		\![*]\q[He-His-Him,choicemasc]\n/
+		\![*]\q[She-Her-Her,choicefem]\n/	
+		\![*]\q[They-Their-Them,choiceneither]\e"
+}
+
+Select.choicemasc
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	--
+	"\0\s[0]The pronouns are now he him and his.\e"
+}
+
+Select.choicefem
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	--
+	"\0\s[0]The pronouns are now she her and her.\e"
+}
+
+Select.choiceneither
+{
+	presuffix = "undefine"
+	himher = "them"
+	heshe = "they"
+	hisher = "their"
+	--
+	"\0\s[0]The pronouns are now they them and their.\e"
+}
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+Select.TEACHBDAY
+{
+	dayslot = GetDaySlot 
+	--
+	"\0\s[0]What month were you born? \w8Write the number.\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+OnUserBornMonth
+{
+	_tempmonth = reference0 
+	--
+	if _tempmonth >= 1 && _tempmonth <= 12 
+	{
+	bornmonth = _tempmonth
+	bornmonthprint = Printmonth
+	"\0\s[0]So you were born in %(bornmonthprint).\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
+	}
+	else 
+	{
+	"\0\s[0]That's not a valid month. Try again.\![open,inputbox,OnUserBornMonth,-1]\e"
+	}
+}
+
+Printmonth
+{
+	if bornmonth == 1
+	{
+		"January"
+	}
+	elseif bornmonth == 2
+	{
+		"February"
+	}
+	elseif bornmonth == 3
+	{
+		"March"
+	}
+	elseif bornmonth == 4
+	{
+		"April"
+	}
+	elseif bornmonth == 5
+	{
+		"May"
+	}
+	elseif bornmonth == 6
+	{
+		"June"
+	}
+	elseif bornmonth == 7
+	{
+		"July"
+	}
+	elseif bornmonth == 8
+	{
+		"August"
+	}
+	elseif bornmonth == 9
+	{
+		"September"
+	}
+	elseif bornmonth == 10
+	{
+		"October"
+	}
+	elseif bornmonth == 11
+	{
+		"November"
+	}
+	else
+	{
+		"December"
+	}
+}
+
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{
+	"%(bornday)st"
+	}
+	elseif bornday == 2 || bornday == 22
+	{
+	"%(bornday)nd"
+	}
+	elseif bornday == 3 || bornday == 23
+	{
+	"%(bornday)rd"
+	}
+	else
+	{
+	"%(bornday)th"
+	}
+}	
+
+OnUserBornDay
+{
+	tempday = reference0 
+	if bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12 
+	{
+		if tempday >= 1 && tempday <= 31 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else 
+		{
+			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}
+	elseif bornmonth == 2 
+	{
+		if tempday >= 1 && tempday <= 29 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else
+		{
+			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}
+	else 
+	{
+		if tempday >= 1 && tempday <= 30 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else
+		{
+			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}		
+}
+
+birthchecked
+{
+	"\0\s[0]Your birthday is %(bornmonthprint) %(borndayprint). We'll remember.\e"
+}
+
+Select.talkinter
+{
+	"\0\s[0]\b2The interval is currently set to %(talktime)./
+	\0\n\n[half]/
+	\![*]\q[Every 30 seconds,TALKMAX]\n/
+	\![*]\q[Every minute,TALKHIGH]\n/
+	\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+	\![*]\q[Every 5 minutes,TALKPOOR]\n/
+	\![*]\q[Don't speak,TALKNONE]\n\n[half]/
+	\![*]\q[Don't change,TalksTill]\e"
+}
+
+Select.TalksTill
+{
+	"\0\s[0]No change to the talk rate.\e"
+}
+
+Select.TALKMAX
+{
+	talktime = "30 seconds" 
+	aitalkinterval = 45 
+	"\0\s[0]Speak every 30 seconds.\e"
+}
+
+Select.TALKHIGH
+{
+	talktime = "minute"
+	aitalkinterval = 90
+	"\0\s[0]Speak every minute.\e"
+}
+
+Select.TALKNORMAL
+{
+	talktime = "3 minutes"
+	aitalkinterval = 270
+	"\0\s[0]Speak every three minutes.\e"
+}
+
+Select.TALKPOOR
+{
+	talktime = "5 minutes"
+	aitalkinterval = 400
+	"\1\s[10]Speak every five minutes.\e"
+}
+
+Select.TALKNONE
+{
+	talktime = "silence"
+	aitalkinterval = 0
+	"\0\s[0]Silence\e"
+}
+
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+Select.CANCEL
+{
+	"\0\s[0]...\e"
+}
+
+Select.dosomething
+{
+	"\0\s[0]\b2...\n\n"
+	--
+	"\![*]\q[Open Calendar,CALENDAR]\n/
+	\![*]\q[Check Email,MailCheck]\n/
+	\![*]\q[Open SSP Preferences,sspconfig]\n/
+	\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
+	\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.CALENDAR
+{
+	"\0\s[0]...\![open,calendar]\e"
+}
+
+Select.sspconfig
+{
+	"\0\s[0]...\![open,configurationdialog]\e"
+}
+
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	
+	if _gomicheck == 0 
+	{
+		"\0\s[0]... It's empty.\e"
+	}
+	elseif _gomicheck >= 1 
+	{
+		"\0\s[0]...Done.\e"
+	}
+}
+
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\s[0]\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+Select.HEADLINECANCEL
+{
+	"\0\s[0]Finished with headlines.\e"
+}
+
+OnChoiceTimeout
+{
+	"\0\s[0]The menu has timed out.\e"
+}
+
+OpenKeroMenu
+{
+	"\1\s[10]\b[2]"
+ 	--
+	"..."
+ 	--
+	"\n\n[half]/
+	\![*]\q[Nothing,keroCANCEL]\e"
+}
+
+Select.keroCANCEL
+{
+	"\1\s[10]...\e"
+}
+
+OnConvert_read
+{
+	_file = "conversion/surfaces.txt"
+	oldsurface = ""
+	_x = 0
+	lenght = 0
+	--
+	FOPEN(_file,"r")
+	--
+	for _i=0;_x!=1;_i++
+	{
+		line = FREAD(_file)
+		lenght++
+		--
+		if line == "-1"
+		{
+			_x = 1
+		}
+		else
+		{
+			oldsurface += line + "\n"
+		}
+	}
+	--
+	FCLOSE(_file)
+	--
+	OnConvert_write
+}
+
+OnConvert_write
+{
+	_file = "conversion/" + afterconfile
+	oldsurface = REPLACE(oldsurface,",","!")
+	lines = SPLIT(oldsurface,"\n")
+	newfile = ""
+	FCHARSET(1)
+	_x = 0
+	--
+	for _i=0;_i<=lenght;_i++
+	{
+		subline = SPLIT(lines[_i] ,"!")
+		--
+		if "interval" _in_ lines[_i] 
+		{
+			_linereg = '(\d*)interval'
+
+			if RE_SEARCH ( lines[_i], _linereg ) {
+				num = RE_GETSTR[1]
+			}
+			--
+			newfile += "animation" + num + ".interval," + subline[1] + "\n"
+		}
+		elseif "pattern" _in_ lines[_i] 
+		{
+			_linereg = '(\d*)pattern(\d*)'
+
+			if RE_SEARCH ( lines[_i], _linereg ) {
+				intervalnum = RE_GETSTR[1]
+				patternnum = RE_GETSTR[2]
+			}
+			--
+			newfile += "animation" + intervalnum + ".pattern" + patternnum + "," + subline[3] + "," + subline[1] + "," + subline[2] + "0," + subline[4] + "," + subline[5] + "\n"
+		}
+		else
+		{
+			newfile += REPLACE(lines[_i],"!",",") + "\n"
+		}
+	}
+	--
+	FOPEN(_file,"w")
+	--
+	line = SPLIT(newfile,"\n")
+	lenght = ARRAYSIZE(line)
+	if "descript" !_in_ oldsurface
+	{
+		FWRITE(_file,"descript")
+		FWRITE(_file,"{")
+		FWRITE(_file,"version,1")
+		FWRITE(_file,"}")
+		FWRITE(_file,"")
+	}
+	--
+	for _i=0;_i<=lenght;_i++
+	{
+		FWRITE(_file,line[_i])
+	}
+	--
+	FCLOSE(_file)
+	--
+	"\![open,file,conversion]"
+
+}
+//1pattern0,101,70,overlay,200,100 --> animation1.pattern0,overlay,101,700,200,100
+//0        , 1 ,2 ,3,     ,4  ,5
+/*
+descript
+{
+version,1
+collision-sort,ascend
+animation-sort,ascend
+}*/

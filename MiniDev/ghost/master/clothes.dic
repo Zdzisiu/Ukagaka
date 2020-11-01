@@ -156,7 +156,7 @@ OnOutfit
 	--
 	if dusty == 1
 	{
-		"\![*]\q[Azura,OnOutfit_dress,dusty]\n"
+		"\![*]\q[Dusty,OnOutfit_dress,dusty]\n"
 	}
 	--
 	"\![*]\q[Stelluna,OnOutfit_dress,stelluna]\n"

@@ -1,0 +1,17 @@
+﻿charset,UTF-8
+name,Shell Master
+type,ghost
+
+sakura.name,Sigma
+kero.name,-
+
+craftman,Zdzisiu
+craftmanw,Zdzisiu
+craftmanurl,-
+
+//Don't touch it.
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll
+
+icon,icon.ico

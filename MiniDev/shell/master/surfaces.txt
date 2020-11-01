@@ -1,3 +1,8 @@
+descript
+{
+version,1
+}
+
 surface0-1
 {
     collision0,61,53,179,69,Head
@@ -5,2320 +10,2320 @@ surface0-1
 
     element0,overlay,surface0.png,0,0
 
-    0interval,bind
-    0pattern0,9000,0,overlay,0,0
+animation0.interval,bind
+animation0.pattern0,overlay,9000,00,0,0
 
-    1interval,bind
-    1pattern0,9001,0,overlay,0,0
+animation1.interval,bind
+animation1.pattern0,overlay,9001,00,0,0
 
-    2interval,bind
-    2pattern0,9002,0,overlay,0,0
+animation2.interval,bind
+animation2.pattern0,overlay,9002,00,0,0
 
-    3interval,bind
-    3pattern0,9003,0,overlay,0,0
+animation3.interval,bind
+animation3.pattern0,overlay,9003,00,0,0
 
-    4interval,bind
-    4pattern0,9004,0,overlay,0,0
+animation4.interval,bind
+animation4.pattern0,overlay,9004,00,0,0
 
-    5interval,bind
-    5pattern0,9005,0,overlay,0,0
+animation5.interval,bind
+animation5.pattern0,overlay,9005,00,0,0
 
-    6interval,bind
-    6pattern0,9006,0,overlay,0,0
+animation6.interval,bind
+animation6.pattern0,overlay,9006,00,0,0
 
-    7interval,bind
-    7pattern0,9007,0,overlay,0,0
+animation7.interval,bind
+animation7.pattern0,overlay,9007,00,0,0
 
-    8interval,bind
-    8pattern0,9008,0,overlay,0,0
+animation8.interval,bind
+animation8.pattern0,overlay,9008,00,0,0
 
-    9interval,bind
-    9pattern0,9009,0,overlay,0,0
+animation9.interval,bind
+animation9.pattern0,overlay,9009,00,0,0
 
-    10interval,bind
-    10pattern0,9010,0,overlay,0,0
+animation10.interval,bind
+animation10.pattern0,overlay,9010,00,0,0
 
-    11interval,bind
-    11pattern0,9011,0,overlay,0,0
+animation11.interval,bind
+animation11.pattern0,overlay,9011,00,0,0
 
-    12interval,bind
-    12pattern0,9012,0,overlay,0,0
+animation12.interval,bind
+animation12.pattern0,overlay,9012,00,0,0
 
-    13interval,bind
-    13pattern0,9013,0,overlay,0,0
+animation13.interval,bind
+animation13.pattern0,overlay,9013,00,0,0
 
-    14interval,bind
-    14pattern0,9014,0,overlay,0,0
+animation14.interval,bind
+animation14.pattern0,overlay,9014,00,0,0
 
-    15interval,bind
-    15pattern0,9015,0,overlay,0,0
+animation15.interval,bind
+animation15.pattern0,overlay,9015,00,0,0
 
-    16interval,bind
-    16pattern0,9016,0,overlay,0,0
+animation16.interval,bind
+animation16.pattern0,overlay,9016,00,0,0
 
-    17interval,bind
-    17pattern0,9017,0,overlay,0,0
+animation17.interval,bind
+animation17.pattern0,overlay,9017,00,0,0
 
-    18interval,bind
-    18pattern0,9018,0,overlay,0,0
+animation18.interval,bind
+animation18.pattern0,overlay,9018,00,0,0
 
-    19interval,bind
-    19pattern0,9019,0,overlay,0,0
+animation19.interval,bind
+animation19.pattern0,overlay,9019,00,0,0
 
-    20interval,bind
-    20pattern0,9020,0,overlay,0,0
+animation20.interval,bind
+animation20.pattern0,overlay,9020,00,0,0
 
-    50interval,bind
-    50pattern0,1600,0,overlay,0,0
+animation50.interval,bind
+animation50.pattern0,overlay,1600,00,0,0
 
-    51interval,bind
-    51pattern0,1601,0,overlay,0,0
+animation51.interval,bind
+animation51.pattern0,overlay,1601,00,0,0
 
-    52interval,bind
-    52pattern0,1602,0,overlay,0,0
+animation52.interval,bind
+animation52.pattern0,overlay,1602,00,0,0
 
-    53interval,bind
-    53pattern0,1603,0,overlay,0,0
+animation53.interval,bind
+animation53.pattern0,overlay,1603,00,0,0
 
-    54interval,bind
-    54pattern0,1604,0,overlay,0,0
+animation54.interval,bind
+animation54.pattern0,overlay,1604,00,0,0
 
-    55interval,bind
-    55pattern0,1605,0,overlay,0,0
+animation55.interval,bind
+animation55.pattern0,overlay,1605,00,0,0
 
-    56interval,bind
-    56pattern0,1606,0,overlay,0,0
+animation56.interval,bind
+animation56.pattern0,overlay,1606,00,0,0
 
-    57interval,bind
-    57pattern0,1607,0,overlay,0,0
+animation57.interval,bind
+animation57.pattern0,overlay,1607,00,0,0
 
-    58interval,bind
-    58pattern0,1608,0,overlay,0,0
+animation58.interval,bind
+animation58.pattern0,overlay,1608,00,0,0
 
-    59interval,bind
-    59pattern0,1609,0,overlay,0,0
+animation59.interval,bind
+animation59.pattern0,overlay,1609,00,0,0
 
-    60interval,bind
-    60pattern0,1610,0,overlay,0,0
+animation60.interval,bind
+animation60.pattern0,overlay,1610,00,0,0
 
-    61interval,bind
-    61pattern0,1611,0,overlay,0,0
+animation61.interval,bind
+animation61.pattern0,overlay,1611,00,0,0
 
-    62interval,bind
-    62pattern0,1612,0,overlay,0,0
+animation62.interval,bind
+animation62.pattern0,overlay,1612,00,0,0
 
-    63interval,bind
-    63pattern0,1613,0,overlay,0,0
+animation63.interval,bind
+animation63.pattern0,overlay,1613,00,0,0
 
-    64interval,bind
-    64pattern0,1614,0,overlay,0,0
+animation64.interval,bind
+animation64.pattern0,overlay,1614,00,0,0
 
-    65interval,bind
-    65pattern0,1615,0,overlay,0,0
+animation65.interval,bind
+animation65.pattern0,overlay,1615,00,0,0
 
-    66interval,bind
-    66pattern0,1616,0,overlay,0,0
+animation66.interval,bind
+animation66.pattern0,overlay,1616,00,0,0
 
-    67interval,bind
-    67pattern0,1617,0,overlay,0,0
+animation67.interval,bind
+animation67.pattern0,overlay,1617,00,0,0
 
-    68interval,bind
-    68pattern0,1618,0,overlay,0,0
+animation68.interval,bind
+animation68.pattern0,overlay,1618,00,0,0
 
-    69interval,bind
-    69pattern0,1619,0,overlay,0,0
+animation69.interval,bind
+animation69.pattern0,overlay,1619,00,0,0
 
-    70interval,bind
-    70pattern0,1620,0,overlay,0,0
+animation70.interval,bind
+animation70.pattern0,overlay,1620,00,0,0
 
-    71interval,bind
-    71pattern0,1621,0,overlay,0,0
+animation71.interval,bind
+animation71.pattern0,overlay,1621,00,0,0
 
-    72interval,bind
-    72pattern0,1622,0,overlay,0,0
+animation72.interval,bind
+animation72.pattern0,overlay,1622,00,0,0
 
-    73interval,bind
-    73pattern0,1623,0,overlay,0,0
+animation73.interval,bind
+animation73.pattern0,overlay,1623,00,0,0
 
-    74interval,bind
-    74pattern0,1624,0,overlay,0,0
+animation74.interval,bind
+animation74.pattern0,overlay,1624,00,0,0
 
-    75interval,bind
-    75pattern0,1625,0,overlay,0,0
+animation75.interval,bind
+animation75.pattern0,overlay,1625,00,0,0
 
-    76interval,bind
-    76pattern0,1626,0,overlay,0,0
+animation76.interval,bind
+animation76.pattern0,overlay,1626,00,0,0
 
-    77interval,bind
-    77pattern0,1627,0,overlay,0,0
+animation77.interval,bind
+animation77.pattern0,overlay,1627,00,0,0
 
-    78interval,bind
-    78pattern0,1628,0,overlay,0,0
+animation78.interval,bind
+animation78.pattern0,overlay,1628,00,0,0
 
-    79interval,bind
-    79pattern0,1629,0,overlay,0,0
+animation79.interval,bind
+animation79.pattern0,overlay,1629,00,0,0
 
-    80interval,bind
-    80pattern0,1630,0,overlay,0,0
+animation80.interval,bind
+animation80.pattern0,overlay,1630,00,0,0
 
-    81interval,bind
-    81pattern0,1631,0,overlay,0,0
+animation81.interval,bind
+animation81.pattern0,overlay,1631,00,0,0
 
-    82interval,bind
-    82pattern0,1632,0,overlay,0,0
+animation82.interval,bind
+animation82.pattern0,overlay,1632,00,0,0
 
-    83interval,bind
-    83pattern0,1633,0,overlay,0,0
+animation83.interval,bind
+animation83.pattern0,overlay,1633,00,0,0
 
-    84interval,bind
-    84pattern0,1634,0,overlay,0,0
+animation84.interval,bind
+animation84.pattern0,overlay,1634,00,0,0
 
-    100interval,bind
-    100pattern0,2100,0,overlay,0,0
+animation100.interval,bind
+animation100.pattern0,overlay,2100,00,0,0
 
-    101interval,bind
-    101pattern0,2101,0,overlay,0,0
+animation101.interval,bind
+animation101.pattern0,overlay,2101,00,0,0
 
-    102interval,bind
-    102pattern0,2102,0,overlay,0,0
+animation102.interval,bind
+animation102.pattern0,overlay,2102,00,0,0
 
-    103interval,bind
-    103pattern0,2103,0,overlay,0,0
+animation103.interval,bind
+animation103.pattern0,overlay,2103,00,0,0
 
-    104interval,bind
-    104pattern0,2104,0,overlay,0,0
+animation104.interval,bind
+animation104.pattern0,overlay,2104,00,0,0
 
-    105interval,bind
-    105pattern0,2105,0,overlay,0,0
+animation105.interval,bind
+animation105.pattern0,overlay,2105,00,0,0
 
-    106interval,bind
-    106pattern0,2106,0,overlay,0,0
+animation106.interval,bind
+animation106.pattern0,overlay,2106,00,0,0
 
-    107interval,bind
-    107pattern0,2107,0,overlay,0,0
+animation107.interval,bind
+animation107.pattern0,overlay,2107,00,0,0
 
-    108interval,bind
-    108pattern0,2108,0,overlay,0,0
+animation108.interval,bind
+animation108.pattern0,overlay,2108,00,0,0
 
-    109interval,bind
-    109pattern0,2109,0,overlay,0,0
+animation109.interval,bind
+animation109.pattern0,overlay,2109,00,0,0
 
-    110interval,bind
-    110pattern0,2110,0,overlay,0,0
+animation110.interval,bind
+animation110.pattern0,overlay,2110,00,0,0
 
-    111interval,bind
-    111pattern0,2111,0,overlay,0,0
+animation111.interval,bind
+animation111.pattern0,overlay,2111,00,0,0
 
-    112interval,bind
-    112pattern0,2112,0,overlay,0,0
+animation112.interval,bind
+animation112.pattern0,overlay,2112,00,0,0
 
-    113interval,bind
-    113pattern0,2113,0,overlay,0,0
+animation113.interval,bind
+animation113.pattern0,overlay,2113,00,0,0
 
-    114interval,bind
-    114pattern0,2114,0,overlay,0,0
+animation114.interval,bind
+animation114.pattern0,overlay,2114,00,0,0
 
-    115interval,bind
-    115pattern0,2115,0,overlay,0,0
+animation115.interval,bind
+animation115.pattern0,overlay,2115,00,0,0
 
-    116interval,bind
-    116pattern0,2116,0,overlay,0,0
+animation116.interval,bind
+animation116.pattern0,overlay,2116,00,0,0
 
-    117interval,bind
-    117pattern0,2117,0,overlay,0,0
+animation117.interval,bind
+animation117.pattern0,overlay,2117,00,0,0
 
-    118interval,bind
-    118pattern0,2118,0,overlay,0,0
+animation118.interval,bind
+animation118.pattern0,overlay,2118,00,0,0
 
-    119interval,bind
-    119pattern0,2119,0,overlay,0,0
+animation119.interval,bind
+animation119.pattern0,overlay,2119,00,0,0
 
-    120interval,bind
-    120pattern0,2120,0,overlay,0,0
+animation120.interval,bind
+animation120.pattern0,overlay,2120,00,0,0
 
-    121interval,bind
-    121pattern0,2121,0,overlay,0,0
+animation121.interval,bind
+animation121.pattern0,overlay,2121,00,0,0
 
-    122interval,bind
-    122pattern0,2122,0,overlay,0,0
+animation122.interval,bind
+animation122.pattern0,overlay,2122,00,0,0
 
-    123interval,bind
-    123pattern0,2123,0,overlay,0,0
+animation123.interval,bind
+animation123.pattern0,overlay,2123,00,0,0
 
-    124interval,bind
-    124pattern0,2124,0,overlay,0,0
+animation124.interval,bind
+animation124.pattern0,overlay,2124,00,0,0
 
-    125interval,bind
-    125pattern0,2125,0,overlay,0,0
+animation125.interval,bind
+animation125.pattern0,overlay,2125,00,0,0
 
-    126interval,bind
-    126pattern0,2126,0,overlay,0,0
+animation126.interval,bind
+animation126.pattern0,overlay,2126,00,0,0
 
-    127interval,bind
-    127pattern0,2127,0,overlay,0,0
+animation127.interval,bind
+animation127.pattern0,overlay,2127,00,0,0
 
-    128interval,bind
-    128pattern0,2128,0,overlay,0,0
+animation128.interval,bind
+animation128.pattern0,overlay,2128,00,0,0
 
-    129interval,bind
-    129pattern0,2129,0,overlay,0,0
+animation129.interval,bind
+animation129.pattern0,overlay,2129,00,0,0
 
-    130interval,bind
-    130pattern0,2130,0,overlay,0,0
+animation130.interval,bind
+animation130.pattern0,overlay,2130,00,0,0
 
-    131interval,bind
-    131pattern0,2131,0,overlay,0,0
+animation131.interval,bind
+animation131.pattern0,overlay,2131,00,0,0
 
-    132interval,bind
-    132pattern0,2132,0,overlay,0,0
+animation132.interval,bind
+animation132.pattern0,overlay,2132,00,0,0
 
-    133interval,bind
-    133pattern0,2133,0,overlay,0,0
+animation133.interval,bind
+animation133.pattern0,overlay,2133,00,0,0
 
-    134interval,bind
-    134pattern0,2134,0,overlay,0,0
+animation134.interval,bind
+animation134.pattern0,overlay,2134,00,0,0
 
-    200interval,bind
-    200pattern0,2200,0,overlay,0,0
+animation200.interval,bind
+animation200.pattern0,overlay,2200,00,0,0
 
-    201interval,bind
-    201pattern0,2201,0,overlay,0,0
+animation201.interval,bind
+animation201.pattern0,overlay,2201,00,0,0
 
-    202interval,bind
-    202pattern0,2202,0,overlay,0,0
+animation202.interval,bind
+animation202.pattern0,overlay,2202,00,0,0
 
-    203interval,bind
-    203pattern0,2203,0,overlay,0,0
+animation203.interval,bind
+animation203.pattern0,overlay,2203,00,0,0
 
-    204interval,bind
-    204pattern0,2204,0,overlay,0,0
+animation204.interval,bind
+animation204.pattern0,overlay,2204,00,0,0
 
-    205interval,bind
-    205pattern0,2205,0,overlay,0,0
+animation205.interval,bind
+animation205.pattern0,overlay,2205,00,0,0
 
-    206interval,bind
-    206pattern0,2206,0,overlay,0,0
+animation206.interval,bind
+animation206.pattern0,overlay,2206,00,0,0
 
-    207interval,bind
-    207pattern0,2207,0,overlay,0,0
+animation207.interval,bind
+animation207.pattern0,overlay,2207,00,0,0
 
-    208interval,bind
-    208pattern0,2208,0,overlay,0,0
+animation208.interval,bind
+animation208.pattern0,overlay,2208,00,0,0
 
-    209interval,bind
-    209pattern0,2209,0,overlay,0,0
+animation209.interval,bind
+animation209.pattern0,overlay,2209,00,0,0
 
-    210interval,bind
-    210pattern0,2210,0,overlay,0,0
+animation210.interval,bind
+animation210.pattern0,overlay,2210,00,0,0
 
-    211interval,bind
-    211pattern0,2211,0,overlay,0,0
+animation211.interval,bind
+animation211.pattern0,overlay,2211,00,0,0
 
-    212interval,bind
-    212pattern0,2212,0,overlay,0,0
+animation212.interval,bind
+animation212.pattern0,overlay,2212,00,0,0
 
-    213interval,bind
-    213pattern0,2213,0,overlay,0,0
+animation213.interval,bind
+animation213.pattern0,overlay,2213,00,0,0
 
-    214interval,bind
-    214pattern0,2214,0,overlay,0,0
+animation214.interval,bind
+animation214.pattern0,overlay,2214,00,0,0
 
-    215interval,bind
-    215pattern0,2215,0,overlay,0,0
+animation215.interval,bind
+animation215.pattern0,overlay,2215,00,0,0
 
-    216interval,bind
-    216pattern0,2216,0,overlay,0,0
+animation216.interval,bind
+animation216.pattern0,overlay,2216,00,0,0
 
-    217interval,bind
-    217pattern0,2217,0,overlay,0,0
+animation217.interval,bind
+animation217.pattern0,overlay,2217,00,0,0
 
-    218interval,bind
-    218pattern0,2218,0,overlay,0,0
+animation218.interval,bind
+animation218.pattern0,overlay,2218,00,0,0
 
-    219interval,bind
-    219pattern0,2219,0,overlay,0,0
+animation219.interval,bind
+animation219.pattern0,overlay,2219,00,0,0
 
-    220interval,bind
-    220pattern0,2220,0,overlay,0,0
+animation220.interval,bind
+animation220.pattern0,overlay,2220,00,0,0
 
-    221interval,bind
-    221pattern0,2221,0,overlay,0,0
+animation221.interval,bind
+animation221.pattern0,overlay,2221,00,0,0
 
-    222interval,bind
-    222pattern0,2222,0,overlay,0,0
+animation222.interval,bind
+animation222.pattern0,overlay,2222,00,0,0
 
-    223interval,bind
-    223pattern0,2223,0,overlay,0,0
+animation223.interval,bind
+animation223.pattern0,overlay,2223,00,0,0
 
-    224interval,bind
-    224pattern0,2224,0,overlay,0,0
+animation224.interval,bind
+animation224.pattern0,overlay,2224,00,0,0
 
-    225interval,bind
-    225pattern0,2225,0,overlay,0,0
+animation225.interval,bind
+animation225.pattern0,overlay,2225,00,0,0
 
-    226interval,bind
-    226pattern0,2226,0,overlay,0,0
+animation226.interval,bind
+animation226.pattern0,overlay,2226,00,0,0
 
-    227interval,bind
-    227pattern0,2227,0,overlay,0,0
+animation227.interval,bind
+animation227.pattern0,overlay,2227,00,0,0
 
-    228interval,bind
-    228pattern0,2228,0,overlay,0,0
+animation228.interval,bind
+animation228.pattern0,overlay,2228,00,0,0
 
-    229interval,bind
-    229pattern0,2229,0,overlay,0,0
+animation229.interval,bind
+animation229.pattern0,overlay,2229,00,0,0
 
-    230interval,bind
-    230pattern0,2230,0,overlay,0,0
+animation230.interval,bind
+animation230.pattern0,overlay,2230,00,0,0
 
-    231interval,bind
-    231pattern0,2231,0,overlay,0,0
+animation231.interval,bind
+animation231.pattern0,overlay,2231,00,0,0
 
-    232interval,bind
-    232pattern0,2232,0,overlay,0,0
+animation232.interval,bind
+animation232.pattern0,overlay,2232,00,0,0
 
-    233interval,bind
-    233pattern0,2233,0,overlay,0,0
+animation233.interval,bind
+animation233.pattern0,overlay,2233,00,0,0
 
-    234interval,bind
-    234pattern0,2234,0,overlay,0,0
+animation234.interval,bind
+animation234.pattern0,overlay,2234,00,0,0
 
-    300interval,bind
-    300pattern0,4500,0,overlay,0,0
+animation300.interval,bind
+animation300.pattern0,overlay,4500,00,0,0
 
-    301interval,bind
-    301pattern0,4501,0,overlay,0,0
+animation301.interval,bind
+animation301.pattern0,overlay,4501,00,0,0
 
-    302interval,bind
-    302pattern0,4502,0,overlay,0,0
+animation302.interval,bind
+animation302.pattern0,overlay,4502,00,0,0
 
-    303interval,bind
-    303pattern0,4503,0,overlay,0,0
+animation303.interval,bind
+animation303.pattern0,overlay,4503,00,0,0
 
-    304interval,bind
-    304pattern0,4504,0,overlay,0,0
+animation304.interval,bind
+animation304.pattern0,overlay,4504,00,0,0
 
-    305interval,bind
-    305pattern0,4505,0,overlay,0,0
+animation305.interval,bind
+animation305.pattern0,overlay,4505,00,0,0
 
-    306interval,bind
-    306pattern0,4506,0,overlay,0,0
+animation306.interval,bind
+animation306.pattern0,overlay,4506,00,0,0
 
-    307interval,bind
-    307pattern0,4507,0,overlay,0,0
+animation307.interval,bind
+animation307.pattern0,overlay,4507,00,0,0
 
-    308interval,bind
-    308pattern0,4508,0,overlay,0,0
+animation308.interval,bind
+animation308.pattern0,overlay,4508,00,0,0
 
-    309interval,bind
-    309pattern0,4509,0,overlay,0,0
+animation309.interval,bind
+animation309.pattern0,overlay,4509,00,0,0
 
-    310interval,bind
-    310pattern0,4510,0,overlay,0,0
+animation310.interval,bind
+animation310.pattern0,overlay,4510,00,0,0
 
-    311interval,bind
-    311pattern0,4511,0,overlay,0,0
+animation311.interval,bind
+animation311.pattern0,overlay,4511,00,0,0
 
-    312interval,bind
-    312pattern0,4512,0,overlay,0,0
+animation312.interval,bind
+animation312.pattern0,overlay,4512,00,0,0
 
-    313interval,bind
-    313pattern0,4513,0,overlay,0,0
+animation313.interval,bind
+animation313.pattern0,overlay,4513,00,0,0
 
-    314interval,bind
-    314pattern0,4514,0,overlay,0,0
+animation314.interval,bind
+animation314.pattern0,overlay,4514,00,0,0
 
-    315interval,bind
-    315pattern0,4515,0,overlay,0,0
+animation315.interval,bind
+animation315.pattern0,overlay,4515,00,0,0
 
-    316interval,bind
-    316pattern0,4516,0,overlay,0,0
+animation316.interval,bind
+animation316.pattern0,overlay,4516,00,0,0
 
-    317interval,bind
-    317pattern0,4517,0,overlay,0,0
+animation317.interval,bind
+animation317.pattern0,overlay,4517,00,0,0
 
-    318interval,bind
-    318pattern0,4518,0,overlay,0,0
+animation318.interval,bind
+animation318.pattern0,overlay,4518,00,0,0
 
-    319interval,bind
-    319pattern0,4519,0,overlay,0,0
+animation319.interval,bind
+animation319.pattern0,overlay,4519,00,0,0
 
-    320interval,bind
-    320pattern0,4520,0,overlay,0,0
+animation320.interval,bind
+animation320.pattern0,overlay,4520,00,0,0
 
-    321interval,bind
-    321pattern0,4521,0,overlay,0,0
+animation321.interval,bind
+animation321.pattern0,overlay,4521,00,0,0
 
-    322interval,bind
-    322pattern0,4522,0,overlay,0,0
+animation322.interval,bind
+animation322.pattern0,overlay,4522,00,0,0
 
-    323interval,bind
-    323pattern0,4523,0,overlay,0,0
+animation323.interval,bind
+animation323.pattern0,overlay,4523,00,0,0
 
-    324interval,bind
-    324pattern0,4524,0,overlay,0,0
+animation324.interval,bind
+animation324.pattern0,overlay,4524,00,0,0
 
-    325interval,bind
-    325pattern0,4525,0,overlay,0,0
+animation325.interval,bind
+animation325.pattern0,overlay,4525,00,0,0
 
-    326interval,bind
-    326pattern0,4526,0,overlay,0,0
+animation326.interval,bind
+animation326.pattern0,overlay,4526,00,0,0
 
-    327interval,bind
-    327pattern0,4527,0,overlay,0,0
+animation327.interval,bind
+animation327.pattern0,overlay,4527,00,0,0
 
-    328interval,bind
-    328pattern0,4528,0,overlay,0,0
+animation328.interval,bind
+animation328.pattern0,overlay,4528,00,0,0
 
-    329interval,bind
-    329pattern0,4529,0,overlay,0,0
+animation329.interval,bind
+animation329.pattern0,overlay,4529,00,0,0
 
-    330interval,bind
-    330pattern0,4530,0,overlay,0,0
+animation330.interval,bind
+animation330.pattern0,overlay,4530,00,0,0
 
-    331interval,bind
-    331pattern0,4531,0,overlay,0,0
+animation331.interval,bind
+animation331.pattern0,overlay,4531,00,0,0
 
-    332interval,bind
-    332pattern0,4532,0,overlay,0,0
+animation332.interval,bind
+animation332.pattern0,overlay,4532,00,0,0
 
-    333interval,bind
-    333pattern0,4533,0,overlay,0,0
+animation333.interval,bind
+animation333.pattern0,overlay,4533,00,0,0
 
-    334interval,bind
-    334pattern0,4534,0,overlay,0,0
+animation334.interval,bind
+animation334.pattern0,overlay,4534,00,0,0
             
-    350interval,bind
-    350pattern0,4600,0,overlay,0,0
+animation350.interval,bind
+animation350.pattern0,overlay,4600,00,0,0
 
-    351interval,bind
-    351pattern0,4601,0,overlay,0,0
+animation351.interval,bind
+animation351.pattern0,overlay,4601,00,0,0
 
-    352interval,bind
-    352pattern0,4602,0,overlay,0,0
+animation352.interval,bind
+animation352.pattern0,overlay,4602,00,0,0
 
-    353interval,bind
-    353pattern0,4603,0,overlay,0,0
+animation353.interval,bind
+animation353.pattern0,overlay,4603,00,0,0
 
-    354interval,bind
-    354pattern0,4604,0,overlay,0,0
+animation354.interval,bind
+animation354.pattern0,overlay,4604,00,0,0
 
-    355interval,bind
-    355pattern0,4605,0,overlay,0,0
+animation355.interval,bind
+animation355.pattern0,overlay,4605,00,0,0
 
-    356interval,bind
-    356pattern0,4606,0,overlay,0,0
+animation356.interval,bind
+animation356.pattern0,overlay,4606,00,0,0
 
-    357interval,bind
-    357pattern0,4607,0,overlay,0,0
+animation357.interval,bind
+animation357.pattern0,overlay,4607,00,0,0
 
-    358interval,bind
-    358pattern0,4608,0,overlay,0,0
+animation358.interval,bind
+animation358.pattern0,overlay,4608,00,0,0
 
-    359interval,bind
-    359pattern0,4609,0,overlay,0,0
+animation359.interval,bind
+animation359.pattern0,overlay,4609,00,0,0
 
-    360interval,bind
-    360pattern0,4610,0,overlay,0,0
+animation360.interval,bind
+animation360.pattern0,overlay,4610,00,0,0
 
-    361interval,bind
-    361pattern0,4611,0,overlay,0,0
+animation361.interval,bind
+animation361.pattern0,overlay,4611,00,0,0
 
-    362interval,bind
-    362pattern0,4612,0,overlay,0,0
+animation362.interval,bind
+animation362.pattern0,overlay,4612,00,0,0
 
-    363interval,bind
-    363pattern0,4613,0,overlay,0,0
+animation363.interval,bind
+animation363.pattern0,overlay,4613,00,0,0
 
-    364interval,bind
-    364pattern0,4614,0,overlay,0,0
+animation364.interval,bind
+animation364.pattern0,overlay,4614,00,0,0
 
-    365interval,bind
-    365pattern0,4615,0,overlay,0,0
+animation365.interval,bind
+animation365.pattern0,overlay,4615,00,0,0
 
-    366interval,bind
-    366pattern0,4616,0,overlay,0,0
+animation366.interval,bind
+animation366.pattern0,overlay,4616,00,0,0
 
-    367interval,bind
-    367pattern0,4617,0,overlay,0,0
+animation367.interval,bind
+animation367.pattern0,overlay,4617,00,0,0
 
-    368interval,bind
-    368pattern0,4618,0,overlay,0,0
+animation368.interval,bind
+animation368.pattern0,overlay,4618,00,0,0
 
-    369interval,bind
-    369pattern0,4619,0,overlay,0,0
+animation369.interval,bind
+animation369.pattern0,overlay,4619,00,0,0
 
-    370interval,bind
-    370pattern0,4620,0,overlay,0,0
+animation370.interval,bind
+animation370.pattern0,overlay,4620,00,0,0
 
-    371interval,bind
-    371pattern0,4621,0,overlay,0,0
+animation371.interval,bind
+animation371.pattern0,overlay,4621,00,0,0
 
-    372interval,bind
-    372pattern0,4622,0,overlay,0,0
+animation372.interval,bind
+animation372.pattern0,overlay,4622,00,0,0
 
-    373interval,bind
-    373pattern0,4623,0,overlay,0,0
+animation373.interval,bind
+animation373.pattern0,overlay,4623,00,0,0
 
-    374interval,bind
-    374pattern0,4624,0,overlay,0,0
+animation374.interval,bind
+animation374.pattern0,overlay,4624,00,0,0
 
-    375interval,bind
-    375pattern0,4625,0,overlay,0,0
+animation375.interval,bind
+animation375.pattern0,overlay,4625,00,0,0
 
-    376interval,bind
-    376pattern0,4626,0,overlay,0,0
+animation376.interval,bind
+animation376.pattern0,overlay,4626,00,0,0
 
-    377interval,bind
-    377pattern0,4627,0,overlay,0,0
+animation377.interval,bind
+animation377.pattern0,overlay,4627,00,0,0
 
-    378interval,bind
-    378pattern0,4628,0,overlay,0,0
+animation378.interval,bind
+animation378.pattern0,overlay,4628,00,0,0
 
-    379interval,bind
-    379pattern0,4629,0,overlay,0,0
+animation379.interval,bind
+animation379.pattern0,overlay,4629,00,0,0
 
-    380interval,bind
-    380pattern0,4630,0,overlay,0,0
+animation380.interval,bind
+animation380.pattern0,overlay,4630,00,0,0
 
-    381interval,bind
-    381pattern0,4631,0,overlay,0,0
+animation381.interval,bind
+animation381.pattern0,overlay,4631,00,0,0
 
-    382interval,bind
-    382pattern0,4632,0,overlay,0,0
+animation382.interval,bind
+animation382.pattern0,overlay,4632,00,0,0
 
-    383interval,bind
-    383pattern0,4633,0,overlay,0,0
+animation383.interval,bind
+animation383.pattern0,overlay,4633,00,0,0
 
-    384interval,bind
-    384pattern0,4634,0,overlay,0,0  
-    500interval,bind
-    500pattern0,1000,0,overlay,0,0
+animation384.interval,bind
+animation384.pattern0,overlay,4634,00,0,0  
+animation500.interval,bind
+animation500.pattern0,overlay,1000,00,0,0
 
-    501interval,bind
-    501pattern0,1001,0,overlay,0,0
+animation501.interval,bind
+animation501.pattern0,overlay,1001,00,0,0
 
-    502interval,bind
-    502pattern0,1002,0,overlay,0,0
+animation502.interval,bind
+animation502.pattern0,overlay,1002,00,0,0
 
-    503interval,bind
-    503pattern0,1003,0,overlay,0,0
+animation503.interval,bind
+animation503.pattern0,overlay,1003,00,0,0
 
-    504interval,bind
-    504pattern0,1004,0,overlay,0,0
+animation504.interval,bind
+animation504.pattern0,overlay,1004,00,0,0
 
-    505interval,bind
-    505pattern0,1005,0,overlay,0,0
+animation505.interval,bind
+animation505.pattern0,overlay,1005,00,0,0
 
-    506interval,bind
-    506pattern0,1006,0,overlay,0,0
+animation506.interval,bind
+animation506.pattern0,overlay,1006,00,0,0
 
-    507interval,bind
-    507pattern0,1007,0,overlay,0,0
+animation507.interval,bind
+animation507.pattern0,overlay,1007,00,0,0
 
-    508interval,bind
-    508pattern0,1008,0,overlay,0,0
+animation508.interval,bind
+animation508.pattern0,overlay,1008,00,0,0
 
-    509interval,bind
-    509pattern0,1009,0,overlay,0,0
+animation509.interval,bind
+animation509.pattern0,overlay,1009,00,0,0
 
-    510interval,bind
-    510pattern0,1010,0,overlay,0,0
+animation510.interval,bind
+animation510.pattern0,overlay,1010,00,0,0
 
-    511interval,bind
-    511pattern0,1011,0,overlay,0,0
+animation511.interval,bind
+animation511.pattern0,overlay,1011,00,0,0
 
-    512interval,bind
-    512pattern0,1012,0,overlay,0,0
+animation512.interval,bind
+animation512.pattern0,overlay,1012,00,0,0
 
-    513interval,bind
-    513pattern0,1013,0,overlay,0,0
+animation513.interval,bind
+animation513.pattern0,overlay,1013,00,0,0
 
-    514interval,bind
-    514pattern0,1014,0,overlay,0,0
+animation514.interval,bind
+animation514.pattern0,overlay,1014,00,0,0
 
-    515interval,bind
-    515pattern0,1015,0,overlay,0,0
+animation515.interval,bind
+animation515.pattern0,overlay,1015,00,0,0
 
-    516interval,bind
-    516pattern0,1016,0,overlay,0,0
+animation516.interval,bind
+animation516.pattern0,overlay,1016,00,0,0
 
-    517interval,bind
-    517pattern0,1017,0,overlay,0,0
+animation517.interval,bind
+animation517.pattern0,overlay,1017,00,0,0
 
-    518interval,bind
-    518pattern0,1018,0,overlay,0,0
+animation518.interval,bind
+animation518.pattern0,overlay,1018,00,0,0
 
-    519interval,bind
-    519pattern0,1019,0,overlay,0,0
+animation519.interval,bind
+animation519.pattern0,overlay,1019,00,0,0
 
-    520interval,bind
-    520pattern0,1020,0,overlay,0,0
+animation520.interval,bind
+animation520.pattern0,overlay,1020,00,0,0
 
-    521interval,bind
-    521pattern0,1021,0,overlay,0,0
+animation521.interval,bind
+animation521.pattern0,overlay,1021,00,0,0
 
-    522interval,bind
-    522pattern0,1022,0,overlay,0,0
+animation522.interval,bind
+animation522.pattern0,overlay,1022,00,0,0
 
-    523interval,bind
-    523pattern0,1023,0,overlay,0,0
+animation523.interval,bind
+animation523.pattern0,overlay,1023,00,0,0
 
-    524interval,bind
-    524pattern0,1024,0,overlay,0,0
+animation524.interval,bind
+animation524.pattern0,overlay,1024,00,0,0
 
-    525interval,bind
-    525pattern0,1025,0,overlay,0,0
+animation525.interval,bind
+animation525.pattern0,overlay,1025,00,0,0
 
-    526interval,bind
-    526pattern0,1026,0,overlay,0,0
+animation526.interval,bind
+animation526.pattern0,overlay,1026,00,0,0
 
-    527interval,bind
-    527pattern0,1027,0,overlay,0,0
+animation527.interval,bind
+animation527.pattern0,overlay,1027,00,0,0
 
-    528interval,bind
-    528pattern0,1028,0,overlay,0,0
+animation528.interval,bind
+animation528.pattern0,overlay,1028,00,0,0
 
-    529interval,bind
-    529pattern0,1029,0,overlay,0,0
+animation529.interval,bind
+animation529.pattern0,overlay,1029,00,0,0
 
-    530interval,bind
-    530pattern0,1030,0,overlay,0,0
+animation530.interval,bind
+animation530.pattern0,overlay,1030,00,0,0
 
-    531interval,bind
-    531pattern0,1031,0,overlay,0,0
+animation531.interval,bind
+animation531.pattern0,overlay,1031,00,0,0
 
-    532interval,bind
-    532pattern0,1032,0,overlay,0,0
+animation532.interval,bind
+animation532.pattern0,overlay,1032,00,0,0
 
-    533interval,bind
-    533pattern0,1033,0,overlay,0,0
+animation533.interval,bind
+animation533.pattern0,overlay,1033,00,0,0
 
-    534interval,bind
-    534pattern0,1034,0,overlay,0,0
+animation534.interval,bind
+animation534.pattern0,overlay,1034,00,0,0
 
-    600interval,bind
-    600pattern0,1100,0,overlay,0,0
+animation600.interval,bind
+animation600.pattern0,overlay,1100,00,0,0
 
-    601interval,bind
-    601pattern0,1101,0,overlay,0,0
+animation601.interval,bind
+animation601.pattern0,overlay,1101,00,0,0
 
-    602interval,bind
-    602pattern0,1102,0,overlay,0,0
+animation602.interval,bind
+animation602.pattern0,overlay,1102,00,0,0
 
-    603interval,bind
-    603pattern0,1103,0,overlay,0,0
+animation603.interval,bind
+animation603.pattern0,overlay,1103,00,0,0
 
-    604interval,bind
-    604pattern0,1104,0,overlay,0,0
+animation604.interval,bind
+animation604.pattern0,overlay,1104,00,0,0
 
-    605interval,bind
-    605pattern0,1105,0,overlay,0,0
+animation605.interval,bind
+animation605.pattern0,overlay,1105,00,0,0
 
-    606interval,bind
-    606pattern0,1106,0,overlay,0,0
+animation606.interval,bind
+animation606.pattern0,overlay,1106,00,0,0
 
-    607interval,bind
-    607pattern0,1107,0,overlay,0,0
+animation607.interval,bind
+animation607.pattern0,overlay,1107,00,0,0
 
-    608interval,bind
-    608pattern0,1108,0,overlay,0,0
+animation608.interval,bind
+animation608.pattern0,overlay,1108,00,0,0
 
-    609interval,bind
-    609pattern0,1109,0,overlay,0,0
+animation609.interval,bind
+animation609.pattern0,overlay,1109,00,0,0
 
-    610interval,bind
-    610pattern0,1110,0,overlay,0,0
+animation610.interval,bind
+animation610.pattern0,overlay,1110,00,0,0
 
-    611interval,bind
-    611pattern0,1111,0,overlay,0,0
+animation611.interval,bind
+animation611.pattern0,overlay,1111,00,0,0
 
-    612interval,bind
-    612pattern0,1112,0,overlay,0,0
+animation612.interval,bind
+animation612.pattern0,overlay,1112,00,0,0
 
-    613interval,bind
-    613pattern0,1113,0,overlay,0,0
+animation613.interval,bind
+animation613.pattern0,overlay,1113,00,0,0
 
-    614interval,bind
-    614pattern0,1114,0,overlay,0,0
+animation614.interval,bind
+animation614.pattern0,overlay,1114,00,0,0
 
-    615interval,bind
-    615pattern0,1115,0,overlay,0,0
+animation615.interval,bind
+animation615.pattern0,overlay,1115,00,0,0
 
-    616interval,bind
-    616pattern0,1116,0,overlay,0,0
+animation616.interval,bind
+animation616.pattern0,overlay,1116,00,0,0
 
-    617interval,bind
-    617pattern0,1117,0,overlay,0,0
+animation617.interval,bind
+animation617.pattern0,overlay,1117,00,0,0
 
-    618interval,bind
-    618pattern0,1118,0,overlay,0,0
+animation618.interval,bind
+animation618.pattern0,overlay,1118,00,0,0
 
-    619interval,bind
-    619pattern0,1119,0,overlay,0,0
+animation619.interval,bind
+animation619.pattern0,overlay,1119,00,0,0
 
-    620interval,bind
-    620pattern0,1120,0,overlay,0,0
+animation620.interval,bind
+animation620.pattern0,overlay,1120,00,0,0
 
-    621interval,bind
-    621pattern0,1121,0,overlay,0,0
+animation621.interval,bind
+animation621.pattern0,overlay,1121,00,0,0
 
-    622interval,bind
-    622pattern0,1122,0,overlay,0,0
+animation622.interval,bind
+animation622.pattern0,overlay,1122,00,0,0
 
-    623interval,bind
-    623pattern0,1123,0,overlay,0,0
+animation623.interval,bind
+animation623.pattern0,overlay,1123,00,0,0
 
-    624interval,bind
-    624pattern0,1124,0,overlay,0,0
+animation624.interval,bind
+animation624.pattern0,overlay,1124,00,0,0
 
-    625interval,bind
-    625pattern0,1125,0,overlay,0,0
+animation625.interval,bind
+animation625.pattern0,overlay,1125,00,0,0
 
-    626interval,bind
-    626pattern0,1126,0,overlay,0,0
+animation626.interval,bind
+animation626.pattern0,overlay,1126,00,0,0
 
-    627interval,bind
-    627pattern0,1127,0,overlay,0,0
+animation627.interval,bind
+animation627.pattern0,overlay,1127,00,0,0
 
-    628interval,bind
-    628pattern0,1128,0,overlay,0,0
+animation628.interval,bind
+animation628.pattern0,overlay,1128,00,0,0
 
-    629interval,bind
-    629pattern0,1129,0,overlay,0,0
+animation629.interval,bind
+animation629.pattern0,overlay,1129,00,0,0
 
-    630interval,bind
-    630pattern0,1130,0,overlay,0,0
+animation630.interval,bind
+animation630.pattern0,overlay,1130,00,0,0
 
-    631interval,bind
-    631pattern0,1131,0,overlay,0,0
+animation631.interval,bind
+animation631.pattern0,overlay,1131,00,0,0
 
-    632interval,bind
-    632pattern0,1132,0,overlay,0,0
+animation632.interval,bind
+animation632.pattern0,overlay,1132,00,0,0
 
-    633interval,bind
-    633pattern0,1133,0,overlay,0,0
+animation633.interval,bind
+animation633.pattern0,overlay,1133,00,0,0
 
-    634interval,bind
-    634pattern0,1134,0,overlay,0,0
+animation634.interval,bind
+animation634.pattern0,overlay,1134,00,0,0
 
-    700interval,bind
-    700pattern0,1200,0,overlay,0,0
+animation700.interval,bind
+animation700.pattern0,overlay,1200,00,0,0
 
-    701interval,bind
-    701pattern0,1201,0,overlay,0,0
+animation701.interval,bind
+animation701.pattern0,overlay,1201,00,0,0
 
-    702interval,bind
-    702pattern0,1202,0,overlay,0,0
+animation702.interval,bind
+animation702.pattern0,overlay,1202,00,0,0
 
-    703interval,bind
-    703pattern0,1203,0,overlay,0,0
+animation703.interval,bind
+animation703.pattern0,overlay,1203,00,0,0
 
-    704interval,bind
-    704pattern0,1204,0,overlay,0,0
+animation704.interval,bind
+animation704.pattern0,overlay,1204,00,0,0
 
-    705interval,bind
-    705pattern0,1205,0,overlay,0,0
+animation705.interval,bind
+animation705.pattern0,overlay,1205,00,0,0
 
-    706interval,bind
-    706pattern0,1206,0,overlay,0,0
+animation706.interval,bind
+animation706.pattern0,overlay,1206,00,0,0
 
-    707interval,bind
-    707pattern0,1207,0,overlay,0,0
+animation707.interval,bind
+animation707.pattern0,overlay,1207,00,0,0
 
-    708interval,bind
-    708pattern0,1208,0,overlay,0,0
+animation708.interval,bind
+animation708.pattern0,overlay,1208,00,0,0
 
-    709interval,bind
-    709pattern0,1209,0,overlay,0,0
+animation709.interval,bind
+animation709.pattern0,overlay,1209,00,0,0
 
-    710interval,bind
-    710pattern0,1210,0,overlay,0,0
+animation710.interval,bind
+animation710.pattern0,overlay,1210,00,0,0
 
-    711interval,bind
-    711pattern0,1211,0,overlay,0,0
+animation711.interval,bind
+animation711.pattern0,overlay,1211,00,0,0
 
-    712interval,bind
-    712pattern0,1212,0,overlay,0,0
+animation712.interval,bind
+animation712.pattern0,overlay,1212,00,0,0
 
-    713interval,bind
-    713pattern0,1213,0,overlay,0,0
+animation713.interval,bind
+animation713.pattern0,overlay,1213,00,0,0
 
-    714interval,bind
-    714pattern0,1214,0,overlay,0,0
+animation714.interval,bind
+animation714.pattern0,overlay,1214,00,0,0
 
-    715interval,bind
-    715pattern0,1215,0,overlay,0,0
+animation715.interval,bind
+animation715.pattern0,overlay,1215,00,0,0
 
-    716interval,bind
-    716pattern0,1216,0,overlay,0,0
+animation716.interval,bind
+animation716.pattern0,overlay,1216,00,0,0
 
-    717interval,bind
-    717pattern0,1217,0,overlay,0,0
+animation717.interval,bind
+animation717.pattern0,overlay,1217,00,0,0
 
-    718interval,bind
-    718pattern0,1218,0,overlay,0,0
+animation718.interval,bind
+animation718.pattern0,overlay,1218,00,0,0
 
-    719interval,bind
-    719pattern0,1219,0,overlay,0,0
+animation719.interval,bind
+animation719.pattern0,overlay,1219,00,0,0
 
-    720interval,bind
-    720pattern0,1220,0,overlay,0,0
+animation720.interval,bind
+animation720.pattern0,overlay,1220,00,0,0
 
-    721interval,bind
-    721pattern0,1221,0,overlay,0,0
+animation721.interval,bind
+animation721.pattern0,overlay,1221,00,0,0
 
-    722interval,bind
-    722pattern0,1222,0,overlay,0,0
+animation722.interval,bind
+animation722.pattern0,overlay,1222,00,0,0
 
-    723interval,bind
-    723pattern0,1223,0,overlay,0,0
+animation723.interval,bind
+animation723.pattern0,overlay,1223,00,0,0
 
-    724interval,bind
-    724pattern0,1224,0,overlay,0,0
+animation724.interval,bind
+animation724.pattern0,overlay,1224,00,0,0
 
-    725interval,bind
-    725pattern0,1225,0,overlay,0,0
+animation725.interval,bind
+animation725.pattern0,overlay,1225,00,0,0
 
-    726interval,bind
-    726pattern0,1226,0,overlay,0,0
+animation726.interval,bind
+animation726.pattern0,overlay,1226,00,0,0
 
-    727interval,bind
-    727pattern0,1227,0,overlay,0,0
+animation727.interval,bind
+animation727.pattern0,overlay,1227,00,0,0
 
-    728interval,bind
-    728pattern0,1228,0,overlay,0,0
+animation728.interval,bind
+animation728.pattern0,overlay,1228,00,0,0
 
-    729interval,bind
-    729pattern0,1229,0,overlay,0,0
+animation729.interval,bind
+animation729.pattern0,overlay,1229,00,0,0
 
-    730interval,bind
-    730pattern0,1230,0,overlay,0,0
+animation730.interval,bind
+animation730.pattern0,overlay,1230,00,0,0
 
-    731interval,bind
-    731pattern0,1231,0,overlay,0,0
+animation731.interval,bind
+animation731.pattern0,overlay,1231,00,0,0
 
-    732interval,bind
-    732pattern0,1232,0,overlay,0,0
+animation732.interval,bind
+animation732.pattern0,overlay,1232,00,0,0
 
-    733interval,bind
-    733pattern0,1233,0,overlay,0,0
+animation733.interval,bind
+animation733.pattern0,overlay,1233,00,0,0
 
-    734interval,bind
-    734pattern0,1234,0,overlay,0,0
+animation734.interval,bind
+animation734.pattern0,overlay,1234,00,0,0
 
     
-    800interval,bind
-    800pattern0,1300,0,overlay,0,0
+animation800.interval,bind
+animation800.pattern0,overlay,1300,00,0,0
 
-    801interval,bind
-    801pattern0,1301,0,overlay,0,0
+animation801.interval,bind
+animation801.pattern0,overlay,1301,00,0,0
 
-    802interval,bind
-    802pattern0,1302,0,overlay,0,0
+animation802.interval,bind
+animation802.pattern0,overlay,1302,00,0,0
 
-    803interval,bind
-    803pattern0,1303,0,overlay,0,0
+animation803.interval,bind
+animation803.pattern0,overlay,1303,00,0,0
 
-    804interval,bind
-    804pattern0,1304,0,overlay,0,0
+animation804.interval,bind
+animation804.pattern0,overlay,1304,00,0,0
 
-    805interval,bind
-    805pattern0,1305,0,overlay,0,0
+animation805.interval,bind
+animation805.pattern0,overlay,1305,00,0,0
 
-    806interval,bind
-    806pattern0,1306,0,overlay,0,0
+animation806.interval,bind
+animation806.pattern0,overlay,1306,00,0,0
 
-    807interval,bind
-    807pattern0,1307,0,overlay,0,0
+animation807.interval,bind
+animation807.pattern0,overlay,1307,00,0,0
 
-    808interval,bind
-    808pattern0,1308,0,overlay,0,0
+animation808.interval,bind
+animation808.pattern0,overlay,1308,00,0,0
 
-    809interval,bind
-    809pattern0,1309,0,overlay,0,0
+animation809.interval,bind
+animation809.pattern0,overlay,1309,00,0,0
 
-    810interval,bind
-    810pattern0,1310,0,overlay,0,0
+animation810.interval,bind
+animation810.pattern0,overlay,1310,00,0,0
 
-    811interval,bind
-    811pattern0,1311,0,overlay,0,0
+animation811.interval,bind
+animation811.pattern0,overlay,1311,00,0,0
 
-    812interval,bind
-    812pattern0,1312,0,overlay,0,0
+animation812.interval,bind
+animation812.pattern0,overlay,1312,00,0,0
 
-    813interval,bind
-    813pattern0,1313,0,overlay,0,0
+animation813.interval,bind
+animation813.pattern0,overlay,1313,00,0,0
 
-    814interval,bind
-    814pattern0,1314,0,overlay,0,0
+animation814.interval,bind
+animation814.pattern0,overlay,1314,00,0,0
 
-    815interval,bind
-    815pattern0,1315,0,overlay,0,0
+animation815.interval,bind
+animation815.pattern0,overlay,1315,00,0,0
 
-    816interval,bind
-    816pattern0,1316,0,overlay,0,0
+animation816.interval,bind
+animation816.pattern0,overlay,1316,00,0,0
 
-    817interval,bind
-    817pattern0,1317,0,overlay,0,0
+animation817.interval,bind
+animation817.pattern0,overlay,1317,00,0,0
 
-    818interval,bind
-    818pattern0,1318,0,overlay,0,0
+animation818.interval,bind
+animation818.pattern0,overlay,1318,00,0,0
 
-    819interval,bind
-    819pattern0,1319,0,overlay,0,0
+animation819.interval,bind
+animation819.pattern0,overlay,1319,00,0,0
 
-    820interval,bind
-    820pattern0,1320,0,overlay,0,0
+animation820.interval,bind
+animation820.pattern0,overlay,1320,00,0,0
 
-    821interval,bind
-    821pattern0,1321,0,overlay,0,0
+animation821.interval,bind
+animation821.pattern0,overlay,1321,00,0,0
 
-    822interval,bind
-    822pattern0,1322,0,overlay,0,0
+animation822.interval,bind
+animation822.pattern0,overlay,1322,00,0,0
 
-    823interval,bind
-    823pattern0,1323,0,overlay,0,0
+animation823.interval,bind
+animation823.pattern0,overlay,1323,00,0,0
 
-    824interval,bind
-    824pattern0,1324,0,overlay,0,0
+animation824.interval,bind
+animation824.pattern0,overlay,1324,00,0,0
 
-    825interval,bind
-    825pattern0,1325,0,overlay,0,0
+animation825.interval,bind
+animation825.pattern0,overlay,1325,00,0,0
 
-    826interval,bind
-    826pattern0,1326,0,overlay,0,0
+animation826.interval,bind
+animation826.pattern0,overlay,1326,00,0,0
 
-    827interval,bind
-    827pattern0,1327,0,overlay,0,0
+animation827.interval,bind
+animation827.pattern0,overlay,1327,00,0,0
 
-    828interval,bind
-    828pattern0,1328,0,overlay,0,0
+animation828.interval,bind
+animation828.pattern0,overlay,1328,00,0,0
 
-    829interval,bind
-    829pattern0,1329,0,overlay,0,0
+animation829.interval,bind
+animation829.pattern0,overlay,1329,00,0,0
 
-    830interval,bind
-    830pattern0,1330,0,overlay,0,0
+animation830.interval,bind
+animation830.pattern0,overlay,1330,00,0,0
 
-    831interval,bind
-    831pattern0,1331,0,overlay,0,0
+animation831.interval,bind
+animation831.pattern0,overlay,1331,00,0,0
 
-    832interval,bind
-    832pattern0,1332,0,overlay,0,0
+animation832.interval,bind
+animation832.pattern0,overlay,1332,00,0,0
 
-    833interval,bind
-    833pattern0,1333,0,overlay,0,0
+animation833.interval,bind
+animation833.pattern0,overlay,1333,00,0,0
 
-    834interval,bind
-    834pattern0,1334,0,overlay,0,0
+animation834.interval,bind
+animation834.pattern0,overlay,1334,00,0,0
 
-    900interval,bind
-    900pattern0,1400,0,overlay,0,0
+animation900.interval,bind
+animation900.pattern0,overlay,1400,00,0,0
 
-    901interval,bind
-    901pattern0,1401,0,overlay,0,0
+animation901.interval,bind
+animation901.pattern0,overlay,1401,00,0,0
 
-    902interval,bind
-    902pattern0,1402,0,overlay,0,0
+animation902.interval,bind
+animation902.pattern0,overlay,1402,00,0,0
 
-    903interval,bind
-    903pattern0,1403,0,overlay,0,0
+animation903.interval,bind
+animation903.pattern0,overlay,1403,00,0,0
 
-    904interval,bind
-    904pattern0,1404,0,overlay,0,0
+animation904.interval,bind
+animation904.pattern0,overlay,1404,00,0,0
 
-    905interval,bind
-    905pattern0,1405,0,overlay,0,0
+animation905.interval,bind
+animation905.pattern0,overlay,1405,00,0,0
 
-    906interval,bind
-    906pattern0,1406,0,overlay,0,0
+animation906.interval,bind
+animation906.pattern0,overlay,1406,00,0,0
 
-    907interval,bind
-    907pattern0,1407,0,overlay,0,0
+animation907.interval,bind
+animation907.pattern0,overlay,1407,00,0,0
 
-    908interval,bind
-    908pattern0,1408,0,overlay,0,0
+animation908.interval,bind
+animation908.pattern0,overlay,1408,00,0,0
 
-    909interval,bind
-    909pattern0,1409,0,overlay,0,0
+animation909.interval,bind
+animation909.pattern0,overlay,1409,00,0,0
 
-    910interval,bind
-    910pattern0,1410,0,overlay,0,0
+animation910.interval,bind
+animation910.pattern0,overlay,1410,00,0,0
 
-    911interval,bind
-    911pattern0,1411,0,overlay,0,0
+animation911.interval,bind
+animation911.pattern0,overlay,1411,00,0,0
 
-    912interval,bind
-    912pattern0,1412,0,overlay,0,0
+animation912.interval,bind
+animation912.pattern0,overlay,1412,00,0,0
 
-    913interval,bind
-    913pattern0,1413,0,overlay,0,0
+animation913.interval,bind
+animation913.pattern0,overlay,1413,00,0,0
 
-    914interval,bind
-    914pattern0,1414,0,overlay,0,0
+animation914.interval,bind
+animation914.pattern0,overlay,1414,00,0,0
 
-    915interval,bind
-    915pattern0,1415,0,overlay,0,0
+animation915.interval,bind
+animation915.pattern0,overlay,1415,00,0,0
 
-    916interval,bind
-    916pattern0,1416,0,overlay,0,0
+animation916.interval,bind
+animation916.pattern0,overlay,1416,00,0,0
 
-    917interval,bind
-    917pattern0,1417,0,overlay,0,0
+animation917.interval,bind
+animation917.pattern0,overlay,1417,00,0,0
 
-    918interval,bind
-    918pattern0,1418,0,overlay,0,0
+animation918.interval,bind
+animation918.pattern0,overlay,1418,00,0,0
 
-    919interval,bind
-    919pattern0,1419,0,overlay,0,0
+animation919.interval,bind
+animation919.pattern0,overlay,1419,00,0,0
 
-    920interval,bind
-    920pattern0,1420,0,overlay,0,0
+animation920.interval,bind
+animation920.pattern0,overlay,1420,00,0,0
 
-    921interval,bind
-    921pattern0,1421,0,overlay,0,0
+animation921.interval,bind
+animation921.pattern0,overlay,1421,00,0,0
 
-    922interval,bind
-    922pattern0,1422,0,overlay,0,0
+animation922.interval,bind
+animation922.pattern0,overlay,1422,00,0,0
 
-    923interval,bind
-    923pattern0,1423,0,overlay,0,0
+animation923.interval,bind
+animation923.pattern0,overlay,1423,00,0,0
 
-    924interval,bind
-    924pattern0,1424,0,overlay,0,0
+animation924.interval,bind
+animation924.pattern0,overlay,1424,00,0,0
 
-    925interval,bind
-    925pattern0,1425,0,overlay,0,0
+animation925.interval,bind
+animation925.pattern0,overlay,1425,00,0,0
 
-    926interval,bind
-    926pattern0,1426,0,overlay,0,0
+animation926.interval,bind
+animation926.pattern0,overlay,1426,00,0,0
 
-    927interval,bind
-    927pattern0,1427,0,overlay,0,0
+animation927.interval,bind
+animation927.pattern0,overlay,1427,00,0,0
 
-    928interval,bind
-    928pattern0,1428,0,overlay,0,0
+animation928.interval,bind
+animation928.pattern0,overlay,1428,00,0,0
 
-    929interval,bind
-    929pattern0,1429,0,overlay,0,0
+animation929.interval,bind
+animation929.pattern0,overlay,1429,00,0,0
 
-    930interval,bind
-    930pattern0,1430,0,overlay,0,0
+animation930.interval,bind
+animation930.pattern0,overlay,1430,00,0,0
 
-    931interval,bind
-    931pattern0,1431,0,overlay,0,0
+animation931.interval,bind
+animation931.pattern0,overlay,1431,00,0,0
 
-    932interval,bind
-    932pattern0,1432,0,overlay,0,0
+animation932.interval,bind
+animation932.pattern0,overlay,1432,00,0,0
 
-    933interval,bind
-    933pattern0,1433,0,overlay,0,0
+animation933.interval,bind
+animation933.pattern0,overlay,1433,00,0,0
 
-    934interval,bind
-    934pattern0,1434,0,overlay,0,0
+animation934.interval,bind
+animation934.pattern0,overlay,1434,00,0,0
 
-    1000interval,bind
-    1000pattern0,1500,0,overlay,0,0
+animation1000.interval,bind
+animation1000.pattern0,overlay,1500,00,0,0
 
-    1001interval,bind
-    1001pattern0,1501,0,overlay,0,0
+animation1001.interval,bind
+animation1001.pattern0,overlay,1501,00,0,0
 
-    1002interval,bind
-    1002pattern0,1502,0,overlay,0,0
+animation1002.interval,bind
+animation1002.pattern0,overlay,1502,00,0,0
 
-    1003interval,bind
-    1003pattern0,1503,0,overlay,0,0
+animation1003.interval,bind
+animation1003.pattern0,overlay,1503,00,0,0
 
-    1004interval,bind
-    1004pattern0,1504,0,overlay,0,0
+animation1004.interval,bind
+animation1004.pattern0,overlay,1504,00,0,0
 
-    1005interval,bind
-    1005pattern0,1505,0,overlay,0,0
+animation1005.interval,bind
+animation1005.pattern0,overlay,1505,00,0,0
 
-    1006interval,bind
-    1006pattern0,1506,0,overlay,0,0
+animation1006.interval,bind
+animation1006.pattern0,overlay,1506,00,0,0
 
-    1007interval,bind
-    1007pattern0,1507,0,overlay,0,0
+animation1007.interval,bind
+animation1007.pattern0,overlay,1507,00,0,0
 
-    1008interval,bind
-    1008pattern0,1508,0,overlay,0,0
+animation1008.interval,bind
+animation1008.pattern0,overlay,1508,00,0,0
 
-    1009interval,bind
-    1009pattern0,1509,0,overlay,0,0
+animation1009.interval,bind
+animation1009.pattern0,overlay,1509,00,0,0
 
-    1010interval,bind
-    1010pattern0,1510,0,overlay,0,0
+animation1010.interval,bind
+animation1010.pattern0,overlay,1510,00,0,0
 
-    1011interval,bind
-    1011pattern0,1511,0,overlay,0,0
+animation1011.interval,bind
+animation1011.pattern0,overlay,1511,00,0,0
 
-    1012interval,bind
-    1012pattern0,1512,0,overlay,0,0
+animation1012.interval,bind
+animation1012.pattern0,overlay,1512,00,0,0
 
-    1013interval,bind
-    1013pattern0,1513,0,overlay,0,0
+animation1013.interval,bind
+animation1013.pattern0,overlay,1513,00,0,0
 
-    1014interval,bind
-    1014pattern0,1514,0,overlay,0,0
+animation1014.interval,bind
+animation1014.pattern0,overlay,1514,00,0,0
 
-    1015interval,bind
-    1015pattern0,1515,0,overlay,0,0
+animation1015.interval,bind
+animation1015.pattern0,overlay,1515,00,0,0
 
-    1016interval,bind
-    1016pattern0,1516,0,overlay,0,0
+animation1016.interval,bind
+animation1016.pattern0,overlay,1516,00,0,0
 
-    1017interval,bind
-    1017pattern0,1517,0,overlay,0,0
+animation1017.interval,bind
+animation1017.pattern0,overlay,1517,00,0,0
 
-    1018interval,bind
-    1018pattern0,1518,0,overlay,0,0
+animation1018.interval,bind
+animation1018.pattern0,overlay,1518,00,0,0
 
-    1019interval,bind
-    1019pattern0,1519,0,overlay,0,0
+animation1019.interval,bind
+animation1019.pattern0,overlay,1519,00,0,0
 
-    1020interval,bind
-    1020pattern0,1520,0,overlay,0,0
+animation1020.interval,bind
+animation1020.pattern0,overlay,1520,00,0,0
 
-    1021interval,bind
-    1021pattern0,1521,0,overlay,0,0
+animation1021.interval,bind
+animation1021.pattern0,overlay,1521,00,0,0
 
-    1022interval,bind
-    1022pattern0,1522,0,overlay,0,0
+animation1022.interval,bind
+animation1022.pattern0,overlay,1522,00,0,0
 
-    1023interval,bind
-    1023pattern0,1523,0,overlay,0,0
+animation1023.interval,bind
+animation1023.pattern0,overlay,1523,00,0,0
 
-    1024interval,bind
-    1024pattern0,1524,0,overlay,0,0
+animation1024.interval,bind
+animation1024.pattern0,overlay,1524,00,0,0
 
-    1025interval,bind
-    1025pattern0,1525,0,overlay,0,0
+animation1025.interval,bind
+animation1025.pattern0,overlay,1525,00,0,0
 
-    1026interval,bind
-    1026pattern0,1526,0,overlay,0,0
+animation1026.interval,bind
+animation1026.pattern0,overlay,1526,00,0,0
 
-    1027interval,bind
-    1027pattern0,1527,0,overlay,0,0
+animation1027.interval,bind
+animation1027.pattern0,overlay,1527,00,0,0
 
-    1028interval,bind
-    1028pattern0,1528,0,overlay,0,0
+animation1028.interval,bind
+animation1028.pattern0,overlay,1528,00,0,0
 
-    1029interval,bind
-    1029pattern0,1529,0,overlay,0,0
+animation1029.interval,bind
+animation1029.pattern0,overlay,1529,00,0,0
 
-    1030interval,bind
-    1030pattern0,1530,0,overlay,0,0
+animation1030.interval,bind
+animation1030.pattern0,overlay,1530,00,0,0
 
-    1031interval,bind
-    1031pattern0,1531,0,overlay,0,0
+animation1031.interval,bind
+animation1031.pattern0,overlay,1531,00,0,0
 
-    1032interval,bind
-    1032pattern0,1532,0,overlay,0,0
+animation1032.interval,bind
+animation1032.pattern0,overlay,1532,00,0,0
 
-    1033interval,bind
-    1033pattern0,1533,0,overlay,0,0
+animation1033.interval,bind
+animation1033.pattern0,overlay,1533,00,0,0
 
-    1034interval,bind
-    1034pattern0,1534,0,overlay,0,0
+animation1034.interval,bind
+animation1034.pattern0,overlay,1534,00,0,0
 
-    1100interval,bind
-    1100pattern0,5000,0,overlay,0,0
+animation1100.interval,bind
+animation1100.pattern0,overlay,5000,00,0,0
 
-    1101interval,bind
-    1101pattern0,5001,0,overlay,0,0
+animation1101.interval,bind
+animation1101.pattern0,overlay,5001,00,0,0
 
-    1102interval,bind
-    1102pattern0,5002,0,overlay,0,0
+animation1102.interval,bind
+animation1102.pattern0,overlay,5002,00,0,0
 
-    1103interval,bind
-    1103pattern0,5003,0,overlay,0,0
+animation1103.interval,bind
+animation1103.pattern0,overlay,5003,00,0,0
 
-    1104interval,bind
-    1104pattern0,5004,0,overlay,0,0
+animation1104.interval,bind
+animation1104.pattern0,overlay,5004,00,0,0
 
-    1105interval,bind
-    1105pattern0,5005,0,overlay,0,0
+animation1105.interval,bind
+animation1105.pattern0,overlay,5005,00,0,0
 
-    1106interval,bind
-    1106pattern0,5006,0,overlay,0,0
+animation1106.interval,bind
+animation1106.pattern0,overlay,5006,00,0,0
 
-    1107interval,bind
-    1107pattern0,5007,0,overlay,0,0
+animation1107.interval,bind
+animation1107.pattern0,overlay,5007,00,0,0
 
-    1108interval,bind
-    1108pattern0,5008,0,overlay,0,0
+animation1108.interval,bind
+animation1108.pattern0,overlay,5008,00,0,0
 
-    1109interval,bind
-    1109pattern0,5009,0,overlay,0,0
+animation1109.interval,bind
+animation1109.pattern0,overlay,5009,00,0,0
 
-    1110interval,bind
-    1110pattern0,5010,0,overlay,0,0
+animation1110.interval,bind
+animation1110.pattern0,overlay,5010,00,0,0
 
-    1111interval,bind
-    1111pattern0,5011,0,overlay,0,0
+animation1111.interval,bind
+animation1111.pattern0,overlay,5011,00,0,0
 
-    1112interval,bind
-    1112pattern0,5012,0,overlay,0,0
+animation1112.interval,bind
+animation1112.pattern0,overlay,5012,00,0,0
 
-    1113interval,bind
-    1113pattern0,5013,0,overlay,0,0
+animation1113.interval,bind
+animation1113.pattern0,overlay,5013,00,0,0
 
-    1114interval,bind
-    1114pattern0,5014,0,overlay,0,0
+animation1114.interval,bind
+animation1114.pattern0,overlay,5014,00,0,0
 
-    1115interval,bind
-    1115pattern0,5015,0,overlay,0,0
+animation1115.interval,bind
+animation1115.pattern0,overlay,5015,00,0,0
 
-    1116interval,bind
-    1116pattern0,5016,0,overlay,0,0
+animation1116.interval,bind
+animation1116.pattern0,overlay,5016,00,0,0
 
-    1117interval,bind
-    1117pattern0,5017,0,overlay,0,0
+animation1117.interval,bind
+animation1117.pattern0,overlay,5017,00,0,0
 
-    1118interval,bind
-    1118pattern0,5018,0,overlay,0,0
+animation1118.interval,bind
+animation1118.pattern0,overlay,5018,00,0,0
 
-    1119interval,bind
-    1119pattern0,5019,0,overlay,0,0
+animation1119.interval,bind
+animation1119.pattern0,overlay,5019,00,0,0
 
-    1120interval,bind
-    1120pattern0,5020,0,overlay,0,0
+animation1120.interval,bind
+animation1120.pattern0,overlay,5020,00,0,0
 
-    1121interval,bind
-    1121pattern0,5021,0,overlay,0,0
+animation1121.interval,bind
+animation1121.pattern0,overlay,5021,00,0,0
 
-    1122interval,bind
-    1122pattern0,5022,0,overlay,0,0
+animation1122.interval,bind
+animation1122.pattern0,overlay,5022,00,0,0
 
-    1123interval,bind
-    1123pattern0,5023,0,overlay,0,0
+animation1123.interval,bind
+animation1123.pattern0,overlay,5023,00,0,0
 
-    1124interval,bind
-    1124pattern0,5024,0,overlay,0,0
+animation1124.interval,bind
+animation1124.pattern0,overlay,5024,00,0,0
 
-    1125interval,bind
-    1125pattern0,5025,0,overlay,0,0
+animation1125.interval,bind
+animation1125.pattern0,overlay,5025,00,0,0
 
-    1126interval,bind
-    1126pattern0,5026,0,overlay,0,0
+animation1126.interval,bind
+animation1126.pattern0,overlay,5026,00,0,0
 
-    1127interval,bind
-    1127pattern0,5027,0,overlay,0,0
+animation1127.interval,bind
+animation1127.pattern0,overlay,5027,00,0,0
 
-    1128interval,bind
-    1128pattern0,5028,0,overlay,0,0
+animation1128.interval,bind
+animation1128.pattern0,overlay,5028,00,0,0
 
-    1129interval,bind
-    1129pattern0,5029,0,overlay,0,0
+animation1129.interval,bind
+animation1129.pattern0,overlay,5029,00,0,0
 
-    1130interval,bind
-    1130pattern0,5030,0,overlay,0,0
+animation1130.interval,bind
+animation1130.pattern0,overlay,5030,00,0,0
 
-    1131interval,bind
-    1131pattern0,5031,0,overlay,0,0
+animation1131.interval,bind
+animation1131.pattern0,overlay,5031,00,0,0
 
-    1132interval,bind
-    1132pattern0,5032,0,overlay,0,0
+animation1132.interval,bind
+animation1132.pattern0,overlay,5032,00,0,0
 
-    1133interval,bind
-    1133pattern0,5033,0,overlay,0,0
+animation1133.interval,bind
+animation1133.pattern0,overlay,5033,00,0,0
 
-    1134interval,bind
-    1134pattern0,5034,0,overlay,0,0
+animation1134.interval,bind
+animation1134.pattern0,overlay,5034,00,0,0
 
-    1200interval,bind
-    1200pattern0,5100,0,overlay,0,0
+animation1200.interval,bind
+animation1200.pattern0,overlay,5100,00,0,0
 
-    1201interval,bind
-    1201pattern0,5101,0,overlay,0,0
+animation1201.interval,bind
+animation1201.pattern0,overlay,5101,00,0,0
 
-    1202interval,bind
-    1202pattern0,5102,0,overlay,0,0
+animation1202.interval,bind
+animation1202.pattern0,overlay,5102,00,0,0
 
-    1203interval,bind
-    1203pattern0,5103,0,overlay,0,0
+animation1203.interval,bind
+animation1203.pattern0,overlay,5103,00,0,0
 
-    1204interval,bind
-    1204pattern0,5104,0,overlay,0,0
+animation1204.interval,bind
+animation1204.pattern0,overlay,5104,00,0,0
 
-    1205interval,bind
-    1205pattern0,5105,0,overlay,0,0
+animation1205.interval,bind
+animation1205.pattern0,overlay,5105,00,0,0
 
-    1206interval,bind
-    1206pattern0,5106,0,overlay,0,0
+animation1206.interval,bind
+animation1206.pattern0,overlay,5106,00,0,0
 
-    1207interval,bind
-    1207pattern0,5107,0,overlay,0,0
+animation1207.interval,bind
+animation1207.pattern0,overlay,5107,00,0,0
 
-    1208interval,bind
-    1208pattern0,5108,0,overlay,0,0
+animation1208.interval,bind
+animation1208.pattern0,overlay,5108,00,0,0
 
-    1209interval,bind
-    1209pattern0,5109,0,overlay,0,0
+animation1209.interval,bind
+animation1209.pattern0,overlay,5109,00,0,0
 
-    1210interval,bind
-    1210pattern0,5110,0,overlay,0,0
+animation1210.interval,bind
+animation1210.pattern0,overlay,5110,00,0,0
 
-    1211interval,bind
-    1211pattern0,5111,0,overlay,0,0
+animation1211.interval,bind
+animation1211.pattern0,overlay,5111,00,0,0
 
-    1212interval,bind
-    1212pattern0,5112,0,overlay,0,0
+animation1212.interval,bind
+animation1212.pattern0,overlay,5112,00,0,0
 
-    1213interval,bind
-    1213pattern0,5113,0,overlay,0,0
+animation1213.interval,bind
+animation1213.pattern0,overlay,5113,00,0,0
 
-    1214interval,bind
-    1214pattern0,5114,0,overlay,0,0
+animation1214.interval,bind
+animation1214.pattern0,overlay,5114,00,0,0
 
-    1215interval,bind
-    1215pattern0,5115,0,overlay,0,0
+animation1215.interval,bind
+animation1215.pattern0,overlay,5115,00,0,0
 
-    1216interval,bind
-    1216pattern0,5116,0,overlay,0,0
+animation1216.interval,bind
+animation1216.pattern0,overlay,5116,00,0,0
 
-    1217interval,bind
-    1217pattern0,5117,0,overlay,0,0
+animation1217.interval,bind
+animation1217.pattern0,overlay,5117,00,0,0
 
-    1218interval,bind
-    1218pattern0,5118,0,overlay,0,0
+animation1218.interval,bind
+animation1218.pattern0,overlay,5118,00,0,0
 
-    1219interval,bind
-    1219pattern0,5119,0,overlay,0,0
+animation1219.interval,bind
+animation1219.pattern0,overlay,5119,00,0,0
 
-    1220interval,bind
-    1220pattern0,5120,0,overlay,0,0
+animation1220.interval,bind
+animation1220.pattern0,overlay,5120,00,0,0
 
-    1221interval,bind
-    1221pattern0,5121,0,overlay,0,0
+animation1221.interval,bind
+animation1221.pattern0,overlay,5121,00,0,0
 
-    1222interval,bind
-    1222pattern0,5122,0,overlay,0,0
+animation1222.interval,bind
+animation1222.pattern0,overlay,5122,00,0,0
 
-    1223interval,bind
-    1223pattern0,5123,0,overlay,0,0
+animation1223.interval,bind
+animation1223.pattern0,overlay,5123,00,0,0
 
-    1224interval,bind
-    1224pattern0,5124,0,overlay,0,0
+animation1224.interval,bind
+animation1224.pattern0,overlay,5124,00,0,0
 
-    1225interval,bind
-    1225pattern0,5125,0,overlay,0,0
+animation1225.interval,bind
+animation1225.pattern0,overlay,5125,00,0,0
 
-    1226interval,bind
-    1226pattern0,5126,0,overlay,0,0
+animation1226.interval,bind
+animation1226.pattern0,overlay,5126,00,0,0
 
-    1227interval,bind
-    1227pattern0,5127,0,overlay,0,0
+animation1227.interval,bind
+animation1227.pattern0,overlay,5127,00,0,0
 
-    1228interval,bind
-    1228pattern0,5128,0,overlay,0,0
+animation1228.interval,bind
+animation1228.pattern0,overlay,5128,00,0,0
 
-    1229interval,bind
-    1229pattern0,5129,0,overlay,0,0
+animation1229.interval,bind
+animation1229.pattern0,overlay,5129,00,0,0
 
-    1230interval,bind
-    1230pattern0,5130,0,overlay,0,0
+animation1230.interval,bind
+animation1230.pattern0,overlay,5130,00,0,0
 
-    1231interval,bind
-    1231pattern0,5131,0,overlay,0,0
+animation1231.interval,bind
+animation1231.pattern0,overlay,5131,00,0,0
 
-    1232interval,bind
-    1232pattern0,5132,0,overlay,0,0
+animation1232.interval,bind
+animation1232.pattern0,overlay,5132,00,0,0
 
-    1233interval,bind
-    1233pattern0,5133,0,overlay,0,0
+animation1233.interval,bind
+animation1233.pattern0,overlay,5133,00,0,0
 
-    1234interval,bind
-    1234pattern0,5134,0,overlay,0,0
+animation1234.interval,bind
+animation1234.pattern0,overlay,5134,00,0,0
 
-    1300interval,bind
-    1300pattern0,6000,0,overlay,0,0
+animation1300.interval,bind
+animation1300.pattern0,overlay,6000,00,0,0
 
-    1301interval,bind
-    1301pattern0,6001,0,overlay,0,0
+animation1301.interval,bind
+animation1301.pattern0,overlay,6001,00,0,0
 
-    1302interval,bind
-    1302pattern0,6002,0,overlay,0,0
+animation1302.interval,bind
+animation1302.pattern0,overlay,6002,00,0,0
 
-    1303interval,bind
-    1303pattern0,6003,0,overlay,0,0
+animation1303.interval,bind
+animation1303.pattern0,overlay,6003,00,0,0
 
-    1304interval,bind
-    1304pattern0,6004,0,overlay,0,0
+animation1304.interval,bind
+animation1304.pattern0,overlay,6004,00,0,0
 
-    1305interval,bind
-    1305pattern0,6005,0,overlay,0,0
+animation1305.interval,bind
+animation1305.pattern0,overlay,6005,00,0,0
 
-    1306interval,bind
-    1306pattern0,6006,0,overlay,0,0
+animation1306.interval,bind
+animation1306.pattern0,overlay,6006,00,0,0
 
-    1307interval,bind
-    1307pattern0,6007,0,overlay,0,0
+animation1307.interval,bind
+animation1307.pattern0,overlay,6007,00,0,0
 
-    1308interval,bind
-    1308pattern0,6008,0,overlay,0,0
+animation1308.interval,bind
+animation1308.pattern0,overlay,6008,00,0,0
 
-    1309interval,bind
-    1309pattern0,6009,0,overlay,0,0
+animation1309.interval,bind
+animation1309.pattern0,overlay,6009,00,0,0
 
-    1310interval,bind
-    1310pattern0,6010,0,overlay,0,0
+animation1310.interval,bind
+animation1310.pattern0,overlay,6010,00,0,0
 
-    1311interval,bind
-    1311pattern0,6011,0,overlay,0,0
+animation1311.interval,bind
+animation1311.pattern0,overlay,6011,00,0,0
 
-    1312interval,bind
-    1312pattern0,6012,0,overlay,0,0
+animation1312.interval,bind
+animation1312.pattern0,overlay,6012,00,0,0
 
-    1313interval,bind
-    1313pattern0,6013,0,overlay,0,0
+animation1313.interval,bind
+animation1313.pattern0,overlay,6013,00,0,0
 
-    1314interval,bind
-    1314pattern0,6014,0,overlay,0,0
+animation1314.interval,bind
+animation1314.pattern0,overlay,6014,00,0,0
 
-    1315interval,bind
-    1315pattern0,6015,0,overlay,0,0
+animation1315.interval,bind
+animation1315.pattern0,overlay,6015,00,0,0
 
-    1316interval,bind
-    1316pattern0,6016,0,overlay,0,0
+animation1316.interval,bind
+animation1316.pattern0,overlay,6016,00,0,0
 
-    1317interval,bind
-    1317pattern0,6017,0,overlay,0,0
+animation1317.interval,bind
+animation1317.pattern0,overlay,6017,00,0,0
 
-    1318interval,bind
-    1318pattern0,6018,0,overlay,0,0
+animation1318.interval,bind
+animation1318.pattern0,overlay,6018,00,0,0
 
-    1319interval,bind
-    1319pattern0,6019,0,overlay,0,0
+animation1319.interval,bind
+animation1319.pattern0,overlay,6019,00,0,0
 
-    1320interval,bind
-    1320pattern0,6020,0,overlay,0,0
+animation1320.interval,bind
+animation1320.pattern0,overlay,6020,00,0,0
 
-    1321interval,bind
-    1321pattern0,6021,0,overlay,0,0
+animation1321.interval,bind
+animation1321.pattern0,overlay,6021,00,0,0
 
-    1322interval,bind
-    1322pattern0,6022,0,overlay,0,0
+animation1322.interval,bind
+animation1322.pattern0,overlay,6022,00,0,0
 
-    1323interval,bind
-    1323pattern0,6023,0,overlay,0,0
+animation1323.interval,bind
+animation1323.pattern0,overlay,6023,00,0,0
 
-    1324interval,bind
-    1324pattern0,6024,0,overlay,0,0
+animation1324.interval,bind
+animation1324.pattern0,overlay,6024,00,0,0
 
-    1325interval,bind
-    1325pattern0,6025,0,overlay,0,0
+animation1325.interval,bind
+animation1325.pattern0,overlay,6025,00,0,0
 
-    1326interval,bind
-    1326pattern0,6026,0,overlay,0,0
+animation1326.interval,bind
+animation1326.pattern0,overlay,6026,00,0,0
 
-    1327interval,bind
-    1327pattern0,6027,0,overlay,0,0
+animation1327.interval,bind
+animation1327.pattern0,overlay,6027,00,0,0
 
-    1328interval,bind
-    1328pattern0,6028,0,overlay,0,0
+animation1328.interval,bind
+animation1328.pattern0,overlay,6028,00,0,0
 
-    1329interval,bind
-    1329pattern0,6029,0,overlay,0,0
+animation1329.interval,bind
+animation1329.pattern0,overlay,6029,00,0,0
 
-    1330interval,bind
-    1330pattern0,6030,0,overlay,0,0
+animation1330.interval,bind
+animation1330.pattern0,overlay,6030,00,0,0
 
-    1331interval,bind
-    1331pattern0,6031,0,overlay,0,0
+animation1331.interval,bind
+animation1331.pattern0,overlay,6031,00,0,0
 
-    1332interval,bind
-    1332pattern0,6032,0,overlay,0,0
+animation1332.interval,bind
+animation1332.pattern0,overlay,6032,00,0,0
 
-    1333interval,bind
-    1333pattern0,6033,0,overlay,0,0
+animation1333.interval,bind
+animation1333.pattern0,overlay,6033,00,0,0
 
-    1334interval,bind
-    1334pattern0,6034,0,overlay,0,0
+animation1334.interval,bind
+animation1334.pattern0,overlay,6034,00,0,0
 
-    1400interval,bind
-    1400pattern0,6100,0,overlay,0,0
+animation1400.interval,bind
+animation1400.pattern0,overlay,6100,00,0,0
 
-    1401interval,bind
-    1401pattern0,6101,0,overlay,0,0
+animation1401.interval,bind
+animation1401.pattern0,overlay,6101,00,0,0
 
-    1402interval,bind
-    1402pattern0,6102,0,overlay,0,0
+animation1402.interval,bind
+animation1402.pattern0,overlay,6102,00,0,0
 
-    1403interval,bind
-    1403pattern0,6103,0,overlay,0,0
+animation1403.interval,bind
+animation1403.pattern0,overlay,6103,00,0,0
 
-    1404interval,bind
-    1404pattern0,6104,0,overlay,0,0
+animation1404.interval,bind
+animation1404.pattern0,overlay,6104,00,0,0
 
-    1405interval,bind
-    1405pattern0,6105,0,overlay,0,0
+animation1405.interval,bind
+animation1405.pattern0,overlay,6105,00,0,0
 
-    1406interval,bind
-    1406pattern0,6106,0,overlay,0,0
+animation1406.interval,bind
+animation1406.pattern0,overlay,6106,00,0,0
 
-    1407interval,bind
-    1407pattern0,6107,0,overlay,0,0
+animation1407.interval,bind
+animation1407.pattern0,overlay,6107,00,0,0
 
-    1408interval,bind
-    1408pattern0,6108,0,overlay,0,0
+animation1408.interval,bind
+animation1408.pattern0,overlay,6108,00,0,0
 
-    1409interval,bind
-    1409pattern0,6109,0,overlay,0,0
+animation1409.interval,bind
+animation1409.pattern0,overlay,6109,00,0,0
 
-    1410interval,bind
-    1410pattern0,6110,0,overlay,0,0
+animation1410.interval,bind
+animation1410.pattern0,overlay,6110,00,0,0
 
-    1411interval,bind
-    1411pattern0,6111,0,overlay,0,0
+animation1411.interval,bind
+animation1411.pattern0,overlay,6111,00,0,0
 
-    1412interval,bind
-    1412pattern0,6112,0,overlay,0,0
+animation1412.interval,bind
+animation1412.pattern0,overlay,6112,00,0,0
 
-    1413interval,bind
-    1413pattern0,6113,0,overlay,0,0
+animation1413.interval,bind
+animation1413.pattern0,overlay,6113,00,0,0
 
-    1414interval,bind
-    1414pattern0,6114,0,overlay,0,0
+animation1414.interval,bind
+animation1414.pattern0,overlay,6114,00,0,0
 
-    1415interval,bind
-    1415pattern0,6115,0,overlay,0,0
+animation1415.interval,bind
+animation1415.pattern0,overlay,6115,00,0,0
 
-    1416interval,bind
-    1416pattern0,6116,0,overlay,0,0
+animation1416.interval,bind
+animation1416.pattern0,overlay,6116,00,0,0
 
-    1417interval,bind
-    1417pattern0,6117,0,overlay,0,0
+animation1417.interval,bind
+animation1417.pattern0,overlay,6117,00,0,0
 
-    1418interval,bind
-    1418pattern0,6118,0,overlay,0,0
+animation1418.interval,bind
+animation1418.pattern0,overlay,6118,00,0,0
 
-    1419interval,bind
-    1419pattern0,6119,0,overlay,0,0
+animation1419.interval,bind
+animation1419.pattern0,overlay,6119,00,0,0
 
-    1420interval,bind
-    1420pattern0,6120,0,overlay,0,0
+animation1420.interval,bind
+animation1420.pattern0,overlay,6120,00,0,0
 
-    1421interval,bind
-    1421pattern0,6121,0,overlay,0,0
+animation1421.interval,bind
+animation1421.pattern0,overlay,6121,00,0,0
 
-    1422interval,bind
-    1422pattern0,6122,0,overlay,0,0
+animation1422.interval,bind
+animation1422.pattern0,overlay,6122,00,0,0
 
-    1423interval,bind
-    1423pattern0,6123,0,overlay,0,0
+animation1423.interval,bind
+animation1423.pattern0,overlay,6123,00,0,0
 
-    1424interval,bind
-    1424pattern0,6124,0,overlay,0,0
+animation1424.interval,bind
+animation1424.pattern0,overlay,6124,00,0,0
 
-    1425interval,bind
-    1425pattern0,6125,0,overlay,0,0
+animation1425.interval,bind
+animation1425.pattern0,overlay,6125,00,0,0
 
-    1426interval,bind
-    1426pattern0,6126,0,overlay,0,0
+animation1426.interval,bind
+animation1426.pattern0,overlay,6126,00,0,0
 
-    1427interval,bind
-    1427pattern0,6127,0,overlay,0,0
+animation1427.interval,bind
+animation1427.pattern0,overlay,6127,00,0,0
 
-    1428interval,bind
-    1428pattern0,6128,0,overlay,0,0
+animation1428.interval,bind
+animation1428.pattern0,overlay,6128,00,0,0
 
-    1429interval,bind
-    1429pattern0,6129,0,overlay,0,0
+animation1429.interval,bind
+animation1429.pattern0,overlay,6129,00,0,0
 
-    1430interval,bind
-    1430pattern0,6130,0,overlay,0,0
+animation1430.interval,bind
+animation1430.pattern0,overlay,6130,00,0,0
 
-    1431interval,bind
-    1431pattern0,6131,0,overlay,0,0
+animation1431.interval,bind
+animation1431.pattern0,overlay,6131,00,0,0
 
-    1432interval,bind
-    1432pattern0,6132,0,overlay,0,0
+animation1432.interval,bind
+animation1432.pattern0,overlay,6132,00,0,0
 
-    1433interval,bind
-    1433pattern0,6133,0,overlay,0,0
+animation1433.interval,bind
+animation1433.pattern0,overlay,6133,00,0,0
 
-    1434interval,bind
-    1434pattern0,6134,0,overlay,0,0
+animation1434.interval,bind
+animation1434.pattern0,overlay,6134,00,0,0
 
-    1500interval,bind
-    1500pattern0,6200,0,overlay,0,0
+animation1500.interval,bind
+animation1500.pattern0,overlay,6200,00,0,0
 
-    1501interval,bind
-    1501pattern0,6201,0,overlay,0,0
+animation1501.interval,bind
+animation1501.pattern0,overlay,6201,00,0,0
 
-    1502interval,bind
-    1502pattern0,6202,0,overlay,0,0
+animation1502.interval,bind
+animation1502.pattern0,overlay,6202,00,0,0
 
-    1503interval,bind
-    1503pattern0,6203,0,overlay,0,0
+animation1503.interval,bind
+animation1503.pattern0,overlay,6203,00,0,0
 
-    1504interval,bind
-    1504pattern0,6204,0,overlay,0,0
+animation1504.interval,bind
+animation1504.pattern0,overlay,6204,00,0,0
 
-    1505interval,bind
-    1505pattern0,6205,0,overlay,0,0
+animation1505.interval,bind
+animation1505.pattern0,overlay,6205,00,0,0
 
-    1506interval,bind
-    1506pattern0,6206,0,overlay,0,0
+animation1506.interval,bind
+animation1506.pattern0,overlay,6206,00,0,0
 
-    1507interval,bind
-    1507pattern0,6207,0,overlay,0,0
+animation1507.interval,bind
+animation1507.pattern0,overlay,6207,00,0,0
 
-    1508interval,bind
-    1508pattern0,6208,0,overlay,0,0
+animation1508.interval,bind
+animation1508.pattern0,overlay,6208,00,0,0
 
-    1509interval,bind
-    1509pattern0,6209,0,overlay,0,0
+animation1509.interval,bind
+animation1509.pattern0,overlay,6209,00,0,0
 
-    1510interval,bind
-    1510pattern0,6210,0,overlay,0,0
+animation1510.interval,bind
+animation1510.pattern0,overlay,6210,00,0,0
 
-    1511interval,bind
-    1511pattern0,6211,0,overlay,0,0
+animation1511.interval,bind
+animation1511.pattern0,overlay,6211,00,0,0
 
-    1512interval,bind
-    1512pattern0,6212,0,overlay,0,0
+animation1512.interval,bind
+animation1512.pattern0,overlay,6212,00,0,0
 
-    1513interval,bind
-    1513pattern0,6213,0,overlay,0,0
+animation1513.interval,bind
+animation1513.pattern0,overlay,6213,00,0,0
 
-    1514interval,bind
-    1514pattern0,6214,0,overlay,0,0
+animation1514.interval,bind
+animation1514.pattern0,overlay,6214,00,0,0
 
-    1515interval,bind
-    1515pattern0,6215,0,overlay,0,0
+animation1515.interval,bind
+animation1515.pattern0,overlay,6215,00,0,0
 
-    1516interval,bind
-    1516pattern0,6216,0,overlay,0,0
+animation1516.interval,bind
+animation1516.pattern0,overlay,6216,00,0,0
 
-    1517interval,bind
-    1517pattern0,6217,0,overlay,0,0
+animation1517.interval,bind
+animation1517.pattern0,overlay,6217,00,0,0
 
-    1518interval,bind
-    1518pattern0,6218,0,overlay,0,0
+animation1518.interval,bind
+animation1518.pattern0,overlay,6218,00,0,0
 
-    1519interval,bind
-    1519pattern0,6219,0,overlay,0,0
+animation1519.interval,bind
+animation1519.pattern0,overlay,6219,00,0,0
 
-    1520interval,bind
-    1520pattern0,6220,0,overlay,0,0
+animation1520.interval,bind
+animation1520.pattern0,overlay,6220,00,0,0
 
-    1521interval,bind
-    1521pattern0,6221,0,overlay,0,0
+animation1521.interval,bind
+animation1521.pattern0,overlay,6221,00,0,0
 
-    1522interval,bind
-    1522pattern0,6222,0,overlay,0,0
+animation1522.interval,bind
+animation1522.pattern0,overlay,6222,00,0,0
 
-    1523interval,bind
-    1523pattern0,6223,0,overlay,0,0
+animation1523.interval,bind
+animation1523.pattern0,overlay,6223,00,0,0
 
-    1524interval,bind
-    1524pattern0,6224,0,overlay,0,0
+animation1524.interval,bind
+animation1524.pattern0,overlay,6224,00,0,0
 
-    1525interval,bind
-    1525pattern0,6225,0,overlay,0,0
+animation1525.interval,bind
+animation1525.pattern0,overlay,6225,00,0,0
 
-    1526interval,bind
-    1526pattern0,6226,0,overlay,0,0
+animation1526.interval,bind
+animation1526.pattern0,overlay,6226,00,0,0
 
-    1527interval,bind
-    1527pattern0,6227,0,overlay,0,0
+animation1527.interval,bind
+animation1527.pattern0,overlay,6227,00,0,0
 
-    1528interval,bind
-    1528pattern0,6228,0,overlay,0,0
+animation1528.interval,bind
+animation1528.pattern0,overlay,6228,00,0,0
 
-    1529interval,bind
-    1529pattern0,6229,0,overlay,0,0
+animation1529.interval,bind
+animation1529.pattern0,overlay,6229,00,0,0
 
-    1530interval,bind
-    1530pattern0,6230,0,overlay,0,0
+animation1530.interval,bind
+animation1530.pattern0,overlay,6230,00,0,0
 
-    1531interval,bind
-    1531pattern0,6231,0,overlay,0,0
+animation1531.interval,bind
+animation1531.pattern0,overlay,6231,00,0,0
 
-    1532interval,bind
-    1532pattern0,6232,0,overlay,0,0
+animation1532.interval,bind
+animation1532.pattern0,overlay,6232,00,0,0
 
-    1533interval,bind
-    1533pattern0,6233,0,overlay,0,0
+animation1533.interval,bind
+animation1533.pattern0,overlay,6233,00,0,0
 
-    1534interval,bind
-    1534pattern0,6234,0,overlay,0,0
+animation1534.interval,bind
+animation1534.pattern0,overlay,6234,00,0,0
 
-    1600interval,bind
-    1600pattern0,4100,0,overlay,0,0
+animation1600.interval,bind
+animation1600.pattern0,overlay,4100,00,0,0
 
-    1601interval,bind
-    1601pattern0,4101,0,overlay,0,0
+animation1601.interval,bind
+animation1601.pattern0,overlay,4101,00,0,0
 
-    1602interval,bind
-    1602pattern0,4102,0,overlay,0,0
+animation1602.interval,bind
+animation1602.pattern0,overlay,4102,00,0,0
 
-    1603interval,bind
-    1603pattern0,4103,0,overlay,0,0
+animation1603.interval,bind
+animation1603.pattern0,overlay,4103,00,0,0
 
-    1604interval,bind
-    1604pattern0,4104,0,overlay,0,0
+animation1604.interval,bind
+animation1604.pattern0,overlay,4104,00,0,0
 
-    1605interval,bind
-    1605pattern0,4105,0,overlay,0,0
+animation1605.interval,bind
+animation1605.pattern0,overlay,4105,00,0,0
 
-    1606interval,bind
-    1606pattern0,4106,0,overlay,0,0
+animation1606.interval,bind
+animation1606.pattern0,overlay,4106,00,0,0
 
-    1607interval,bind
-    1607pattern0,4107,0,overlay,0,0
+animation1607.interval,bind
+animation1607.pattern0,overlay,4107,00,0,0
 
-    1608interval,bind
-    1608pattern0,4108,0,overlay,0,0
+animation1608.interval,bind
+animation1608.pattern0,overlay,4108,00,0,0
 
-    1609interval,bind
-    1609pattern0,4109,0,overlay,0,0
+animation1609.interval,bind
+animation1609.pattern0,overlay,4109,00,0,0
 
-    1610interval,bind
-    1610pattern0,4110,0,overlay,0,0
+animation1610.interval,bind
+animation1610.pattern0,overlay,4110,00,0,0
 
-    1611interval,bind
-    1611pattern0,4111,0,overlay,0,0
+animation1611.interval,bind
+animation1611.pattern0,overlay,4111,00,0,0
 
-    1612interval,bind
-    1612pattern0,4112,0,overlay,0,0
+animation1612.interval,bind
+animation1612.pattern0,overlay,4112,00,0,0
 
-    1613interval,bind
-    1613pattern0,4113,0,overlay,0,0
+animation1613.interval,bind
+animation1613.pattern0,overlay,4113,00,0,0
 
-    1614interval,bind
-    1614pattern0,4114,0,overlay,0,0
+animation1614.interval,bind
+animation1614.pattern0,overlay,4114,00,0,0
 
-    1615interval,bind
-    1615pattern0,4115,0,overlay,0,0
+animation1615.interval,bind
+animation1615.pattern0,overlay,4115,00,0,0
 
-    1616interval,bind
-    1616pattern0,4116,0,overlay,0,0
+animation1616.interval,bind
+animation1616.pattern0,overlay,4116,00,0,0
 
-    1617interval,bind
-    1617pattern0,4117,0,overlay,0,0
+animation1617.interval,bind
+animation1617.pattern0,overlay,4117,00,0,0
 
-    1618interval,bind
-    1618pattern0,4118,0,overlay,0,0
+animation1618.interval,bind
+animation1618.pattern0,overlay,4118,00,0,0
 
-    1619interval,bind
-    1619pattern0,4119,0,overlay,0,0
+animation1619.interval,bind
+animation1619.pattern0,overlay,4119,00,0,0
 
-    1620interval,bind
-    1620pattern0,4120,0,overlay,0,0
+animation1620.interval,bind
+animation1620.pattern0,overlay,4120,00,0,0
 
-    1621interval,bind
-    1621pattern0,4121,0,overlay,0,0
+animation1621.interval,bind
+animation1621.pattern0,overlay,4121,00,0,0
 
-    1622interval,bind
-    1622pattern0,4122,0,overlay,0,0
+animation1622.interval,bind
+animation1622.pattern0,overlay,4122,00,0,0
 
-    1623interval,bind
-    1623pattern0,4123,0,overlay,0,0
+animation1623.interval,bind
+animation1623.pattern0,overlay,4123,00,0,0
 
-    1624interval,bind
-    1624pattern0,4124,0,overlay,0,0
+animation1624.interval,bind
+animation1624.pattern0,overlay,4124,00,0,0
 
-    1625interval,bind
-    1625pattern0,4125,0,overlay,0,0
+animation1625.interval,bind
+animation1625.pattern0,overlay,4125,00,0,0
 
-    1626interval,bind
-    1626pattern0,4126,0,overlay,0,0
+animation1626.interval,bind
+animation1626.pattern0,overlay,4126,00,0,0
 
-    1627interval,bind
-    1627pattern0,4127,0,overlay,0,0
+animation1627.interval,bind
+animation1627.pattern0,overlay,4127,00,0,0
 
-    1628interval,bind
-    1628pattern0,4128,0,overlay,0,0
+animation1628.interval,bind
+animation1628.pattern0,overlay,4128,00,0,0
 
-    1629interval,bind
-    1629pattern0,4129,0,overlay,0,0
+animation1629.interval,bind
+animation1629.pattern0,overlay,4129,00,0,0
 
-    1630interval,bind
-    1630pattern0,4130,0,overlay,0,0
+animation1630.interval,bind
+animation1630.pattern0,overlay,4130,00,0,0
 
-    1631interval,bind
-    1631pattern0,4131,0,overlay,0,0
+animation1631.interval,bind
+animation1631.pattern0,overlay,4131,00,0,0
 
-    1632interval,bind
-    1632pattern0,4132,0,overlay,0,0
+animation1632.interval,bind
+animation1632.pattern0,overlay,4132,00,0,0
 
-    1633interval,bind
-    1633pattern0,4133,0,overlay,0,0
+animation1633.interval,bind
+animation1633.pattern0,overlay,4133,00,0,0
 
-    1634interval,bind
-    1634pattern0,4134,0,overlay,0,0
+animation1634.interval,bind
+animation1634.pattern0,overlay,4134,00,0,0
 
-    1650interval,bind
-    1650pattern0,4200,0,overlay,0,0
+animation1650.interval,bind
+animation1650.pattern0,overlay,4200,00,0,0
 
-    1651interval,bind
-    1651pattern0,4201,0,overlay,0,0
+animation1651.interval,bind
+animation1651.pattern0,overlay,4201,00,0,0
 
-    1652interval,bind
-    1652pattern0,4202,0,overlay,0,0
+animation1652.interval,bind
+animation1652.pattern0,overlay,4202,00,0,0
 
-    1653interval,bind
-    1653pattern0,4203,0,overlay,0,0
+animation1653.interval,bind
+animation1653.pattern0,overlay,4203,00,0,0
 
-    1654interval,bind
-    1654pattern0,4204,0,overlay,0,0
+animation1654.interval,bind
+animation1654.pattern0,overlay,4204,00,0,0
 
-    1655interval,bind
-    1655pattern0,4205,0,overlay,0,0
+animation1655.interval,bind
+animation1655.pattern0,overlay,4205,00,0,0
 
-    1656interval,bind
-    1656pattern0,4206,0,overlay,0,0
+animation1656.interval,bind
+animation1656.pattern0,overlay,4206,00,0,0
 
-    1657interval,bind
-    1657pattern0,4207,0,overlay,0,0
+animation1657.interval,bind
+animation1657.pattern0,overlay,4207,00,0,0
 
-    1658interval,bind
-    1658pattern0,4208,0,overlay,0,0
+animation1658.interval,bind
+animation1658.pattern0,overlay,4208,00,0,0
 
-    1659interval,bind
-    1659pattern0,4209,0,overlay,0,0
+animation1659.interval,bind
+animation1659.pattern0,overlay,4209,00,0,0
 
-    1660interval,bind
-    1660pattern0,4210,0,overlay,0,0
+animation1660.interval,bind
+animation1660.pattern0,overlay,4210,00,0,0
 
-    1661interval,bind
-    1661pattern0,4211,0,overlay,0,0
+animation1661.interval,bind
+animation1661.pattern0,overlay,4211,00,0,0
 
-    1662interval,bind
-    1662pattern0,4212,0,overlay,0,0
+animation1662.interval,bind
+animation1662.pattern0,overlay,4212,00,0,0
 
-    1663interval,bind
-    1663pattern0,4213,0,overlay,0,0
+animation1663.interval,bind
+animation1663.pattern0,overlay,4213,00,0,0
 
-    1664interval,bind
-    1664pattern0,4214,0,overlay,0,0
+animation1664.interval,bind
+animation1664.pattern0,overlay,4214,00,0,0
 
-    1665interval,bind
-    1665pattern0,4215,0,overlay,0,0
+animation1665.interval,bind
+animation1665.pattern0,overlay,4215,00,0,0
 
-    1666interval,bind
-    1666pattern0,4216,0,overlay,0,0
+animation1666.interval,bind
+animation1666.pattern0,overlay,4216,00,0,0
 
-    1667interval,bind
-    1667pattern0,4217,0,overlay,0,0
+animation1667.interval,bind
+animation1667.pattern0,overlay,4217,00,0,0
 
-    1668interval,bind
-    1668pattern0,4218,0,overlay,0,0
+animation1668.interval,bind
+animation1668.pattern0,overlay,4218,00,0,0
 
-    1669interval,bind
-    1669pattern0,4219,0,overlay,0,0
+animation1669.interval,bind
+animation1669.pattern0,overlay,4219,00,0,0
 
-    1670interval,bind
-    1670pattern0,4220,0,overlay,0,0
+animation1670.interval,bind
+animation1670.pattern0,overlay,4220,00,0,0
 
-    1671interval,bind
-    1671pattern0,4221,0,overlay,0,0
+animation1671.interval,bind
+animation1671.pattern0,overlay,4221,00,0,0
 
-    1672interval,bind
-    1672pattern0,4222,0,overlay,0,0
+animation1672.interval,bind
+animation1672.pattern0,overlay,4222,00,0,0
 
-    1673interval,bind
-    1673pattern0,4223,0,overlay,0,0
+animation1673.interval,bind
+animation1673.pattern0,overlay,4223,00,0,0
 
-    1674interval,bind
-    1674pattern0,4224,0,overlay,0,0
+animation1674.interval,bind
+animation1674.pattern0,overlay,4224,00,0,0
 
-    1675interval,bind
-    1675pattern0,4225,0,overlay,0,0
+animation1675.interval,bind
+animation1675.pattern0,overlay,4225,00,0,0
 
-    1676interval,bind
-    1676pattern0,4226,0,overlay,0,0
+animation1676.interval,bind
+animation1676.pattern0,overlay,4226,00,0,0
 
-    1677interval,bind
-    1677pattern0,4227,0,overlay,0,0
+animation1677.interval,bind
+animation1677.pattern0,overlay,4227,00,0,0
 
-    1678interval,bind
-    1678pattern0,4228,0,overlay,0,0
+animation1678.interval,bind
+animation1678.pattern0,overlay,4228,00,0,0
 
-    1679interval,bind
-    1679pattern0,4229,0,overlay,0,0
+animation1679.interval,bind
+animation1679.pattern0,overlay,4229,00,0,0
 
-    1680interval,bind
-    1680pattern0,4230,0,overlay,0,0
+animation1680.interval,bind
+animation1680.pattern0,overlay,4230,00,0,0
 
-    1681interval,bind
-    1681pattern0,4231,0,overlay,0,0
+animation1681.interval,bind
+animation1681.pattern0,overlay,4231,00,0,0
 
-    1682interval,bind
-    1682pattern0,4232,0,overlay,0,0
+animation1682.interval,bind
+animation1682.pattern0,overlay,4232,00,0,0
 
-    1683interval,bind
-    1683pattern0,4233,0,overlay,0,0
+animation1683.interval,bind
+animation1683.pattern0,overlay,4233,00,0,0
 
-    1684interval,bind
-    1684pattern0,4234,0,overlay,0,0
+animation1684.interval,bind
+animation1684.pattern0,overlay,4234,00,0,0
 
-    1700interval,bind
-    1700pattern0,4300,0,overlay,0,0
+animation1700.interval,bind
+animation1700.pattern0,overlay,4300,00,0,0
 
-    1701interval,bind
-    1701pattern0,4301,0,overlay,0,0
+animation1701.interval,bind
+animation1701.pattern0,overlay,4301,00,0,0
 
-    1702interval,bind
-    1702pattern0,4302,0,overlay,0,0
+animation1702.interval,bind
+animation1702.pattern0,overlay,4302,00,0,0
 
-    1703interval,bind
-    1703pattern0,4303,0,overlay,0,0
+animation1703.interval,bind
+animation1703.pattern0,overlay,4303,00,0,0
 
-    1704interval,bind
-    1704pattern0,4304,0,overlay,0,0
+animation1704.interval,bind
+animation1704.pattern0,overlay,4304,00,0,0
 
-    1705interval,bind
-    1705pattern0,4305,0,overlay,0,0
+animation1705.interval,bind
+animation1705.pattern0,overlay,4305,00,0,0
 
-    1706interval,bind
-    1706pattern0,4306,0,overlay,0,0
+animation1706.interval,bind
+animation1706.pattern0,overlay,4306,00,0,0
 
-    1707interval,bind
-    1707pattern0,4307,0,overlay,0,0
+animation1707.interval,bind
+animation1707.pattern0,overlay,4307,00,0,0
 
-    1708interval,bind
-    1708pattern0,4308,0,overlay,0,0
+animation1708.interval,bind
+animation1708.pattern0,overlay,4308,00,0,0
 
-    1709interval,bind
-    1709pattern0,4309,0,overlay,0,0
+animation1709.interval,bind
+animation1709.pattern0,overlay,4309,00,0,0
 
-    1710interval,bind
-    1710pattern0,4310,0,overlay,0,0
+animation1710.interval,bind
+animation1710.pattern0,overlay,4310,00,0,0
 
-    1711interval,bind
-    1711pattern0,4311,0,overlay,0,0
+animation1711.interval,bind
+animation1711.pattern0,overlay,4311,00,0,0
 
-    1712interval,bind
-    1712pattern0,4312,0,overlay,0,0
+animation1712.interval,bind
+animation1712.pattern0,overlay,4312,00,0,0
 
-    1713interval,bind
-    1713pattern0,4313,0,overlay,0,0
+animation1713.interval,bind
+animation1713.pattern0,overlay,4313,00,0,0
 
-    1714interval,bind
-    1714pattern0,4314,0,overlay,0,0
+animation1714.interval,bind
+animation1714.pattern0,overlay,4314,00,0,0
 
-    1715interval,bind
-    1715pattern0,4315,0,overlay,0,0
+animation1715.interval,bind
+animation1715.pattern0,overlay,4315,00,0,0
 
-    1716interval,bind
-    1716pattern0,4316,0,overlay,0,0
+animation1716.interval,bind
+animation1716.pattern0,overlay,4316,00,0,0
 
-    1717interval,bind
-    1717pattern0,4317,0,overlay,0,0
+animation1717.interval,bind
+animation1717.pattern0,overlay,4317,00,0,0
 
-    1718interval,bind
-    1718pattern0,4318,0,overlay,0,0
+animation1718.interval,bind
+animation1718.pattern0,overlay,4318,00,0,0
 
-    1719interval,bind
-    1719pattern0,4319,0,overlay,0,0
+animation1719.interval,bind
+animation1719.pattern0,overlay,4319,00,0,0
 
-    1720interval,bind
-    1720pattern0,4320,0,overlay,0,0
+animation1720.interval,bind
+animation1720.pattern0,overlay,4320,00,0,0
 
-    1721interval,bind
-    1721pattern0,4321,0,overlay,0,0
+animation1721.interval,bind
+animation1721.pattern0,overlay,4321,00,0,0
 
-    1722interval,bind
-    1722pattern0,4322,0,overlay,0,0
+animation1722.interval,bind
+animation1722.pattern0,overlay,4322,00,0,0
 
-    1723interval,bind
-    1723pattern0,4323,0,overlay,0,0
+animation1723.interval,bind
+animation1723.pattern0,overlay,4323,00,0,0
 
-    1724interval,bind
-    1724pattern0,4324,0,overlay,0,0
+animation1724.interval,bind
+animation1724.pattern0,overlay,4324,00,0,0
 
-    1725interval,bind
-    1725pattern0,4325,0,overlay,0,0
+animation1725.interval,bind
+animation1725.pattern0,overlay,4325,00,0,0
 
-    1726interval,bind
-    1726pattern0,4326,0,overlay,0,0
+animation1726.interval,bind
+animation1726.pattern0,overlay,4326,00,0,0
 
-    1727interval,bind
-    1727pattern0,4327,0,overlay,0,0
+animation1727.interval,bind
+animation1727.pattern0,overlay,4327,00,0,0
 
-    1728interval,bind
-    1728pattern0,4328,0,overlay,0,0
+animation1728.interval,bind
+animation1728.pattern0,overlay,4328,00,0,0
 
-    1729interval,bind
-    1729pattern0,4329,0,overlay,0,0
+animation1729.interval,bind
+animation1729.pattern0,overlay,4329,00,0,0
 
-    1730interval,bind
-    1730pattern0,4330,0,overlay,0,0
+animation1730.interval,bind
+animation1730.pattern0,overlay,4330,00,0,0
 
-    1731interval,bind
-    1731pattern0,4331,0,overlay,0,0
+animation1731.interval,bind
+animation1731.pattern0,overlay,4331,00,0,0
 
-    1732interval,bind
-    1732pattern0,4332,0,overlay,0,0
+animation1732.interval,bind
+animation1732.pattern0,overlay,4332,00,0,0
 
-    1733interval,bind
-    1733pattern0,4333,0,overlay,0,0
+animation1733.interval,bind
+animation1733.pattern0,overlay,4333,00,0,0
 
-    1734interval,bind
-    1734pattern0,4334,0,overlay,0,0
+animation1734.interval,bind
+animation1734.pattern0,overlay,4334,00,0,0
 
-    1750interval,bind
-    1750pattern0,4400,0,overlay,0,0
+animation1750.interval,bind
+animation1750.pattern0,overlay,4400,00,0,0
 
-    1751interval,bind
-    1751pattern0,4401,0,overlay,0,0
+animation1751.interval,bind
+animation1751.pattern0,overlay,4401,00,0,0
 
-    1752interval,bind
-    1752pattern0,4402,0,overlay,0,0
+animation1752.interval,bind
+animation1752.pattern0,overlay,4402,00,0,0
 
-    1753interval,bind
-    1753pattern0,4403,0,overlay,0,0
+animation1753.interval,bind
+animation1753.pattern0,overlay,4403,00,0,0
 
-    1754interval,bind
-    1754pattern0,4404,0,overlay,0,0
+animation1754.interval,bind
+animation1754.pattern0,overlay,4404,00,0,0
 
-    1755interval,bind
-    1755pattern0,4405,0,overlay,0,0
+animation1755.interval,bind
+animation1755.pattern0,overlay,4405,00,0,0
 
-    1756interval,bind
-    1756pattern0,4406,0,overlay,0,0
+animation1756.interval,bind
+animation1756.pattern0,overlay,4406,00,0,0
 
-    1757interval,bind
-    1757pattern0,4407,0,overlay,0,0
+animation1757.interval,bind
+animation1757.pattern0,overlay,4407,00,0,0
 
-    1758interval,bind
-    1758pattern0,4408,0,overlay,0,0
+animation1758.interval,bind
+animation1758.pattern0,overlay,4408,00,0,0
 
-    1759interval,bind
-    1759pattern0,4409,0,overlay,0,0
+animation1759.interval,bind
+animation1759.pattern0,overlay,4409,00,0,0
 
-    1760interval,bind
-    1760pattern0,4410,0,overlay,0,0
+animation1760.interval,bind
+animation1760.pattern0,overlay,4410,00,0,0
 
-    1761interval,bind
-    1761pattern0,4411,0,overlay,0,0
+animation1761.interval,bind
+animation1761.pattern0,overlay,4411,00,0,0
 
-    1762interval,bind
-    1762pattern0,4412,0,overlay,0,0
+animation1762.interval,bind
+animation1762.pattern0,overlay,4412,00,0,0
 
-    1763interval,bind
-    1763pattern0,4413,0,overlay,0,0
+animation1763.interval,bind
+animation1763.pattern0,overlay,4413,00,0,0
 
-    1764interval,bind
-    1764pattern0,4414,0,overlay,0,0
+animation1764.interval,bind
+animation1764.pattern0,overlay,4414,00,0,0
 
-    1765interval,bind
-    1765pattern0,4415,0,overlay,0,0
+animation1765.interval,bind
+animation1765.pattern0,overlay,4415,00,0,0
 
-    1766interval,bind
-    1766pattern0,4416,0,overlay,0,0
+animation1766.interval,bind
+animation1766.pattern0,overlay,4416,00,0,0
 
-    1767interval,bind
-    1767pattern0,4417,0,overlay,0,0
+animation1767.interval,bind
+animation1767.pattern0,overlay,4417,00,0,0
 
-    1768interval,bind
-    1768pattern0,4418,0,overlay,0,0
+animation1768.interval,bind
+animation1768.pattern0,overlay,4418,00,0,0
 
-    1769interval,bind
-    1769pattern0,4419,0,overlay,0,0
+animation1769.interval,bind
+animation1769.pattern0,overlay,4419,00,0,0
 
-    1770interval,bind
-    1770pattern0,4420,0,overlay,0,0
+animation1770.interval,bind
+animation1770.pattern0,overlay,4420,00,0,0
 
-    1771interval,bind
-    1771pattern0,4421,0,overlay,0,0
+animation1771.interval,bind
+animation1771.pattern0,overlay,4421,00,0,0
 
-    1772interval,bind
-    1772pattern0,4422,0,overlay,0,0
+animation1772.interval,bind
+animation1772.pattern0,overlay,4422,00,0,0
 
-    1773interval,bind
-    1773pattern0,4423,0,overlay,0,0
+animation1773.interval,bind
+animation1773.pattern0,overlay,4423,00,0,0
 
-    1774interval,bind
-    1774pattern0,4424,0,overlay,0,0
+animation1774.interval,bind
+animation1774.pattern0,overlay,4424,00,0,0
 
-    1775interval,bind
-    1775pattern0,4425,0,overlay,0,0
+animation1775.interval,bind
+animation1775.pattern0,overlay,4425,00,0,0
 
-    1776interval,bind
-    1776pattern0,4426,0,overlay,0,0
+animation1776.interval,bind
+animation1776.pattern0,overlay,4426,00,0,0
 
-    1777interval,bind
-    1777pattern0,4427,0,overlay,0,0
+animation1777.interval,bind
+animation1777.pattern0,overlay,4427,00,0,0
 
-    1778interval,bind
-    1778pattern0,4428,0,overlay,0,0
+animation1778.interval,bind
+animation1778.pattern0,overlay,4428,00,0,0
 
-    1779interval,bind
-    1779pattern0,4429,0,overlay,0,0
+animation1779.interval,bind
+animation1779.pattern0,overlay,4429,00,0,0
 
-    1780interval,bind
-    1780pattern0,4430,0,overlay,0,0
+animation1780.interval,bind
+animation1780.pattern0,overlay,4430,00,0,0
 
-    1781interval,bind
-    1781pattern0,4431,0,overlay,0,0
+animation1781.interval,bind
+animation1781.pattern0,overlay,4431,00,0,0
 
-    1782interval,bind
-    1782pattern0,4432,0,overlay,0,0
+animation1782.interval,bind
+animation1782.pattern0,overlay,4432,00,0,0
 
-    1783interval,bind
-    1783pattern0,4433,0,overlay,0,0
+animation1783.interval,bind
+animation1783.pattern0,overlay,4433,00,0,0
 
-    1784interval,bind
-    1784pattern0,4434,0,overlay,0,0
+animation1784.interval,bind
+animation1784.pattern0,overlay,4434,00,0,0
 
-    1800interval,bind
-    1800pattern0,4000,0,overlay,0,0
+animation1800.interval,bind
+animation1800.pattern0,overlay,4000,00,0,0
 
-    1801interval,bind
-    1801pattern0,4001,0,overlay,0,0
+animation1801.interval,bind
+animation1801.pattern0,overlay,4001,00,0,0
 
-    1802interval,bind
-    1802pattern0,4002,0,overlay,0,0
+animation1802.interval,bind
+animation1802.pattern0,overlay,4002,00,0,0
 
-    1803interval,bind
-    1803pattern0,4003,0,overlay,0,0
+animation1803.interval,bind
+animation1803.pattern0,overlay,4003,00,0,0
 
-    1804interval,bind
-    1804pattern0,4004,0,overlay,0,0
+animation1804.interval,bind
+animation1804.pattern0,overlay,4004,00,0,0
 
-    1805interval,bind
-    1805pattern0,4005,0,overlay,0,0
+animation1805.interval,bind
+animation1805.pattern0,overlay,4005,00,0,0
 
-    1806interval,bind
-    1806pattern0,4006,0,overlay,0,0
+animation1806.interval,bind
+animation1806.pattern0,overlay,4006,00,0,0
 
-    1807interval,bind
-    1807pattern0,4007,0,overlay,0,0
+animation1807.interval,bind
+animation1807.pattern0,overlay,4007,00,0,0
 
-    1808interval,bind
-    1808pattern0,4008,0,overlay,0,0
+animation1808.interval,bind
+animation1808.pattern0,overlay,4008,00,0,0
 
-    1809interval,bind
-    1809pattern0,4009,0,overlay,0,0
+animation1809.interval,bind
+animation1809.pattern0,overlay,4009,00,0,0
 
-    1810interval,bind
-    1810pattern0,4010,0,overlay,0,0
+animation1810.interval,bind
+animation1810.pattern0,overlay,4010,00,0,0
 
-    1811interval,bind
-    1811pattern0,4011,0,overlay,0,0
+animation1811.interval,bind
+animation1811.pattern0,overlay,4011,00,0,0
 
-    1812interval,bind
-    1812pattern0,4012,0,overlay,0,0
+animation1812.interval,bind
+animation1812.pattern0,overlay,4012,00,0,0
 
-    1813interval,bind
-    1813pattern0,4013,0,overlay,0,0
+animation1813.interval,bind
+animation1813.pattern0,overlay,4013,00,0,0
 
-    1814interval,bind
-    1814pattern0,4014,0,overlay,0,0
+animation1814.interval,bind
+animation1814.pattern0,overlay,4014,00,0,0
 
-    1815interval,bind
-    1815pattern0,4015,0,overlay,0,0
+animation1815.interval,bind
+animation1815.pattern0,overlay,4015,00,0,0
 
-    1816interval,bind
-    1816pattern0,4016,0,overlay,0,0
+animation1816.interval,bind
+animation1816.pattern0,overlay,4016,00,0,0
 
-    1817interval,bind
-    1817pattern0,4017,0,overlay,0,0
+animation1817.interval,bind
+animation1817.pattern0,overlay,4017,00,0,0
 
-    1818interval,bind
-    1818pattern0,4018,0,overlay,0,0
+animation1818.interval,bind
+animation1818.pattern0,overlay,4018,00,0,0
 
-    1819interval,bind
-    1819pattern0,4019,0,overlay,0,0
+animation1819.interval,bind
+animation1819.pattern0,overlay,4019,00,0,0
 
-    1820interval,bind
-    1820pattern0,4020,0,overlay,0,0
+animation1820.interval,bind
+animation1820.pattern0,overlay,4020,00,0,0
 
-    1821interval,bind
-    1821pattern0,4021,0,overlay,0,0
+animation1821.interval,bind
+animation1821.pattern0,overlay,4021,00,0,0
 
-    1822interval,bind
-    1822pattern0,4022,0,overlay,0,0
+animation1822.interval,bind
+animation1822.pattern0,overlay,4022,00,0,0
 
-    1823interval,bind
-    1823pattern0,4023,0,overlay,0,0
+animation1823.interval,bind
+animation1823.pattern0,overlay,4023,00,0,0
 
-    1824interval,bind
-    1824pattern0,4024,0,overlay,0,0
+animation1824.interval,bind
+animation1824.pattern0,overlay,4024,00,0,0
 
-    1825interval,bind
-    1825pattern0,4025,0,overlay,0,0
+animation1825.interval,bind
+animation1825.pattern0,overlay,4025,00,0,0
 
-    1826interval,bind
-    1826pattern0,4026,0,overlay,0,0
+animation1826.interval,bind
+animation1826.pattern0,overlay,4026,00,0,0
 
-    1827interval,bind
-    1827pattern0,4027,0,overlay,0,0
+animation1827.interval,bind
+animation1827.pattern0,overlay,4027,00,0,0
 
-    1828interval,bind
-    1828pattern0,4028,0,overlay,0,0
+animation1828.interval,bind
+animation1828.pattern0,overlay,4028,00,0,0
 
-    1829interval,bind
-    1829pattern0,4029,0,overlay,0,0
+animation1829.interval,bind
+animation1829.pattern0,overlay,4029,00,0,0
 
-    1830interval,bind
-    1830pattern0,4030,0,overlay,0,0
+animation1830.interval,bind
+animation1830.pattern0,overlay,4030,00,0,0
 
-    1831interval,bind
-    1831pattern0,4031,0,overlay,0,0
+animation1831.interval,bind
+animation1831.pattern0,overlay,4031,00,0,0
 
-    1832interval,bind
-    1832pattern0,4032,0,overlay,0,0
+animation1832.interval,bind
+animation1832.pattern0,overlay,4032,00,0,0
 
-    1833interval,bind
-    1833pattern0,4033,0,overlay,0,0
+animation1833.interval,bind
+animation1833.pattern0,overlay,4033,00,0,0
 
-    1834interval,bind
-    1834pattern0,4034,0,overlay,0,0
+animation1834.interval,bind
+animation1834.pattern0,overlay,4034,00,0,0
 
-    2000interval,bind
-    2000pattern0,7000,0,overlay,0,0
+animation2000.interval,bind
+animation2000.pattern0,overlay,7000,00,0,0
 
-    2001interval,bind
-    2001pattern0,7001,0,overlay,0,0
+animation2001.interval,bind
+animation2001.pattern0,overlay,7001,00,0,0
 
-    2002interval,bind
-    2002pattern0,7002,0,overlay,0,0
+animation2002.interval,bind
+animation2002.pattern0,overlay,7002,00,0,0
 
-    2003interval,bind
-    2003pattern0,7003,0,overlay,0,0
+animation2003.interval,bind
+animation2003.pattern0,overlay,7003,00,0,0
 
-    2004interval,bind
-    2004pattern0,7004,0,overlay,0,0
+animation2004.interval,bind
+animation2004.pattern0,overlay,7004,00,0,0
 
-    2005interval,bind
-    2005pattern0,7005,0,overlay,0,0
+animation2005.interval,bind
+animation2005.pattern0,overlay,7005,00,0,0
 
-    3000interval,bind
-    3000pattern0,5150,0,overlay,0,0
+animation3000.interval,bind
+animation3000.pattern0,overlay,5150,00,0,0
 }
 
 surface0
 {
-    9000interval,never
-    9000pattern0,9910,6,overlay,0,50
-    9000pattern1,9910,6,overlay,0,100
-    9000pattern2,9910,6,overlay,0,150
-    9000pattern3,-1,10,overlay,0,0
+animation9000.interval,never
+animation9000.pattern0,overlay,9910,60,0,50
+animation9000.pattern1,overlay,9910,60,0,100
+animation9000.pattern2,overlay,9910,60,0,150
+animation9000.pattern3,overlay,-1,100,0,0
 }
 
 surface1
 {
-    9000interval,always
-    9000pattern0,9900,6,overlay,0,0
+animation9000.interval,always
+animation9000.pattern0,overlay,9900,60,0,0
 
-    9001interval,always
-    9001pattern0,9902,15,overlay,0,0
-    9001pattern1,9903,15,overlay,0,0
-    9001pattern2,9904,15,overlay,0,0
-    9001pattern3,9905,15,overlay,0,0
-    9001pattern4,9906,15,overlay,0,0
-    9001pattern5,9905,15,overlay,0,0
-    9001pattern6,9904,15,overlay,0,0
-    9001pattern7,9903,15,overlay,0,0
-    9001pattern8,9902,15,overlay,0,0
+animation9001.interval,always
+animation9001.pattern0,overlay,9902,150,0,0
+animation9001.pattern1,overlay,9903,150,0,0
+animation9001.pattern2,overlay,9904,150,0,0
+animation9001.pattern3,overlay,9905,150,0,0
+animation9001.pattern4,overlay,9906,150,0,0
+animation9001.pattern5,overlay,9905,150,0,0
+animation9001.pattern6,overlay,9904,150,0,0
+animation9001.pattern7,overlay,9903,150,0,0
+animation9001.pattern8,overlay,9902,150,0,0
 }
 
 //--------------------------------------------------------------
@@ -2550,3 +2555,7 @@ char13.tooltips
 {
     a, Customize
 }
+
+
+
+

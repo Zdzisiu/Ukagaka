@@ -733,6 +733,12 @@ RespondingToDusty
 		--
 		"\e"
 	}
+	elseif "HiMD01" _in_ _ConvoTag //Dusty was minimized
+	{
+		res_reference0 = "Dusty"
+		--
+		"%(hihello) Dusty, nice to meet you\e HiMD02"
+	}
 	else
 	{
 		res_reference0 = ""

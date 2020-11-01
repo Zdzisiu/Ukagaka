@@ -924,7 +924,7 @@ OnReminders
 
 		for _i=0;_i<remindcount;_i++
 		{
-			remindpage += "\![*]\q[" + remindname[_i] + ",OnRemindClick," + _i + "]\n"
+			remindpage += "\![*]\q[" + remindname[_i] + ",OnRemindClick," + _i + "]\n" //a" 
 		}
 	}
 	--

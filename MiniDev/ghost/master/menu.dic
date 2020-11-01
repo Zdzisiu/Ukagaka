@@ -78,12 +78,15 @@ MenuRun
 	{
 		"\![*]\q[L̷̜̚o̶̭̾g̵̨̽s̶͇̅,log]\n"
 		--
-		if m201relationship >= 25
+		if meeting == 1
 		{
-			"\![*]\q[Play a game,gamez]\n"
+				if m201relationship >= 25
+			{
+				"\![*]\q[Play a game,gamez]\n"
+			}
+			--
+			"\![*]\q[Actions,act]\n"
 		}
-		--
-		"\![*]\q[Actions,act]\n"
 	}
 	--
 	"\n[half]\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(timeformat), %(dateformat)" 

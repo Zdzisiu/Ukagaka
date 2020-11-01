@@ -1,4 +1,0 @@
-charset,UTF-8
-type,balloon
-name,Old Paper
-directory,old_paper

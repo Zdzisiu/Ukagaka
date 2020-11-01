@@ -1,0 +1,133 @@
+﻿AiTalk
+{
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+}
+
+RandomTalk : nonoverlap
+{
+	"..."
+}
+
+/*
+OnMinuteChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds. 
+*/
+
+OnMinuteChange
+{
+	timeslot = GetTimeSlot 
+	--
+ 	if minute == 0 
+	{
+ 		
+	}
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+}
+
+/*
+OnSecondChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds
+*/
+
+OnSecondChange
+{
+	if passsec == 60
+ 		{
+	 	passsec = 1
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+	if mikireflag == 1 && reference1 == 0
+		{
+			EndMikireTalk
+ 		}
+		mikireflag = reference1
+	if reference2 == 1
+	{
+
+	}
+}
+
+MikireTalk
+{
+	"\0\s[0]Push Ctrl-Shift-F12 to bring me back."
+}
+
+EndMikireTalk
+{
+	"\0\s[0]...\e"
+}
+
+/*
+OnSurfaceRestore
+-----
+Reference0: The current surface of the body.
+Reference1: Current surface on the other side. 
+*/
+
+OnSurfaceRestore
+{
+	"\0\s[0]\1\s[10]\e"
+}
+
+/*
+OnKeyPress
+-----
+Reference0: The key entered. (Letter written on key top)
+Reference1: The key entered. (Win32 virtual key code)
+Reference2: *SSP only Counts the key pressed.
+Reference3: *SSP only Character window ID where the key event came.
+Reference4: *SSP only Modifier keys are listed separated by commas. Example: "ctrl,alt" 
+*/
+
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+		OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+		OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+		"\![open,readme]"
+	}
+}

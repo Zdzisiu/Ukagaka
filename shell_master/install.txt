@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,Shell Master
+directory,shell_master
+
+balloon.directory,z_simple

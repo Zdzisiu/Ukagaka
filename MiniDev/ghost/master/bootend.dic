@@ -86,7 +86,7 @@ OnMood
 	--
 	for _i=0;_i<moodsize;_i++ // set moods to random numbers
 	{
-		ranmood = RAND(moodsize)//get a random mood
+		ranmood = RAND(moodsize) //get a random mood
 		--
 		if mood[ranmood] == 0 // set the random mood to the number
 		{
@@ -675,7 +675,7 @@ OnToolCheck //adding stuff after updates
 {
 	if vers == ""
 	{
-		vers = "1.0.0"
+		vers = "1.0.2"
 		--
 		quest = 0
 		//Name,color
@@ -984,7 +984,7 @@ OnOtherGhostClosed
 
 OnUpdateVariables
 {
-
+	vers = "1.0.2"
 }
 
 OnTest
