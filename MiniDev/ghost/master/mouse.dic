@@ -36,21 +36,18 @@ MouseMoveSakura
 			}
 			elseif reference4 == "Head" 
 			{
-				if (tentruth == 1 && meeting == 1 || petmz != 1 || petmz != 2) && m201relationship > 100
+				if tentruth == 1 && meeting == 1 && petmz != 1 && petmz != 2 && m201relationship > 100 //Choice to pet MD or M-201z
 				{
-					if petmz != 1 || petmz != 2
+					if repairglitch != 1
 					{
-						if repairglitch != 1
-						{
-							"W̸h̵a̴t̷ ̷a̸r̸e̶ ̴y̴o̸u̵ ̵d̵o̶i̵n̴g̷?̷\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
-						}
-						else
-						{
-							"%(distingstart)What are you doing?\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
-						}
+						"W̸h̵a̴t̷ ̷a̸r̸e̶ ̴y̴o̸u̵ ̵d̵o̶i̵n̴g̷?̷\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
+					}
+					else
+					{
+						"%(distingstart)What are you doing?\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
 					}
 				}
-				elseif tentruth == 1 && meeting == 1 || petmz == 1
+				elseif tentruth == 1 && meeting == 1 || petmz == 1 //petting M-201z
 				{
 					if repairglitch != 1
 					{
@@ -89,7 +86,7 @@ MouseMoveSakura
 					--
 					m201relationship++
 				}
-				else
+				else //petting MD
 				{ 
 					if nice == "ON"
 					{
@@ -137,11 +134,11 @@ Select.petm201z
 	--
 	if repairglitch != 1
 	{
-		"O̴H̸!̵ ̷w̴e̸l̷l̸ ̸I̸ ̵c̸a̴n̴'̴t̶ ̵f̵e̵e̴l̵ ̶i̸t̴ ̶b̸u̸t̴ ̵d̶o̸n̷'̴t̸ ̸l̸e̴t̷ ̵t̵h̶a̵t̵ ̵s̵t̵o̴p̶ ̷y̶o̴u̵ ^^'"
+		"O̴h, ̷w̴e̸l̷l̸ ̸I̸ ̵c̸a̴n̴'̴t̶ ̵f̵e̵e̴l̵ ̶i̸t̴ ̶b̸u̸t̴ ̵d̶o̸n̷'̴t̸ ̸l̸e̴t̷ ̵t̵h̶a̵t̵ ̵s̵t̵o̴p̶ ̷y̶o̴u̵ ^^'"
 	}
 	else
 	{
-		"%(distingstart)OH! well I can't feel it but don't let that stop you ^^'"
+		"%(distingstart)Oh, well I can't feel it but don't let that stop you ^^'"
 	}
 }
 
@@ -199,7 +196,7 @@ OnMouseClick
 {
 	if reference3 == 3
 	{
-		if reference4 == "a"
+		if reference4 == "a" 
 		{
 			Select.LOG
 		}

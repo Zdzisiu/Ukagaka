@@ -1,4 +1,4 @@
-﻿charset,UTF-8
+charset,UTF-8
 
 seriko.alignmenttodesktop,free
 
@@ -23,3 +23,9 @@ icon.minimize,minidev.ico
 
 //\![01110010 01100001 01101001 01110011 01100101,01001111 01101110 01000001 01001001]
 //\![raise,OnFromMorseCheck]
+
+
+
+
+
+

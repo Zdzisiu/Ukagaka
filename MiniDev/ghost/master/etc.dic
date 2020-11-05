@@ -126,7 +126,7 @@ OnInstallComplete
  	{
 		installed = reference1
 		--
-		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should i call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall]."
+		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should I call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall]."
 		--
 		if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
 		{
@@ -678,3 +678,42 @@ OnDeviceArrival
 		}
 	}
 }
+
+//Weather Checking -------------------------------------------------------
+//following functions can go in menu dic, or a seperate dic entirely
+//functions for scraping weather.com for weather data.
+//author: vita @yuyudev on twitter
+//referenced zarla's hunter and smoker ghost, and https://forum.rainmeter.net/viewtopic.php?t=34470
+//
+//please add the following variables to your bootend dic in the function OnFirstBoot
+//curlocation = ""
+//locationcode = ""
+//these two I also added to OnBoot
+//intalkconfig = 0
+//weatherquiet = 0
+
+//regex updating
+OnDownloadRegex {
+    "\0\s[0]Updating weather code...\w4\![execute,http-get,https://vtodd15.github.io/weatherregex.txt,--async=OnUpdateRegex,--timeout=200]"
+}
+OnUpdateRegex {
+    //clean out old regex
+    regex = IARRAY
+    _buff = ""
+    _file = "var\\weatherregex.txt"
+    FCHARSET(1)
+    _i = 0
+    if FOPEN(_file,'r') {  
+        for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {        
+            regex[_i] = _buff
+            _i++        
+        }    
+    }    
+    FCLOSE(_file);    
+    "Done!\x"    
+    --   
+    OnCheckWeather        
+}
+
+//starting the weather checking
+

@@ -45,15 +45,14 @@ ReplyToGhost
 //\![raise,OnClothesCheck]
 //Aurora dress 1 pl dark blue, and shoes pl dark blue ||
 //Azura : Shirt #1 or #2 or #6 d dark blue, pants long pl dark blue, Hoodies Open b dark blue
+//Function running check if MD is wearing certain clothes
 ClothesCheck
 {
 	if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && aurora != 1
 	{
 		res_reference0 = "Aurora.EXE"
 		--
-		outfitaurora = 1
-		--
-		"\e MiniDevOuftit,%(outfitaurora)"
+		"\e MiniDevOuftit,1"
 	}
 	elseif "hoodie,p1 red,,1" _in_ "%(dresslog)" && "shirt,d1 purple,,1"_in_ "%(dresslog)" && "pants,p1 black,,1"_in_ "%(dresslog)" && "shoes,p gray,,1"_in_ "%(dresslog)" && outfitS != 1
 	{
@@ -61,18 +60,17 @@ ClothesCheck
 		--
 		res_reference0 = "RYS-0825"
 		--
-		"\eGetMiniDevStats02,%(outfitS)"
+		"\eGetMiniDevStats02,1"
 	}
 	elseif ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,pl1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)" && azura != 1
 	{
-		outfitazura = 1
-		--
 		res_reference0 = "Azura"
 		--
-		"\MiniDevOuftit,%(outfitazura)"
+		"\MiniDevOuftit,1"
 	}
 }
 
+//Sends the whole dress log to another ghost
 SendClothes
 {
 	res_reference0 = reference0
@@ -80,16 +78,10 @@ SendClothes
 	"\e SendClothes1,%(dresslog)"
 }
 
-OnGhostCheck
-{
-	res_reference0 = "Aurora.EXE"
-	--
-	"Hi aurora"
-}
-
 //\![bind,hoodie,p1 red,1]\![bind,shirt,d1 purple,1]\![bind,pants,p1 black,1]\![bind,shoes,p gray,1]
 //\![raise,OnCheck]
 // %(dresslog)
+//Test Function
 OnCheck
 {
 	if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && aurora != 1
@@ -322,21 +314,12 @@ OnGhostCallComplete
 				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
 			}
 		}
-		elseif reference0 == "Dusty"
-		{ 
-			
-		}
 		else
 		{
 			"%(hihello), %(reference0). \w8Hope you're doing well.\e"
 			"%(hihello), %(reference0).\e"
 		}
 	}
-}
-
-OnOtherGhostTalk
-{
-
 }
 
 OnOtherGhostBooted
@@ -622,6 +605,7 @@ RespondingToAzura
 	}
 }
 /*
+Code for otheres if they want to add a specific check of clothes
 ReplyToGhost
 {
 	if reference0 == "MiniDev"
@@ -646,7 +630,7 @@ RespondingToMiniDev
 }
 */
 
-RespondingToDusty
+RespondingToDusty //convos with Dusty
 {
 	_speech = SPLIT(reference1,"\e")[0]
 	_ConvoTag = SPLIT(reference1,"\e")[1]

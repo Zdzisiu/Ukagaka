@@ -12,20 +12,6 @@
 	MenuRun
 }
 
-OnBACKTOMENU
-{
-	if tentruth == 1
-	{
-		"\n\_q\b4"
-	}
-	else
-	{
-		"\n\_q\b2"	
-	}
-	--
-	MenuRun
-}
-
 MenuRun
 {	
  	wd = GetWeekDay
@@ -111,10 +97,9 @@ MenuRun
 	"\n\n[half]\f[height,10]Version: %(vers)\f[default]"
 	--
 	"\e"
-	//
 }
 
-OnCelc
+OnCelc //F to C conversion
 {
 	celc = (currentweatherarray[0] - 32)
 	celc = celc * (5.0/9.0)
@@ -152,7 +137,7 @@ timeformat
 	{
 		"%(nowhour):%(nowmin) %(ap)"
 	}
-	elseif timeformatype == "MILITARY" // & miltype == "1"
+	elseif timeformatype == "MILITARY"
 	{
 		"%(hour):%(nowmin)"
 	}
@@ -252,41 +237,29 @@ OnCheckWeather
     
     }
     --
-    "\![*]\q[Main menu,OnBACKTOMENU]\e"
-
-
+    "\![*]\q[Main menu,BACKTOMENU]\e"
 }
     
 OnWeatherLocation
 {
-
-
     "\0First, I need to know where you are. Are you in the USA or not?\n\n"
 
 
     --
     "\![*]\q[USA,OnUSALoc]\n/
     \![*]\q[Outside the USA,OnOtherLoc]\n\e"
-
-
-
-
 }
 
 
-OnUSALoc{
-
-
+OnUSALoc
+{
     "\0Alright! Just let me know your zipcode!\![open,inputbox,OnLocCode,-1]"
 }
 
 
-OnOtherLoc{
-
-
+OnOtherLoc
+{
     "\0This gets a little more complicated. Please go to weather.com, search your city, and give me the long series of letters and numbers at the end of the URL.\![open,inputbox,OnLocCode,-1]"
-
-
 }
 
 
@@ -307,7 +280,6 @@ OnDownloadCurWeather
 
 OnCurWeatherFound
 {
-    
     //initialize variables
     _file = "var\\weather.html"
     _buff=""
@@ -515,7 +487,7 @@ OnCurWeatherFound
 		"\n\n[half]Back to...\n\n[half]"
 		--
 		"\![*]\q[Weather menu,OnCheckWeather]\n/
-		\![*]\q[Main menu,OnBACKTOMENU]\e"
+		\![*]\q[Main menu,BACKTOMENU]\e"
 	}
 
 
@@ -815,7 +787,7 @@ OnForecastFound
     "\n\n[half]Back to...\n\n[half]"
     --
     "\![*]\q[Weather menu,OnCheckWeather]\n/
-    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+    \![*]\q[Main menu,BACKTOMENU]\x\e"
     
 
 
@@ -1086,7 +1058,7 @@ _reghour='<h2 data-testid="daypartName" class="[\d|\w|_|-]*">(\d* [p|a]m)</h[\d]
     --
     "\![*]\q[Weather menu,OnCheckWeather]\n/
     
-    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+    \![*]\q[Main menu,BACKTOMENU]\x\e"
     
 
 
@@ -1152,14 +1124,14 @@ OnMoonFound{
     --
     "\![*]\q[Weather menu,OnCheckWeather]\n/
     
-    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+    \![*]\q[Main menu,BACKTOMENU]\x\e"
 
 
 }
 
 
 
-Select.req
+Select.req //recommendations
 {
 	
 	"\b2What would you want?\n\n[half]\_q"
@@ -1381,92 +1353,38 @@ Select.mangar
 
 Select.mobier
 {
-	MovieLib
-	--
-	num = RAND(100)
-	--
-	"\b4\_q%(movie[num][0])\n/
-	-%(movie[num][1])\n\n[half]"
-	--
-	for _i=2;_i<100;_i++
-	{
-		desc += movie[num][_i]
-	}
-	--
-	"%(desc)"
-	--
-	"\n\n\![*]\q[Again,mobier] or \![*]\q[cancel,CANCEL]\e"
-	desc = ""
+
 }
 
 Select.cartoonr
 {
-	CartoonLib
-	--
-	num = RAND(100)
-	--
-	"\b4\_q%(cartoon[num][0])\n/
-	-%(cartoon[num][1])\n\n[half]"
-	--
-	for _i=2;_i<100;_i++
-	{
-		desc += cartoon[num][_i]
-	}
-	--
-	"%(desc)"
-	--
-	"\n\n\![*]\q[Again,cartoonr] or \![*]\q[cancel,CANCEL]\e"
-	desc = ""
+
 }
 
 Select.serialr
 {
-	SerialLib
-	--
-	num = RAND(100)
-	--
-	"\b4\_q%(serial[num][0])\n/
-	-%(serial[num][1])\n\n[half]"
-	--
-	for _i=2;_i<100;_i++
-	{
-		desc += serial[num][_i]
-	}
-	--
-	"%(desc)"
-	--
-	"\n\n\![*]\q[Again,serialr] or \![*]\q[cancel,CANCEL]\e"
-	desc = ""
+
 }
 
 
 Select.gboot
 {
-	
 	glitchboot = 100
 	"REBOOT\w8\s[-1]\c\w8\w8\w8\w8\s[0]REBOOT COMPETE"
 }
 
 Select.log
 {
-	
 	logpage = 1
 	"SEARCHING FOR LOGS\w8\w8\w8\w8\w8\w8\cLOGS:\n%(logdisplay)"
 }
 
 Select.rebot
 {
-	
 	if tentruth == 1
 	{
 		"REBOOT\w8\s[-1]\c\w8\w8\w8\w8\s[0]REBOOT COMPETE"
 		tentruth = 2
-		username = truename
-		userbirthday = truebirth 
-		presuffix = truepresuffix
-		himher = truehimher
-		heshe = trueheshe
-		hisher = truehisher
 	}
 	elseif tentruth == 2
 	{
@@ -2092,6 +2010,15 @@ Getnowhour
 
 Select.BACKTOMENU
 {
+	if tentruth == 1
+	{
+		"\n\_q\b4"
+	}
+	else
+	{
+		"\n\_q\b2"	
+	}
+	--
 	MenuRun
 }
 
@@ -2120,10 +2047,10 @@ Select.dosomething
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
-Select.todo2
+Select.todotwooo
 {
 	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
-
+	//Gotta revise this shit
 	"\_q\1\b[4]"
 	--
 	taskforpage = ''
@@ -2139,49 +2066,49 @@ Select.todo2
 	--
 	"\*\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]"
 	"Number of Tasks: \f[bold,1]%(taskamount[pagenum])\f[bold,0]\nTasks to do: %(lefttask[pagenum])\n\n[half]"
+	--
+	for _i=1;_i<=taskamount[pagenum];_i++
+	{
+		taskstatus = SPLIT(todostatus[_i],".")
 		--
-		for _i=1;_i<=taskamount[pagenum];_i++
+		if taskstatus[_i] == 1
 		{
-			taskstatus = SPLIT(todostatus[_i],".")
-			--
-			if taskstatus[_i] == 1
-			{
-				taskforpage +=  _i + ". " + todos[_i] + "\n"
-			}
-			else
-			{
-				taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
-			}
-			--
-			if todostatus[_i] == 1
-			{
-				taskforpage +=  _i + ". " + todos[_i] + "\n"
-			}
-			else
-			{
-				taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
-			}
-		}
-		--
-		"%(taskforpage)"
-		--
-		"\n\f[height,20]\q[+,qcrtsk] | "
-		--
-		if deltasks != 1
-		{
-			"\q[-,crtsk]\n"
+			taskforpage +=  _i + ". " + todos[_i] + "\n"
 		}
 		else
 		{
-			"\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
+			taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
 		}
-		
 		--
-		"\f[height,10]\q[Clear page,delpage]  | \q[Rename Page,repage] | \q[Delete,deltask]\n\n[half]/
-		\![*]\q[Close,closetodo]\f[height,default]\e"
+		if todostatus[_i] == 1
+		{
+			taskforpage +=  _i + ". " + todos[_i] + "\n"
+		}
+		else
+		{
+			taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
+		}
+	}
+	--
+	"%(taskforpage)"
+	--
+	"\n\f[height,20]\q[+,qcrtsk] | "
+	--
+	if deltasks != 1
+	{
+		"\q[-,crtsk]\n"
+	}
+	else
+	{
+		"\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
+	}
+	
+	--
+	"\f[height,10]\q[Clear page,delpage]  | \q[Rename Page,repage] | \q[Delete,deltask]\n\n[half]/
+	\![*]\q[Close,closetodo]\f[height,default]\e"
 }
 
-Select.todo //old todo list
+Select.todo 
 {
 	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
 
@@ -2723,7 +2650,7 @@ OnProject_del
 
 OnProject_ADD
 {
-		"\![open,inputbox,OnProject_ADDED,-1]"
+	"\![open,inputbox,OnProject_ADDED,-1]"
 }
 
 OnProject_ADDED

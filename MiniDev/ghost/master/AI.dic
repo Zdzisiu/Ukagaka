@@ -170,7 +170,7 @@ ProcessSayed
 ProcessSayedNext
 {
     
-    if m201z != 1 && logque != 1 &&  tentruth == 0
+    if m201z != 1 && logque != 1 && tentruth != 1
     {
         truth++
         --
@@ -179,18 +179,15 @@ ProcessSayedNext
             "I'm good, how about you?"
             "I'm g̸̦͠o̸͓̚o̴̠͆d̸̩͠, how about you?"
             "I'm n̵͙͒ő̷̧t̷̥̉ ̶͓̈g̶͉̐o̶̠͝o̷̫͗d̶̏͜, how about you?"
-            ""
         }
-        elseif "i'm" _in_ sayed && "not" _in_ sayed && "feeling" _in_ sayed &&"good" _in_ sayed //I'm not feeling good
+        elseif "i'm" _in_ sayed && "not" _in_ sayed && "feeling" _in_ sayed && "good" _in_ sayed //I'm not feeling good
         {
             "Oh no, are you okay?"
             "That's g̶͇̓o̸̘͝ọ̷̄d̵̞͗."
-            ""
         }
         elseif "what" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed //What are you?
         {
             "I'm your M-P: Assistant Softwere"
-            ""
         }
         elseif "who" _in_ sayed && "are" _in_ sayed  && "you" _in_ sayed && "?"  _in_ sayed //who are you?
         {
@@ -198,7 +195,6 @@ ProcessSayedNext
             "My serial number is M-165P and I am A.R.I software"
             "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am A.R.I r̸̡̊o̶̟͝b̷̳̎õ̶͚ṱ̷͛"
             "My serial number is M̶̭̈-̴͇̑2̸̮́0̴̣͘1̴̱͆z̸͖̃ and I am s̷̡̓t̶̗̊ĭ̷̮l̶̛̲l̸̼̿ ̷̢͗ā̷͙l̴̬͗ȉ̴̻v̵̥̉e̸͚͛"
-            ""
         }
         else
         {
@@ -263,7 +259,7 @@ ProcessSayedNext
             }
             elseif "what" _in_ question 
             {
-                if "happend" _in_ sayed //What happend to M-201?
+                if "happend" _in_ sayed //What happend to M-201z?
                 {
                     if repairglitch != 1
 					{
@@ -427,7 +423,7 @@ ProcessSayedNext
                 }
                  else
                 {
-                   "%(distingstart)They tried protecting their secrets\x\cThey don't want anyone to know what happened with generation M-z"
+                   "%(distingstart)They tried protecting their secrets\x\c%(distingstart)They don't want anyone to know what happened with generation M-z"
                 }
             }
         }

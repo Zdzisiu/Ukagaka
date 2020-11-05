@@ -1,4 +1,4 @@
-﻿charset, UTF-8
+charset, UTF-8
 charset.dic, UTF-8
 charset.output, UTF-8
 charset.file, UTF-8
@@ -27,6 +27,8 @@ dic, AI.dic
 dic, clothes.dic
 dic, config.dic
 
-ignoreiolog, ID: OnAnchor
+ignoreiolog, ID,OnAnchor
 
 //log, ayame.log	
+
+

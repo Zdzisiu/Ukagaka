@@ -84,18 +84,11 @@ OnMood
 		}
 	}
 	--
-	for _i=0;_i<moodsize;_i++ // set moods to random numbers
+	for _i=0;_i<moodsize*2;_i++
 	{
-		ranmood = RAND(moodsize) //get a random mood
+		ranmood = RAND(moodsize)
 		--
-		if mood[ranmood] == 0 // set the random mood to the number
-		{
-			mood[ranmood] = RAND(10)
-		}
-		else // add to the random mood the number
-		{
-			mood[ranmood] += RAND(5)
-		}
+		mood[ranmood] += RAND(10)
 	}
 	--
 	if m201relationship < 100

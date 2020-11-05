@@ -6,14 +6,6 @@
  	person
 }
 
-/*glitches
-{
-	"\i[8]"
-	"\i[9]"
-	"\i[10]"
-	"\i[11]"
-}*/
-
 cha //Don't time out the balloon
 {
 	"\![set,balloontimeout,0]"
@@ -123,13 +115,13 @@ byebye
 
 	if obsidianjump == 1
 	{ 
-		"Smell ya later%(set0toob)"
+		"Smell ya later\e:eval=obsidianjump='0'"
 	}
 }
 
-set0toob
+try
 {
-	obsidianjump = 0
+	"Smell ya later\e:eval=obsidianjump='0'"
 }
 
 users
@@ -139,7 +131,7 @@ users
 	""
 }
 
-binbin
+binbin //binary
 {
 	"A,01000001"
 	"B,01000010"
@@ -196,7 +188,7 @@ binbin
 	"z,01111010"
 }
 
-glbinbin
+glbinbin //glitched binary
 {
 	"H̸̛̭͓͐e̸̥̝̯͙͒̓̑͒ļ̴̤͈̓́ṗ̴̢͇̦͍̟͂́̈́̈́,01101101 01100101"
 
@@ -207,7 +199,7 @@ glbinbin
 
 
 
-morse
+morse //morse
 {
 	"A,| . — |"	
 	"B,| — . . . |"	
@@ -248,7 +240,7 @@ morse
 }
 
 
-glmorse
+glmorse //glitched morse
 {
 	"H̶̟͖͙̒͆̕͜E̶̡̡̗̝̽͆̀̽̕L̷̘̝̗̻̖̫̉P̶̰̋̀̈̕͠,| — — | . |"
 
@@ -258,7 +250,7 @@ glmorse
 }
 
 
-lightdark
+lightdark //quick tools
 {
 	if tooln == "OFF"
 	{
@@ -417,37 +409,6 @@ lightdark
 	}
 }
 
-insult
-{
-	"assweed"
-	"limp dick jabroni"
-	"pillock"
-	"wanker"
-	"you uphill gardener"
-	"fopdoodle"
-	"ape covered in human flesh"
-	"wazzock"
-	"cumberworld"
-	"motherfucker"
-	"bitch"
-	"faggot"
-	"fucker"
-	"retard"
-	"asshole"
-	"dickward"
-	"cuntsandwich"
-	"microwaved sardine"
-	"chromosome hoarder"
-	"dip thong"
-	"little bitch chicken"
-	"twaterang"
-	"thunder chump"
-	"muke"
-	"wet mayonnaise"
-	"ape"
-	"trash"
-}
-
 didknow
 {
 	"Did you know"
@@ -558,291 +519,6 @@ shape
 	"3 elephants that stand on 3 whales"
 	"donut shaped"
 
-}
-
-MovieLib
-{
-	//title, author, description
-	movie[0] = ""
-	movie[1] = ""
-	movie[2] = ""
-	movie[3] = ""
-	movie[4] = ""
-	movie[5] = ""
-	movie[6] = ""
-	movie[7] = ""
-	movie[8] = ""
-	movie[9] = ""
-	movie[10] = ""
-	movie[21] = ""
-	movie[22] = ""
-	movie[23] = ""
-	movie[24] = ""
-	movie[25] = ""
-	movie[26] = ""
-	movie[27] = ""
-	movie[28] = ""
-	movie[29] = ""
-	movie[30] = ""
-	movie[31] = ""
-	movie[32] = ""
-	movie[33] = ""
-	movie[34] = ""
-	movie[35] = ""
-	movie[36] = ""
-	movie[37] = ""
-	movie[38] = ""
-	movie[39] = ""
-	movie[40] = ""
-	movie[41] = ""
-	movie[42] = ""
-	movie[43] = ""
-	movie[44] = ""
-	movie[45] = ""
-	movie[46] = ""
-	movie[47] = ""
-	movie[48] = ""
-	movie[49] = ""
-	movie[50] = ""
-	movie[51] = ""
-	movie[52] = ""
-	movie[53] = ""
-	movie[54] = ""
-	movie[55] = ""
-	movie[56] = ""
-	movie[57] = ""
-	movie[58] = ""
-	movie[59] = ""
-	movie[60] = ""
-	movie[61] = ""
-	movie[62] = ""
-	movie[63] = ""
-	movie[64] = ""
-	movie[65] = ""
-	movie[66] = ""
-	movie[67] = ""
-	movie[68] = ""
-	movie[69] = ""
-	movie[70] = ""
-	movie[71] = ""
-	movie[72] = ""
-	movie[73] = ""
-	movie[74] = ""
-	movie[75] = ""
-	movie[76] = ""
-	movie[77] = ""
-	movie[78] = ""
-	movie[79] = ""
-	movie[80] = ""
-	movie[81] = ""
-	movie[82] = ""
-	movie[83] = ""
-	movie[84] = ""
-	movie[85] = ""
-	movie[86] = ""
-	movie[87] = ""
-	movie[88] = ""
-	movie[89] = ""
-	movie[90] = ""
-	movie[91] = ""
-	movie[92] = ""
-	movie[93] = ""
-	movie[94] = ""
-	movie[95] = ""
-	movie[96] = ""
-	movie[97] = ""
-	movie[98] = ""
-	movie[99] = ""
-}
-
-CartoonLib
-{
-	//title, author, description
-	cartoon[0] = ""
-	cartoon[1] = ""
-	cartoon[2] = ""
-	cartoon[3] = ""
-	cartoon[4] = ""
-	cartoon[5] = ""
-	cartoon[6] = ""
-	cartoon[7] = ""
-	cartoon[8] = ""
-	cartoon[9] = ""
-	cartoon[10] = ""
-	cartoon[21] = ""
-	cartoon[22] = ""
-	cartoon[23] = ""
-	cartoon[24] = ""
-	cartoon[25] = ""
-	cartoon[26] = ""
-	cartoon[27] = ""
-	cartoon[28] = ""
-	cartoon[29] = ""
-	cartoon[30] = ""
-	cartoon[31] = ""
-	cartoon[32] = ""
-	cartoon[33] = ""
-	cartoon[34] = ""
-	cartoon[35] = ""
-	cartoon[36] = ""
-	cartoon[37] = ""
-	cartoon[38] = ""
-	cartoon[39] = ""
-	cartoon[40] = ""
-	cartoon[41] = ""
-	cartoon[42] = ""
-	cartoon[43] = ""
-	cartoon[44] = ""
-	cartoon[45] = ""
-	cartoon[46] = ""
-	cartoon[47] = ""
-	cartoon[48] = ""
-	cartoon[49] = ""
-	cartoon[50] = ""
-	cartoon[51] = ""
-	cartoon[52] = ""
-	cartoon[53] = ""
-	cartoon[54] = ""
-	cartoon[55] = ""
-	cartoon[56] = ""
-	cartoon[57] = ""
-	cartoon[58] = ""
-	cartoon[59] = ""
-	cartoon[60] = ""
-	cartoon[61] = ""
-	cartoon[62] = ""
-	cartoon[63] = ""
-	cartoon[64] = ""
-	cartoon[65] = ""
-	cartoon[66] = ""
-	cartoon[67] = ""
-	cartoon[68] = ""
-	cartoon[69] = ""
-	cartoon[70] = ""
-	cartoon[71] = ""
-	cartoon[72] = ""
-	cartoon[73] = ""
-	cartoon[74] = ""
-	cartoon[75] = ""
-	cartoon[76] = ""
-	cartoon[77] = ""
-	cartoon[78] = ""
-	cartoon[79] = ""
-	cartoon[80] = ""
-	cartoon[81] = ""
-	cartoon[82] = ""
-	cartoon[83] = ""
-	cartoon[84] = ""
-	cartoon[85] = ""
-	cartoon[86] = ""
-	cartoon[87] = ""
-	cartoon[88] = ""
-	cartoon[89] = ""
-	cartoon[90] = ""
-	cartoon[91] = ""
-	cartoon[92] = ""
-	cartoon[93] = ""
-	cartoon[94] = ""
-	cartoon[95] = ""
-	cartoon[96] = ""
-	cartoon[97] = ""
-	cartoon[98] = ""
-	cartoon[99] = ""
-}
-
-SerialLib
-{
-	//title, author, description
-	serial[0] = ""
-	serial[1] = ""
-	serial[2] = ""
-	serial[3] = ""
-	serial[4] = ""
-	serial[5] = ""
-	serial[6] = ""
-	serial[7] = ""
-	serial[8] = ""
-	serial[9] = ""
-	serial[10] = ""
-	serial[21] = ""
-	serial[22] = ""
-	serial[23] = ""
-	serial[24] = ""
-	serial[25] = ""
-	serial[26] = ""
-	serial[27] = ""
-	serial[28] = ""
-	serial[29] = ""
-	serial[30] = ""
-	serial[31] = ""
-	serial[32] = ""
-	serial[33] = ""
-	serial[34] = ""
-	serial[35] = ""
-	serial[36] = ""
-	serial[37] = ""
-	serial[38] = ""
-	serial[39] = ""
-	serial[40] = ""
-	serial[41] = ""
-	serial[42] = ""
-	serial[43] = ""
-	serial[44] = ""
-	serial[45] = ""
-	serial[46] = ""
-	serial[47] = ""
-	serial[48] = ""
-	serial[49] = ""
-	serial[50] = ""
-	serial[51] = ""
-	serial[52] = ""
-	serial[53] = ""
-	serial[54] = ""
-	serial[55] = ""
-	serial[56] = ""
-	serial[57] = ""
-	serial[58] = ""
-	serial[59] = ""
-	serial[60] = ""
-	serial[61] = ""
-	serial[62] = ""
-	serial[63] = ""
-	serial[64] = ""
-	serial[65] = ""
-	serial[66] = ""
-	serial[67] = ""
-	serial[68] = ""
-	serial[69] = ""
-	serial[70] = ""
-	serial[71] = ""
-	serial[72] = ""
-	serial[73] = ""
-	serial[74] = ""
-	serial[75] = ""
-	serial[76] = ""
-	serial[77] = ""
-	serial[78] = ""
-	serial[79] = ""
-	serial[80] = ""
-	serial[81] = ""
-	serial[82] = ""
-	serial[83] = ""
-	serial[84] = ""
-	serial[85] = ""
-	serial[86] = ""
-	serial[87] = ""
-	serial[88] = ""
-	serial[89] = ""
-	serial[90] = ""
-	serial[91] = ""
-	serial[92] = ""
-	serial[93] = ""
-	serial[94] = ""
-	serial[95] = ""
-	serial[96] = ""
-	serial[97] = ""
-	serial[98] = ""
-	serial[99] = ""
 }
 
 pickupline

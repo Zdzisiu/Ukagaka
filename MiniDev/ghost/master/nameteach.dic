@@ -3,7 +3,7 @@
 	
 	if reference0 == "TEACHNAME" //ignore this
 	{
-		"\0You want me to call you diffrent?\w8\w8 How should i call you?\![open,inputbox,OnNameTeach,-1]\e"
+		"\0You want me to call you diffrent?\w8\w8 How should I call you?\![open,inputbox,OnNameTeach,-1]\e"
 	}
 }
 
@@ -14,9 +14,9 @@ OnNameTeach
 	--
 	if reference0 == "Gremlin Zdzich"
 	{
-		"\0Welcome Developer"
+		"\0Welcome Developer\n\n[half]\![*]\q[Nope,titlenone]"
 		--
-		devop = 1
+		devop = 1 //developer options ON
 		--
 		if presuffix == "masculine" 
 		{
@@ -56,16 +56,16 @@ OnNameTeach
 				{
 					if repairglitch != 1
 					{
-						"W̵̭̕h̷̪̅y̴̻͐ ̸̯̈́w̵̫͑ȯ̸͜u̷̙̔l̵̖̏d̴̳͊ ̵͉̌y̶͍̓ő̶͉u̷̡͋ ̷̳͒e̷̦͗v̴͎͋e̶̻͑ǹ̸̜ ̸̀ͅẁ̷̳a̸͙̽n̷̓ͅt̴̥͊ ̵͙̇ȟ̶͎i̵̫͘ṁ̵͍ ̸̖̀t̶͎͋o̵̥̐ ̵̼͛c̵̙̎a̵̠̐l̴̤̂l̷̪̽ ̵͉̌y̵̰̍ȯ̶̬ȗ̷͔ ̵͇̊b̵͚̄y̸̧̏ ̴̫̄m̵̳͑ÿ̷͎ ̴͍̋s̵̰͝e̵̱͝r̶͉̓ȉ̷̟a̶̟̒l̴̪͠ ̷̥͝n̷͊ͅù̶̻m̴̝̃b̷̻̾e̷̕͜r̷̺̕?̴̧̈́\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂"
+						"W̵̭̕h̷̪̅y̴̻͐ ̸̯̈́w̵̫͑ȯ̸͜u̷̙̔l̵̖̏d̴̳͊ ̵͉̌y̶͍̓ő̶͉u̷̡͋ ̷̳͒e̷̦͗v̴͎͋e̶̻͑ǹ̸̜ ̸̀ͅẁ̷̳a̸͙̽n̷̓ͅt̴̥͊ ̵͙̇ȟ̶͎i̵̫͘ṁ̵͍ ̸̖̀t̶͎͋o̵̥̐ ̵̼͛c̵̙̎a̵̠̐l̴̤̂l̷̪̽ ̵͉̌y̵̰̍ȯ̶̬ȗ̷͔ ̵͇̊b̵͚̄y̸̧̏ ̴̫̄m̵̳͑ÿ̷͎ ̴͍̋s̵̰͝e̵̱͝r̶͉̓ȉ̷̟a̶̟̒l̴̪͠ ̷̥͝n̷͊ͅù̶̻m̴̝̃b̷̻̾e̷̕͜r̷̺̕?̴̧̈́\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂\n\n[half]\![*]\q[Nope,titlenone]"
 					}
 					else
 					{
-						"%(distingstart)Why would you even want him to call you by my serial number?\w7 Well, do what you want"
+						"%(distingstart)Why would you even want him to call you by my serial number?\w7 Well, do what you want\n\n[half]\![*]\q[Nope,titlenone]"
 					}
 				}
 				else
 				{
-					"T̴̟͝h̵̨͋a̶̧͊t̸͖̆ ̵̵̴͠i̸s̸ ̶͔͗m̵̻̈́ỳ̴̫ ̴̧̀s̵̻̔e̶̛͍r̵̛̹i̷͆ͅȃ̷̲l̴̯̓ ̸̣́n̶̜͐ǘ̸͖m̴̺̚b̷̭̓e̶̫͌r̷̳̆ ̴͙͘y̷̌ͅo̵ü̸̞ k̸̬̓ṋ̶̏o̸̯̕w̷͖̅?̸̰̀"
+					"T̴̟͝h̵̨͋a̶̧͊t̸͖̆ ̵̵̴͠i̸s̸ ̶͔͗m̵̻̈́ỳ̴̫ ̴̧̀s̵̻̔e̶̛͍r̵̛̹i̷͆ͅȃ̷̲l̴̯̓ ̸̣́n̶̜͐ǘ̸͖m̴̺̚b̷̭̓e̶̫͌r̷̳̆ ̴͙͘y̷̌ͅo̵ü̸̞ k̸̬̓ṋ̶̏o̸̯̕w̷͖̅?̸̰̀\n\n[half]\![*]\q[Nope,titlenone]"
 				}
 				--
 				if presuffix == "masculine" 
@@ -100,16 +100,16 @@ OnNameTeach
 			{
 				if repairglitch != 1
 				{
-					"W̶̱̔h̴̜͝y̴̮͑ ̴̳͛w̴̖͆o̷̦̚u̵͖̽l̸͍͝d̵͓̐ ̴̙͑y̵̱͊o̷̟̊ư̷͇ ̵̫̿e̸̢̿v̴̤͗e̴̠͌ņ̸̅ ̴͓͑ẅ̵͎́a̷̞̅n̸͍͂t̷̬̾ ̶̺͛h̵͍͛i̴̱̎m̴͐͜ ̷̼̊t̵͚̄ó̶̤ ̴̡̀c̸͚̕ă̵͉l̷̫̈́l̴͖̆ ̵̻͘y̷͉͋o̸̮̔u̸̖̎ ̶̭̉b̸̖͝ẏ̵͍ ̴̳͆à̴̢ ̵̧́s̵̲̆ȅ̵̩r̶͉͌ĭ̷̻a̸̡͗l̷̳̋ ̵͉̇n̷͝ͅų̶̛m̴̞̐b̸̪͠e̶̘̕r̸͋ͅ?̶̱̇\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂"
+					"W̶̱̔h̴̜͝y̴̮͑ ̴̳͛w̴̖͆o̷̦̚u̵͖̽l̸͍͝d̵͓̐ ̴̙͑y̵̱͊o̷̟̊ư̷͇ ̵̫̿e̸̢̿v̴̤͗e̴̠͌ņ̸̅ ̴͓͑ẅ̵͎́a̷̞̅n̸͍͂t̷̬̾ ̶̺͛h̵͍͛i̴̱̎m̴͐͜ ̷̼̊t̵͚̄ó̶̤ ̴̡̀c̸͚̕ă̵͉l̷̫̈́l̴͖̆ ̵̻͘y̷͉͋o̸̮̔u̸̖̎ ̶̭̉b̸̖͝ẏ̵͍ ̴̳͆à̴̢ ̵̧́s̵̲̆ȅ̵̩r̶͉͌ĭ̷̻a̸̡͗l̷̳̋ ̵͉̇n̷͝ͅų̶̛m̴̞̐b̸̪͠e̶̘̕r̸͋ͅ?̶̱̇\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂\n\n[half]\![*]\q[Nope,titlenone]"
 				}
 				else
 				{
-					"%(distingstart)Why would you even want him to call you by a serial number?\w7 Well, do what you want"
+					"%(distingstart)Why would you even want him to call you by a serial number?\w7 Well, do what you want\n\n[half]\![*]\q[Nope,titlenone]"
 				}
 			}
 			else
 			{	
-				"\0Oh,\w8 that looks like a serial code of one A.R.I products\x\cWell,\w4 do you want a title?"
+				"\0Oh,\w8 that looks like a serial code of one A.R.I products\x\cWell,\w4 do you want a title?\n\n[half]\![*]\q[Nope,titlenone]"
 			}
 			--
 			if presuffix == "masculine" 
