@@ -144,7 +144,7 @@ ProcessSayed
         question += " why "
     }
     --
-    if "m-201z" _in_ sayed || "m201z" _in_ sayed
+    if "m-201z" _in_ sayed || "m201z" _in_ sayed || "201z" _in_ sayed || "m201" _in_ sayed || "m-201" _in_ sayed
     {
         m201z = 1
     }
