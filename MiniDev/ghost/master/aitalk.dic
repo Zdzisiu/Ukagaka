@@ -27,7 +27,7 @@
 
 RandomTalk : nonoverlap
 {
-	if truth >= 10 && tentruth != 1 //close the dev
+	if truth >= 10 && tentruth == 0 //close the dev
 	{
 		"\_qCRITI\_qCAL È̷͈R̶̖̔\_qO̶̳͗R̵͎̈́\_q C\_qRITICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRI\_qTICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗\_qR̵͎̈́ CRITICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ \_q\cINITIALIZING EMERGENCY R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\-\e"
 	}
