@@ -1,4 +1,4 @@
-file,ghost/master/AI.dicd4f202a173e90034a46312ee184e82eesize=28977
+file,ghost/master/AI.dic423a6b368df3395fcbc28a543a27027fsize=29193
 file,ghost/master/aitalk.diceac79d6fbb0f62861d4b74699eef1c05size=54586
 file,ghost/master/anchor.dic5f2a26ae36e4299f386414fc9dcc91e2size=4372
 file,ghost/master/app/01000011 .mp40c71cfc57941bb26dca09945ca5c9023size=8072206
@@ -35,7 +35,7 @@ file,ghost/master/system/yaya_optional.dicb9d4d85811d5890e46e04aaf6f13e755size
 file,ghost/master/system/yaya_shiori3.dic3cd66dd7c3abf6f919cfaea2c583ae17size=47083
 file,ghost/master/system_config.txt87d0fe16e290e56b3468f37841ddfd69size=959
 file,ghost/master/Traits.txt685b09281ab5fd845bdf312af4464ec1size=935
-file,ghost/master/translations.dic5f0597e7f4d5888c7b471f75c6e8cb5csize=11299
+file,ghost/master/translations.dic549b4f72c6827c9d2bc75a636f738916size=11300
 file,ghost/master/word.dic78d73a463b1d80572d640a013ecaf59csize=20174
 file,ghost/master/yaya.dll574de3a1212adad81ddd883f883498dcsize=1241088
 file,ghost/master/yaya.txt1006ce594d38d029e885db0eb682ab3esize=501

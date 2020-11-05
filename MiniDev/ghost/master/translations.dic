@@ -187,7 +187,7 @@ OnToMorseEnd
 OnFromMorseCheck
 {
     
-    "What do you want to translate?\_q(use space after every symbol an | after every letter example: | . - |)![open,inputbox,OnFromMorseEnd,-1]"
+    "What do you want to translate?\_q(use space after every symbol an | after every letter example: | . - |)\![open,inputbox,OnFromMorseEnd,-1]"
 }
 
 OnFromMorseEnd
