@@ -14,7 +14,7 @@ OnCommunicate
  	}
 }
 
-//a
+
 ReplyToUser
 {
 	TalkToUser
@@ -35,6 +35,10 @@ ReplyToGhost
 	elseif reference0 == "Aurora.EXE"
 	{
 		RespondingToAurora
+	}
+	elseif reference0 == "Azura"
+	{
+		RespondingToAzura
 	}
 	elseif "\e SendClothes0" _in_ reference4
 	{
