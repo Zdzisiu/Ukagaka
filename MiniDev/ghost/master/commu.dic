@@ -612,7 +612,7 @@ RespondingToAzura
 			--
 			res_reference0 = "Azura"
 
-			"\MiniDevOuftit,%(outfitazura)"
+			"\e MiniDevOuftit,%(outfitazura)"
 		}
 	}
 	elseif "MiniDevUnlock" _in_ reference1
