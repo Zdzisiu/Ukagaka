@@ -765,6 +765,11 @@ OnMinuteChange
 		OnMoodCheck
 		--
 		OnCharacterCheck
+		--
+		if upchec == "ON"
+		{
+			"\b[-1]\![updatebymyself,checkonly]\e"
+		}
 	}
 	elseif minute == 30 
 	{
@@ -777,6 +782,11 @@ OnMinuteChange
 		OnMoodCheck
 		--
 		OnCharacterCheck
+		--
+		if upchec == "ON"
+		{
+			"\b[-1]\![updatebymyself,checkonly]\e"
+		}
 	}
 	elseif mikireflag == 1
  	{

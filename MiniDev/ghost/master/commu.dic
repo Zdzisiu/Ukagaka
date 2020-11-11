@@ -48,7 +48,7 @@ ReplyToGhost
 
 //\![raise,OnClothesCheck]
 //Aurora dress 1 pl dark blue, and shoes pl dark blue ||
-//Azura : Shirt #1 or #2 or #6 d dark blue, pants long pl dark blue, Hoodies Open b dark blue
+//Azura : Shirt #1 or #2 or #6 d dark blue, pants long p dark blue, Hoodies Open b dark blue
 //Function running check if MD is wearing certain clothes
 Ontalkcheck
 {
@@ -72,7 +72,7 @@ ClothesCheck
 		--
 		"\eGetMiniDevStats02,1"
 	}
-	elseif ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,pl1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)" && azura != 1
+	elseif ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,p1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)" && azura != 1
 	{
 		res_reference0 = "Azura"
 		--
@@ -606,7 +606,7 @@ RespondingToAzura
 {
 	if "\e CheckOutfit0" _in_ reference1
 	{
-		if ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,pl1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)"
+		if ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,p1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)"
 		{
 			outfitazura = 1
 			--

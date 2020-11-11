@@ -360,41 +360,9 @@ OnUpdate.OnDownloadBegin
 
 OnUpdateCheckComplete
 {
-	if reference0 == "none"
+	if reference0 != "none"
 	{
-		"No update available"
-	}
-	else
-	{
-		if "aitalk" _in_ reference0
-		{
-			"Change in AI dialogue found\e"
-		}
-		elseif "mouse" _in_ reference0
-		{
-			"Change in interactions found\e"
-		}
-		elseif "menu" _in_ reference0
-		{
-			"Change in menu intractions found\e"
-		}
-		elseif "bootend" _in_ reference0
-		{
-			"Change in boot system found\e"
-		}
-		elseif "config" _in_ reference0
-		{
-			"Change in settings found\e"
-		}
-		elseif "log" _in_ reference0
-		{
-			logt = 1
-			"Change in logs found\e"
-		}
-		elseif "clothes" _in_ reference1
-		{
-			"Change in clothing system found\e"
-		}
+		"There is an update avalible"
 		--
 		"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
 	}
