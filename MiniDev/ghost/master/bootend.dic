@@ -668,7 +668,7 @@ OnToolCheck //adding stuff after updates
 {
 	if vers == ""
 	{
-		vers = "1.0.2"
+		vers = "1.0.3"
 		--
 		quest = 0
 		//Name,color
@@ -977,7 +977,7 @@ OnOtherGhostClosed
 
 OnUpdateVariables
 {
-	vers = "1.0.2"
+	vers = "1.0.3"
 }
 
 OnTest

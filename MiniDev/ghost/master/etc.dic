@@ -280,8 +280,8 @@ OnUpdateBegin
  
 OnUpdateReady
  {
-    
-	"\0\s[0]There are %(reference[0]) new files.\w8\e"
+    udatefiles = TOINT(reference[0]) + 1
+	"\0\s[0]There are %(udatefiles) new files.\w8\e"
 	
  }
 
