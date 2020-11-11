@@ -690,7 +690,7 @@ OnMinuteChange
 		glitchtime = 0
 	}
 	--
-	if ghostexcount != 0
+	if ghostexcount != 0 && (azura != 1 || aurora != 1 || outfitS != 1)
 	{
 		OnClothesCheck
 	}

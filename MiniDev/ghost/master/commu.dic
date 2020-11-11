@@ -40,7 +40,7 @@ ReplyToGhost
 	{
 		RespondingToAzura
 	}
-	elseif "\e SendClothes0" _in_ reference4
+	elseif "\e SendClothes0" _in_ reference1
 	{
 		SendClothes
 	}
@@ -579,7 +579,7 @@ reference5: information dependent on the the SHIORI event of reference3. It’s 
 
 RespondingToAurora
 {
-	if "\e CheckOutfit0" _in_ reference4
+	if "\e CheckOutfit0" _in_ reference1
 	{
 		if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && outfitaurora != 1 && "Aurora.EXE" _in_ ghostexlist
 		{
@@ -590,7 +590,7 @@ RespondingToAurora
 			"\e MiniDevOuftit,%(outfitaurora)"
 		}
 	}
-	elseif "MiniDevUnlock" _in_ reference4
+	elseif "MiniDevUnlock" _in_ reference1
 	{
 		aurora = 1
 	}
@@ -604,7 +604,7 @@ RespondingToAurora
 
 RespondingToAzura
 {
-	if "\e CheckOutfit0" _in_ reference4
+	if "\e CheckOutfit0" _in_ reference1
 	{
 		if ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,pl1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)"
 		{
@@ -615,7 +615,7 @@ RespondingToAzura
 			"\MiniDevOuftit,%(outfitazura)"
 		}
 	}
-	elseif "MiniDevUnlock" _in_ reference4
+	elseif "MiniDevUnlock" _in_ reference1
 	{
 		azura = 1
 	}
@@ -641,7 +641,7 @@ RespondingToMiniDev
 {
 	_ConvoTag = SPLIT(reference1,"\e")[1]
 	--
-	if "MiniDevOuftit" _in_ reference4
+	if "MiniDevOuftit" _in_ reference1
 	{
 		if _ConvoTag[1] == 1
 		{
