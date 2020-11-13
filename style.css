@@ -68,7 +68,7 @@ aside {
 .dreamteam {
     background: #266e8ad7;
     width: 20vw;
-    height: 18vw;
+    height: 24vw;
     float: left;
     padding: 1vw;
     font-size: 1vw;
@@ -77,13 +77,7 @@ aside {
 }
 
 .uk {
-    background: #266e8ad7;
-    width: 20vw;
-    height: 10vw;
-    float: left;
-    padding: 1vw;
-    font-size: 1.3vw;
-    margin-top: 1vw;
+
 }
 
 .uk a{
