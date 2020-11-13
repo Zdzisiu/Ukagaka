@@ -77,14 +77,13 @@ aside {
 }
 
 .uk {
-    background: #041d5fd7;
+    background: #266e8ad7;
     width: 20vw;
     height: 10vw;
     float: left;
     padding: 1vw;
     font-size: 1.3vw;
     margin-top: 1vw;
-    position: static;
 }
 
 .uk a{
