@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="GetColor()">
+    <script>
+        function GetColor(){
+            var colors = ["#ff89ef", "#89ffff", "#92ff89", "#faff89", "#ff8989", "#9591ff"];
+
+            var random_color = colors[Math.floor( 
+                                Math.random() * colors.length)]; 
+            
+            document.getElementById("style4").style.color = random_color;
+            document.getElementById("style5").style.color = random_color;
+            document.getElementById("style6").style.color = random_color;
+            document.getElementById("style7").style.color = random_color;
+            document.getElementById("style8").style.color = random_color;
+            document.getElementById("style9").style.color = random_color;
+            document.getElementById("style10").style.color = random_color;
+        }
+    </script>
     <nav>
         <a href="index.html" class="navbar">Home</a>
         <a href="md.html" class="navbar">MiniDev</a>
@@ -47,20 +63,25 @@
         <h3>Ukagaka Dream Team</h3>
         <p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
         <p>Join us on:</p>
-        <a href="https://ukagakadreamteam.tumblr.com/" class="smedia">Tumblr</a>
+        <a href="https://ukagakadreamteam.tumblr.com/" class="smedia"  id="style4">Tumblr</a>
         <p></p>
-        <a href="http://discord.gg/uBPq8XF" class="smedia">Discord</a>
+        <a href="http://discord.gg/uBPq8XF" class="smedia"  id="style5">Discord</a>
         <p></p>
-        <a href="https://twitter.com/Project_Ukagaka" class="smedia">Twitter</a>
+        <a href="https://twitter.com/Project_Ukagaka" class="smedia"  id="style6">Twitter</a>
     </div>
     <div class="uk">
-        <webring-banner>
-            <p>Member of the <a href="https://ukagakawebring.netlify.com/">Ukagaka/Ghost Development and Download</a> webring</p>
+        <!-- <webring-banner>
+         <p>Member of the <a href="https://ukagakawebring.netlify.com/">Ukagaka/Ghost Development and Download</a> webring</p>
             <a href="https://ukagakawebring.netlify.com//prev">Previous</a>
             <a href="https://ukagakawebring.netlify.com//random">Random</a>
             <a href="https://ukagakawebring.netlify.com//next">Next</a>
         </webring-banner>
-        <script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script>
+        <script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script> -->
+        
+        <p>Find more <a href="https://ukagakawebring.netlify.com/"  id="style7">Ukagakas</a>:</p>
+            <a href="https://ukagakawebring.netlify.com//prev"  id="style8">Previous</a>
+            <a href="https://ukagakawebring.netlify.com//random"  id="style9">Random</a>
+            <a href="https://ukagakawebring.netlify.com//next"  id="style10">Next</a>
     </div>
 </body>
 
