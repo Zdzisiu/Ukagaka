@@ -724,7 +724,7 @@ RespondingToDusty //convos with Dusty
 		res_reference0 = ""
 		obsydian = 0
 		--
-		"\0\s[0]%(byebye) kitty\e"
+		"\0\s[0]\i[9000]%(byebye) kitty\e"
 	}
 	elseif "DustyRequestMDStats" _in_ _ConvoTag 
 	{

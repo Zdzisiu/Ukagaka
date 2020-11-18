@@ -491,7 +491,7 @@ OnClose
 		}
 		else
 		{
- 			"\0Woah,\w8 that was quick\w8\w8\w8\w8\c\%(byebye)%(users)\w8\w8\w8\w8"
+ 			"\0Woah,\w8 that was quick\w8\w8\w8\w8\c %(byebye)%(users)\w8\w8\w8\w8"
 		}
  	}
  	--

@@ -30,7 +30,7 @@
 				{
 					if "Log#" _in_ _filename
 					{
-						"Ò̵̬h̴̳͊̈?̶̫̔̉ ̶̛̜̲́Ÿ̷̨̝́o̸̬͊u̶͓̼̕͠ ̷̉͜f̴͓͌ơ̷͎u̵̙̎n̷͖͌d̷͍͛ ̴̫͋o̶̢̼̒̎ṋ̷̓̈́ȩ̶̟̎ ̶̬͖̈́o̸̼͠f̶͍͐̈ ̴̛͖̒h̶͖̳̑̓ỉ̴̜̔s̴͔̺͌̅ ̵̤̄͑l̵̲̅o̶̠̱̓ģ̷̺́̀s̴̻̺̃?̶͈̜̒͋ ̵̩̌͗W̵̮̠͌̑a̵͉̓̇ỉ̶̖̘t̵̳͎̾ ̷̪͂͝ä̸̹̂ ̷̩͑̃s̵͎̞̆͌e̷̦̐̀c̷͇̘̾̀o̷͕̝̐̓n̵͓̮̍̃d̵͖̐̋ ̸̛̤̹̄I̵͎̓̏ ̶̗͠͝w̸̯̠͒ĩ̶͙̗l̶̞̺͐͝l̸̹̣̐ ̵̱̮̔͠p̸̖͗̚u̸̞̻͑͠t̶͉̽ ̶̲̦̓̀i̸̗̙̕n̴̏ͅ ̸̦̍͠i̴̺̣̋t̸̟̽̂s̷̞̅̍ ̶͔͖̽p̷̨̡̊l̶̯͊̃a̸̼͑ç̶̹̽̋ĕ̵̤̲"
+						"Ò̵̬h̴̳͊̈?̶̫̔̉ ̶̛̜̲́Ÿ̷̨̝́o̸̬͊u̶͓̼̕͠ ̷̉͜f̴͓͌ơ̷͎u̵̙̎n̷͖͌d̷͍͛ ̴̫͋o̶̢̼̒̎ṋ̷̓̈́ȩ̶̟̎ ̶̬͖̈́o̸̼͠f̶͍͐̈ ̴̛͖̒h̶͖̳̑̓ỉ̴̜̔s̴͔̺͌̅ ̵̤̄͑l̵̲̅o̶̠̱̓ģ̷̺́̀s̴̻̺̃?̶͈̜̒͋ ̵̩̌͗W̵̮̠͌̑a̵͉̓̇ỉ̶̖̘t̵̳͎̾ ̷̪͂͝ä̸̹̂ ̷̩͑̃s̵͎̞̆͌e̷̦̐̀c̷͇̘̾̀o̷͕̝̐̓n̵͓̮̍̃d̵͖̐̋ ̸̛̤̹̄I̵͎̓̏ ̶̗͠͝w̸̯̠͒ĩ̶͙̗l̶̞̺͐͝l̸̹̣̐ ̵̱̮̔͠p̸̖͗̚u̸̞̻͑͠t̶͉̽ ̶̲̦̓̀i̸̗̙̕n̴̏ͅ ̸̦̍͠i̴̺̣̋t̸̟̽̂'s̷̞̅̍ ̶͔͖̽p̷̨̡̊l̶̯͊̃a̸̼͑ç̶̹̽̋ĕ̵̤̲"
 						--
 						FCOPY(file,"logs")
 					}
@@ -39,7 +39,7 @@
 				{
 					if "Log#" _in_ _filename
 					{
-						"%(distingstart)Oh? You found one of his logs? Wait a second I will put in its place"
+						"%(distingstart)Oh? You found one of his logs? Wait a second I will put in it's place"
 						--
 						FCOPY(file,"logs")
 					}
@@ -280,8 +280,8 @@ OnUpdateBegin
  
 OnUpdateReady
  {
-    udatefiles = TOINT(reference[0]) + 1
-	"\0\s[0]There are %(udatefiles) new files.\w8\e"
+    _udatefiles = TOINT(reference[0]) + 1
+	"\0\s[0]There are %(_udatefiles) new files.\w8\e"
 	
  }
 
@@ -313,7 +313,7 @@ OnUpdateFailure
  	}
 	else
  	{
- 		"\0\s[0]The update could not be completed.\w8\0\s[0]The error is '%(reference0)'.\e"
+ 		"\0\s[0]The update could not be completed.\w8\0\s[0] The error is '%(reference0)'.\e"
 	}
  }
  
@@ -341,18 +341,13 @@ OnUpdate.OnDownloadBegin
 	{
 		"Change in settings found\e"
 	}
-	elseif "log" _in_ reference0
-	{
-		logt = 1
-		"Change in logs found\e"
-	}
 	elseif "clothes" _in_ reference1
 	{
 		"Change in clothing system found\e"
 	}
 	else //for files not specified above
 	{
-	""
+		""
 	} 
 	--
 	"\w5\e"
@@ -386,13 +381,13 @@ OnUpdateCheckFailure
 OnUpdate.OnMD5CompareBegin
  {
     
-	"\0\s[0]Checking the MD5 value.\e"
+	"\0\s[0]e"
  }
 
 OnUpdate.OnMD5CompareComplete
  {
     
-	"\0\s[0]MD5 check good.\e"
+	"\0\s[0]\e"
 }
 
  
