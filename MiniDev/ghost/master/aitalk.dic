@@ -1305,13 +1305,13 @@ Select.deletethefiles
 {
 	if quest == 3
 	{
-		"Y̴o̸u̴ ̵w̶a̶n̷t̵ ̷t̴o̸ ̴r̸e̵p̷a̶i̷r̷ ̸t̵h̶o̷s̷e̴ ̶g̷l̴i̶t̶c̵h̴e̵s̷?̴\w3 ̶W̴e̴l̶l̶,\w4̴ ̷a̴l̵l̸ ̶y̶o̵u̸ ̵h̷a̸v̷e̴ ̷t̶o̶ ̶d̶o̸ ̶i̴s̶ ̷d̷e̵l̸e̷t̶e̸ ̴o̸r̵ ̶f̵i̸x̸ ̵t̶h̷e̶ ̷e̸x̴t̶e̷n̶s̷i̵o̵n̷ ̵o̴f̵ ̴t̴h̵e̴ ̴f̶i̴l̷e̵ ̷i̵n̵ ̸t̷h̷i̷s̸ ̴f̷o̴l̵d̸e̷r̷\![open,file,@$a#F.pg]"
+		"Y̴o̸u̴ ̵w̶a̶n̷t̵ ̷t̴o̸ ̴r̸e̵p̷a̶i̷r̷ ̸t̵h̶o̷s̷e̴ ̶g̷l̴i̶t̶c̵h̴e̵s̷?̴\w3 ̶W̴e̴l̶l̶,\w4̴ ̷a̴l̵l̸ ̶y̶o̵u̸ ̵h̷a̸v̷e̴ ̷t̶o̶ ̶d̶o̸ ̶i̴s̶ ̷d̷e̵l̸e̷t̶e̸ ̴o̸r̵ ̶f̵i̸x̸ ̵t̶h̷e̶ ̷e̸x̴t̶e̷n̶s̷i̵o̵n̷ ̵o̴f̵ ̴t̴h̵e̴ ̴f̶i̴l̷e̵ ̷i̵n̵ ̸t̷h̷i̷s̸ ̴f̷o̴l̵d̸e̷r̷\![open,file,logs\@$a#F.pg]"
 	}
 	else
 	{
 		"W̸a̴i̵t̴ ̸a̸ ̸s̴e̴c̶o̸n̷d̴\w3 ̶I̷ ̷w̸i̴l̴l̸ ̴t̸r̷y̸ ̷t̵o̴ ̴f̷i̵n̷d̶ ̸t̷h̷e̶ ̶f̴o̶l̶d̴e̴r̶ ̵w̴i̸t̵h̷ ̴t̴h̵o̷s̶e̵ ̷f̸i̵l̷e̸s̸\w8\w8\w8\w8"
 		--
-		"\![open,file,@$a#F.pg]F̶̝͇̥̍͜ö̸͓͉́u̷͉̩̙̐̇͘n̷͈̔̍͋d̵̹̙͗͒͋ͅ ̸̯͚̅͠ȋ̸̤̰̒̐t̸̖̲̠̱̑"
+		"\![open,file,logs\@$a#F.pg]F̶̝͇̥̍͜ö̸͓͉́u̷͉̩̙̐̇͘n̷͈̔̍͋d̵̹̙͗͒͋ͅ ̸̯͚̅͠ȋ̸̤̰̒̐t̸̖̲̠̱̑"
 	}
 
 }

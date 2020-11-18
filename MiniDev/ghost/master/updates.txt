@@ -1,5 +1,5 @@
 file,ghost/master/AI.dic0a56dc5551bbd56ee4ba7c16066c90bdsize=29285
-file,ghost/master/aitalk.dic1433ba2b98307295311006be58deac45size=55074
+file,ghost/master/aitalk.dicfb4ab84901ff6559bf8a8d6592e769a6size=55084
 file,ghost/master/anchor.dic5f2a26ae36e4299f386414fc9dcc91e2size=4372
 file,ghost/master/app/01000011 .mp40c71cfc57941bb26dca09945ca5c9023size=8072206
 file,ghost/master/app/Hzr aol HP.txtba891d567c1b5e0b25d174e0cb2cffc3size=55
