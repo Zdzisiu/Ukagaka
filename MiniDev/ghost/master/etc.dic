@@ -680,3 +680,792 @@ OnUpdateRegex {
 
 //starting the weather checking
 
+//Weather Checking -------------------------------------------------------
+//following functions can go in menu dic, or a seperate dic entirely
+//functions for scraping weather.com for weather data.
+//author: vita @yuyudev on twitter
+//referenced zarla's hunter and smoker ghost, and https://forum.rainmeter.net/viewtopic.php?t=34470
+//
+//please add the following variables to your bootend dic in the function OnFirstBoot
+//curlocation = ""
+//locationcode = ""
+//these two I also added to OnBoot
+//intalkconfig = 0
+//weatherquiet = 0
+
+//starting the weather checking
+
+
+OnCheckWeather
+{
+    "\0\b[4]\_q\f[bold,1]Current Location:\f[bold,0] %(curlocation)\n\n"
+    --
+    //if first time opening there will be no location so user needs to set location b4 anything else. except moon phase
+    
+    if (locationcode == ""){
+    
+    "\![*]\q[Set Location,OnWeatherLocation]\n/
+    \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n\n[half]"
+    locationset=0
+    
+    } else {
+            locationset=1
+            "\![*]\q[Set Location,OnWeatherLocation]\n/
+            \![*]\q[Check Current Weather,OnDownloadCurWeather]\n/
+            \![*]\q[Check 10 Day Forecast,OnDownloadForecast]\n/
+            \![*]\q[Check Hourly Forecast,OnDownloadHourly]\n/
+            \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n"
+            --
+            if unit==""{
+                    "\![*]\q[Switch to Metric Units,switchunits]\n\n[half]"
+            } else
+            {
+                    "\![*]\q[Switch to American Units,switchunits]\n\n[half]"
+            }
+    }
+    --
+    "If the forecast isn't working, you might need to:\n/
+    \![*]\q[Update the weather code,OnDownloadRegex]\n\n[half]"
+    --
+    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n"
+
+}
+
+
+Select.switchunits
+{
+    if unit == "" 
+	{
+        unit = "en-CA/"
+    } 
+	else
+    {
+        unit=""
+    }    
+    locationset=0     
+	"\![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--nodescript,--timeout=200]"
+}
+    
+OnWeatherLocation
+{
+    locationset=0
+    "\0First, do you want to use american or metric units?\n\n[half]"
+    --
+    "\![*]\q[American,OnAmericanUnits]\n/
+    \![*]\q[Metric,OnMetricUnits]\n\e"
+}
+
+
+OnAmericanUnits{
+    unit=""
+    "\0Alright. Please go to weather.com, search your location, and give me the URL. \![open,inputbox,OnLocCode,-1]"
+}
+
+
+OnMetricUnits{
+    unit="en-CA/"
+    "\0Alright. Please go to weather.com, search your location, and give me the URL. \![open,inputbox,OnLocCode,-1]"
+}
+
+
+
+
+OnLocCode
+{
+    _temp = SPLIT(reference0,'/')
+
+
+    locationcode = _temp[ARRAYSIZE(_temp)-1]
+    "\![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--nodescript,--timeout=200]"
+}
+
+
+OnDownloadCurWeather
+{
+"\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
+}
+
+
+OnCurWeatherFound
+{
+    
+    //initialize variables
+    _file = "var\\weather.html"
+    _buff=""
+    _regtemp = regex[0]
+    _regdegree = regex[1]
+    _regfeels = regex[2]
+    _reghumidity = regex[3]
+    _regwind = regex[4]
+    _regstate = regex[5]
+    _regloc = regex[6]
+    _regpollen = regex[7]
+    FCHARSET(1)
+    //array to hold current weather data
+    //[temp, degrees, feels like temp, humidity, wind, state (cloudy, rainy, etc), pollen alert (yes/no)]
+    currentweatherarray = ("","","","","","","")
+    
+    --
+    
+    if FOPEN(_file,'r') {
+
+
+            for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+                    
+
+
+                    //current temp
+                    if RE_SEARCH ( _buff, _regtemp ) {
+                            
+                            currentweatherarray[0] = RE_GETSTR[1]
+                            
+                    }
+    
+                    //degrees (F or C)
+                    if RE_SEARCH ( _buff, _regdegree ) {
+                            currentweatherarray[1] = RE_GETSTR[1]
+                            
+                    }
+                    
+                    //feels like temp
+                    if RE_SEARCH ( _buff, _regfeels ) {
+                            currentweatherarray[2] = RE_GETSTR[1]
+                            
+                    }
+                    
+                    //humidity
+                    if RE_SEARCH ( _buff, _reghumidity ) {
+                            currentweatherarray[3] = RE_GETSTR[1]
+                            
+                    }
+                    
+                    //wind
+                    if RE_SEARCH ( _buff, _regwind) {
+                            currentweatherarray[4] = RE_GETSTR[1]
+                            
+                    }
+                    
+                    
+                    //state (cloudy, sunny, etc)
+                    if RE_SEARCH ( _buff, _regstate ) {
+                            
+                            currentweatherarray[5] = RE_GETSTR[1]
+                            
+                    }
+                    
+                    //set location
+                    if RE_SEARCH ( _buff, _regloc ) {
+                            
+                            curlocation = RE_GETSTR[1]
+                            
+                    }
+                    
+                    //search for pollen stuff
+                    if RE_SEARCH ( _buff, _regpollen ) {
+                            
+                            currentweatherarray[6] = "Local Pollen Alert"
+                            
+                    }
+                    
+            }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    if (intalkconfig) {
+    
+            intalkconfig = 0
+            TalkConfig
+            --
+            "\e"
+    
+    }
+    --
+    if !locationset{
+            
+            locationset = 1
+            OnCheckWeather
+            --
+            "\e"
+    
+    }
+    --
+    if weatherquiet {
+            weatherquiet = 0
+            --
+            "\e"
+    }
+    
+    --
+    "\0\b[2]\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
+    \nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+    --
+    if currentweatherarray[6] == "Local Pollen Alert" {
+    "\nThere's a local pollen alert!"
+    }
+    --
+    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n"
+
+
+}
+
+
+OnDownloadForecast{
+
+
+        "\0\s[0]Downloading forecast... \![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
+
+
+}
+
+
+
+
+OnForecastFound
+{
+    
+    //file to be read
+    _file = "var\\forecast.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _regdate=regex[8]
+    _regdesc=regex[9]
+    _reghigh=regex[10]
+    _reglow=regex[11]
+    _regprecip=regex[12]
+    _regwind=regex[13]
+    _reghumidity=regex[14]
+    _regdaynight=regex[15]
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //strings for holding and parsing each bit of data
+    _singleday = (IARRAY, "")
+    _temp = ""
+    
+    //jank
+    _state = ""
+    _daynight = ""
+    
+    //2D array for forecast data
+    //15 days? each day has (date, description, high,low, precip %, wind, humidity)
+    forecastarray = (_singleday, _singleday)
+
+
+    
+    --
+    
+    if FOPEN(_file,'r') { 
+            for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+                    
+
+
+                    //date
+                    //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+                    if RE_GREP( _buff, _regdate ) {
+                    
+                            //clear out singleday string, use a temp string to hold the results of the regexpr search
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regdate) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            //add singleday contents to relevant row of data in forecast array
+                            forecastarray[0] = forecastarray[0] + _singleday
+                            
+                    }
+                    
+                    //rinse and repeat for rest of data
+                    //desc
+                    if RE_GREP( _buff, _regdesc ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regdesc) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            forecastarray[1] = forecastarray[1] + _singleday
+                            
+                    }
+
+
+                    //high temps
+                    if RE_GREP( _buff, _reghigh ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _reghigh) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            forecastarray[2] = forecastarray[2] + _singleday
+                            
+                    }
+                    
+                    //low temps
+                    if RE_GREP( _buff, _reglow ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _reglow) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            forecastarray[3] = forecastarray[3] + _singleday
+                            
+                    }
+                    //precip
+                    if RE_GREP( _buff, _regprecip ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regprecip) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            forecastarray[4] = forecastarray[4] + _singleday
+                            
+                    }
+    
+                    //wind
+                    if RE_GREP( _buff, _regwind ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regwind) {
+                                            _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            forecastarray[5] = forecastarray[5] + _singleday
+                            
+                    }
+                    
+                    //this is gonna be the quirky section LOL
+                    //humidity
+                    if RE_GREP( _buff, _reghumidity ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _reghumidity) {
+                                            
+                                           if _state == "" { //state has not been set yet 
+                                                    if RE_GREP(_buff, _regdaynight){
+                                                            _daynight = RE_GETSTR[0]
+                                                    }
+                                                    
+                                                    if "Night" _in_ _daynight {
+                                                    //indicates that first humidity was in the night stage of today's forecast, so we don't want to skip the next humidity
+                                                            _state = "chrome"                                                            
+                                                    }
+                                                    else {
+                                                            _state = "chromeskip"
+                                                    }
+                                                    _singleday = NULL
+                                            } elseif _state == "chrome" {
+                                            
+                                                    _singleday = _singleday + RE_GETSTR[1] + ","
+                                                    _state = "chromeskip"
+                                            
+                                            } else { //_state = chromeskip
+                                                    _state = "chrome"
+                                            }
+                                            //otherwise do nothing, essentially skipping this one
+                                            
+                                    
+                                            
+                                    }
+                                    
+                            
+                            }    
+                            
+                            forecastarray[6] = forecastarray[6] + _singleday
+                            
+                    }
+            }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0\b[4]\f[bold,1]10 Day Forecast\f[bold,0] \n\n[half]\_q/
+    
+    %(forecastarray[0][0]): %(forecastarray[1][0])\n/
+    H:%(forecastarray[2][0])°/L:%(forecastarray[3][0])°; Wind:%(forecastarray[5][0])\n/
+    %(forecastarray[4][0])% chance of precipitation\nHumidity:%(forecastarray[6][0])%\n\n[half]/
+    
+    %(forecastarray[0][1]): %(forecastarray[1][1])\n/
+    H:%(forecastarray[2][1])°/L:%(forecastarray[3][1])°; Wind:%(forecastarray[5][1])\n/
+    %(forecastarray[4][1])% chance of precipitation\nHumidity:%(forecastarray[6][1])%\n\n[half]/
+    
+    %(forecastarray[0][2]): %(forecastarray[1][2])\n/
+    H:%(forecastarray[2][2])°/L:%(forecastarray[3][2])°; Wind:%(forecastarray[5][2])\n/
+    %(forecastarray[4][2])% chance of precipitation \nHumidity:%(forecastarray[6][2])%\n\n[half]/
+    
+    %(forecastarray[0][3]): %(forecastarray[1][3])\n/
+    H:%(forecastarray[2][3])°/L:%(forecastarray[3][3])°; Wind:%(forecastarray[5][3])\n/
+    %(forecastarray[4][3])% chance of precipitation\nHumidity:%(forecastarray[6][3])%\n\n[half]/
+    
+    %(forecastarray[0][4]): %(forecastarray[1][4])\n/
+    H:%(forecastarray[2][4])°/L:%(forecastarray[3][4])°; Wind:%(forecastarray[5][4])\n/
+    %(forecastarray[4][4])% chance of precipitation\nHumidity:%(forecastarray[6][4])%\n\n[half]/
+    
+    %(forecastarray[0][5]): %(forecastarray[1][5])\n/
+    H:%(forecastarray[2][5])°/L:%(forecastarray[3][5])°; Wind:%(forecastarray[5][5])\n/
+    %(forecastarray[4][5])% chance of precipitation\nHumidity:%(forecastarray[6][5])%\n\n[half]/
+    
+    %(forecastarray[0][6]): %(forecastarray[1][6])\n/
+    H:%(forecastarray[2][6])°/L:%(forecastarray[3][6])°; Wind:%(forecastarray[5][6])\n/
+    %(forecastarray[4][6])% chance of precipitation\nHumidity:%(forecastarray[6][6])%\n\n[half]/
+    
+    %(forecastarray[0][7]): %(forecastarray[1][7])\n/
+    H:%(forecastarray[2][7])°/L:%(forecastarray[3][7])°; Wind:%(forecastarray[5][7])\n/
+    %(forecastarray[4][7])% chance of precipitation\nHumidity:%(forecastarray[6][7])%\n\n[half]/
+    
+    %(forecastarray[0][8]): %(forecastarray[1][8])\n/
+    H:%(forecastarray[2][8])°/L:%(forecastarray[3][8])°; Wind:%(forecastarray[5][8])\n/
+    %(forecastarray[4][8])% chance of precipitation\nHumidity:%(forecastarray[6][8])%\n\n[half]/
+
+
+    %(forecastarray[0][9]): %(forecastarray[1][9])\n/
+    H:%(forecastarray[2][9])°/L:%(forecastarray[3][9])°; Wind:%(forecastarray[5][9])\n/
+    %(forecastarray[4][9])% chance of precipitation\nHumidity:%(forecastarray[6][9])%"
+    
+    --
+    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n"
+}
+
+OnDownloadHourly{
+    "\0\s[0]Downloading hourly forecast... \![execute,http-get,https://weather.com/%(unit)weather/hourbyhour/l/%(locationcode),--async=OnHourlyFound,--file=hourly.html,--timeout=200]"
+}
+
+
+//basically copied over from the 10 day forecast function, since the two pages share some of the same data
+OnHourlyFound
+{
+    
+    //file to be read
+    _file = "var\\hourly.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _reghour=regex[16]
+    _regdesc=regex[17]
+    _regtemp=regex[18]
+    _regfeels=regex[19]
+    _regprecip=regex[20]
+    _regwind=regex[21]
+    _reghumidity=regex[22]
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //strings for holding and parsing each bit of data
+    _singleday = (IARRAY, "")
+    _temp = ""
+    
+    //2D array for forecast data
+    //(hour, description, temp,feels like, precip %, wind, humidity)
+    hourlyarray = (_singleday, _singleday)
+    
+
+
+    
+    --
+    
+    if FOPEN(_file,'r') {
+       
+            for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+                    
+
+
+                    //hour
+                    //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+                    if RE_GREP( _buff, _reghour ) {
+                    
+                            //clear out singleday string, use a temp string to hold the results of the regexpr search
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _reghour) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            //add singleday contents to relevant row of data in forecast array
+                            hourlyarray[0] = hourlyarray[0] + _singleday
+                            
+                    }
+                    
+                    //rinse and repeat for rest of data
+                    //desc
+                    if RE_GREP( _buff, _regdesc ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regdesc) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[1] = hourlyarray[1] + _singleday
+                            
+                    }
+
+
+                    //temp
+                    if RE_GREP( _buff, _regtemp ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regtemp) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[2] = hourlyarray[2] + _singleday
+                            
+                    }
+                    
+                    //feels like
+                    if RE_GREP( _buff, _regfeels ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regfeels) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[3] = hourlyarray[3] + _singleday
+                            
+                    }
+                    //precip
+                    if RE_GREP( _buff, _regprecip ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regprecip) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[4] = hourlyarray[4] + _singleday
+                            
+                    }
+    
+                    //wind
+                    if RE_GREP( _buff, _regwind ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _regwind) {
+                                            _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[5] = hourlyarray[5] + _singleday
+                            
+                    }
+                    
+                    //humidity
+                    if RE_GREP( _buff, _reghumidity ) {
+                            
+                            _singleday = NULL
+                            _temp = RE_GETSTR
+                            
+                            for i = 0; i < ARRAYSIZE(_temp); i++ {
+                                    
+                                    if RE_SEARCH(_temp[i], _reghumidity) {
+                                            _singleday = _singleday + RE_GETSTR[1] + ","
+                                    }
+                                    
+                            
+                            }            
+                            
+                            hourlyarray[6] = hourlyarray[6] + _singleday
+                            
+                    }
+            }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0\b2\f[bold,1]Hourly Forecast\f[bold,0] \n\n[half]\_q/
+    
+    %(hourlyarray[0][0]): %(hourlyarray[1][0])\n/
+    Temp:%(hourlyarray[2][0])°; Feels like:%(hourlyarray[3][0])°; \nWind:%(hourlyarray[5][0])\n/
+    %(hourlyarray[4][0])% chance of precipitation\nHumidity:%(hourlyarray[6][0])%\n\n[half]/
+    
+    %(hourlyarray[0][1]): %(hourlyarray[1][1])\n/
+    Temp:%(hourlyarray[2][1])°; Feels like:%(hourlyarray[3][1])°; \nWind:%(hourlyarray[5][1])\n/
+    %(hourlyarray[4][1])% chance of precipitation\nHumidity:%(hourlyarray[6][1])%\n\n[half]/
+    
+    %(hourlyarray[0][2]): %(hourlyarray[1][2])\n/
+    Temp:%(hourlyarray[2][2])°; Feels like:%(hourlyarray[3][2])°; \nWind:%(hourlyarray[5][2])\n/
+    %(hourlyarray[4][2])% chance of precipitation \nHumidity:%(hourlyarray[6][2])%\n\n[half]/
+    
+    %(hourlyarray[0][3]): %(hourlyarray[1][3])\n/
+    Temp:%(hourlyarray[2][3])°; Feels like:%(hourlyarray[3][3])°; \nWind:%(hourlyarray[5][3])\n/
+    %(hourlyarray[4][3])% chance of precipitation\nHumidity:%(hourlyarray[6][3])%\n\n[half]/
+    
+    %(hourlyarray[0][4]): %(hourlyarray[1][4])\n/
+    Temp:%(hourlyarray[2][4])°; Feels like:%(hourlyarray[3][4])°; \nWind:%(hourlyarray[5][4])\n/
+    %(hourlyarray[4][4])% chance of precipitation\nHumidity:%(hourlyarray[6][4])%\n\n[half]/
+    
+    %(hourlyarray[0][5]): %(hourlyarray[1][5])\n/
+    Temp:%(hourlyarray[2][5])°; Feels like::%(hourlyarray[3][5])°; \nWind:%(hourlyarray[5][5])\n/
+    %(hourlyarray[4][5])% chance of precipitation\nHumidity:%(hourlyarray[6][5])%\n\n[half]/
+    
+    %(hourlyarray[0][6]): %(hourlyarray[1][6])\n/
+    Temp:%(hourlyarray[2][6])°; Feels like:%(hourlyarray[3][6])°; \nWind:%(hourlyarray[5][6])\n/
+    %(hourlyarray[4][6])% chance of precipitation\nHumidity:%(hourlyarray[6][6])%\n\n[half]/
+    
+    %(hourlyarray[0][7]): %(hourlyarray[1][7])\n/
+    Temp:%(hourlyarray[2][7])°; Feels like:%(hourlyarray[3][7])°; \nWind:%(hourlyarray[5][7])\n/
+    %(hourlyarray[4][7])% chance of precipitation\nHumidity:%(hourlyarray[6][7])%\n\n[half]/
+    
+    %(hourlyarray[0][8]): %(hourlyarray[1][8])\n/
+    Temp:%(hourlyarray[2][8])°; Feels like:%(hourlyarray[3][8])°; \nWind:%(hourlyarray[5][8])\n/
+    %(hourlyarray[4][8])% chance of precipitation\nHumidity:%(hourlyarray[6][8])%\n\n[half]/
+
+
+    %(hourlyarray[0][9]): %(hourlyarray[1][9])\n/
+    Temp:%(hourlyarray[2][9])°; Feels like:%(hourlyarray[3][9])°; \nWind:%(hourlyarray[5][9])\n/
+    %(hourlyarray[4][9])% chance of precipitation\nHumidity:%(hourlyarray[6][9])%"
+    --
+    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n"
+}
+
+
+OnDownloadMoonPhase
+{
+    "\0\s[0]Downloading moon phase... \![execute,http-get,https://www.moongiant.com/phase/today/,--async=OnMoonFound,--file=moon.html,--timeout=200]"
+
+
+}
+
+
+OnMoonFound{
+
+
+    //file to be read
+    _file = "var\\moon.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _regphase=',"Phase: <span>([\w|\s]*)<./span>'
+    _found = 0;
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //string for holding phase
+    phase = ""
+    
+
+
+    
+    --
+    
+    if FOPEN(_file,'r') {
+            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+                    
+
+
+                    if RE_SEARCH ( _buff, _regphase ) {
+                            
+                            phase = RE_GETSTR[1]
+                            _found = 1; //break loop since we dont need to continue parsing
+                            
+                    }
+            }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0The moon is currently in its %(phase) phase."
+    --
+    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+	--
+	"\![*]\q[Nevermind,CANCEL]\n"
+}
