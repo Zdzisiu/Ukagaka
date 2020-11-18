@@ -976,7 +976,6 @@ OnOtherGhostClosed
 // %(installedghostlist)
 //ghostexlist
 
-
 OnUpdateVariables
 {
 	if vers == "1.0.3"

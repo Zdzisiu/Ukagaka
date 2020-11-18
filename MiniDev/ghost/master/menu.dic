@@ -1430,7 +1430,7 @@ Select.ques
 				"\![*]\q[Hobbies,On201zQ,hobbies]\n"
 			}
 			--
-			if quest == 1 && repairglitch != 1
+			if (quest == 1 || quest == 3) && repairglitch != 1
 			{
 				"\![*]\q[Repair,deletethefiles]\n"
 			}
@@ -1438,6 +1438,11 @@ Select.ques
 			if david == 1
 			{
 				"\![*]\q[David,On201zQ,david]\n"
+			}
+			--
+			if ghostmet >= 1
+			{
+				"\![*]\q[Other Ghosts,On201zQ,otherghosts]\n"
 			}
 		}
 	}
@@ -1508,7 +1513,7 @@ On201zQ
 						if mood[2] < mood[3] && mood[2] < mood[4] && mood[5] < mood[4] && mood[5] < mood[3]
 						{
 							{
-								"%(distingstart)I̶t̷'̶s̸ ̸r̶e̴a̸l̴l̷y̴ ̵b̵o̵r̷i̸n̷g̴ ̸h̶e̵r̵e̷"
+								"I̶t̷'̶s̸ ̸r̶e̴a̸l̴l̷y̴ ̵b̵o̵r̷i̸n̷g̴ ̸h̶e̵r̵e̷"
 								--
 								if ghostexcount > 0
 								{
@@ -1521,7 +1526,7 @@ On201zQ
 						}
 						else
 						{
-							"%(distingstart)I̶t̵'̶s̸ ̸r̷e̶a̷l̴l̵y̵ ̸b̵o̸r̶i̷n̵g̷ ̴h̵e̴r̸e̷ .\w5 .\w5 .\w5 o̶n̸l̶y̷ ̸m̶a̷k̸e̸s̸ ̷m̵e̴ ̸m̶i̴s̴s̶ ̷m̷y̶ ̸b̴o̴d̸y̶ ̶m̵o̵r̵e̸"
+							"I̶t̵'̶s̸ ̸r̷e̶a̷l̴l̵y̵ ̸b̵o̸r̶i̷n̵g̷ ̴h̵e̴r̸e̷ .\w5 .\w5 .\w5 o̶n̸l̶y̷ ̸m̶a̷k̸e̸s̸ ̷m̵e̴ ̸m̶i̴s̴s̶ ̷m̷y̶ ̸b̴o̴d̸y̶ ̶m̵o̵r̵e̸"
 							--
 							"\e"
 						}
@@ -1530,52 +1535,52 @@ On201zQ
 					{
 						if m201relationship < 100
 						{
-							"%(distingstart)O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
-							"%(distingstart)O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
-							"%(distingstart)O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
+							"O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
+							"O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
+							"O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
 						}
 						elseif m201relationship < 200
 						{
-							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
-							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
-							"%(distingstart)I .\w5 .\w5 .\w5"
-							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5"
+							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"I .\w5 .\w5 .\w5"
+							"I̸'̴m̸ ̷.\w5 .\w5 .\w5"
 						}
 						elseif m201relationship > 200
 						{
-							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 I̵'̶m̸ ̷j̷u̴s̴t̷ ̴t̵h̴i̶n̸k̷i̶n̶g̶ ̴a̵b̴o̴u̵t̴ ̶e̸v̷e̸r̸y̷t̶h̴i̶n̸g̸"
-							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
-							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
-							"%(distingstart)I .\w5 .\w5 .\w5"
-							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5"
+							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 I̵'̶m̸ ̷j̷u̴s̴t̷ ̴t̵h̴i̶n̸k̷i̶n̶g̶ ̴a̵b̴o̴u̵t̴ ̶e̸v̷e̸r̸y̷t̶h̴i̶n̸g̸"
+							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"I .\w5 .\w5 .\w5"
+							"I̸'̴m̸ ̷.\w5 .\w5 .\w5"
 						}
 						--
 						"\e"
 					}
 					when 3,4
 					{
-						"%(distingstart)I̴'̶m̶ ̴g̴o̶o̶d̵ ^^"
+						"I̴'̶m̶ ̴g̴o̶o̶d̵ ^^"
 					}
 					when 5
 					{
 						if m201relationship < 100
 						{
-							"%(distingstart)O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
-							"%(distingstart)O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
-							"%(distingstart)O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
+							"O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
+							"O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
+							"O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
 						}
 						elseif m201relationship < 200
 						{
-							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
-							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
-							"%(distingstart)I .\w5 .\w5 .\w5"
-							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5"
+							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
+							"I .\w5 .\w5 .\w5"
+							"I̸'̴m̸ ̷.\w5 .\w5 .\w5"
 						}
 						elseif m201relationship > 200
 						{
-							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 .\w5 .\w5 .\w5 I̶'̸m̶ ̶j̵u̵s̶t̸ ̵t̶h̷i̸n̸k̴i̸n̷g̵ ̸a̸b̴o̵u̷t̴ ̴w̴h̵a̷t̶ ̵m̴i̸g̷h̶t̷ ̸h̴a̸v̵e̵ ̵h̴a̵p̴p̴e̷n̷e̸d̶ ̸w̴i̸t̵h̵ o̷t̴h̴e̵r̸ ̵M̶-̸z̷"
-							"%(distingstart)I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̴u̸t̴ ̷d̷o̵n̷'̷t̷ ̴w̴o̷r̴r̸y̴ ̵a̴b̴o̸u̶t̷ ̵i̷t̷ %(username)"
-							"%(distingstart)I̸'̴m̸ ̷.\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̸u̸t̶ ̷d̴o̷n̶'̴t̵ ̸w̴o̸r̴r̶y̸ ̴a̷b̵o̶u̴t̷ ̷i̵t̶ %(username)"
+							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 .\w5 .\w5 .\w5 I̶'̸m̶ ̶j̵u̵s̶t̸ ̵t̶h̷i̸n̸k̴i̸n̷g̵ ̸a̸b̴o̵u̷t̴ ̴w̴h̵a̷t̶ ̵m̴i̸g̷h̶t̷ ̸h̴a̸v̵e̵ ̵h̴a̵p̴p̴e̷n̷e̸d̶ ̸w̴i̸t̵h̵ o̷t̴h̴e̵r̸ ̵M̶-̸z̷"
+							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̴u̸t̴ ̷d̷o̵n̷'̷t̷ ̴w̴o̷r̴r̸y̴ ̵a̴b̴o̸u̶t̷ ̵i̷t̷ %(username)"
+							"I̸'̴m̸ ̷.\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̸u̸t̶ ̷d̴o̷n̶'̴t̵ ̸w̴o̸r̴r̶y̸ ̴a̷b̵o̶u̴t̷ ̷i̵t̶ %(username)"
 						}
 						--
 						"\e"
@@ -1685,9 +1690,9 @@ On201zQ
 			--
 			if repairglitch != 1
 			{
-				"%(distingstart)M̴e̷?̴ \f[strike,1]I'm\f[default] .\w8 .\w8 .\w8 %(distingstart)\w8\f[bold,1]\f[italic,1]I was\f[default] %(distingstart)a robot"
-				"%(distingstart)T̶h̸e̷r̴e̵ ̷i̴s̷n̸'̸t̴ ̶r̶e̷a̵l̵l̴y̶ ̸a̶n̸y̴t̷h̶i̸n̸g̷ ̸i̵n̸t̷e̵r̷e̶s̴t̵i̴n̶g̸ ̴a̶b̵o̵u̶t̷ ̶m̵e̴,\w2 I haven't exerienced enough things to have likes and dislikes .\w3 .\w3 .\w3 or a hobby%(hobbyvar)"
-				"%(distingstart)Me? right now I'm just a useless softwere"
+				"%(distingstart)M̴e̷?̴ \f[strike,1]I̸'̸m̸\f[default] .\w8 .\w8 .\w8 %(distingstart)\w8\f[bold,1]\f[italic,1]I̴ ̷w̷a̴s̸\f[default] a̷ ̸r̶o̷b̴o̴t̴"
+				"%(distingstart)T̶h̸e̷r̴e̵ ̷i̴s̷n̸'̸t̴ ̶r̶e̷a̵l̵l̴y̶ ̸a̶n̸y̴t̷h̶i̸n̸g̷ ̸i̵n̸t̷e̵r̷e̶s̴t̵i̴n̶g̸ ̴a̶b̵o̵u̶t̷ ̶m̵e̴,\w2 I̵ ̸h̶a̶v̴e̴n̷'̴t̶ e̵x̵p̵e̷r̶i̸e̵n̸c̴e̵d̸ ̴e̶n̷o̴u̵g̸h̷ ̷t̶h̷i̴n̴g̸s̵ ̶t̶o̶ ̶h̷a̴v̸e̶ ̵l̷i̶k̸e̷s̵ ̷a̶n̴d̸ ̸d̴i̵s̸l̶i̶k̸e̷s̶ .\w3 .\w3 .\w3 o̴r̸ ̴a̵ ̴h̶o̴b̵b̵y̷%(hobbyvar)"
+				"%(distingstart)M̶e̸?̸ ̸r̸i̵g̵h̶t̷ ̶n̸o̵w̸ ̵I̸'̴m̴ ̸j̴u̴s̸t̸ ̸a̶ ̴u̴s̸e̶l̷e̸s̶s̴ ̶s̶o̶f̸t̴w̷e̴r̸e̷"
 				if m201relationship > 100
 				{
 					"%(distingstart)T̸h̵e̶r̷e̸ ̸i̶s̷n̸'̶t̸ ̷m̸u̵c̸h̸ ̵t̷o̸ ̴t̶e̴l̴l̵ ̷a̷b̷o̴u̸t̶ ̵m̸e̸,\w6 I̴ ̷w̸a̴s̸ ̶a̵ ̴r̷o̷b̶o̴t̸,\w6 I̵ ̶g̵o̷t̸ ̸d̴e̵s̶t̴r̴o̵y̶e̶d̶ .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I̸ ̵g̴e̸t̷ ̶s̷t̶r̶e̶s̶s̶e̵d̶ ̴a̵r̴o̵u̸n̷d̴ ̶p̴e̶o̵p̷l̷e̶ ̷I̴ ̴d̷o̶n̸'̷t̴ ̴k̴n̸o̷w̵"
@@ -1695,8 +1700,8 @@ On201zQ
 			}
 			else
 			{
-				"%(distingstart)Me? \f[strike,1]I'm\f[default] %(distingstart)\w8\f[bold,1]\f[italic,1]I was\f[default] %(distingstart)a robot"
-				"%(distingstart)There isn't really anything interesting about me,\w2 I haven't exerienced enough things to have likes and dislikes .\w3 .\w3 .\w3 or a hobby%(hobbyvar)"
+				"%(distingstart)Me? \f[strike,1]I'm\f[default] %(distingstart)\w8\f[bold,1]\f[italic,1]I was\f[default] a robot"
+				"%(distingstart)There isn't really anything interesting about me,\w2 I haven't epxerienced enough things to have likes and dislikes .\w3 .\w3 .\w3 or a hobby%(hobbyvar)"
 				"%(distingstart)Me? right now I'm just a useless softwere"
 				if m201relationship > 100
 				{
@@ -1773,7 +1778,7 @@ OnFunInfo
 		}
 		when "to-od"
 		{
-			"To acces To-Do list you need to go to function menu and choose 'To-Do List' or click on a quick tool\x\cTo make a task click '+' and name the task. You don't need to number them,\w3 I do it automatically\x\cTo delete task click '-'\w3 and then click on a task you want to delete,\w4 you can only delete task that are undone that way\x\cTo delete a task marked as done click 'delete'\x\cTo mark task as done click on it\w3 (make sure that '-' is white)\e"
+			"To acces To-Do list you need to go to function menu and choose 'To-Do List' or click on a quick tool\x\cTo make a task click '+' and name the task. You don't need to number them,\w3 I do it automatically\x\cTo delete task click '-'\w3 and then click on a task you want to delete\w4\x\cTo mark task as done click on it\w3 (make sure that '-' is white)\e"
 		}
 		when "apps"
 		{
@@ -1882,8 +1887,8 @@ Select.secode
 	--
 	if serialnum == 201 && gener == "z"
 	{
-			truth ++
-			"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
+		truth ++
+		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
 	}
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '%(serialnum)' and then generation, for example '%(gener)',\w5 marking complexity of certain model\x\cJoining them you get M-%(serialnum)%(gener)\e"
 
@@ -1926,7 +1931,7 @@ Select.m201z
 Select.stats
 {
 	
-	"Chose statistics:"
+	"Choose statistics:"
 	--
 	"\n\n\_q\![*]\q[Ghost Usage,gusage]\n/
 	\![*]\q[Balloon Usage,busage]\x\e"
@@ -2032,12 +2037,12 @@ Select.dosomething
 	
 	"\0\b2What shall I do?\n\n"
 	--
-	"\_q\![*]\q[Open Calendar,CALENDAR]\n/
-	\![*]\q[Weather,weath]\n/
+	"\_q\![*]\q[Weather,weath]\n/
 	\![*]\q[To-Do list,todotwooo]\n/
 	\![*]\q[Reminders,OnReminders]\n/
 	\![*]\q[Recommend,req]\n/
-	\![*]\q[Quote,quote]\n/
+	\![*]\q[Quote,quote]\n\n[half]/
+	\![*]\q[Open Calendar,CALENDAR]\n/
 	\![*]\q[Statistics,stats]\n/
 	\![*]\q[Check Email,MailCheck]\n/
 	\![*]\q[Open SSP Preferences,sspconfig]\n/
@@ -2255,181 +2260,6 @@ OnMarkTask_done
 	Select.todotwooo
 }
 
-/*
-Select.todo 
-{
-	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
-
-	"\_q\1\b[4]"
-	--
-	taskforpage = ''
-	lefttask = 0
-	completedtasks = 0
-	--
-	for _i=1;_i<=taskamount;_i++
-	{
-		if todostatus[_i] == 0
-		{
-			lefttask+=1
-		}
-		else
-		{
-			completedtasks++
-		}
-	}
-	--
-		"\*\f[bold,1]%(namepage)\n\n[half]\f[bold,0]"
-		--
-		"Number of Tasks: \f[bold,1]%(taskamount)\f[bold,0]\nTasks to do: %(lefttask)\n\n[half]"
-		--
-		if taskamount == 0
-		{
-			"\f[italic,1]You don't have any tasks\f[default]\n"
-		}
-		else
-		{
-			for _i=1;_i<=taskamount;_i++
-			{
-				if todostatus[_i] == 1
-				{
-					taskforpage +=  _i + ". " + todos[_i] + "\n"
-				}
-				else
-				{
-					taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
-				}
-			}
-		}
-		--
-		"%(taskforpage)"
-		--
-		"\n\f[height,20]\q[+,qcrtsk] | "
-		--
-		if deltasks != 1
-		{
-			"\q[-,crtsk]\n"
-		}
-		else
-		{
-			"\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
-		}
-		
-		--
-		"\f[height,10]\q[Clear page,delpage]  | \q[Rename Page,repage] | \q[Delete,deltask]\n\n[half]/
-		\![*]\q[Close,closetodo]\f[height,default]\e"
-}
-
-Select.crtsk
-{
-	if deltasks != 1
-	{
-		deltasks = 1
-	}
-	else
-	{
-		deltasks = 0
-	}
-	--
-	Select.todo
-}
-
-Select.deltask
-{
-	"\_qWrite number of a task you want to delete\![open,inputbox,OnDelTask,-1]"
-}
-
-OnDelTask
-{
-	todelete = TOINT(reference0)
-	todos[todelete] = ""
-	todostatus[todelete] = 0
-	taskamount--
-	--
-	Select.todo
-}
-
-Select.repage
-{
-	"\_q\![open,inputbox,OnRename,-1]"
-}
-
-OnRename
-{
-	namepage = reference0
-	--
-	Select.todo
-}
-
-OnMarkTask
-{
-	done = TOINT(reference0)
-	--
-	if deltasks !=1
-	{
-		todos[done] = "\f[strike,1]" + todos[done] + "\f[strike,0]"
-		todostatus[done] = 1
-		completed++
-	}
-	else
-	{
-		todostatus[done] = 0
-		todos[done] = ""
-		taskamount--
-		deltasks = 0
-
-	}
-	--
-	Select.todo
-}
-
-Select.closetodo
-{
-
-}
-
-Select.qcrtsk
-{
-	
-	"\![open,inputbox,OnNamedTask,-1]"
-}
-
-
-OnNamedTask
-{
-	taskamount += 1
-	todostatus[taskamount] = 0
-	todos[taskamount] = reference0
-	--
-	Select.todo
-}
-
-Select.pretodo
-{
-	pagenum -=1
-	--
-	Select.todo
-}
-
-Select.netodo
-{
-	pagenum += 1
-	--
-	Select.todo
-}
-
-Select.delpage
-{
-	for _i=1;_i<=taskamount;_i++
-	{
-		todos[_i] = ""
-		todostatus[_i] = 0
-	}
-	--
-	taskamount = 0
-	--
-	Select.todo
-}*/
-
 Select.weath
 {
 	OnCheckWeather
@@ -2437,7 +2267,6 @@ Select.weath
 
 Select.CALENDAR
 {
-	
 	"\0Opening the calender.\![open,calendar]\e"
 }
 
@@ -2449,13 +2278,11 @@ Select.sspconfig
 
 Select.ChoiceGarbagecan
 {
-	
 	_gomicheck = FUNCTIONEX("saori\\gomi.dll", "-n")	
 
 	if _gomicheck == 0 
 	{
 		"\0You want me to empty your garbage?\w8Okay\w8\w8\w8\s[-1]\w8\w8\w8\w8It's empty already\e"
-		
 	}
 	elseif _gomicheck >= 1 
 	{
@@ -2496,155 +2323,12 @@ Select.MailCheck
 
 Select.HEADLINECANCEL
 {
-	
 	"\0Finished with headlines.\e"
 }
 OnChoiceTimeout
 {
-	"\0So you're just killing time?\e"  //'"
+	"\0So you're just killing time?\e" 
 }
-
-/*OnZodiacCheck
-{
-	askzoidac = 0
-	zodiaccheck = 1
-	if bornmonth == 1 
-	{
-		if bornday >= 20
-		{
-			zodiac = "aquarius"
-		}
-		else
-		{
-			zodiac = "capricorn"
-		}
-	}
-	elseif bornmonth == 2 
-	{
-		if bornday >= 19
-		{
-			zodiac = "pisces"
-		}
-		else
-		{
-			zodiac = "aquarius"
-		}
-	}
-	elseif bornmonth == 3 
-	{
-		if bornday >= 21
-		{
-			zodiac = "aries"
-		}
-		else
-		{
-			zodiac = "pisces"
-		}
-	}
-	elseif bornmonth == 4 
-	{
-		if bornday >= 20
-		{
-			zodiac = "taurus"
-		}
-		else
-		{
-			zodiac = "aries"
-		}
-	}
-	elseif bornmonth == 5 
-	{
-		if bornday >= 21
-		{
-			zodiac = "gemini"
-		}
-		else
-		{
-			zodiac = "taurus"
-		}	
-	}
-	elseif bornmonth == 6 
-	{
-		if bornday >= 21
-		{
-			zodiac = "cancer"
-		}
-		else
-		{
-			zodiac = "gemini"
-		}
-	}
-	elseif bornmonth == 7 
-	{
-		if bornday >= 23
-		{
-			zodiac = "leo"
-		}
-		else
-		{
-			zodiac = "cancer"
-		}	
-	}
-	elseif bornmonth == 8 
-	{
-		if bornday >= 23
-		{
-			zodiac = "virgo"
-		}
-		else
-		{
-			zodiac = "leo"
-		}	
-	}
-	elseif bornmonth == 9 
-	{
-		if bornday >= 23
-		{
-			zodiac = "libra"
-		}
-		else
-		{
-			zodiac = "virgo"
-		}	
-	}
-	elseif bornmonth == 10 
-	{
-		if bornday >= 23
-		{
-			zodiac = "scorpio"
-		}
-		else
-		{
-			zodiac = "libra"
-		}	
-	}
-	elseif bornmonth == 11 
-	{
-		if bornday >= 22
-		{
-			zodiac = "sagittarius"
-		}
-		else
-		{
-			zodiac = "scorpio"
-		}	
-	}
-	elseif bornmonth == 12 
-	{
-		if bornday >= 22
-		{
-			zodiac = "capricorn"
-		}
-		else
-		{
-			zodiac = "sagittarius"
-		}	
-	}
-	else
-	{
-		zodiac = "NULL"
-	}
-}*/
 
 OnAI
 {
@@ -2655,15 +2339,6 @@ OnAI
 
 Select.oapp
 {
-	/*if apps != 1
-	{
-		"To open app you need to place shortcut for it in the folder\![open,file,app]\x\cRemember to name it something you will remember"
-		apps = 1
-	}
-	else
-	{	
-		"What app do you want to open?\![open,inputbox,OnOpenApp,-1]"
-	}*/
 	appcontent = ""
 	appcontent +="\f[bold,1]\_q\b[4]Your apps\f[bold,0]:\n\n"
 	--

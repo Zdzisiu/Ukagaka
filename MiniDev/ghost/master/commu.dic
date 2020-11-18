@@ -719,20 +719,20 @@ RespondingToDusty //convos with Dusty
 		res_reference0 = "Dusty"
 		"Sorry I don't have any food.\e MiniDev-Dusty-01-05"
 	}
-	elseif "DustyMinimizedMiniDev" _in_ _ConvoTag //Dusty was minimized
+	elseif "DustyMinimizedMiniDev" _in_ _ConvoTag 
 	{
 		res_reference0 = ""
 		obsydian = 0
 		--
 		"\0\s[0]%(byebye) kitty\e"
 	}
-	elseif "DustyRequestMDStats" _in_ _ConvoTag //Dusty was minimized
+	elseif "DustyRequestMDStats" _in_ _ConvoTag 
 	{
 		res_reference0 = "Dusty"
 		--
 		"\e DustyRequestMDStats1,%(tentruth),%(meeting),%(devname),%(repairglitch)"
 	}
-	elseif "MDRequestDustyStats1" _in_ _ConvoTag //Dusty was minimized
+	elseif "MDRequestDustyStats1" _in_ _ConvoTag 
 	{
 		res_reference0 = ""
 		--
@@ -910,7 +910,7 @@ RespondingToOmega
 	elseif "RepairGlitch3" _in_ _ConvoTag
 	{
 		res_reference0 = "Omega"
-		"%(distingtype)They were probably tired of reading those glitches\e RepairGlitch4"
+		"%(distingtype)They were probably tired of reading those glitches heh\e RepairGlitch4"
 	}
 	else
 	{
