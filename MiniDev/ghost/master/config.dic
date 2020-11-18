@@ -93,14 +93,7 @@ TalkConfig
 	{
 		"\f[color,default]\f[bold,0]Weather \f[color,#1bcc2a] \q[%(weathermenu),weatheroff]\f[color,default] ("
 		--
-		if "C" _in_ currentweatherarray[1]
-		{
-			"\f[color,#e62719] \q[%(currentweatherarray[1]),degreeez]\f[color,default]\f[sup,0])\n"
-		}
-		else
-		{
-			"\f[color,#1bcc2a] \q[%(currentweatherarray[1]),degreeez]\f[color,default]\f[sup,0])\n"
-		}
+		"\f[color,#e62719] \q[%(currentweatherarray[1]),switchunits]\f[color,default]\f[sup,0])\n"
 	}
     --
 	if moonmenu != "ON"
