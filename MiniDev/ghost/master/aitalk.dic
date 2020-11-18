@@ -87,11 +87,11 @@ MDtalk
 		{
 			if lefttask[pagenum] == 1
 			{
-				"You still have 1 task to do on '%(pagename[pagenum])' list"
+				"You still have 1 task to do on '%(namepage[pagenum])' list"
 			}
 			else
 			{
-				"You still have %(lefttask[pagenum]) tasks to do on '%(pagename[pagenum])' list"
+				"You still have %(lefttask[pagenum]) tasks to do on '%(namepage[pagenum])' list"
 			}
 
 			{
@@ -117,7 +117,7 @@ MDtalk
 				--
 				if pagetasks[randtask] != "" 
 				{
-					"You should try completing one of the tasks, maybe try completing '%(pagetasks[randtask])' from '%(pagename[pagenum])'"
+					"You should try completing one of the tasks, maybe try completing '%(pagetasks[randtask])' from '%(namepage[pagenum])'"
 				}
 			}
 		}

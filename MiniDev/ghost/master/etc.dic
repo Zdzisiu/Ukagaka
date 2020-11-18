@@ -355,12 +355,17 @@ OnUpdate.OnDownloadBegin
 
 OnUpdateCheckComplete
 {
-	if reference0 != "none"
-	{
-		"There is an update avalible"
-		--
-		"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
-	}
+        if reference0 != "none"
+        {
+                "There is an update avalible"
+                --
+                "\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
+        }
+        else
+        {
+                "\b[-1]\e"
+        }
+        
 }
 
 Select.up
@@ -702,32 +707,26 @@ OnCheckWeather
     --
     //if first time opening there will be no location so user needs to set location b4 anything else. except moon phase
     
-    if (locationcode == ""){
-    
-    "\![*]\q[Set Location,OnWeatherLocation]\n/
-    \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n\n[half]"
-    locationset=0
-    
-    } else {
-            locationset=1
-            "\![*]\q[Set Location,OnWeatherLocation]\n/
-            \![*]\q[Check Current Weather,OnDownloadCurWeather]\n/
-            \![*]\q[Check 10 Day Forecast,OnDownloadForecast]\n/
-            \![*]\q[Check Hourly Forecast,OnDownloadHourly]\n/
-            \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n"
-            --
-            if unit==""{
-                    "\![*]\q[Switch to Metric Units,switchunits]\n\n[half]"
-            } else
-            {
-                    "\![*]\q[Switch to American Units,switchunits]\n\n[half]"
-            }
+    if (locationcode == "")
+	{
+		"\![*]\q[Set Location,OnWeatherLocation]\n/
+		\![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n\n[half]"
+		locationset=0
+    } 
+	else 
+	{
+		locationset=1
+		"\![*]\q[Set Location,OnWeatherLocation]\n/
+		\![*]\q[Check Current Weather,OnDownloadCurWeather]\n/
+		\![*]\q[Check 10 Day Forecast,OnDownloadForecast]\n/
+		\![*]\q[Check Hourly Forecast,OnDownloadHourly]\n/
+		\![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n"
     }
     --
     "If the forecast isn't working, you might need to:\n/
     \![*]\q[Update the weather code,OnDownloadRegex]\n\n[half]"
     --
-    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+    "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\n"
 
@@ -902,23 +901,22 @@ OnCurWeatherFound
     --
     "\0\b[2]\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
     \nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
-    --
+    --          
     if currentweatherarray[6] == "Local Pollen Alert" {
     "\nThere's a local pollen alert!"
     }
     --
-    "\![*]\q[Main menu,OnBACKTOMENU]\n"
-	--
-	"\![*]\q[Nevermind,CANCEL]\n"
-
-
+    "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
+    --
+    "\![*]\q[Nevermind,CANCEL]\n"
+    
 }
 
 
 OnDownloadForecast{
 
 
-        "\0\s[0]Downloading forecast... \![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
+    "\0\s[0]Downloading forecast... \![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
 
 
 }
@@ -1178,7 +1176,7 @@ OnForecastFound
     %(forecastarray[4][9])% chance of precipitation\nHumidity:%(forecastarray[6][9])%"
     
     --
-    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+    "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\n"
 }
@@ -1411,7 +1409,7 @@ OnHourlyFound
     Temp:%(hourlyarray[2][9])°; Feels like:%(hourlyarray[3][9])°; \nWind:%(hourlyarray[5][9])\n/
     %(hourlyarray[4][9])% chance of precipitation\nHumidity:%(hourlyarray[6][9])%"
     --
-    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+    "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\n"
 }
@@ -1465,7 +1463,7 @@ OnMoonFound{
     
     "\0The moon is currently in its %(phase) phase."
     --
-    "\![*]\q[Main menu,OnBACKTOMENU]\n"
+    "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\n"
 }

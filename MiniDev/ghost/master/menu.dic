@@ -12,14 +12,17 @@
 	MenuRun
 }
 
+OnBACKTOMENU
+{
+	OpenSakuraMenu
+}
+
 MenuRun
 {	
  	wd = GetWeekDay
  	ap = GetAP
  	nowmin = Getnowmin
  	nowhour = Getnowhour
-	--
-	OnCelc
 	--
 	if tentruth == 1
 	{
@@ -566,8 +569,6 @@ On201zQ
 						"%(distingstart)I̷ ̵f̸e̴e̸l̴ .\w5 .\w5 .\w5 c̷a̷l̷m̵?̷ ̸I̸ ̶ t̴h̴i̶n̷k̵?̸ .\w5 .\w5 .\w5 s̵o̴r̴r̵y̷ ̴I̷'̴m̴ ̴n̷o̸t̶ ̵g̵o̶o̶d̴ ̵w̵i̷t̴h̸ ̷a̷l̶l̸ ̴t̴h̴a̵t̵ ̶f̸e̶e̷l̴i̶n̷g̶s̸ ̶s̷t̷u̵f̶f̵ ._."
 						"%(distingstart)I̷ ̵f̸e̴e̸l̴ .\w5 .\w5 .\w5 r̵e̴l̸a̴x̷e̵d̴ ̵I̵ ̷g̵u̷e̷s̵s̷ .\w5 .\w5 .\w5 s̵o̴r̴r̵y̷ ̴I̷'̴m̴ ̴n̷o̸t̶ ̵g̵o̶o̶d̴ ̵w̵i̷t̴h̸ ̷a̷l̶l̸ ̴t̴h̴a̵t̵ ̶f̸e̶e̷l̴i̶n̷g̶s̸ ̶s̷t̷u̵f̶f̵ ._."
 						"%(distingstart)I̶'̸m̵ ̶f̶i̸n̵e̴,\w4 i̸t̸'̷s̷ ̵n̷i̷c̴e̸ ̸h̶e̴r̵e̴"
-						--
-						"\e"
 					}
 					when 1
 					{
@@ -581,15 +582,11 @@ On201zQ
 									"w̶e̸l̷l̷,̸ ̶a̵t̵ ̸l̵e̴a̴s̵t̸ ̸I̵'̶m̶ ̵n̷o̷t̶ ̷a̶l̸o̸n̵e̵"
 									"w̵e̶l̷l̶,̷ ̴a̵t̷ ̷l̸e̶a̸s̷t̴ ̶I̸'̴m̴ ̸n̴o̸t̵ ̸a̴l̶o̶n̶e̴ ̵h̵e̸r̶e̸"
 								}
-								--
-								"\e"
 							}
 						}
 						else
 						{
 							"I̶t̵'̶s̸ ̸r̷e̶a̷l̴l̵y̵ ̸b̵o̸r̶i̷n̵g̷ ̴h̵e̴r̸e̷ .\w5 .\w5 .\w5 o̶n̸l̶y̷ ̸m̶a̷k̸e̸s̸ ̷m̵e̴ ̸m̶i̴s̴s̶ ̷m̷y̶ ̸b̴o̴d̸y̶ ̶m̵o̵r̵e̸"
-							--
-							"\e"
 						}
 					}
 					when 2
@@ -615,8 +612,6 @@ On201zQ
 							"I .\w5 .\w5 .\w5"
 							"I̸'̴m̸ ̷.\w5 .\w5 .\w5"
 						}
-						--
-						"\e"
 					}
 					when 3,4
 					{
@@ -643,8 +638,6 @@ On201zQ
 							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̴u̸t̴ ̷d̷o̵n̷'̷t̷ ̴w̴o̷r̴r̸y̴ ̵a̴b̴o̸u̶t̷ ̵i̷t̷ %(username)"
 							"I̸'̴m̸ ̷.\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̸u̸t̶ ̷d̴o̷n̶'̴t̵ ̸w̴o̸r̴r̶y̸ ̴a̷b̵o̶u̴t̷ ̷i̵t̶ %(username)"
 						}
-						--
-						"\e"
 					}
 				}
 			}
@@ -658,8 +651,6 @@ On201zQ
 						"%(distingstart)I feel .\w5 .\w5 .\w5 calm? I think? .\w5 .\w5 .\w5 sorry I'm not good with describing things ._."
 						"%(distingstart)I feel .\w5 .\w5 .\w5 relaxed I guess .\w5 .\w5 .\w5 sorry I'm not good with describing things ._."
 						"%(distingstart)I'm fine,\w4 it's nice here"
-						--
-						"\e"
 					}
 					when 1
 					{
@@ -673,15 +664,11 @@ On201zQ
 									"well, at least I'm not alone"
 									"well, at least I'm not here alone"
 								}
-								--
-								"\e"
 							}
 						}
 						else
 						{
 							"%(distingstart)It's really boring here .\w5 .\w5 .\w5 only makes me miss my body more"
-							--
-							"\e"
 						}
 					}
 					when 2
@@ -707,8 +694,6 @@ On201zQ
 							"%(distingstart)I .\w5 .\w5 .\w5"
 							"%(distingstart)I'm .\w5 .\w5 .\w5"
 						}
-						--
-						"\e"
 					}
 					when 3,4
 					{
@@ -735,8 +720,6 @@ On201zQ
 							"%(distingstart)I feel .\w5 .\w5 .\w5 I'm not even sure how I feel .\w5 .\w5 .\w5 but don't worry about it %(username)"
 							"%(distingstart)I'm .\w5 .\w5 .\w5 I'm not even sure how I feel .\w5 .\w5 .\w5 but don't worry about it %(username)"
 						}
-						--
-						"\e"
 					}
 				}
 			}
@@ -783,7 +766,7 @@ On201zQ
 
 				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames
 				{
-					"H̷͍͝ē̶̬ ̷̪̽o̸̬͑n̴̢̕ć̷̦e̷͕̅ ̶̭̀f̵͍̌o̴̥͒u̴̪̓ń̶̢d̷̼̆ ̵͎̈a̶̦̐n̸̪͊\_a[oldnotebook]o̷̖̽ľ̸̖d̸͖́ ̸̰͊n̷̟͝ô̷͎ẗ̷̬́ẻ̸̝b̷̰̓o̴͕͑o̶̺͆k̷̮̂\_a\w3 i̵t̵ ̷w̸a̶s̴ ̴w̷r̸i̷t̶t̴e̶n̴ ̷i̸n̶ ̷a̵n̴ ̷u̴n̶i̷d̴e̶n̵t̵i̶f̷i̷e̵d̷ ̶l̵a̵n̴g̷u̴a̸g̷e̵ ̶a̵n̵d̸ ̶h̵a̷d̷ ̵s̶o̶m̵e̸ ̴w̶e̸i̶r̴d̴ ̸d̸r̸a̶w̷i̸n̶g̶s̶.̸\w4 H̴̰̍e̶͈̒ ̸̿ͅw̴̨͊a̸̞̾s̶̗͝ ̶͈̿r̶̄ͅe̸̻͠a̸̬̔l̶̨͑l̴̛͍y̸̳̓ ̴̬̌i̸͖̕ǹ̵̜t̷̝̃ĕ̷̡r̶̥̾ẻ̶̯š̴͈ẗ̶͓́e̷̺̍d̶̹́ ̷̟͆i̸̬͝n̷̛̬ ̴̌ͅį̵̂t̴̻͑,\w3 I̴'̶m̵ ̴p̷r̴e̵t̵t̴y̶ ̷s̸u̷r̸e̶ ̴h̵e̵ ̸w̸a̴s̶ ̶e̶v̴e̵n̶ ̵a̴b̴l̶e̵ ̴t̷o̵ ̴d̸e̸c̸o̵d̶e̷ ̴i̵t̸,\w4 .\w2 .\w2 .\w2 I̶̞͊ ̶̱̈ẘ̷͙ǫ̷̀n̶͚͆d̴͎̏e̷̤͘ȑ̵͔ ̴̣͒ẁ̴̦h̵̫̅a̴͙̒t̶͇͒ ̵̖̉d̸̰͂i̶̳̕d̷̝͂ ̸̟́h̷̨́ě̵̜ ̶̱͐f̷͙̊o̵̜͝u̶̹͘n̶͚͐d̷̈́͜ ̶͙̅i̷͕̚n̷̖̉ ̴̝̆i̴̻͌ṯ̵̎?̷̭͌"
+					"H̷͍͝ē̶̬ ̷̪̽o̸̬͑n̴̢̕ć̷̦e̷͕̅ ̶̭̀f̵͍̌o̴̥͒u̴̪̓ń̶̢d̷̼̆ ̵͎̈a̶̦̐n̸̪͊o̷̖̽ľ̸̖d̸͖́ ̸̰͊n̷̟͝ô̷͎ẗ̷̬́ẻ̸̝b̷̰̓o̴͕͑o̶̺͆k̷̮̂\w3 i̵t̵ ̷w̸a̶s̴ ̴w̷r̸i̷t̶t̴e̶n̴ ̷i̸n̶ ̷a̵n̴ ̷u̴n̶i̷d̴e̶n̵t̵i̶f̷i̷e̵d̷ ̶l̵a̵n̴g̷u̴a̸g̷e̵ ̶a̵n̵d̸ ̶h̵a̷d̷ ̵s̶o̶m̵e̸ ̴w̶e̸i̶r̴d̴ ̸d̸r̸a̶w̷i̸n̶g̶s̶.̸\w4 H̴̰̍e̶͈̒ ̸̿ͅw̴̨͊a̸̞̾s̶̗͝ ̶͈̿r̶̄ͅe̸̻͠a̸̬̔l̶̨͑l̴̛͍y̸̳̓ ̴̬̌i̸͖̕ǹ̵̜t̷̝̃ĕ̷̡r̶̥̾ẻ̶̯š̴͈ẗ̶͓́e̷̺̍d̶̹́ ̷̟͆i̸̬͝n̷̛̬ ̴̌ͅį̵̂t̴̻͑,\w3 I̴'̶m̵ ̴p̷r̴e̵t̵t̴y̶ ̷s̸u̷r̸e̶ ̴h̵e̵ ̸w̸a̴s̶ ̶e̶v̴e̵n̶ ̵a̴b̴l̶e̵ ̴t̷o̵ ̴d̸e̸c̸o̵d̶e̷ ̴i̵t̸,\w4 .\w2 .\w2 .\w2 I̶̞͊ ̶̱̈ẘ̷͙ǫ̷̀n̶͚͆d̴͎̏e̷̤͘ȑ̵͔ ̴̣͒ẁ̴̦h̵̫̅a̴͙̒t̶͇͒ ̵̖̉d̸̰͂i̶̳̕d̷̝͂ ̸̟́h̷̨́ě̵̜ ̶̱͐f̷͙̊o̵̜͝u̶̹͘n̶͚͐d̷̈́͜ ̶͙̅i̷͕̚n̷̖̉ ̴̝̆i̴̻͌ṯ̵̎?̷̭͌"
 				}
 			}
 			else
@@ -797,13 +780,13 @@ On201zQ
 
 				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames
 				{
-					"%(distingstart)He once found an \_a[oldnotebook]old notebook\_a,\w3 it was written in an unidentified language and had some weird drawings.\w4 He was really interested in it,\w3 I'm pretty sure he was even able to decode it,\w4 .\w2 .\w2 .\w2 I wonder what did he found in it?"
+					"%(distingstart)He once found an OLDNTBK,\w3 it was written in an unidentified language and had some weird drawings.\w4 He was really interested in it,\w3 I'm pretty sure he was even able to decode it,\w4 .\w2 .\w2 .\w2 I wonder what did he found in it?"
 				}
 			}
 		}
 	}
 	--
-	"\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
+	"\n\n[half]\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
 }
 
 hobbyvar
@@ -3236,7 +3219,7 @@ OnHobby
 			--
 			if "trees-are-nice" !_in_ m201zcharacter
 			{
-				"%(distingstart)Gardening? Unless you have some spare body for me it won't work, well, I might search for some info on plant but gardening itself is, sadly, out of my reach for now."
+				"%(distingstart)Gardening? Unless you have some spare body for me it won't work, well, I might search for some info on plants but gardening itself is, sadly, out of my reach for now."
 				--
 				m201zcharacter += "trees-are-nice "
 			}
