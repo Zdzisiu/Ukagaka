@@ -919,6 +919,8 @@ OnToolCheck //adding stuff after updates
 		{
 			midnight = 0
 		}
+		--
+		OnUpdateVariables
 	}
 	else
 	{
@@ -977,7 +979,16 @@ OnOtherGhostClosed
 
 OnUpdateVariables
 {
-	vers = "1.0.3"
+	if vers == "1.0.3"
+	{
+		vers = "1.0.4"
+		namepage[0] = namepage
+		taskamount[0] = taskamount
+		pagetaskstatus[0] = REPLACE(todostatus,",","+")
+		tasks[0] = REPLACE(todos,",","+")
+		todopagenum = 0
+		pagenum = 0
+	}
 }
 
 OnTest

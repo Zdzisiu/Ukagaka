@@ -240,7 +240,7 @@ RandomTalk : nonoverlap
 							}
 							when 3,4
 							{
-								"%(distingstart)How is your day going? hope everything went well ^^"
+								"%(distingstart)How is your day going? Hope everything went well ^^"
 
 							}
 						}
@@ -631,40 +631,52 @@ RandomTalk : nonoverlap
 			"%(pickupline)"
 		}
 
-		if completedtasks > 1
+		if (taskamount[pagenum]-lefttask[pagenum]) > 1
 		{
-			"You comleted %(completedtasks) tasks, good job!"
-			"You comleted %(completedtasks) tasks, grat job!"
+			"You completed %(taskamount[pagenum]-lefttask[pagenum]) tasks from '%(pagename[pagenum])',"
+			--
+			" great job"
+			" good job"
+			--
+			"!"
+			
 		}
 
-		if lefttask != 0
 		{
-			if lefttask == 1
+			if lefttask[pagenum] != 0
 			{
-				"You still have 1 task to do"
-			}
-			else
-			{
-				"You still have %(lefttask) tasks to do"
-			}
-
-			{
-				randtask = RAND(taskamount) - 1
-				//%(todos[RAND(taskamount)])'
-				for x=0,_i=0;x==0 || _i<=taskamount;_i++
+				if lefttask[pagenum] == 1
 				{
-					if todostatus[randtask] != 1
-					{
-						x = 1
-					}
-					else
-					{
-						randtask = RAND(taskamount)
-					}
-					
+					"You still have 1 task to do '%(pagename[pagenum])'"
 				}
-				--
-				"You should try completing one of the tasks, maybe try completing '%(todos[randtask])' "
+				else
+				{
+					"You still have %(lefttask[pagenum]) tasks to do on '%(pagename[pagenum])'"
+				}
+
+				{
+					randtask = RAND(taskamount[pagenum])
+					--
+					if randtask == 0
+					{
+						randtask = 1
+					}
+					--
+					for x=0,_i=0;x==0 || _i<=taskamount[pagenum];_i++
+					{
+						if pagetaskstatus[_i] != 1
+						{
+							x = 1
+						}
+						else
+						{
+							randtask = RAND(taskamount[pagenum])
+						}
+						
+					}
+					--
+					"You should try completing one of the tasks, maybe try completing '%(pagetasks[randtask])' from '%(pagename[pagenum])'"
+				}
 			}
 		}
 	}

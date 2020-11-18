@@ -110,9 +110,9 @@ TalkConfig
 	else
 	{
 		"\f[color,default]\f[bold,0]Moon Phase: \f[color,#1bcc2a] \q[%(moonmenu),moonoff]\f[color,default]\n"
-		--
-		"\f[color,default]\f[bold,0]Hemisphere: \f[color,#e62719] \q[%(hsphere),hemisph]\f[color,default]\n"
 	}
+	--
+	"\f[color,default]\f[bold,0]Hemisphere: \f[color,#e62719] \q[%(hsphere),hemisph]\f[color,default]\n"
     --
 	if upchec != "ON"
 	{
@@ -864,6 +864,7 @@ OnSpeakTime
     {
         talktime = reference0 + " minutes"
     }
+	--
 	aitalkinterval = temptalktime * 90
 	
 	"I will speak every %(talktime)\e"

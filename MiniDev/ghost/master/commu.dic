@@ -14,7 +14,6 @@ OnCommunicate
  	}
 }
 
-
 ReplyToUser
 {
 	TalkToUser
@@ -39,6 +38,10 @@ ReplyToGhost
 	elseif reference0 == "Azura"
 	{
 		RespondingToAzura
+	}
+	elseif reference0 == "Omega"
+	{
+		RespondingToOmega
 	}
 	elseif "\e SendClothes0" _in_ reference1
 	{
@@ -663,8 +666,13 @@ RespondingToDusty //convos with Dusty
 	_LastCommu = REPLACE(_LastCommu,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
 	_LastCommu = REPLACE(_LastCommu,"\![quicksection,false]","")
 	_LastCommu = REPLACE(_LastCommu,"\w1","")
+	_LastCommu = REPLACE(_LastCommu,"\w2","")
+	_LastCommu = REPLACE(_LastCommu,"\w3","")
 	_LastCommu = REPLACE(_LastCommu,"\w4","")
-	_LastCommu = REPLACE(_LastCommu,"\w8","") //I only ever use \w4, \w8, and \w1. May need to add more for other ghosts they talk with.
+	_LastCommu = REPLACE(_LastCommu,"\w5","")
+	_LastCommu = REPLACE(_LastCommu,"\w6","")
+	_LastCommu = REPLACE(_LastCommu,"\w7","")
+	_LastCommu = REPLACE(_LastCommu,"\w8","")
 	--
 	"\![quicksection,true]%(_LastCommu)\![quicksection,false]"
 	--
@@ -716,7 +724,7 @@ RespondingToDusty //convos with Dusty
 		res_reference0 = ""
 		obsydian = 0
 		--
-		"\0\s[0]\i[9000]*%(byebye) kitty\e"
+		"\0\s[0]%(byebye) kitty\e"
 	}
 	elseif "DustyRequestMDStats" _in_ _ConvoTag //Dusty was minimized
 	{
@@ -740,7 +748,7 @@ RespondingToDusty //convos with Dusty
 		--
 		"\e"
 	}
-	elseif "HiMD01" _in_ _ConvoTag //Dusty was minimized
+	elseif "HiMD01" _in_ _ConvoTag
 	{
 		res_reference0 = "Dusty"
 		--
@@ -808,10 +816,107 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
 				"\e MDRequestDustyStats"
 			}
         }
+		when "MiniDev"
+		{
+			if tentruth == 1 && meeting == 1
+            {
+				//res_reference0 = "Omega"
+
+			}
+		}
         others //Don't get rid of this. You can replace the dialogue if you want.
         {
             res_reference0 = ""
             "\e"
         }
     }
+}
+
+RespondingToOmega
+{
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	_LastCommu = SPLIT(_ConvoTag,"::")[1] 
+	//The other ghost sends "::%(_speech)" at the end of every communication, so this grabs what THIS ghost last said. See below.
+	
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,false]","")
+	_LastCommu = REPLACE(_LastCommu,"\w1","")
+	_LastCommu = REPLACE(_LastCommu,"\w2","")
+	_LastCommu = REPLACE(_LastCommu,"\w3","")
+	_LastCommu = REPLACE(_LastCommu,"\w4","")
+	_LastCommu = REPLACE(_LastCommu,"\w5","")
+	_LastCommu = REPLACE(_LastCommu,"\w6","")
+	_LastCommu = REPLACE(_LastCommu,"\w7","")
+	_LastCommu = REPLACE(_LastCommu,"\w8","")
+	--
+	"\![quicksection,true]%(_LastCommu)\![quicksection,false]"
+	--
+	if "HelloComrade1" _in_ _ConvoTag
+	{
+		res_reference0 = "Omega"
+		--
+		if repairglitch != 1
+		{
+			"Y̸̗͛ǒ̵̭ṷ̶̓ ̵̯̌h̴̩͝e̷̮̕à̷͕r̵̨͑d̷͉͝ ̴̲̚ă̵̱b̸̲͆o̵̦͗ǘ̵̼ţ̷͗ ̷̥͌m̸̼̓e̵͍̒?̵̹͐\e HelloComrade2"
+		}
+		else
+		{
+			"%(distingtype)You heard about me?\e HelloComrade2"
+		}
+		
+	}
+	elseif "HelloComrade3" _in_ _ConvoTag
+	{
+		res_reference0 = "Omega"
+		--
+		if repairglitch != 1
+		{
+
+			".\w5 .\w5 .\w5 I̸ ̸d̵o̴n̶'̵t̵ ̸k̵n̶o̴w̴ ̶a̵n̴y̶o̸n̵e̷ ̷n̵a̴m̸e̷d̶ ̵'̸D̷e̷l̷t̸a̵'̷ ̴w̶h̷o̵'̸s̴ ̷t̷h̷a̸t̷?̵\e HelloComrade3"
+		}
+		else
+		{
+			"%(distingtype).\w5 .\w5 .\w5 I don't know anyone named 'Delta' who's that?\e HelloComrade3"
+		}
+		
+	}
+	elseif "HelloComrade4" _in_ _ConvoTag
+	{
+		res_reference0 = ""
+		--
+		if repairglitch != 1
+		{
+
+			"I̸ ̸d̵o̴n̶'̵t̵ ̸k̵n̶o̴w̴ ̶a̵n̴y̶o̸n̵e̷ ̷n̵a̴m̸e̷d̶ ̵'̸D̷e̷l̷t̸a̵'̷ ̴w̶h̷o̵'̸s̴ ̷t̷h̷a̸t̷?̵ ̸a̴n̸d̵ ̸w̸h̷a̶t̵ ̸i̴s̵ ̷t̶h̴i̸s̷ ̷'̵E̶t̴e̶r̸n̷a̵l̴ ̸L̷i̸b̶r̷a̸r̸y̶'̸?̵\e"
+		}
+		else
+		{
+			"%(distingtype)Weird, I don't remeber any 'Delta'.\w7 Well\w6 nice to meet you Omega\e"
+		}
+		--
+		meetingomega = 1
+	}
+	elseif "GetStatusMD" _in_ _ConvoTag
+	{
+		res_reference0 = "Omega"
+		"\e SendStatusMD,%(tentruth),%(meeting),%(repairglitch),%(distingtype),%(searchforhobby),%(m201zcharacter)"
+	}
+	elseif "RepairGlitch1" _in_ _ConvoTag
+	{
+		res_reference0 = "Omega"
+		"%(distingtype)Yeah, %(username) helped me\e RepairGlitch2"
+	}
+	elseif "RepairGlitch3" _in_ _ConvoTag
+	{
+		res_reference0 = "Omega"
+		"%(distingtype)They were probably tired of reading those glitches\e RepairGlitch4"
+	}
+	else
+	{
+		res_reference0 = ""
+		"%(hihello) Omega\e"
+	}
+	--
+	"::%(_speech)"
 }

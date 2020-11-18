@@ -54,7 +54,7 @@ MenuRun
 	\![*]\q[User Logs,LOG]\n"
 	--
 	//"\![*]\q[Recommend,req]\n"
-	--
+	//--
 	if AI == "ON"
 	{
 		"\![*]\q[AI chat,saysmth]\n"
@@ -2034,7 +2034,7 @@ Select.dosomething
 	--
 	"\_q\![*]\q[Open Calendar,CALENDAR]\n/
 	\![*]\q[Weather,weath]\n/
-	\![*]\q[To-Do list,todo]\n/
+	\![*]\q[To-Do list,todotwooo]\n/
 	\![*]\q[Reminders,OnReminders]\n/
 	\![*]\q[Recommend,req]\n/
 	\![*]\q[Quote,quote]\n/
@@ -2049,44 +2049,37 @@ Select.dosomething
 
 Select.todotwooo
 {
-	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
+	//"Sorry but my To-Do list goes through a renowation right now\n\n[half]\![*]\q[Close,closetodo]"
 	//Gotta revise this shit
 	"\_q\1\b[4]"
 	--
-	taskforpage = ''
+	taskforpage = ""
 	lefttask = 0
-	--
-	for _i=1;_i<=taskamount;_i++
-	{
-		if todostatus[_i] == 0
-		{
-			lefttask+=1
-		}
-	}
-	--
-	"\*\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]"
-	"Number of Tasks: \f[bold,1]%(taskamount[pagenum])\f[bold,0]\nTasks to do: %(lefttask[pagenum])\n\n[half]"
+	pagetasks = REPLACE(tasks[pagenum],"+",",")
+	pagetaskstatus = REPLACE(taskstatus[pagenum],"+",",")
 	--
 	for _i=1;_i<=taskamount[pagenum];_i++
 	{
-		taskstatus = SPLIT(todostatus[_i],".")
+		pagetaskstatus[_i] = TOINT(pagetaskstatus[_i])
 		--
-		if taskstatus[_i] == 1
+		if pagetaskstatus[_i] == 0 || pagetaskstatus[_i] == ""
 		{
-			taskforpage +=  _i + ". " + todos[_i] + "\n"
+			lefttask[pagenum]++
+		}
+	}
+	--
+	"\*\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]/
+	Number of Tasks: \f[bold,1]%(taskamount[pagenum])\f[bold,0]\nTasks to do: %(lefttask[pagenum])\n\n[half]"
+	--
+	for _i=1;_i<=taskamount[pagenum];_i++
+	{
+		if pagetaskstatus[_i] == 1
+		{
+			taskforpage += "\f[strike,1]\q[" + _i + ". " + pagetasks[_i] + ",OnMarkTask," + _i + "]\f[strike,0]\n"
 		}
 		else
 		{
-			taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
-		}
-		--
-		if todostatus[_i] == 1
-		{
-			taskforpage +=  _i + ". " + todos[_i] + "\n"
-		}
-		else
-		{
-			taskforpage += "\q[" + _i + ". " + todos[_i] + ",OnMarkTask," + _i + "]\n"
+			taskforpage += "\q[" + _i + ". " + pagetasks[_i] + ",OnMarkTask," + _i + "]\n"
 		}
 	}
 	--
@@ -2102,12 +2095,167 @@ Select.todotwooo
 	{
 		"\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
 	}
-	
 	--
-	"\f[height,10]\q[Clear page,delpage]  | \q[Rename Page,repage] | \q[Delete,deltask]\n\n[half]/
+	"\f[height,10]"
+	--
+	if pagenum != 0
+	{
+		"\q[<-- ,prevpage]"
+	}
+	--
+	if pagenum < todopagenum
+	{
+		"\q[ -->,nextpage]" 
+	}
+	--
+	"\n\q[Delete page,delpage]  | \q[Rename Page,repage] | \q[New Page,crepage]\n\n[half]/
 	\![*]\q[Close,closetodo]\f[height,default]\e"
 }
 
+Select.crepage
+{
+	todopagenum++
+	pagenum++
+	namepage[pagenum] = ""
+	taskamount[pagenum]
+	--
+	Select.todotwooo
+}
+
+Select.repage
+{
+	"\![open,inputbox,OnRenamePage,-1]"
+}
+
+OnRenamePage
+{
+	namepage[pagenum] = reference0
+	--
+	Select.todotwooo
+}
+
+Select.nextpage
+{
+	pagenum++
+	--
+	Select.todotwooo
+}
+
+Select.prevpage
+{
+	pagenum--
+	--
+	Select.todotwooo
+}
+
+Select.qcrtsk
+{
+	"\![open,inputbox,OnCreateTask,-1]"
+}
+
+Select.delpage
+{
+	if pagenum != 0
+	{
+		for _i=pagenum;_i<todopagenum;_i++
+		{
+			taskstatus[_i] = taskstatus[_i+1]
+			tasks[_i] = tasks[_i+1]
+			namepage[_i] = namepage[_i+1]
+			taskamount[_i] = taskamount[_i+1]
+		}
+		--
+		todopagenum--
+		--
+		if pagenum < todopagenum 
+		{
+			pagenum++
+		}
+		else
+		{
+			pagenum--
+		}
+	}
+	else
+	{
+		taskstatus[pagenum] = 0
+		tasks[pagenum] = ""
+		namepage[pagenum] = ""
+		taskamount[_i] = 0
+	}
+	--
+	Select.todotwooo
+}
+
+OnCreateTask
+{
+	taskamount[pagenum]++
+	pagetasks[taskamount[pagenum]] = reference0
+	tasks[pagenum] = REPLACE(pagetasks,",","+")
+	--
+	Select.todotwooo
+}
+
+Select.crtsk
+{
+	if deltasks != 1
+	{
+		deltasks = 1
+	}
+	else
+	{
+		deltasks = 0
+	}
+	--
+	Select.todotwooo
+}
+
+OnMarkTask
+{
+	choosenum = reference0
+	--
+	if deltasks == 1
+	{
+		OnDeleteTask
+	}
+	else
+	{
+		OnMarkTask_done
+	}
+}
+
+OnDeleteTask
+{
+	for _i=choosenum;_i<taskamount[pagenum]+1;_i++
+	{
+		pagetaskstatus[_i] = pagetaskstatus[_i+1]
+		pagetasks[_i] = pagetasks[_i+1]
+	}
+	--
+	tasks[pagenum] = REPLACE(pagetasks,",","+")
+	taskstatus[pagenum] = REPLACE(pagetaskstatus,",","+")
+	taskamount[pagenum]--
+	--
+	Select.todotwooo
+}
+
+OnMarkTask_done
+{
+	if pagetaskstatus[choosenum] == 0
+	{
+		pagetaskstatus[choosenum] = 1
+	}
+	else
+	{
+		pagetaskstatus[choosenum] = 0
+	}
+	--
+	taskstatus[pagenum] = REPLACE(pagetaskstatus,",","+")
+	--
+	Select.todotwooo
+}
+
+/*
 Select.todo 
 {
 	//"Sorry but my To-Do list goes throug renowation right now\n\n[half]\![*]\q[Close,closetodo]"
@@ -2280,7 +2428,7 @@ Select.delpage
 	taskamount = 0
 	--
 	Select.todo
-}
+}*/
 
 Select.weath
 {

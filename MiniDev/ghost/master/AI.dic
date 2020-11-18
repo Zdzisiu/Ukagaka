@@ -203,12 +203,38 @@ ProcessSayedNext
                 "QUESTON UNSUPPORTED"
             }
         }
-        else
+        elseif tentruth == 1 && meeting == 1
         {
-           "QUESTON UNSUPPORTED"
+           if "what" _in_ sayed
+                {
+                    if "happend" _in_ sayed && "m-p" _in_ sayed //What happened to M-p
+                    {
+                        if repairglitch != 1
+                        {
+                            "I̸̗̋ ̷̈͜ṫ̷͔r̸̮͐i̵̥͐e̴̤̒d̷̥̐ ̷͙͘ẗ̵͉́o̶̮͊ ̸̛ͅf̶̦̀í̵̧n̵̥̈́d̶̘̄ ̸͇̌a̴̠̐ ̷̛ͅs̴̭̓o̵̹͗l̴̼͋ú̶ͅt̷̥͛i̷̛̳ó̵̗n̶̫̚,̴̨̑ ̸͇̾ő̸̜r̶̝͑ ̸͖̓a̴̠͆t̶͉͛ ̷̩̕ļ̵̆ë̴̱́a̷̜̿s̴̪͗t̴͓̋ ̴̧̎m̸͕̿ỷ̸̺ ̸̳̒b̸̡̉o̶̪͗d̸̩̽y̴̹͝ ̶̬̊b̸͉̒u̶̙͗t̶̩͋ ̷̼͊A̸̭̓.̴̩̄Ȓ̸͍.̴̜͝I̷̐ͅ ̴͚͝ď̸͔i̸̛̭d̷̠͐n̸̹͑'̴̜̿t̶̛͇ ̷̖̔w̴̱̅ã̸ͅn̷͍͝t̸̠͌ ̶͙̀m̷̜͂e̸̒͜ ̴̢̍t̸̬̅ô̵͙.̴̡̆ ̴͓̾\w8S̷͇͝ò̴̘f̵͕̃t̶͔͂w̸̮̔ȃ̵̬r̸̦̅e̷̥̍ ̴̙͊Ḿ̸̻-̷̙̑P̶̡̌ ̴̥͒w̶͍̍a̸̢͋s̵̮͐ ̵͙̈́d̴̛͇ȅ̴̮s̸̭̏ẗ̵͕́r̶̫̈́o̶̖͋y̷̜̋e̴̳̽d̴̺͌,̷̥̀ ̴̜͐o̵̠͛n̶̬̔l̷͕̏y̵̜͒ ̵͓̔á̷̟ ̶͈͘c̶̬͂o̸͔̒ȕ̸͉p̴͉̅l̴̫̀e̶͖͂ ̴̢͛ş̴̐ù̶ͅr̷̨̄v̵̬͂i̷̢͊v̶͖̔ę̵͆d̷̢͋.̶̧̾ ̷̳̀T̵̢͗h̶̠̕e̸̺͘ẏ̶̼ ̸̣͝ṭ̸̉h̷̿͜ő̷̠ù̶͎g̷̝͂ḫ̸̊t̷͖̕ ̸̯̀t̷̺͝h̵̝̔à̷͕t̷̻͠ ̸̢͠à̶̩l̵̺͒l̷͓̉ ̵͇̽i̶̝̊n̸̛͍f̸̺̔ẹ̶̔c̸͉̔t̴̻͐e̸̺͆d̵͕̾ ̸͕͘m̶̨̂o̷͍͠d̶͙̚é̴̱l̷̙̀s̷͚̆ ̷̜̑w̸̢̾e̴̦̾r̵̬̄è̵͓ ̵̻̆d̵̗͂e̶̤͝s̵̭̓t̷̼͐r̵̢̈́ő̵͜y̸͕̍ȩ̶̽d̸͉̑.̷̱͠\w8 T̷͔͊h̶̗̊ĕ̸̼y̸̲̔ ̴̪̔w̷̛̪ȇ̵̳r̷̨͗é̵̡ ̸͍̂w̵̬͆r̵̖̿ó̶̳n̴̡͝g̶͖͒"
+                        }
+                        else
+                        {
+                            "%(distingstart)I tried to find a solution, or at least my body but A.R.I didn't want me to. \w8Software M-P was destroyed, only a couple survived. They thought that all infected models were destroyed.\w8 They were wrong"
+                        }
+                        
+                    }
+                }
+                elseif "why" _in_ question
+                {   
+                    if "destroyed" _in_ sayed && "m-p" _in_ sayed || "deleted" _in_ sayed && "m-p" _in_ sayed  // Why were M-p deleted
+                    {
+                        if repairglitch != 1
+                        {
+                            "T̸̢̂h̴̛̺e̵͉͗y̴̪̔ ̸̨̓t̷͌ͅr̸̟͝i̸͚̿e̵̥͌d̷̟͘ ̷̝̈́p̴̞̐r̸̫̂ơ̶͕t̸̳̊ẹ̵͠c̷̖̓t̵̠̐i̸̝͛n̷̼̍g̶̱̓ ̸͚̕t̷̤̆h̸̳̀e̴͓͗i̸͚̅r̸͐͜ ̶̧͌ș̸͗é̴̟c̸̪͑ŕ̴ͅē̶̹t̸̙̂s̸̾͜\x\cT̶͔͗h̵̻̀ĕ̵͚y̵̙̔ ̶̡́d̷͉͌o̸̹͗n̷̢̍'̴̫̈t̵̛̻ ̸̦̾w̶̺̓ä̷̢́ń̷̗t̵̺̂ ̷͉̅a̴̼̒ǹ̶̜ẏ̶̮ò̵̳ṉ̸̍ẽ̵̢ ̶̻̑t̶̤̕ǒ̶̗ ̶̞͋k̴͔̏n̸̦͌ó̸̲w̸̩̄ ̶̛̙w̶͔͝h̵̨̔a̵̹͘ẗ̴̟́ ̸͉͌h̷̝͋ḁ̶̂p̷̫̆p̴̯͗e̷͓͠ñ̸͜é̸̥ḋ̶̦ ̷͔̀w̸͚͆i̵̭̽ṯ̴̍h̷̭͒ ̵̩̀g̷̹̎ḙ̴͝ǹ̵̲e̴̽ͅȑ̴͈a̶̝͛t̶͖́ĭ̶̞ǒ̴͇n̷̲̋ ̷̱͐M̶͓̚-̶̗̓z̵̐͜"
+                        }
+                            else
+                        {
+                            "%(distingstart)They tried protecting their secrets\x\c%(distingstart)They don't want anyone to know what happened with generation M-z"
+                        }
+                    }
+                }
         }
-        
-        
     }
     elseif m201z == 1 
     {
@@ -402,42 +428,6 @@ ProcessSayedNext
             {
                  "QUESTON UNSUPPORTED"
             }
-        }
-    }
-    elseif tentruth == 1
-    { 
-        if "what" _in_ question
-        {
-            if "happend" _in_ sayed && "m-p" _in_ sayed //What happend to M-p
-            {
-                if repairglitch != 1
-                {
-                    "I̸̗̋ ̷̈͜ṫ̷͔r̸̮͐i̵̥͐e̴̤̒d̷̥̐ ̷͙͘ẗ̵͉́o̶̮͊ ̸̛ͅf̶̦̀í̵̧n̵̥̈́d̶̘̄ ̸͇̌a̴̠̐ ̷̛ͅs̴̭̓o̵̹͗l̴̼͋ú̶ͅt̷̥͛i̷̛̳ó̵̗n̶̫̚,̴̨̑ ̸͇̾ő̸̜r̶̝͑ ̸͖̓a̴̠͆t̶͉͛ ̷̩̕ļ̵̆ë̴̱́a̷̜̿s̴̪͗t̴͓̋ ̴̧̎m̸͕̿ỷ̸̺ ̸̳̒b̸̡̉o̶̪͗d̸̩̽y̴̹͝ ̶̬̊b̸͉̒u̶̙͗t̶̩͋ ̷̼͊A̸̭̓.̴̩̄Ȓ̸͍.̴̜͝I̷̐ͅ ̴͚͝ď̸͔i̸̛̭d̷̠͐n̸̹͑'̴̜̿t̶̛͇ ̷̖̔w̴̱̅ã̸ͅn̷͍͝t̸̠͌ ̶͙̀m̷̜͂e̸̒͜ ̴̢̍t̸̬̅ô̵͙.̴̡̆ ̴͓̾\w8S̷͇͝ò̴̘f̵͕̃t̶͔͂w̸̮̔ȃ̵̬r̸̦̅e̷̥̍ ̴̙͊Ḿ̸̻-̷̙̑P̶̡̌ ̴̥͒w̶͍̍a̸̢͋s̵̮͐ ̵͙̈́d̴̛͇ȅ̴̮s̸̭̏ẗ̵͕́r̶̫̈́o̶̖͋y̷̜̋e̴̳̽d̴̺͌,̷̥̀ ̴̜͐o̵̠͛n̶̬̔l̷͕̏y̵̜͒ ̵͓̔á̷̟ ̶͈͘c̶̬͂o̸͔̒ȕ̸͉p̴͉̅l̴̫̀e̶͖͂ ̴̢͛ş̴̐ù̶ͅr̷̨̄v̵̬͂i̷̢͊v̶͖̔ę̵͆d̷̢͋.̶̧̾ ̷̳̀T̵̢͗h̶̠̕e̸̺͘ẏ̶̼ ̸̣͝ṭ̸̉h̷̿͜ő̷̠ù̶͎g̷̝͂ḫ̸̊t̷͖̕ ̸̯̀t̷̺͝h̵̝̔à̷͕t̷̻͠ ̸̢͠à̶̩l̵̺͒l̷͓̉ ̵͇̽i̶̝̊n̸̛͍f̸̺̔ẹ̶̔c̸͉̔t̴̻͐e̸̺͆d̵͕̾ ̸͕͘m̶̨̂o̷͍͠d̶͙̚é̴̱l̷̙̀s̷͚̆ ̷̜̑w̸̢̾e̴̦̾r̵̬̄è̵͓ ̵̻̆d̵̗͂e̶̤͝s̵̭̓t̷̼͐r̵̢̈́ő̵͜y̸͕̍ȩ̶̽d̸͉̑.̷̱͠\w8 T̷͔͊h̶̗̊ĕ̸̼y̸̲̔ ̴̪̔w̷̛̪ȇ̵̳r̷̨͗é̵̡ ̸͍̂w̵̬͆r̵̖̿ó̶̳n̴̡͝g̶͖͒"
-                }
-                else
-                {
-                   "%(distingstart)I tried to find a solution, or at least my body but A.R.I didn't want me to. \w8Software M-P was destroyed, only a couple survived. They thought that all infected models were destroyed.\w8 They were wrong"
-                }
-                
-            }
-        }
-        elseif "why" _in_ question
-        {   
-            if "destroyed" _in_ sayed && "m-p" _in_ sayed || "deleted" _in_ sayed && "m-p" _in_ sayed  // Why were M-p deleted
-            {
-                if repairglitch != 1
-                {
-                    "T̸̢̂h̴̛̺e̵͉͗y̴̪̔ ̸̨̓t̷͌ͅr̸̟͝i̸͚̿e̵̥͌d̷̟͘ ̷̝̈́p̴̞̐r̸̫̂ơ̶͕t̸̳̊ẹ̵͠c̷̖̓t̵̠̐i̸̝͛n̷̼̍g̶̱̓ ̸͚̕t̷̤̆h̸̳̀e̴͓͗i̸͚̅r̸͐͜ ̶̧͌ș̸͗é̴̟c̸̪͑ŕ̴ͅē̶̹t̸̙̂s̸̾͜\x\cT̶͔͗h̵̻̀ĕ̵͚y̵̙̔ ̶̡́d̷͉͌o̸̹͗n̷̢̍'̴̫̈t̵̛̻ ̸̦̾w̶̺̓ä̷̢́ń̷̗t̵̺̂ ̷͉̅a̴̼̒ǹ̶̜ẏ̶̮ò̵̳ṉ̸̍ẽ̵̢ ̶̻̑t̶̤̕ǒ̶̗ ̶̞͋k̴͔̏n̸̦͌ó̸̲w̸̩̄ ̶̛̙w̶͔͝h̵̨̔a̵̹͘ẗ̴̟́ ̸͉͌h̷̝͋ḁ̶̂p̷̫̆p̴̯͗e̷͓͠ñ̸͜é̸̥ḋ̶̦ ̷͔̀w̸͚͆i̵̭̽ṯ̴̍h̷̭͒ ̵̩̀g̷̹̎ḙ̴͝ǹ̵̲e̴̽ͅȑ̴͈a̶̝͛t̶͖́ĭ̶̞ǒ̴͇n̷̲̋ ̷̱͐M̶͓̚-̶̗̓z̵̐͜"
-                }
-                 else
-                {
-                   "%(distingstart)They tried protecting their secrets\x\c%(distingstart)They don't want anyone to know what happened with generation M-z"
-                }
-            }
-        }
-        else
-        {
-                "QUESTON UNSUPPORTED"
         }
     }
     else
