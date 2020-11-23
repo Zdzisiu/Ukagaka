@@ -44,7 +44,7 @@
 	--
 	if reference0 == 0 
  	{
-		"\![enter,passivemode]\![open,file,ghost/master/credits-readme.txt]\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
+		"\![open,file,ghost/master/credits-readme.txt]\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
 		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
 		\![*]\q[They/Them/Their,choicefirsttheythem]\n/
@@ -62,7 +62,7 @@ OnTenTruth //story boot
 {
 	tentruth = 1
 
-	"\![enter,passivemode]\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M̸̡̂-̸̜̀2̵͚̿0̶͚̊1̵̨́ẕ̶̈́\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by A̶̬͓̗͖͇̻̲̥̬͖͕̙̦͗̿ͅ.̷̞̼̬͇̰̪̫̍̉͆́͌̒̓͝R̴͉̎̐.̸̨̘̳̣̲̰̟̜̤̰̫́̎̋̓̌͋̇̓̀͒͜ͅỊ̵̄—̶̖̒ ̸͙̇À̸̹s̶̢̎s̶̭͐i̵̳͆s̷̲͒t̴͎̍ą̴͝n̵̜͛ẗ̵͜ ̷̘̑R̸̭͌ǫ̴͘b̸̻͠o̶̮̅t̷͚̽ṡ̷̘ ̷͖̌I̵̻͌n̴̥͠t̸͎̔ȩ̶͛r̷̥̽n̶̰͛ă̸̻t̵̼̏i̴̼̓o̵̙͊n̴̰̔a̵͈̋l̶̕ͅ\x\cYou can customize my look, traits, likes and dislikes, and change m̵̮̒y̶̟͘ ̸̳̀n̷̬̍a̷̓ͅm̴̲͂ẻ̸͚ in the config menu\x\cI can tell you weather forecast and moon phase,\w8 translate b̸̝̔i̵̟̐n̷͔̈ā̴̙r̴͉̈́y̸̮̔ and M̴̧̿õ̶̝r̵̲̒s̶̛͖ę̵̿\x\cYou can save notes inside my l̸͓͛o̸̗͠g̶̮͘s̸̗͑ and make to-do lists.\w\cI also have a calculator and can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
+	"\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M̸̡̂-̸̜̀2̵͚̿0̶͚̊1̵̨́ẕ̶̈́\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by A̶̬͓̗͖͇̻̲̥̬͖͕̙̦͗̿ͅ.̷̞̼̬͇̰̪̫̍̉͆́͌̒̓͝R̴͉̎̐.̸̨̘̳̣̲̰̟̜̤̰̫́̎̋̓̌͋̇̓̀͒͜ͅỊ̵̄—̶̖̒ ̸͙̇À̸̹s̶̢̎s̶̭͐i̵̳͆s̷̲͒t̴͎̍ą̴͝n̵̜͛ẗ̵͜ ̷̘̑R̸̭͌ǫ̴͘b̸̻͠o̶̮̅t̷͚̽ṡ̷̘ ̷͖̌I̵̻͌n̴̥͠t̸͎̔ȩ̶͛r̷̥̽n̶̰͛ă̸̻t̵̼̏i̴̼̓o̵̙͊n̴̰̔a̵͈̋l̶̕ͅ\x\cYou can customize my look, traits, likes and dislikes, and change m̵̮̒y̶̟͘ ̸̳̀n̷̬̍a̷̓ͅm̴̲͂ẻ̸͚ in the config menu\x\cI can tell you weather forecast and moon phase,\w8 translate b̸̝̔i̵̟̐n̷͔̈ā̴̙r̴͉̈́y̸̮̔ and M̴̧̿õ̶̝r̵̲̒s̶̛͖ę̵̿\x\cYou can save notes inside my l̸͓͛o̸̗͠g̶̮͘s̸̗͑ and make to-do lists.\w\cI also have a calculator and can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
 	\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 	\![*]\q[She/Her/Hers,choicefirstsheher]\n/
 	\![*]\q[They/Them/Their,choicefirsttheythem]\n/
@@ -99,13 +99,34 @@ OnMood
 	OnMoodCheck
 }
 
+//\![raise,OnMoodShuffle]
+OnMoodShuffle
+{
+	for _i = 0 ; _i < moodsize ; _i ++ //reset mood
+	{
+		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "
+		{
+			mood[_i] = 0
+		}
+	}
+	--
+	for _i=0;_i<moodsize*2;_i++
+	{
+		ranmood = RAND(moodsize)
+		--
+		mood[ranmood] += RAND(10)
+	}
+	--
+	OnMoodCheck
+}
+
 OnMoodCheck //evaluating the dominating mood
 {
 	moodstring = "" //clear the string
 	--
 	arr[0] = mood[0] //get the value of the first mood
 	--
-	for _j=0;_j<moodsize;_j++
+	for _j=0;_j<moodsize*4;_j++
 	{
 		if arr[0] < TOINT(mood[_j]) //if the other mood is higher: change it
 		{
@@ -190,11 +211,11 @@ NameInput
 	if tentruth == 1 //story boot
 	{
 		truthboot = 1
-		"\0\s[0]I w̴̨̡̢̲̪̝̗̾̉͌̀̉͑͋̕ͅḯ̵̢͎̱̟͖͈͚̋͛́͘l̷̢̛̩͓̻̰͂́͑̾ľ̵̢̢̙͕̗͕̼̺͗̄̒̈͛͋͆́̐͠͝ remember that!\![leave,passivemode]\w8\0\s[0] And your ń̷̖̝̭̹̺̄̈̑́̏͝͝a̴̢͚̥̼͐͑m̸̼̼̮͖̯͎̯̖̑̾̏̒̒̀̊̆̕͝e̴̲̻̯̤̪̰̫͓̞̯͙̲̭̿̀́̀̀̎̈́̕ͅ is?\![open,inputbox,OnNameTeach,-1]\e"
+		"\0\s[0]I w̴̨̡̢̲̪̝̗̾̉͌̀̉͑͋̕ͅḯ̵̢͎̱̟͖͈͚̋͛́͘l̷̢̛̩͓̻̰͂́͑̾ľ̵̢̢̙͕̗͕̼̺͗̄̒̈͛͋͆́̐͠͝ remember that!\w8\0\s[0] And your ń̷̖̝̭̹̺̄̈̑́̏͝͝a̴̢͚̥̼͐͑m̸̼̼̮͖̯͎̯̖̑̾̏̒̒̀̊̆̕͝e̴̲̻̯̤̪̰̫͓̞̯͙̲̭̿̀́̀̀̎̈́̕ͅ is?\![open,inputbox,OnNameTeach,-1]\e"
 	}
 	else
 	{
-		"\0\s[0]I will remember that!\![leave,passivemode]\w8\0\s[0] And your name is?\![open,inputbox,OnNameTeach,-1]\e"
+		"\0\s[0]I will remember that!\w8\0\s[0] And your name is?\![open,inputbox,OnNameTeach,-1]\e"
 	}
 }
 
@@ -987,6 +1008,12 @@ OnUpdateVariables
 		tasks[0] = REPLACE(todos,",","+")
 		todopagenum = 0
 		pagenum = 0
+		--
+		OnUpdateVariables
+	}
+	elseif vers == "1.0.4"
+	{
+		explained = " "
 	}
 }
 

@@ -687,6 +687,14 @@ m201ztalk
 	}
 }
 
+OnHourTimeSignal
+{
+	if (hour%2) != 0
+	{
+		OnMoodShuffle
+	}
+}
+
 OnMinuteChange
  {
     if repairglitch != 1 && quest != 0

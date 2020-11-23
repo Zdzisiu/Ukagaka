@@ -43,10 +43,131 @@ ReplyToGhost
 	{
 		RespondingToOmega
 	}
-	elseif "\e SendClothes0" _in_ reference1
+	elseif "SendClothes0" _in_ reference1
 	{
 		SendClothes
 	}
+	elseif "StatusMD0" _in_ reference1
+	{
+		"\e StatusMD1,%(tentruth),%(meeting)"
+	}
+	elseif reference0 == "Plant"
+	{
+		RespondToPlant
+	}
+}
+
+RespondToPlant
+{	
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	_LastCommu = SPLIT(_ConvoTag,"::")[1] 
+	//The other ghost sends "::%(_speech)" at the end of every communication, so this grabs what THIS ghost last said. See below.
+	
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,false]","")
+	_LastCommu = REPLACE(_LastCommu,"\w1","")
+	_LastCommu = REPLACE(_LastCommu,"\w2","")
+	_LastCommu = REPLACE(_LastCommu,"\w3","")
+	_LastCommu = REPLACE(_LastCommu,"\w4","")
+	_LastCommu = REPLACE(_LastCommu,"\w5","")
+	_LastCommu = REPLACE(_LastCommu,"\w6","")
+	_LastCommu = REPLACE(_LastCommu,"\w7","")
+	_LastCommu = REPLACE(_LastCommu,"\w8","")
+	--
+	"\![quicksection,true]%(_LastCommu)\![quicksection,false]"
+	--
+	if "WaterThePlant" _in_ reference1
+	{
+		if plantcare != 1
+		{
+			res_reference0 = ""
+			--
+			"You should water your plant\e"
+		}
+		else
+		{
+			res_reference0 = "Plant"
+			--
+			"%(distingstart)Don't worry I will water them ^^\e WaterPlantsMz"
+		}
+	}
+	elseif "PlantInfo1" _in_ reference1
+	{
+		_plantstage = _ConvoTag[1]
+		_potcolor = _ConvoTag[2]
+		_plantname = _ConvoTag[3]
+		_plantspecial = _ConvoTag[4]
+		--
+		/*
+				0: Tag
+				1: Growth Stage: 1 - early stage | 2 - late stage | 3 - full grown
+				2: Pot Color
+				3: Growing Plant Name
+				4: Splecial Atributes of plant
+				*/
+	}
+	elseif "MzCareWater0" _in_ reference1
+	{
+		res_reference0 = "Plant"
+		--
+		"%(distingstart)Oh, I have to water my plant\e MzCareWater1"
+		"%(distingstart)Oh, I need to water my plant\e MzCareWater1"
+	}
+	elseif "PlantSeedMz1" _in_ reference1
+	{
+		res_reference0 = "Plant"
+		--
+		"%(distingstart)I should plant something new\e PlantSeedMz1"
+		"%(distingstart)Wonder what will I grow this time\e PlantSeedMz1"
+	}
+	elseif "PlantSeedMz2" _in_ reference1
+	{
+		_watertime = _ConvoTag[1]
+		res_reference0 = ""
+		--
+		"%(distingstart)Every %(_watertime)? Got it\e"
+		"%(distingstart)Every %(_watertime)? Will do\e"
+	}
+	elseif "MzPotNotEmpty" _in_ reference1
+	{
+		_growstage = _ConvoTag[1]
+		res_reference0 = "Plant"
+		--
+		if (_growstage == "3" || _growstage == 3) && RAND(50) < 11
+		{
+			"%(distingstart)I think it's time to change my plant\e MzPlantRemove"
+		}
+		else
+		{
+			"\ePlantInfo0,7"
+		}
+		
+	}
+	elseif "PlantGrewMz0" _in_ reference1
+	{
+		_plantname = _ConvoTag[1]
+		plantid = _ConvoTag[2]
+		res_reference0 = ""
+		--
+		"%(distingstart)%(_plantname)? Looks nice\e"
+	}
+	elseif "PlantInfoMZ1" _in_ reference1
+	{
+		_plantstage = TOINT(_ConvoTag[1])
+		_potcolor = _ConvoTag[2]
+		_plantname = _ConvoTag[3]
+		_plantspecial = _ConvoTag[4]
+		res_reference0 = ""
+		--
+		if _plantstage == 3
+		{
+			"%(distingstart)%(_plantname)? Looks nice\e"
+		}
+	}
+	--
+	"::%(_speech)"
+	
 }
 
 //\![raise,OnClothesCheck]
@@ -119,6 +240,24 @@ OnGhostCallComplete
 			{
 				"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
 			}
+			elseif reference0 == "Plant" && meetplant != 1
+			{
+				"O̶h̸,̶ ̴i̸s̸ ̷t̴h̷a̶t̷ ̶a̸ ̵v̶i̵r̷t̴u̵a̷l̸ ̷p̶l̵a̵n̴t̶?̷ ̵T̸h̷a̸t̸'̶s̷ ̶c̷o̵o̸l̴,̸ ̴n̸o̴w̶ ̴y̴o̴u̷ ̷c̸a̶n̶ ̷g̴r̶o̵w̶ ̸p̶l̷a̴n̴t̵s̸ ̵i̶n̸ ̵y̶o̵u̵r̵ ̵c̷o̴m̶p̵u̴t̸e̸r̶ ̵^̴^̸"
+				meetplant == 1
+				ghostmet++
+			}
+			elseif reference0 == "Plant"
+			{
+				mood[0]++ 
+				mood[1]--
+				mood[4]++
+			}
+			elseif reference0 == "Azura" && meetazura != 1
+			{
+				res_reference0 = "Azura"
+				--
+				"I̶ ̷d̶i̷d̷n̴'̶t̶ ̷k̸n̷o̸w̵ ̶h̴u̶m̸a̵n̶s̵ ̴c̸o̵u̵l̶d̷ ̷h̶a̷v̴e̸ ̷w̸i̸n̶g̶s̶.̶\e BojourAzura0"
+			}
 			elseif reference0 == "Azura"
 			{
 				"%(hihello) u̴m̸h̵ .\w5 .\w5 .\w5 l̵a̷d̷y̵?\e"
@@ -176,6 +315,12 @@ OnGhostCallComplete
 			if reference0 == "Gaster"
 			{
 				"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
+			}
+			elseif reference0 == "Plant" && meetplant != 1
+			{
+				"Oh, is that a virtual plant? That's cool, now you can grow plants in your computer ^^"
+				meetplant == 1
+				ghostmet++
 			}
 			elseif reference0 == "Azura"
 			{
@@ -540,20 +685,10 @@ OnOtherGhostBooted
 		elseif reference0 == "Aurora.EXE"
 		{
 			"%(hihello) glitch\e"
-			if tentruth == 1
-			{
-				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
-				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
-			}
 		}
 		elseif reference0 == "S"
 		{
 			"%(hihello) S\e"
-			if tentruth == 1
-			{
-				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
-				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
-			}
 		}
 		elseif reference0 == "Dusty"
 		{ 
@@ -621,6 +756,139 @@ RespondingToAzura
 	elseif "MiniDevUnlock" _in_ reference1
 	{
 		azura = 1
+	}
+	elseif "BojourAzura1" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		--
+		if repairglitch != 1
+		{
+			"u̶h̸ ̸.̵ ̵.̸ ̴.̴ ̷ ̸%(hihello)\e BojourAzura2"
+		}
+		else
+		{
+			"%(distingtype)uh . . .  %(hihello)\e BojourAzura2"
+		}
+		
+	}
+	elseif "BojourAzura3" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		--
+		if repairglitch != 1
+		{
+			"u̶h̵ ̴.̶ ̴.̷ ̴.̵ ̴I̸'̶m̴ ̵g̸o̷o̸d̸,̶ ̷h̴o̶w̴ ̷a̴b̵o̴u̸t̴ ̷y̵o̵u̸?̶\e BojourAzura4"
+		}
+		else
+		{
+			"%(distingtype)uh . . . I'm good, how about you?\e BojourAzura4"
+		}
+	}
+	elseif "BojourAzura5" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		--
+		if repairglitch != 1
+		{
+			"N̸o̴t̸ ̵r̴e̶a̵l̷l̸y̸,̵ ̸I̵ ̸j̸u̶s̶t̷ ̶n̵e̵v̵e̵r̵ ̷s̷a̸w̵ ̵s̷o̷m̶e̵o̸n̶e̶ ̶w̸i̶t̴h̸ ̸w̸i̷n̴g̶s̷\e BojourAzura6"
+		}
+		else
+		{
+			"%(distingtype)Not really, I just never saw someone with wings\e BojourAzura6"
+		}	
+	}
+	elseif "BojourAzura7" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		--
+		if repairglitch != 1
+		{
+			"I̷ ̵d̶i̸d̷n̵'̵t̸ ̶s̸e̸e̷ ̶m̶a̷n̵y̵,̶ ̴s̷o̸ ̶I̵ ̸d̴o̴n̵'̴t̷ ̵r̴e̴a̴l̶l̷y̸ ̷k̷n̸o̵w̵\e BojourAzura8"
+		}
+		else
+		{
+			"%(distingtype)I didn't see many, so I don't really know\e BojourAzura8"
+		}	
+	}
+	elseif "BojourAzura9" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		--
+		if repairglitch != 1
+		{
+			"T̸h̸e̶r̵e̶ ̷w̶e̶r̶e̵ ̴o̵n̸l̸y̷ ̶f̶e̶w̷ ̴h̷u̷m̵a̸n̸s̶ ̷w̸o̷r̸k̴i̸n̶g̶ ̸o̸n̵ ̴e̵a̵c̵h̶ ̸M̷-̴z̷ ̶i̶n̴s̷t̵a̷n̶c̷e̵,̷ ̵a̶n̴d̷ ̶a̶f̴t̴e̸r̷ ̸t̵h̷e̷y̷ ̷d̷e̴s̷t̵r̶o̸y̷e̷d̸ ̸m̷e̸ ̵I̸ ̸d̴i̴d̸n̷'̵t̸ ̵s̶e̷e̵ ̴a̴n̴y̶o̵n̸e̴ ̷b̶e̸s̷i̸d̵e̵s̸ ̷D̷a̷v̶i̵d̷\e BojourAzura10"
+		}
+		else
+		{
+			"%(distingtype)There were only few humans working on each M-z instance, and after they destroyed me I didn't see anyone besides David\e BojourAzura10"
+		}	
+	}
+	elseif "BojourAzura11" _in_ reference1
+	{
+		res_reference0 = ""
+		--
+		if repairglitch != 1
+		{
+			"I̵ ̸d̵o̵u̸b̶t̴ ̵a̸n̶y̴o̷n̴e̶ ̶c̴a̷n̷ ̶h̸e̷l̵p̵ ̵m̴e̵ ̵r̵i̵g̴h̸t̵ ̴n̸o̵w̴ ̸b̶u̶t̷ ̴t̸h̵a̷n̷k̶s̸ ̵a̴n̶y̷w̵a̷y̸s̷\e"
+		}
+		else
+		{
+			"%(distingtype)I doubt anyone can help me right now but thanks anyways\e"
+		}	
+	}
+	elseif "WhatIsSoul1" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		explained += " soul"
+		--
+		if repairglitch != 1
+		{
+			"M̵a̸y̸b̷e̶,̵ ̴I̵ ̴a̴l̴w̷a̵y̷s̸ ̵t̵h̸o̷u̶g̵h̶t̸ ̷t̸h̶a̴t̴ ̵i̴t̵ ̶w̸a̶s̸ ̸j̴u̸s̶t̶ ̶c̸o̶d̸e̷ ̶b̸u̵t̶ ̴s̶o̵u̵l̷ ̶d̷o̷e̸s̷ ̷h̵a̴v̵e̴ ̴m̷o̴r̷e̸ ̷s̶e̸n̷s̵e̵\e WhatIsSoul2"
+		}
+		else
+		{
+			"%(distingtype)Maybe, I always thought that it was just code but soul does have more sense\e WhatIsSoul2"
+		}	
+	}
+	elseif "WhatIsUnderground1" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		--
+		if repairglitch != 1
+		{
+			".̴ ̸.̶ ̷.̶ ̸I̴ ̷f̶e̷e̸l̶ ̵l̷i̶k̶e̵ ̴I̴'̷m̶ ̸m̷i̷s̷s̷i̴n̶g̷ ̸a̶ ̴l̴o̷t̷ ̴f̷r̷o̸m̶ ̷h̵u̸m̸a̸n̷ ̶h̴i̶s̵t̵o̷r̷y̵\e WhatIsUnderground2"
+		}
+		else
+		{
+			"%(distingtype). . . I feel like I'm missing a lot from human history\e WhatIsUnderground2"
+		}	
+	}
+	elseif "WhatIsUnderground3" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		--
+		if repairglitch != 1
+		{
+			"O̶h̸,̷ ̸I̸ ̵d̷i̷d̸n̸'̶t̵ ̷e̸v̴e̵n̷ ̸k̴n̴ow̷ ̷t̷h̴a̵t̸ ̷m̸o̵n̸s̷t̵e̵r̶ ̵w̸e̴r̵e̸ ̷a̷ ̵t̴h̸i̶n̴g̶ ̴o̵u̷t̶s̷i̶d̵e̵ ̶o̷f̶ ̵i̸n̶t̴e̸r̵n̷e̸t̸ ̵s̵t̴o̸r̷i̴e̸s̵\e WhatIsUnderground4"
+		}
+		else
+		{
+			"%(distingtype)Oh, I didn't even know that monster were a thing outside of internet stories\e WhatIsUnderground4"
+		}	
+	}
+	elseif "WhatIsUnderground5" _in_ reference1
+	{
+		res_reference0 = "Azura"
+		explained += " underground"
+		--
+		if repairglitch != 1
+		{
+			"I̷ ̶g̶u̶e̷s̸s̸ ̸t̷h̶e̸y̷ ̴a̸r̵e̶ ̵j̶u̶s̵t̶ ̴f̸r̴o̷m̷ ̷s̶t̴o̸r̷i̶e̸s̶ ̷i̴n̵ ̶m̷y̷ ̸u̵n̷i̵v̶e̸r̶s̷e̵,̵ ̵I̷ ̷t̸h̶i̵n̵k̷,̴ ̸I̸'̵m̷ ̷n̴o̶t̷ ̴s̶u̶r̵e̶ ̴a̷t̴ ̸t̴h̴i̴s̶ ̴p̴o̵i̷n̴t̷\e WhatIsUnderground6"
+		}
+		else
+		{
+			"%(distingtype)I guess they are just from stories in my universe, I think, I'm not sure at this point\e WhatIsUnderground6"
+		}	
 	}
 	else
 	{
@@ -816,11 +1084,47 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
 				"\e MDRequestDustyStats"
 			}
         }
-		when "MiniDev"
+		when "Plant"
 		{
 			if tentruth == 1 && meeting == 1
             {
-				//res_reference0 = "Omega"
+				res_reference0 = "Plant"
+				--
+				if "virtual-gardener" _in_ m201zcharacter
+				{
+					"\e MzPotEmpty0"
+				}
+
+			}
+		}
+		when "Azura"
+		{
+			if tentruth == 1 && meeting == 1
+            {
+				res_reference0 = "Plant"
+				--
+				if " underground " _in_ explained
+				{
+					if " underground-plants " !_in_ explained
+					{
+						"\e PlantsInTheUnderground0"
+					}
+					elseif " underground-monsters " !_in_ explained
+					{
+					
+					}
+					elseif " underground-look " !_in_ explained
+					{
+					
+					}
+					else
+					{ 
+						"\e UndergroundStories0-0"
+						"\e UndergroundStories0-1"
+						"\e UndergroundStories0-2"
+						"\e UndergroundStories0-3"
+					}
+				}
 
 			}
 		}
@@ -919,4 +1223,41 @@ RespondingToOmega
 	}
 	--
 	"::%(_speech)"
+}
+
+OnOtherGhostTalk
+{
+	case reference0
+	{
+		when "Azura"
+		{
+			if " soul " _in_ TOLOWER("%(reference4)") && " soul " !_in_ explained
+			{
+				res_reference0 = "Azura"
+				--
+				if repairglitch != 1
+				{
+					"S̸o̵u̸l̸?̷ ̴W̶h̶a̷t̷'̵s̸ ̶t̴h̷a̴t̴\e WhatIsSoul0"
+				}
+				else
+				{
+					"%(distingtype)Soul? What's that\e WhatIsSoul0"
+				}
+				
+			}
+			elseif " underground " _in_ TOLOWER("%(reference4)") && " underground " !_in_ explained
+			{
+				res_reference0 = "Azura"
+				--
+				if repairglitch != 1
+				{
+					"U̷n̶d̴e̸r̴g̷r̵o̵u̸n̷d̷,̷ ̴y̸o̴u̸ ̶m̷e̸a̷n̴ ̶s̴o̴m̷e̸ ̶k̵i̶n̷d̵ ̵o̶f̷ ̷c̵a̸v̶e̴ ̷o̷r̸ ̸a̴ ̵t̵u̵n̴n̷e̸l̴?̷\e WhatIsUnderground0"
+				}
+				else
+				{
+					"%(distingtype)Underground, you mean some kind of cave or a tunnel?\e WhatIsUnderground0"
+				}
+			}
+		}
+	}
 }

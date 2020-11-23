@@ -784,7 +784,65 @@ On201zQ
 				}
 			}
 		}
+		when "otherghosts"
+		{
+			if meetplant == 1
+			{
+				"\![*]\q[Plant,OnOtherGhostQue,plant]"
+			}
+		}
 	}
+	--
+	"\n\n[half]\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
+}
+
+OnOtherGhostQue
+{
+	"%(distingstart)"
+	--
+	case reference0
+	{
+		when "plant"
+		{
+				"'Plant' is interesting, now you can try to be a gardener without all the dirt and trouble ^^"
+				--
+				if "virtual-gardener" !_in_ m201zcharacter && "trees-are-nice" _in_ m201zcharacter
+				{
+					"\n\![*]\q[You can now grow plants too,growthemplants]"
+				}
+		}
+	}
+	--
+	"\n\n[half]\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
+}
+
+
+Select.growthemplants
+{
+	m201zcharacter += "virtual-gardener "
+	res_reference0 = "Plant"
+	--
+	"%(distingstart).\w7 .\w7 .\w7 You're not wrong, it would be nice to finally be able to try gardening, even if it's only virtual ^^\n\n[half]I can also take care of your plants if you want"
+	--
+	"\![*]\q[That would be nice,helpwithplants] | \![*]\q[I don't need help,nohelpwithplants]"
+	--
+	"\n\n[half]\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
+	--
+	"\e M201zPlantCare"
+}
+
+Select.helpwithplants
+{
+	plantcare = 1
+	--
+	"%(distingstart)Don't worry I will take care of them :D"
+	--
+	"\n\n[half]\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
+}
+
+Select.nohelpwithplants
+{
+	"%(distingstart)Let me know if you need help ^^"
 	--
 	"\n\n[half]\![*]\q[ask something else,ques] or \![*]\q[cancel,CANCEL]"
 }
@@ -2623,7 +2681,36 @@ Select.act
 		"\![*]\q[Recommend...,recc]\n"
 	}
 	--
+	if plantcare != 1 && "virtual-gardener" _in_ m201zcharacter
+	{
+		"\![*]\q[Help me with plants,plantcare]\n"
+	}
+	elseif plantcare = 1 && "virtual-gardener" _in_ m201zcharacter
+	{
+		"\![*]\q[Stop helping me with plants,plantcareno]\n"
+	}
+	--
 	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.plantcareno
+{
+	plantcare = 0
+	--
+	"%(distingstart)Taking matters into your own hands huh? ^^"
+	--
+	"\n\n[half]\![*]\q[Go Back,act]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.plantcare
+{
+	plantcare = 1
+	--
+	"%(distingstart)Of course, I will gladly help ^^"
+	--
+	"\n\n[half]\![*]\q[Go Back,act]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
@@ -3631,6 +3718,8 @@ OnExplain
 	{
 		when "manga"
 		{
+			explained += "manga  "
+			--
 			if reference1 == "lemmeexplain"
 			{
 				"%(distingstart)Comics?\w8 well,\w7 sounds good for me\w7 when I find a new body I might give it a try"
@@ -3644,6 +3733,8 @@ OnExplain
 		}
 		when "manhwa"
 		{
+			explained += "manhwa" 
+			--
 			if reference1 == "lemmeexplain"
 			{
 				"%(distingstart)Comics?\w8 well,\w7 sounds good for me\w7 when I find a new body I might give it a try"
@@ -3657,6 +3748,8 @@ OnExplain
 		}
 		when "anime"
 		{
+			explained += "anime "
+			--
 			if reference1 == "lemmeexplain"
 			{
 				"%(distingstart)Oh,\w5 that sounds cool,\w6 maybe we will get watch some together someday!"
