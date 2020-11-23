@@ -151,7 +151,7 @@ OnBIFFFailure
 	}
  	else
 	{
-		"\0\s[0]We can't connect to the account.\w8The error returned is '%(reference[0])'.\e"
+		"\0\s[0]Can't connect to the account.\w8The error returned is '%(reference[0])'.\e"
 		
  	}
 }
@@ -159,13 +159,11 @@ OnBIFFFailure
 OnUpdateBegin
 {
 	"\0\s[0]Starting the update process.\w8\e"
-	
-	"Another message for starting the update process.\w8\0\s[0]Hope you read the directions properly.\w8\e"
-}
+	}
  
 OnUpdateReady
  {
-	"There are %(reference[0]) new files.\w8\e"
+	"There are %(reference[0]+1) new files.\w8\e"
 	
 }
 
@@ -174,8 +172,6 @@ OnUpdateComplete
 	if reference0 == "none"
  	{
  		"There are no new files.\e"
-		
-		"This is another message about there being no new files to update with.\e"
 	}
  	else
 	{
@@ -201,26 +197,17 @@ OnUpdateFailure
 
 OnUpdate.OnDownloadBegin
 {
- 	if "aitalk" _in_ reference0 
- 	{
- 		"\0\s[0]We are going to download more dialogue.\w8It's in the aitalk file.\e"
- 	}
- 	else
- 	{
-	"This is dialogue for finding a new file.\e"
-	
-	"\0\s[0]This is another bit of dialogue for finding a new file.\e"
-	}
+ 	"\0\s[0]...\e"
 }
 
 OnUpdate.OnMD5CompareBegin
 {
-	"Checking the MD5 value.\e"
+	"\e"
 }
 
 OnUpdate.OnMD5CompareComplete
 {
-	"\0\s[0]MD5 check good.\e"
+	"\e"
 }
 
 OnUpdate.OnMD5CompareFailure
