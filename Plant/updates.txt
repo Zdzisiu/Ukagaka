@@ -23,7 +23,6 @@ file,ghost/master/yaya_config.txt134ca91eba1f7864526eaa3a2142dd20size=3920
 file,install.txtaf51c77ed89ec4c634994b675b2f9fb5size=85
 file,readme.txt9396729349e7f69e46bbb310f629669csize=1223
 file,shell/master/descript.txt7e195f4e3fa8f07f3fe3e974544f1addsize=7246
-file,shell/master/plant.sai21cd4f6b7cfeb0cb3e5fe40751ce3c339size=3561716
 file,shell/master/read me.txtd41d8cd98f00b204e9800998ecf8427esize=0
 file,shell/master/surface0.pngbd8a9749f05a387926c0b3a1aa32384dsize=7924
 file,shell/master/surface10.pngf06056ebb76ef9280faad087869b397bsize=1291
