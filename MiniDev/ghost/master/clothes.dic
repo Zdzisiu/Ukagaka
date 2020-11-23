@@ -2,16 +2,26 @@ Select.clothesmenu
 {
     //Select.cust2
 	"\b[2]\![*]\q[Monitor,monitor]\n/
-	\![*]\q[Screen,screen]\n/
-	\![*]\q[Expression,expr]\n/
-	\![*]\q[Skin,skin]\n/
+	\![*]\q[Screen,screen]\n"
+	--
+	if nowshell == "Original Dev"
+	{
+		"\![*]\q[Expression,expr]\n/"
+	}
+	--
+	"\![*]\q[Skin,skin]\n/
 	\![*]\q[Hoodies,hoodie]\n/
 	\![*]\q[Sweater,sweater]\n/
 	\![*]\q[Shirts,shirt]\n/
 	\![*]\q[Pants,pants]\n/
-	\![*]\q[Dresses,dress]\n/
-	\![*]\q[Shoes,shoes]\n/
-	\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,OnReset]\n\n[half]"
+	\![*]\q[Dresses,dress]\n"
+	--
+	if nowshell == "Original Dev"
+	{
+		"\![*]\q[Shoes,shoes]\n/"
+	}
+	--
+	"\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,OnReset]\n\n[half]"
 	--
 	"\![*]\q[Nevermind,CANCEL]"
 }
