@@ -58,7 +58,23 @@ ReplyToGhost
 
 RespondToMD
 {
+	_speech = SPLIT(reference1,"\e")[0]
 	_ConvoTag = SPLIT(reference1,"\e")[1]
+	_LastCommu = SPLIT(_ConvoTag,"::")[1] 
+	//The other ghost sends "::%(_speech)" at the end of every communication, so this grabs what THIS ghost last said. See below.
+	
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,false]","")
+	_LastCommu = REPLACE(_LastCommu,"\w1","")
+	_LastCommu = REPLACE(_LastCommu,"\w2","")
+	_LastCommu = REPLACE(_LastCommu,"\w3","")
+	_LastCommu = REPLACE(_LastCommu,"\w4","")
+	_LastCommu = REPLACE(_LastCommu,"\w5","")
+	_LastCommu = REPLACE(_LastCommu,"\w6","")
+	_LastCommu = REPLACE(_LastCommu,"\w7","")
+	_LastCommu = REPLACE(_LastCommu,"\w8","")
+	--
+	"\![quicksection,true]%(_LastCommu)\![quicksection,false]"
 	--
 	if "M201zPlantCare" _in_ reference1
 	{
@@ -171,6 +187,8 @@ RespondToMD
 		--
 		"\e PlantSeedMz2,%(plantwater[_temprand])"
 	}
+	--
+	"::%(_speech)"
 	--
 	OnPlantRestore
 }

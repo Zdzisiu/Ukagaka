@@ -1,7 +1,7 @@
 file,ghost/master/aitalk.dic23a40ade81e12eb72426e195ddbd8925size=8982
 file,ghost/master/anchor.dicc5944b6687ac92c7dcfe5519759d0f7dsize=1161
 file,ghost/master/bootend.dic31c40e29c59d85383384cd90e638404asize=1604
-file,ghost/master/commu.dic4deee62540a33b72ecc4f32313b0bf19size=3326
+file,ghost/master/commu.dic55bde01f71ef35c1e264f3ba3e26336esize=4163
 file,ghost/master/descript.txt45567b03d1e984e9a5ae388b579ae750size=214
 file,ghost/master/etc.dicf535d16be4aeea70ba52626103be2af9size=33864
 file,ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312
@@ -23,6 +23,7 @@ file,ghost/master/yaya_config.txt134ca91eba1f7864526eaa3a2142dd20size=3920
 file,install.txtaf51c77ed89ec4c634994b675b2f9fb5size=85
 file,readme.txt9396729349e7f69e46bbb310f629669csize=1223
 file,shell/master/descript.txt7e195f4e3fa8f07f3fe3e974544f1addsize=7246
+file,shell/master/plant.sai2980bc2f4f236f3d3069dbc3f1fa0d0b5size=4690192
 file,shell/master/read me.txtd41d8cd98f00b204e9800998ecf8427esize=0
 file,shell/master/surface0.pngbd8a9749f05a387926c0b3a1aa32384dsize=7924
 file,shell/master/surface10.pngf06056ebb76ef9280faad087869b397bsize=1291

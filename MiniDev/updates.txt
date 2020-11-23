@@ -1,12 +1,12 @@
 file,ghost/master/AI.dic0a56dc5551bbd56ee4ba7c16066c90bdsize=29285
-file,ghost/master/aitalk.dicc196eb66d157cf5ac501f8259c1b33a3size=54358
+file,ghost/master/aitalk.dicff646df828c9f84e5112359578d5a2a4size=52003
 file,ghost/master/anchor.dic5f2a26ae36e4299f386414fc9dcc91e2size=4372
 file,ghost/master/app/01000011 .mp40c71cfc57941bb26dca09945ca5c9023size=8072206
 file,ghost/master/app/Hzr aol HP.txtba891d567c1b5e0b25d174e0cb2cffc3size=55
 file,ghost/master/bootend.dicbd5c52f1580d3c87ffde063ad3fd9570size=20773
 file,ghost/master/calculator.dicd41d8cd98f00b204e9800998ecf8427esize=0
 file,ghost/master/clothes.dicdc2e17a2191570db275ba596a44b9818size=13963
-file,ghost/master/commu.dic2324d7a062fee0c42f488995e8712ad8size=32429
+file,ghost/master/commu.dic526408d8a306219b3ac4273c1c0e61e9size=33308
 file,ghost/master/config.dic2bddd64352b95c5924037d1a4d7ef5efsize=25595
 file,ghost/master/credits-readme.txt7b74a64b82b585a8d0723699433c0b8bsize=511
 file,ghost/master/descript.txt259e7414cb449109483ee3566f9d860asize=439

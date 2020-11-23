@@ -167,7 +167,6 @@ RespondToPlant
 	}
 	--
 	"::%(_speech)"
-	
 }
 
 //\![raise,OnClothesCheck]
@@ -742,6 +741,24 @@ RespondingToAurora
 
 RespondingToAzura
 {
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	_LastCommu = SPLIT(_ConvoTag,"::")[1] 
+	//The other ghost sends "::%(_speech)" at the end of every communication, so this grabs what THIS ghost last said. See below.
+	
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,false]","")
+	_LastCommu = REPLACE(_LastCommu,"\w1","")
+	_LastCommu = REPLACE(_LastCommu,"\w2","")
+	_LastCommu = REPLACE(_LastCommu,"\w3","")
+	_LastCommu = REPLACE(_LastCommu,"\w4","")
+	_LastCommu = REPLACE(_LastCommu,"\w5","")
+	_LastCommu = REPLACE(_LastCommu,"\w6","")
+	_LastCommu = REPLACE(_LastCommu,"\w7","")
+	_LastCommu = REPLACE(_LastCommu,"\w8","")
+	--
+	"\![quicksection,true]%(_LastCommu)\![quicksection,false]"
+	--
 	if "\e CheckOutfit0" _in_ reference1
 	{
 		if ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,p1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)"
@@ -896,6 +913,8 @@ RespondingToAzura
 		--
 		"%(hihello)"
 	}
+	--
+	"::%(_speech)"
 	
 }
 /*
