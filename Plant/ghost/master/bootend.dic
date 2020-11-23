@@ -1,0 +1,123 @@
+﻿OnFirstBoot
+{
+ 	lastTalk = "" 
+	passmin = 0 
+	passsec = 0 
+ 	username         = "USER" 
+	stroke           = 0	
+ 	teachusername    = 0	
+	mikireflag       = 0	
+ 	aitalkinterval = 400 
+ 	birthdayprint = "????" 
+	talktime = "5 minutes" 
+	deleteshitai = "OFF" 
+	nowshell = "master" 
+	--
+	OnBootVariableSet
+	--
+	OnSetPlantInfo
+	--
+	if reference0 == 0 
+ 	{
+		"\1\s[-1]\0\s[0]\e"
+ 	}
+	else
+ 	{
+ 		{
+ 			"\1\s[-1]\0\s[0]\e"
+		}
+ 	}
+}
+
+OnBootVariableSet
+{
+	pots = 1
+	plantid = (0,0,0,0,0)
+	potinterval = (0,0,0,0,0)
+	seedinpot = (0,0,0,0,0)
+	plantgtime = (0,0,0,0,0)
+	potwaterint = (0,0,0,0,0)
+	waternum = (0,0,0,0,0)
+	watertime = (0,0,0,0,0)
+	planttime = (0,0,0,0,0)
+	plantdisovered = " "
+	--
+	plantid[7] = 0
+	potinterval[7] = 0
+	seedinpot[7] = 0
+	plantgtime[7] = 0
+	waternum[7] = 0
+	watertime[7] = 0
+	planttime[7] = 0
+}
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+}
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+}
+
+OnBoot
+{
+	lastTalk = "" 
+	passmin = 0
+	passsec = 0
+	--
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot 
+	--
+	OnPlantRestore
+}
+
+OnClose
+{
+	timeslot = GetTimeSlot 
+	--
+	"\-\e" 
+}
+
+OnGhostChanging
+{
+	
+}
+
+OnGhostChanged
+{
+	OnPlantRestore
+}
+
+OnWindowStateRestore
+{
+	OnPlantRestore
+}

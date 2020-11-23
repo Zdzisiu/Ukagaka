@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,Plant
+directory,plant
+
+balloon.directory,forest

@@ -1,0 +1,221 @@
+﻿seriko.alignmenttodesktop,free
+seriko.use_self_alpha, 1
+
+charset,UTF-8
+type,shell
+name,Plant
+craftman,Zdzisiu
+craftmanurl,-
+
+sakura.balloon.offsetx,0
+sakura.balloon.offsety,0
+kero.balloon.offsetx,0
+kero.balloon.offsety,0
+sakura.balloon.alignment,none
+kero.balloon.alignment,none
+
+shiori.logo.filename,resources\niseshiori.png
+shiori.logo.x,16
+shiori.logo.y,256
+
+menu.background.font.color.r,0
+menu.background.font.color.g,0
+menu.background.font.color.b,0
+
+menu.foreground.font.color.r,255
+menu.foreground.font.color.g,255
+menu.foreground.font.color.b,255
+
+menu.disable.font.color.r,222
+menu.disable.font.color.g,222
+menu.disable.font.color.b,222
+
+menu.separator.color.r,240
+menu.separator.color.g,240
+menu.separator.color.b,240
+
+menu.background.alignment,righttop
+menu.foreground.alignment,righttop
+menu.sidebar.alignment,bottom
+
+menu.background.bitmap.filename,menu_background.png
+menu.foreground.bitmap.filename,menu_foreground.png
+menu.sidebar.bitmap.filename,menu_sidebar.png
+
+//sakura.bindgroup0.name,plant,growth0
+sakura.menu,auto
+
+sakura.bindgroup0.name,pot,Brown
+sakura.bindgroup1.name,pot,Bright Red
+sakura.bindgroup2.name,pot,Mint
+sakura.bindgroup3.name,pot,Blue
+sakura.bindgroup4.name,pot,Pink
+sakura.bindgroup5.name,pot,Purple
+sakura.bindgroup6.name,pot,Dark Blue
+sakura.bindgroup7.name,pot,Dark Red
+sakura.bindgroup8.name,pot,Orange
+sakura.bindgroup9.name,pot,Yellow
+sakura.bindgroup10.name,pot,Green
+sakura.bindgroup11.name,pot,Green #2
+sakura.bindgroup12.name,pot,Green #3
+sakura.bindgroup13.name,pot,White
+sakura.bindgroup14.name,pot,Light Grey
+sakura.bindgroup15.name,pot,Dark Grey
+sakura.bindgroup16.name,pot,Black
+sakura.bindgroup17.name,pot,Yellow #2
+sakura.bindgroup18.name,pot,Pink #2
+sakura.bindgroup19.name,pot,Rainbow
+sakura.bindgroup20.name,pot,Fire
+sakura.bindgroup21.name,pot,Sky
+sakura.bindgroup22.name,pot,Violet and Black
+sakura.bindgroup23.name,pot,Skeleton
+sakura.bindgroup24.name,pot,Deep sea
+sakura.bindgroup25.name,pot,Green #4
+sakura.bindgroup26.name,pot,Black and White
+sakura.bindgroup27.name,pot,Axvari
+sakura.bindgroup28.name,pot,Doll
+sakura.bindgroup29.name,pot,Rainbow Splater
+sakura.bindgroup30.name,pot,Checker
+sakura.bindgroup31.name,pot,Blood
+sakura.bindgroup32.name,pot,Mountains
+sakura.bindgroup33.name,pot,Butterflies
+
+kero.bindgroup0.name,pot,Brown
+kero.bindgroup1.name,pot,Bright Red
+kero.bindgroup2.name,pot,Mint
+kero.bindgroup3.name,pot,Blue
+kero.bindgroup4.name,pot,Pink
+kero.bindgroup5.name,pot,Purple
+kero.bindgroup6.name,pot,Dark Blue
+kero.bindgroup7.name,pot,Dark Red
+kero.bindgroup8.name,pot,Orange
+kero.bindgroup9.name,pot,Yellow
+kero.bindgroup10.name,pot,Green
+kero.bindgroup11.name,pot,Green #2
+kero.bindgroup12.name,pot,Green #3
+kero.bindgroup13.name,pot,White
+kero.bindgroup14.name,pot,Light Grey
+kero.bindgroup15.name,pot,Dark Grey
+kero.bindgroup16.name,pot,Black
+kero.bindgroup17.name,pot,Yellow #2
+kero.bindgroup18.name,pot,Pink #2
+kero.bindgroup19.name,pot,Rainbow
+kero.bindgroup20.name,pot,Fire
+kero.bindgroup21.name,pot,Sky
+kero.bindgroup22.name,pot,Violet and Black
+kero.bindgroup23.name,pot,Skeleton
+kero.bindgroup24.name,pot,Deep sea
+kero.bindgroup25.name,pot,Green #4
+kero.bindgroup26.name,pot,Black and White
+kero.bindgroup27.name,pot,Axvari
+kero.bindgroup28.name,pot,Doll
+kero.bindgroup29.name,pot,Rainbow Splater
+kero.bindgroup30.name,pot,Checker
+kero.bindgroup31.name,pot,Blood
+kero.bindgroup32.name,pot,Mountains
+kero.bindgroup33.name,pot,Butterflies
+
+char2.bindgroup0.name,pot,Brown
+char2.bindgroup1.name,pot,Bright Red
+char2.bindgroup2.name,pot,Mint
+char2.bindgroup3.name,pot,Blue
+char2.bindgroup4.name,pot,Pink
+char2.bindgroup5.name,pot,Purple
+char2.bindgroup6.name,pot,Dark Blue
+char2.bindgroup7.name,pot,Dark Red
+char2.bindgroup8.name,pot,Orange
+char2.bindgroup9.name,pot,Yellow
+char2.bindgroup10.name,pot,Green
+char2.bindgroup11.name,pot,Green #2
+char2.bindgroup12.name,pot,Green #3
+char2.bindgroup13.name,pot,White
+char2.bindgroup14.name,pot,Light Grey
+char2.bindgroup15.name,pot,Dark Grey
+char2.bindgroup16.name,pot,Black
+char2.bindgroup17.name,pot,Yellow #2
+char2.bindgroup18.name,pot,Pink #2
+char2.bindgroup19.name,pot,Rainbow
+char2.bindgroup20.name,pot,Fire
+char2.bindgroup21.name,pot,Sky
+char2.bindgroup22.name,pot,Violet and Black
+char2.bindgroup23.name,pot,Skeleton
+char2.bindgroup24.name,pot,Deep sea
+char2.bindgroup25.name,pot,Green #4
+char2.bindgroup26.name,pot,Black and White
+char2.bindgroup27.name,pot,Axvari
+char2.bindgroup28.name,pot,Doll
+char2.bindgroup29.name,pot,Rainbow Splater
+char2.bindgroup30.name,pot,Checker
+char2.bindgroup31.name,pot,Blood
+char2.bindgroup32.name,pot,Mountains
+char2.bindgroup33.name,pot,Butterflies
+
+char3.bindgroup0.name,pot,Brown
+char3.bindgroup1.name,pot,Bright Red
+char3.bindgroup2.name,pot,Mint
+char3.bindgroup3.name,pot,Blue
+char3.bindgroup4.name,pot,Pink
+char3.bindgroup5.name,pot,Purple
+char3.bindgroup6.name,pot,Dark Blue
+char3.bindgroup7.name,pot,Dark Red
+char3.bindgroup8.name,pot,Orange
+char3.bindgroup9.name,pot,Yellow
+char3.bindgroup10.name,pot,Green
+char3.bindgroup11.name,pot,Green #2
+char3.bindgroup12.name,pot,Green #3
+char3.bindgroup13.name,pot,White
+char3.bindgroup14.name,pot,Light Grey
+char3.bindgroup15.name,pot,Dark Grey
+char3.bindgroup16.name,pot,Black
+char3.bindgroup17.name,pot,Yellow #2
+char3.bindgroup18.name,pot,Pink #2
+char3.bindgroup19.name,pot,Rainbow
+char3.bindgroup20.name,pot,Fire
+char3.bindgroup21.name,pot,Sky
+char3.bindgroup22.name,pot,Violet and Black
+char3.bindgroup23.name,pot,Skeleton
+char3.bindgroup24.name,pot,Deep sea
+char3.bindgroup25.name,pot,Green #4
+char3.bindgroup26.name,pot,Black and White
+char3.bindgroup27.name,pot,Axvari
+char3.bindgroup28.name,pot,Doll
+char3.bindgroup29.name,pot,Rainbow Splater
+char3.bindgroup30.name,pot,Checker
+char3.bindgroup31.name,pot,Blood
+char3.bindgroup32.name,pot,Mountains
+char3.bindgroup33.name,pot,Butterflies
+
+char4.bindgroup0.name,pot,Brown
+char4.bindgroup1.name,pot,Bright Red
+char4.bindgroup2.name,pot,Mint
+char4.bindgroup3.name,pot,Blue
+char4.bindgroup4.name,pot,Pink
+char4.bindgroup5.name,pot,Purple
+char4.bindgroup6.name,pot,Dark Blue
+char4.bindgroup7.name,pot,Dark Red
+char4.bindgroup8.name,pot,Orange
+char4.bindgroup9.name,pot,Yellow
+char4.bindgroup10.name,pot,Green
+char4.bindgroup11.name,pot,Green #2
+char4.bindgroup12.name,pot,Green #3
+char4.bindgroup13.name,pot,White
+char4.bindgroup14.name,pot,Light Grey
+char4.bindgroup15.name,pot,Dark Grey
+char4.bindgroup16.name,pot,Black
+char4.bindgroup17.name,pot,Yellow #2
+char4.bindgroup18.name,pot,Pink #2
+char4.bindgroup19.name,pot,Rainbow
+char4.bindgroup20.name,pot,Fire
+char4.bindgroup21.name,pot,Sky
+char4.bindgroup22.name,pot,Violet and Black
+char4.bindgroup23.name,pot,Skeleton
+char4.bindgroup24.name,pot,Deep sea
+char4.bindgroup25.name,pot,Green #4
+char4.bindgroup26.name,pot,Black and White
+char4.bindgroup27.name,pot,Axvari
+char4.bindgroup28.name,pot,Doll
+char4.bindgroup29.name,pot,Rainbow Splater
+char4.bindgroup30.name,pot,Checker
+char4.bindgroup31.name,pot,Blood
+char4.bindgroup32.name,pot,Mountains
+char4.bindgroup33.name,pot,Butterflies

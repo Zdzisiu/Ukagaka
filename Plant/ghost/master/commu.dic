@@ -1,0 +1,176 @@
+OnCommunicate
+ {
+	if reference0 == "user" || reference0 == "User"
+ 	{
+
+ 		ReplyToUser
+	}
+ 	else
+	{	
+		ReplyToGhost
+ 	}
+}
+
+ReplyToUser
+{
+	TalkToUser
+}
+
+ReplyToGhost
+{
+ 	res_reference0 = reference0 
+	--
+	if "PlantInfo0" _in_ reference1
+	{
+		_activepotstemp = SPLIT(activepots," ")
+		_activepotstempsize = ARRAYSIZE(_activepotstemp)
+		--
+		if _ConvoTag[1] != ""
+		{
+			for _i=0,_x=0;_x!=1;_i++
+			{
+				_randpot = RAND(_activepotstempsize)
+				--
+				if seedinpot[_randpot] != 0
+				{
+					_idplant = plantid[_randpot]
+					--
+					"\e PlantInfo1,%(seedinpot[_randpot]),%(dresslog),%(plantname[_idplant]),%(plantatract[_idplant])"
+				}
+			}
+		}
+		else
+		{
+			_potnum = _ConvoTag[1]
+			--
+			if _potnum == 7
+			{
+				"\e PlantInfoMZ1,%(seedinpot[_potnum]),%(dresslog),%(plantname[_potnum]),%(plantatract[_potnum])"
+			}
+		}
+		
+	}
+	elseif reference0 == "MiniDev"
+	{
+		RespondToMD
+	}
+}
+
+RespondToMD
+{
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	--
+	if "M201zPlantCare" _in_ reference1
+	{
+		res_reference0 = ""
+		m201zplantcare = 1
+		--
+		"\p[7]\s[2]"
+	}
+	elseif "MzCareWater1" _in_ reference1
+	{
+		res_reference0 = ""
+		--
+		"\p[7]\![anim,clear,500]\i[200]"
+		--
+		watertime[7] = 0
+		waternum[7]++
+	}
+	elseif "PlantSeedMz1" _in_ reference1
+	{
+		res_reference0 = "MiniDev"
+		_temprand = RAND(6)+1
+		plantid[7] = _temprand
+		potinterval[7] = plantinnum[_temprand]
+		seedinpot[7] = 1
+		plantgtime[7] = plantgrowthtimeinterval[_temprand]
+		potwaterint[7] = plantwaterint[_temprand]
+		waternum[7] = 0
+		watertime[7] = 0
+		planttime[7] = 0
+		--
+		"\0Seed planted"
+		--
+		if mode != "Hard"
+		{
+			"\n\n[half]You should water it every %(plantwater[_temprand])"
+		}
+		--
+		"\p[7]\i[100]"
+		--
+		"\e PlantSeedMz2,%(plantwater[_temprand])"
+	}
+	elseif "MzPotEmpty0" _in_ reference1
+	{
+		if seedinpot[7] == 0
+		{
+			res_reference0 = "MiniDev"
+			--
+			"\e PlantSeedMz1"
+		}
+		else
+		{
+			res_reference0 = "MiniDev"
+			--
+			"\e MzPotNotEmpty,%(seedinpot[7])"
+		}
+		
+	}
+	elseif "WaterPlantsMz" _in_ reference1
+	{
+		res_reference0 = ""
+		_waterpage = ""
+		--
+		for _i=2;_i<=5;_i++
+		{
+			_waterpage += "\p[%(_i)]\![anim,clear,500]\i[200]"
+			--
+			watertime[_i] = 0
+			waternum[_i]++
+		}
+		--
+		"\0\![anim,clear,500]\i[200]%(_waterpage)"
+		--
+		watertime[0] = 0
+		waternum[0]++
+	}
+	elseif "MzPlantRemove" _in_ reference1
+	{
+		res_reference0 = ""
+		plantid[chosenpot] = ""
+		potinterval[chosenpot] = ""
+		seedinpot[chosenpot] = 0
+		plantgtime[chosenpot] = ""
+		potwaterint[chosenpot] = ""
+		waternum[chosenpot] = 0
+		watertime[chosenpot] = 0
+		planttime[chosenpot] = 0
+		--
+		"Plant Removed"
+		--
+		"\p[7]\s[2]"
+		--
+		_temprand = RAND(6)+1
+		plantid[chosenpot] = _temprand
+		potinterval[chosenpot] = plantinnum[_temprand]
+		seedinpot[chosenpot] = 1
+		plantgtime[chosenpot] = plantgrowthtimeinterval[_temprand]
+		potwaterint[chosenpot] = plantwaterint[_temprand]
+		waternum[chosenpot] = 0
+		watertime[chosenpot] = 0
+		planttime[chosenpot] = 0
+		--
+		"\w8\w8\w8 New seed planted"
+		--
+		if mode != "Hard"
+		{
+			"\n\n[half]You should water it every %(plantwater[_temprand])"
+		}
+		--
+		"\p[7]\i[100]"
+		--
+		"\e PlantSeedMz2,%(plantwater[_temprand])"
+	}
+	--
+	OnPlantRestore
+}

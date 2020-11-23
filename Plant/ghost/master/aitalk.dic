@@ -1,0 +1,581 @@
+﻿AiTalk
+{
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+}
+
+RandomTalk : nonoverlap
+{
+	""
+}
+
+OnHourTimeSignal
+{
+	for _i=2;_i<=pots;_i++
+	{
+		_tempinteval = plantid[_i]
+		--
+		"\p[%(_i)]"
+		--
+		if planttime[_i] == (plantgtime[_i]/2)
+		{
+			seedinpot[_i] = 2
+			--
+			"\i[101]"
+		}
+		--
+		if seedinpot[_i] == 1 || seedinpot[_i] == 2
+		{
+			planttime[_i]++
+			--
+			if RAND(100) < 5
+			{
+				"\i[102]"
+				--
+				seedinpot[_i] = 3
+				planttime[_i] = 0
+				plantid[_i] = 0
+				--
+				plantgrew[0]++
+				--
+				if plantid[_i] !_in_ plantdisovered
+				{
+					plantsdiscoverednum++
+					--
+					plantdisovered += plantid[_i] + " "
+				}
+			}
+			--
+			if planttime[_i] == plantgtime[_i] 
+			{
+				seedinpot[_i] = 3
+				planttime[_i] = 0
+				--
+				"\i[%(potinterval[_i])] You grew %(plantname[_tempinteval])"
+				--
+				plantgrew[_tempinteval]++
+				--
+				if plantid[_i] !_in_ plantdisovered
+				{
+					plantsdiscoverednum++
+					--
+					plantdisovered += plantid[_i] + " "
+				}
+				--
+			}
+		}
+	}
+	--
+	_tempinteval = plantid[0]
+	--
+	"\0"
+	--
+	if planttime[0] == (plantgtime[0]/2)
+	{
+		seedinpot[0] = 2
+		--
+		"\i[101]"
+	}
+	--
+	if seedinpot[0] == 1 || seedinpot[0] == 2
+	{
+		planttime[0]++
+		--
+		if RAND(100) < 5
+		{
+			"\i[102]"
+			--
+			seedinpot[0] = 3
+			planttime[0] = 0
+			plantid[0] = 0
+			--
+			plantgrew[0]++
+			--
+			if plantid[0] !_in_ plantdisovered
+			{
+				plantsdiscoverednum++
+				--
+				plantdisovered += plantid[0] + " "
+			}
+		}
+		--
+		if planttime[0] == plantgtime[0] 
+		{
+			seedinpot[0] = 3
+			planttime[0] = 0
+			--
+			"\i[%(potinterval[0])] You grew %(plantname[_tempinteval])"
+			--
+			plantgrew[_tempinteval]++
+			--
+			if plantid[0] !_in_ plantdisovered
+			{
+				plantsdiscoverednum++
+				--
+				plantdisovered += plantid[0] + " "
+			}
+		}
+	}
+	--
+	if m201zplantcare == 1
+	{
+		"\p[7]"
+		--
+		_tempinteval = plantid[7]
+		--
+		if planttime[7] == (plantgtime[7]/2)
+		{
+			seedinpot[7] = 2
+			--
+			"\i[101]"
+		}
+		--
+		if seedinpot[7] == 1 || seedinpot[7] == 2
+		{
+			planttime[7]++
+			--
+			if RAND(100) < 5
+			{
+				"\i[102]"
+				--
+				seedinpot[7] = 3
+				planttime[7] = 0
+				plantid[7] = 0
+				--
+				plantgrew[7]++
+				--
+				if plantid[7] !_in_ plantdisovered
+				{
+					plantsdiscoverednum++
+					--
+					plantdisovered += plantid[7] + " "
+				}
+			}
+			--
+			if planttime[7] == plantgtime[7] 
+			{
+				seedinpot[7] = 3
+				planttime[7] = 0
+				--
+				"\i[%(potinterval[7])] You grew %(plantname[_tempinteval])"
+				--
+				plantgrew[_tempinteval]++
+				--
+				if plantid[7] !_in_ plantdisovered
+				{
+					plantsdiscoverednum++
+					--
+					plantdisovered += plantid[7] + " "
+				}
+				res_reference0 = "MiniDev"
+				--
+				"\e PlantGrewMz0,%(plantname[_tempinteval]),%(plantid[7])"
+			}
+		}
+	}
+}
+
+/*
+OnMinuteChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds. 
+*/
+
+OnMinuteChange
+{
+	timeslot = GetTimeSlot 
+	--
+	lastreminded++
+	--
+	for _i=2;_i<=5;_i++
+	{
+		if seedinpot[_i] != 0
+		{
+			watertime[_i]++ 
+		}
+		--
+		if seedinpot[_i] != 0 && potwaterint[_i] < watertime[_i]
+		{
+			if RAND(50) == 1
+			{
+				"\p[_i]\s[0]\i[102]"
+				--
+				seedinpot[_i] = 3
+				planttime[_i] = 0
+				plantid[_i] = 0
+				potwaterint[_i] = 0
+			}
+		}
+		--
+		if mode == "Easy" && potwaterint[_i] == watertime[_i]
+		{
+			"\p[_i]\i[500]"  //water marker
+			--
+			waterreminder = 1
+			lastreminded = 0
+		}
+	}
+	--
+	if waterreminder == 1 && lastreminded == 5 && ghostexcount != 0
+	{
+		OnTestWater
+	}
+	--
+	if seedinpot[0] != 0
+	{
+		watertime[0]++ 
+	}
+	--
+	if seedinpot[0] != 0 && potwaterint[0] < watertime[0]
+	{
+		if RAND(50) == 1
+		{
+			"\0\s[0]\i[102]"
+			--
+			seedinpot[0] = 3
+			planttime[0] = 0
+			plantid[0] = 0
+			potwaterint[0] = 0
+		}
+	}
+	--
+	if mode == "Easy" && potwaterint[0] == watertime[0]
+	{
+		"\0\i[500]"  //water marker
+		--
+		waterreminder=1
+		lastreminded = 0
+	}
+	--
+	if m201zplantcare == 1
+	{
+		if seedinpot[7] != 0
+		{
+			watertime[7]++ 
+		}
+		--
+		if seedinpot[7] != 0 && potwaterint[7] < watertime[7]
+		{
+			if RAND(50) == 1
+			{
+				"\p[7]\s[2]\i[102]"
+				--
+				seedinpot[7] = 3
+				planttime[7] = 0
+				plantid[7] = 0
+				potwaterint[7] = 0
+			}
+		}
+		--
+		if mode == "Easy" && potwaterint[7] == watertime[7]
+		{
+			"\p[7]\s[2]\i[500]"  //water marker
+			--
+			if "MiniDev" _in_ "%(ghostexlist)"
+			{
+				res_reference0 = "MiniDev"
+				--
+				"\e MzCareWater0"
+			}
+
+		}
+	}
+	--
+ 	if minute == 0 
+	{
+ 		if weathermenu == "ON" {
+            weatherquiet = 1
+            "\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
+        }
+		--
+		OnPlantRestore
+	}
+	elseif minute == 30
+	{
+		OnPlantRestore
+	}
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+}
+
+/*
+OnSecondChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds
+*/
+
+OnSecondChange
+{
+	if passsec == 60
+ 		{
+	 	passsec = 1
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+	if mikireflag == 1 && reference1 == 0
+		{
+			EndMikireTalk
+ 		}
+		mikireflag = reference1
+	if reference2 == 1
+	{
+
+	}
+}
+
+MikireTalk
+{
+	"\0\s[0]Push Ctrl-Shift-F12 to bring me back."
+}
+
+EndMikireTalk
+{
+	"\0\s[0]...\e"
+}
+
+/*
+OnSurfaceRestore
+-----
+Reference0: The current surface of the body.
+Reference1: Current surface on the other side. 
+*/
+
+OnSurfaceRestore
+{
+	for _i=2;_i<=5;_i++
+	{
+		if "%(_i)" _in_ activepots
+		{
+			"\p[%(_i)]\s[0]"
+			--
+			if seedinpot[_i] == 3
+			{
+				"\i[%(potinterval[_i])]"
+			}
+			elseif seedinpot[_i] == 1
+			{
+				"\i[100]"
+			}
+			elseif seedinpot[_i] == 2
+			{
+				"\i[101]"
+			}
+			else
+			{
+				""
+			}
+		}
+	}
+	--
+	"\0\s[0]"
+	--
+	if seedinpot[0] == 3
+	{
+		"\i[%(potinterval[0])]"
+	}
+	elseif seedinpot[0] == 1
+	{
+		"\i[100]"
+	}
+	elseif seedinpot[0] == 2
+	{
+		"\i[101]"
+	}
+	else
+	{
+		""
+	}
+	--
+	if m201zplantcare == 1
+	{
+		"\p[7]\s[2]"
+		--
+		if seedinpot[0] == 3
+		{
+			"\i[%(potinterval[0])]"
+		}
+		elseif seedinpot[0] == 1
+		{
+			"\i[100]"
+		}
+		elseif seedinpot[0] == 2
+		{
+			"\i[101]"
+		}
+		else
+		{
+			""
+		}
+	}
+}
+
+OnPlantRestore
+{
+	for _i=2;_i<=5;_i++
+	{
+		if "%(_i)" _in_ activepots
+		{
+			"\p[%(_i)]\s[0]"
+			--
+			if seedinpot[_i] == 3
+			{
+				"\i[%(potinterval[_i])]"
+			}
+			elseif seedinpot[_i] == 1
+			{
+				"\i[100]"
+			}
+			elseif seedinpot[_i] == 2
+			{
+				"\i[101]"
+			}
+			else
+			{
+				""
+			}
+		}
+	}
+	--
+	"\0\s[0]"
+	--
+	if seedinpot[0] == 3
+	{
+		"\i[%(potinterval[0])]"
+	}
+	elseif seedinpot[0] == 1
+	{
+		"\i[100]"
+	}
+	elseif seedinpot[0] == 2
+	{
+		"\i[101]"
+	}
+	else
+	{
+		""
+	}
+	--
+	if m201zplantcare == 1
+	{
+		"\p[7]\s[2]"
+		--
+		if seedinpot[0] == 3
+		{
+			"\i[%(potinterval[0])]"
+		}
+		elseif seedinpot[0] == 1
+		{
+			"\i[100]"
+		}
+		elseif seedinpot[0] == 2
+		{
+			"\i[101]"
+		}
+		else
+		{
+			""
+		}
+	}
+}
+
+/*
+OnKeyPress
+-----
+Reference0: The key entered. (Letter written on key top)
+Reference1: The key entered. (Win32 virtual key code)
+Reference2: *SSP only Counts the key pressed.
+Reference3: *SSP only Character window ID where the key event came.
+Reference4: *SSP only Modifier keys are listed separated by commas. Example: "ctrl,alt" 
+*/
+
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+		OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+		OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+		"\![open,readme]"
+	}
+}
+
+//\![raise,OnTestWater]
+OnTestWater
+{
+	_pula = ""
+	--
+	if "MiniDev" _in_ "%(ghostexlist)"
+	{
+		_pula += "MiniDev,"
+	}
+	--
+	if "Dusty" _in_ "%(ghostexlist)"
+	{
+		_pula += "Dusty,"
+	}
+	--
+	if "Azura" _in_ "%(ghostexlist)"
+	{
+		_pula += "Azura,"
+	}
+	--
+	if "RYS-0825" _in_ "%(ghostexlist)"
+	{
+		_pula += "Azura,"
+	}
+	--
+	if "Hydrate" _in_ "%(ghostexlist)"
+	{
+		_pula += "Hydrate,"
+	}
+	--
+	_pulasize = ARRAYSIZE(_pula)
+	_randghost = RAND(_pulasize)
+	--
+	if _randghost != 0
+	{
+		_randghost--
+	}
+	res_reference0 = _pula[_randghost]
+	--
+	"\e WaterThePlant"
+}
+
+//Chabra,Azura,MiniDev,Dusty,S,Lulo,Sans and Paps,Fairune Duo,Moomintroll,Frisk

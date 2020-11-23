@@ -1,0 +1,802 @@
+﻿OpenSakuraMenu
+{
+	if chosenpot != 0 && chosenpot != 1
+	{
+		"\p[%(chosenpot)]\b2"
+	}
+	elseif chosenpot == 1
+	{
+		"\1\b2"
+	}
+	else
+	{
+		"\0\b2"
+	}
+	--
+	MenuRun
+}
+
+OnBACKTOMENU
+{
+	OpenSakuraMenu
+}
+
+MenuRun
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	--
+	"\n\_q\b2" 
+	--
+	//"Pot %(chosenpot)\n\n"
+	--
+	//if lastTalk != "" 
+	//{
+	 // "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n\n[half]"
+	//}
+	--
+ 	//"\![*]\q[Say something,altalk]\n"
+	--
+	if seedinpot[chosenpot] == 0
+	{
+		"\![*]\q[Plant Random seeds,plantseed]\n"
+	}
+	--
+	if seedinpot[chosenpot] == 3
+	{
+		"\![*]\q[Plant Info,plantinfo]\n"
+	}
+	--
+	if seedinpot[chosenpot] != 0
+	{
+		"\![*]\q[Remove Plant,removeplant]\n"
+		--
+		"\![*]\q[Water Plant,water]\n"
+	}
+	--
+	if plantsdiscoverednum >= 1
+	{
+		"\![*]\q[Gardener Notes,notes]\n"
+	}
+	--
+	if pots != 5
+	{
+		"\![*]\q[Add Pot,addpot]\n"
+	}
+	--
+	if chosenpot != 0 && chosenpot != 7
+	{
+		"\![*]\q[Hide Pot,hidepot]\n"
+	}
+	--
+	"\n[half]\![*]\q[Functions,dosomething]\n"
+	--
+	"\![*]\q[Config Menu,configmenu]\n"
+	--
+	if weathermenu == "ON" {
+        "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
+    }
+	--
+	"\n[half]\![*]\q[Nevermind,CANCEL]"
+	--
+	if mode != "Hard" && seedinpot[chosenpot] != 0
+	{
+		if watertime[chosenpot] < 60
+		{
+			"\n\n[half]Last watered: %(watertime[chosenpot]) min ago"
+		}
+		else
+		{
+			watertimemenu[chosenpot] = watertime[chosenpot]/60
+			watertimemenumin[chosenpot] = watertime[chosenpot]%60
+			--
+			"\n\n[half]Last watered: %(watertimemenu[chosenpot])h"
+			--
+			if watertimemenumin[chosenpot] != 0
+			{
+				" and %(watertimemenumin[chosenpot])min"
+			}
+			--
+			" ago"
+		}
+	}
+	--
+	if mode == "Easy" && potwaterint[chosenpot] == watertime[chosenpot]
+	{
+		"\f[bold,1]Water This Plant!!\f[bold,1]"
+	}
+	--
+ 	"\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+}
+
+Select.removeplant
+{
+	plantid[chosenpot] = ""
+	potinterval[chosenpot] = ""
+	seedinpot[chosenpot] = 0
+	plantgtime[chosenpot] = ""
+	potwaterint[chosenpot] = ""
+	waternum[chosenpot] = 0
+	watertime[chosenpot] = 0
+	planttime[chosenpot] = 0
+	--
+	if chosenpot != 0 && chosenpot != 1
+	{
+		"\p[%(chosenpot)]\s[0]"
+	}
+	elseif chosenpot == 1
+	{
+		"\1\s[0]"
+	}
+	else
+	{
+		"\0\s[0]"
+	}
+}
+
+Select.plantseed
+{
+	_temprand = RAND(6)+1
+	plantid[chosenpot] = _temprand
+	potinterval[chosenpot] = plantinnum[_temprand]
+	seedinpot[chosenpot] = 1
+	plantgtime[chosenpot] = plantgrowthtimeinterval[_temprand]
+	potwaterint[chosenpot] = plantwaterint[_temprand]
+	waternum[chosenpot] = 0
+	watertime[chosenpot] = 0
+	planttime[chosenpot] = 0
+	--
+	"\0Seed planted"
+	--
+	if mode != "Hard"
+	{
+		"\n\n[half]You should water it every %(plantwater[_temprand])"
+	}
+	--
+	if chosenpot != 0 && chosenpot != 1
+	{
+		"\p[%(chosenpot)]\i[100]"
+	}
+	elseif chosenpot == 1
+	{
+		"\1\i[100]"
+	}
+	else
+	{
+		"\0\i[100]"
+	}
+}
+
+Select.water
+{
+	"\p[%(chosenpot)]\![anim,clear,500]\i[200]"
+	--
+	watertime[chosenpot] = 0
+	waternum[chosenpot]++
+}
+
+Select.altalk
+{
+	AiTalk
+}
+
+Select.hidepot
+{
+	pots--
+	activepots = REPLACE(activepots," " + chosenpot + " ","")
+	--
+	"\p[%(chosenpot)]\s[-1]"
+}
+
+Select.addpot
+{
+	pots++
+	--
+	if "2" !_in_ activepots
+	{
+		"\p[2]\s[0]"
+		--
+		seedinpot[2] = 0
+	}
+	elseif "3" !_in_ activepots
+	{
+		"\p[3]\s[0]"
+		--
+		seedinpot[3] = 0
+	}
+	elseif "4" !_in_ activepots
+	{
+		"\p[4]\s[0]"
+		--
+		seedinpot[4] = 0
+	}
+	elseif "5" !_in_ activepots
+	{
+		"\p[5]\s[0]"
+		--
+		seedinpot[5] = 0
+	}
+}
+
+OnLastTalk 
+{
+	"%(lastTalk)\e"
+}
+
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else
+	{"Sat"}
+}
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+	{
+		"AM"
+	}
+ 	else
+	{
+		"PM"
+	}
+}
+
+Getnowmin
+{
+	if minute >= 0 && minute <=9
+	{
+		"0%(minute)"
+	}
+	else
+	{
+		"%(minute)"
+	}
+}
+
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9
+	{
+		"0%(hour12)"
+	}
+	else
+	{
+		"%(hour12)"
+	}
+}
+
+Select.BACKTOMENU
+{
+	MenuRun
+}
+Select.configmenu
+{
+	TalkConfig
+}
+
+TalkConfig
+{
+	"\n\0\b[2]\_q" 
+	--
+	"\f[bold,1]Your name: \f[bold,0]\q[%(username),TEACHNAME]\n"
+	--
+	if potname[chosenpot] != ""
+	{
+		"\f[bold,1]Name of this pot: \f[bold,0]\q[%(potname[chosenpot]),potname]\n"
+	}
+	else
+	{
+		"\![*]\q[Name the pot,potname]\n"
+	}
+	
+	--
+	"\f[bold,1]Mode:\f[bold,0] \q[%(mode),changemode]\n"
+	--
+	//"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
+	//--
+	"\f[bold,1]Your birthday:\f[bold,0] \q[%(birthdayprint),TEACHBDAY]\n\n"
+	--
+	//"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	//--		
+	{
+	"\![*]Enable Uninstall? \n\q[%(deleteshitai),deleteon]\n\n[half]\n"
+	}
+	--
+	//"\![*]Weather on main menu? (Now: %(weathermenu))\n\q[ON,weatheron] \q[OFF,weatheroff]\n\n[half]"
+	//--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+Select.potname
+{
+	"\![open,inputbox,OnPotName,-1]"
+}
+
+OnPotName
+{
+	potname[chosenpot] = reference0
+	--
+	TalkConfig
+}
+
+Select.changemode
+{
+	if mode == "Hard"
+	{
+		mode = "Easy"
+	}
+	elseif mode == "Normal"
+	{
+		mode = "Hard"
+	}
+	else
+	{
+		mode = "Normal"
+	}
+	--
+	TalkConfig
+}
+
+Select.TEACHPRONOUN
+{
+	"\0\s[0]What pronouns do you want?\w5\n\n[half]\_q/
+	\![*]\q[He-His-Him,choicemasc]\n/
+	\![*]\q[She-Her-Her,choicefem]\n/	
+	\![*]\q[They-Their-Them,choiceneither]\e"
+}
+
+Select.choicemasc
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	--
+	"\0\s[0]The pronouns are now he him and his.\e"
+}
+
+Select.choicefem
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	--
+	"\0\s[0]The pronouns are now she her and her.\e"
+}
+
+Select.choiceneither
+{
+	presuffix = "undefine"
+	himher = "them"
+	heshe = "they"
+	hisher = "their"
+	--
+	"\0\s[0]The pronouns are now they them and their.\e"
+}
+
+Select.deleteon
+{
+	if deleteshitai == "OFF"
+	{
+		deleteshitai = "ON"
+	}
+	else
+	{
+		deleteshitai = "OFF"
+	}
+	--
+	TalkConfig
+}
+
+
+Select.TEACHBDAY
+{
+	dayslot = GetDaySlot 
+	--
+	"\0\s[0]What month were you born? \w8Write the number.\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+OnUserBornMonth
+{
+	_tempmonth = reference0 
+	--
+	if _tempmonth >= 1 && _tempmonth <= 12 
+	{
+	bornmonth = _tempmonth
+	bornmonthprint = Printmonth
+	"\0\s[0]So you were born in %(bornmonthprint).\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
+	}
+	else 
+	{
+	"\0\s[0]That's not a valid month. Try again.\![open,inputbox,OnUserBornMonth,-1]\e"
+	}
+}
+
+Printmonth
+{
+	if bornmonth == 1
+	{
+		"January"
+	}
+	elseif bornmonth == 2
+	{
+		"February"
+	}
+	elseif bornmonth == 3
+	{
+		"March"
+	}
+	elseif bornmonth == 4
+	{
+		"April"
+	}
+	elseif bornmonth == 5
+	{
+		"May"
+	}
+	elseif bornmonth == 6
+	{
+		"June"
+	}
+	elseif bornmonth == 7
+	{
+		"July"
+	}
+	elseif bornmonth == 8
+	{
+		"August"
+	}
+	elseif bornmonth == 9
+	{
+		"September"
+	}
+	elseif bornmonth == 10
+	{
+		"October"
+	}
+	elseif bornmonth == 11
+	{
+		"November"
+	}
+	else
+	{
+		"December"
+	}
+}
+
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{
+	"%(bornday)st"
+	}
+	elseif bornday == 2 || bornday == 22
+	{
+	"%(bornday)nd"
+	}
+	elseif bornday == 3 || bornday == 23
+	{
+	"%(bornday)rd"
+	}
+	else
+	{
+	"%(bornday)th"
+	}
+}	
+
+OnUserBornDay
+{
+	tempday = reference0 
+	if bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12 
+	{
+		if tempday >= 1 && tempday <= 31 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else 
+		{
+			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}
+	elseif bornmonth == 2 
+	{
+		if tempday >= 1 && tempday <= 29 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else
+		{
+			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}
+	else 
+	{
+		if tempday >= 1 && tempday <= 30 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else
+		{
+			"\0\s[0]That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}		
+}
+
+birthchecked
+{
+	"\0\s[0]Your birthday is %(bornmonthprint) %(borndayprint). We'll remember.\e"
+}
+
+Select.talkinter
+{
+	"\0\s[0]\b2The interval is currently set to %(talktime)./
+	\0\n\n[half]/
+	\![*]\q[Every 30 seconds,TALKMAX]\n/
+	\![*]\q[Every minute,TALKHIGH]\n/
+	\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+	\![*]\q[Every 5 minutes,TALKPOOR]\n/
+	\![*]\q[Don't speak,TALKNONE]\n\n[half]/
+	\![*]\q[Don't change,TalksTill]\e"
+}
+
+Select.TalksTill
+{
+	"\0\s[0]No change to the talk rate.\e"
+}
+
+Select.TALKMAX
+{
+	talktime = "30 seconds" 
+	aitalkinterval = 45 
+	"\0\s[0]Speak every 30 seconds.\e"
+}
+
+Select.TALKHIGH
+{
+	talktime = "minute"
+	aitalkinterval = 90
+	"\0\s[0]Speak every minute.\e"
+}
+
+Select.TALKNORMAL
+{
+	talktime = "3 minutes"
+	aitalkinterval = 270
+	"\0\s[0]Speak every three minutes.\e"
+}
+
+Select.TALKPOOR
+{
+	talktime = "5 minutes"
+	aitalkinterval = 400
+	"Speak every five minutes.\e"
+}
+
+Select.TALKNONE
+{
+	talktime = "silence"
+	aitalkinterval = 0
+	"\0\s[0]Silence\e"
+}
+
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+Select.CANCEL
+{
+	"\e"
+}
+
+Select.dosomething
+{
+	"\0\s[0]\b2...\n\n"
+	--
+	"\![*]\q[Open Calendar,CALENDAR]\n/
+	\![*]\q[Check Email,MailCheck]\n/
+	\![*]\q[Open SSP Preferences,sspconfig]\n/
+	\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
+	\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.CALENDAR
+{
+	"\0\s[0]...\![open,calendar]\e"
+}
+
+Select.sspconfig
+{
+	"\0\s[0]...\![open,configurationdialog]\e"
+}
+
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	
+	if _gomicheck == 0 
+	{
+		"\0\s[0]... It's empty.\e"
+	}
+	elseif _gomicheck >= 1 
+	{
+		"\0\s[0]...Done.\e"
+	}
+}
+
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\s[0]\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+Select.HEADLINECANCEL
+{
+	"\0\s[0]Finished with headlines.\e"
+}
+
+OnChoiceTimeout
+{
+	"\0\s[0]The menu has timed out.\e"
+}
+
+OpenKeroMenu
+{
+	"\b[2]"
+ 	--
+	"..."
+ 	--
+	"\n\n[half]/
+	\![*]\q[Nothing,keroCANCEL]\e"
+}
+
+Select.keroCANCEL
+{
+	"...\e"
+}
+
+OnSetPlantInfo
+{
+	//Name, Unlock Date, Watering time, Description, How many were grown
+	plantname = "Weed,Aloe Vera,Bonsai Tree,Bunny Ear Cactus,Echinocereus Cactu,Anthurium,Lavender"
+	plantwater = "any,3h,1h 30min,5h,5h,3h,3h"
+	plantwaterint = ("",360,180,600,600,360,360)
+	plantdesc = "Weeds can grow anywere anytime,The aloe vera plant is an easy+ attractive succulent that makes for a great indoor companion. Aloe vera plants are useful+ too+ as the juice from their leaves can be used to relieve pain from scrapes and burns when applied topically.,Bonsai is an art that has been studied and refined for centuries+ but don't let that scare you off. With a little guidance+ you're perfectly capable of growing your very own Bonsai trees without a mystical green thumb. Make sure you choose a tree species that is suited for the climate in your area and stick to the basic care guidelines.,These low-maintenance cacti are very popular ornamental houseplants because they have cute pads that are shaped like rabbit ears. They are an excellent choice for growing outdoors in desert gardens+ rock gardens+ xeriscape gardens+ or Mediterranean gardens. Also+ many growers prefer to keep their Bunny cacti indoors planted in a lovely container.,Among cactus growers+ Echinocereus are known for being a bit easier than some of their fussier cousins. Some members of this genus can be found far to the north+ growing in quite cold areas. Echinocereus have a very wide range of shapes and sizes+ ranging from small balls with spines to thin columns. Like other cacti+ the Echinocereus have beautiful flowers.,The anthurium plant is grown as a houseplant in cooler areas. Proper care for anthurium is easy to do as long as you provide a few key elements for the plant.,Lavender is a bushy+ strong-scented perennial plant from the Mediterranean. In warmer regions+ its gray to green foliage stays evergreen throughout the year+ and the herb thrives in some of the toughest of garden condition. Here’s how to plant+ grow+ and harvest lavender in the garden."
+	plantatract = "none,none,none,none,none,Attracts Butterflies"
+	sunexposure = "any,Full Sun+ Part Sun,Varies,Full Sun,Full Sun,Low Light,Full Sun"
+	plantbloomtime = "N/A,Summer,N/A,Early Summer,Spring,N/A,Summer"
+	possibleflowercolor = "N/A,Orange+ Pink+ Red+ Yellow,N/A,Purple+ Red,Red+ Pink,Red+ Pink+ Yellow+ White+ Green,Blue+ Pink+ Purple+ White"
+	plantinnum = ",102,103,104,105,107,108,109"
+	plantgrowthtime = "any,24h,50h,34h,24h,27h,18h"
+	plantgrowthtimeinterval = ("",24,50,34,24,27,18)
+}
+
+Select.notes
+{
+	plantpage = "\b2\_q\n"
+	--
+	OnSetPlantInfo
+	--
+	for _i=0;_i<8;_i++
+	{
+		_plantsss = " "+_i+ " "
+		--
+		if _plantsss _in_ plantsdiscovered
+		{
+			plantpage += "\q[" + plantname[_i] + ",OnPlantChoice," + _i + "]\n"
+		}
+	}
+	--
+	plantpage += "\n[half]\![*]\q[Cancel,CANCEL]\n\![*]\q[Back to Menu,OnBACKTOMENU]"
+	--
+	plantpage
+}
+
+
+OnPlantChoice
+{
+	plantpage = "\b4\_q\n"
+	_plantchoice = reference0
+	--
+	plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
+	--
+	plantpage +=  "\f[bold,1]Growth Time:\f[bold,0] " + REPLACE(plantgrowthtime[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Watering Time:\f[bold,0] " + REPLACE(plantwater[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Bloom Time:\f[bold,0] " + REPLACE(plantbloomtime[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Sun Exposure:\f[bold,0] " + REPLACE(sunexposure[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Flower Colors:\f[bold,0] " + REPLACE(possibleflowercolor[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Other:\f[bold,0] " + REPLACE(plantatract[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=  "\f[bold,1]Description:\f[bold,0]\n" + REPLACE(plantdesc[_plantchoice],"+",",") + "\n"
+	--
+	plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
+	--
+	plantpage
+}
+
+Select.plantinfo
+{
+	plantpage = "\b4\_q\n"
+	_plantchoice = plantid[chosenpot]
+	--
+	plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
+	--
+	plantpage +=  "\f[bold,1]Growth Time:\f[bold,0] " + REPLACE(plantgrowthtime[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Watering Time:\f[bold,0] " + REPLACE(plantwater[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Bloom Time:\f[bold,0] " + REPLACE(plantbloomtime[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Sun Exposure:\f[bold,0] " + REPLACE(sunexposure[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Flower Colors:\f[bold,0] " + REPLACE(possibleflowercolor[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=   "\f[bold,1]Other:\f[bold,0] " + REPLACE(plantatract[_plantchoice],"+",",") + "\n\n[half]"
+	--
+	plantpage +=  "\f[bold,1]Description:\f[bold,0]\n" + REPLACE(plantdesc[_plantchoice],"+",",") + "\n"
+	--
+	plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
+	--
+	plantpage
+}
+
+OnDressupChanged
+{
+	if reference2 == 1
+	{
+		dresslog = reference1
+	}
+}
+
