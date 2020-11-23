@@ -1,9 +1,0 @@
-Charset,UTF-8
-install,651199522
-homeurl_found,1
-surfacecount,60
-homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/Plant/
-update_result,OK(1)
-firstboot,656784404
-commitmemorysize,1171387
-lastboot,659397653
