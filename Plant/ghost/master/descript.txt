@@ -15,3 +15,4 @@ sstp.allowunspecifiedsend,0
 shiori,yaya.dll
 
 icon,icon.ico
+icon.minimize,icon_2.ico
