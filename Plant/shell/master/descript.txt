@@ -79,41 +79,23 @@ sakura.bindgroup30.name,pot,Checker
 sakura.bindgroup31.name,pot,Blood
 sakura.bindgroup32.name,pot,Mountains
 sakura.bindgroup33.name,pot,Butterflies
-
-kero.bindgroup0.name,pot,Brown
-kero.bindgroup1.name,pot,Bright Red
-kero.bindgroup2.name,pot,Mint
-kero.bindgroup3.name,pot,Blue
-kero.bindgroup4.name,pot,Pink
-kero.bindgroup5.name,pot,Purple
-kero.bindgroup6.name,pot,Dark Blue
-kero.bindgroup7.name,pot,Dark Red
-kero.bindgroup8.name,pot,Orange
-kero.bindgroup9.name,pot,Yellow
-kero.bindgroup10.name,pot,Green
-kero.bindgroup11.name,pot,Green #2
-kero.bindgroup12.name,pot,Green #3
-kero.bindgroup13.name,pot,White
-kero.bindgroup14.name,pot,Light Grey
-kero.bindgroup15.name,pot,Dark Grey
-kero.bindgroup16.name,pot,Black
-kero.bindgroup17.name,pot,Yellow #2
-kero.bindgroup18.name,pot,Pink #2
-kero.bindgroup19.name,pot,Rainbow
-kero.bindgroup20.name,pot,Fire
-kero.bindgroup21.name,pot,Sky
-kero.bindgroup22.name,pot,Violet and Black
-kero.bindgroup23.name,pot,Skeleton
-kero.bindgroup24.name,pot,Deep sea
-kero.bindgroup25.name,pot,Green #4
-kero.bindgroup26.name,pot,Black and White
-kero.bindgroup27.name,pot,Axvari
-kero.bindgroup28.name,pot,Doll
-kero.bindgroup29.name,pot,Rainbow Splater
-kero.bindgroup30.name,pot,Checker
-kero.bindgroup31.name,pot,Blood
-kero.bindgroup32.name,pot,Mountains
-kero.bindgroup33.name,pot,Butterflies
+sakura.bindgroup34.name,pot,Gay Pride
+sakura.bindgroup35.name,pot,Aromantic Pride
+sakura.bindgroup36.name,pot,Asexual Pride
+sakura.bindgroup37.name,pot,Pansexual Pride
+sakura.bindgroup38.name,pot,Non-Binary Pride
+sakura.bindgroup39.name,pot,Transgender Pride
+sakura.bindgroup40.name,pot,Stright Ally
+sakura.bindgroup41.name,pot,Genderqueer Pride
+sakura.bindgroup42.name,pot,Genderfluid Pride
+sakura.bindgroup43.name,pot,Agender Pride
+sakura.bindgroup44.name,pot,Plains
+sakura.bindgroup45.name,pot,Cracked
+sakura.bindgroup46.name,pot,Denim
+sakura.bindgroup47.name,pot,Dusty_Sweater
+sakura.bindgroup48.name,pot,Galaxy_1
+sakura.bindgroup49.name,pot,S_Hoodie
+sakura.bindgroup50.name,pot,Soulless
 
 char2.bindgroup0.name,pot,Brown
 char2.bindgroup1.name,pot,Bright Red
@@ -149,6 +131,23 @@ char2.bindgroup30.name,pot,Checker
 char2.bindgroup31.name,pot,Blood
 char2.bindgroup32.name,pot,Mountains
 char2.bindgroup33.name,pot,Butterflies
+char2.bindgroup34.name,pot,Gay Pride
+char2.bindgroup35.name,pot,Aromantic Pride
+char2.bindgroup36.name,pot,Asexual Pride
+char2.bindgroup37.name,pot,Pansexual Pride
+char2.bindgroup38.name,pot,Non-Binary Pride
+char2.bindgroup39.name,pot,Transgender Pride
+char2.bindgroup40.name,pot,Stright Ally
+char2.bindgroup41.name,pot,Genderqueer Pride
+char2.bindgroup42.name,pot,Genderfluid Pride
+char2.bindgroup43.name,pot,Agender Pride
+char2.bindgroup44.name,pot,Plains
+char2.bindgroup45.name,pot,Cracked
+char2.bindgroup46.name,pot,Denim
+char2.bindgroup47.name,pot,Dusty_Sweater
+char2.bindgroup48.name,pot,Galaxy_1
+char2.bindgroup49.name,pot,S_Hoodie
+char2.bindgroup50.name,pot,Soulless
 
 char3.bindgroup0.name,pot,Brown
 char3.bindgroup1.name,pot,Bright Red
@@ -184,6 +183,24 @@ char3.bindgroup30.name,pot,Checker
 char3.bindgroup31.name,pot,Blood
 char3.bindgroup32.name,pot,Mountains
 char3.bindgroup33.name,pot,Butterflies
+char3.bindgroup34.name,pot,Gay Pride
+char3.bindgroup35.name,pot,Aromantic Pride
+char3.bindgroup36.name,pot,Asexual Pride
+char3.bindgroup37.name,pot,Pansexual Pride
+char3.bindgroup38.name,pot,Non-Binary Pride
+char3.bindgroup39.name,pot,Transgender Pride
+char3.bindgroup40.name,pot,Stright Ally
+char3.bindgroup41.name,pot,Genderqueer Pride
+char3.bindgroup42.name,pot,Genderfluid Pride
+char3.bindgroup43.name,pot,Agender Pride
+char3.bindgroup44.name,pot,Plains
+char3.bindgroup45.name,pot,Cracked
+char3.bindgroup46.name,pot,Denim
+char3.bindgroup47.name,pot,Dusty_Sweater
+char3.bindgroup48.name,pot,Galaxy_1
+char3.bindgroup49.name,pot,S_Hoodie
+char3.bindgroup50.name,pot,Soulless
+
 
 char4.bindgroup0.name,pot,Brown
 char4.bindgroup1.name,pot,Bright Red
@@ -219,3 +236,73 @@ char4.bindgroup30.name,pot,Checker
 char4.bindgroup31.name,pot,Blood
 char4.bindgroup32.name,pot,Mountains
 char4.bindgroup33.name,pot,Butterflies
+char4.bindgroup34.name,pot,Gay Pride
+char4.bindgroup35.name,pot,Aromantic Pride
+char4.bindgroup36.name,pot,Asexual Pride
+char4.bindgroup37.name,pot,Pansexual Pride
+char4.bindgroup38.name,pot,Non-Binary Pride
+char4.bindgroup39.name,pot,Transgender Pride
+char4.bindgroup40.name,pot,Stright Ally
+char4.bindgroup41.name,pot,Genderqueer Pride
+char4.bindgroup42.name,pot,Genderfluid Pride
+char4.bindgroup43.name,pot,Agender Pride
+char4.bindgroup44.name,pot,Plains
+char4.bindgroup45.name,pot,Cracked
+char4.bindgroup46.name,pot,Denim
+char4.bindgroup47.name,pot,Dusty_Sweater
+char4.bindgroup48.name,pot,Galaxy_1
+char4.bindgroup49.name,pot,S_Hoodie
+char4.bindgroup50.name,pot,Soulless
+
+char5.bindgroup0.name,pot,Brown
+char5.bindgroup1.name,pot,Bright Red
+char5.bindgroup2.name,pot,Mint
+char5.bindgroup3.name,pot,Blue
+char5.bindgroup4.name,pot,Pink
+char5.bindgroup5.name,pot,Purple
+char5.bindgroup6.name,pot,Dark Blue
+char5.bindgroup7.name,pot,Dark Red
+char5.bindgroup8.name,pot,Orange
+char5.bindgroup9.name,pot,Yellow
+char5.bindgroup10.name,pot,Green
+char5.bindgroup11.name,pot,Green #2
+char5.bindgroup12.name,pot,Green #3
+char5.bindgroup13.name,pot,White
+char5.bindgroup14.name,pot,Light Grey
+char5.bindgroup15.name,pot,Dark Grey
+char5.bindgroup16.name,pot,Black
+char5.bindgroup17.name,pot,Yellow #2
+char5.bindgroup18.name,pot,Pink #2
+char5.bindgroup19.name,pot,Rainbow
+char5.bindgroup20.name,pot,Fire
+char5.bindgroup21.name,pot,Sky
+char5.bindgroup22.name,pot,Violet and Black
+char5.bindgroup23.name,pot,Skeleton
+char5.bindgroup24.name,pot,Deep sea
+char5.bindgroup25.name,pot,Green #4
+char5.bindgroup26.name,pot,Black and White
+char5.bindgroup27.name,pot,Axvari
+char5.bindgroup28.name,pot,Doll
+char5.bindgroup29.name,pot,Rainbow Splater
+char5.bindgroup30.name,pot,Checker
+char5.bindgroup31.name,pot,Blood
+char5.bindgroup32.name,pot,Mountains
+char5.bindgroup33.name,pot,Butterflies
+char5.bindgroup34.name,pot,Gay Pride
+char5.bindgroup35.name,pot,Aromantic Pride
+char5.bindgroup36.name,pot,Asexual Pride
+char5.bindgroup37.name,pot,Pansexual Pride
+char5.bindgroup38.name,pot,Non-Binary Pride
+char5.bindgroup39.name,pot,Transgender Pride
+char5.bindgroup40.name,pot,Stright Ally
+char5.bindgroup41.name,pot,Genderqueer Pride
+char5.bindgroup42.name,pot,Genderfluid Pride
+char5.bindgroup43.name,pot,Agender Pride
+char5.bindgroup44.name,pot,Plains
+char5.bindgroup45.name,pot,Cracked
+char5.bindgroup46.name,pot,Denim
+char5.bindgroup47.name,pot,Dusty_Sweater
+char5.bindgroup48.name,pot,Galaxy_1
+char5.bindgroup49.name,pot,S_Hoodie
+char5.bindgroup50.name,pot,Soulless
+

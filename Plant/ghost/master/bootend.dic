@@ -97,6 +97,8 @@ OnBoot
 	dayslot = GetDaySlot
 	timeslot = GetTimeSlot 
 	--
+	OnVariableRestore
+	--
 	OnPlantRestore
 }
 
@@ -105,6 +107,19 @@ OnClose
 	timeslot = GetTimeSlot 
 	--
 	"\-\e" 
+}
+
+OnVariableRestore
+{
+	if ver == ""
+	{
+		ver = "0.0.3a"
+		pots = 1
+		activepost = "0"
+		timeformatype = "Standard"
+		dateformatype = "dd/mm/yyyy"
+		upchec = "OFF"
+	}
 }
 
 OnGhostChanging

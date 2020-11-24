@@ -20,6 +20,31 @@
 	}
 }
 
+OnUpdateCheckComplete
+{
+    if reference0 != "none"
+    {
+        "There is an update avalible"
+        --
+        "\n\![*]\q[Update now,up]\n\n[half]\![*]\q[Update later,lat]\e"
+    }
+    else
+    {
+        "\b[-1]\e"
+    }
+        
+}
+
+Select.up
+{
+	"\![updatebymyself]"
+}
+
+Select.lat
+{
+
+}
+
 OnInstallBegin
 {
 	"\0\s[0]Installing . . .\w8This zip or nar contains an install.txt file.\e"

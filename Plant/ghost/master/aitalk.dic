@@ -234,7 +234,7 @@ OnMinuteChange
 		{
 			"\p[_i]\i[500]"  //water marker
 			--
-			waterreminder = 1
+			waterreminder[_i] = 1
 			lastreminded = 0
 		}
 	}
@@ -266,7 +266,7 @@ OnMinuteChange
 	{
 		"\0\i[500]"  //water marker
 		--
-		waterreminder=1
+		waterreminder[0]=1
 		lastreminded = 0
 	}
 	--
@@ -293,14 +293,16 @@ OnMinuteChange
 		if mode == "Easy" && potwaterint[7] == watertime[7]
 		{
 			"\p[7]\s[2]\i[500]"  //water marker
+		}
+	}
+	--
+	if potwaterint[7] == watertime[7]
+	{
+		if "MiniDev" _in_ "%(ghostexlist)"
+		{
+			res_reference0 = "MiniDev"
 			--
-			if "MiniDev" _in_ "%(ghostexlist)"
-			{
-				res_reference0 = "MiniDev"
-				--
-				"\e MzCareWater0"
-			}
-
+			"\e MzCareWater0"
 		}
 	}
 	--
@@ -312,6 +314,11 @@ OnMinuteChange
         }
 		--
 		OnPlantRestore
+		--
+		if upchec == "ON"
+		{
+			"\![updatebymyself,checkonly]"
+		}
 	}
 	elseif minute == 30
 	{

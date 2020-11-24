@@ -89,6 +89,8 @@ OnMouseDoubleClick
 {
 	chosenpot = reference3
 	--
+	OnPlantRestore
+	--
 	OpenSakuraMenu
 }
 

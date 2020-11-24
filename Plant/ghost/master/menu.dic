@@ -112,7 +112,35 @@ MenuRun
 		"\n\f[bold,1]Water This Plant!!\f[bold,1]"
 	}
 	--
- 	"\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap)\n%(month)/%(day)/%(year)\e"
+ 	"\n\n[half]%(wd) %(timeformat), %(dateformat)\nVersion: %(ver)\e"
+}
+
+timeformat
+{
+	if timeformatype == "Standard"
+	{
+		"%(nowhour):%(nowmin) %(ap)"
+	}
+	else
+	{
+		"%(hour):%(nowmin)"
+	}
+}
+
+dateformat
+{
+	if dateformatype == "dd/mm/yyyy"
+	{
+		"%(day)/%(month)/%(year)"
+	}
+	elseif dateformatype == "yyyy/mm/dd"
+	{
+		"%(year)/%(month)/%(day)"
+	}
+	else
+	{
+		"%(month)/%(day)/%(year)"
+	}
 }
 
 Select.removeplant
@@ -179,7 +207,15 @@ Select.plantseed
 
 Select.water
 {
-	"\p[%(chosenpot)]\s[0]\i[200]"
+	
+	"\p[%(chosenpot)]"
+	--
+	if waterreminder[chosenpot] == 1
+	{
+		"\![anim,clear,500]"
+	}
+	--
+	"\i[200]"
 	--
 	watertime[chosenpot] = 0
 	waternum[chosenpot]++
@@ -193,7 +229,7 @@ Select.altalk
 Select.hidepot
 {
 	pots--
-	activepots = REPLACE(activepots," " + chosenpot + " ","")
+	activepots = REPLACE(activepots," " + chosenpot,"")
 	--
 	"\p[%(chosenpot)]\s[-1]"
 }
@@ -302,7 +338,7 @@ Select.configmenu
 
 TalkConfig
 {
-	"\n\0\b[2]\_q" 
+	"\n\p[%(chosenpot)]\b2\_q" 
 	--
 	"\f[bold,1]Your name: \f[bold,0]\q[%(username),TEACHNAME]\n"
 	--
@@ -312,15 +348,23 @@ TalkConfig
 	}
 	else
 	{
-		"\![*]\q[Name the pot,potname]\n"
+		"\f[bold,1]\q[Name the pot,potname]\f[bold,0]\n"
 	}
 	
 	--
-	"\f[bold,1]Mode:\f[bold,0] \q[%(mode),changemode]\n"
+	"\f[bold,1]Mode:\f[bold,0] \q[%(mode),changemode]\n\n[half]"
 	--
 	//"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
 	//--
-	"\f[bold,1]Your birthday:\f[bold,0] \q[%(birthdayprint),TEACHBDAY]\n\n"
+	"\f[bold,1]Your birthday:\f[bold,0] \q[%(birthdayprint),TEACHBDAY]\n"
+	//--
+	//"\f[bold,1]Hemisphere: \f[bold,0]\q[%(hsphere),hemisph]\n"
+	--
+	"\f[bold,1]Time Format: \f[bold,0]\q[%(timeformatype),timetype]\n"
+	--
+	"\f[bold,1]Date Format: \f[bold,0]\q[%(dateformatype),datetype]\n"
+	--
+	"\f[bold,1]Auto update check: \f[bold,0]\q[%(upchec),upcheck]\n\n[half]"
 	--
 	//"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
 	//--		
@@ -331,6 +375,77 @@ TalkConfig
 	//"\![*]Weather on main menu? (Now: %(weathermenu))\n\q[ON,weatheron] \q[OFF,weatheroff]\n\n[half]"
 	//--
 	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+Select.hemisph
+{
+	if hsphere == "Northern"
+	{
+		hsphere = "Southern"
+	}
+	else
+	{
+		hsphere = "Northern"
+	}
+	--
+	TalkConfig
+}
+
+
+Select.datetype
+{
+	case dateformatype
+	{
+		when "dd/mm/yyyy"
+		{
+			dateformatype = "yyyy/mm/dd"
+		}
+		when "yyyy/mm/dd"
+		{
+			dateformatype = "mm/dd/yyyy"
+		}
+		others
+		{
+			dateformatype = "dd/mm/yyyy"
+		} 
+	}
+	--
+	TalkConfig
+}
+
+Select.timetype
+{
+	case timeformatype
+	{
+		when "Standard"
+		{
+			timeformatype = "Military"
+		}
+		others
+		{
+			timeformatype = "Standard"
+		}
+	}
+	--
+	TalkConfig
+
+}
+
+Select.upcheck
+{
+	case upchec
+	{
+		when "ON"
+		{
+			upchec = "OFF"
+		}
+		others
+		{
+			upchec = "ON"
+		}
+	}
+	--
+	TalkConfig
 }
 
 Select.potname
@@ -696,7 +811,7 @@ Select.HEADLINECANCEL
 
 OnChoiceTimeout
 {
-	"\0\s[0]The menu has timed out.\e"
+	"\e"
 }
 
 OpenKeroMenu
