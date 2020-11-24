@@ -17,3 +17,7 @@ MiniDev/ghost/master/yaya_variable.cfg
 Plant/shell/master/plant.sai2
 Plant/shell/master/profile/shell.dat
 Plant/shell/master/profile/shell.dat.bak
+Plant/ghost/master/profile/ghost.dat
+Plant/ghost/master/profile/var.txt
+Plant/ghost/master/profile/ghost.dat.bak
+Plant/ghost/master/profile/history.dat

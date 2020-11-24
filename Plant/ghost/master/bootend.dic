@@ -111,7 +111,7 @@ OnClose
 
 OnVariableRestore
 {
-	if ver == ""
+	if ver == "" || ver == "0.0.3a"
 	{
 		ver = "0.0.3a"
 		pots = 1
