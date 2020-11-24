@@ -198,24 +198,28 @@ Select.addpot
 	{
 		"\p[2]\s[0]"
 		--
+		activepots += " 2"
 		seedinpot[2] = 0
 	}
 	elseif "3" !_in_ activepots
 	{
 		"\p[3]\s[0]"
 		--
+		activepots += " 3"
 		seedinpot[3] = 0
 	}
 	elseif "4" !_in_ activepots
 	{
 		"\p[4]\s[0]"
 		--
+		activepots += " 4"
 		seedinpot[4] = 0
 	}
 	elseif "5" !_in_ activepots
 	{
 		"\p[5]\s[0]"
 		--
+		activepots += " 5"
 		seedinpot[5] = 0
 	}
 }
