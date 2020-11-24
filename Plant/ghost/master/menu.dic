@@ -2,15 +2,15 @@
 {
 	if chosenpot != 0 && chosenpot != 1
 	{
-		"\p[%(chosenpot)]\b2"
+		"\p[%(chosenpot)]"
 	}
 	elseif chosenpot == 1
 	{
-		"\1\b2"
+		"\1"
 	}
 	else
 	{
-		"\0\b2"
+		"\0"
 	}
 	--
 	MenuRun
@@ -30,14 +30,18 @@ MenuRun
 	--
 	"\n\_q\b2" 
 	--
-	//"Pot %(chosenpot)\n\n"
-	--
-	//if lastTalk != "" 
-	//{
-	 // "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n\n[half]"
-	//}
-	--
- 	//"\![*]\q[Say something,altalk]\n"
+	if potname[chosenpot] != ""
+	{
+		"Pot %(potname[chosenpot])\n\n[half]"
+	}
+	elseif chosenpot == 7
+	{
+		"Pot M-201z\n\n[half]"
+	}
+	else
+	{
+		"Pot %(chosenpot)\n\n[half]"
+	}
 	--
 	if seedinpot[chosenpot] == 0
 	{
@@ -103,12 +107,12 @@ MenuRun
 		}
 	}
 	--
-	if mode == "Easy" && potwaterint[chosenpot] == watertime[chosenpot]
+	if mode == "Easy" && potwaterint[chosenpot] == watertime[chosenpot] && seedinpot[chosenpot] != 0
 	{
-		"\f[bold,1]Water This Plant!!\f[bold,1]"
+		"\n\f[bold,1]Water This Plant!!\f[bold,1]"
 	}
 	--
- 	"\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+ 	"\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap)\n%(month)/%(day)/%(year)\e"
 }
 
 Select.removeplant
@@ -148,7 +152,7 @@ Select.plantseed
 	watertime[chosenpot] = 0
 	planttime[chosenpot] = 0
 	--
-	"\0Seed planted"
+	"Seed planted"
 	--
 	if mode != "Hard"
 	{
@@ -163,6 +167,10 @@ Select.plantseed
 	{
 		"\1\i[100]"
 	}
+	elseif chosenpot == 7
+	{
+		"\p[7]\s[2]\i[100]"
+	}
 	else
 	{
 		"\0\i[100]"
@@ -171,7 +179,7 @@ Select.plantseed
 
 Select.water
 {
-	"\p[%(chosenpot)]\![anim,clear,500]\i[200]"
+	"\p[%(chosenpot)]\s[0]\i[200]"
 	--
 	watertime[chosenpot] = 0
 	waternum[chosenpot]++
