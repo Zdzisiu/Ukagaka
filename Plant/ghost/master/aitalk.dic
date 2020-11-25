@@ -230,16 +230,10 @@ OnMinuteChange
             "\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
         }
 		--
-		OnPlantRestore
-		--
 		if upchec == "ON"
 		{
 			"\![updatebymyself,checkonly]"
 		}
-	}
-	elseif minute == 30
-	{
-		OnPlantRestore
 	}
 	elseif mikireflag == 1
  	{
@@ -446,7 +440,7 @@ Reference1: Current surface on the other side.
 
 OnSurfaceRestore
 {
-	OnPlantRestore
+	
 }
 
 OnPlantRestore

@@ -1053,7 +1053,7 @@ OnDressupChanged
 {
 	if reference2 == 1
 	{
-		dressup[] = reference1
+		dressup = reference1
 	}
 }
 
