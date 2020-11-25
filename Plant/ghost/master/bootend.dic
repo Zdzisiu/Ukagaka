@@ -98,8 +98,8 @@ OnBoot
 	lastTalk = "" 
 	passmin = 0
 	passsec = 0
-	pots = 1
-	activepots = "0"
+	//pots = 1
+	//activepots = "0"
 	--
 	dayslot = GetDaySlot
 	timeslot = GetTimeSlot 
@@ -141,8 +141,6 @@ OnVariableRestore
 		mode == "Normal"
 		waterreminder = (0,0,0,0,0,0,0,0,0,0)
 	}
-	--
-	OnPlantRestore
 }
 
 OnGhostChanging
