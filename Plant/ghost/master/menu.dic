@@ -1,5 +1,7 @@
 ﻿OpenSakuraMenu
 {
+	OnPlantRestore
+	--
 	if chosenpot != 0 && chosenpot != 7
 	{
 		"\p[%(chosenpot)]"
@@ -44,7 +46,7 @@ MenuRun
 		"Pot %(chosenpot)\n\n[half]"
 	}
 	--
-	if seedinpot[chosenpot] == 0 && chosenpot != 7
+	if seedinpot[chosenpot] == 0
 	{
 		"\![*]\q[Plant Random seeds,plantseed]\n"
 		--
@@ -60,20 +62,17 @@ MenuRun
 	--
 	if seedinpot[chosenpot] != 0
 	{
-		if chosenpot != 7
-		{
-			"\![*]\q[Remove Plant,removeplant]\n"
-		}
+		"\![*]\q[Remove Plant,removeplant]\n"
 		--
 		"\![*]\q[Water Plant,water]\n"
 	}
 	--
 	if plantsdiscoverednum >= 1
 	{
-		"\![*]\q[Gardener Notes,notes]\n"
+		"\![*]\q[Gardener Notes,notes]"
 	}
 	--
-	/*if pots != 5
+	if pots != 5
 	{
 		"\n\![*]\q[Add Pot,addpot]"
 		--
@@ -91,9 +90,9 @@ MenuRun
 		}
 		--
 		"\q[Hide Pot,hidepot]"
-	}*/
+	}
 	--
-	"\n[half]\![*]\q[Functions,dosomething]\n"
+	"\n\n[half]\![*]\q[Functions,dosomething]\n"
 	--
 	"\![*]\q[Config Menu,configmenu]\n"
 	--
@@ -145,7 +144,7 @@ MenuRun
 		{
 			"\n"
 			--
-			//%(planttime[0]=(plantgtime[chosenpot]*60)-1)
+			//%(planttime[0]=(plantgtime[0]*60)-1)
 			_time = (plantgtime[chosenpot]*60) - planttime[chosenpot]
 			--
 			if _time < 60
@@ -174,8 +173,6 @@ MenuRun
 	}
 	--
  	"\n\n[half]%(wd) %(timeformat), %(dateformat)\nVersion: %(ver)"
-	--
-	OnPlantRestore
 	--
 	"\e"
 }
@@ -210,7 +207,7 @@ dateformat
 
 Select.removeplant
 {
-	plantid[chosenpot] = ""
+	plantid[chosenpot] = -1
 	plantnamepot[chosenpot] = ""
 	potinterval[chosenpot] = ""
 	waterreminder[chosenpot] = 0
@@ -227,7 +224,7 @@ Select.removeplant
 	}
 	elseif chosenpot == 7
 	{
-		"\p[7]\s[2]"
+		"\p[7]\s[7]"
 	}
 	else
 	{
@@ -254,24 +251,24 @@ Select.plantseed
 	watertime[chosenpot] = 0
 	planttime[chosenpot] = 0
 	--
-	"Seed planted"
-	--
-	if mode != "Hard"
-	{
-		"\n\n[half]You should water it every %(plantwater[_temprand])"
-	}
-	--
 	if chosenpot != 0 && chosenpot != 7
 	{
 		"\p[%(chosenpot)]\s[0]\i[100]"
 	}
 	elseif chosenpot == 7
 	{
-		"\p[7]\s[2]\i[100]"
+		"\p[7]\s[7]\i[100]"
 	}
 	else
 	{
 		"\0\s[0]\i[100]"
+	}
+	--
+	"Seed planted"
+	--
+	if mode != "Hard"
+	{
+		"\n\n[half]You should water it every %(plantwater[_temprand])"
 	}
 }
 
@@ -283,7 +280,7 @@ Select.water
 	}
 	elseif chosenpot == 7
 	{
-		"\p[7]\s[2]"
+		"\p[7]\s[7]"
 	}
 	else
 	{
@@ -1018,7 +1015,7 @@ OnPlantPlant_Plant
 	}
 	elseif chosenpot == 7
 	{
-		"\p[7]\s[2]\i[100]"
+		"\p[7]\s[7]\i[100]"
 	}
 	else
 	{
@@ -1056,27 +1053,60 @@ OnDressupChanged
 {
 	if reference2 == 1
 	{
-		dressup = reference1
+		dressup[] = reference1
 	}
 }
 
 
-OnCustomization_Reset
+/*OnCustomization_Reset
 {
-	if chosenpot != 0
+	if chosenpot != 0 && chosenpot != 7
 	{
-		_print = "\p[%(chosenpot)]"
+		"\p[%(chosenpot)]\s[0]"
+	}
+	elseif chosenpot == 7
+	{
+		"\p[7]\s[7]"
 	}
 	else
 	{
-		_print = "\0"
+		"\0\s[0]"
 	}
 	--
 	for _i = 0; _i < ARRAYSIZE(dresslog); _i++
 	{
 		_item = SPLIT(dresslog[_i],",")
+		_character = TOSTR(_item[0])
 		_category = TOSTR(_item[1])
 		_name = TOSTR(_item[2])
+		--
+		if _argv[0] != "shuffle"
+		{
+			if _character == "0"
+			{
+				_print += "\0"
+			}
+			else
+			{
+				_print += "\p[%(_character)]"
+			}
+			
+		}
+		else
+		{
+			if chosenpot != 0 && chosenpot != 7
+			{
+				_print += "\p[%(chosenpot)]\s[0]"
+			}
+			elseif chosenpot == 7
+			{
+				_print += "\p[7]\s[7]"
+			}
+			else
+			{
+				_print += "\0\s[0]"
+			}
+		}
 		--
 		if TOSTR(_item[3]) == "default"
 		{
@@ -1143,10 +1173,10 @@ OnCustomization_Shuffle
 	_print
 	--
 	OpenSakuraMenu
-}
+}*/
 
 OnNotifyDressupInfo
 {
 	//"0,legs,white_sandals,default,mustselect,0,,"
-	dresslog = reference
+	//dresslog = reference
 }

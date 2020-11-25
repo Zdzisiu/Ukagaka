@@ -94,12 +94,13 @@ MenuRun
 	"\e"
 }
 
-OnCelc //F to C conversion
+/*OnCelc //F to C conversion
 {
-	celc = (currentweatherarray[0] - 32)
-	celc = celc * (5.0/9.0)
-	firstnumcelc = TOINT(celc)
-	toroundup = ERASE(celc,0,2)
+	celc[0] = (currentweatherarray[0] - 32)
+	calc[1] = (currentweatherarray[2] - 32)
+	celc[0] = celc[0]  * (5.0/9.0)
+	firstnumcelc[0] = TOINT(celc)
+	toroundup[0] = ERASE(celc,0,2)
 	--
 	if (firstnumcelc[0] < 10 && firstnumcelc[0] > 0) || (firstnumcelc[0] > -10 && firstnumcelc[0] < 0)
 	{
@@ -123,7 +124,7 @@ OnCelc //F to C conversion
 	}
 	//--
 	//"C: %(celc) F: %(currentweatherarray[0])"
-}
+}*/
 
 
 timeformat

@@ -20,6 +20,11 @@ OnTranslate
 	_talk = reference0
 	_talk = REPLACE(_talk, "Anchor 1", "\_a[anchor1]Anchor 1\_a")
 	--
+	for _i=0;_i<=50;_i++
+	{
+		_talk = REPLACE(_talk,"\i[%(_i)]","")
+	}
+	--
 	if reference1 == "" && reference2 == "" { 
 		EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
 	}

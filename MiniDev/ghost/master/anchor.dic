@@ -1,7 +1,12 @@
 OnTranslate
 {
 	_talk = reference0
-
+	--
+	if nowshell != "Animated"
+	{
+		_talk = RE_REPLACE(_talk,"(\\i\[\d*\])","")
+	}
+	--
 	if david != 1
 	{
 		_talk = REPLACE(_talk, "DAVD", "\_a[david]David\_a")

@@ -81,13 +81,13 @@ RespondToMD
 		res_reference0 = ""
 		m201zplantcare = 1
 		--
-		"\p[7]\s[2]"
+		"\p[7]\s[7]"
 	}
 	elseif "MzCareWater1" _in_ reference1
 	{
 		res_reference0 = ""
 		--
-		"\p[7]\![anim,clear,500]\i[200]"
+		"\p[7]\s[7]\i[200]"
 		--
 		watertime[7] = 0
 		waternum[7]++
@@ -164,7 +164,7 @@ RespondToMD
 		--
 		"Plant Removed"
 		--
-		"\p[7]\s[2]"
+		"\p[7]\s[7]"
 		--
 		_temprand = RAND(6)+1
 		plantid[chosenpot] = _temprand
