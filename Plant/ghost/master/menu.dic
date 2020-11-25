@@ -1,7 +1,5 @@
 ﻿OpenSakuraMenu
 {
-	OnPlantRestore
-	--
 	if chosenpot != 0 && chosenpot != 7
 	{
 		"\p[%(chosenpot)]"
