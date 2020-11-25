@@ -22,12 +22,12 @@ OnBACKTOMENU
 }
 
 MenuRun
- {	
+{	
  	wd = GetWeekDay
  	ap = GetAP
  	nowmin = Getnowmin
  	nowhour = Getnowhour
-	_plantnum = plantid[chosenpot]
+	_plantnum = TOINT(plantid[chosenpot])
 	--
 	"\n\_q\b2" 
 	--
@@ -44,14 +44,18 @@ MenuRun
 		"Pot %(chosenpot)\n\n[half]"
 	}
 	--
-	if seedinpot[chosenpot] == 0
+	if seedinpot[chosenpot] == 0 && chosenpot != 7
 	{
 		"\![*]\q[Plant Random seeds,plantseed]\n"
+		--
+		if plantsdiscoverednum >= 1 && plantdisovered != "0 " && plantdisovered != ""
+		{
+			"\![*]\q[Plant...,OnPlantPlant]\n"
+		}
 	}
-	--
 	if seedinpot[chosenpot] == 3
 	{
-		"\![*]\q[Plant Info,plantinfo]\n"
+		"\![*]\q[Plant Info,OnPlantChoice,%(_plantnum)]\n"
 	}
 	--
 	if seedinpot[chosenpot] != 0
@@ -69,9 +73,9 @@ MenuRun
 		"\![*]\q[Gardener Notes,notes]\n"
 	}
 	--
-	if pots != 5
+	/*if pots != 5
 	{
-		"\![*]\q[Add Pot,addpot]"
+		"\n\![*]\q[Add Pot,addpot]"
 		--
 		if chosenpot != 0 && chosenpot != 7
 		{
@@ -83,13 +87,13 @@ MenuRun
 	{
 		if pots == 5
 		{
-			"\![*]"
+			"\n\![*]"
 		}
 		--
 		"\q[Hide Pot,hidepot]"
-	}
+	}*/
 	--
-	"\n\n[half]\![*]\q[Functions,dosomething]\n"
+	"\n[half]\![*]\q[Functions,dosomething]\n"
 	--
 	"\![*]\q[Config Menu,configmenu]\n"
 	--
@@ -104,9 +108,11 @@ MenuRun
 	--
 	"\n[half]\![*]\q[Nevermind,CANCEL]"
 	--
+	"\f[height,13]"
+	--
 	if mode != "Hard" && seedinpot[chosenpot] != 0
 	{
-		"\n\n[half]\f[height,13]"
+		"\n\n[half]"
 		--
 		if watertime[chosenpot] < 60
 		{
@@ -128,9 +134,9 @@ MenuRun
 		}
 	}
 	--
-	if mode == "Easy" && waterreminder[chosenpot] == 1
+	if mode == "Easy" && waterreminder[chosenpot] == 1 && seedinpot[chosenpot] != 0
 	{
-		"\n\f[bold,1]Water This Plant!!\f[bold,1]"
+		"\n\f[bold,1]Water This Plant!!\f[bold,0]"
 	}
 	--
 	if seedinpot[chosenpot] == 1 || seedinpot[chosenpot] == 2
@@ -138,17 +144,20 @@ MenuRun
 		if ((plantid[chosenpot] + " ") _in_ plantdisovered || mode == "Easy")
 		{
 			"\n"
+			--
+			//%(planttime[0]=(plantgtime[chosenpot]*60)-1)
 			_time = (plantgtime[chosenpot]*60) - planttime[chosenpot]
 			--
 			if _time < 60
 			{
-				"Plant Growing: %(plantname[_plantnum]), Growing time left: %(_time)min"
+				"\n\f[bold,1]Plant Growing:\f[bold,0]\n %(plantname[_plantnum])\n\f[bold,1]Growing time left\f[bold,0]: %(_time)min"
 			}
 			else
 			{
 				_planttimeh = _time/60
 				_planttimem = _time%60
-				"Plant Growing: %(plantname[_plantnum]), Growing time left: %(_planttimeh)h"
+				--
+				"\f[bold,1]Plant Growing\f[bold,0]: %(plantname[_plantnum])\n\f[bold,1]Growing time left\f[bold,0]: %(_planttimeh)h"
 				--
 				if _planttimem != 0
 				{
@@ -160,11 +169,15 @@ MenuRun
 		{
 			"\n"
 			--
-			"Plant Growing: ???, Growing time left: ???"
+			"\f[bold,1]Plant Growing:\f[bold,0] ???\n\f[bold,1]Growing time left\f[bold,0]: ???"
 		}	
 	}
 	--
- 	"\n\n[half]%(wd) %(timeformat), %(dateformat)\nVersion: %(ver)\e"
+ 	"\n\n[half]%(wd) %(timeformat), %(dateformat)\nVersion: %(ver)"
+	--
+	OnPlantRestore
+	--
+	"\e"
 }
 
 timeformat
@@ -198,7 +211,9 @@ dateformat
 Select.removeplant
 {
 	plantid[chosenpot] = ""
+	plantnamepot[chosenpot] = ""
 	potinterval[chosenpot] = ""
+	waterreminder[chosenpot] = 0
 	seedinpot[chosenpot] = 0
 	plantgtime[chosenpot] = ""
 	potwaterint[chosenpot] = ""
@@ -232,6 +247,7 @@ Select.plantseed
 	plantid[chosenpot] = _temprand
 	potinterval[chosenpot] = plantinnum[_temprand]
 	seedinpot[chosenpot] = 1
+	plantnamepot[chosenpot] = plantname[_temprand]
 	plantgtime[chosenpot] = plantgrowthtimeinterval[_temprand]
 	potwaterint[chosenpot] = plantwaterint[_temprand]
 	waternum[chosenpot] = 0
@@ -261,8 +277,18 @@ Select.plantseed
 
 Select.water
 {
-	
-	"\p[%(chosenpot)]\s[0]"
+	if chosenpot != 0 && chosenpot != 7
+	{
+		"\p[%(chosenpot)]\s[0]"
+	}
+	elseif chosenpot == 7
+	{
+		"\p[7]\s[2]"
+	}
+	else
+	{
+		"\0\s[0]"
+	}
 	--
 	if seedinpot[chosenpot] == 1
 	{
@@ -293,6 +319,16 @@ Select.hidepot
 {
 	pots--
 	activepots = REPLACE(activepots," " + chosenpot,"")
+	--
+	plantid[chosenpot] = ""
+	potinterval[chosenpot] = ""
+	waterreminder[chosenpot] = 0
+	seedinpot[chosenpot] = 0
+	plantgtime[chosenpot] = ""
+	potwaterint[chosenpot] = ""
+	waternum[chosenpot] = 0
+	watertime[chosenpot] = 0
+	planttime[chosenpot] = 0
 	--
 	"\p[%(chosenpot)]\s[-1]"
 }
@@ -905,37 +941,95 @@ OnSetPlantInfo
 	sunexposure = "any,Full Sun+ Part Sun,Varies,Full Sun,Full Sun,Low Light,Full Sun"
 	plantbloomtime = "N/A,Summer,N/A,Early Summer,Spring,N/A,Summer"
 	possibleflowercolor = "N/A,Orange+ Pink+ Red+ Yellow,N/A,Purple+ Red,Red+ Pink,Red+ Pink+ Yellow+ White+ Green,Blue+ Pink+ Purple+ White"
-	plantinnum = ",102,103,104,105,107,108,109"
+	plantinnum = "102,103,104,105,107,108,109"
 	plantgrowthtime = "any,24h,50h,34h,24h,27h,18h"
 	plantgrowthtimeinterval = ("",24,50,34,24,27,18)
 }
 
 Select.notes
 {
-	plantpage = "\b2\_q\n"
+	_plantpage = "\![set,autoscroll,disable]\b2\_q\n\f[bold,1]Discovered Plants:\f[bold,0]\n\n[half]"
 	--
 	OnSetPlantInfo
 	--
-	for _i=0;_i<8;_i++
+	for _i=0;_i<7;_i++
 	{
-		_plantsss = " "+_i+ " "
-		--
-		if _plantsss _in_ plantsdiscovered
+		if "%(_i)" _in_ plantdisovered
 		{
-			plantpage += "\q[" + plantname[_i] + ",OnPlantChoice," + _i + "]\n"
+			_plantpage += (_i+1) + ". \q[" + plantname[_i] + ",OnPlantChoice," + _i + "]\n"
+		}
+		else
+		{
+			_plantpage += (_i+1) + ". ???\n"
+		}
+		
+	}
+	--
+	_plantpage += "\n[half]\![*]\q[Cancel,CANCEL]\n\![*]\q[Back to Menu,OnBACKTOMENU]"
+	--
+	_plantpage
+}
+
+OnPlantPlant
+{
+	_plantpage = "\![set,autoscroll,disable]\b2\_q\n\f[bold,1]Discovered Plants:\f[bold,0]\n\n[half]"
+	--
+	OnSetPlantInfo
+	--
+	for _i=1;_i<7;_i++
+	{
+		if "%(_i)" _in_ plantdisovered
+		{
+			_plantpage += (_i+1) + ". \q[" + plantname[_i] + ",OnPlantPlant_Plant," + _i + "]\n"
+		}
+		else
+		{
+			_plantpage += (_i+1) + ". ???\n"
 		}
 	}
 	--
-	plantpage += "\n[half]\![*]\q[Cancel,CANCEL]\n\![*]\q[Back to Menu,OnBACKTOMENU]"
+	_plantpage += "\n[half]\![*]\q[Cancel,CANCEL]\n\![*]\q[Back to Menu,OnBACKTOMENU]"
 	--
-	plantpage
+	_plantpage
 }
 
+OnPlantPlant_Plant
+{
+	plantid[chosenpot] = reference0
+	potinterval[chosenpot] = plantinnum[reference0]
+	seedinpot[chosenpot] = 1
+	plantnamepot[chosenpot] = plantname[reference0]
+	plantgtime[chosenpot] = plantgrowthtimeinterval[reference0]
+	potwaterint[chosenpot] = plantwaterint[reference0]
+	waternum[chosenpot] = 0
+	watertime[chosenpot] = 0
+	planttime[chosenpot] = 0
+	--
+	"%(seedinpot[chosenpot]) planted"
+	--
+	if mode != "Hard"
+	{
+		"\n\n[half]You should water it every %(plantwater[reference0])"
+	}
+	--
+	if chosenpot != 0 && chosenpot != 7
+	{
+		"\p[%(chosenpot)]\s[0]\i[100]"
+	}
+	elseif chosenpot == 7
+	{
+		"\p[7]\s[2]\i[100]"
+	}
+	else
+	{
+		"\0\s[0]\i[100]"
+	}
+}
 
 OnPlantChoice
 {
-	_plantpage = "\b4\_q\n"
-	_plantchoice = reference0
+	_plantpage = "\![set,autoscroll,disable]\b4\_q\n"
+	_plantchoice = TOINT(reference0)
 	--
 	_plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
 	--
@@ -956,31 +1050,6 @@ OnPlantChoice
 	_plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
 	--
 	_plantpage
-}
-
-Select.plantinfo
-{
-	plantpage = "\b4\_q\n"
-	_plantchoice = plantid[chosenpot]
-	--
-	_plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
-	--
-	_plantpage +=  "\f[bold,1]Growth Time:\f[bold,0] " + REPLACE(plantgrowthtime[_plantchoice],"+",",") + "\n\n[half]"
-	--
-	_plantpage +=   "\f[bold,1]Watering Time:\f[bold,0] " + REPLACE(plantwater[_plantchoice],"+",",") + "\n\n[half]"
-	--
-	_plantpage +=   "\f[bold,1]Bloom Time:\f[bold,0] " + REPLACE(plantbloomtime[_plantchoice],"+",",") + "\n\n[half]"
-	--
-	_plantpage +=   "\f[bold,1]Sun Exposure:\f[bold,0] " + REPLACE(sunexposure[_plantchoice],"+",",") + "\n\n[half]"
-	--
-	_plantpage +=   "\f[bold,1]Flower Colors:\f[bold,0] " + REPLACE(possibleflowercolor[_plantchoice],"+",",") + "\n\n[half]"
-	--
-	_plantpage +=   "\f[bold,1]Other:\f[bold,0] " + REPLACE(plantatract[_plantchoice],"+",",") + "\n\n[half]"
-	--
-	_plantpage +=  "\f[bold,1]Description:\f[bold,0]\n" + REPLACE(plantdesc[_plantchoice],"+",",") + "\n"
-	--
-	_plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
-	--
 }
 
 OnDressupChanged

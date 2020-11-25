@@ -25,13 +25,15 @@
 
 RandomTalk : nonoverlap
 {
-	OnGrowthCheck
+	
 }
 
 OnGrowthCheck
 {
-	for _i=2;_i<=pots;_i++
+	/*for _i=2;_i<=pots;_i++
 	{
+		_randnum = RAND(500)
+		--
 		_tempinteval = plantid[_i]
 		--
 		"\p[%(_i)]"
@@ -45,21 +47,24 @@ OnGrowthCheck
 		--
 		if seedinpot[_i] == 1 || seedinpot[_i] == 2
 		{
-			if RAND(100) < 5
+			if mode != "Easy"
 			{
-				"\i[102]"
-				--
-				seedinpot[_i] = 3
-				planttime[_i] = 0
-				plantid[_i] = 0
-				--
-				plantgrew[0]++
-				--
-				if plantid[_i] !_in_ plantdisovered
+				if _randnum == 5
 				{
-					plantsdiscoverednum++
+					"\i[102]"
 					--
-					plantdisovered += plantid[_i] + " "
+					seedinpot[_i] = 3
+					planttime[_i] = 0
+					plantid[_i] = 0
+					--
+					plantgrew[0]++
+					--
+					if plantid[_i] !_in_ plantdisovered
+					{
+						plantsdiscoverednum++
+						--
+						plantdisovered += plantid[_i] + " "
+					}
 				}
 			}
 			--
@@ -78,67 +83,72 @@ OnGrowthCheck
 					--
 					plantdisovered += plantid[_i] + " "
 				}
-				--
 			}
 		}
 	}
-	--
-	_tempinteval = plantid[0]
-	--
-	"\0"
-	--
-	if planttime[0] == ((plantgtime[0]*60)/2)
-	{
-		seedinpot[0] = 2
-		--
-		"\i[101]"
-	}
-	--
+	--*/
 	if seedinpot[0] == 1 || seedinpot[0] == 2
 	{
-		if RAND(100) < 5
+		_tempinteval = plantid[0]
+		--
+		"\0"
+		--
+		_randnum = RAND(500)
+		--
+		if planttime[0] == ((plantgtime[0]*60)/2)
 		{
-			"\s[0]\i[102]"
+			seedinpot[0] = 2
 			--
-			seedinpot[0] = 3
-			planttime[0] = 0
-			plantid[0] = 0
-			potwaterint[0] = 0
-			plantgrew[0]++
-			--
-			if plantid[0] !_in_ plantdisovered
-			{
-				plantsdiscoverednum++
-				--
-				plantdisovered += plantid[0] + " "
-			}
+			"\i[101]"
 		}
 		--
-		if planttime[0] == (plantgtime[0]*60) 
+		if seedinpot[0] == 1 || seedinpot[0] == 2
 		{
-			seedinpot[0] = 3
-			planttime[0] = 0
-			--
-			"\i[%(potinterval[0])] You grew %(plantname[_tempinteval])"
-			--
-			plantgrew[_tempinteval]++
-			--
-			if plantid[0] !_in_ plantdisovered
+			if mode != "Easy"
 			{
-				plantsdiscoverednum++
+				if _randnum == 5
+				{
+					"\s[0]\i[102]"
+					--
+					seedinpot[0] = 3
+					planttime[0] = 0
+					plantid[0] = 0
+					potwaterint[0] = 0
+					plantgrew[0]++
+					--
+					if plantid[0] !_in_ plantdisovered
+					{
+						plantsdiscoverednum++
+						--
+						plantdisovered += plantid[0] + " "
+					}
+				}
+			}
+			--
+			if planttime[0] == (plantgtime[0]*60) 
+			{
+				seedinpot[0] = 3
+				planttime[0] = 0
 				--
-				plantdisovered += plantid[0] + " "
+				"\i[%(potinterval[0])] You grew %(plantnamepot[0])"
+				--
+				if plantid[0] !_in_ plantdisovered
+				{
+					plantsdiscoverednum++
+					--
+					plantdisovered += plantid[0] + " "
+				}
 			}
 		}
 	}
 	--
-	if m201zplantcare == 1
+	if m201zplantcare == 1 &&  seedinpot[7] == 1 || seedinpot[7] == 2
 	{
 		"\p[7]"
 		--
-		_tempinteval = plantid[7]
+		_randnum = RAND(500)
 		--
-		if planttime[7] == ((plantgtime[7]*60)/2)
+		if planttime[7] >= ((plantgtime[7]*60)/2) && seedinpot[7] == 1
 		{
 			seedinpot[7] = 2
 			--
@@ -147,21 +157,22 @@ OnGrowthCheck
 		--
 		if seedinpot[7] == 1 || seedinpot[7] == 2
 		{
-			if RAND(100) < 5
+			if mode != "Easy"
 			{
-				"\i[102]"
-				--
-				seedinpot[7] = 3
-				planttime[7] = 0
-				plantid[7] = 0
-				--
-				plantgrew[7]++
-				--
-				if plantid[7] !_in_ plantdisovered
+				if _randnum == 5
 				{
-					plantsdiscoverednum++
+					"\i[102]"
 					--
-					plantdisovered += plantid[7] + " "
+					seedinpot[7] = 3
+					planttime[7] = 0
+					plantid[7] = 0
+					--
+					if plantid[7] !_in_ plantdisovered
+					{
+						plantsdiscoverednum++
+						--
+						plantdisovered += plantid[7] + " "
+					}
 				}
 			}
 			--
@@ -170,20 +181,19 @@ OnGrowthCheck
 				seedinpot[7] = 3
 				planttime[7] = 0
 				--
-				"\i[%(potinterval[7])] You grew %(plantname[_tempinteval])"
-				--
-				plantgrew[_tempinteval]++
+				"\i[%(potinterval[7])] You grew %(plantnamepot[7])"
 				--
 				if plantid[7] !_in_ plantdisovered
 				{
 					plantsdiscoverednum++
 					--
-					plantdisovered += plantid[7] + " "
+					plantdisovered[plantsdiscoverednum] = plantid[7]
 				}
 				res_reference0 = "MiniDev"
 				--
-				"\e PlantGrewMz0,%(plantname[_tempinteval]),%(plantid[7])"
+				"\e PlantGrewMz0,%(plantnamepot[7]),%(plantid[7])"
 			}
+			
 		}
 	}
 }
@@ -207,8 +217,37 @@ OnMinuteChange
 {
 	timeslot = GetTimeSlot 
 	--
-	lastreminded++
+	OnWaterCheck
 	--
+ 	if minute == 0 
+	{
+ 		if weathermenu == "ON" {
+            weatherquiet = 1
+            "\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
+        }
+		--
+		OnPlantRestore
+		--
+		if upchec == "ON"
+		{
+			"\![updatebymyself,checkonly]"
+		}
+	}
+	elseif minute == 30
+	{
+		OnPlantRestore
+	}
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+	--
+	OnGrowthCheck
+}
+
+OnWaterCheck
+{
+		/*--
 	for _i=2;_i<=5;_i++
 	{
 		if seedinpot[_i] != 0
@@ -223,14 +262,17 @@ OnMinuteChange
 		--
 		if seedinpot[_i] != 0 && potwaterint[_i] < watertime[_i]
 		{
-			if RAND(50) == 1
+			if mode != "Easy"
 			{
-				"\p[_i]\s[0]\i[102]"
-				--
-				seedinpot[_i] = 3
-				planttime[_i] = 0
-				plantid[_i] = 0
-				potwaterint[_i] = 0
+				if RAND(50) == 1
+				{
+					"\p[_i]\s[0]\i[102]"
+					--
+					seedinpot[_i] = 3
+					planttime[_i] = 0
+					plantid[_i] = 0
+					potwaterint[_i] = 0
+				}
 			}
 		}
 		--
@@ -241,12 +283,7 @@ OnMinuteChange
 			waterreminder[_i] = 1
 			lastreminded = 0
 		}
-	}
-	--
-	if waterreminder == 1 && lastreminded == 5 && ghostexcount != 0
-	{
-		OnTestWater
-	}
+	}*/
 	--
 	if seedinpot[0] != 0
 	{
@@ -322,30 +359,10 @@ OnMinuteChange
 		}
 	}
 	--
- 	if minute == 0 
+	if "1" _in_ "%(waterreminder)" && ghostexcount != 0
 	{
- 		if weathermenu == "ON" {
-            weatherquiet = 1
-            "\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
-        }
-		--
-		OnPlantRestore
-		--
-		if upchec == "ON"
-		{
-			"\![updatebymyself,checkonly]"
-		}
+		OnTestWater
 	}
-	elseif minute == 30
-	{
-		OnPlantRestore
-	}
-	elseif mikireflag == 1
- 	{
- 		MikireTalk
-	}
-	--
-	OnGrowthCheck
 }
 
 /*
@@ -361,19 +378,21 @@ Reference4: *SSP only (at OS level) Time left unattended. In seconds
 OnSecondChange
 {
 	if passsec == 60
- 		{
+ 	{
 	 	passsec = 1
  		passmin = passmin + 1
-		}
+	}
  	else
- 		{
+ 	{
 	 	passsec = passsec + 1
-		}
+	}
 	if mikireflag == 1 && reference1 == 0
-		{
-			EndMikireTalk
- 		}
-		mikireflag = reference1
+	{
+		EndMikireTalk
+ 	}
+	--
+	mikireflag = reference1
+	--
 	if reference2 == 1
 	{
 
@@ -404,36 +423,34 @@ OnSurfaceRestore
 
 OnPlantRestore
 {
-	for _i=2;_i<=5;_i++
+	_plant = ""
+	--
+	/*for _i=2;_i<6;_i++
 	{
 		if "%(_i)" _in_ activepots
 		{
-			"\p[%(_i)]\s[0]"
+			_plant += "\p[%(_i)]\s[0]"
 			--
 			if seedinpot[_i] == 3
 			{
-				"\i[%(potinterval[_i])]"
+				_plant += "\i[%(potinterval[_i])]"
 			}
 			elseif seedinpot[_i] == 1
 			{
-				"\i[100]"
+				_plant += "\i[100]"
 			}
 			elseif seedinpot[_i] == 2
 			{
-				"\i[101]"
-			}
-			else
-			{
-				""
+				_plant += "\i[101]"
 			}
 		}
 		--
 		if waterreminder[_i] == 1
 		{
-			"\i[500]"  //water marker
+			_plant += "\i[500]"  //water marker
 		}
 	}
-	--
+	--*/
 	"\0\s[0]"
 	--
 	if seedinpot[0] == 3
@@ -447,10 +464,6 @@ OnPlantRestore
 	elseif seedinpot[0] == 2
 	{
 		"\i[101]"
-	}
-	else
-	{
-		""
 	}
 	--
 	if waterreminder[0] == 1
@@ -474,16 +487,14 @@ OnPlantRestore
 		{
 			"\i[101]"
 		}
-		else
-		{
-			""
-		}
 		--
 		if waterreminder[7] == 1
 		{
 			"\i[500]"  //water marker
 		}
 	}
+	//--
+	//_plant
 }
 
 /*

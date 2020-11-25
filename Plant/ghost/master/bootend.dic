@@ -40,8 +40,13 @@ OnBootVariableSet
 	waternum = (0,0,0,0,0)
 	watertime = (0,0,0,0,0)
 	planttime = (0,0,0,0,0)
-	plantdisovered = " "
-	--
+	plantdisovered = ""
+	activepots = "0"
+	timeformatype = "Standard"
+	dateformatype = "dd/mm/yyyy"
+	upchec = "OFF"
+	mode == "Normal"
+	waterreminder = (0,0,0,0,0,0,0,0,0,0)
 	plantid[7] = 0
 	potinterval[7] = 0
 	seedinpot[7] = 0
@@ -93,6 +98,8 @@ OnBoot
 	lastTalk = "" 
 	passmin = 0
 	passsec = 0
+	pots = 1
+	activepots = "0"
 	--
 	dayslot = GetDaySlot
 	timeslot = GetTimeSlot 
@@ -115,15 +122,27 @@ OnVariableRestore
 	{
 		ver = "0.0.4a"
 		pots = 1
-		activepost = "0"
+		activepots = "0"
 		timeformatype = "Standard"
 		dateformatype = "dd/mm/yyyy"
 		upchec = "OFF"
+		mode == "Normal"
+		waterreminder = (0,0,0,0,0,0,0,0,0,0)
 	}
 	elseif ver == "0.0.3a"
 	{
 		ver = "0.0.4a"
+		mode == "Normal"
+		waterreminder = (0,0,0,0,0,0,0,0,0,0)
 	}
+	elseif ver == "0.0.4a"
+	{
+		ver = "0.0.5a"
+		mode == "Normal"
+		waterreminder = (0,0,0,0,0,0,0,0,0,0)
+	}
+	--
+	OnPlantRestore
 }
 
 OnGhostChanging
