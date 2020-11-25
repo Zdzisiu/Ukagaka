@@ -1005,7 +1005,7 @@ OnPlantPlant_Plant
 	watertime[chosenpot] = 0
 	planttime[chosenpot] = 0
 	--
-	"%(seedinpot[chosenpot]) planted"
+	"%(plantnamepot[chosenpot]) planted"
 	--
 	if mode != "Hard"
 	{
