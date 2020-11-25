@@ -158,7 +158,8 @@ animation49.interval,bind
 animation49.pattern0,overlay,2049,0,0,0
 
 animation50.interval,bind
-animation50.pattern0,overlay,2050,0,0,0
+animation50.pattern0,reduce,9000,0,0,0
+animation50.pattern1,overlay,2050,0,0,0
 
 
     //PLANTS

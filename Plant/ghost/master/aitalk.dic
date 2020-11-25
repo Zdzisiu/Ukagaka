@@ -25,10 +25,10 @@
 
 RandomTalk : nonoverlap
 {
-	""
+	OnGrowthCheck
 }
 
-OnHourTimeSignal
+OnGrowthCheck
 {
 	for _i=2;_i<=pots;_i++
 	{
@@ -36,7 +36,7 @@ OnHourTimeSignal
 		--
 		"\p[%(_i)]"
 		--
-		if planttime[_i] == (plantgtime[_i]/2)
+		if planttime[_i] == ((plantgtime[_i]*60)/2)
 		{
 			seedinpot[_i] = 2
 			--
@@ -45,8 +45,6 @@ OnHourTimeSignal
 		--
 		if seedinpot[_i] == 1 || seedinpot[_i] == 2
 		{
-			planttime[_i]++
-			--
 			if RAND(100) < 5
 			{
 				"\i[102]"
@@ -65,7 +63,7 @@ OnHourTimeSignal
 				}
 			}
 			--
-			if planttime[_i] == plantgtime[_i] 
+			if planttime[_i] == (plantgtime[_i]*60)
 			{
 				seedinpot[_i] = 3
 				planttime[_i] = 0
@@ -89,7 +87,7 @@ OnHourTimeSignal
 	--
 	"\0"
 	--
-	if planttime[0] == (plantgtime[0]/2)
+	if planttime[0] == ((plantgtime[0]*60)/2)
 	{
 		seedinpot[0] = 2
 		--
@@ -98,16 +96,14 @@ OnHourTimeSignal
 	--
 	if seedinpot[0] == 1 || seedinpot[0] == 2
 	{
-		planttime[0]++
-		--
 		if RAND(100) < 5
 		{
-			"\i[102]"
+			"\s[0]\i[102]"
 			--
 			seedinpot[0] = 3
 			planttime[0] = 0
 			plantid[0] = 0
-			--
+			potwaterint[0] = 0
 			plantgrew[0]++
 			--
 			if plantid[0] !_in_ plantdisovered
@@ -118,7 +114,7 @@ OnHourTimeSignal
 			}
 		}
 		--
-		if planttime[0] == plantgtime[0] 
+		if planttime[0] == (plantgtime[0]*60) 
 		{
 			seedinpot[0] = 3
 			planttime[0] = 0
@@ -142,7 +138,7 @@ OnHourTimeSignal
 		--
 		_tempinteval = plantid[7]
 		--
-		if planttime[7] == (plantgtime[7]/2)
+		if planttime[7] == ((plantgtime[7]*60)/2)
 		{
 			seedinpot[7] = 2
 			--
@@ -151,8 +147,6 @@ OnHourTimeSignal
 		--
 		if seedinpot[7] == 1 || seedinpot[7] == 2
 		{
-			planttime[7]++
-			--
 			if RAND(100) < 5
 			{
 				"\i[102]"
@@ -171,7 +165,7 @@ OnHourTimeSignal
 				}
 			}
 			--
-			if planttime[7] == plantgtime[7] 
+			if planttime[7] == (plantgtime[7]*60) 
 			{
 				seedinpot[7] = 3
 				planttime[7] = 0
@@ -192,6 +186,11 @@ OnHourTimeSignal
 			}
 		}
 	}
+}
+
+OnHourTimeSignal
+{
+	OnGrowthCheck
 }
 
 /*
@@ -215,6 +214,11 @@ OnMinuteChange
 		if seedinpot[_i] != 0
 		{
 			watertime[_i]++ 
+			--
+			if seedinpot[_i] != 3
+			{
+				planttime[_i]++
+			}
 		}
 		--
 		if seedinpot[_i] != 0 && potwaterint[_i] < watertime[_i]
@@ -247,6 +251,11 @@ OnMinuteChange
 	if seedinpot[0] != 0
 	{
 		watertime[0]++ 
+		--
+		if seedinpot[0] != 3
+		{
+			planttime[0]++
+		}
 	}
 	--
 	if seedinpot[0] != 0 && potwaterint[0] < watertime[0]
@@ -275,6 +284,11 @@ OnMinuteChange
 		if seedinpot[7] != 0
 		{
 			watertime[7]++ 
+			--
+			if seedinpot[7] != 3
+			{
+				planttime[7]++
+			}
 		}
 		--
 		if seedinpot[7] != 0 && potwaterint[7] < watertime[7]
@@ -293,6 +307,8 @@ OnMinuteChange
 		if mode == "Easy" && potwaterint[7] == watertime[7]
 		{
 			"\p[7]\s[2]\i[500]"  //water marker
+			--
+			waterreminder[7]=1
 		}
 	}
 	--
@@ -328,6 +344,8 @@ OnMinuteChange
  	{
  		MikireTalk
 	}
+	--
+	OnGrowthCheck
 }
 
 /*
@@ -369,7 +387,7 @@ MikireTalk
 
 EndMikireTalk
 {
-	"\0\s[0]...\e"
+	"\e"
 }
 
 /*
@@ -381,71 +399,7 @@ Reference1: Current surface on the other side.
 
 OnSurfaceRestore
 {
-	for _i=2;_i<=5;_i++
-	{
-		if "%(_i)" _in_ activepots
-		{
-			"\p[%(_i)]\s[0]"
-			--
-			if seedinpot[_i] == 3
-			{
-				"\i[%(potinterval[_i])]"
-			}
-			elseif seedinpot[_i] == 1
-			{
-				"\i[100]"
-			}
-			elseif seedinpot[_i] == 2
-			{
-				"\i[101]"
-			}
-			else
-			{
-				""
-			}
-		}
-	}
-	--
-	"\0\s[0]"
-	--
-	if seedinpot[0] == 3
-	{
-		"\i[%(potinterval[0])]"
-	}
-	elseif seedinpot[0] == 1
-	{
-		"\i[100]"
-	}
-	elseif seedinpot[0] == 2
-	{
-		"\i[101]"
-	}
-	else
-	{
-		""
-	}
-	--
-	if m201zplantcare == 1
-	{
-		"\p[7]\s[2]"
-		--
-		if seedinpot[0] == 3
-		{
-			"\i[%(potinterval[0])]"
-		}
-		elseif seedinpot[0] == 1
-		{
-			"\i[100]"
-		}
-		elseif seedinpot[0] == 2
-		{
-			"\i[101]"
-		}
-		else
-		{
-			""
-		}
-	}
+	OnPlantRestore
 }
 
 OnPlantRestore
@@ -473,6 +427,11 @@ OnPlantRestore
 				""
 			}
 		}
+		--
+		if waterreminder[_i] == 1
+		{
+			"\i[500]"  //water marker
+		}
 	}
 	--
 	"\0\s[0]"
@@ -494,25 +453,35 @@ OnPlantRestore
 		""
 	}
 	--
+	if waterreminder[0] == 1
+	{
+		"\i[500]"  //water marker
+	}
+	--
 	if m201zplantcare == 1
 	{
 		"\p[7]\s[2]"
 		--
-		if seedinpot[0] == 3
+		if seedinpot[7] == 3
 		{
-			"\i[%(potinterval[0])]"
+			"\i[%(potinterval[7])]"
 		}
-		elseif seedinpot[0] == 1
+		elseif seedinpot[7] == 1
 		{
 			"\i[100]"
 		}
-		elseif seedinpot[0] == 2
+		elseif seedinpot[7] == 2
 		{
 			"\i[101]"
 		}
 		else
 		{
 			""
+		}
+		--
+		if waterreminder[7] == 1
+		{
+			"\i[500]"  //water marker
 		}
 	}
 }
@@ -565,7 +534,7 @@ OnTestWater
 	--
 	if "RYS-0825" _in_ "%(ghostexlist)"
 	{
-		_pula += "Azura,"
+		_pula += "RYS-0825,"
 	}
 	--
 	if "Hydrate" _in_ "%(ghostexlist)"

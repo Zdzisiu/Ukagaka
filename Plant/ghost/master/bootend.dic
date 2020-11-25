@@ -113,12 +113,16 @@ OnVariableRestore
 {
 	if ver == ""
 	{
-		ver = "0.0.3a"
+		ver = "0.0.4a"
 		pots = 1
 		activepost = "0"
 		timeformatype = "Standard"
 		dateformatype = "dd/mm/yyyy"
 		upchec = "OFF"
+	}
+	elseif ver == "0.0.3a"
+	{
+		ver = "0.0.4a"
 	}
 }
 

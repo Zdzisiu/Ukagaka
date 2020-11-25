@@ -1,12 +1,12 @@
 ﻿OpenSakuraMenu
 {
-	if chosenpot != 0 && chosenpot != 1
+	if chosenpot != 0 && chosenpot != 7
 	{
 		"\p[%(chosenpot)]"
 	}
-	elseif chosenpot == 1
+	elseif chosenpot == 7
 	{
-		"\1"
+		"\p[7]"
 	}
 	else
 	{
@@ -27,6 +27,7 @@ MenuRun
  	ap = GetAP
  	nowmin = Getnowmin
  	nowhour = Getnowhour
+	_plantnum = plantid[chosenpot]
 	--
 	"\n\_q\b2" 
 	--
@@ -55,7 +56,10 @@ MenuRun
 	--
 	if seedinpot[chosenpot] != 0
 	{
-		"\![*]\q[Remove Plant,removeplant]\n"
+		if chosenpot != 7
+		{
+			"\![*]\q[Remove Plant,removeplant]\n"
+		}
 		--
 		"\![*]\q[Water Plant,water]\n"
 	}
@@ -67,17 +71,32 @@ MenuRun
 	--
 	if pots != 5
 	{
-		"\![*]\q[Add Pot,addpot]\n"
+		"\![*]\q[Add Pot,addpot]"
+		--
+		if chosenpot != 0 && chosenpot != 7
+		{
+			" or "
+		}
 	}
 	--
 	if chosenpot != 0 && chosenpot != 7
 	{
-		"\![*]\q[Hide Pot,hidepot]\n"
+		if pots == 5
+		{
+			"\![*]"
+		}
+		--
+		"\q[Hide Pot,hidepot]"
 	}
 	--
-	"\n[half]\![*]\q[Functions,dosomething]\n"
+	"\n\n[half]\![*]\q[Functions,dosomething]\n"
 	--
 	"\![*]\q[Config Menu,configmenu]\n"
+	--
+	if chosenpot != 7
+	{
+		"\![*]\q[Random Pot,OnCustomization_Shuffle]\n"
+	}
 	--
 	if weathermenu == "ON" {
         "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
@@ -87,29 +106,62 @@ MenuRun
 	--
 	if mode != "Hard" && seedinpot[chosenpot] != 0
 	{
+		"\n\n[half]\f[height,13]"
+		--
 		if watertime[chosenpot] < 60
 		{
-			"\n\n[half]Last watered: %(watertime[chosenpot]) min ago"
+			"Last watered: %(watertime[chosenpot]) min ago"
 		}
 		else
 		{
-			watertimemenu[chosenpot] = watertime[chosenpot]/60
-			watertimemenumin[chosenpot] = watertime[chosenpot]%60
+			_watertimemenu = watertime[chosenpot]/60
+			_watertimemenumin = watertime[chosenpot]%60
 			--
-			"\n\n[half]Last watered: %(watertimemenu[chosenpot])h"
+			"Last watered: %(_watertimemenu)h"
 			--
-			if watertimemenumin[chosenpot] != 0
+			if _watertimemenumin != 0
 			{
-				" and %(watertimemenumin[chosenpot])min"
+				" and %(_watertimemenumin)min"
 			}
 			--
 			" ago"
 		}
 	}
 	--
-	if mode == "Easy" && potwaterint[chosenpot] == watertime[chosenpot] && seedinpot[chosenpot] != 0
+	if mode == "Easy" && waterreminder[chosenpot] == 1
 	{
 		"\n\f[bold,1]Water This Plant!!\f[bold,1]"
+	}
+	--
+	if seedinpot[chosenpot] == 1 || seedinpot[chosenpot] == 2
+	{
+		if ((plantid[chosenpot] + " ") _in_ plantdisovered || mode == "Easy")
+		{
+			"\n"
+			_time = (plantgtime[chosenpot]*60) - planttime[chosenpot]
+			--
+			if _time < 60
+			{
+				"Plant Growing: %(plantname[_plantnum]), Growing time left: %(_time)min"
+			}
+			else
+			{
+				_planttimeh = _time/60
+				_planttimem = _time%60
+				"Plant Growing: %(plantname[_plantnum]), Growing time left: %(_planttimeh)h"
+				--
+				if _planttimem != 0
+				{
+					" and %(_planttimem)min"
+				}
+			}
+		}
+		else
+		{
+			"\n"
+			--
+			"Plant Growing: ???, Growing time left: ???"
+		}	
 	}
 	--
  	"\n\n[half]%(wd) %(timeformat), %(dateformat)\nVersion: %(ver)\e"
@@ -154,13 +206,13 @@ Select.removeplant
 	watertime[chosenpot] = 0
 	planttime[chosenpot] = 0
 	--
-	if chosenpot != 0 && chosenpot != 1
+	if chosenpot != 0 && chosenpot != 7
 	{
 		"\p[%(chosenpot)]\s[0]"
 	}
-	elseif chosenpot == 1
+	elseif chosenpot == 7
 	{
-		"\1\s[0]"
+		"\p[7]\s[2]"
 	}
 	else
 	{
@@ -170,7 +222,13 @@ Select.removeplant
 
 Select.plantseed
 {
-	_temprand = RAND(6)+1
+	_temprand = RAND(7)
+	--
+	if _temprand == 0
+	{
+		_temprand = 1
+	}
+	--
 	plantid[chosenpot] = _temprand
 	potinterval[chosenpot] = plantinnum[_temprand]
 	seedinpot[chosenpot] = 1
@@ -187,13 +245,9 @@ Select.plantseed
 		"\n\n[half]You should water it every %(plantwater[_temprand])"
 	}
 	--
-	if chosenpot != 0 && chosenpot != 1
+	if chosenpot != 0 && chosenpot != 7
 	{
-		"\p[%(chosenpot)]\i[100]"
-	}
-	elseif chosenpot == 1
-	{
-		"\1\i[100]"
+		"\p[%(chosenpot)]\s[0]\i[100]"
 	}
 	elseif chosenpot == 7
 	{
@@ -201,22 +255,31 @@ Select.plantseed
 	}
 	else
 	{
-		"\0\i[100]"
+		"\0\s[0]\i[100]"
 	}
 }
 
 Select.water
 {
 	
-	"\p[%(chosenpot)]"
+	"\p[%(chosenpot)]\s[0]"
 	--
-	if waterreminder[chosenpot] == 1
+	if seedinpot[chosenpot] == 1
 	{
-		"\![anim,clear,500]"
+		"\i[100]"
+	}
+	elseif seedinpot[chosenpot] == 2
+	{
+		"\i[101]"
+	}
+	else
+	{
+		"\i[%(potinterval[chosenpot])]"
 	}
 	--
 	"\i[200]"
 	--
+	waterreminder[chosenpot] = 0
 	watertime[chosenpot] = 0
 	waternum[chosenpot]++
 }
@@ -342,15 +405,17 @@ TalkConfig
 	--
 	"\f[bold,1]Your name: \f[bold,0]\q[%(username),TEACHNAME]\n"
 	--
-	if potname[chosenpot] != ""
+	if chosenpot != 7
 	{
-		"\f[bold,1]Name of this pot: \f[bold,0]\q[%(potname[chosenpot]),potname]\n"
+		if potname[chosenpot] != "" 
+		{
+			"\f[bold,1]Name of this pot: \f[bold,0]\q[%(potname[chosenpot]),potname]\n"
+		}
+		else
+		{
+			"\f[bold,1]\q[Name the pot,potname]\f[bold,0]\n"
+		}
 	}
-	else
-	{
-		"\f[bold,1]\q[Name the pot,potname]\f[bold,0]\n"
-	}
-	
 	--
 	"\f[bold,1]Mode:\f[bold,0] \q[%(mode),changemode]\n\n[half]"
 	--
@@ -869,28 +934,28 @@ Select.notes
 
 OnPlantChoice
 {
-	plantpage = "\b4\_q\n"
+	_plantpage = "\b4\_q\n"
 	_plantchoice = reference0
 	--
-	plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
+	_plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
 	--
-	plantpage +=  "\f[bold,1]Growth Time:\f[bold,0] " + REPLACE(plantgrowthtime[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=  "\f[bold,1]Growth Time:\f[bold,0] " + REPLACE(plantgrowthtime[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Watering Time:\f[bold,0] " + REPLACE(plantwater[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Watering Time:\f[bold,0] " + REPLACE(plantwater[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Bloom Time:\f[bold,0] " + REPLACE(plantbloomtime[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Bloom Time:\f[bold,0] " + REPLACE(plantbloomtime[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Sun Exposure:\f[bold,0] " + REPLACE(sunexposure[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Sun Exposure:\f[bold,0] " + REPLACE(sunexposure[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Flower Colors:\f[bold,0] " + REPLACE(possibleflowercolor[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Flower Colors:\f[bold,0] " + REPLACE(possibleflowercolor[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Other:\f[bold,0] " + REPLACE(plantatract[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Other:\f[bold,0] " + REPLACE(plantatract[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=  "\f[bold,1]Description:\f[bold,0]\n" + REPLACE(plantdesc[_plantchoice],"+",",") + "\n"
+	_plantpage +=  "\f[bold,1]Description:\f[bold,0]\n" + REPLACE(plantdesc[_plantchoice],"+",",") + "\n"
 	--
-	plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
+	_plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
 	--
-	plantpage
+	_plantpage
 }
 
 Select.plantinfo
@@ -898,32 +963,121 @@ Select.plantinfo
 	plantpage = "\b4\_q\n"
 	_plantchoice = plantid[chosenpot]
 	--
-	plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
+	_plantpage += "\f[bold,1]Name:\f[bold,0] " + plantname[_plantchoice] + "\n\n[half]"
 	--
-	plantpage +=  "\f[bold,1]Growth Time:\f[bold,0] " + REPLACE(plantgrowthtime[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=  "\f[bold,1]Growth Time:\f[bold,0] " + REPLACE(plantgrowthtime[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Watering Time:\f[bold,0] " + REPLACE(plantwater[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Watering Time:\f[bold,0] " + REPLACE(plantwater[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Bloom Time:\f[bold,0] " + REPLACE(plantbloomtime[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Bloom Time:\f[bold,0] " + REPLACE(plantbloomtime[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Sun Exposure:\f[bold,0] " + REPLACE(sunexposure[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Sun Exposure:\f[bold,0] " + REPLACE(sunexposure[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Flower Colors:\f[bold,0] " + REPLACE(possibleflowercolor[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Flower Colors:\f[bold,0] " + REPLACE(possibleflowercolor[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=   "\f[bold,1]Other:\f[bold,0] " + REPLACE(plantatract[_plantchoice],"+",",") + "\n\n[half]"
+	_plantpage +=   "\f[bold,1]Other:\f[bold,0] " + REPLACE(plantatract[_plantchoice],"+",",") + "\n\n[half]"
 	--
-	plantpage +=  "\f[bold,1]Description:\f[bold,0]\n" + REPLACE(plantdesc[_plantchoice],"+",",") + "\n"
+	_plantpage +=  "\f[bold,1]Description:\f[bold,0]\n" + REPLACE(plantdesc[_plantchoice],"+",",") + "\n"
 	--
-	plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
+	_plantpage +=   "\n[half]\![*]\q[Cancel,CANCEL] | \![*]\q[Go back,notes]"
 	--
-	plantpage
 }
 
 OnDressupChanged
 {
 	if reference2 == 1
 	{
-		dresslog = reference1
+		dressup = reference1
 	}
 }
 
+
+OnCustomization_Reset
+{
+	if chosenpot != 0
+	{
+		_print = "\p[%(chosenpot)]"
+	}
+	else
+	{
+		_print = "\0"
+	}
+	--
+	for _i = 0; _i < ARRAYSIZE(dresslog); _i++
+	{
+		_item = SPLIT(dresslog[_i],",")
+		_category = TOSTR(_item[1])
+		_name = TOSTR(_item[2])
+		--
+		if TOSTR(_item[3]) == "default"
+		{
+			_print += "\![bind,%(_category),%(_name),1]"
+		}
+		else
+		{
+			_print += "\![bind,%(_category),%(_name),0]"
+		}
+	}
+	--
+	_print
+}
+
+OnCustomization_Shuffle
+{
+	OnCustomization_Reset("shuffle")
+	--
+	_print = ""
+	--
+	if chosenpot != 0
+	{
+		_print += "\p[%(chosenpot)]"
+	}
+	else
+	{
+		_print += "\0"
+	}
+	--
+	_priorLine = ""
+	_categoryItems = IARRAY
+	_i = -1
+	--
+		//count items in category
+	for _x = 0; _x < ARRAYSIZE(dresslog); _x++
+	{
+		_line = dresslog[_x]
+		if _priorLine[1] != _line[1] //new category
+		{
+			_categoryItems ,= 1
+			_i++
+		}
+		else
+		{
+			_categoryItems[_i] = _categoryItems[_i]+1
+		}
+		_priorLine = _line
+	}
+	--
+	_tick = 0
+		//draw 1 random item to bind for each category
+	for _x = 0; _x < ARRAYSIZE(_categoryItems); _x++
+	{
+		_rand = RAND(_categoryItems[_x]+1)
+		--
+		_category = dresslog[_tick+_rand][1]
+		_name = dresslog[_tick+_rand][2]
+		--
+		_print += "\![bind,%(_category),%(_name),1]"
+		--
+		_tick += _categoryItems[_x]
+	}
+	--
+	_print
+	--
+	OpenSakuraMenu
+}
+
+OnNotifyDressupInfo
+{
+	//"0,legs,white_sandals,default,mustselect,0,,"
+	dresslog = reference
+}
