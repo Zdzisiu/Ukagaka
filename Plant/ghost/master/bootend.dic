@@ -128,18 +128,26 @@ OnVariableRestore
 		upchec = "OFF"
 		mode == "Normal"
 		waterreminder = (0,0,0,0,0,0,0,0,0,0)
+		plantgtime = (plantgtime[0]*60,plantgtime[1]*60,plantgtime[2]*60,plantgtime[3]*60,plantgtime[4]*60,plantgtime[5]*60,plantgtime[6]*60,plantgtime[7]*60)
 	}
 	elseif ver == "0.0.3a"
 	{
 		ver = "0.0.4a"
 		mode == "Normal"
 		waterreminder = (0,0,0,0,0,0,0,0,0,0)
+		plantgtime = (plantgtime[0]*60,plantgtime[1]*60,plantgtime[2]*60,plantgtime[3]*60,plantgtime[4]*60,plantgtime[5]*60,plantgtime[6]*60,plantgtime[7]*60)
 	}
 	elseif ver == "0.0.4a"
 	{
 		ver = "0.0.5a"
 		mode == "Normal"
 		waterreminder = (0,0,0,0,0,0,0,0,0,0)
+		plantgtime = (plantgtime[0]*60,plantgtime[1]*60,plantgtime[2]*60,plantgtime[3]*60,plantgtime[4]*60,plantgtime[5]*60,plantgtime[6]*60,plantgtime[7]*60)
+	}
+	elseif ver == "0.0.5a"
+	{
+		ver = "0.0.6a"
+		plantgtime = (plantgtime[0]*60,plantgtime[1]*60,plantgtime[2]*60,plantgtime[3]*60,plantgtime[4]*60,plantgtime[5]*60,plantgtime[6]*60,plantgtime[7]*60)
 	}
 }
 

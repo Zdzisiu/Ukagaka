@@ -1,6 +1,6 @@
 file,ghost/master/aitalk.dicc3a8c729ceff907dcd35fe1984fd6ba9size=9744
 file,ghost/master/anchor.dica7bb1fa5daabd947d7f411794e2359c0size=1238
-file,ghost/master/bootend.dica4c8c5675c3bea7f33feb4139819ae6bsize=2277
+file,ghost/master/bootend.dic9ef2747ba488df3294ab72b5e25bf564size=2944
 file,ghost/master/commu.dic73c67ae85c7192009acbf421713c74c1size=4150
 file,ghost/master/descript.txtefb6c4718a3093c15a3cc53d240fbf2esize=240
 file,ghost/master/etc.dic20dbd838b1abf131a90c1ff2012c33d4size=34251
