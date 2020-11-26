@@ -68,7 +68,7 @@ OnGrowthCheck
 						plantdisovered += plantid[_i] + " "
 					}
 					--
-					_page += "\i[%(potinterval[_i])] You grew %(plantname[_tempinteval])"
+					_page += "\i[%(potinterval[_i])] You grew Weed"
 				}
 			}
 			--
@@ -126,7 +126,7 @@ OnGrowthCheck
 						plantdisovered += plantid[0] + " "
 					}
 					--
-					"\i[%(potinterval[0])] You grew %(plantname[_tempinteval])"
+					"\i[%(potinterval[0])] You grew Weed"
 				}
 			}
 			--
@@ -181,7 +181,7 @@ OnGrowthCheck
 						plantdisovered += plantid[7] + " "
 					}
 					--
-					"\i[%(potinterval[7])] You grew %(plantname[_tempinteval])"
+					"\i[%(potinterval[7])] You grew Weed"
 				}
 			}
 			--
