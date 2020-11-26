@@ -90,9 +90,9 @@ MenuRun
 		"\q[Hide Pot,hidepot]"
 	}
 	--
-	"\n\n[half]\![*]\q[Functions,dosomething]\n"
+	//"\n\n[half]\![*]\q[Functions,dosomething]\n"
 	--
-	"\![*]\q[Config Menu,configmenu]\n"
+	"\n\n[half]\![*]\q[Config Menu,configmenu]\n"
 	--
 	if chosenpot != 7
 	{
@@ -143,7 +143,7 @@ MenuRun
 			"\n"
 			--
 			//%(planttime[0]=(plantgtime[0]*60)-1)
-			_time = (plantgtime[chosenpot]*60) - planttime[chosenpot]
+			_time = plantgtime[chosenpot] - planttime[chosenpot]
 			--
 			if _time < 60
 			{
@@ -243,7 +243,7 @@ Select.plantseed
 	potinterval[chosenpot] = plantinnum[_temprand]
 	seedinpot[chosenpot] = 1
 	plantnamepot[chosenpot] = plantname[_temprand]
-	plantgtime[chosenpot] = plantgrowthtimeinterval[_temprand]
+	plantgtime[chosenpot] = plantgrowthtimeinterval[_temprand]*60
 	potwaterint[chosenpot] = plantwaterint[_temprand]
 	waternum[chosenpot] = 0
 	watertime[chosenpot] = 0

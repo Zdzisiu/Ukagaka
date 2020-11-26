@@ -39,7 +39,7 @@ OnGrowthCheck
 		--
 		_page += "\p[" +_i + "]"
 		--
-		if planttime[_i] == ((plantgtime[_i]*60)/2) && seedinpot[_i] == 1
+		if planttime[_i] >= (plantgtime[_i]/2) && seedinpot[_i] == 1
 		{
 			seedinpot[_i] = 2
 			--
@@ -57,6 +57,7 @@ OnGrowthCheck
 					seedinpot[_i] = 3
 					planttime[_i] = 0
 					plantid[_i] = 0
+					potinterval[_i] = "102"
 					--
 					_tempinteval = TOINT(plantid[_i])
 					--
@@ -66,15 +67,17 @@ OnGrowthCheck
 						--
 						plantdisovered += plantid[_i] + " "
 					}
+					--
+					_page += "\i[%(potinterval[_i])] You grew %(plantname[_tempinteval])"
 				}
 			}
 			--
-			if planttime[_i] == (plantgtime[_i]*60)  && seedinpot[_i] != 3 && seedinpot[_i] != 0
+			if planttime[_i] >= plantgtime[_i]  && seedinpot[_i] == 2
 			{
 				seedinpot[_i] = 3
 				planttime[_i] = 0
 				--
-				_page += "\i[%(plantinnum[_tempinteval])] You grew %(plantname[_tempinteval])"
+				_page += "\i[%(potinterval[_i])] You grew %(plantname[_tempinteval])"
 				--
 				plantgrew[_tempinteval]++
 				--
@@ -97,7 +100,7 @@ OnGrowthCheck
 		_randnum = RAND(500)
 		_tempinteval = TOINT(plantid[0])
 		--
-		if planttime[0] == ((plantgtime[0]*60)/2)
+		if planttime[0] >= (plantgtime[0]/2) && seedinpot[0] == 2
 		{
 			seedinpot[0] = 2
 			--
@@ -110,9 +113,8 @@ OnGrowthCheck
 			{
 				if _randnum == 5
 				{
-					"\i[102]"
-					--
 					seedinpot[0] = 3
+					potinterval[0] = "102"
 					plantid[0] = 0
 					--
 					_tempinteval = TOINT(plantid[0])
@@ -124,16 +126,16 @@ OnGrowthCheck
 						plantdisovered += plantid[0] + " "
 					}
 					--
-					"You grew %(plantname[_tempinteval])"
+					"\i[%(potinterval[0])] You grew %(plantname[_tempinteval])"
 				}
 			}
 			--
-			if planttime[0] == (plantgtime[0]*60)  && seedinpot[0] != 3 && seedinpot[0] != 0
+			if planttime[0] >= plantgtime[0] && seedinpot[0] == 2
 			{
 				seedinpot[0] = 3
 				planttime[0] = 0
 				--
-				"\i[%(plantinnum[_tempinteval])] You grew %(plantname[_tempinteval])"
+				"\i[%(potinterval[0])] You grew %(plantname[_tempinteval])"
 				--
 				if plantid[0] !_in_ plantdisovered
 				{
@@ -151,7 +153,7 @@ OnGrowthCheck
 		_tempinteval = TOINT(plantid[0])
 		_randnum = RAND(500)
 		--
-		if planttime[7] >= ((plantgtime[7]*60)/2) && seedinpot[7] == 1
+		if planttime[7] >= (plantgtime[7]/2) && seedinpot[7] == 1
 		{
 			seedinpot[7] = 2
 			--
@@ -169,6 +171,8 @@ OnGrowthCheck
 					seedinpot[7] = 3
 					planttime[7] = 0
 					plantid[7] = 0
+					potinterval[7] = "102"
+					--
 					_tempinteval = TOINT(plantid[0])
 					--
 					if plantid[7] !_in_ plantdisovered
@@ -176,15 +180,17 @@ OnGrowthCheck
 						plantsdiscoverednum++
 						plantdisovered += plantid[7] + " "
 					}
+					--
+					"\i[%(potinterval[7])] You grew %(plantname[_tempinteval])"
 				}
 			}
 			--
-			if planttime[7] == (plantgtime[7]*60)  && seedinpot[7] != 3 && seedinpot[7] != 0
+			if planttime[7] >= plantgtime[7]  && seedinpot[7] == 2
 			{
 				seedinpot[7] = 3
 				planttime[7] = 0
 				--
-				"\i[%(plantinnum[_tempinteval])] You grew %(plantname[_tempinteval])"
+				"\i[%(potinterval[7])] You grew %(plantname[_tempinteval])"
 				--
 				if plantid[7] !_in_ plantdisovered
 				{
@@ -404,32 +410,6 @@ EndMikireTalk
 	"\e"
 }
 
-OnPlantChange
-{
-	for _i=2;_i<6;_i++
-	{
-		_temprand = plantid[_i]
-		potinterval[_i] = plantinnum[_i]
-		plantnamepot[_i] = plantname[_i]
-		plantgtime[_i] = plantgrowthtimeinterval[_i]
-		potwaterint[_i] = plantwaterint[_i]
-	}
-	--
-	_temprand = plantid[0]
-	potinterval[0] = plantinnum[0]
-	plantnamepot[0] = plantname[0]
-	plantgtime[0] = plantgrowthtimeinterval[0]
-	potwaterint[0] = plantwaterint[0]
-	--
-	if m201zplantcare == 1
-	{
-		_temprand = plantid[7]
-		potinterval[7] = plantinnum[7]
-		plantnamepot[7] = plantname[7]
-		plantgtime[7] = plantgrowthtimeinterval[7]
-		potwaterint[7] = plantwaterint[7]
-	}
-}
 
 /*
 OnSurfaceRestore

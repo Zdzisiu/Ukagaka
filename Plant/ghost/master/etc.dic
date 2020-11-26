@@ -54,35 +54,44 @@ OnInstallComplete
  {
 	"\0"
  	--
+     installed = reference1
+	--
 	if reference0 == "shell" 
  	{	
-		if reference1 == "Hypothetical Shell that doesn't actually exist" 
-		{
-		"\s[0]We have installed Hypothetical Shell.\w8Truncated for space.\e"
-
-		}
-		elseif reference1 == "Another totally real shell wow"
-		{
-		"\s[0]We have installed another totally real shell.\e"
-
-		}
-		else 
-		{
 		"\s[0]I have installed a new shell.\w8It's called  %(reference1).\e"
-		}
  	}
 	elseif reference0 == "ghost"
  	{
-		"\s[0]I have installed a new Ghost.\w8It's called %(reference1).\e"
+		"\s[0]I have installed a new Ghost.\w8It's called %(reference1)\n\n[half]Should I call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall].\e"
  	}
 	elseif reference0 == "balloon"
  	{
-		"\s[0]I have installed a new balloon.\w8It's called %(reference1).\e"
+		"\s[0]I have installed a new balloon.\w8It's called %(reference1)\n\n[half]Should I chnage to it?\n\n[half]\q[Yes,changeballon]\n\q[No,nochangeb].\e"
  	}
 	elseif reference0 == "plugin"
  	{
 		"\s[0]I have installed a plug-in.\w8It's called %(reference1).\e"
  	}
+}
+
+Select.callghost
+{
+	"\![call,ghost,%(installed)]\e"
+}
+
+Select.changeballon
+{
+    "\![change,balloon,%(installed)]\e"
+}
+
+Select.nochangeb
+{
+
+}
+
+Select.nocall
+{
+    
 }
 
 OnInstallFailure
