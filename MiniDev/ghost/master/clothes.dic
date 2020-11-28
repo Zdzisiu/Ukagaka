@@ -4,10 +4,7 @@ Select.clothesmenu
 	"\b[2]\![*]\q[Monitor,monitor]\n/
 	\![*]\q[Screen,screen]\n"
 	--
-	if nowshell == "Original Dev"
-	{
-		"\![*]\q[Expression,expr]\n/"
-	}
+	"\![*]\q[Expression,expr]\n"
 	--
 	"\![*]\q[Skin,skin]\n/
 	\![*]\q[Hoodies,hoodie]\n/
@@ -16,10 +13,7 @@ Select.clothesmenu
 	\![*]\q[Pants,pants]\n/
 	\![*]\q[Dresses,dress]\n"
 	--
-	if nowshell == "Original Dev"
-	{
-		"\![*]\q[Shoes,shoes]\n/"
-	}
+	"\![*]\q[Shoes,shoes]\n"
 	--
 	"\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,OnReset]\n\n[half]"
 	--
