@@ -878,49 +878,56 @@ OnCurWeatherFound
     
     if (intalkconfig) {
     
-            intalkconfig = 0
-            TalkConfig
-            --
-            "\e"
+		intalkconfig = 0
+		TalkConfig
+		--
+		"\e"
     
     }
     --
     if !locationset{
             
-            locationset = 1
-			TalkConfig
-            --
-            "\e"
+		locationset = 1
+		TalkConfig
+		--
+		"\e"
     
     }
     --
     if weatherquiet {
-            weatherquiet = 0
-            --
-            "\e"
+		weatherquiet = 0
+		--
+		"\e"
     }
     --
-	if "C" _in_ currentweatherarray[1]
-	{
-		OnCelc
-		--
-		"\0\b[2]\_qRight now...\n\n[half]Temperature: %(celc)%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
-    	\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
-
-	}
+    if bootweater == 1
+    {
+        OnDownloadMoonPhase
+    }
     else
     {
-		"\0\b[2]\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
-    	\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+		if "C" _in_ currentweatherarray[1]
+		{
+			OnCelc
+			--
+			"\0\b[2]\_qRight now...\n\n[half]Temperature: %(celc)%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
+			\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+
+		}
+		else
+		{
+			"\0\b[2]\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
+			\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+		}
+		--          
+		if currentweatherarray[6] == "Local Pollen Alert" {
+		"\nThere's a local pollen alert!"
+		}
+		--
+		"\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
+		--
+		"\![*]\q[Nevermind,CANCEL]\n"
 	}
-    --          
-    if currentweatherarray[6] == "Local Pollen Alert" {
-    "\nThere's a local pollen alert!"
-    }
-    --
-    "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
-    --
-    "\![*]\q[Nevermind,CANCEL]\n"
     
 }
 
@@ -1470,12 +1477,26 @@ OnMoonFound{
             }
     }
     --
-    
     FCLOSE(_file);
-    
-    "\0The moon is currently in its %(phase) phase."
     --
-    "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
+    if bootweater == 1
+    {
+        if upchec == "ON"
+        {
+                "\b[-1]\![updatebymyself,checkonly]\e"
+        }
+        else
+        {
+                "\e"
+        }
+        
+    }
+    else
+    {
+        "\0The moon is currently in its %(phase) phase."
+        --
+        "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\n"
+    }
 }

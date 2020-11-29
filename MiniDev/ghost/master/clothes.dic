@@ -4,23 +4,239 @@ Select.clothesmenu
 	"\b[2]\![*]\q[Monitor,monitor]\n/
 	\![*]\q[Screen,screen]\n"
 	--
-	"\![*]\q[Expression,expr]\n"
+	if nowshell != "M-z"
+	{
+		"\![*]\q[Expression,expr]\n"
+	}
 	--
 	"\![*]\q[Skin,skin]\n/
 	\![*]\q[Hoodies,hoodie]\n/
 	\![*]\q[Sweater,sweater]\n/
 	\![*]\q[Shirts,shirt]\n/
 	\![*]\q[Pants,pants]\n/
-	\![*]\q[Dresses,dress]\n"
+	\![*]\q[Dresses,dress]\n/
+	\![*]\q[Shoes,shoes]\n"
 	--
-	"\![*]\q[Shoes,shoes]\n"
-	--
-	"\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,OnReset]\n\n[half]"
+	"\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,OnReset]\n\![*]\q[Random outfit,OnRandom_Start]\n\n[half]"
 	--
 	"\![*]\q[Nevermind,CANCEL]"
 }
 
+OnRandom_Start
+{
+	"\_qColors:\n\n[half]"
+	--
+	"Plain: \q[%(plain),OnColorRandom,plain]\n/
+	Pastel: \q[%(pastel),OnColorRandom,pastel]\n/
+	Dark: \q[%(dark),OnColorRandom,dark]\n/
+	Bright: \q[%(bright),OnColorRandom,bright]\n"
+	--
+	"\n[half]\![*]\q[Start,OnRandom]"
+}
+
+OnColorRandom
+{
+	if reference0 == "plain"
+	{
+		if plain != "ON"
+		{
+			plain = "ON"
+		}
+		else
+		{
+			plain = "OFF"
+		}
+	}
+	elseif reference0 == "pastel"
+	{
+		if pastel != "ON"
+		{
+			pastel = "ON"
+		}
+		else
+		{
+			pastel = "OFF"
+		}
+	}
+	elseif reference0 == "dark"
+	{
+		if dark != "ON"
+		{
+			dark = "ON"
+		}
+		else
+		{
+			dark = "OFF"
+		}
+	}
+	else
+	{
+		if bright != "ON"
+		{
+			bright = "ON"
+		}
+		else
+		{
+			bright = "OFF"
+		}
+	}
+	--
+	OnRandom_Start
+}
+
 OnReset
+{
+	_print = ""
+	--
+	for _i = 0; _i < ARRAYSIZE(dresslog); _i++
+	{
+		_item = SPLIT(dresslog[_i],",")
+		_category = TOSTR(_item[1])
+		_name = TOSTR(_item[2])
+		--
+		_print += "\![bind,%(_category),%(_name),0]"
+	}
+	--
+	_print
+	--
+	if _argv[0] != "shuffle"
+	{
+		Select.clothesmenu
+	}
+}
+
+OnRandom
+{
+	OnReset("shuffle")
+	--
+	"%(clothes)"
+	--
+	Select.clothesmenu
+}
+
+colordressuptype
+{
+	if pastel == "ON"
+	{
+		"pl"
+	}
+
+	if plain == "ON"
+	{
+		"p"
+	}
+
+	if bright == "ON"
+	{
+		"b"
+	}
+
+	if dark == "ON"
+	{
+		"d"
+	}
+}
+
+colordressup
+{
+	if cdtypetemp == "p"
+	{
+		"black"
+		"white"
+		"gray"
+	}
+
+	"yellow"
+	"orange"
+	"red"
+	"pink"
+	"purple"
+	"dark blue"
+	"blue"
+	"green"
+}
+
+clothes
+{
+	cdtypetemp = "%(colordressuptype)"
+	--
+	"\![bind,pants,%(cdtypetemp)1 %(colordressup),1]"
+	"\![bind,pants,%(cdtypetemp)2 %(colordressup),1]"
+	--
+	cdtypetemp = "%(colordressuptype)"
+	--
+	"\![bind,shirt,%(cdtypetemp)1 %(colordressup),1]"
+	"\![bind,shirt,%(cdtypetemp)2 %(colordressup),1]"
+	"\![bind,shirt,%(cdtypetemp)3 %(colordressup),1]"
+	"\![bind,shirt,%(cdtypetemp)4 %(colordressup),1]"
+	"\![bind,shirt,%(cdtypetemp)5 %(colordressup),1]"
+	"\![bind,shirt,%(cdtypetemp)6 %(colordressup),1]"
+	"\![bind,dress,%(cdtypetemp)1 %(colordressup),1]"
+	"\![bind,dress,%(cdtypetemp)2 %(colordressup),1]"
+	"\![bind,hoodie,%(cdtypetemp)1 %(colordressup),1]"
+	{
+		"\![bind,hoodie,%(cdtypetemp)2 %(colordressup),1]"
+		--
+		"\![bind,shirt,%(cdtypetemp)2 %(colordressup),1]"
+		"\![bind,shirt,%(cdtypetemp)3 %(colordressup),1]"
+		"\![bind,shirt,%(cdtypetemp)4 %(colordressup),1]"
+		"\![bind,shirt,%(cdtypetemp)5 %(colordressup),1]"
+		"\![bind,shirt,%(cdtypetemp)6 %(colordressup),1]"
+		"\![bind,dress,%(cdtypetemp)1 %(colordressup),1]"
+		"\![bind,dress,%(cdtypetemp)2 %(colordressup),1]"
+	}
+	"\![bind,sweater,%(cdtypetemp) %(colordressup),1]"
+	--
+	cdtypetemp = "%(colordressuptype)"
+	--
+	"\![bind,shoes,%(cdtypetemp) %(colordressup),1]"
+	--
+	cdtypetemp = "%(colordressuptype)"
+	--
+	"\![bind,monitor,%(cdtypetemp) %(colordressup),1]"
+	""
+	--
+	cdtypetemp = "%(colordressuptype)"
+	--
+	"\![bind,screen,%(cdtypetemp) %(colordressup),1]"
+	""
+	--
+	"\![bind,skin,%(skinssss),1]"
+	""
+
+
+}
+
+
+skinssss
+{
+	"light #1"
+	"light #2"
+	"light #3"
+	"dark on light"
+	"white"
+	"dark #1"
+	"dark #2"
+	"dark #3"
+	"dark #5"
+	"light on dark"
+	"black"
+	"light green"
+	"light blue"
+	"light orange"
+	"pink"
+	"purple"
+	"fish"
+	"flower"
+	"doll"
+	"crystal"
+	""
+}
+
+
+
+
+/*OnReset
 {
 	ccategories = "skin,monitor,screen,expr,shoes,pants,shirt,dress,hoodie,sweater,outfit"
 	cctype = "p,pl,d,b"
@@ -84,7 +300,7 @@ OnReset
 	reset
 	--
 	Select.clothesmenu
-}
+}*/
 
 Select.skin
 {

@@ -996,7 +996,7 @@ OnOtherGhostClosed
 
 // %(installedghostlist)
 //ghostexlist
-
+//\![raise,OnUpdateVariables]
 OnUpdateVariables
 {
 	if vers == "1.0.3"
@@ -1013,7 +1013,17 @@ OnUpdateVariables
 	}
 	elseif vers == "1.0.4"
 	{
+		vers = "1.0.5"
 		explained = " "
+		--
+		OnUpdateVariables
+	}
+	elseif vers == "1.0.5"
+	{
+		pastel = "ON"
+		plain = "ON"
+		bright = "ON"
+		dark = "ON"
 	}
 }
 

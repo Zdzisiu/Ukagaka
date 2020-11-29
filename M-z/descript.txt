@@ -251,7 +251,6 @@ sakura.bindgroup1682.name,expr,b3 dark blue
 sakura.bindgroup1683.name,expr,b3 blue
 sakura.bindgroup1684.name,expr,b3 green
 
-sakura.bindgroup1658.default,1
 //4 = uwu
 sakura.bindgroup1700.name,expr,p4 yellow
 sakura.bindgroup1701.name,expr,p4 orange

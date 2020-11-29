@@ -732,7 +732,7 @@ OnMinuteChange
 		if weathermenu == "ON" 
 		{
 			weatherquiet = 1
-			"\b[-1]\![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
+			"\b[-1]\![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnCurWeatherFound,--file=forecast.html,--timeout=200]"
 		}
  		elseif hour == 12 
 		{
@@ -785,7 +785,7 @@ OnMinuteChange
 		if weathermenu == "ON" 
 		{
 			weatherquiet = 1
-			"\b[-1]\![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
+			"\b[-1]\![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnCurWeatherFound,--file=forecast.html,--timeout=200]"
 		}
 		--
 		OnMoodCheck

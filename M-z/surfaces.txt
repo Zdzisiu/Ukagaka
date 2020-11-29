@@ -2296,9 +2296,6 @@ surface0-1
 
     animation2005.interval,bind
     animation2005.pattern0,overlay,7005,00,0,0
-
-    animation3000.interval,bind
-    animation3000.pattern0,overlay,5150,00,0,0
 }
 
 surface0
@@ -2561,5115 +2558,5013 @@ char13.tooltips
 surface4500
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4501
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4502
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4503
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4504
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4505
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4506
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4507
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4508
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4509
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4510
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4511
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4512
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4513
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4514
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4515
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4516
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4517
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4518
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4519
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4520
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4521
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4522
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4523
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4524
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4525
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4526
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4527
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4528
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4529
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4530
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4531
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4532
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4533
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
 surface4534
 {
 	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1001.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1001.png,0,0
 }
 
-surface4535
-{
-	element0,overlay,surface1000.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1001.png,0,0
-}
+
 
 surface4600
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4601
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4602
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4603
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4604
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4605
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4606
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4607
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4608
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4609
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4610
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4611
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4612
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4613
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4614
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4615
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4616
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4617
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4618
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4619
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4620
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4621
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4622
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4623
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4624
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4625
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4626
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4627
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4628
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4629
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4630
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4631
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4632
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4633
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
 surface4634
 {
 	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1003.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1003.png,0,0
 }
 
-surface4635
-{
-	element0,overlay,surface1002.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1003.png,0,0
-}
+
 
 //--------------------
 surface4400
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
 }
 
 surface4401
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
 }
 
 surface4402
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
 }
 
 surface4403
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
 }
 
 surface4404
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
 }
 
 surface4405
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
 }
 
 surface4406
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
 }
 
 surface4407
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
 }
 
 surface4408
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
 }
 
 surface4409
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
 }
 
 surface4410
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
 }
 
 surface4411
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
 }
 
 surface4412
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
 }
 
 surface4413
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
 }
 
 surface4414
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
 }
 
 surface4415
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
 }
 
 surface4416
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
 }
 
 surface4417
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
 }
 
 surface4418
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
 }
 
 surface4419
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
 }
 
 surface4420
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
 }
 
 surface4421
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
 }
 
 surface4422
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
 }
 
 surface4423
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
 }
 
 surface4424
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
 }
 
 surface4425
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
 }
 
 surface4426
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
 }
 
 surface4427
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
 }
 
 surface4428
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
 }
 
 surface4429
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
 }
 
 surface4430
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
 }
 
 surface4431
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
 }
 
 surface4432
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
 }
 
 surface4433
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
 }
 
 surface4434
 {
 	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-}
-
-surface4435
-{
-	element0,overlay,surface1004.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
 }
 
 surface4300
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
 }
 
 surface4301
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
 }
 
 surface4302
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
 }
 
 surface4303
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
 }
 
 surface4304
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
 }
 
 surface4305
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
 }
 
 surface4306
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
 }
 
 surface4307
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
 }
 
 surface4308
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
 }
 
 surface4309
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
 }
 
 surface4310
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
 }
 
 surface4311
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
 }
 
 surface4312
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
 }
 
 surface4313
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
 }
 
 surface4314
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
 }
 
 surface4315
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
 }
 
 surface4316
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
 }
 
 surface4317
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
 }
 
 surface4318
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
 }
 
 surface4319
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
 }
 
 surface4320
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
 }
 
 surface4321
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
 }
 
 surface4322
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
 }
 
 surface4323
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
 }
 
 surface4324
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
 }
 
 surface4325
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
 }
 
 surface4326
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
 }
 
 surface4327
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
 }
 
 surface4328
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
 }
 
 surface4329
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
 }
 
 surface4330
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
 }
 
 surface4331
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
 }
 
 surface4332
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
 }
 
 surface4333
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
 }
 
 surface4334
 {
 	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
 }
 
-surface4335
-{
-	element0,overlay,surface1005.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-}
+
 
 surface4200
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
 }
 
 surface4201
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
 }
 
 surface4202
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
 }
 
 surface4203
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
 }
 
 surface4204
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
 }
 
 surface4205
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
 }
 
 surface4206
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
 }
 
 surface4207
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
 }
 
 surface4208
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
 }
 
 surface4209
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
 }
 
 surface4210
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
 }
 
 surface4211
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
 }
 
 surface4212
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
 }
 
 surface4213
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
 }
 
 surface4214
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
 }
 
 surface4215
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
 }
 
 surface4216
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
 }
 
 surface4217
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
 }
 
 surface4218
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
 }
 
 surface4219
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
 }
 
 surface4220
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
 }
 
 surface4221
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
 }
 
 surface4222
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
 }
 
 surface4223
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
 }
 
 surface4224
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
 }
 
 surface4225
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
 }
 
 surface4226
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
 }
 
 surface4227
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
 }
 
 surface4228
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
 }
 
 surface4229
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
 }
 
 surface4230
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
 }
 
 surface4231
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
 }
 
 surface4232
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
 }
 
 surface4233
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
 }
 
 surface4234
 {
 	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
 }
 
-surface4235
-{
-	element0,overlay,surface1006.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-}
+
 
 surface4100
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
 }
 
 surface4101
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
 }
 
 surface4102
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
 }
 
 surface4103
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
 }
 
 surface4104
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
 }
 
 surface4105
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
 }
 
 surface4106
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
 }
 
 surface4107
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
 }
 
 surface4108
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
 }
 
 surface4109
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
 }
 
 surface4110
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
 }
 
 surface4111
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
 }
 
 surface4112
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
 }
 
 surface4113
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
 }
 
 surface4114
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
 }
 
 surface4115
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
 }
 
 surface4116
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
 }
 
 surface4117
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
 }
 
 surface4118
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
 }
 
 surface4119
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
 }
 
 surface4120
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
 }
 
 surface4121
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
 }
 
 surface4122
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
 }
 
 surface4123
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
 }
 
 surface4124
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
 }
 
 surface4125
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
 }
 
 surface4126
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
 }
 
 surface4127
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
 }
 
 surface4128
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
 }
 
 surface4129
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
 }
 
 surface4130
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
 }
 
 surface4131
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
 }
 
 surface4132
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
 }
 
 surface4133
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
 }
 
 surface4134
 {
 	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
 }
 
-surface4135
-{
-	element0,overlay,surface1007.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-}
+
 
 surface4000
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
 }
 
 surface4001
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
 }
 
 surface4002
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
 }
 
 surface4003
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
 }
 
 surface4004
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
 }
 
 surface4005
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
 }
 
 surface4006
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
 }
 
 surface4007
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
 }
 
 surface4008
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
 }
 
 surface4009
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
 }
 
 surface4010
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
 }
 
 surface4011
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
 }
 
 surface4012
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
 }
 
 surface4013
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
 }
 
 surface4014
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
 }
 
 surface4015
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
 }
 
 surface4016
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
 }
 
 surface4017
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
 }
 
 surface4018
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
 }
 
 surface4019
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
 }
 
 surface4020
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
 }
 
 surface4021
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
 }
 
 surface4022
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
 }
 
 surface4023
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
 }
 
 surface4024
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
 }
 
 surface4025
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
 }
 
 surface4026
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
 }
 
 surface4027
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
 }
 
 surface4028
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
 }
 
 surface4029
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
 }
 
 surface4030
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
 }
 
 surface4031
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
 }
 
 surface4032
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
 }
 
 surface4033
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
 }
 
 surface4034
 {
 	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
 }
 
-surface4035
-{
-	element0,overlay,surface1008.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-}
+
 
 //--------------------
 surface1600
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1601
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1602
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1603
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1604
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1605
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1606
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1607
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1608
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1609
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1610
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1611
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1612
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1613
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1614
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1615
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1616
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1617
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1618
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1619
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1620
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1621
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1622
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1623
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1624
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1625
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1626
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1627
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1628
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1629
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1630
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1631
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1632
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1633
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
 surface1634
 {
 	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1010.png,0,0
 }
 
-surface1635
-{
-	element0,overlay,surface1009.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1010.png,0,0
-}
+
 
 surface2100
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2101
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2102
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2103
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2104
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2105
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2106
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2107
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2108
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2109
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2110
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2111
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2112
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2113
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2114
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2115
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2116
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2117
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2118
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2119
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2120
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2121
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2122
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2123
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2124
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2125
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2126
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2127
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2128
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2129
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2130
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2131
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2132
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2133
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
 surface2134
 {
 	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1012.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1012.png,0,0
 }
 
-surface2135
-{
-	element0,overlay,surface1011.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1012.png,0,0
-}
+
 
 surface2200
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2201
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2202
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2203
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2204
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2205
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2206
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2207
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2208
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2209
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2210
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2211
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2212
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2213
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2214
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2215
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2216
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2217
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2218
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2219
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2220
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2221
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2222
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2223
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2224
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2225
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2226
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2227
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2228
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2229
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2230
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2231
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2232
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2233
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
 surface2234
 {
 	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1014.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1014.png,0,0
 }
 
-surface2235
-{
-	element0,overlay,surface1013.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1014.png,0,0
-}
+
 
 //--------------------
 surface1000
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1001
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1002
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1003
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1004
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1005
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1006
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1007
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1008
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1009
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1010
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1011
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1012
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1013
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1014
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1015
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1016
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1017
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1018
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1019
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1020
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1021
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1022
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1023
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1024
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1025
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1026
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1027
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1028
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1029
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1030
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1031
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1032
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1033
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
 surface1034
 {
 	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1016.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1016.png,0,0
 }
 
-surface1035
-{
-	element0,overlay,surface1015.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1016.png,0,0
-}
+
 
 surface1100
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1101
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1102
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1103
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1104
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1105
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1106
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1107
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1108
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1109
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1110
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1111
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1112
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1113
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1114
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1115
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1116
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1117
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1118
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1119
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1120
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1121
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1122
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1123
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1124
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1125
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1126
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1127
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1128
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1129
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1130
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1131
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1132
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1133
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
 surface1134
 {
 	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1018.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1018.png,0,0
 }
 
-surface1135
-{
-	element0,overlay,surface1017.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1018.png,0,0
-}
+
 
 surface1200
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1201
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1202
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1203
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1204
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1205
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1206
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1207
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1208
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1209
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1210
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1211
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1212
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1213
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1214
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1215
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1216
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1217
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1218
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1219
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1220
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1221
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1222
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1223
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1224
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1225
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1226
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1227
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1228
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1229
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1230
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1231
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1232
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1233
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
 surface1234
 {
 	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1020.png,0,0
 }
 
-surface1235
-{
-	element0,overlay,surface1019.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1020.png,0,0
-}
+
 
 surface1300
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1301
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1302
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1303
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1304
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1305
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1306
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1307
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1308
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1309
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1310
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1311
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1312
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1313
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1314
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1315
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1316
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1317
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1318
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1319
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1320
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1321
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1322
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1323
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1324
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1325
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1326
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1327
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1328
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1329
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1330
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1331
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1332
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1333
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
 surface1334
 {
 	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1022.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1022.png,0,0
 }
 
-surface1335
-{
-	element0,overlay,surface1021.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1022.png,0,0
-}
+
 
 surface1400
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1401
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1402
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1403
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1404
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1405
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1406
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1407
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1408
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1409
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1410
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1411
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1412
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1413
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1414
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1415
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1416
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1417
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1418
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1419
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1420
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1421
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1422
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1423
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1424
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1425
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1426
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1427
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1428
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1429
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1430
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1431
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1432
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1433
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
 surface1434
 {
 	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1024.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1024.png,0,0
 }
 
-surface1435
-{
-	element0,overlay,surface1023.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1024.png,0,0
-}
+
 
 surface1500
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1501
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1502
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1503
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1504
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1505
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1506
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1507
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1508
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1509
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1510
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1511
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1512
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1513
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1514
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1515
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1516
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1517
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1518
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1519
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1520
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1521
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1522
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1523
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1524
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1525
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1526
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1527
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1528
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1529
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1530
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1531
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1532
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1533
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
 surface1534
 {
 	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1026.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1026.png,0,0
 }
 
-surface1535
-{
-	element0,overlay,surface1025.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1026.png,0,0
-}
+
 
 surface5000
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5001
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5002
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5003
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5004
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5005
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5006
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5007
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5008
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5009
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5010
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5011
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5012
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5013
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5014
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5015
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5016
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5017
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5018
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5019
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5020
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5021
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5022
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5023
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5024
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5025
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5026
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5027
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5028
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5029
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5030
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5031
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5032
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5033
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
 surface5034
 {
 	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1028.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1028.png,0,0
 }
 
-surface5035
-{
-	element0,overlay,surface1027.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1028.png,0,0
-}
+
 
 surface5100
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5101
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5102
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5103
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5104
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5105
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5106
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5107
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5108
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5109
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5110
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5111
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5112
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5113
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5114
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5115
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5116
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5117
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5118
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5119
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5120
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5121
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5122
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5123
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5124
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5125
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5126
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5127
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5128
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5129
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5130
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5131
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5132
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5133
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
 surface5134
 {
 	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1030.png,0,0
 }
 
-surface5135
-{
-	element0,overlay,surface1029.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1030.png,0,0
-}
+
 
 surface6000
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6001
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6002
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6003
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6004
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6005
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6006
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6007
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6008
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6009
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6010
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6011
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6012
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6013
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6014
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6015
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6016
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6017
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6018
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6019
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6020
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6021
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6022
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6023
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6024
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6025
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6026
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6027
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6028
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6029
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6030
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6031
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6032
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6033
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
 surface6034
 {
 	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1032.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1032.png,0,0
 }
 
-surface6035
-{
-	element0,overlay,surface1031.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1032.png,0,0
-}
+
 
 surface6100
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6101
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6102
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6103
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6104
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6105
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6106
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6107
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6108
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6109
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6110
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6111
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6112
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6113
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6114
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6115
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6116
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6117
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6118
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6119
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6120
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6121
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6122
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6123
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6124
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6125
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6126
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6127
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6128
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6129
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6130
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6131
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6132
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6133
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
 surface6134
 {
 	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1034.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1034.png,0,0
 }
 
-surface6135
-{
-	element0,overlay,surface1033.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1034.png,0,0
-}
+
 
 surface6200
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9000.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6201
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9001.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6202
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9002.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6203
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9003.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6204
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9004.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6205
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9005.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6206
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9006.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6207
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9007.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6208
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9008.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6209
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9009.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6210
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9010.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6211
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9011.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6212
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9012.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6213
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9013.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6214
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9014.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6215
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9015.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6216
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9016.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6217
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9017.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6218
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9018.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6219
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9019.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6220
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9020.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6221
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9021.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6222
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9022.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6223
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9023.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6224
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9024.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6225
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9025.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6226
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9026.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6227
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9027.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6228
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9028.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6229
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9029.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6230
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9030.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6231
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9031.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6232
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9032.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6233
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9033.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
 surface6234
 {
 	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9034.png,0,0
-	element0,overlay,surface1036.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1036.png,0,0
 }
 
-surface6235
-{
-	element0,overlay,surface1035.png,0,0
-	element0,overlayfast,colors/surface9035.png,0,0
-	element0,overlay,surface1036.png,0,0
-}
+
 
