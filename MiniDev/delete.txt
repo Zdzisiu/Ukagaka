@@ -735,4 +735,3 @@ shell\master\surface6233.png
 shell\master\surface6234.png
 shell\master\Clothes list.dic
 shell\master\minidev.sai2
-shell\master\thumbnail.pna
