@@ -760,7 +760,7 @@ OnWeatherLocation
 
 OnAmericanUnits{
     unit=""
-	--
+        --
     "\0Alright. Please go to weather.com, search your location, and give me the URL. \![open,inputbox,OnLocCode,-1]"
 }
 
@@ -785,7 +785,7 @@ OnLocCode
 
 OnDownloadCurWeather
 {
-"\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
+        "\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
 }
 
 
@@ -875,11 +875,20 @@ OnCurWeatherFound
     --
     
     FCLOSE(_file);
+     --
+    if unitchange == 1
+    {
+            
+		unitchange = 0
+		TalkConfig
+		--
+		"\e"
     
+    }
+    --
     if (intalkconfig) {
     
 		intalkconfig = 0
-		TalkConfig
 		--
 		"\e"
     
@@ -888,7 +897,6 @@ OnCurWeatherFound
     if !locationset{
             
 		locationset = 1
-		TalkConfig
 		--
 		"\e"
     
@@ -906,19 +914,8 @@ OnCurWeatherFound
     }
     else
     {
-		if "C" _in_ currentweatherarray[1]
-		{
-			OnCelc
-			--
-			"\0\b[2]\_qRight now...\n\n[half]Temperature: %(celc)%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
-			\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
-
-		}
-		else
-		{
-			"\0\b[2]\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
-			\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
-		}
+		"\0\b[2]\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
+		\nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
 		--          
 		if currentweatherarray[6] == "Local Pollen Alert" {
 		"\nThere's a local pollen alert!"

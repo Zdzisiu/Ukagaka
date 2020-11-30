@@ -24,6 +24,8 @@ Select.clothesmenu
 
 OnRandom_Start
 {
+	OnVariableSet
+	--
 	"\_qColors:\n\n[half]"
 	--
 	"Plain: \q[%(plain),OnColorRandom,plain]\n/
@@ -374,7 +376,7 @@ OnOutfit
 		"\![*]\q[Azura,OnOutfit_dress,azura]\n"
 	}
 	--
-	if dusty == 1
+	if meetobsidian == 1
 	{
 		"\![*]\q[Dusty,OnOutfit_dress,dusty]\n"
 	}

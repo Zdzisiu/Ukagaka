@@ -1058,9 +1058,13 @@ OnObsidianJumpDown
     _MDXCoord = TOINT(reference0[0])
     _MDYCoord = TOINT(reference0[3])
 	--
-	if nowshell != "M-201z"
+	if nowshell != "M-z"
 	{
 		_MDYCoord -= (75)
+	}
+	else
+	{
+		_MDYCoord = TOINT(reference0[3])
 	}
 	--
 	obsidianjump = 1

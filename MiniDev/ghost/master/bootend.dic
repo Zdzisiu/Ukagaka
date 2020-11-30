@@ -1008,6 +1008,11 @@ OnUpdateVariables
 		tasks[0] = REPLACE(todos,",","+")
 		todopagenum = 0
 		pagenum = 0
+		pastel = "ON"
+		plain = "ON"
+		bright = "ON"
+		dark = "ON"
+		explained = " "
 		--
 		OnUpdateVariables
 	}
@@ -1015,6 +1020,10 @@ OnUpdateVariables
 	{
 		vers = "1.0.5"
 		explained = " "
+		pastel = "ON"
+		plain = "ON"
+		bright = "ON"
+		dark = "ON"
 		--
 		OnUpdateVariables
 	}
@@ -1025,9 +1034,28 @@ OnUpdateVariables
 		bright = "ON"
 		dark = "ON"
 	}
+
 }
 
-OnTest
+OnVariableSet
 {
-
+	if pastel == ""
+	{
+		pastel = "ON"
+	}
+	--
+	if plain == ""
+	{
+		plain = "ON"
+	}
+	--
+	if bright == ""
+	{
+		bright = "ON"
+	}
+	--
+	if dark == ""
+	{
+		dark = "ON"
+	}
 }

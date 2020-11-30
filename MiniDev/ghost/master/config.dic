@@ -93,7 +93,7 @@ TalkConfig
 	{
 		"\f[color,default]\f[bold,0]Weather \f[color,#1bcc2a] \q[%(weathermenu),weatheroff]\f[color,default] ("
 		--
-		"\f[color,#e62719] \q[%(currentweatherarray[1]),switchunits]\f[color,default]\f[sup,0])\n"
+		"\f[color,#e62719] \q[%(currentweatherarray[1]),startunit]\f[color,default]\f[sup,0])\n"
 	}
     --
 	if moonmenu != "ON"
@@ -236,6 +236,13 @@ Select.degreeez
 	}
 	--
 	TalkConfig
+}
+
+Select.startunit
+{
+	unitchange = 1
+	--
+	Select.switchunits
 }
 
 Select.datetype
