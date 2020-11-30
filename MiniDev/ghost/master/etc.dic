@@ -368,7 +368,7 @@ OnUpdateCheckComplete
 
 Select.up
 {
-	"\![updatebymyself]"
+	"\![update,ghost+shell]"
 }
 
 Select.lat
