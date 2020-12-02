@@ -81,13 +81,13 @@ RespondToMD
 		res_reference0 = ""
 		m201zplantcare = 1
 		--
-		"\p[7]\s[7]"
+		"\p[7]\s[7]\e"
 	}
 	elseif "MzCareWater1" _in_ reference1
 	{
 		res_reference0 = ""
 		--
-		"\p[7]\s[7]\i[200]"
+		"\p[7]\s[7]\i[200]\e"
 		--
 		watertime[7] = 0
 		waternum[7]++
@@ -145,7 +145,7 @@ RespondToMD
 			waternum[_i]++
 		}
 		--
-		"\0\![anim,clear,500]\i[200]%(_waterpage)"
+		"\0\![anim,clear,500]\i[200]%(_waterpage)\e"
 		--
 		watertime[0] = 0
 		waternum[0]++

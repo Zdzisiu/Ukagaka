@@ -2309,7 +2309,7 @@ surface0
 
 surface1
 {
-	collision0,63,32,125,56,Obsidian
+	collision2,63,32,125,56,Obsidian
 
     animation9000.interval,always
     animation9000.pattern0,overlay,9900,60,0,0
