@@ -92,10 +92,21 @@ sakura.bindgroup43.name,pot,Agender Pride
 sakura.bindgroup44.name,pot,Plains
 sakura.bindgroup45.name,pot,Cracked
 sakura.bindgroup46.name,pot,Denim
-sakura.bindgroup47.name,pot,Dusty_Sweater
-sakura.bindgroup48.name,pot,Galaxy_1
-sakura.bindgroup49.name,pot,S_Hoodie
+sakura.bindgroup47.name,pot,Dusty Sweater
+sakura.bindgroup48.name,pot,Galaxy #1
+sakura.bindgroup49.name,pot,S Hoodie
 sakura.bindgroup50.name,pot,Soulless
+sakura.bindgroup51.name,pot,Night Sky
+sakura.bindgroup52.name,pot,Bowtie
+sakura.bindgroup53.name,pot,Fishbowl
+sakura.bindgroup54.name,pot,Galaxy #2
+sakura.bindgroup55.name,pot,Hydrate
+sakura.bindgroup56.name,pot,Lulo Sparkles
+sakura.bindgroup57.name,pot,Plaid Blue
+sakura.bindgroup58.name,pot,Plaid Green
+sakura.bindgroup59.name,pot,Plaid Purple
+sakura.bindgroup60.name,pot,Plaid Red
+sakura.bindgroup61.name,pot,Water 
 
 char2.bindgroup0.name,pot,Brown
 char2.bindgroup1.name,pot,Bright Red

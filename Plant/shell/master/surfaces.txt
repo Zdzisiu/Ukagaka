@@ -161,6 +161,39 @@ surface0
     animation50.pattern0,reduce,9000,0,0,0
     animation50.pattern1,overlay,2050,0,0,0
 
+    animation51.interval,bind
+    animation51.pattern0,overlay,2051,0,0,0
+
+    animation52.interval,bind
+    animation52.pattern0,overlay,2052,0,0,0
+
+    animation53.interval,bind
+    animation53.pattern0,overlay,2053,0,0,0
+
+    animation54.interval,bind
+    animation54.pattern0,overlay,2054,0,0,0
+
+    animation55.interval,bind
+    animation55.pattern0,overlay,2055,0,0,0
+
+    animation56.interval,bind
+    animation56.pattern0,overlay,2056,0,0,0
+
+    animation57.interval,bind
+    animation57.pattern0,overlay,2057,0,0,0
+
+    animation58.interval,bind
+    animation58.pattern0,overlay,2058,0,0,0
+
+    animation59.interval,bind
+    animation59.pattern0,overlay,2059,0,0,0
+
+    animation60.interval,bind
+    animation60.pattern0,overlay,2060,0,0,0
+
+    animation61.interval,bind
+    animation61.pattern0,overlay,2061,0,0,0
+
 
     //PLANTS
     animation100.interval,never
