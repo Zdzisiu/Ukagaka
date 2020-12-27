@@ -1,94 +1,142 @@
 <!DOCTYPE html>
 <html lang="pl">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ukagaka</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="js.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <head>
+	<meta charset="utf-8">
+	<title>Ukagaka</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<script src="js.js"></script>
 </head>
 
 <body onload="GetColor()">
-    <script>
-        function GetColor(){
-            var colors = ["#ff89ef", "#89ffff", "#92ff89", "#faff89", "#ff8989", "#9591ff"];
-
-            var random_color = colors[Math.floor( 
-                                Math.random() * colors.length)]; 
-            
-            document.getElementById("style2").style.color = random_color;
-            document.getElementById("style3").style.color = random_color;
-            document.getElementById("style4").style.color = random_color;
-            document.getElementById("style5").style.color = random_color;
-            document.getElementById("style6").style.color = random_color;
-            document.getElementById("style7").style.color = random_color;
-            document.getElementById("style8").style.color = random_color;
-            document.getElementById("style9").style.color = random_color;
-            document.getElementById("style10").style.color = random_color;
-        }
-    </script>
-    <nav>
-        <a href="index.html" class="navbar">Home</a>
-        <a href="md.html" class="navbar">MiniDev</a>
-        <!--<a href="ho.html" class="navbar">Hoodoo</a>-->
-        <a href="gi.html" class="navbar">Gian</a>
-        <a href="cat.html" class="navbar">Cat</a>
-        <a href="wp.html" class="navbar">World Planner</a>
-    </nav>
-    <aside>
-        <h3>MiniDev: <a href="MiniDev.nar" id="style3">DOWNLOAD</a></h3>
-        <h3>M-z Shell: <a href="M-z.nar" id="style2">DOWNLOAD</a></h3>
-        <p>MiniDev is you desktop buddy provided by A.R.I - Asisstant Robots Interational</p>
-        <p>He will keep you company while working, playing and overall using computer</p>
-        <center><p class ="hidden">Ì̵̩̅̑̐̄̎'̴̢͍̙͈͙͖̞͛͆̆͋̌̿̉͜͝M̵̩̹͎̣̹̫̀̾ ̸̨̨̢̛̻̪̌͊̓ͅH̴͔̞̼̖̟̩̀̽͋̅͌̚ͅE̴̫̳̟̒̌̽́̒̔͒͝Ŕ̴̡̳̫͖̖̬̹̜͒͛̚͠ͅĘ̶̮͎̥̐̏̋͛̌̄͐̚</p></center>
-    </aside>
-    <div class="ar">
-        <article>
-            <h2>MiniDev</h2>
-            <h3>Functions:</h3>
-            <p>Customizable appearance</p>
-            <p>Customizable personality traits</p>
-            <p>To-Do list</p>
-            <p>Logs/notes</p>
-            <p>Showing ghost and balloon statistics</p>
-            <p>Opening apps and files</p>
-            <p>Random quotes</p>
-            <p>Checking weather and moon phase</p>
-            <p>Recommendations</p>
-            <p>Reminders</p>
-            <h2 class="hidden">You need to</h2>
-            <p class="hidden">Find him</p>
-            <p class="hidden">Meet him</p>
-            <p class="hidden">Uncover the truth</p>
-        </article>
-    </div>
-    <!--Who was Δ before?-->
-    <div class="dreamteam">
-        <h3>Ukagaka Dream Team</h3>
-        <p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
-        <p>Join us on:</p>
-        <a href="https://ukagakadreamteam.tumblr.com/" class="smedia"  id="style4">Tumblr</a>
-        <p></p>
-        <a href="http://discord.gg/uBPq8XF" class="smedia"  id="style5">Discord</a>
-        <p></p>
-        <a href="https://twitter.com/Project_Ukagaka" class="smedia"  id="style6">Twitter</a>
-    </div>
-    <div class="uk">
-         <!-- <webring-banner>
-         <p>Member of the <a href="https://ukagakawebring.netlify.com/">Ukagaka/Ghost Development and Download</a> webring</p>
-            <a href="https://ukagakawebring.netlify.com//prev">Previous</a>
-            <a href="https://ukagakawebring.netlify.com//random">Random</a>
-            <a href="https://ukagakawebring.netlify.com//next">Next</a>
-        </webring-banner>
-        <script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script> -->
-        
-        <p>Find more <a href="https://ukagakawebring.netlify.com/"  id="style7">Ukagakas</a>:</p>
-            <a href="https://ukagakawebring.netlify.com//prev"  id="style8" style="text-transform: uppercase">Previous</a>
-            <a href="https://ukagakawebring.netlify.com//random"  id="style9" style="text-transform: uppercase">Random</a>
-            <a href="https://ukagakawebring.netlify.com//next"  id="style10" style="text-transform: uppercase">Next</a>
-    </div>
-</body>
-
-</html>
+	<nav>
+		<a href="index.html"  class="navbtn" style="margin-left: 1vw;">Home</a>
+		<div class="dropdown">
+			<a class="dropbtn navbtn">Ghosts</a>
+			<div class="dropdown-content">
+				<p>Released</p>
+				<a href="MD.html">MiniDev</a>
+				<a href="cat.html">Cat</a>
+				<p>Collab Ghosts</p>
+				<a href="https://zichqec.github.io/s-the-skeleton/hydrate.html">Hydrate</a>
+				<p>Work in Progress</p>
+				<a href="wrlpln.html">World Planner</a>
+				<a href="gian.html">Gian</a>
+				<a href="stuff.html">Stuff</a>
+				<a href="plant.html">Plant</a>
+			</div>
+		</div>
+			<a href="shells.html" class=" navbtn">Shells</a>
+		<a href="code.html" class="navbtn">Code</a>
+	</nav>
+	<div class="sidenote">
+		<h3>Ukagaka Dream Team</h3>
+		<p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
+		<p>Join us on:</p>
+		<a href="https://ukagakadreamteam.tumblr.com/" class="color">Tumblr</a>
+		<p></p>
+		<a href="http://discord.gg/uBPq8XF" class="color">Discord</a>
+		<p></p>
+		<a href="https://twitter.com/Project_Ukagaka" class="color">Twitter</a>
+	</div>
+	<div class="banner">
+		<img src="img/ukagaka%20icon.jpg" id="ukg">
+		<div id="web">
+			<p align="center">&#128123; <i>Member of the <a href="https://ukagakawebring.netlify.com/" target="_new" class="color">Ukagaka/Ghost Development and Download</a> webring</i> &#128123;</p>
+			<p align="center">&#128123; | <a href="https://ukagakawebring.netlify.com//prev" class="color">Previous</a> |
+				<a href="https://ukagakawebring.netlify.com//random" class="color">Random</a> |
+				<a href="https://ukagakawebring.netlify.com//next" class="color">Next</a> | &#128123;
+			</p>
+		</div>
+		<script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script>
+	</div>
+	<aside>
+			<h2>Downloads</h2>
+		<p><b>MiniDev:</b> <a href="ghosts/MiniDev.nar" class="color">DOWNLOAD</a></p>
+		<p><b>Balloon "Pixel":</b> <a href="balloons/Pixel.nar" class="color">DOWNLOAD</a></p>
+		<p><b>Shell "M-z":</b> <a href="shells/M-z.nar" class="color">DOWNLOAD</a></p>
+		</aside>
+	<article id="ar">
+		<h2>MiniDev</h2>
+		<img src="img/MD/MD%20default.png" alt="MiniDev">
+		<p>MiniDev is a a little robot softwere, meant to assist you throught out the day, his functions are described below</p>
+		<p><b>Latest Version:</b> <span class="color">1.0.5</span></p>
+	</article>
+	<article>
+		<h2>To Do list:</h2>
+		<video controls>
+			<source src="img/MD/todo.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<p>Create however many task lists you need, and however many tasks you need.</p>
+		<p>Simply click on your task to mark or unmark it. </p>
+	</article>
+	<article>
+		<h2>Recommendations:</h2>
+		<video controls>
+			<source src="img/MD/reccomend.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<p>No idea what to read? MiniDev can pull books and mangas for you (there will be more things in the future)</p>
+	</article>
+	<article>
+		<h2>Open Apps or projects</h2>
+		<video controls>
+			<source src="img/MD/apps.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<p>Drag and drop a shortcut to an app to add it to your app list, boom, now you can easy acces it from the menu</p>
+		<p>Drag and drop your project on to MD and he will save it and allow you to acces it from the menu. You have a project in an app that only 5 people use? Well, no worries you can add your own project extensions that MiniDev will save.</p>
+	</article>
+	<article>
+		<h2>Notes/Logs</h2>
+		<video controls>
+			<source src="img/MD/log.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<p>Save notes!</p>
+		<p>Name your notes!</p>
+		<p>Make however many you want!</p>
+	</article>
+	<article>
+		<h2>Reminders:</h2>
+		<video controls>
+			<source src="img/MD/reminders.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<p>Let MD remind you to study, walk the dog or whatever else you need, can be a silent reminder or with a ringtone!</p>
+	</article>
+	<article>
+		<h2>Check the Weather:</h2>
+		<p>Thanks to vita‌ ‌@yuyudev‌ ‌on‌ ‌twitter. MiniDev is able to check the weather and moonphase</p>
+		<div class="hidden">
+			<p>Aolyl hyl aopunz slma mvy fvb pu TpupKlc'z mpslz</p>
+		<p>Zlhyjo mvy opz svnz</p>
+		<p>Key: h</p>
+		<p>G̶̽̿o̷͐͠o̷͑͝ḋ̶̀ ̵́͊l̶͚̐u̵̍̾c̴̛̅k̷̤̈</p>
+		</div>
+	</article>
+	<article>
+		<h2>Customization:</h2>
+		<video controls>
+			<source src="img/MD/customize.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+		<p>MiniDev has 760+ customization elements:</p>
+		<p>23 types of clothes, each avalible in 35 colors</p>
+		<p>5 expressions (only in the Original Shell) also each avalible in 35 colors</p>
+		<p>6 outfits, 4 are unlocked by dressing like other ghosts</p>
+		<p>21 skin colors, ranging from white and black to blue and purple</p>
+		<p><br>You can also customazie MiniDevs name and character traits
+</p><p>Character traits are more explained in MiniDev</p>
+	</article>
+	<article>
+		<h2>Story:</h2>
+		<p>Find clues and discover the story hidden inside MiniDev alongs side his hidden functions.</p>
+		<p>To begin your adventure go to you SSP preferences (either by |right click menu --> options --> preferences| or |functions --> open SSP preferences) and make sure the developer options box is checked</p>
+		<img src="img/MD/dev%20functions.png">
+<p>Ctrl + s -- this is script input, you can use it to make the charater say something but for the MD story purposes you need to remember that all things starting with "\!" should be used there.</p>
+		<p><br>First Clue is hidden on this page</p>
+	</article>
+</body></html>

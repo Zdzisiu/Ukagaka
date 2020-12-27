@@ -1,92 +1,164 @@
-* {
-    box-sizing: border-box;
-}
-
-.hidden
-{
-    color: #266e8a00;
-}
-
 body {
-    background: #030203 url("img/back.png") no-repeat fixed;
-    background-size: cover;
-    color: #f1ebeb;
-    font-family: "Share Tech Mono", monospace;
-    height: 100%;
-    
+	background: #030203 url("img/back.png") no-repeat fixed;
+	background-size: cover;
+	color: #f1ebeb;
+	font-family: "Share Tech Mono", monospace;
+	height: 100%;
 }
 
-nav a {
-    color: #f1ebeb;
+#ar {
+	margin-top: -1vw;
 }
 
-a {
-    text-decoration: none;
-    color: #ff89ef;
+article {
+	float: right;
+	background: #2e264be1;
+	padding: 2vw;
+	height: auto;
+	width: 65vw;
+	margin-top: 1vw;
+	font-size: 1vw;
 }
 
-a:hover {
-    color: #f1ebeb;
+#ukg {
+	width: 4vw;
+	left: 0;
+	margin-top: 1vw;
+	height: auto;
+	border-radius: 5vw;
+	position: absolute;
 }
 
-.ar {
-    background: #2e264be1;
-    padding: 2vw;
-    height: 45vw;
-    width: 77vw;
-    margin-top: 1vw;
-    float: right;
-    font-size: 1vw;
-    
+#web {
+	margin-left: 3vw;
 }
 
-.navbar {
-    padding: 1.5vw;
-}
-
-.navbar:hover {
-    background: #b058a1;
-}
-
-nav {
-    margin-top: 0;
-    background: #712263;
-    font-size: 1.5vw;
-    padding: 1vw;
+.sidenote {
+	float: left;
+	background-color: #266e8ad7;
+	width: 27vw;
+	left: 0;
+	z-index: 0;
+	height: auto;
+	padding: 1vw;
+	margin-top: 4vw;
+	position: fixed;
 }
 
 aside {
-    background: #266e8ad7;
-    width: 20vw;
-    height: 16vw;
-    float: left;
-    padding: 1vw;
-    font-size: 1vw;
-    margin-top: 1vw;
+	float: left;
+	background-color: #266e8ad7;
+	width: 27vw;
+	left: 0;
+	z-index: 0;
+	height: auto;
+	padding: 1vw;
+	margin-top: 515px;
+	position: fixed;
 }
 
-.dreamteam {
-    background: #266e8ad7;
-    width: 20vw;
-    height: 18vw;
-    float: left;
-    padding: 1vw;
-    font-size: 1vw;
-    margin-top: 1vw;
-    position: static;
+.banner {
+	float: left;
+	width: 27vw;
+	padding: 1vw;
+	left: 0;
+	z-index: 0;
+	height: auto;
+	margin-top: 350px;
+	position: fixed;
+	background-color: #266e8ad7;
 }
 
-.uk {
-    background: #2266a0d7;
-    width: 20vw;
-    height: 10vw;
-    float: left;
-    padding: 1vw;
-    font-size: 1.3vw;
-    margin-top: 1vw;
-    position: static;
+.dropdown {
+	position: relative;
+	display: inline-block;
 }
 
-.uk a{
-    color: #ff89ef;
+a {
+	text-decoration: none;
+	color: #ff89ef;
 }
+
+nav {
+	background-color: #712263;
+	width: 29vw;
+	top: 0;
+	z-index: 1;
+	left: 0;
+	height: 3.5vw;
+	position: fixed;
+}
+
+nav a {
+	color: #f1ebeb;
+	padding: 1.5vw;
+}
+
+.navbtn {
+	background-color: #712263;
+	color: #f1ebeb;
+	float: left;
+	padding: 1.15vw 2vw;
+	font-size: 1vw;
+}
+
+.dropdown-content {
+	margin-top: 3.4vw;
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	width: 12vw;
+	z-index: 1;
+}
+
+.dropdown-content p {
+	border-bottom: 0.1vw solid black;
+	font-weight: bold;
+	color: black;
+	padding: 1vw;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a {
+	color: black;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.navbtn:hover {
+	background-color: #b058a1;
+}
+
+.hidden {
+		color: #2e264be1;
+}
+
+.code {
+	background: linear-gradient(75deg, rgba(14,14,14,1) 75%, rgba(49,49,49,1) 100%);
+	border-radius: 50px;
+	padding: 20px;
+	font-size: 0.9vw;
+	font-family: "Share Tech Mono", monospace;
+}
+
+.string {
+	color: #CA9371;
+}
+
+.if {
+	color: #307ab7;
+}
+
+.bracket {
+	color: #f2c42b;
+}
+

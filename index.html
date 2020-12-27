@@ -1,84 +1,85 @@
 <!DOCTYPE html>
 <html lang="pl">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ukagaka</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <head>
+	<meta charset="utf-8">
+	<title>Ukagaka</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<script src="js.js"></script>
 </head>
+
 <body onload="GetColor()">
-    <script>
-        function GetColor(){
-            var colors = ["#ff89ef", "#89ffff", "#92ff89", "#faff89", "#ff8989", "#9591ff"];
+	<nav>
+		<a href="index.html"  class="navbtn" style="margin-left: 1vw;">Home</a>
+		<div class="dropdown">
+			<a class="dropbtn navbtn">Ghosts</a>
+			<div class="dropdown-content">
+				<p>Released</p>
+				<a href="MD.html">MiniDev</a>
+				<a href="cat.html">Cat</a>
+				<p>Collab Ghosts</p>
+				<a href="https://zichqec.github.io/s-the-skeleton/hydrate.html">Hydrate</a>
+				<p>Work in Progress</p>
+				<a href="wrlpln.html">World Planner</a>
+				<a href="gian.html">Gian</a>
+				<a href="stuff.html">Stuff</a>
+				<a href="plant.html">Plant</a>
+			</div>
+		</div>
+			<a href="shells.html" class=" navbtn">Shells</a>
+		<a href="code.html" class="navbtn">Code</a>
+	</nav>
+	<div class="sidenote">
+		<h3>Ukagaka Dream Team</h3>
+		<p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
+		<p>Join us on:</p>
+		<a href="https://ukagakadreamteam.tumblr.com/" class="color">Tumblr</a>
+		<p></p>
+		<a href="http://discord.gg/uBPq8XF" class="color">Discord</a>
+		<p></p>
+		<a href="https://twitter.com/Project_Ukagaka" class="color">Twitter</a>
+	</div>
+	<div class="banner">
+		<img src="img/ukagaka%20icon.jpg" id="ukg">
+		<div id="web">
+			<p align="center">&#128123; <i>Member of the <a href="https://ukagakawebring.netlify.com/" target="_new" class="color">Ukagaka/Ghost Development and Download</a> webring</i> &#128123;</p>
+			<p align="center">&#128123; | <a href="https://ukagakawebring.netlify.com//prev" class="color">Previous</a> |
+				<a href="https://ukagakawebring.netlify.com//random" class="color">Random</a> |
+				<a href="https://ukagakawebring.netlify.com//next" class="color">Next</a> | &#128123;
+			</p>
+		</div>
+		<script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script>
+	</div>
+	<article id="ar">
+		<h2>Hi there!</h2>
+		<p>I'm Zdzisu and this is a website for my Ukagakas and ukagaka related stuff.</p>
+		<p><b>Currently Working on: </b><a href="#" class="color">Stuff</a></p>
+		<p><b>Latest Update:</b> <a href="#" class="color">MiniDev</a></p>
+	</article>
+	<article>
+		<h4>If you need help or just want to talk you can contact me on:</h4>
+		<p>Discord: <span class="color">Zdzisiu#6998</span></p>
+		<p>Instagram: <span class="color">gremlin_zdzisiu</span></p>
+		<br />
+	</article>
 
-            var random_color = colors[Math.floor( 
-                                Math.random() * colors.length)]; 
-            
-            document.getElementById("style1").style.color = random_color;
-            document.getElementById("style2").style.color = random_color;
-            document.getElementById("style3").style.color = random_color;
-            document.getElementById("style4").style.color = random_color;
-            document.getElementById("style5").style.color = random_color;
-            document.getElementById("style6").style.color = random_color;
-            document.getElementById("style7").style.color = random_color;
-            document.getElementById("style8").style.color = random_color;
-            document.getElementById("style9").style.color = random_color;
-            document.getElementById("style10").style.color = random_color;
-            document.getElementById("style11").style.color = random_color;
-            document.getElementById("style12").style.color = random_color;
-        }
-    </script>
-    <nav>
-        <a href="index.html" class="navbar">Home</a>
-        <a href="md.html" class="navbar">MiniDev</a>
-        <!--<a href="ho.html" class="navbar">Hoodoo</a>-->
-        <a href="gi.html" class="navbar">Gian</a>
-        <a href="cat.html" class="navbar">Cat</a>
-        <a href="wp.html" class="navbar">World Planner</a>
-    </nav>
-    <aside>
-        <h3>Who am I?</h3>
-        <p>My pseudonim is Zdzisiu, I'm a young, polish programmist in school.</p>
-        <p>If you have any questions or just want to talk:</p>
-        <p>Discord: <span style="color: #ff89ef" id="style1">Zdzisiu#6998</span></p>
-    </aside>
-    <div class="ar">
-        <article>
-            <h2>Welcome to my site wanderer</h2>
-            <h3>What is this site?</h3>
-            <p>This site documents my progress on my Ukagakas</p>
-            <h3>What is ukagaka?</h3>
-            <p>Ukagaka is a catch-all term for Japanese software which shares a single format and function: to provide a pair of mascot characters for the user’s computer desktop. These mascot characters can perform some useful functions such as checking e-mail or adjusting the clock of the computer, but are most popular as an aesthetic add-on, which “says” weird things.</p>
-            <h3>What are the names in the navigation bar?</h3>
-            <p>Those are names of my ukagakas, as for now only <a href="md.html"  id="style2">MiniDev</a> and <a href="cat.html"  id="style3">Cat</a> can be downloaded, <a href="wp.html"  id="style11">World Planner</a> is in beta and <a href="gi.html"  id="style12">Gian</a> is still a work in progress</p>
-        </article>
-    </div>
-    <div class="dreamteam">
-        <h3>Ukagaka Dream Team</h3>
-        <p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
-        <p>Join us on:</p>
-        <a href="https://ukagakadreamteam.tumblr.com/" class="smedia"  id="style4">Tumblr</a>
-        <p></p>
-        <a href="http://discord.gg/uBPq8XF" class="smedia"  id="style5">Discord</a>
-        <p></p>
-        <a href="https://twitter.com/Project_Ukagaka" class="smedia"  id="style6">Twitter</a>
-    </div>
-    <div class="uk">
-        <!-- <webring-banner>
-         <p>Member of the <a href="https://ukagakawebring.netlify.com/">Ukagaka/Ghost Development and Download</a> webring</p>
-            <a href="https://ukagakawebring.netlify.com//prev">Previous</a>
-            <a href="https://ukagakawebring.netlify.com//random">Random</a>
-            <a href="https://ukagakawebring.netlify.com//next">Next</a>
-        </webring-banner>
-        <script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script> -->
-        
-        <p>Find more <a href="https://ukagakawebring.netlify.com/"  id="style7">Ukagakas</a>:</p>
-            <a href="https://ukagakawebring.netlify.com//prev"  id="style8" style="text-transform: uppercase">Previous</a>
-            <a href="https://ukagakawebring.netlify.com//random"  id="style9" style="text-transform: uppercase">Random</a>
-            <a href="https://ukagakawebring.netlify.com//next"  id="style10" style="text-transform: uppercase">Next</a>
-    </div>
-</body>
+	<article>
+		<h3>What is ukagaka/ghost?</h3>
 
-</html>
+		<img src="img/MD/MD%20default.png">
+		<p>It is a character (or sometimes item) that sits on your desktop, they are able to do small task like emptying your recycling bin or checking weather. Most of them can just keep you company with their dialogue and some even have their own lore.</p>
+
+		<h3>How to use ghosts?</h3>
+		<p>First you will need a program to run them:</p>
+		<p>Windows: <a href="http://ssp.shillest.net" class="color">SSP</a></p>
+		<p>Mac: <a href="https://www14.big.or.jp/~ayase/ese/" class="color">Ukagaka on Macs</a>, <a href="http://ccm.sherry.jp/ninni/index.en.html" class="color">NiseRingo</a>, <a href="http://tablesalt.o0o0.jp/ukagaka/ct_maconssp.html" class="color">PlayonMac+SSP</a>, <a href="https://winebottler.kronenberg.org" class="color">WineBottler</a></p>
+		<p>Linux: <a href="http://ninix-aya.osdn.jp" class="color">NINIX-AYA</a></p>
+
+		<p>Sadly I haven't tested programs outside windows so I can only explain how to use SSP</p>
+
+		<p>After downloading and opening SSP, a catgirl should appear and say stuff in Japanese, this is Emily, the "default" ghost for SSP. Right click on her to open the menu, there, the 4th option from the bottom lets you can change SSP language from japanese to english, then you need to restart SSP.</p>
+
+		<p>To install another ghost you need it's .nar file, after downloading it you have to drag and drop it on the ghost. Then, in the right click menu hover over "Call ghost" or "Change ghost" and chose the ghost you want to open.</p>
+	</article>
+</body></html>

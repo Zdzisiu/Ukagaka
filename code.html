@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+	<meta charset="utf-8">
+	<title>Ukagaka</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<script src="js.js"></script>
+		<script>
+		function ColorCode(){
+
+            var code = document.getElementsByClassName("code");
+						var b = code.length
+	
+            for(var i=0;i<b;i++)
+            {
+								code[i].innerHTML = code[i].innerHTML.replace(/\=/g,"<span class=\"string\">=</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/\{/g,"<span class=\"bracket\">{</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/\}/g,"<span class=\"bracket\">{</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/--/g,"<span class=\"bracket\">--</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/if/g,"<span class=\"if\">if</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/for /g,"<span class=\"if\">for </span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/elseif/g,"<span class=\"if\">elseif</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/else/g,"<span class=\"if\">else</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/else/g,"<span class=\"if\">else</span>");
+                code[i].innerHTML = code[i].innerHTML.replace(/\+/g,"<span class=\"string\">+</span>");
+            }
+	
+						//alert(a);
+            
+        }
+		</script>
+</head>
+
+<body onload="GetColor(); ColorCode();">
+	<nav>
+		<a href="index.html"  class="navbtn" style="margin-left: 1vw;">Home</a>
+		<div class="dropdown">
+			<a class="dropbtn navbtn">Ghosts</a>
+			<div class="dropdown-content">
+				<p>Released</p>
+				<a href="MD.html">MiniDev</a>
+				<a href="cat.html">Cat</a>
+				<p>Collab Ghosts</p>
+				<a href="https://zichqec.github.io/s-the-skeleton/hydrate.html">Hydrate</a>
+				<p>Work in Progress</p>
+				<a href="wrlpln.html">World Planner</a>
+				<a href="gian.html">Gian</a>
+				<a href="stuff.html">Stuff</a>
+				<a href="plant.html">Plant</a>
+			</div>
+		</div>
+			<a href="shells.html" class=" navbtn">Shells</a>
+		<a href="code.html" class="navbtn">Code</a>
+	</nav>
+	<div class="sidenote">
+		<h3>Ukagaka Dream Team</h3>
+		<p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
+		<p>Join us on:</p>
+		<a href="https://ukagakadreamteam.tumblr.com/" class="color">Tumblr</a>
+		<p></p>
+		<a href="http://discord.gg/uBPq8XF" class="color">Discord</a>
+		<p></p>
+		<a href="https://twitter.com/Project_Ukagaka" class="color">Twitter</a>
+	</div>
+	<div class="banner">
+		<img src="img/ukagaka%20icon.jpg" id="ukg">
+		<div id="web">
+			<p align="center">&#128123; <i>Member of the <a href="https://ukagakawebring.netlify.com/" target="_new" class="color">Ukagaka/Ghost Development and Download</a> webring</i> &#128123;</p>
+			<p align="center">&#128123; | <a href="https://ukagakawebring.netlify.com//prev" class="color">Previous</a> |
+				<a href="https://ukagakawebring.netlify.com//random" class="color">Random</a> |
+				<a href="https://ukagakawebring.netlify.com//next" class="color">Next</a> | &#128123;
+			</p>
+		</div>
+		<script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script>
+	</div>
+	<article id="ar">
+		<h2>Code Snippets</h2>
+		<p>On this page you can find code snippets that might be helpful for your ghost</p>
+	</article>
+	<article>
+	<h2>To-Do List</h2>
+		<p>Simple To Do list code from <a href="MD.html" class="color">MiniDev</a></p>
+		<pre class="code">
+Select.todo
+{
+	&quot;\_q\1\b[4]&quot;
+	--
+	taskforpage = &quot;&quot;
+	lefttask = 0
+	pagetasks = REPLACE(tasks[pagenum],&quot;+&quot;,&quot;,&quot;)
+	pagetaskstatus = REPLACE(taskstatus[pagenum],&quot;+&quot;,&quot;,&quot;)
+	--
+	for _i=1;_i&lt;=taskamount[pagenum];_i++
+	{
+		pagetaskstatus[_i] = TOINT(pagetaskstatus[_i])
+		--
+		if pagetaskstatus[_i] == 0 || pagetaskstatus[_i] == &quot;&quot;
+		{
+			lefttask[pagenum]++
+		}
+	}
+	--
+	&quot;\*\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]/
+	Number of Tasks: \f[bold,1]%(taskamount[pagenum])\f[bold,0]\nTasks to do: %(lefttask[pagenum])\n\n[half]&quot;
+	--
+	for _i=1;_i&lt;=taskamount[pagenum];_i++
+	{
+		if pagetaskstatus[_i] == 1
+		{
+			taskforpage += &quot;\f[strike,1]\q[&quot; + _i + &quot;. &quot; + pagetasks[_i] + &quot;,OnMarkTask,&quot; + _i + &quot;]\f[strike,0]\n&quot;
+		}
+		else
+		{
+			taskforpage += &quot;\q[&quot; + _i + &quot;. &quot; + pagetasks[_i] + &quot;,OnMarkTask,&quot; + _i + &quot;]\n&quot;
+		}
+	}
+	--
+	&quot;%(taskforpage)&quot;
+	--
+	&quot;\n\f[height,20]\q[+,qcrtsk] | &quot;
+	--
+	if deltasks != 1
+	{
+		&quot;\q[-,crtsk]\n&quot;
+	}
+	else
+	{
+		&quot;\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]&quot;
+	}
+	--
+	&quot;\f[height,10]&quot;
+	--
+	if pagenum != 0
+	{
+		&quot;\q[&lt;-- ,prevpage]&quot;
+	}
+	--
+	if pagenum &lt; todopagenum
+	{
+		&quot;\q[ --&gt;,nextpage]&quot; 
+	}
+	--
+	&quot;\n\q[Delete page,delpage]  | \q[Rename Page,repage] | \q[New Page,crepage]\n\n[half]/
+	\![*]\q[Close,closetodo]\f[height,default]\e&quot;
+}
+
+Select.crepage
+{
+	todopagenum++
+	pagenum++
+	namepage[pagenum] = &quot;&quot;
+	taskamount[pagenum]
+	--
+	Select.todo
+}
+
+Select.repage
+{
+	&quot;\![open,inputbox,OnRenamePage,-1]&quot;
+}
+
+OnRenamePage
+{
+	namepage[pagenum] = reference0
+	--
+	Select.todo
+}
+
+Select.nextpage
+{
+	pagenum++
+	--
+	Select.todo
+}
+
+Select.prevpage
+{
+	pagenum--
+	--
+	Select.todo
+}
+
+Select.qcrtsk
+{
+	&quot;\![open,inputbox,OnCreateTask,-1]&quot;
+}
+
+Select.delpage
+{
+	if pagenum != 0
+	{
+		for _i=pagenum;_i&lt;todopagenum;_i++
+		{
+			taskstatus[_i] = taskstatus[_i+1]
+			tasks[_i] = tasks[_i+1]
+			namepage[_i] = namepage[_i+1]
+			taskamount[_i] = taskamount[_i+1]
+		}
+		--
+		todopagenum--
+		--
+		if pagenum &lt; todopagenum 
+		{
+			pagenum++
+		}
+		else
+		{
+			pagenum--
+		}
+	}
+	else
+	{
+		taskstatus[pagenum] = 0
+		tasks[pagenum] = &quot;&quot;
+		namepage[pagenum] = &quot;&quot;
+		taskamount[_i] = 0
+	}
+	--
+	Select.todo
+}
+
+OnCreateTask
+{
+	taskamount[pagenum]++
+	pagetasks[taskamount[pagenum]] = reference0
+	tasks[pagenum] = REPLACE(pagetasks,&quot;,&quot;,&quot;+&quot;)
+	--
+	Select.todo
+}
+
+Select.crtsk
+{
+	if deltasks != 1
+	{
+		deltasks = 1
+	}
+	else
+	{
+		deltasks = 0
+	}
+	--
+	Select.todo
+}
+
+OnMarkTask
+{
+	choosenum = reference0
+	--
+	if deltasks == 1
+	{
+		OnDeleteTask
+	}
+	else
+	{
+		OnMarkTask_done
+	}
+}
+
+OnDeleteTask
+{
+	for _i=choosenum;_i&lt;taskamount[pagenum]+1;_i++
+	{
+		pagetaskstatus[_i] = pagetaskstatus[_i+1]
+		pagetasks[_i] = pagetasks[_i+1]
+	}
+	--
+	tasks[pagenum] = REPLACE(pagetasks,&quot;,&quot;,&quot;+&quot;)
+	taskstatus[pagenum] = REPLACE(pagetaskstatus,&quot;,&quot;,&quot;+&quot;)
+	taskamount[pagenum]--
+	--
+	Select.todo
+}
+
+OnMarkTask_done
+{
+	if pagetaskstatus[choosenum] == 0
+	{
+		pagetaskstatus[choosenum] = 1
+	}
+	else
+	{
+		pagetaskstatus[choosenum] = 0
+	}
+	--
+	taskstatus[pagenum] = REPLACE(pagetaskstatus,&quot;,&quot;,&quot;+&quot;)
+	--
+	Select.todo
+}
+		</pre>
+	</article>
+	<article>
+		<h2>Animation RegEx</h2>
+		<p>Simple Function to delete all animations if not in correct shell, it should be inside <b>OnTranslate</b></p>
+	<pre class="code">
+	if nowshell != &quot;Animated&quot; //change animated to the shell name
+	{
+		_talk = RE_REPLACE(_talk,&quot;(\\i\[\d*\])&quot;,&quot;&quot;)
+	}
+	</pre>
+	</article>
+</body></html>

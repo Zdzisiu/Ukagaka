@@ -1,79 +1,68 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ukagaka</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="js/js.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<html lang="pl">
+  <head>
+	<meta charset="utf-8">
+	<title>Ukagaka</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<script src="js.js"></script>
 </head>
 
 <body onload="GetColor()">
-    <script>
-        function GetColor(){
-            var colors = ["#ff89ef", "#89ffff", "#92ff89", "#faff89", "#ff8989", "#9591ff"];
-
-            var random_color = colors[Math.floor( 
-                                Math.random() * colors.length)]; 
-            
-            document.getElementById("style3").style.color = random_color;
-            document.getElementById("style4").style.color = random_color;
-            document.getElementById("style5").style.color = random_color;
-            document.getElementById("style6").style.color = random_color;
-            document.getElementById("style7").style.color = random_color;
-            document.getElementById("style8").style.color = random_color;
-            document.getElementById("style9").style.color = random_color;
-            document.getElementById("style10").style.color = random_color;
-        }
-    </script>
-    <nav>
-        <a href="index.html" class="navbar">Home</a>
-        <a href="md.html" class="navbar">MiniDev</a>
-        <!--<a href="ho.html" class="navbar">Hoodoo</a>-->
-        <a href="gi.html" class="navbar">Gian</a>
-        <a href="cat.html" class="navbar">Cat</a>
-        <a href="wp.html" class="navbar">World Planner</a>
-    </nav>
-    <aside>
-        <h3>Cat: <a href="cat.nar" id="style3">DOWNLOAD</a></h3>
-        <p>Just a cat.</p>
-        <p>He purrs and meows.</p>
-        <p>Nothing more.</p>
-        <p>Nothing less.</p>
-    </aside>
-    <div class="ar">
-        <article>
-            <p>He purrs and meows.</p>
-            <p>Nothing more.</p>
-            <p>Nothing less.</p>
-        </article>
-    </div>
-    <div class="dreamteam">
-        <h3>Ukagaka Dream Team</h3>
-        <p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
-        <p>Join us on:</p>
-        <a href="https://ukagakadreamteam.tumblr.com/" class="smedia"  id="style4">Tumblr</a>
-        <p></p>
-        <a href="http://discord.gg/uBPq8XF" class="smedia"  id="style5">Discord</a>
-        <p></p>
-        <a href="https://twitter.com/Project_Ukagaka" class="smedia"  id="style6">Twitter</a>
-    </div>
-    <div class="uk">
-        <!-- <webring-banner>
-         <p>Member of the <a href="https://ukagakawebring.netlify.com/">Ukagaka/Ghost Development and Download</a> webring</p>
-            <a href="https://ukagakawebring.netlify.com//prev">Previous</a>
-            <a href="https://ukagakawebring.netlify.com//random">Random</a>
-            <a href="https://ukagakawebring.netlify.com//next">Next</a>
-        </webring-banner>
-        <script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script> -->
-        
-        <p>Find more <a href="https://ukagakawebring.netlify.com/"  id="style7">Ukagakas</a>:</p>
-            <a href="https://ukagakawebring.netlify.com//prev"  id="style8" style="text-transform: uppercase">Previous</a>
-            <a href="https://ukagakawebring.netlify.com//random"  id="style9" style="text-transform: uppercase">Random</a>
-            <a href="https://ukagakawebring.netlify.com//next"  id="style10" style="text-transform: uppercase">Next</a>
-    </div>
-</body>
-
-</html>
+	<nav>
+		<a href="index.html"  class="navbtn" style="margin-left: 1vw;">Home</a>
+		<div class="dropdown">
+			<a class="dropbtn navbtn">Ghosts</a>
+			<div class="dropdown-content">
+				<p>Released</p>
+				<a href="MD.html">MiniDev</a>
+				<a href="cat.html">Cat</a>
+				<p>Collab Ghosts</p>
+				<a href="https://zichqec.github.io/s-the-skeleton/hydrate.html">Hydrate</a>
+				<p>Work in Progress</p>
+				<a href="wrlpln.html">World Planner</a>
+				<a href="gian.html">Gian</a>
+				<a href="stuff.html">Stuff</a>
+				<a href="plant.html">Plant</a>
+			</div>
+		</div>
+			<a href="shells.html" class=" navbtn">Shells</a>
+		<a href="code.html" class="navbtn">Code</a>
+	</nav>
+	<div class="sidenote">
+		<h3>Ukagaka Dream Team</h3>
+		<p>Ukagaka Dream Team is a community of people interested in ukagakas (both developers and users)</p>
+		<p>Join us on:</p>
+		<a href="https://ukagakadreamteam.tumblr.com/" class="color">Tumblr</a>
+		<p></p>
+		<a href="http://discord.gg/uBPq8XF" class="color">Discord</a>
+		<p></p>
+		<a href="https://twitter.com/Project_Ukagaka" class="color">Twitter</a>
+	</div>
+	<div class="banner">
+		<img src="img/ukagaka%20icon.jpg" id="ukg">
+		<div id="web">
+			<p align="center">&#128123; <i>Member of the <a href="https://ukagakawebring.netlify.com/" target="_new" class="color">Ukagaka/Ghost Development and Download</a> webring</i> &#128123;</p>
+			<p align="center">&#128123; | <a href="https://ukagakawebring.netlify.com//prev" class="color">Previous</a> |
+				<a href="https://ukagakawebring.netlify.com//random" class="color">Random</a> |
+				<a href="https://ukagakawebring.netlify.com//next" class="color">Next</a> | &#128123;
+			</p>
+		</div>
+		<script async src="https://ukagakawebring.netlify.com//embed.js" charset="utf-8"></script>
+	</div>
+	<aside>
+			<h2>Download</h2>
+		<p><b>Cat:</b> <a href="ghosts/cat.nar" class="color">DOWNLOAD</a></p>
+		<p><b>Balloon "Cat Paws":</b> <a href="balloons/catpaws.nar" class="color">DOWNLOAD</a></p>
+		<p><b>Shell "Black Cat":</b> <a href="shells/Black Cat.nar" class="color">DOWNLOAD</a></p>
+		</aside>
+	<article id="ar">
+		<h2>Cat</h2>
+		<img src="img/cat/cat2.png" alt="Cat Ghost">
+		<p>He purrs</p>
+		<p>He he meows</p>
+		<p>Nothing less</p>
+		<p>Nothing more</p>
+	</article>
+</body></html>
