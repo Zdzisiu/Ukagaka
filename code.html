@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
+
+<head>
 	<meta charset="utf-8">
 	<title>Ukagaka</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 	<script src="js.js"></script>
-		<script>
-		function ColorCode(){
+	<script>
+		function ColorCode() {
 
-            var code = document.getElementsByClassName("code");
-						var b = code.length
-	
-            for(var i=0;i<b;i++)
-            {
-								code[i].innerHTML = code[i].innerHTML.replace(/\=/g,"<span class=\"string\">=</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/\{/g,"<span class=\"bracket\">{</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/\}/g,"<span class=\"bracket\">{</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/--/g,"<span class=\"bracket\">--</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/if/g,"<span class=\"if\">if</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/for /g,"<span class=\"if\">for </span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/elseif/g,"<span class=\"if\">elseif</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/else/g,"<span class=\"if\">else</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/else/g,"<span class=\"if\">else</span>");
-                code[i].innerHTML = code[i].innerHTML.replace(/\+/g,"<span class=\"string\">+</span>");
-            }
-	
-						//alert(a);
-            
-        }
-		</script>
+			var code = document.getElementsByClassName("code");
+			var b = code.length;
+
+			for (var i = 0; i < b; i++) {
+				code[i].innerHTML = code[i].innerHTML.replace(/\=/g, "<span class=\"string\">=</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/\{/g, "<span class=\"bracket\">{</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/\}/g, "<span class=\"bracket\">}</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/--/g, "<span class=\"bracket\">--</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/if/g, "<span class=\"if\">if</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/for /g, "<span class=\"if\">for </span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/elseif/g, "<span class=\"if\">elseif</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/else/g, "<span class=\"if\">else</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/else/g, "<span class=\"if\">else</span>");
+				code[i].innerHTML = code[i].innerHTML.replace(/\+/g, "<span class=\"string\">+</span>");
+			}
+
+			//alert(a);
+
+		}
+	</script>
 </head>
 
 <body onload="GetColor(); ColorCode();">
 	<nav>
-		<a href="index.html"  class="navbtn" style="margin-left: 1vw;">Home</a>
+		<a href="index.html" class="navbtn" style="margin-left: 1vw;">Home</a>
 		<div class="dropdown">
 			<a class="dropbtn navbtn">Ghosts</a>
 			<div class="dropdown-content">
@@ -51,7 +51,7 @@
 				<a href="plant.html">Plant</a>
 			</div>
 		</div>
-			<a href="shells.html" class=" navbtn">Shells</a>
+		<a href="shells.html" class=" navbtn">Shells</a>
 		<a href="code.html" class="navbtn">Code</a>
 	</nav>
 	<div class="sidenote">
@@ -67,8 +67,10 @@
 	<div class="banner">
 		<img src="img/ukagaka%20icon.jpg" id="ukg">
 		<div id="web">
-			<p align="center">&#128123; <i>Member of the <a href="https://ukagakawebring.netlify.com/" target="_new" class="color">Ukagaka/Ghost Development and Download</a> webring</i> &#128123;</p>
-			<p align="center">&#128123; | <a href="https://ukagakawebring.netlify.com//prev" class="color">Previous</a> |
+			<p align="center">&#128123; <i>Member of the <a href="https://ukagakawebring.netlify.com/" target="_new"
+						class="color">Ukagaka/Ghost Development and Download</a> webring</i> &#128123;</p>
+			<p align="center">&#128123; | <a href="https://ukagakawebring.netlify.com//prev" class="color">Previous</a>
+				|
 				<a href="https://ukagakawebring.netlify.com//random" class="color">Random</a> |
 				<a href="https://ukagakawebring.netlify.com//next" class="color">Next</a> | &#128123;
 			</p>
@@ -80,7 +82,7 @@
 		<p>On this page you can find code snippets that might be helpful for your ghost</p>
 	</article>
 	<article>
-	<h2>To-Do List</h2>
+		<h2>To-Do List</h2>
 		<p>Simple To Do list code from <a href="MD.html" class="color">MiniDev</a></p>
 		<pre class="code">
 Select.todo
@@ -293,11 +295,13 @@ OnMarkTask_done
 	<article>
 		<h2>Animation RegEx</h2>
 		<p>Simple Function to delete all animations if not in correct shell, it should be inside <b>OnTranslate</b></p>
-	<pre class="code">
+		<pre class="code">
 	if nowshell != &quot;Animated&quot; //change animated to the shell name
 	{
 		_talk = RE_REPLACE(_talk,&quot;(\\i\[\d*\])&quot;,&quot;&quot;)
 	}
 	</pre>
 	</article>
-</body></html>
+</body>
+
+</html>
