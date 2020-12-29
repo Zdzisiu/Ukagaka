@@ -1,0 +1,82 @@
+//--Balloons2s.txt
+//So, if all your balloons are the same size and don't change depending on if they flip left and right because you were clever with your balloon tails, then great! You probably won't need any of these individual text files. However, if your balloons DO differ from each other, such as a big menu balloon and a smaller balloon, or two entirely different balloons for your two characters, then you'll want to set some extra details for those balloons to make sure things look right. You don't want your vertically spaced arrows at the very bottom of a tall balloon, right?
+
+//These txt files will inherit everything from descript.txt, EXCEPT what you change in here. So feel free to ONLY put what needs to be changed in here. Don't give yourself more work or make these files longer than they need to be for no reason, you know?
+
+//The problem with big balloons is that they don't show up in balloon test mode. So you'll have to use the Script Input to get them to show up. Put \b2 in front of any dialogue you put into Script Input to make them use a big balloon, then just put in a bunch of nonsense until it scrolls or whatever and you can test what you need. You can also try using Headlines or RSS feeds to make a big balloon scroll.
+
+
+//--Differences
+
+
+origin.x,10
+origin.y,10
+
+//Because the big menu balloon is bigger, make sure to check its origin point. In this case, the two mostly matched, but you should always check.
+
+
+validrect.left,10
+validrect.top,10
+validrect.right,310
+validrect.bottom,320
+
+
+//Since this is a bigger balloon, we need to reset the text area as well. Because I just stretched this balloon vertically, the left and right values are mostly the same, but the bottom value is different. If your balloon is larger in all dimensions, you will definitely have to adjust these.
+
+
+wordwrappoint.x,300
+wordwrappoint.y,0
+
+
+
+//I noticed while testing the Headlines with a big balloon that the wordwrap should be a bit tighter here for Japanese characters, and so shrank it a little accordingly. If your balloons are a lot bigger or smaller than each other, you'll have to adjust this as well yourself.
+
+
+
+//You could potentially change font size and color for unique balloons, but really, why bother? I suppose it's up to you and your balloon vision though. :o If you don't need to change any of these, just delete them. This file should ONLY contain changes you've made to anything that would be in descript.txt.
+
+
+windowposition.x,0
+windowposition.y,0
+
+//You may want to adjust the position of your balloon if it's extremely large or something like that. Otherwise, ignore this/delete it.
+
+
+//Image Markers
+//Here's where we need to realign things properly for our big balloon.
+
+arrow0.x,320
+arrow0.y,8
+
+arrow1.x,320
+arrow1.y,316
+
+//The big changes here applied to the down arrow, arrow1. As you can see, the .y value is way different than with descript.txt, since the arrow is much lower.
+
+
+onlinemarker.x,8
+onlinemarker.y,316
+
+//Since the bottom of our balloon is lower, again we'll need to adjust the y value. It's unlikely however that a ghost will have a big balloon up while checking something online, but you might as well be thorough.
+
+
+sstpmarker.x,48
+sstpmarker.y,330
+
+//Adjusting placement...
+
+
+sstpmessage.x,76
+sstpmessage.y,330
+
+//Now the messages should take the big balloon into account.
+
+
+number.xr,318
+number.y,330
+
+//And again, much like the other elements, the y value has been changed here to reflect the longer box.
+
+//And that's it! And since I only moved the tails around on my balloons and didn't flip them horizontally or anything, these values will be the same for the other large balloon. In that case, all I have to do is copy this text file and rename it balloons3.txt and I'll be done! 
+//Even better, since the side character's balloons ALSO match in terms of size and dimensions with the main characters, only with a different color, then I can ALSO use this same file for them! You can see the benefits of being consistent.
+//However, if your two characters have separate balloons, like Hunter and Smoker do, you'll have to make sure each .txt file suits each balloon. But as you can see here, it's really only a matter of adjusting where the arrows and such are and the text area. Not too much, all things considered!
