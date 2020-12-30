@@ -10,6 +10,10 @@ body {
 	margin-top: -1vw;
 }
 
+#frstbtn {
+	margin-left: 1vw;
+}
+
 article {
 	float: right;
 	background: #2e264be1;
@@ -41,7 +45,7 @@ article {
 	z-index: 0;
 	height: auto;
 	padding: 1vw;
-	margin-top: 4vw;
+	margin-top: 3.5vw;
 	position: fixed;
 }
 
@@ -53,7 +57,7 @@ aside {
 	z-index: 0;
 	height: auto;
 	padding: 1vw;
-	margin-top: 515px;
+	margin-top: 490px;
 	position: fixed;
 }
 
@@ -64,7 +68,7 @@ aside {
 	left: 0;
 	z-index: 0;
 	height: auto;
-	margin-top: 350px;
+	margin-top: 335px;
 	position: fixed;
 	background-color: #266e8ad7;
 }
@@ -142,6 +146,10 @@ nav a {
 		color: #2e264be1;
 }
 
+iframe {
+	width: 100%;	
+	}
+
 .code {
 	background: linear-gradient(75deg, rgba(14,14,14,1) 75%, rgba(49,49,49,1) 100%);
 	border-radius: 50px;
@@ -162,3 +170,80 @@ nav a {
 	color: #f2c42b;
 }
 
+@media screen and (max-width: 800px) {
+		nav {
+		width: 100%;
+		height: 6vw;
+	}
+
+		.navbtn {
+		font-size: 3vw;
+		}
+	
+		#ar {
+		margin-top: 4.5vw;
+	}
+	
+	article {
+		float: left;
+		width: 95%;
+		font-size: 2vw;
+	}
+	
+	#ukg{
+	width: 8vw;
+	height: auto;
+		margin-top: 7vw;
+	border-radius: 5vw;
+	position: absolute;
+	}
+	
+	#web {
+	margin-left: 1vw;
+}
+	
+	.sidenote {
+	width: 100%;
+	margin-left: -1vw;
+	height: auto;
+	padding: 1vw;
+	margin-top: 1vw;
+	position: relative;
+}
+	
+	aside {
+		width: 100%;
+		margin-left: -1vw;
+		height: auto;
+		margin-top: 1vw;
+		position: relative;
+	}
+	
+	.dropdown-content {
+	margin-top: 6vw;
+	width: 30vw;
+}
+	
+	.banner {
+		float: left;
+		width: 100%;
+		padding: 1vw;
+		left: 0;
+		margin-left: -1vw;
+		z-index: 0;
+		height: auto;
+		margin-top: 1vw;
+		position: relative;
+
+	}
+	
+	#frstbtn {
+		margin-left: 30%;
+	}
+	
+	img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+}
