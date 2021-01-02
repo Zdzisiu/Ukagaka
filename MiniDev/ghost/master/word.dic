@@ -82,6 +82,7 @@ hihello
 	"Hi" 
 	"Hello"
 	"Yo"
+	"H0i"
 
 	if timeslot == "earlymorning" || timeslot == "morning" 
 	{ 
@@ -407,6 +408,18 @@ lightdark //quick tools
 			}
 		}
 	}
+	--
+	if musicp == 1
+	{
+		if mode != 1
+		{
+			"\p[15]\s[27]\p[16]\s[28]\p[17]\s[29]\p[18]\s[30]\p[19]\s[31]\p[20]\s[32]\p[21]\s[40]"
+		}
+		else
+		{
+			"\p[15]\s[33]\p[16]\s[34]\p[17]\s[35]\p[18]\s[36]\p[19]\s[37]\p[20]\s[38]\p[21]\s[39]"
+		}
+	}
 }
 
 didknow
@@ -487,7 +500,7 @@ myths
 	"Hillary Clinton is running a child sex ring out of a pizza parlor"
 	"the earth is %(shape)"
 	"space doesn't exist"
-	"dinosaurs buil the piramid of egypt"
+	"dinosaurs built the piramid of egypt"
 	"5G fries your brain"
 	"due to the inclusion of certain metal isotopes in its construction, the standard trombone is actually radioactive"
 	"birds aren’t real, they’re actually government surveillance drones"
@@ -518,7 +531,6 @@ shape
 	"on big turtle"
 	"3 elephants that stand on 3 whales"
 	"donut shaped"
-
 }
 
 pickupline
@@ -692,4 +704,134 @@ glassanimals
 	"Poplar St"
 	"Cane Shuga"
 	"Hazey"
+}
+
+TOPROPER
+{
+    _word = _argv[0]
+    _letter = TOUPPER(SUBSTR(_word,0,1))
+    _word = SUBSTR(_word,1,STRLEN(_word)-1)
+    _letter + _word
+}
+
+ingridients
+{
+	"cilantro"
+	"basil"
+	"lemon pepper"
+	"cloves"
+	"chives"
+	"butter"
+	"salt"
+	"paprika"
+	"sugar"
+	"cinnamon"
+	"pepper"
+	"lemon"
+	"orange zest"
+	"lemon zest"
+	"cumin"
+	"mint"
+	"garlic"
+	"curry powder"
+	"chili powder"
+	"nutmeg"
+	"ginger"
+	"mustard"
+	"tumeric"
+	"thyme"
+	"rosemary"
+	"allspice"
+	"dill weed"
+	"horseradish"
+	"oregano"
+	"sesame seeds"
+	"peppermint"
+	"sage"
+	"vanilla"
+	"wasabi"
+	"lime"
+	"parsley"
+}
+
+filetype
+{
+	".txt"
+	".dic"
+	".png"
+	".jpg"
+	".jpeg"
+	".mp3"
+	".exe"
+	".bat"
+	".cfg"
+	".wav"
+	".pdf"
+	".dat"
+	".gif"
+	".tiff"
+	".dll"
+	".pna"
+	".ico"
+	".dau"
+	".zip"
+	".nar"
+	".html"
+	".psd"
+	".mp4"
+	".ttf"
+}
+
+rock
+{
+	"andesite"
+	"basalt"
+	"shoshonite"
+	"carbonatite"
+	"corsite"
+	"gabbro"
+	"granite"
+	"hyaloclastite"
+	"ignimbrite"
+	"kimberlite"
+	"norite"
+	"obsidian"
+	"phonolite"
+	"pumice"
+	"scoria"
+	"chalk"
+	"chert"
+	"flint"
+	"claystone"
+	"siltstone"
+	"shale"
+	"slate"
+	"coquina"
+	"greywacke"
+	"itacolumite"
+	"limestone"
+	"oolite"
+	"phosphorite"
+	"sandstone"
+	"travertine"
+	"blueschist"
+	"eclogite"
+	"gneiss"
+	"greenschist"
+	"hornfels"
+	"marble"
+	"migmatite"
+	"phyllite"
+	"quartzite"
+	"soapstone"
+}
+
+folder
+{
+	"photo"
+	"music"
+	"art"
+	"document"
+	--
+	" folder"
 }

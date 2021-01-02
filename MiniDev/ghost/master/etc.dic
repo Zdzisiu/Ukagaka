@@ -34,6 +34,16 @@
 						--
 						FCOPY(file,"logs")
 					}
+					elseif "txt" _in_ projecttypes
+					{
+						"I'm adding '%(_filename)' to your project directory\e"
+						--
+						FCOPY(file,'projects')
+					}
+					else
+					{
+						"\0\s[0]This is %(_filename)%(_fileext).\e"
+					}
 				}
 				else
 				{
@@ -43,12 +53,31 @@
 						--
 						FCOPY(file,"logs")
 					}
+					elseif "txt" _in_ projecttypes
+					{
+						"I'm adding '%(_filename)' to your project directory\e"
+						--
+						FCOPY(file,'projects')
+					}
+					else
+					{
+						"\0\s[0]This is %(_filename)%(_fileext).\e"
+					}
 				}
 				
 			}
 			else
 			{
-				"\0\s[0]Opening %(_filename)%(_fileext)\![open,file,%(_filename)%(_fileext)].\e"
+				if "txt" _in_ projecttypes
+				{
+					"I'm adding '%(_filename)' to your project directory\e"
+					--
+					FCOPY(file,'projects')
+				}
+				else
+				{
+					"\0\s[0]This is %(_filename)%(_fileext).\e"
+				}
 			}
 		}
 		when ".lnk", ".url"
@@ -105,15 +134,15 @@ OnInstallComplete
  {
     
 	"\0" 
- 	--
+	 --
     installed = reference1
 	--
 	if reference0 == "shell" 
- 	{	
+	 {	
 	    "\s[0]I've installed a new shell.\w8\0\s[0]It's called  %(reference1).\e"
- 	}
+	 }
 	elseif reference0 == "ghost" 
- 	{
+	 {
 		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should I call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall]."
 		--
 		if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
@@ -130,16 +159,16 @@ OnInstallComplete
 		}
 		--
 		OnCountGhosts
- 	}
+	 }
 	elseif reference0 == "balloon" 
- 	{
+	 {
 		"\s[0]I've installed a new balloon.\w8\0\s[0] It's called %(reference1)\n\n[half]Should I chnage to it?\n\n[half]\q[Yes,changeballon]\n\q[No,nochangeb].\e"
- 	}
+	 }
 	elseif reference0 == "plugin" 
- 	{
+	 {
 		"\s[0]I've installed a plug-in.\w8\0\s[0] It's called %(reference1).\e"
 		
- 	}
+	 }
 }
 
 Select.callghost
@@ -227,12 +256,12 @@ OnBIFFComplete
  {
     
 	if reference0 == 0
- 	{
- 		"\0\s[0]There is no new mail.\e"
+	 {
+		 "\0\s[0]There is no new mail.\e"
 	}
 	elseif reference0 == 1
- 	{
- 		"\0\s[0]There is one new email.\e"
+	 {
+		 "\0\s[0]There is one new email.\e"
 	}
 	elseif reference0 > 1 && reference0 < 11
 	{
@@ -242,31 +271,31 @@ OnBIFFComplete
 	{
 		"\0\s[0]There are %(reference0) emails unread.\e"
 	}
- 	else
+	 else
 	{
 		"\0\s[0]There are %(reference0) emails.\e"
- 	}
+	 }
 }
  
 OnBIFFFailure
  {
     
 	if reference0 == "timeout"
- 	{
- 		"\0\s[0]The connection has timed out.\e"
+	 {
+		 "\0\s[0]The connection has timed out.\e"
 	}
- 	elseif reference0 == "kick" 
+	 elseif reference0 == "kick" 
 	{
 		"\0\s[0]I can't access the account.\e"
- 	}
+	 }
 	elseif reference0 == "defect"
- 	{
- 		"\0\s[0]The email account was not set up properly.\w8\0\s[0]It can be reset at the POP menu.\![open,configurationdialog]\e"		
+	 {
+		 "\0\s[0]The email account was not set up properly.\w8\0\s[0]It can be reset at the POP menu.\![open,configurationdialog]\e"		
 	}
- 	els
+	 els
 	{
 		"\0\s[0]I can't connect to the account.\w8\0\s[0]The error returned is '%(reference[0])'.\e"
- 	}
+	 }
 }
  
 OnUpdateBegin
@@ -287,31 +316,36 @@ OnUpdateComplete
  {
     
 	if reference0 == "none"
- 	{
- 		"\0\s[0]No update available\e"
+	 {
+		 "\0\s[0]No update available\e"
 	}
- 	else
+	 else
 	{
-		"\0\s[0]Update successful!\e"
-		--
 		OnToolCheck
- 	}
+		--
+		"\0\s[0]Update successful! Do you want to see the changlog?\n\n[half]\q[Yes,changelog] | \q[No,chnglg]\e"
+	 }
+}
+
+Select.changelog
+{
+	"\![open,file,Changelog.txt]\e"
 }
  
 OnUpdateFailure
  {
     
 	if reference0 == "timeout"
- 	{
- 		"\0\s[0]The update connection has timed out.\e"
+	{
+		 "\0\s[0]The update connection has timed out.\e"
 	}
- 	elseif reference0 == "md5 miss" 
+	 elseif reference0 == "md5 miss" 
 	{
 		"\0\s[0]The MD5 hash of the files don't match.\e"
- 	}
+	}
 	else
- 	{
- 		"\0\s[0]The update could not be completed.\w8\0\s[0] The error is '%(reference0)'.\e"
+	{
+		 "\0\s[0]The update could not be completed.\w8\0\s[0] The error is '%(reference0)'.\e"
 	}
  }
  
@@ -348,7 +382,7 @@ OnUpdate.OnDownloadBegin
 		""
 	} 
 	--
-	"\w5\e"
+	"\_q\w5\e"
  }
 
 OnUpdateCheckComplete
@@ -363,12 +397,12 @@ OnUpdateCheckComplete
 	{
 		"\b[-1]\e"
 	}
-        
+	
 }
 
 Select.up
 {
-	"\![update,ghost+shell]"
+	"\![update,ghost+shell+balloon]"
 }
 
 Select.lat
@@ -410,36 +444,36 @@ OnHeadlinesense.OnFind
 {
     
 	//----  What page You're on
- 	if reference2 == "First" || reference2 == "First and Last"
+	 if reference2 == "First" || reference2 == "First and Last"
 	{
- 		//---- First page
+		 //---- First page
 		"\0\b2\s[0]%(reference0):"
- 	}
+	 }
 	elseif reference2 == "Next"
- 	{
+	 {
 		//---- Second page
- 		"\0\b2\s[0]%(reference0):"
+		 "\0\b2\s[0]%(reference0):"
 	}
- 	elseif reference2 == "Last"
+	 elseif reference2 == "Last"
 	{
- 		//---- Last page
+		 //---- Last page
 		"\0\b2\s[0]%(reference0):"
- 	}
+	 }
 	--
- 	//---- Headlines
+	 //---- Headlines
 	"\n\n%reference3\n"
- 	--
+	 --
 	//---- Pages
- 	if reference2 == "First" || reference2 == "Next"
+	 if reference2 == "First" || reference2 == "Next"
 	{
- 		//---- Bottom buttons
+		 //---- Bottom buttons
 		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
- 	}
+	 }
 	else
- 	{
+	 {
 		//---- Bottom buttons
- 		"\![*]\q[Stop,Headline_Cancel]\e"
- 	}
+		 "\![*]\q[Stop,Headline_Cancel]\e"
+	 }
 	
 }
 
@@ -461,21 +495,21 @@ OnHeadlinesenseFailure
   {
     
 	"\0\s[0]The feed can't updated.\w5" 
- 	--
+	 --
 	if reference0 == "can't download" 
- 	{
+	 {
 		"It can't be downloaded."
- 	}
+	 }
 	elseif reference0 == "can't analyze" 
- 	{
+	 {
 		"It can't be analyzed."
- 	}
+	 }
 	else 
- 	{
+	 {
 		"I don't know why."
- 	}
+	 }
 	--
- 	"\e" 
+	 "\e" 
 }
  
 OnUpdatedataCreating
@@ -512,19 +546,19 @@ OnSNTPBegin
 OnSNTPCompare
  {
     
- 	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
+	 "Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
 	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n/
- 	\n"
+	 \n"
 	--
- 	if reference3 == 0 
+	 if reference3 == 0 
 	{
- 		"\0\s[0]Your clock is accurate.\e" 
+		 "\0\s[0]Your clock is accurate.\e" 
 	}
- 	else 
+	 else 
 	{
- 		"\0\s[0]Your clock doesn't match.\w6\nShould I fix it?\n\n[half]/
+		 "\0\s[0]Your clock doesn't match.\w6\nShould I fix it?\n\n[half]/
 		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
- 		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+		 \![*]\q[Leave it alone,OnSNTPCANCEL]\e"
 	}
  }
  
@@ -552,7 +586,7 @@ OnSNTPFailure
 OnDisplayChange
  {
 	displaybpp    = reference0
- 	displaywidth  = reference1
+	 displaywidth  = reference1
 	displayheight = reference2
  }
 
@@ -670,10 +704,10 @@ OnUpdateRegex {
     FCHARSET(1)
     _i = 0
     if FOPEN(_file,'r') {  
-        for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {        
-            regex[_i] = _buff
-            _i++        
-        }    
+	for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {        
+	    regex[_i] = _buff
+	    _i++        
+	}    
     }    
     FCLOSE(_file);    
     "Done!\x"    
@@ -735,11 +769,11 @@ Select.switchunits
 {
     if unit == "" 
 	{
-        unit = "en-CA/"
+	unit = "en-CA/"
     } 
 	else
     {
-        unit=""
+	unit=""
     }    
 	--
     locationset=0     
@@ -760,7 +794,7 @@ OnWeatherLocation
 
 OnAmericanUnits{
     unit=""
-        --
+	--
     "\0Alright. Please go to weather.com, search your location, and give me the URL. \![open,inputbox,OnLocCode,-1]"
 }
 
@@ -785,7 +819,7 @@ OnLocCode
 
 OnDownloadCurWeather
 {
-        "\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
+	"\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
 }
 
 
@@ -813,64 +847,64 @@ OnCurWeatherFound
     if FOPEN(_file,'r') {
 
 
-            for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
-                    
+	    for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+		    
 
 
-                    //current temp
-                    if RE_SEARCH ( _buff, _regtemp ) {
-                            
-                            currentweatherarray[0] = RE_GETSTR[1]
-                            
-                    }
+		    //current temp
+		    if RE_SEARCH ( _buff, _regtemp ) {
+			    
+			    currentweatherarray[0] = RE_GETSTR[1]
+			    
+		    }
     
-                    //degrees (F or C)
-                    if RE_SEARCH ( _buff, _regdegree ) {
-                            currentweatherarray[1] = RE_GETSTR[1]
-                            
-                    }
-                    
-                    //feels like temp
-                    if RE_SEARCH ( _buff, _regfeels ) {
-                            currentweatherarray[2] = RE_GETSTR[1]
-                            
-                    }
-                    
-                    //humidity
-                    if RE_SEARCH ( _buff, _reghumidity ) {
-                            currentweatherarray[3] = RE_GETSTR[1]
-                            
-                    }
-                    
-                    //wind
-                    if RE_SEARCH ( _buff, _regwind) {
-                            currentweatherarray[4] = RE_GETSTR[1]
-                            
-                    }
-                    
-                    
-                    //state (cloudy, sunny, etc)
-                    if RE_SEARCH ( _buff, _regstate ) {
-                            
-                            currentweatherarray[5] = RE_GETSTR[1]
-                            
-                    }
-                    
-                    //set location
-                    if RE_SEARCH ( _buff, _regloc ) {
-                            
-                            curlocation = RE_GETSTR[1]
-                            
-                    }
-                    
-                    //search for pollen stuff
-                    if RE_SEARCH ( _buff, _regpollen ) {
-                            
-                            currentweatherarray[6] = "Local Pollen Alert"
-                            
-                    }
-                    
-            }
+		    //degrees (F or C)
+		    if RE_SEARCH ( _buff, _regdegree ) {
+			    currentweatherarray[1] = RE_GETSTR[1]
+			    
+		    }
+		    
+		    //feels like temp
+		    if RE_SEARCH ( _buff, _regfeels ) {
+			    currentweatherarray[2] = RE_GETSTR[1]
+			    
+		    }
+		    
+		    //humidity
+		    if RE_SEARCH ( _buff, _reghumidity ) {
+			    currentweatherarray[3] = RE_GETSTR[1]
+			    
+		    }
+		    
+		    //wind
+		    if RE_SEARCH ( _buff, _regwind) {
+			    currentweatherarray[4] = RE_GETSTR[1]
+			    
+		    }
+		    
+		    
+		    //state (cloudy, sunny, etc)
+		    if RE_SEARCH ( _buff, _regstate ) {
+			    
+			    currentweatherarray[5] = RE_GETSTR[1]
+			    
+		    }
+		    
+		    //set location
+		    if RE_SEARCH ( _buff, _regloc ) {
+			    
+			    curlocation = RE_GETSTR[1]
+			    
+		    }
+		    
+		    //search for pollen stuff
+		    if RE_SEARCH ( _buff, _regpollen ) {
+			    
+			    currentweatherarray[6] = "Local Pollen Alert"
+			    
+		    }
+		    
+	    }
     }
     --
     
@@ -878,7 +912,7 @@ OnCurWeatherFound
      --
     if unitchange == 1
     {
-            
+	    
 		unitchange = 0
 		TalkConfig
 		--
@@ -895,7 +929,7 @@ OnCurWeatherFound
     }
     --
     if !locationset{
-            
+	    
 		locationset = 1
 		--
 		"\e"
@@ -910,7 +944,7 @@ OnCurWeatherFound
     --
     if bootweater == 1
     {
-        OnDownloadMoonPhase
+	OnDownloadMoonPhase
     }
     else
     {
@@ -976,173 +1010,173 @@ OnForecastFound
     --
     
     if FOPEN(_file,'r') { 
-            for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
-                    
+	    for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+		    
 
 
-                    //date
-                    //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
-                    if RE_GREP( _buff, _regdate ) {
-                    
-                            //clear out singleday string, use a temp string to hold the results of the regexpr search
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regdate) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            //add singleday contents to relevant row of data in forecast array
-                            forecastarray[0] = forecastarray[0] + _singleday
-                            
-                    }
-                    
-                    //rinse and repeat for rest of data
-                    //desc
-                    if RE_GREP( _buff, _regdesc ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regdesc) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            forecastarray[1] = forecastarray[1] + _singleday
-                            
-                    }
+		    //date
+		    //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+		    if RE_GREP( _buff, _regdate ) {
+		    
+			    //clear out singleday string, use a temp string to hold the results of the regexpr search
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regdate) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    //add singleday contents to relevant row of data in forecast array
+			    forecastarray[0] = forecastarray[0] + _singleday
+			    
+		    }
+		    
+		    //rinse and repeat for rest of data
+		    //desc
+		    if RE_GREP( _buff, _regdesc ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regdesc) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    forecastarray[1] = forecastarray[1] + _singleday
+			    
+		    }
 
 
-                    //high temps
-                    if RE_GREP( _buff, _reghigh ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _reghigh) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            forecastarray[2] = forecastarray[2] + _singleday
-                            
-                    }
-                    
-                    //low temps
-                    if RE_GREP( _buff, _reglow ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _reglow) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            forecastarray[3] = forecastarray[3] + _singleday
-                            
-                    }
-                    //precip
-                    if RE_GREP( _buff, _regprecip ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regprecip) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            forecastarray[4] = forecastarray[4] + _singleday
-                            
-                    }
+		    //high temps
+		    if RE_GREP( _buff, _reghigh ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _reghigh) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    forecastarray[2] = forecastarray[2] + _singleday
+			    
+		    }
+		    
+		    //low temps
+		    if RE_GREP( _buff, _reglow ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _reglow) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    forecastarray[3] = forecastarray[3] + _singleday
+			    
+		    }
+		    //precip
+		    if RE_GREP( _buff, _regprecip ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regprecip) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    forecastarray[4] = forecastarray[4] + _singleday
+			    
+		    }
     
-                    //wind
-                    if RE_GREP( _buff, _regwind ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regwind) {
-                                            _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            forecastarray[5] = forecastarray[5] + _singleday
-                            
-                    }
-                    
-                    //this is gonna be the quirky section LOL
-                    //humidity
-                    if RE_GREP( _buff, _reghumidity ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _reghumidity) {
-                                            
-                                           if _state == "" { //state has not been set yet 
-                                                    if RE_GREP(_buff, _regdaynight){
-                                                            _daynight = RE_GETSTR[0]
-                                                    }
-                                                    
-                                                    if "Night" _in_ _daynight {
-                                                    //indicates that first humidity was in the night stage of today's forecast, so we don't want to skip the next humidity
-                                                            _state = "chrome"                                                            
-                                                    }
-                                                    else {
-                                                            _state = "chromeskip"
-                                                    }
-                                                    _singleday = NULL
-                                            } elseif _state == "chrome" {
-                                            
-                                                    _singleday = _singleday + RE_GETSTR[1] + ","
-                                                    _state = "chromeskip"
-                                            
-                                            } else { //_state = chromeskip
-                                                    _state = "chrome"
-                                            }
-                                            //otherwise do nothing, essentially skipping this one
-                                            
-                                    
-                                            
-                                    }
-                                    
-                            
-                            }    
-                            
-                            forecastarray[6] = forecastarray[6] + _singleday
-                            
-                    }
-            }
+		    //wind
+		    if RE_GREP( _buff, _regwind ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regwind) {
+					    _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    forecastarray[5] = forecastarray[5] + _singleday
+			    
+		    }
+		    
+		    //this is gonna be the quirky section LOL
+		    //humidity
+		    if RE_GREP( _buff, _reghumidity ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _reghumidity) {
+					    
+					   if _state == "" { //state has not been set yet 
+						    if RE_GREP(_buff, _regdaynight){
+							    _daynight = RE_GETSTR[0]
+						    }
+						    
+						    if "Night" _in_ _daynight {
+						    //indicates that first humidity was in the night stage of today's forecast, so we don't want to skip the next humidity
+							    _state = "chrome"                                                            
+						    }
+						    else {
+							    _state = "chromeskip"
+						    }
+						    _singleday = NULL
+					    } elseif _state == "chrome" {
+					    
+						    _singleday = _singleday + RE_GETSTR[1] + ","
+						    _state = "chromeskip"
+					    
+					    } else { //_state = chromeskip
+						    _state = "chrome"
+					    }
+					    //otherwise do nothing, essentially skipping this one
+					    
+				    
+					    
+				    }
+				    
+			    
+			    }    
+			    
+			    forecastarray[6] = forecastarray[6] + _singleday
+			    
+		    }
+	    }
     }
     --
     
@@ -1236,147 +1270,147 @@ OnHourlyFound
     
     if FOPEN(_file,'r') {
        
-            for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
-                    
+	    for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+		    
 
 
-                    //hour
-                    //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
-                    if RE_GREP( _buff, _reghour ) {
-                    
-                            //clear out singleday string, use a temp string to hold the results of the regexpr search
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _reghour) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            //add singleday contents to relevant row of data in forecast array
-                            hourlyarray[0] = hourlyarray[0] + _singleday
-                            
-                    }
-                    
-                    //rinse and repeat for rest of data
-                    //desc
-                    if RE_GREP( _buff, _regdesc ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regdesc) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            hourlyarray[1] = hourlyarray[1] + _singleday
-                            
-                    }
+		    //hour
+		    //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+		    if RE_GREP( _buff, _reghour ) {
+		    
+			    //clear out singleday string, use a temp string to hold the results of the regexpr search
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _reghour) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    //add singleday contents to relevant row of data in forecast array
+			    hourlyarray[0] = hourlyarray[0] + _singleday
+			    
+		    }
+		    
+		    //rinse and repeat for rest of data
+		    //desc
+		    if RE_GREP( _buff, _regdesc ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regdesc) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    hourlyarray[1] = hourlyarray[1] + _singleday
+			    
+		    }
 
 
-                    //temp
-                    if RE_GREP( _buff, _regtemp ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regtemp) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            hourlyarray[2] = hourlyarray[2] + _singleday
-                            
-                    }
-                    
-                    //feels like
-                    if RE_GREP( _buff, _regfeels ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regfeels) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            hourlyarray[3] = hourlyarray[3] + _singleday
-                            
-                    }
-                    //precip
-                    if RE_GREP( _buff, _regprecip ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regprecip) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            hourlyarray[4] = hourlyarray[4] + _singleday
-                            
-                    }
+		    //temp
+		    if RE_GREP( _buff, _regtemp ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regtemp) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    hourlyarray[2] = hourlyarray[2] + _singleday
+			    
+		    }
+		    
+		    //feels like
+		    if RE_GREP( _buff, _regfeels ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regfeels) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    hourlyarray[3] = hourlyarray[3] + _singleday
+			    
+		    }
+		    //precip
+		    if RE_GREP( _buff, _regprecip ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regprecip) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    hourlyarray[4] = hourlyarray[4] + _singleday
+			    
+		    }
     
-                    //wind
-                    if RE_GREP( _buff, _regwind ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _regwind) {
-                                            _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            hourlyarray[5] = hourlyarray[5] + _singleday
-                            
-                    }
-                    
-                    //humidity
-                    if RE_GREP( _buff, _reghumidity ) {
-                            
-                            _singleday = NULL
-                            _temp = RE_GETSTR
-                            
-                            for i = 0; i < ARRAYSIZE(_temp); i++ {
-                                    
-                                    if RE_SEARCH(_temp[i], _reghumidity) {
-                                            _singleday = _singleday + RE_GETSTR[1] + ","
-                                    }
-                                    
-                            
-                            }            
-                            
-                            hourlyarray[6] = hourlyarray[6] + _singleday
-                            
-                    }
-            }
+		    //wind
+		    if RE_GREP( _buff, _regwind ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _regwind) {
+					    _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    hourlyarray[5] = hourlyarray[5] + _singleday
+			    
+		    }
+		    
+		    //humidity
+		    if RE_GREP( _buff, _reghumidity ) {
+			    
+			    _singleday = NULL
+			    _temp = RE_GETSTR
+			    
+			    for i = 0; i < ARRAYSIZE(_temp); i++ {
+				    
+				    if RE_SEARCH(_temp[i], _reghumidity) {
+					    _singleday = _singleday + RE_GETSTR[1] + ","
+				    }
+				    
+			    
+			    }            
+			    
+			    hourlyarray[6] = hourlyarray[6] + _singleday
+			    
+		    }
+	    }
     }
     --
     
@@ -1461,38 +1495,38 @@ OnMoonFound{
     --
     
     if FOPEN(_file,'r') {
-            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
-                    
+	    for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+		    
 
 
-                    if RE_SEARCH ( _buff, _regphase ) {
-                            
-                            phase = RE_GETSTR[1]
-                            _found = 1; //break loop since we dont need to continue parsing
-                            
-                    }
-            }
+		    if RE_SEARCH ( _buff, _regphase ) {
+			    
+			    phase = RE_GETSTR[1]
+			    _found = 1; //break loop since we dont need to continue parsing
+			    
+		    }
+	    }
     }
     --
     FCLOSE(_file);
     --
     if bootweater == 1
     {
-        if upchec == "ON"
-        {
-                "\b[-1]\![updatebymyself,checkonly]\e"
-        }
-        else
-        {
-                "\e"
-        }
-        
+	if upchec == "ON"
+	{
+		"\b[-1]\![updatebymyself,checkonly]\e"
+	}
+	else
+	{
+		"\e"
+	}
+	
     }
     else
     {
-        "\0The moon is currently in its %(phase) phase."
-        --
-        "\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
+	"\0The moon is currently in its %(phase) phase."
+	--
+	"\n\n[half]\![*]\q[Main menu,OnBACKTOMENU]\n"
 	--
 	"\![*]\q[Nevermind,CANCEL]\n"
     }

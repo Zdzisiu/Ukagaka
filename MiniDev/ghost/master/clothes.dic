@@ -528,7 +528,7 @@ OnShi
 
 OnColorPick
 {
-	"\_q\0\b[4]\*\f[size,10]"
+	"\_q\0\b[2]\*\f[size,10]"
 	--
 	if colorty == ""
 	{

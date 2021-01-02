@@ -264,4 +264,75 @@ OnMouseClick
 			Select.oapp
 		}
 	}
+	--
+	if reference3 == 12
+	{
+		if reference4 == "a"
+		{
+			Select.todotwooo
+		}
+	}
+	--
+	if reference3 == 15
+	{
+		if reference4 == "a"
+		{
+			playing = 1
+			--
+			"\![sound,resume]"
+		}
+	}
+	--
+	if reference3 == 16
+	{
+		if reference4 == "a"
+		{
+			playing = 0
+			--
+			"\![sound,pause]"
+		}
+	}
+	--
+	if reference3 == 17
+	{
+		if reference4 == "a"
+		{
+			"\![sound,stop]\![raise,OnPlay,%(songnum+1)]"
+		}
+	}
+	--
+	if reference3 == 18
+	{
+		if reference4 == "a"
+		{
+			"\![sound,stop]\![raise,OnPlay,%(songnum-1)]"
+		}
+	}
+	--
+	if reference3 == 19
+	{
+		if reference4 == "a"
+		{
+			"\e"
+		}
+	}
+	--
+	if reference3 == 20
+	{
+		if reference4 == "a"
+		{
+			Select.oapp
+		}
+	}
+	--
+	if reference3 == 21
+	{
+		if reference4 == "a"
+		{
+			musicp = 0
+			playing = 0
+			--
+			"\![sound,stop]\p[15]\s[-1]\p[16]\s[-1]\p[17]\s[-1]\p[18]\s[-1]\p[19]\s[-1]\p[20]\s[-1]\p[21]\s[-1]"
+		}
+	}
 }

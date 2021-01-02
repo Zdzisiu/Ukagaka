@@ -1029,33 +1029,37 @@ OnUpdateVariables
 	}
 	elseif vers == "1.0.5"
 	{
+		vers = "1.0.6"
 		pastel = "ON"
 		plain = "ON"
 		bright = "ON"
 		dark = "ON"
+		--
+		OnUpdateVariables
+	}
+	elseif vers == "1.0.6"
+	{
+		//playlists = 0
+		//plistname = ""
+		vers = "1.0.7"
+		MDisable == "OFF"
+		narrator = 0
+		distingnarr = ""
+		nardistingtype = "default"
+	}
+	--
+	if narrator == 0 && repairglitch == 1
+	{
+		//OnUnlockNarrator
 	}
 
 }
 
-OnVariableSet
+OnUnlockNarrator
 {
-	if pastel == ""
-	{
-		pastel = "ON"
-	}
+	"\0%(distingstart)Huh,\w5 There is a weird new file?\w5\n\n[half]Did it come with %(devname)'s latest update?\x\c%(distingstart)Was there something about it in the update note?\w8\n\n[half]Wait a second I will check what it is .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\x\c%(distingstart)\![open,file,narrator.txt]A narrator?\w6 why would an M-%(modelp)p need something like that?\x\c\1%(distingnarr)* You tell him you don't know\0%(distingstart)What\x\c\1* He seems confused\0%(distingstart)What is even happening\x\c\1%(distingnarr)* Please choose formatting for your narrator\0%(distingstart)Wait\w4 what is going on\x\c"
 	--
-	if plain == ""
-	{
-		plain = "ON"
-	}
+	narrator = 1
 	--
-	if bright == ""
-	{
-		bright = "ON"
-	}
-	--
-	if dark == ""
-	{
-		dark = "ON"
-	}
+	OnFormattingNar
 }

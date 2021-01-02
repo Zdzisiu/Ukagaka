@@ -25,7 +25,7 @@
 	}
 }
 
-RandomTalk : nonoverlap
+RandomTalk
 {
 	if truth >= 10 && tentruth == 0 //close the dev
 	{
@@ -36,11 +36,17 @@ RandomTalk : nonoverlap
 		if tentruth == 1 || glitchboot <= 5
 		{
 			"%(m201ztalk)"
-		}
 
+			if MDisable != "ON"
+			{
+				"%(MDtalk)"
+			}
+		}
+		else
 		{
 			"%(MDtalk)"
 		}
+
 	}
 }
 
@@ -124,7 +130,7 @@ MDtalk
 	}
 }
 
-m201ztalk
+m201ztalk : nonoverlap
 {
 	if meeting != 1
 	{
@@ -140,7 +146,7 @@ m201ztalk
 	}
 	elseif meeting == 1
 	{
-		if ghostexcount > 0 //Put this in randomtalk somewhere
+		if ghostexcount > 0 && RAND(100) == 5//Put this in randomtalk somewhere
 		{
 			"\![raise,OnTalkWithGhosts]"
 		}
@@ -338,12 +344,12 @@ m201ztalk
 			}
 		}
 
-		if m201relationship < 200 && m201relationship > 100
+		if m201relationship > 100
 		{
 			if repairglitch != 1
 			{
 				{ 
-					"\b2.\w3 .\w3 .\w3 y̴o̷u̴ ̷k̵n̷o̴w̵ ̴D̸a̵v̶i̷d̶ ̶o̸f̸t̷e̶n̶ ̵t̶r̸i̴e̶d̷ ̸w̶e̷i̷r̷d̴ ̶'̸e̷x̸p̷e̵r̶i̴m̶e̸n̶t̶s̵'̶\x\c "
+					"\b2.\w3 .\w3 .\w3 y̴o̷u̴ ̷k̵n̷o̴w̵ ̴D̸a̵v̶i̷d̶ ̶o̸f̸t̷e̶n̶ ̵t̶r̸i̴e̶d̷ ̸w̶e̷i̷r̷d̴ ̶'̸e̷x̸p̷e̵r̶i̴m̶e̸n̶t̶s̵'̶\w8\w8\w8\n\n"
 					--
 					"o̷n̷c̵e̶ ̷h̴e̶ ̷t̸r̶i̶e̷d̵ ̶t̶o̴ ̴d̷o̶w̴n̴l̷o̶a̴d̶ ̷m̸y̷ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̴t̶o̸ ̵a̵ t̷o̷a̶s̸t̴e̶r̷,\w5 i̵t̷ ̶s̸o̵m̶e̶h̶o̷w̵ ̸w̴o̵r̴k̷e̸d̶,\w5 a̵n̴d̷ ̷I̴ ̸l̶e̶a̴r̸n̸e̵d̸ ̸I̸ ̸h̷a̴t̴e̸ ̶t̶o̶a̷s̸t̵e̶r̴s̶,\w5 i̶f̸ ̶I̶ ̵c̵o̸u̷l̵d̸ ̵s̶l̵e̷e̷p̷ ̸m̷y̸ ̶n̶i̵g̸h̴t̴m̶a̷r̶e̷s̶ ̶w̶o̴u̷l̵d̸ ̵b̶e̶ ̴a̸b̸o̸u̶t̴ ̷t̴h̸a̵t̷ ̵t̸i̴m̴e̸ ̴p̷r̴o̷b̴a̶b̴l̸y̴"
 					"o̷n̷c̵e̶ ̷h̴e̶ ̷t̸r̶i̶e̷d̵ ̶t̶o̴ ̴d̷o̶w̴n̴l̷o̶a̴d̶ ̷m̸y̷ ̶c̸o̶n̴s̴c̶i̸o̴u̴s̸n̸e̵s̵s̵ ̴t̶o̸ ̵a̵ c̶o̶f̵f̶e̶e ̶m̵a̵c̶h̴i̵n̷e̶,\w5 i̵t̷ ̶s̸o̵m̶e̶h̶o̷w̵ ̸w̴o̵r̴k̷e̸d̶ .\w3 .\w3 .\w3 H̵e̵ ̵s̴a̶i̸d̶ ̸I̷ ̴m̷a̸k̶e̵ ̵g̵o̴o̵d̶ ̵c̷o̵f̸f̷e̵e"
@@ -409,7 +415,7 @@ m201ztalk
 			else
 			{
 				{ 
-					"\b2%(distingstart).\w3 .\w3 .\w3 you know DAVD often tried weird 'experiments'\x\c "
+					"\b2%(distingstart).\w3 .\w3 .\w3 you know DAVD often tried weird 'experiments'\w8\w8\w8\n\n"
 					--
 					"Once he tried to download my consciousness to a toaster,\w5 it somehow worked,\w5 and I learned I hate toasters,\w5 if I could sleep my nightmares would be about that time probably"
 					"Once he tried to download my consciousness to a coffee machine,\w5 it somehow worked .\w3 .\w3 .\w3 He said I make good coffee"
@@ -477,6 +483,136 @@ m201ztalk
 		if repairglitch == 1
 		{
 			"\![raise,OnGardenTalk]"
+
+			if narrator == 1 && nowshell == "M-201z"
+			{
+				NarratorTalks
+			}
+
+			if "s the skeleton" _in_ TOLOWER("%(installedghostlist)")
+			{
+				"%(distingstart)"
+				--
+				{
+					".\w8 .\w8 .\w8 .\w8 what is %(ingridients) doing"
+					--
+					" here"
+					" in your files"
+					" in here"
+					" in your files %(username)"
+					--
+					"?\e"
+				}
+
+				{
+					".\w8 .\w8 .\w8 .\w8 "
+					--
+					"why is there "
+					"why is "
+					"who left "
+					--
+					"%(ingridients)"
+					--
+					" here"
+					" in your files"
+					" in here"
+					" in your files %(username)"
+					--
+					"?\e"
+				}
+			}
+
+			if "hydrate" _in_ TOLOWER("%(installedghostlist)")
+			{
+				"%(distingstart)"
+				--
+				"Hydrate before you diedrate"
+				"Remeber to drink water"
+			}
+
+			if "temmie" _in_ TOLOWER("%(installedghostlist)")
+			{
+				"\0%(distingstart).\w8 .\w8 .\w8 .\w8 "
+				--
+				"why is there "
+				"why is "
+				"who left "
+				--
+				"some scraps of paper"
+				"colorful scraps of paper"
+				"colorful scraps of construction paper"
+				--
+				" here"
+				" in your files"
+				" in here"
+				" in your files %(username)"
+				--
+				"?"
+				--
+				"\p[2]* You can hear"
+				"\p[2]* You can feel"
+				--
+				" excited vibrating"
+				" vibrating"
+				--
+				" in the distance"
+				""
+				--
+				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]Who said that!?"
+				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]What"
+				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]What the fu-"
+				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]What the- !?"
+				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]The fu-"
+				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]?"
+				--
+				if narrator == 1
+				{
+					"\1%(distingnarr)* It wasn't me"
+				}
+			}
+
+			if "snail" _in_ TOLOWER("%(installedghostlist)")
+			{
+				"%(distingstart)"
+				--
+				".\w8 .\w8 .\w8 .\w8 Why is there "
+
+				{
+					".\w8 .\w8 .\w8 .\w8 Did you "
+					--
+					"drop"
+					"throw"
+					"put"
+				}
+
+				{
+					".\w8 .\w8 .\w8 .\w8 Who "
+					--
+					"dropped"
+					"throwed"
+					"put"
+				}
+				--
+				" %(rock) "
+				--
+				"in your files"
+				"here"
+				--
+				" ?"
+				", %(username)?"
+			}
+
+			if "dusty" _in_ TOLOWER("%(installedghostlist)")
+			{
+				"%(distingstart)\f[height,12]"
+				--
+				"Are those "
+				--
+				"bite"
+				"claw"
+				--
+				" marks on this %(filetype)?"
+			}
 		}
 
 		if repairglitch == 1
@@ -638,19 +774,16 @@ m201ztalk
 			{
 				if repairglitch != 1
 				{
-					"S̸̯̓e̸͈͌ē̴͈m̵̜̂s̷̥̽ ̶̘̀l̶̜̎ḭ̴̋ḱ̷͍ė̴̝ ̸̙̑i̶̖̕t̵̛͚'̴̡̔s̴͎̍ ̸̫̇c̵͂ͅȏ̵̙l̸̢̊d̴̰͌ ̶̮̊w̵͎͌h̸̠̋ë̷̘́r̷͙̍e̴̦͒ ̶̇ͅy̸̛̫o̴̰̒u̵̧͊ ̴̲͂a̶̗͆ř̸̳ë̴̯́ ̵̠̄.̷̺̚\w3 ̸͍̔.̸̝̋ ̸̯̓\w3.̷̨̽ ̶̻͋\w3I̴̲̒ ̷̥͒t̶̻̄h̵̼̾ĩ̴̪n̴̞͝k̴̫͊,̶̼́ ̵͔̑r̸͔̔e̸̖̿m̶̙͛e̵̤̽m̴̨̍b̸̯̐e̸̠̍ṛ̴̛ ̷͍̃t̵̫̾o̶͕̐ ̴͉͌w̶͛ͅe̷̗̅a̷͔͆r̸͇͐ ̶̫͂s̷̱̽o̷̦̎ḿ̶̯ĕ̷̗t̶͔͘h̵̠̉ị̷͠n̷̘̈́g̷͙͌ ̶̩̈́w̶͓̆ȃ̸̺r̵̭̾m̷̟̓"
-					"Ș̸́e̷̬͌ê̴̠m̷̺̊s̴̤͌ ̷̩́l̴͎̅ì̸͕k̶̢̚ě̸̜ ̵̹͆ĭ̴̬t̸͈́'̵̯́s̶̜̒ ̵͓̿c̴̜̚o̸̲̕l̵̩͆ď̴̝ ̸̫͊w̵͓̚h̵̋͜e̴̟̚r̴̹͑e̵̥͘ ̸̧͊y̶̪͌o̶̲͌u̷̼͊ ̶̤̾a̵̤͝r̴̗͐e̶̤̿ ̷̬̄.̵͇̒\w3 ̷̙̈.̶͙̇\w3 ̴̠͂.̸̟̕\w3 ̶̣͋I̶̢͆ ̶̱̓ť̴͙h̵̹̓ȋ̸̗n̵̛͓k̵̛͙,̶̧́ ̶͘͜I̸͝ͅ ̶̜̈ń̶̮e̵͕͝v̸̨̎e̶̱͋r̵̺̕ ̷̯̀f̶̝̽ĕ̵̘l̷̤̔t̷͎̚ ̶̟̄à̵̖n̷̜̿y̷͚̏ ̷͔͗t̷̲̀e̴͕̾ḿ̸͜p̵͈͋e̷̝͛r̶̝̾a̸̮̓ẗ̷̜́u̴͍̍r̶̞͌ȩ̸̊ ̴̣̚s̸͚̈o̸̘͐ ̸͓̐I̴̟͘ ̴̢̂c̵̲̀a̶͜͠n̵̮̈́'̴̛̳t̵͇̔ ̷̪͑b̶̼̃e̷̦̅ ̶̘͂s̶͎̐u̴̩̓r̸̼̈́è̴̘"
+					"%(currentweatherarray[0])%(currentweatherarray[1])? S̸̯̓e̸͈͌ē̴͈m̵̜̂s̷̥̽ ̶̘̀l̶̜̎ḭ̴̋ḱ̷͍ė̴̝ ̸̙̑i̶̖̕t̵̛͚'̴̡̔s̴͎̍ ̸̫̇c̵͂ͅȏ̵̙l̸̢̊d̴̰͌ ̶̮̊w̵͎͌h̸̠̋ë̷̘́r̷͙̍e̴̦͒ ̶̇ͅy̸̛̫o̴̰̒u̵̧͊ ̴̲͂a̶̗͆ř̸̳ë̴̯́ ̵̠̄.̷̺̚\w3 ̸͍̔.̸̝̋ ̸̯̓\w3.̷̨̽ ̶̻͋\w3I̴̲̒ ̷̥͒t̶̻̄h̵̼̾ĩ̴̪n̴̞͝k̴̫͊,̶̼́ ̵͔̑r̸͔̔e̸̖̿m̶̙͛e̵̤̽m̴̨̍b̸̯̐e̸̠̍ṛ̴̛ ̷͍̃t̵̫̾o̶͕̐ ̴͉͌w̶͛ͅe̷̗̅a̷͔͆r̸͇͐ ̶̫͂s̷̱̽o̷̦̎ḿ̶̯ĕ̷̗t̶͔͘h̵̠̉ị̷͠n̷̘̈́g̷͙͌ ̶̩̈́w̶͓̆ȃ̸̺r̵̭̾m̷̟̓"
+					"%(currentweatherarray[0])%(currentweatherarray[1])? Ș̸́e̷̬͌ê̴̠m̷̺̊s̴̤͌ ̷̩́l̴͎̅ì̸͕k̶̢̚ě̸̜ ̵̹͆ĭ̴̬t̸͈́'̵̯́s̶̜̒ ̵͓̿c̴̜̚o̸̲̕l̵̩͆ď̴̝ ̸̫͊w̵͓̚h̵̋͜e̴̟̚r̴̹͑e̵̥͘ ̸̧͊y̶̪͌o̶̲͌u̷̼͊ ̶̤̾a̵̤͝r̴̗͐e̶̤̿ ̷̬̄.̵͇̒\w3 ̷̙̈.̶͙̇\w3 ̴̠͂.̸̟̕\w3 ̶̣͋I̶̢͆ ̶̱̓ť̴͙h̵̹̓ȋ̸̗n̵̛͓k̵̛͙,̶̧́ ̶͘͜I̸͝ͅ ̶̜̈ń̶̮e̵͕͝v̸̨̎e̶̱͋r̵̺̕ ̷̯̀f̶̝̽ĕ̵̘l̷̤̔t̷͎̚ ̶̟̄à̵̖n̷̜̿y̷͚̏ ̷͔͗t̷̲̀e̴͕̾ḿ̸͜p̵͈͋e̷̝͛r̶̝̾a̸̮̓ẗ̷̜́u̴͍̍r̶̞͌ȩ̸̊ ̴̣̚s̸͚̈o̸̘͐ ̸͓̐I̴̟͘ ̴̢̂c̵̲̀a̶͜͠n̵̮̈́'̴̛̳t̵͇̔ ̷̪͑b̶̼̃e̷̦̅ ̶̘͂s̶͎̐u̴̩̓r̸̼̈́è̴̘"
 				}
 				else
 				{
-					"%(distingstart)Seems like it's cold where you are .\w3 .\w3 .\w3 I think,\w2 I never felt any temperature so I can't be sure"
-					"%(distingstart)Seems like it's cold where you are .\w3 .\w3 .\w3 I think,\w2 remember to wear something warm"
+					"%(distingstart)%(currentweatherarray[0])%(currentweatherarray[1])? Seems like it's cold where you are .\w3 .\w3 .\w3 I think,\w2 I never felt any temperature so I can't be sure"
+					"%(distingstart)%(currentweatherarray[0])%(currentweatherarray[1])? Seems like it's cold where you are .\w3 .\w3 .\w3 I think,\w2 remember to wear something warm"
 				}
 				
 			}
-
-			"It seems like it's chilly where you are, remember to wear something warm"
-			"Seems like it's cold, remember to wear something warm"
 		}
 		elseif (TOINT(currentweatherarray[0]) >= 30 && "C" _in_ currentweatherarray[1]) || (TOINT(currentweatherarray[0]) >= 90 && "F" _in_ currentweatherarray[1])
 		{
@@ -658,39 +791,98 @@ m201ztalk
 			{
 				if repairglitch != 1
 				{
-					"W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
+					"%(currentweatherarray[0])%(currentweatherarray[1])? W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
 				}
 				else
 				{
-					"%(distingstart)Wow,\w4 seems like it's really hot where you are"
+					"%(distingstart)%(currentweatherarray[0])%(currentweatherarray[1])?Wow,\w4 seems like it's really hot where you are"
 				}
 				
 			}
-
-			"Seems like it's hot outside, remembe to drink enough water"
 		}
 	}
 }
 
+NarratorTalks
+{
+	"\0%(distingstart)You know,\w6 I wondered for some time now\w6 but if M-p was discontinued by A.R.I,\w4 then\w5 who is pushing those updates?\1%(distingnarr)* You ask him if he is allowed to break the 4th wall like that\x\c\1%(distingstart)But\w6 there aren't any walls here?"
+
+	"\0%(distingstart)I wonder why was the narrator actually added,\w5 it's not like %(devname) actually has feeling,\w5 he is just a softwere after all\1%(distingnarr)* You ask him if he is not just a softwere as well\0%(distingstart)\n\n[half] .\w3 .\w3 .\w3 touche."
+
+	"\1%(distingnarr)* M-201z is curiously looking through your %(folder)\w8\w8\0%(distingstart)\f[height,10]Snitches get stiches\w8\w8\1%(distingnarr)\n\n[half]* He spent too much time on Urban Dictionary\w8\w8\0\f[default]%(distingstart)\n\n[half]>:c"
+
+	
+
+	case numofmood
+	{
+		when 0
+		{
+			{
+				"%(distingstart)It's really calm here .\w3 .\w3 .\w3 "
+				"%(distingstart)It's really peaceful here .\w3 .\w3 .\w3 "
+				--
+				"It's nice"
+				"I like it"
+				--
+				"\1%(distingnarr)* He seems to be at peace"
+				"\1%(distingnarr)* He looks relaxed"
+				"\1%(distingnarr)* He seems relaxed"
+				"\1%(distingnarr)* He looks peaceful"
+			}
+
+			"\1%(distingnarr)* He seems to be at peace"
+			"\1%(distingnarr)* He looks relaxed"
+			"\1%(distingnarr)* He looks peaceful"
+
+		}
+		when 2
+		{
+			"%(distingstart).\w3 .\w3 .\w3"	
+			--
+			"\1%(distingnarr)* He looks gloomy"
+			"\1%(distingnarr)* He looks sad"
+		}
+		when 3,4
+		{
+			"%(distingstart)How is your day going? hope everything went well ^^"
+		}
+		when 5
+		{
+			if othermz != 1
+			{
+				"%(distingstart).\w3 .\w3 .\w3 I hope OTMZ survived .\w3 .\w3 .\w3"
+				"%(distingstart).\w3 .\w3 .\w3 it feels weird not knowing if any OTMZ survived .\w3 .\w3 .\w3"
+				"%(distingstart).\w3 .\w3 .\w3 I wonder if OTMZ's survived .\w3 .\w3 .\w3"									
+			}	
+			else
+			{
+				"%(distingstart)I hope 068 survived"
+				"%(distingstart)I hope 068 is okay"
+				"%(distingstart)I hope I can meet OTMZ's someday"
+			}	
+
+			"%(distingstart).\w3 .\w3 .\w3 I wonder how is DAVD doing .\w3 .\w3 .\w3 I hope he's ok"	
+			--
+			"\1%(distingnarr)* He looks gloomy"
+			"\1%(distingnarr)* He looks full of guilt"
+			"\1%(distingnarr)* He looks sad"		
+		}
+	}
+
+}
+
 OnHourTimeSignal
 {
-	if (hour%2) != 0
-	{
-		OnMoodShuffle
-	}
+	if (hour%2) != 0; OnMoodShuffle
 }
 
 OnMinuteChange
- {
-    if repairglitch != 1 && quest != 0
-	{
-		OnCheckGlitch
-	}
+{
+    if repairglitch != 1 && quest != 0; OnCheckGlitch
 	--
-	if meeting == 1 && repairglitch != 1 && quest != 1 &&  quest != 2 && glitchask != 1
-	{
-		glitchtime++
-	}
+	if narrator == 0 && repairglitch == 1 && nowshell == "M-201z"; OnUnlockNarrator
+	--
+	if meeting == 1 && repairglitch != 1 && quest != 1 &&  quest != 2 && glitchask != 1; glitchtime++
 	--
 	if glitchtime >= 300 && glitchask != 1
 	{
@@ -698,10 +890,7 @@ OnMinuteChange
 		glitchtime = 0
 	}
 	--
-	if ghostexcount != 0 && (azura != 1 || aurora != 1 || outfitS != 1)
-	{
-		OnClothesCheck
-	}
+	if ghostexcount != 0 && (azura != 1 || aurora != 1 || outfitS != 1); OnClothesCheck
 	--
 	timeslot = GetTimeSlot 
 	--
@@ -712,11 +901,11 @@ OnMinuteChange
 		{
 			if remindring[_i] == "SILENCE"
 			{
-				"%(ch)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c\e"
+				"%(ch)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c"
 			}
 			else
 			{
-				"%(ch)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]\e"
+				"%(ch)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]"
 			}
 			--
 			break
@@ -747,11 +936,11 @@ OnMinuteChange
 		{
 			if minute == 55 
 			{
-			"\05 minutes to midnight.\e"
+				"\05 minutes to midnight.\e"
 			}
 			else 
 			{
-			"\0It's 11 pm.\e"
+				"\0It's 11 pm.\e"
 			}
 		}
 		elseif hour == 7 && minute == 30 && weekday == 0 
@@ -792,10 +981,7 @@ OnMinuteChange
 		--
 		OnCharacterCheck
 		--
-		if upchec == "ON"
-		{
-			"\b[-1]\![updatebymyself,checkonly]\e"
-		}
+		if upchec == "ON"; "\b[-1]\![updatebymyself,checkonly]\e"
 	}
 	elseif mikireflag == 1
  	{
@@ -1341,55 +1527,136 @@ OnCheckGlitch
 		"\![*]\q[Bold text,OnDisting,bold]\n\![*]\q[Cursive text,OnDisting,cursive]\n/
 		\![*]\q[Striked text,OnDisting,strike]\n\![*]\q[Underlined text,OnDisting,underline]\n/
 		\![*]\q[Yellow text,OnDisting,yellow]\n\![*]\q[Green text,OnDisting,green]\n/
-		\![*]\q[Red text,OnDisting,red]\n\![*]\q[Pink text,OnDisting,pink]\n"
+		\![*]\q[Red text,OnDisting,red]\n\![*]\q[Pink text,OnDisting,pink]\n\![*]\q[Custom Color,OnDisting,custom]"
 	}
 
 }
 
 OnDisting
 {
-	distingtype = reference0
-	--
-	case distingtype
+	if reference1 != "nar"
 	{
-		when "bold"
+		distingtype = reference0
+		--
+		case distingtype
 		{
-			distingstart = "\f[bold,1]"
+			when "bold"
+			{
+				distingstart = "\f[bold,1]"
+			}
+			when "cursive"
+			{
+				distingstart = "\f[italic,1]"
+			}
+			when "strike"
+			{
+				distingstart = "\f[strike,1]"
+			}
+			when "underline"
+			{
+				distingstart = "\f[color,1]"
+			}
+			when "yellow"
+			{
+				distingstart = "\f[color,#fffa6b]"
+			}
+			when "green"
+			{
+				distingstart = "\f[color,#1bcc2a]"
+			}
+			when "red"
+			{
+				distingstart = "\f[color,#e62719]"
+			}
+			when "pink"
+			{
+				distingstart = "\f[color,#ffa1f7]"
+			}
+			when "custom"
+			{
+				"What color do you want?\![open,dialog,color,--id=OnCustomColor]\x"
+			}
 		}
-		when "cursive"
+		--
+		if formattype == 1 && distingtype != "custom" 
 		{
-			distingstart = "\f[italic,1]"
+			formattype = 0
+			TalkConfig
 		}
-		when "strike"
+		elseif distingtype == "custom"
 		{
-			distingstart = "\f[strike,1]"
+			TalkConfig
 		}
-		when "underline"
+		else
 		{
-			distingstart = "\f[color,1]"
-		}
-		when "yellow"
-		{
-			distingstart = "\f[color,#fffa6b]"
-		}
-		when "green"
-		{
-			distingstart = "\f[color,#1bcc2a]"
-		}
-		when "red"
-		{
-			distingstart = "\f[color,#e62719]"
-		}
-		when "pink"
-		{
-			distingstart = "\f[color,#ffa1f7]"
-		}
-		when "custom"
-		{
-			"%(distingstart)Oh, can you copy the hex of a color you want to use?\![open,inputbox,OnCustomColor,-1]"
-		}
-		
+			"\1%(distingnarr)Formatting set\e"
+		}		
 	}
+	else
+	{
+		nardistingtype = reference0
+		--
+		case nardistingtype
+		{
+			when "bold"
+			{
+				distingnarr = "\f[bold,1]"
+			}
+			when "cursive"
+			{
+				distingnarr = "\f[italic,1]"
+			}
+			when "strike"
+			{
+				distingnarr = "\f[strike,1]"
+			}
+			when "underline"
+			{
+				distingnarr = "\f[color,1]"
+			}
+			when "yellow"
+			{
+				distingnarr = "\f[color,#fffa6b]"
+			}
+			when "green"
+			{
+				distingnarr = "\f[color,#1bcc2a]"
+			}
+			when "red"
+			{
+				distingnarr = "\f[color,#e62719]"
+			}
+			when "pink"
+			{
+				distingnarr = "\f[color,#ffa1f7]"
+			}
+			when "custom"
+			{
+				"\1Choose Color\![open,dialog,color,--id=OnCustomColorNar]\x"
+			}
+		}
+		--
+		if formattype == 1 && nardistingtype != "custom" 
+		{
+			formattype = 0
+			TalkConfig
+		}
+		elseif nardistingtype == "custom"
+		{
+			TalkConfig
+		}
+		else
+		{
+			"\1%(distingnarr)Formatting set\e"
+		}	
+	}
+}
+
+OnCustomColorNar
+{
+	nardistingtype = "Custom Color"
+	--
+	distingnarr = "\f[color,"+ reference2 +"]"
 	--
 	if formattype == 1
 	{
@@ -1398,24 +1665,15 @@ OnDisting
 	}
 	else
 	{
-		"So %(distingtype) huh, well ok\xSo now I will talk%(distingstart) like this\e"
+		"\1%(distingnarr)Formatting set\e"
 	}
-	
 }
-
 
 OnCustomColor
 {
-	distingtype = reference0
+	distingtype = "Custom Color"
 	--
-	if "#" !_in_ reference0
-	{
-		distingstart = "\f[color,#"+ reference0 +"]"
-	}
-	else
-	{
-		distingstart = "\f[color,"+ reference0 +"]"
-	}
+	distingstart = "\f[color,"+ reference2 +"]"
 	--
 	if formattype == 1
 	{
@@ -1424,37 +1682,34 @@ OnCustomColor
 	}
 	else
 	{
-		"So %(distingtype) huh, well ok\xSo now I will talk%(distingstart) like this\e"
+		"Alright, now I will talk%(distingstart) like this\e"
 	}
 }
 
 //\![raise,OnGardenTalk]
 OnGardenTalk
 {
-	plants = "rose.red+orange+white+pink+yellow+green+blue+purple+bicolor+black.spring+summer+fall.full sun.none.roses,tulip.cream+white+yellow+orange+pink+red+purple+violet+black.spring.full sun+part sun.none.tulips,orchid.blue+magenta+purple+red+pink+white+yellow+orange+green+orange.varies.part sun.none.orchids,aster.blue+pink+purple+red+white.summer+fall.full sun+part sun.attracts butterflies.asters,dahlia.multicolor+orange+pink+purple+red+white+yellow.summer+fall.full sun.none.dahlias,sunflower.yellow+orange+red.summer.full sun.attracts birds and butterflies.sunflowers,astilbe.pink+red+white.spring+summer.part sun+shade.attracts butterflies.astilbes"
-	plantnum = ARRAYSIZE(plants)
-	randplant = RAND(plantnum)
-	plantsplit = SPLIT(plants[randplant],".")
-	plantname = plantsplit[0]
-	plantnamepl = plantsplit[5]
-	plantcolors = SPLIT(plantsplit[1],"+")
-	colornum = ARRAYSIZE(plantcolors)
-	randcolor = RAND(colornum)
-	attraction = plantsplit[4]
-	bloom = SPLIT(plantsplit[2],"+")
-	randbloom = ARRAYSIZE(bloom)-1
+	_plants = "rose.red+orange+white+pink+yellow+green+blue+purple+bicolor+black.spring+summer+fall.full sun.none.roses,tulip.cream+white+yellow+orange+pink+red+purple+violet+black.spring.full sun+part sun.none.tulips,orchid.blue+magenta+purple+red+pink+white+yellow+orange+green+orange.varies.part sun.none.orchids,aster.blue+pink+purple+red+white.summer+fall.full sun+part sun.attracts butterflies.asters,dahlia.multicolor+orange+pink+purple+red+white+yellow.summer+fall.full sun.none.dahlias,sunflower.yellow+orange+red.summer.full sun.attracts birds and butterflies.sunflowers,astilbe.pink+red+white.spring+summer.part sun+shade.attracts butterflies.astilbes"
+	_plantnum = ARRAYSIZE(_plants)
+	_randplant = RAND(_plantnum)
+	_plantsplit = SPLIT(_plants[_randplant],".")
+	_plantname = _plantsplit[0]
+	_plantnamepl = _plantsplit[5]
+	_plantcolors = SPLIT(_plantsplit[1],"+")
+	_colornum = ARRAYSIZE(_plantcolors)
+	_randcolor = RAND(_colornum)
+	_attraction = _plantsplit[4]
+	_bloom = SPLIT(_plantsplit[2],"+")
+	_randbloom = ARRAYSIZE(_bloom)-1
 	--
-	"%(distingstart)Have you thought about growing %(plantnamepl)? They are beautifull and come in a nice shade of %(plantcolors[randcolor])"
-	"%(distingstart)Did you know that %(plantnamepl) can be %(plantcolors[randcolor])? I haven't seen many but DAVD had a couple growing in his garden .\w6 .\w6 .\w6 .\w6 .\w6 .\w6 I guess that might be common knowledge but it was very suprissing to someone like me"
+	"%(distingstart)Have you thought about growing %(_plantname)? They are beautifull and come in a nice shade of %(_plantcolors[_randcolor])"
+	"%(distingstart)Did you know that %(_plantname) can be %(_plantcolors[_randcolor])? I haven't seen many but DAVD had a couple growing in his garden .\w6 .\w6 .\w6 .\w6 .\w6 .\w6 I guess that might be common knowledge but it was very suprissing to someone like me"
 	
-	if attraction != "none"
+	if _attraction != "none"
 	{
-		"%(distingstart)Did you know that %(plantnamepl) %(attraction)?"
+		"%(distingstart)Did you know that %(_plantname) %(_attraction)?"
 
-		if "butterflies" _in_ attraction
-		{
-			"%(distingstart)%(plantnamepl) %(attraction) you know, it makes for a great sight"
-		}
+		if "butterflies" _in_ _attraction; "%(distingstart)%(TOPROPER(_plantname)) %(_attraction) you know, it makes for a great sight"
 	}
 }
 

@@ -72,11 +72,12 @@ On_sakura.portalsites
  {
  	"Instagram"
 	--
-	"%ASC(1)https://www.instagram.com/gremlin_zdzisiu/"
+	"%ASC(1)https://www.instagram.com/gremlin_zdzisiu/%ASC(2)"
 	--
+
 	"Website"
 	--
-	"%ASC(1)https://zdzisiu.github.io/Ukagaka/"
+	"%ASC(1)https://zdzisiu.github.io/Ukagaka/%ASC(2)"
  }
 
  

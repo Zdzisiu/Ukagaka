@@ -2,9 +2,19 @@ OnTranslate
 {
 	_talk = reference0
 	--
-	if nowshell != "Animated"
+	if nowshell != "M-201z"
 	{
 		_talk = RE_REPLACE(_talk,"(\\i\[\d*\])","")
+	}
+	--
+	if colors == "OFF"
+	{
+		//_talk = RE_REPLACE(_talk,"(\\f\[color\,\#\w*\])","")
+	}
+	--
+	if fontsize != 15
+	{
+		//_talk = "\f[height," + fontsize + "]" + _talk
 	}
 	--
 	if david != 1

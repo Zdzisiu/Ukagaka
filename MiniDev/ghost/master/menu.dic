@@ -24,44 +24,29 @@ MenuRun
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
-	if tentruth == 1
-	{
-		"\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
-	}
-	elseif tentruth == 2
-	{
-		"\![*]\q[Reboot,rebot]\n\n[half]"
-	}
-	elseif glitchboot <= 5
-	{
-		"\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,gboot]\n\n[half]"
-	}
+	if tentruth == 1; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
+	elseif tentruth == 2; "\![*]\q[Reboot,rebot]\n\n[half]"
+	elseif glitchboot <= 5; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,gboot]\n\n[half]"
 	--
-	if lastTalk != "" 
-	{
-	  "\![*]\q[Repeat,OnLastTalk] or "
-	}
+	if lastTalk != ""; "\![*]\q[Repeat,OnLastTalk] or "
 	--
  	"\![*]\q[Say something,altalk]\n\n[half]"
 	--
-	if devop == 1
-	{
-		"\![*]\q[Test,OnTest]\n\n[half]"
-	}
+	//"\![*]\q[Test,OnTest]\n\n[half]"
 	--
 	"\![*]\q[Config Menu,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n/
+	//\![*]\q[Anime News,aninews]\n/
 	\![*]\q[Customize,clothesmenu]\n\n[half]/
 	\![*]\q[Questions,ques]\n/
 	\![*]\q[Open an app | project,oapp]\n/
 	\![*]\q[User Logs,LOG]\n"
 	--
-	//"\![*]\q[Recommend,req]\n"
+	if nowshell == "M-201z";"\![*]\q[Items,gift]\n"
 	//--
-	if AI == "ON"
-	{
-		"\![*]\q[AI chat,saysmth]\n"
-	}
+	//"\![*]\q[TEST,OnMakao]\n"
+	--
+	if AI == "ON";"\![*]\q[AI chat,saysmth]\n"
 	--
 	if tentruth == 1 || glitchboot <= 5
 	{
@@ -69,7 +54,7 @@ MenuRun
 		--
 		if meeting == 1
 		{
-				if m201relationship >= 25
+			if m201relationship >= 25
 			{
 				"\![*]\q[Play a game,gamez]\n"
 			}
@@ -80,18 +65,18 @@ MenuRun
 	--
 	"\n[half]\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(timeformat), %(dateformat)" 
 	--
-	if weathermenu == "ON" {
-        "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
-    }
+	if weathermenu == "ON"; "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
 	--
-	if moonmenu == "ON"
-	{
-		"\n\f[bold,1]Moon:\f[default] %(phase)"
-	}	
+	if moonmenu == "ON";"\n\f[bold,1]Moon:\f[default] %(phase)"
 	--
 	"\n\n[half]\f[height,10]Version: %(vers)\f[default]"
 	--
 	"\e"
+}
+
+Select.gift
+{
+
 }
 
 /*OnCelc //F to C conversion
@@ -135,7 +120,7 @@ timeformat
 	}
 	elseif timeformatype == "MILITARY"
 	{
-		"%(hour):%(nowmin)"
+		"%(hour):%(minute)"
 	}
 }
 
@@ -204,8 +189,8 @@ Select.req //recommendations
 	"\![*]\q[Books,bookr]\n"
 	//"\![*]\f[strike,1]Books\f[strike,0]\n"
 	--
-	//"\![*]\q[Anime,randanime]\n"
-	"\![*]\f[strike,1]Anime\f[strike,0]\n"
+	"\![*]\q[Anime,randanime]\n"
+	//"\![*]\f[strike,1]Anime\f[strike,0]\n"
 	--
 	"\![*]\q[Mangas,mangar]\n"
 	//"\![*]\f[strike,1]Mangas\f[strike,0]\n"
@@ -281,7 +266,7 @@ OnBookFound
 			rand = RAND(50)
 		}
 		--
-		bookpage += "\f[bold,1]" + REPLACE(booksplit[rand],"~~",",") + "\f[bold,0]—" + REPLACE(authorsplit[rand],"~~",",") + "\n\n[half]"
+		bookpage += "\f[bold,1]" + REPLACE(booksplit[rand],"~~",",") //+ "\f[bold,0]—" + REPLACE(authorsplit[rand],"~~",",") + "\n\n[half]"
 	}
 	--
 	bookpage += "\x"
@@ -336,9 +321,12 @@ OnMangaFound
     FCHARSET(1)
     --
     if FOPEN(_file,'r') {
-            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
-
+            for _buff = FREAD(_file); _buff != -1 && _found != 10; _buff = FREAD(_file) {
 				if RE_SEARCH ( _buff, _regquote ) {
+						bookpage += RE_GETSTR[1] + "\n\n[half]"  
+						_found++
+				}
+				/*if RE_SEARCH ( _buff, _regquote ) {
 						
 						quote += RE_GETSTR[1] + "+"  
 				}
@@ -351,7 +339,7 @@ OnMangaFound
 				if RE_SEARCH ( _buff, _booklinkregex ) {
 						
 					booklink += RE_GETSTR[1] + "+"  
-				}
+				}*/
             }
     }
     --
@@ -367,7 +355,7 @@ OnMangaFound
 	author = REPLACE(author,",","~~")
 	authorsplit = SPLIT(author,"+")
 	--
-	for _i=0;_i<5;_i++
+	/*for _i=0;_i<5;_i++
     {
 		lastrand = rand
 		rand = RAND(100)
@@ -388,7 +376,7 @@ OnMangaFound
 			}
 		}
 		--
-		if REPLACE(booksplit[rand],"~~",",") == "" || exctag == 1
+		if REPLACE(booksplit[rand],"~~",",") == "" || exctag == 1 || REPLACE(booksplit[rand],"~~",",") _in_ _bookpage 
 		{
 			_i--
 		}
@@ -396,22 +384,16 @@ OnMangaFound
 		{
 			bookpage += "\f[bold,1]" + REPLACE(booksplit[rand],"~~",",") + "\f[bold,0]:\n\f[height,10]" + REPLACE(authorsplit[rand],"~~",",") + "\n\n[half]\f[default]"
 		}
-	}
+	}*/
 	--
 	bookpage += "\x"
 	--
 	bookpage
-
 }
 
 Select.mangar
 {
-	rand = RAND(1000)
-	--
-	if rand == 0
-	{
-		rand = 1
-	}
+	rand = RAND(1646) + 1
 	--
 	 ". . .\![execute,http-get,https://www.anime-planet.com/manga/all?page=%(rand),--async=OnMangaFound,--file=manga.html,--timeout=200]"
 }
@@ -558,7 +540,7 @@ On201zQ
 		}
 		when "feelings"
 		{
-			m201relationship ++
+			m201relationship++
 			--
 			if repairglitch != 1
 			{
@@ -731,7 +713,7 @@ On201zQ
 		}
 		when "yourself"
 		{
-			m201relationship ++
+			m201relationship++
 			--
 			if repairglitch != 1
 			{
@@ -990,13 +972,13 @@ Select.secode
 	--
 	if serialnum == 201 && gener == "z"
 	{
-		truth ++
+		truth++
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
 	}
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '%(serialnum)' and then generation, for example '%(gener)',\w5 marking complexity of certain model\x\cJoining them you get M-%(serialnum)%(gener)\e"
 
 	{
-		truth ++
+		truth++
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
 	}
 	--
@@ -1006,7 +988,7 @@ Select.secode
 Select.m201z
 {
 	
-	truth ++
+	truth++
 	--
 	if truth > 5
 	{
@@ -1138,10 +1120,11 @@ Select.CANCEL
 Select.dosomething
 {
 	
-	"\0\b2What shall I do?\n\n"
+	"\0\b2What do you need?\n\n"
 	--
 	"\_q\![*]\q[Weather,weath]\n/
 	\![*]\q[To-Do list,todotwooo]\n/
+	//\![*]\q[Music Player,music]\n/
 	\![*]\q[Reminders,OnReminders]\n/
 	\![*]\q[Recommend,req]\n/
 	\![*]\q[Quote,quote]\n\n[half]/
@@ -1183,11 +1166,11 @@ Select.todotwooo
 	{
 		if pagetaskstatus[_i] == 1
 		{
-			taskforpage += "\f[strike,1]\q[" + _i + ". " + pagetasks[_i] + ",OnMarkTask," + _i + "]\f[strike,0]\n"
+			taskforpage += "\f[strike,1]\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\f[strike,0]\n"
 		}
 		else
 		{
-			taskforpage += "\q[" + _i + ". " + pagetasks[_i] + ",OnMarkTask," + _i + "]\n"
+			taskforpage += "\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\n"
 		}
 	}
 	--
@@ -1448,7 +1431,7 @@ Select.oapp
 	_apps = FENUM('app','+')
 	if _apps == ""
 	{
-		appcontent +="\f[bold,1]You don't have any apps\f[bold,0]\nTo open app you need to place shortcut for it in the folder\![open,file,app]"
+		appcontent +="\f[bold,1]You don't have any apps\f[bold,0]\nTo open app you need to place shortcut for it in the folder"
 	}
 	else
 	{
@@ -1470,7 +1453,7 @@ Select.oapp
 	_proj = FENUM('projects','+')
 	if _proj == ""
 	{
-		appcontent +="\f[bold,1]You don't have any projects\f[bold,0]\n\![open,file,pojects]"
+		appcontent +="\f[bold,1]You don't have any projects\f[bold,0]\n"
 	}
 	else
 	{
@@ -1656,79 +1639,115 @@ OnRePro
 
 Select.randanime
 {
-	animerand = RAND(1400)
+	animerand = RAND(445) + 1
 	animerecom = "\_q\0\b[4]\*"
-	animes = 0
-    --
-    "\![execute,http-get,https://www.randomanime.org/anime/%(animerand)/,--async=OnAnimeRand,--file=rananime.html,--timeout=200]"
+	--
+    "\![execute,http-get,https://www.anime-planet.com/anime/all?page=%(rand),--async=OnAnimeRand,--file=rananime.html,--timeout=200]"
 }
 
 OnAnimeRand
 {
         
     _file = "var\\rananime.html"
-    _buff=""
-	_reganimename = '<span class="fluid-top-header" itemprop="name">(.*)<'
-    _reganimegenre = '<li itemprop="genre">(.*)</ul>'
-	_regepnum = '<p itemprop="numberOfEpisodes">(.*)</p>'
-    animename = ''
-    animegenre = ''
-	epnum = ''
-	exctag = 0
+    _buff= ""
+    _regquote = '<h5 class=' + "'" + 'theme-font' + "'" + '>([\w|\s]*)</h5>'//<a title="<h5 class='theme-font'>Yum Yum Sweets</h5>
+    _regeauthor = '<h4>Tags</h4><ul>(.*)</li></ul></div>' //tags
+	_booklinkregex = 'data-total-episodes="(\d*)"' //episodes
+	_animeid= 'data-type="anime" data-id="(\d*)"' //episodes
+    quote = ""
+	_anime = ""
+    author = ""
+	id = ""
     _found = 0
+	episodes = ""
+	_bookpage = "\b2\_q\*"
     FCHARSET(1)
     --
     if FOPEN(_file,'r') {
-		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
-
-			if RE_SEARCH ( _buff, _reganimename ) {
-					
-				animename = RE_GETSTR[1]
-			}
-			--               
-			if RE_SEARCH ( _buff, _reganimegenre ) {
-					
-				animegenre = RE_GETSTR[1]    
-				animegenre = REPLACE(animegenre,'</li>',' | ')
-				animegenre = REPLACE(animegenre,'<li itemprop="genre">',' ')
-			}
-			--
-			if RE_SEARCH ( _buff, _regepnum ) {
-					
-				epnum = RE_GETSTR[1]    
-			}
-		}
+            for _buff = FREAD(_file); _buff != -1 && _found != 10; _buff = FREAD(_file) {
+				if RE_SEARCH ( _buff, _regquote ) {
+						
+					//book += RE_GETSTR[1] + "+"  
+					_bookpage += RE_GETSTR[1] + "\n\n[half]"  
+					_found++ 
+				}
+				/*if RE_SEARCH ( _buff, _regquote ) {
+						
+					//book += RE_GETSTR[1] + "+"  
+					_anime += RE_GETSTR[1] + "|||"  
+				}
+				--
+				if RE_SEARCH ( _buff, _animeid ) {
+						
+					//id += RE_GETSTR[1] + "+"  
+					_anime += RE_GETSTR[1] + "|||"  
+				}
+				--
+				if RE_SEARCH ( _buff, _regeauthor ) {
+						
+					//author += RE_GETSTR[1] + "+"  
+					_anime += RE_GETSTR[1] + "|||"  
+				}
+				--
+				if RE_SEARCH ( _buff, _booklinkregex ) {
+						
+					//episodes += RE_GETSTR[1] + "+"  
+					_anime += RE_GETSTR[1] + "|||+"  
+				}*/
+            }
     }
     --
     FCLOSE(_file);
+    --
+	_anime = REPLACE(_anime,",","~~")
+	_anime = SPLIT(_anime,"+")
+	/*quote = REPLACE(quote,",","~~")
+	booksplit = SPLIT(quote,"+")
 	--
-	exsize = ARRAYSIZE(excludedtags)
+	episodes = SPLIT(episodes,"+")
 	--
-	for _k=0;_k<=exsize;_k++
-	{
-		if excludedtags[_k] _in_ animegenre
-		{
-			exctag = 1
-		}
-	}
+	author = REPLACE(author,"<li>","")
+	author = REPLACE(author,"</li>"," | ")
+	author = REPLACE(author,",","~~")
+	authorsplit = SPLIT(author,"+")
 	--
-	if exctag != 1
-	{
-		animerecom += "\f[bold,1]" + animename + "\nEpisodes: " + epnum + "\f[bold,0]\n\f[size,10]" + animegenre + "\f[size,default]\n\n"
-		animes++
-	}
+	id = SPLIT(id,"+")*/
 	--
-	if animes != 5
-	{
-		animerand = RAND(1400)
+	/*for _i=0;_i<5;_i++
+    {
+		lastrand = rand
+		rand = RAND(100)
+		exctag = 0
+		_splitanime = SPLIT(_anime[rand],"|||")
 		--
-		"\![execute,http-get,https://www.randomanime.org/anime/%(animerand)/,--async=OnAnimeRand,--file=rananime.html,--timeout=200]"
-	}
-	else
-	{
-		animerecom
-	}
-	
+		for _j=0;lastrand==rand;_j++
+		{
+			rand = RAND(35)
+		}
+		--
+		exsize = ARRAYSIZE(excludedtags)
+		--
+		for _k=0;_k<=exsize;_k++
+		{
+			if excludedtags[_k] _in_ _splitanime[2]
+			{
+				exctag = 1
+			}
+		}
+		--
+		if _splitanime[0] == "" || exctag == 1 || _splitanime[0] _in_ _bookpage 
+		{
+			_i--
+		}
+		else
+		{
+			_bookpage += "\f[bold,1]" + REPLACE(_splitanime[0],"~~",",") + "\f[bold,0]:\nEpisodes:"+ _splitanime[3] +"\n\f[height,10]" + REPLACE(_splitanime[2],"~~",",") + "\nAnimeID:" + _splitanime[1] +"\n\n[half]\f[default]"
+		}
+	}*/
+	--
+	_bookpage += "\x"
+	--
+	_bookpage
 }
 
 Select.gamez
@@ -1997,7 +2016,7 @@ winorlosewar
 			}
 		}
 		--
-		userwins ++
+		userwins++
 	}
 	elseif cardu != 1 && cardg == 1
 	{
@@ -2092,7 +2111,7 @@ winorlosewar
 			}
 		}
 		--
-		userlosses ++
+		userlosses++
 	}
 	elseif cardu == 1 && cardg == 1
 	{
@@ -2213,7 +2232,7 @@ winorlosewar
 			}
 		}
 		--
-		userlosses ++
+		userlosses++
 	}
 	else
 	{
@@ -2306,7 +2325,7 @@ winorlosewar
 			}
 		}
 		--
-		userwins ++
+		userwins++
 	}
 }
 
@@ -3458,9 +3477,9 @@ OnTell
 					}
 				}
 				--
-				mood[2] ++
-				mood[3] --
-				mood[4] --
+				mood[2]++
+				mood[3]--
+				mood[4]--
 				m201relationship--
 			}
 			else
@@ -3483,15 +3502,15 @@ OnTell
 					}
 				}
 				--
-				mood[2] ++
-				mood[3] --
-				mood[4] --
+				mood[2]++
+				mood[3]--
+				mood[4]--
 				m201relationship--
 			}
 		}
 		when "ufunny"
 		{
-			m201relationship ++
+			m201relationship++
 			--
 			if repairglitch != 1
 			{
@@ -3538,7 +3557,7 @@ OnTell
 		}
 		when "unice"
 		{
-			m201relationship ++
+			m201relationship++
 			--
 			if repairglitch != 1
 			{
@@ -3610,7 +3629,7 @@ OnTell
 		}
 		when "nicecompany"
 		{
-			m201relationship ++
+			m201relationship++
 			--
 			if repairglitch != 1
 			{
@@ -3794,4 +3813,1062 @@ Select.animeandchill
 	}
 	--
 	questionsasked += " anime-and-chill "
+}
+
+
+OnMakao
+{
+    "\_qHow many cards?\n\n[half]"
+    --
+    "\![*]\q[5,OnDrawCards,5]\n/
+    \![*]\q[10,OnDrawCards,10]\n/
+    \![*]\q[15,OnDrawCards,15]\n"
+    --
+    "\n[half]\![*]\q[Nevermind,CANCEL] | \![*]\q[Go Back,gamez]"
+}
+
+OnDrawCards
+{
+    cardnum = TOINT(reference0)
+	usercnum = cardnum
+	mzcnum = cardnum
+	warmode = 0
+	stoprightthere = 0
+	spoilsofwar = 0
+	gimmethenumber = 0
+	wait = 0
+	dialog = 0
+	temp = 0
+	spoilsofwar = 0
+	turn = username
+	iwant = 0
+	kartyU = ""
+	kartyMz = ""
+    table = "%(cha)\b6\0\_q| "
+	--
+	_tablecardnum = RAND(6)
+	_tablecardznak = RAND(4)
+	--
+	if _tablecardznak == 1
+	{
+		_tablecardznak = "♥"
+	}
+	elseif _tablecardznak == 2
+	{
+		_tablecardznak = "♦"
+	}
+	elseif _tablecardznak == 3
+	{
+		_tablecardznak = "♣"
+	}
+	else
+	{
+		_tablecardznak = "♠"
+	}
+	--
+	if _tablecardnum == 0
+	{
+		_tablecardnum = 5
+	}
+	elseif _tablecardnum == 1
+	{
+		_tablecardnum = 6
+	}
+	elseif _tablecardnum == 2
+	{
+		_tablecardnum = 7
+	}
+	elseif _tablecardnum == 3
+	{
+		_tablecardnum = 8
+	}
+	elseif _tablecardnum == 4
+	{
+		_tablecardnum = 9
+	}
+	else
+	{
+		_tablecardnum = 10
+	}
+	--
+	tablecard = _tablecardnum + " " + _tablecardznak
+    --
+    for _i = 0; _i < cardnum ; _i++
+    {   
+        _cardsU[_i] = RAND(13) + 1
+        _cardsMz[_i] = RAND(13) + 1
+        _znakiU[_i] = RAND(4)
+        _znakiMz[_i] = RAND(4)
+        --
+        if _cardsU[_i] == 11
+        {
+            _cardsU[_i] = "J"
+        }
+        elseif _cardsU[_i] == 12
+        {
+            _cardsU[_i] = "Q"
+        }
+        elseif _cardsU[_i] == 13
+        {
+            _cardsU[_i] = "K"
+        }
+		elseif _cardsU[_i] == 1
+        {
+            _cardsU[_i] = "A"
+        }
+        --
+        if _cardsMz[_i] == 11
+        {
+            _cardsMz[_i] = "J"
+        }
+        elseif _cardsMz[_i] == 12
+        {
+            _cardsMz[_i] = "Q"
+        }
+        elseif _cardsMz[_i] == 13
+        {
+            _cardsMz[_i] = "K"
+        }
+		elseif _cardsMz[_i] == 1
+        {
+            _cardsMz[_i] = "A"
+        }
+        --
+        if _znakiU[_i] == 1
+        {
+            _znakiU[_i] = "♥"
+			kartyUHs[_i] = "HRT"
+        }
+        elseif _znakiU[_i] == 2
+        {
+            _znakiU[_i] = "♦"
+			kartyUHs[_i] = "DMD"
+        }
+        elseif _znakiU[_i] == 3
+        {
+            _znakiU[_i] = "♣"
+			kartyUHs[_i] = "TRE"
+        }
+        else
+        {
+            _znakiU[_i] = "♠"
+			kartyUHs[_i] = "BHRT"
+        }
+        --
+        if _znakiMz[_i] == 1
+        {
+            _znakiMz[_i] = "♥"
+			kartyMZs[_i] = "HRT"
+        }
+        elseif _znakiMz[_i] == 2
+        {
+            _znakiMz[_i] = "♦"
+			kartyMZs[_i] = "DMD"
+        }
+        elseif _znakiMz[_i] == 3
+        {
+            _znakiMz[_i] = "♣"
+			kartyMZs[_i] = "TRE"
+        }
+        else
+        {
+            _znakiMz[_i] = "♠"
+			kartyMZs[_i] = "BHRT"
+        }
+        --
+		kartyUH[_i] = _cardsU[_i] + " " + _znakiU[_i]
+		--
+        kartyMz[_i] = _cardsMz[_i] + " " + _znakiMz[_i]
+    }
+	--
+	OnSetTable
+}
+
+OnCardChoice
+{
+	_cardnum = TOINT(reference2)
+	--
+	for _i = _cardnum; _i <= usercnum; _i++
+	{
+		kartyUH[_i] = kartyUH[_i+1]
+	}
+	-- 
+	if reference0 == "3" || reference0 == "2" || reference0 == "K"
+	{
+		warmode = 1	
+		--
+		if reference0 == "2"
+		{
+			spoilsofwar += 2
+		}
+		elseif reference0 == "3"
+		{
+			spoilsofwar += 3
+		}
+		else
+		{
+			spoilsofwar += 5
+		}
+	}
+	elseif reference0 == "A"
+	{
+		iwant = 1
+	}
+	elseif reference0 == "Q"
+	{
+		iwant = 0
+		spoilsofwar = 0
+		warmode = 0
+		stoprightthere = 0
+		wait = 0
+		gimmethenumber = 0
+	}
+	elseif reference0 == "J"
+	{
+		gimmethenumber = 1
+	}
+	elseif reference0 == "4"
+	{
+		stoprightthere = 1
+		wait++
+	}
+	elseif gimmethenumber == 1
+	{
+		gimme = reference0
+		gimmethenumber = 2
+	}
+	elseif gimmethenumber == 2
+	{
+		gimmethenumber = 3
+	}
+	--
+	tablecard = reference0 + " " + reference1
+	usercnum--
+	turn = "M-201z"
+	--
+	OnSetTable
+	//--
+	//OnCardChoiceMz
+}
+
+OnMakaostuff
+{
+	if reference0 == "makao"
+	{
+		usermakao = 1
+	}
+	elseif reference0 == "stopmakao"
+	{
+		
+	}
+	elseif reference0 == "takecard"
+	{
+		_cardsU = RAND(13) + 1
+		_znakiU = RAND(4)
+		--
+		if _znakiU == 1
+		{
+			_znakiU = "♥"
+			kartyUHs[usercnum] = "HRT"
+		}
+		elseif _znakiU == 2
+		{
+			_znakiU = "♦"
+			kartyUHs[usercnum] = "DMD"
+		}
+		elseif _znakiU == 3
+		{
+			_znakiU = "♣"
+			kartyUHs[usercnum] = "TRE"
+		}
+		else
+		{
+			_znakiU = "♠"
+			kartyUHs[usercnum] = "BHRT"
+		}
+		--
+		if _cardsU == 11
+		{
+			_cardsU = "J"
+		}
+		elseif _cardsU == 12
+		{
+			_cardsU = "Q"
+		}
+		elseif _cardsU == 13
+		{
+			_cardsU = "K"
+		}
+		elseif _cardsU == 1
+		{
+			_cardsU = "A"
+		}
+		--
+		kartyUH[usercnum] = _cardsU + " " + _znakiU
+		--
+		usercnum++
+		--
+		turn = "M-201z"
+		--
+		OnSetTable
+	}
+}
+
+OnSetTable
+{
+    table = "%(cha)\_q"
+   	--
+	case dialog
+	{
+		table += "\p[2]"
+		--
+		when "take"
+		{
+			table += "M-201z takes a card"
+		}
+		when "waiting"
+		{
+			table += "M-201z put's a 4 on the table, will you wait %(wait) turns?"
+		}
+		when "war-cards"
+		{
+			table += "M-201z took %(spoilsofwar) cards, ending the war"
+		}
+		when "casual"
+		{
+			table += "M-201z put %(tablecard) on the table"
+		}
+		when "gimme"
+		{
+			table += "M-201z put a J on the table, he demands %(gimme)"
+		}
+		when "i-want"
+		{
+			table += "M-201z put a A on the table, he demands %(temp)"
+			--
+			tablecard = "A " + temp
+		}
+		when "war_start"
+		{
+			table += "\1M-201z put %(tablecard) on the table, starting a war"
+		}
+		when "war"
+		{
+			table += "M-201z put %(tablecard) on the table, war continues"
+		}
+		when "wait-a-sec"
+		{
+			table += "M-201z put a 4 on the table, are you going to wait 1 turn?"
+		}
+		when "am-waiting"
+		{
+			table += "M-201z waits a turn"
+		}
+		others
+		{
+			table = "%(cha)\_q"
+		}
+		--
+		table += "\0\b6|"
+	}
+	--
+	if usercnum == 0
+	{
+		"%(distingstart)%(cha)\b6\0\_qLooks like it's your win\n\n\n[half]"
+		--
+		"\n[half]\![*]\q[Nevermind,CANCEL] | \![*]\q[Back to game menu,gamez] | \![*]\q[Play Again,OnMakao]\e"
+	}
+	elseif mzcnum == 0
+	{
+		"%(distingstart)%(cha)\b6\0\_qLooks like it's my win\n\n\n[half]"
+		--
+		"\n[half]\![*]\q[Nevermind,CANCEL] | \![*]\q[Back to game menu,gamez] | \![*]\q[Play Again,OnMakao]\e"
+	}
+	--
+	if iwant == 1
+	{
+		"\_qChoose suit:\n\n[half]"
+		--
+		"\q[♥,OnChangeSign,heart] | \q[♦,OnChangeSign,diamond] | \q[♣,OnChangeSign,tree] | \q[♠,OnChangeSign,bheart]"
+	}
+	elseif gimmethenumber == 1
+	{
+		table += "What number fo you want?\n\n[half]"
+		--
+		for _i = 0; _i < usercnum ; _i++
+		{   
+			_usplit = SPLIT(kartyUH[_i]," ")
+			--
+			_splitcard = SPLIT(tablecard," ")
+			--
+			if _usplit[0] != "K" || _usplit[0] != "Q" || _usplit[0] != "A"  || _usplit[0] != "2" || _usplit[0] != "3" || _usplit[0] != "4"
+			{
+				kartyU[_i] = "\q[" + _usplit[0] + " " + _usplit[1] + "+OnCardChoice+" + _usplit[0] + "+" + _usplit[1] + "+" + _i + "]"
+			}
+			else
+			{
+				kartyU[_i] = "\f[color+#555555]" + _usplit[0] + " " + _usplit[1] + "\f[default]"
+			}
+			--
+			table += REPLACE(kartyU[_i],"+",",") + " | "
+		}
+		--
+		table
+	}
+	elseif turn == username
+	{
+		if stoprightthere == 2
+		{
+			wait--
+			--
+			if wait == 0
+			{
+				stoprightthere = 0
+			}
+			--
+			OnMzTurn
+		}
+		else
+		{ 
+			for _i = 0; _i < usercnum ; _i++
+			{   
+				_usplit = SPLIT(kartyUH[_i]," ")
+				--
+				_splitcard = SPLIT(tablecard," ")
+				--
+				if warmode  == 1
+				{
+					if _usplit[0] == "3" || _usplit[0] == "2" || (_usplit[0] == "K" && _usplit[1] == "♠") || (_usplit[0] == "K" && _usplit[1] == "♥") || _usplit[0] == "Q"
+					{
+						kartyU[_i] = "\q[" + _usplit[0] + " " + _usplit[1] + "+OnCardChoice+" + _usplit[0] + "+" + _usplit[1] + "+" + _i + "]"
+					}
+					else
+					{
+						kartyU[_i] = "\f[color+#555555]" + _usplit[0] + " " + _usplit[1] + "\f[default]"
+					}
+				}
+				elseif gimmethenumber == 2 
+				{
+					if _usplit[0] == gimme || _usplit[0] == "Q"
+					{
+						kartyU[_i] = "\q[" + _usplit[0] + " " + _usplit[1] + "+OnCardChoice+" + _usplit[0] + "+" + _usplit[1] + "+" + _i + "]"
+					}
+					else
+					{
+						kartyU[_i] = "\f[color+#555555]" + _usplit[0] + " " + _usplit[1] + "\f[default]"
+					}
+				}
+				elseif stoprightthere == 1
+				{
+					if _usplit[0] == "4" || _usplit[0] == "Q"
+					{
+						kartyU[_i] = "\q[" + _usplit[0] + " " + _usplit[1] + "+OnCardChoice+" + _usplit[0] + "+" + _usplit[1] + "+" + _i + "]"
+					}
+					else
+					{
+						kartyU[_i] = "\f[color+#555555]" + _usplit[0] + " " + _usplit[1] + "\f[default]"
+					}
+				}
+				else
+				{
+					if _usplit[0] == _splitcard[0] || _usplit[1] == _splitcard[1] || _usplit[0] == "Q" || _splitcard[0] == "Q"
+					{
+						kartyU[_i] = "\q[" + _usplit[0] + " " + _usplit[1] + "+OnCardChoice+" + _usplit[0] + "+" + _usplit[1] + "+" + _i + "]"
+					}
+					else
+					{
+						kartyU[_i] = "\f[color+#555555]" + _usplit[0] + " " + _usplit[1] + "\f[default]"
+					}
+				}
+				--
+				table += REPLACE(kartyU[_i],"+",",") + " | "
+			}
+			--
+			table += "\n\n\n[half]Current Card: " + tablecard + "\n\n[half]Turn: " + turn + "\n\f[bold,1]Cards Left:\f[bold,0]\n%(username): %(usercnum)\nM-201z: %(mzcnum)\n\n[half]"
+			--
+			if usercnum == 1
+			{
+				//table += "\q[Makao! ,OnMakaostuff,makao] | "
+			}
+			--
+			//table += "\q[Stop Makao! ,OnMakaostuff,stopmakao] | " + "\q[Take Card,OnMakaostuff,takecard]"
+			if warmode  == 1
+			{
+				table += "\q[Take %(spoilsofwar) cards,OnUserWar]"
+			}
+			elseif stoprightthere == 1
+			{
+				table += "\q[Wait %(wait) turns,OnNoFour]"
+			}
+			else
+			{
+				table += "\q[Take Card,OnMakaostuff,takecard]"
+			}
+			--
+			//table += "\1%(kartyMz)"
+			--
+			table
+		}
+	}
+	else
+	{
+		/*for _i = 0; _i < usercnum ; _i++
+		{   
+			_usplit = SPLIT(kartyUH[_i]," ")
+			--
+			_splitcard = SPLIT(tablecard," ")
+			--
+			kartyU[_i] = "\f[color+#555555]" + _usplit[0] + " " + _usplit[1] + "\f[default]"
+			--
+			table += REPLACE(kartyU[_i],"+",",") + " | "
+		}
+		--
+		table += "\n\n\n[half]Current Card: " + tablecard + "\n\n[half]Turn: " + turn + "\n\f[bold,1]Cards Left:\f[bold,0]\n%(username): %(usercnum)\nM-201z: %(mzcnum)\n\n[half]"
+		--
+		if usercnum == 1
+		{
+			//table += "\q[Makao! ,OnMakaostuff,makao] | "
+		}
+		--
+		//table += "\q[Stop Makao! ,OnMakaostuff,stopmakao] | " + "\q[Take Card,OnMakaostuff,takecard]"
+		table += "\q[Take Card,OnMakaostuff,takecard]"
+		--
+		table
+		--*/
+		OnMzTurn
+	}
+	
+}
+
+OnNoFour
+{
+	stoprightthere = 2
+	--
+	OnMzTurn
+}
+
+OnUserWar
+{
+	for _i = 1; _i <= spoilsofwar; _i++
+	{
+		_cardsU = RAND(13) + 1
+		_znakiU = RAND(4)
+		--
+		if _znakiU == 1
+		{
+			_znakiU = "♥"
+			kartyUHs[usercnum] = "HRT"
+		}
+		elseif _znakiU == 2
+		{
+			_znakiU = "♦"
+			kartyUHs[usercnum] = "DMD"
+		}
+		elseif _znakiU == 3
+		{
+			_znakiU = "♣"
+			kartyUHs[usercnum] = "TRE"
+		}
+		else
+		{
+			_znakiU = "♠"
+			kartyUHs[usercnum] = "BHRT"
+		}
+		--
+		if _cardsU == 11
+		{
+			_cardsU = "J"
+		}
+		elseif _cardsU == 12
+		{
+			_cardsU = "Q"
+		}
+		elseif _cardsU == 13
+		{
+			_cardsU = "K"
+		}
+		elseif _cardsU == 1
+		{
+			_cardsU = "A"
+		}
+		--
+		kartyUH[usercnum] = _cardsU + " " + _znakiU
+		--
+		usercnum++
+	}
+	--
+	warmode = 0
+	spoilsofwar = 0
+	--
+	turn = "M-201z"
+	--
+	OnSetTable
+}
+
+OnChangeSign
+{
+	if reference0 == "heart"
+	{
+		tablecard = "A ♥" 
+	}
+	elseif reference0 == "diamond"
+	{
+		tablecard = "A ♦" 
+	}
+	elseif reference0 == "tree"
+	{
+		tablecard = "A ♣" 
+	}
+	else
+	{
+		tablecard = "A ♠" 
+	}
+	--
+	iwant = 0
+	turn = "M-201z"
+	--
+	OnSetTable
+}
+
+OnMzTurn
+{
+	if stoprightthere == 3 && wait == 0
+	{
+		stoprightthere == 0
+		--
+		turn = username
+		--
+		dialog = "am-waiting"
+		--
+		OnSetTable
+	}
+	elseif stoprightthere == 3
+	{
+		wait-- 
+		--
+		turn = username
+		--
+		dialog = "am-waiting"
+		--
+		OnSetTable
+	}
+	--
+	_x = 0
+	--
+	for _i = 0; _i <= mzcnum; _i++
+	{ 
+		_usplit = SPLIT(kartyMz[_i]," ")
+		--
+		_splitcard = SPLIT(tablecard," ")
+		--
+		if warmode == 1
+		{
+			if (_usplit[0] == "2" || _usplit[0] == "3" || _usplit[0] == "K" && (kartyMZs[_i] == "HRT" ||  kartyMZs[_i] == "BHRT") || _usplit[0] == "Q") && (_usplit[0] == _splitcard[0] || _usplit[1] == _splitcard[1])
+			{
+				tablecard = kartyMz[_i]
+				--
+				if _x != 1
+				{
+					_cardnum = _i
+					--
+					if _usplit[0] == "K"
+					{
+						spoilsofwar += 5
+					}
+					elseif _usplit[0] == "3"
+					{
+						spoilsofwar += 3
+					}
+					elseif _usplit[0] == "2"
+					{
+						spoilsofwar += 2
+					}
+					elseif _usplit[0] == "Q"
+					{
+						spoilsofwar = 0
+						warmode = 0
+					}
+				}
+				--
+				_x = 1
+				--
+				dialog = "war"
+			}
+		}
+		elseif gimmethenumber == 2
+		{
+			if _usplit[0] == gimme || _usplit[0] == "J"
+			{
+				tablecard = kartyMz[_i]
+				--
+				if _usplit[0] == "J"
+				{
+					gimme = RAND(11)
+					--
+					if gimme < 5
+					{
+						gimme = 5
+					}
+					--
+					dialog = "gimme"
+				}
+				else
+				{
+					dialog = "casual"
+				}
+				--
+				if _x != 1
+				{
+					_cardnum = _i
+					--
+					_x = 1
+				}
+			}
+			--
+			gimmethenumber = 3
+		}
+		elseif stoprightthere == 1
+		{
+			if _usplit[0] == "4" || _usplit[0] == "Q"
+			{
+				if _x != 1
+				{
+					if _usplit[0] == "Q"
+					{
+						stoprightthere = 0
+					}
+					--
+					tablecard = kartyMz[_i]
+					--
+					_cardnum = _i
+					--
+					wait++
+					--
+					_x = 1
+				}
+			}
+			--
+			dialog = "waiting"
+		}
+		else
+		{
+			if _usplit[0] == _splitcard[0] || _usplit[1] == _splitcard[1] || _splitcard[0] == "Q"
+			{
+				tablecard = kartyMz[_i]
+				--
+				if _x != 1
+				{
+					_cardnum = _i
+					--
+					if _usplit[0] == "2" || _usplit[0] == "3" || _usplit[0] == "K" && (kartyMZs[_i] == "HRT" || kartyMZs[_i] == "BHRT")
+					{
+						warmode = 1
+						--
+						if _usplit[0] == "K"
+						{
+							spoilsofwar += 5
+						}
+						elseif _usplit[0] == "3"
+						{
+							spoilsofwar += 3
+						}
+						elseif _usplit[0] == "2"
+						{
+							spoilsofwar += 2
+						}
+						--
+						dialog = "war_start"
+					}
+					elseif _usplit[0] == "A"
+					{
+						_znakiU = RAND(4)
+						--
+						if _znakiU == 1
+						{
+							_znakiU = "♥"
+						}
+						elseif _znakiU == 2
+						{
+							_znakiU = "♦"
+						}
+						elseif _znakiU == 3
+						{
+							_znakiU = "♣"
+						}
+						else
+						{
+							_znakiU = "♠"
+						}
+						--
+						dialog = "i-want"
+						temp =  _znakiU
+					}
+					elseif _usplit[0] == "J"
+					{
+						gimme = RAND(11)
+						--
+						if gimme < 5
+						{
+							gimme = 5
+						}
+						--
+						dialog = "gimme"
+					}
+					elseif _usplit[0] == "4"
+					{
+						wait = 1
+						stoprightthere = 1
+						--
+						dialog = "wait-a-sec"
+					}
+					else
+					{
+						dialog = "casual"
+					}
+					--
+					_x = 1
+				}
+			}
+		}
+	}
+	--
+	if _x != 1
+	{
+		if warmode == 1
+		{
+			for _i=0; _i<spoilsofwar; _i++
+			{
+				_cardsU = RAND(13) + 1
+				_znakiU = RAND(4)
+				--
+				if _znakiU == 1
+				{
+					_znakiU = "♥"
+					kartyMZs[mzcnum] = "HRT"
+				}
+				elseif _znakiU == 2
+				{
+					_znakiU = "♦"
+					kartyMZs[mzcnum] = "DMD"
+				}
+				elseif _znakiU == 3
+				{
+					_znakiU = "♣"
+					kartyMZs[mzcnum] = "TRE"
+				}
+				else
+				{
+					_znakiU = "♠"
+					kartyMZs[mzcnum] = "BHRT"
+				}
+				--
+				if _cardsU == 11
+				{
+					_cardsU = "J"
+				}
+				elseif _cardsU == 12
+				{
+					_cardsU = "Q"
+				}
+				elseif _cardsU == 13
+				{
+					_cardsU = "K"
+				}
+				elseif _cardsU == 1
+				{
+					_cardsU = "A"
+				}
+				--
+				kartyMz[mzcnum] = _cardsU + " " + _znakiU
+				--
+				mzcnum++
+			}
+			--
+			dialog = "war-cards"
+			warmode = 0
+			spoilsofwar = 0
+		}
+		elseif stoprightthere == 1
+		{
+			stoprightthere == 3 //M-201z waits turns
+			--
+			dialog = "waiting"
+		}
+		else
+		{
+			if gimmethenumber == 2
+			{
+				gimmethenumber = 0
+			}
+			--
+			dialog = "take"
+			--
+			OnMzTakeCard
+		}
+	}
+	else
+	{
+		for _j = _cardnum; _j <= mzcnum ; _j++
+		{
+			kartyMz[_j] = kartyMz[_j+1]
+		}
+		--
+		mzcnum--
+		
+	}
+	--
+	turn = username
+	--
+	OnSetTable
+}
+
+OnMzTakeCard
+{
+	_cardsU = RAND(13) + 1
+	_znakiU = RAND(4)
+	--
+	if _znakiU == 1
+	{
+		_znakiU = "♥"
+		kartyMZs[mzcnum] = "HRT"
+	}
+	elseif _znakiU == 2
+	{
+		_znakiU = "♦"
+		kartyMZs[mzcnum] = "DMD"
+	}
+	elseif _znakiU == 3
+	{
+		_znakiU = "♣"
+		kartyMZs[mzcnum] = "TRE"
+	}
+	else
+	{
+		_znakiU = "♠"
+		kartyMZs[mzcnum] = "BHRT"
+	}
+	--
+	if _cardsU == 11
+	{
+		_cardsU = "J"
+	}
+	elseif _cardsU == 12
+	{
+		_cardsU = "Q"
+	}
+	elseif _cardsU == 13
+	{
+		_cardsU = "K"
+	}
+	elseif _cardsU == 1
+	{
+		_cardsU = "A"
+	}
+	--
+	kartyMz[mzcnum] = _cardsU + " " + _znakiU
+	--
+	mzcnum++
+}
+
+Select.music
+{
+	_print = "\b2Choose Playlist:\n\n[half]\![*]\q[All songs,OnAllSongs]\n"
+	--
+	for _i=0;_i<playlists;_i++
+	{
+		_print += "\![*]\q[" + plistname[_i] + ",OnPlaylist," + _i + "]\n"
+	}
+	--
+	_print += "\n[half]\![*]\q[New Playlist,OnNewPlaylist]\n"
+	--
+	_print
+
+}
+
+OnAllSongs
+{
+	_print = "\b2\f[bold,1]All Songs:\f[bold,0]\n\n[half]"
+	--
+	music = FENUM("aud","+")
+	music = SPLIT(music,"+")
+	_num = ARRAYSIZE(music)
+	--
+	for _i=0;_i<_num;_i++
+	{
+		_print += "\![*]\q[" + music[_i] + ",OnPlay," + _i +"]\n"
+	}
+	--
+	_print += "\n[half]\q[Close,cancel]"
+	--
+	_print
+}
+
+OnPlay
+{
+	songnum = TOINT(reference0)
+	curplaying = music[songnum]
+	nextplaying = music[songnum+1]
+	--
+	if musicp != 1
+	{
+		musicp = 1
+		--
+		if mode == 1
+		{
+			"\p[15]\s[27]\p[16]\s[28]\p[17]\s[29]\p[18]\s[30]\p[19]\s[31]\p[20]\s[32]\p[21]\s[40]"
+		}
+		else
+		{
+			"\p[15]\s[33]\p[16]\s[34]\p[17]\s[35]\p[18]\s[36]\p[19]\s[37]\p[20]\s[38]\p[21]\s[39]"
+		}
+	}
+	--
+	playing = 1
+	--
+	"\![sound,play,aud/%(curplaying)]\![sound,load,aud/%(nextplaying)]"
+}
+
+
+Select.aninews
+{
+    "\_qDownloading News . . .\![execute,http-get,https://www.animenewsnetwork.com/,--async=OnAnimeNews,--file=ranimenews.html,--timeout=200]"
+}
+
+OnAnimeNews
+{
+        
+    _file = "var\\ranimenews.html"
+    _buff=""
+	animerecom = "\b6\_q"
+	_reganimehref = '<span><a href="(.*)">'
+    _reganimeheadline = '<span><a href="' + _reganimehhref + '">(.*)</a></span>'
+    _found = 0
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+			for _i=0;_i<8;_i++
+			{
+				if RE_SEARCH ( _buff, _reganimehref ) {
+						
+					_newshref[_i] = RE_GETSTR[1]
+				}
+				--               
+				if RE_SEARCH ( _buff, _reganimeheadline ) {
+						
+					_newsheadline[_i] = RE_GETSTR[1]
+				}
+			}
+		}
+    }
+    --
+    FCLOSE(_file);
+	--
+	for _i=0;_i<8;_i++
+	{
+		animerecom += "\q[" + _newsheadline[_i] + ",OnHeadlineClick," + _newshref[_i] + "]\n"
+	}
+	--
+	animerecom
+	
 }

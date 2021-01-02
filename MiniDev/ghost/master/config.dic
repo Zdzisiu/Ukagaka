@@ -34,21 +34,29 @@ Select.format
 	"\![*]\q[Bold text,OnDisting,bold]\n\![*]\q[Cursive text,OnDisting,cursive]\n/
 	\![*]\q[Striked text,OnDisting,strike]\n\![*]\q[Underlined text,OnDisting,underline]\n/
 	\![*]\q[Yellow text,OnDisting,yellow]\n\![*]\q[Green text,OnDisting,green]\n/
-	\![*]\q[Red text,OnDisting,red]\n\![*]\q[Pink text,OnDisting,pink]\n\n\n[half]"
+	\![*]\q[Red text,OnDisting,red]\n\![*]\q[Pink text,OnDisting,pink]\n\![*]\q[Custom Color,OnDisting,custom]\n\n\n[half]"
+	--
+	"\![*]\q[Go back,TalkConfig] | \![*]\q[Nevermind,cancle]"
+}
+
+OnFormattingNar
+{
+	if reference0 == "config"; formattype = 1 //back to config
+	--
+	"\_q\1\b[2]Current Formating: %(distingnarr)%(nardistingtype) text\f[default]\n\n[half]"
+	--
+	"\![*]\q[Bold text,OnDisting,bold,nar]\n\![*]\q[Cursive text,OnDisting,cursive,nar]\n/
+	\![*]\q[Striked text,OnDisting,strike,nar]\n\![*]\q[Underlined text,OnDisting,underline,nar]\n/
+	\![*]\q[Yellow text,OnDisting,yellow,nar]\n\![*]\q[Green text,OnDisting,green,nar]\n/
+	\![*]\q[Red text,OnDisting,red,nar]\n\![*]\q[Pink text,OnDisting,pink]\n\![*]\q[Custom Color,OnDisting,custom,nar]\n\n\n[half]"
 	--
 	"\![*]\q[Go back,TalkConfig] | \![*]\q[Nevermind,cancle]"
 }
 
 Select.hemisph
 {
-	if hsphere == "Northern"
-	{
-		hsphere = "Southern"
-	}
-	else
-	{
-		hsphere = "Northern"
-	}
+	if hsphere == "Northern"; hsphere = "Southern"
+	else; hsphere = "Northern"
 	--
 	TalkConfig
 }
@@ -56,7 +64,7 @@ Select.hemisph
 TalkConfig
 {
     
-	"\0\b4\_q" 
+	"\0\b4\_q\![set,autoscroll,disable]" 
 	--
 	"\f[bold,1]Your Name:\f[bold,0] %(username) \f[sup,1](\q[Change,TEACHNAME])\f[sup,0]\n"
 	--
@@ -68,10 +76,16 @@ TalkConfig
     --
 	"\f[bold,1]Dev Name:\f[bold,0] %(devname) \f[sup,1](\q[Change,changedev])\f[sup,0]\n"
 	--
+	//"\f[bold,1]\![*]\q[Accessibility,acces]\f[bold,0]\n"
+	--
 	if repairglitch == 1 && tentruth == 1
 	{
 		"%(distingstart)\![*]\q[Change M-201z Formatting,format]\f[default]\n"
+		--
+		"\![*]Disable %(devname) Talking? \f[color,#e62719]\q[%(MDisable),mdtalk]\f[default]\n"
 	}
+	--
+	if narrator != 0 && nowshell == "M-201z"; "%(distingnarr)\![*]\q[Change Narrator Formatting,OnFormattingNar,config]\f[default]\n"
 	--
 	"\f[bold,1]\![*]\q[Change Traits,traits]\f[bold,0]\n"
 	--
@@ -96,126 +110,48 @@ TalkConfig
 		"\f[color,#e62719] \q[%(currentweatherarray[1]),startunit]\f[color,default]\f[sup,0])\n"
 	}
     --
-	if moonmenu != "ON"
-	{
-		"\f[color,default]\f[bold,0]Moon Phase: \f[color,#e62719] \q[%(moonmenu),moonon]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]\f[bold,0]Moon Phase: \f[color,#1bcc2a] \q[%(moonmenu),moonoff]\f[color,default]\n"
-	}
+	if moonmenu != "ON"; "\f[color,default]\f[bold,0]Moon Phase: \f[color,#e62719] \q[%(moonmenu),moonon]\f[color,default]\n"
+	else; "\f[color,default]\f[bold,0]Moon Phase: \f[color,#1bcc2a] \q[%(moonmenu),moonoff]\f[color,default]\n"
 	--
 	"\f[color,default]\f[bold,0]Hemisphere: \f[color,#e62719] \q[%(hsphere),hemisph]\f[color,default]\n"
     --
-	if upchec != "ON"
-	{
-		"\f[color,default]\f[bold,0]Auto update check: \f[color,#e62719] \q[%(upchec),upcheck]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]\f[bold,0]Auto update check: \f[color,#1bcc2a] \q[%(upchec),upcheck]\f[color,default]\n"
-	}
+	if upchec != "ON"; "\f[color,default]\f[bold,0]Auto update check: \f[color,#e62719] \q[%(upchec),upcheck]\f[color,default]\n"
+	else; "\f[color,default]\f[bold,0]Auto update check: \f[color,#1bcc2a] \q[%(upchec),upcheck]\f[color,default]\n"
     --
-	if deleteshitai != "ON"
-	{
-		"\f[color,default]\f[bold,0]Enable Uninstall?: \f[color,#e62719] \q[%(deleteshitai),deleteon]\f[color,default]\n\n[half]"
-	}
-	else
-	{
-		"\f[color,default]\f[bold,0]Enable Uninstall?: \f[color,#1bcc2a] \q[%(deleteshitai),deleteoff]\f[color,default]\n\n[half]"
-	}
+	if deleteshitai != "ON"; "\f[color,default]\f[bold,0]Enable Uninstall?: \f[color,#e62719] \q[%(deleteshitai),deleteon]\f[color,default]\n\n[half]"
+	else; "\f[color,default]\f[bold,0]Enable Uninstall?: \f[color,#1bcc2a] \q[%(deleteshitai),deleteoff]\f[color,default]\n\n[half]"
 	--
     "\n[half]\f[bold,1]Quick tools:\n\n[half]\f[bold,0]"
     --
-    if tooln != "ON"
-	{
-		"\f[color,default]Quick tools: \f[color,#e62719] \q[%(tooln),tool]\f[color,default]\n\n[half]"
-	}
-	else
-	{
-		"\f[color,default]Quick tools: \f[color,#1bcc2a] \q[%(tooln),tool]\f[color,default]\n\n[half]"		
-	}
+    if tooln != "ON"; "\f[color,default]Quick tools: \f[color,#e62719] \q[%(tooln),tool]\f[color,default]\n\n[half]"
+	else; "\f[color,default]Quick tools: \f[color,#1bcc2a] \q[%(tooln),tool]\f[color,default]\n\n[half]"		
 	--
-    if dlbtn != "ON"
-	{
-		"\f[color,default]light/dark button: \f[color,#e62719] \q[%(dlbtn),ldbtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]light/dark button: \f[color,#1bcc2a] \q[%(dlbtn),ldbtn]\f[color,default]\n"		
-	}
+    if dlbtn != "ON"; "\f[color,default]light/dark button: \f[color,#e62719] \q[%(dlbtn),ldbtn]\f[color,default]\n"
+	else; "\f[color,default]light/dark button: \f[color,#1bcc2a] \q[%(dlbtn),ldbtn]\f[color,default]\n"		
 	--
-	if logbtn != "ON"
-	{
-		"\f[color,default]Logs: \f[color,#e62719] \q[%(logbtn),lobtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Logs: \f[color,#1bcc2a] \q[%(logbtn),lobtn]\f[color,default]\n"		
-	}
+	if logbtn != "ON"; "\f[color,default]Logs: \f[color,#e62719] \q[%(logbtn),lobtn]\f[color,default]\n"
+	else; "\f[color,default]Logs: \f[color,#1bcc2a] \q[%(logbtn),lobtn]\f[color,default]\n"		
 	--
-    if webtn != "ON"
-	{
-		"\f[color,default]Weather: \f[color,#e62719] \q[%(webtn),wbtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Weather: \f[color,#1bcc2a] \q[%(webtn),wbtn]\f[color,default]\n"		
-	}
+    if webtn != "ON"; "\f[color,default]Weather: \f[color,#e62719] \q[%(webtn),wbtn]\f[color,default]\n"
+	else; "\f[color,default]Weather: \f[color,#1bcc2a] \q[%(webtn),wbtn]\f[color,default]\n"		
     --
-    if setbtn != "ON"
-	{
-		"\f[color,default]Settings: \f[color,#e62719] \q[%(setbtn),sbtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Settings: \f[color,#1bcc2a] \q[%(setbtn),sbtn]\f[color,default]\n"		
-	}
+    if setbtn != "ON"; "\f[color,default]Settings: \f[color,#e62719] \q[%(setbtn),sbtn]\f[color,default]\n"
+	else; "\f[color,default]Settings: \f[color,#1bcc2a] \q[%(setbtn),sbtn]\f[color,default]\n"		
     --
-    if statbtn != "ON"
-	{
-		"\f[color,default]Statistics: \f[color,#e62719] \q[%(statbtn),stbtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Statistics: \f[color,#1bcc2a] \q[%(statbtn),stbtn]\f[color,default]\n"		
-	}
+    if statbtn != "ON"; "\f[color,default]Statistics: \f[color,#e62719] \q[%(statbtn),stbtn]\f[color,default]\n"
+	else; "\f[color,default]Statistics: \f[color,#1bcc2a] \q[%(statbtn),stbtn]\f[color,default]\n"		
     --
-    if todobtn != "ON"
-	{
-		"\f[color,default]To-Do: \f[color,#e62719] \q[%(todobtn),tdbtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]To-Do: \f[color,#1bcc2a] \q[%(todobtn),tdbtn]\f[color,default]\n"		
-	}
+    if todobtn != "ON"; "\f[color,default]To-Do: \f[color,#e62719] \q[%(todobtn),tdbtn]\f[color,default]\n"
+	else; "\f[color,default]To-Do: \f[color,#1bcc2a] \q[%(todobtn),tdbtn]\f[color,default]\n"		
 	--
-    if cusbtn != "ON"
-	{
-		"\f[color,default]Cuztomization: \f[color,#e62719] \q[%(cusbtn),cubtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Cuztomization: \f[color,#1bcc2a] \q[%(cusbtn),cubtn]\f[color,default]\n"		
-	}
+    if cusbtn != "ON"; "\f[color,default]Cuztomization: \f[color,#e62719] \q[%(cusbtn),cubtn]\f[color,default]\n"
+	else; "\f[color,default]Cuztomization: \f[color,#1bcc2a] \q[%(cusbtn),cubtn]\f[color,default]\n"		
 	--
-	if appbtn != "ON"
-	{
-		"\f[color,default]Open App: \f[color,#e62719] \q[%(appbtn),apbtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Open App: \f[color,#1bcc2a] \q[%(appbtn),apbtn]\f[color,default]\n"		
-	}
+	if appbtn != "ON"; "\f[color,default]Open App: \f[color,#e62719] \q[%(appbtn),apbtn]\f[color,default]\n"
+	else; "\f[color,default]Open App: \f[color,#1bcc2a] \q[%(appbtn),apbtn]\f[color,default]\n"		
 	--
-	if sticky != "ON"
-	{
-		"\n[half]\f[color,default]Sticky tools: \f[color,#e62719] \q[%(sticky),sticbtn]\f[color,default]\n"
-	}
-	else
-	{
-		"\n[half]\f[color,default]Sticky tools: \f[color,#1bcc2a] \q[%(sticky),sticbtn]\f[color,default]\n"		
-	}
+	if sticky != "ON"; "\n[half]\f[color,default]Sticky tools: \f[color,#e62719] \q[%(sticky),sticbtn]\f[color,default]\n"
+	else; "\n[half]\f[color,default]Sticky tools: \f[color,#1bcc2a] \q[%(sticky),sticbtn]\f[color,default]\n"		
 	--
 	"\![*]\q[Reset Tools Position,OnMoveQTool]\n"
 	--
@@ -224,16 +160,15 @@ TalkConfig
 	"\![*]\q[Nevermind,CANCEL]\e"
 }
 
+Select.acces
+{
+
+}
+
 Select.degreeez
 {
-	if "C" _in_ currentweatherarray[1]
-	{
-		currentweatherarray[1] = REPLACE(currentweatherarray[1],"C","F")
-	}
-	else
-	{
-		currentweatherarray[1] = REPLACE(currentweatherarray[1],"F","C")
-	}
+	if "C" _in_ currentweatherarray[1]; currentweatherarray[1] = REPLACE(currentweatherarray[1],"C","F")
+	else; currentweatherarray[1] = REPLACE(currentweatherarray[1],"F","C")
 	--
 	TalkConfig
 }
@@ -249,18 +184,9 @@ Select.datetype
 {
 	case dateformatype
 	{
-		when "dd/mm/yyyy"
-		{
-			dateformatype = "yyyy/mm/dd"
-		}
-		when "yyyy/mm/dd"
-		{
-			dateformatype = "mm/dd/yyyy"
-		}
-		when "mm/dd/yyyy"
-		{
-			dateformatype = "dd/mm/yyyy"
-		} 
+		when "dd/mm/yyyy"; dateformatype = "yyyy/mm/dd"
+		when "yyyy/mm/dd"; dateformatype = "mm/dd/yyyy"
+		when "mm/dd/yyyy"; dateformatype = "dd/mm/yyyy"
 	}
 	--
 	TalkConfig
@@ -270,14 +196,8 @@ Select.timetype
 {
 	case timeformatype
 	{
-		when "STANDARD"
-		{
-			timeformatype = "MILITARY"
-		}
-		when "MILITARY"
-		{
-			timeformatype = "STANDARD"
-		}
+		when "STANDARD"; timeformatype = "MILITARY"
+		when "MILITARY"; timeformatype = "STANDARD"
 	}
 	--
 	TalkConfig
@@ -288,14 +208,8 @@ Select.upcheck
 {
 	case upchec
 	{
-		when "ON"
-		{
-			upchec = "OFF"
-		}
-		when "OFF"
-		{
-			upchec = "ON"
-		}
+		when "ON"; upchec = "OFF"
+		when "OFF"; upchec = "ON"
 	}
 	--
 	TalkConfig
@@ -305,14 +219,8 @@ Select.apbtn
 {
 	case appbtn
 	{
-		when "ON"
-		{
-			appbtn = "OFF"
-		}
-		when "OFF"
-		{
-			appbtn = "ON"
-		}
+		when "ON"; appbtn = "OFF"
+		when "OFF"; appbtn = "ON"
 	}
 	--
 	"%(lightdark)"
@@ -344,14 +252,8 @@ Select.sticbtn
 
 Select.tool
 {
-	if tooln == "ON"
-	{
-		tooln = "OFF"
-	}
-	else
-	{
-		tooln = "ON"
-	}
+	if tooln == "ON"; tooln = "OFF"
+	else; tooln = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -373,15 +275,8 @@ OnDevName
 
 Select.cubtn
 {
-	if cusbtn == "ON"
-	{ 
-		cusbtn = "OFF"
-		
-	}
-	else
-	{
-		cusbtn = "ON"
-	}
+	if cusbtn == "ON"; cusbtn = "OFF"
+	else; cusbtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -390,15 +285,8 @@ Select.cubtn
 
 Select.tdbtn
 {
-	if todobtn == "ON"
-	{ 
-		todobtn = "OFF"
-		
-	}
-	else
-	{
-		todobtn = "ON"
-	}
+	if todobtn == "ON"; todobtn = "OFF"
+	else; todobtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -407,15 +295,8 @@ Select.tdbtn
 
 Select.trbtn
 {
-	if trabtn == "ON"
-	{ 
-		trabtn = "OFF"
-		
-	}
-	else
-	{
-		trabtn = "ON"
-	}
+	if trabtn == "ON"; trabtn = "OFF"
+	else; trabtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -424,15 +305,8 @@ Select.trbtn
 
 Select.stbtn
 {
-	if statbtn == "ON"
-	{ 
-		statbtn = "OFF"
-		
-	}
-	else
-	{
-		statbtn = "ON"
-	}
+	if statbtn == "ON";statbtn = "OFF"
+	else;statbtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -441,15 +315,8 @@ Select.stbtn
 
 Select.sbtn
 {
-	if setbtn == "ON"
-	{ 
-		setbtn = "OFF"
-		
-	}
-	else
-	{
-		setbtn = "ON"
-	}
+	if setbtn == "ON"; setbtn = "OFF"
+	else; setbtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -458,15 +325,8 @@ Select.sbtn
 
 Select.wbtn
 {
-	if webtn == "ON"
-	{ 
-		webtn = "OFF"
-		
-	}
-	else
-	{
-		webtn = "ON"
-	}
+	if webtn == "ON"; webtn = "OFF"
+	else; webtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -475,15 +335,8 @@ Select.wbtn
 
 Select.ldbtn
 {
-	if dlbtn == "ON"
-	{ 
-		dlbtn = "OFF"
-		
-	}
-	else
-	{
-		dlbtn = "ON"
-	}
+	if dlbtn == "ON"; dlbtn = "OFF"
+	else; dlbtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -492,14 +345,8 @@ Select.ldbtn
 
 Select.cbtn
 {
-	if calcbtn == "ON"
-	{ 
-		calcbtn = "OFF"
-	}
-	else
-	{
-		calcbtn = "ON"
-	}
+	if calcbtn == "ON"; calcbtn = "OFF"
+	else; calcbtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -508,14 +355,8 @@ Select.cbtn
 
 Select.lobtn
 {
-	if logbtn == "ON"
-	{ 
-		logbtn = "OFF"
-	}
-	else
-	{
-		logbtn = "ON"
-	}
+	if logbtn == "ON"; logbtn = "OFF"
+	else; logbtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -524,14 +365,8 @@ Select.lobtn
 
 Select.lebtn
 {
-	if lesbtn == "ON"
-	{ 
-		lesbtn = "OFF"
-	}
-	else
-	{
-		lesbtn = "ON"
-	}
+	if lesbtn == "ON"; lesbtn = "OFF"
+	else; lesbtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -540,14 +375,8 @@ Select.lebtn
 
 Select.rbtn
 {
-	if rembtn == "ON"
-	{ 
-		rembtn = "OFF"
-	}
-	else
-	{
-		rembtn = "ON"
-	}
+	if rembtn == "ON"; rembtn = "OFF"
+	else; rembtn = "ON"
 	--
 	"%(lightdark)"
 	--
@@ -640,7 +469,7 @@ Select.choiceneither
 
 Select.choiceown
 {
-	"\0Okay then, write them as replacment of the ones i say\x\creplacement of 'he'\![open,inputbox,OnOwnPronone,-1]"
+	"\0Okay then, write them as replacment of the ones I say\x\creplacement of 'he'\![open,inputbox,OnOwnPronone,-1]"
 }
 
 OnOwnPronone
@@ -673,9 +502,9 @@ OnUserBornMonth
 	_tempmonth = reference0 //this stores what the user input in as a variable called _tempmonth
 	if _tempmonth >= 1 && _tempmonth <= 12 //if the month is a valid month
 	{
-	bornmonth = _tempmonth
-	bornmonthprint = Printmonth
-	"\0So %(bornmonthprint)?\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
+		bornmonth = _tempmonth
+		bornmonthprint = Printmonth
+		"\0So %(bornmonthprint)?\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
 	}
 	else 
 	{
@@ -686,75 +515,27 @@ OnUserBornMonth
 
 Printmonth
 {
-	if bornmonth == 1
-	{
-		"January"
-	}
-	elseif bornmonth == 2
-	{
-		"February"
-	}
-	elseif bornmonth == 3
-	{
-		"March"
-	}
-	elseif bornmonth == 4
-	{
-		"April"
-	}
-	elseif bornmonth == 5
-	{
-		"May"
-	}
-	elseif bornmonth == 6
-	{
-		"June"
-	}
-	elseif bornmonth == 7
-	{
-		"July"
-	}
-	elseif bornmonth == 8
-	{
-		"August"
-	}
-	elseif bornmonth == 9
-	{
-		"September"
-	}
-	elseif bornmonth == 10
-	{
-		"October"
-	}
-	elseif bornmonth == 11
-	{
-		"November"
-	}
-	else
-	{
-		"December"
-	}
+	if bornmonth == 1; "January"
+	elseif bornmonth == 2; "February"
+	elseif bornmonth == 3; "March"
+	elseif bornmonth == 4; "April"
+	elseif bornmonth == 5; "May"
+	elseif bornmonth == 6; "June"
+	elseif bornmonth == 7; "July"
+	elseif bornmonth == 8; "August"
+	elseif bornmonth == 9; "September"
+	elseif bornmonth == 10; "October"
+	elseif bornmonth == 11; "November"
+	else; "December"
 }
 
 
 Printday
 {
-	if bornday == 1 || bornday == 21 || bornday == 31
-	{
-		"%(bornday)st"
-	}
-	elseif bornday == 2 || bornday == 22
-	{
-		"%(bornday)nd"
-	}
-	elseif bornday == 3 || bornday == 23
-	{
-		"%(bornday)rd"
-	}
-	else
-	{
-		"%(bornday)th"
-	}
+	if bornday == 1 || bornday == 21 || bornday == 31; "%(bornday)st"
+	elseif bornday == 2 || bornday == 22; "%(bornday)nd"
+	elseif bornday == 3 || bornday == 23; "%(bornday)rd"
+	else; "%(bornday)th"
 }	
 
 OnUserBornDay
@@ -774,7 +555,6 @@ OnUserBornDay
 		else 
 		{
 			"\0There is no day like that\w5, try again\![open,inputbox,OnUserBornDay,-1]\e"
-			
 		}
 	}
 	elseif bornmonth == 2
@@ -786,12 +566,10 @@ OnUserBornDay
 			userbirthday = "%(bornmonth)month %(bornday)day"
 			birthdayprint = "%(bornmonthprint) %(borndayprint)"
 			"%(birthchecked)"
-
 		}
 		else
 		{
 			"\0There is no day like that\w5, try again\![open,inputbox,OnUserBornDay,-1]\e"
-			
 		}
 	}
 	else 
@@ -816,18 +594,10 @@ birthchecked
 	askzoidac = 0
 	zodiaccheck = 0
 	truebirth = userbirthday
-	if userbirthday == dayslot 
-	{
-		"\0Your birthday\w6 is today?\w7Happy Birthday then%(users)!\![raise,OnZodiacCheck]"
-	}
-	elseif userbirthday == "10month 31day" 
-	{
-		"\0Your birthday is on halloween?\w6 does that mean twice as many candy and costume party?\![raise,OnZodiacCheck]"
-	}
-	else
-	{
-		"\0Your birthday is %(bornmonthprint) %(borndayprint)? I will remember\![raise,OnZodiacCheck]"
-	}
+	--
+	if userbirthday == dayslot; "\0Your birthday\w6 is today?\w7Happy Birthday then%(users)!"
+	elseif userbirthday == "10month 31day"; "\0Your birthday is on halloween?\w6 does that mean twice as many candy and costume party?"
+	else; "\0Your birthday is %(bornmonthprint) %(borndayprint)? I will remember"
 }
 
 Select.talkinter
@@ -850,24 +620,77 @@ Select.talkinter
 
 Select.TALKOWN
 {
-	"How often should I speak?(Write in minutes)\![open,inputbox,OnSpeakTime,-1]"
+	"%(ch)Which time interval do you want to use?\n\n[half]"
+	--
+	"\![*]\q[Seconds,OnTalkCustom,seconds]\n/
+	\![*]\q[Minutes,OnTalkCustom,minutes]\n/
+	\![*]\q[Hours,OnTalkCustom,hours]"
 }
 
-OnSpeakTime
+OnTalkCustom
 {
-	temptalktime = reference0
-    if reference0 == 1
-    {
-        talktime = "minute"
-    }
-    else
-    {
-        talktime = reference0 + " minutes"
-    }
+	talkinttima = reference0
 	--
-	aitalkinterval = temptalktime * 90
-	
-	"I will speak every %(talktime)\e"
+	case talkinttima
+	{
+		when "seconds"
+		{
+			"%(ch)I should speak every . . . seconds.\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
+		}
+		when "minutes"
+		{
+			"%(ch)I should speak every . . . minutes.\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
+		}
+		when "hours"
+		{
+			"%(ch)I should speak every . . . hours.\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
+		}
+	}
+}
+
+OnTalkCustomize
+{
+	timecustom = reference0
+	--
+	case talkinttima
+	{
+		when "seconds"
+		{
+			talktime = "%(timecustom) seconds" 
+			aitalkinterval = timecustom 
+			"I will speak every %(timecustom).\e"
+		}
+		when "minutes"
+		{
+			if timecustom == 1
+			{
+				talktime = "minute" 
+				aitalkinterval = timecustom * 60
+				"I will speak every minute.\e"
+			}
+			else
+			{
+				talktime = "%(timecustom) minutes" 
+				aitalkinterval = timecustom * 60
+				"I will speak every %(talktime).\e"
+			}
+		}
+		when "hours"
+		{
+			if timecustom == 1
+			{
+				talktime = "hour" 
+				aitalkinterval = timecustom * 3600
+				"I will speak every hour.\e"
+			}
+			else
+			{
+				talktime = "%(talktime) hours" 
+				aitalkinterval = timecustom * 3600
+				"I will speak every %(talktime).\e"
+			}
+		}
+	}
 }
 
 Select.TalksTill
@@ -1105,56 +928,32 @@ Select.traits
 
 Select.optc
 {
-	if optimistic == "ON"
-	{
-		optimistic = "OFF"
-	}
-	else
-	{
-		optimistic = "ON"
-	}
+	if optimistic == "ON"; optimistic = "OFF"
+	else; optimistic = "ON"
 	--
 	Select.traits
 }
 
 Select.pesc
 {
-	if pessimistic == "ON"
-	{
-		pessimistic = "OFF"
-	}
-	else
-	{
-		pessimistic = "ON"
-	}
+	if pessimistic == "ON"; pessimistic = "OFF"
+	else; pessimistic = "ON"
 	--
 	Select.traits
 }
 
 Select.lonc
 {
-	if loner == "ON"
-	{
-		loner = "OFF"
-	}
-	else
-	{
-		loner = "ON"
-	}
+	if loner == "ON"; loner = "OFF"
+	else; loner = "ON"
 	--
 	Select.traits
 }
 
 Select.outc
 {
-	if outgoing == "ON"
-	{
-		outgoing = "OFF"
-	}
-	else
-	{
-		outgoing = "ON"
-	}
+	if outgoing == "ON"; outgoing = "OFF"
+	else; outgoing = "ON"
 	--
 	Select.traits
 }
@@ -1495,4 +1294,18 @@ OnRecC
 	}
 	--
 	OnRecomConfig
+}
+
+Select.mdtalk
+{
+	if MDisable == "ON"
+	{
+		MDisable = "OFF"
+	}
+	else
+	{
+		MDisable = "ON"
+	}
+	--
+	TalkConfig
 }
