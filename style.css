@@ -6,9 +6,16 @@ body {
 	height: 100%;
 }
 
+.shella {
+	width: 257px;
+	display: inline-block;
+	text-align: center;
+}
+
 #ar {
 	margin-top: -1vw;
 }
+
 
 #frstbtn {
 	margin-left: 1vw;
