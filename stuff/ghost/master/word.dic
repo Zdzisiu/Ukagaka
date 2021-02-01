@@ -1,0 +1,13 @@
+﻿//**** Don't touch this ***************************************************************
+On_\person
+{
+ 	person
+}
+
+TOPROPER
+{
+    _word = _argv[0]
+    _letter = TOUPPER(SUBSTR(_word,0,1))
+    _word = SUBSTR(_word,1,STRLEN(_word)-1)
+    _letter + _word
+}

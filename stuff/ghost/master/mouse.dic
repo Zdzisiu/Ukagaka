@@ -1,0 +1,27 @@
+﻿/*
+OnMouseDoubleClick
+-----
+Reference0: X coordinate of mouse cursor (local coordinate)
+Reference1: Y coordinate of mouse cursor (local coordinate)
+Reference2: Always 0.
+Reference3: 0 for main body, 1 for partner. In SSP/CROW, there are 2 or more.
+Reference4: The hit determination identifier.
+Reference5: Left click is 0, right click is 1.
+Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not supported) in multi-touch environment, mouse with input from mouse etc. 
+*/
+
+OnMouseDoubleClick
+{
+ 	if reference3 == 0 
+	{
+		OpenSakuraMenu
+ 	}
+	else
+ 	{
+		choice = reference3
+		--
+		OnDressCheck
+		--
+ 		OpenStuffMenu
+	}
+}

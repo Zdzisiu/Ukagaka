@@ -1,0 +1,106 @@
+OnCommunicate
+ {
+	if reference0 == "user" || reference0 == "User"
+ 	{
+
+ 		ReplyToUser
+	}
+ 	else
+	{	
+		ReplyToGhost
+ 	}
+}
+
+ReplyToUser
+{
+	TalkToUser
+}
+
+ReplyToGhost
+{
+	if "Interact" _in_ reference1
+	{
+		InteractWithStuff
+	}
+}
+
+InteractWithStuff
+{
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	-- 
+	_thing = _ConvoTag[1]
+	--
+	if _ConvoTag[2] == "dis"
+	{
+		"\p[%(_thing)]\s[-1]"
+	}
+	--
+	if "StartInteract" _in_ _ConvoTag
+	{
+		interactions ,= (_ConvoTag[3] + "." + _ConvoTag[1])
+	}
+	elseif "EndInteract" _in_ _ConvoTag
+	{
+		_key = _ConvoTag[3]+'.(\d*)'
+		_num = RE_ASEARCH(_key,interactions)
+		_intr = SPLIT(interactions[_num],".")
+		--
+		for _i = _num; _i < ARRAYSIZE(interactions);_i++
+		{
+			interactions[_i] = interactions[_i+1]
+		}
+		--
+		//"%(_num) %(_intr) %(_ConvoTag[3])\e"
+		"\p[%(_intr[1])]\s[%(_intr[1])]\e"
+	}
+}
+
+OnOtherOverlap
+{
+	//"%(reference0)\e"
+	//
+	_tagres = ""
+	_tags = SPLIT(reference0,"/")
+	--
+	if reference0 != "" && _tags[2] != 0
+	{
+		if "Stuff" _in_ _tags[0]
+		{
+			_tagres = _tags[1]
+			--
+			if "-" _in_ _tagres;_tagres = RE_REPLACE(_tagres,"(\d*)-","")
+		}
+		else
+		{
+			_tagres = _tags[0]
+		}
+		--
+		res_reference0 = _tagres
+		--
+		"\e OverlapStuff,%(_tags[2]),%(dressupson[_tags[2]])"
+	}
+	//res_reference0 = reference0 
+}
+
+/*RespondToStuff
+{
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	--
+	if "OverlapStuff" _in_ reference1
+	{
+		dressupstuff = _ConvoTag[2]
+		--
+		"\e StartInteract,%(_ConvoTag[1]),dis,MiniDev"
+	}
+	--
+	// ConvoTag,char num,interact option,Ghost that is interacting
+	//ConvoTags
+	//StartInteract - initiate an interaction
+	//EndInteract - end an interaction
+
+	//interact options
+	//dis - dissapear, the thing dissapears on the Stuffs side
+	//none - stuff doesn't do anything with surfaces
+}*/

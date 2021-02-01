@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,Stuff
+directory,Stuff
+
+balloon.directory,z_simple

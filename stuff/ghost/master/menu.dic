@@ -1,0 +1,284 @@
+﻿OpenSakuraMenu
+{	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	--
+	"\0\_q\b2" 
+	--
+	"\n\![*]\q[Config,configmenu]\n\n\n[half]"
+	--
+	"\![*]\q[BBQ Set,OnAdd,2,2,1,menu]\n\n[half]/
+	\![*]\q[Table,OnAdd,1,3,3,menu]\n\n[half]/
+	\![*]\q[Lights,OnAdd,1,4,4,menu]\n\n[half]/
+	\![*]\q[Bean Bag,OnAdd,1,6,6,menu]\n\n[half]/
+	\![*]\q[Tree,OnAdd,1,7,7,menu]\n\n[half]"
+	--
+	if vvoid == 1; "\![*]\q[Void,OnAdd,1,5,5,menu]\n\n[half]"
+	--
+	if plushies > 0; "\n\![*]\q[Plaushies,OnPlushies]\n\n[half]"
+	--
+	//"\n\![*]\q[Test,OnLineCheck]\n\n[half]"
+	--
+ 	"\n\![*]\q[Close,CANCEL]\e"
+}
+
+//b2: 20
+//b0: 8
+OnLineCheck
+{
+	_print = "\b4\_q"
+	--
+	for _i=0;_i<9;_i++
+	{
+		_print += _i + "\n"
+	}
+	--
+	_print
+}
+
+OnPlushies
+{
+	"\0\_q"
+	--
+	if wdgaster == 1; "\![*]\q[Gaster,OnAdd,1,100,100,plush]\n\n[half]"
+	--
+	if rys == 1; "\![*]\q[S The Skeleton,OnAdd,1,101,101,plush]\n\n[half]"
+	--
+	if dustynobsid == 1; "\![*]\q[Dusty and Obsidian,OnAdd,1,103,103,plush]\n\n[half]"
+	--
+	if ghost == 1; "\![*]\q[Ghost,OnAdd,1,102,102,plush]\n\n[half]"
+	--
+	if azura == 1; "\![*]\q[Azura,OnAdd,1,104,104,plush]\n\n[half]"
+	--
+ 	"\![*]\q[Close,CANCEL]\e"
+}
+
+OnAdd
+{
+	_print = ""
+	_num = TOINT(reference0)
+	_pnum = TOINT(reference1)
+	_snum = TOINT(reference2)
+	--
+	for _i=0 ; _i<_num ; _i++, _pnum++,_snum++
+	{
+		_print += "\p[%(_pnum)]\s[%(_snum)]"
+		--
+		if _snum != -1; active += " " + _pnum + "." + _snum + " "
+		else; active = RE_REPLACE(active," %(_pnum).(\d*) ","")
+		
+	}
+	--
+	_print
+	--
+	if reference3 == "menu"; OpenSakuraMenu
+	elseif reference3 == "plush"; OnPlushies
+	
+}
+
+OpenStuffMenu
+{
+	"\p[%(choice)]\_q"
+	--
+	varpage = 0
+	category = ""
+	dressupson[choice] = ""
+	--
+	OnDescription
+	--
+	"\n\n\n[half]\![*]\q[Hide,OnAdd,1,%(choice),-1]\n\n[half]"
+	--
+	if dresscount != 0; "\![*]\q[Variations,OnVariations]\n\n[half]"
+	--
+ 	"\n\![*]\q[Close,CANCEL]\e"
+}
+
+OnDescription
+{
+	case choice
+	{
+		when 5
+		{
+			"* Why is this even here?"
+			"* The Void hums quietly . . .\n\n[half]Why is it even here?"
+			"* The Void hums quietly"
+		}
+		when 100,101,102,103,104
+		{
+			"* The plush may not be the pretties but he tried"
+		}
+		when 4
+		{
+			"* Those are just %(name[choice])"
+		}
+		others
+		{
+			"* It's just a %(name[choice])"
+		}
+	}
+}
+
+OnVariations
+{
+	_print = "\b2\_qVariations\n\n[half]"
+	_dresssize = ARRAYSIZE(dresslog)
+	_categories = ""
+	_page = varpage * 13
+	_nextpage = 1
+	--
+	for _i=0,_line=0;_i<_dresssize;_i++
+	{
+		dresscheck = SPLIT(dresslog[_i],",")
+		--
+		if TOINT(dresscheck[0]) == choice && dresscheck[1] !_in_ _categories
+		{
+			if  dresscheck[1] == category; _print += "\f[bold,1]\q[" + TOPROPER(dresscheck[1]) + ",OnCategory," + dresscheck[1] +"]\f[default] | "
+			else;_print += "\q[" + TOPROPER(dresscheck[1]) + ",OnCategory," + dresscheck[1] +"] | "
+			--
+			_categories += dresscheck[1] + " "
+		}
+	}
+	--
+	_print = ERASE(_print,-2,4)
+	--
+	_print += "\n\n[half]-------------------------------------\n\n[half]"
+	--
+	for _i=_page,_line=0;_i<_dresssize;_i++
+	{
+		dresscheck = SPLIT(dresslog[_i],",")
+		--
+		if TOINT(dresscheck[0]) == choice && dresscheck[1] == category
+		{
+			if dresscheck[4] == "1"
+			{ 
+				_print += "\![*]"
+				--
+				dressupson[choice] += dresscheck[2] + "." + dresscheck[1] + "+"
+			}
+			--
+			_print += "\q[" + TOPROPER(dresscheck[2]) + ",OnDress," + dresscheck[2] + "]\n"
+			--
+			_line ++
+		}
+		//_print += _i + "]\n"
+		--
+		if _line == 13; break
+	}
+	--
+	_print += "\n[half]"
+	--
+	if varpage != 0; _print += "\q[Prev Page,OnNextPage,prev]    "
+	--
+	if _line == 13;_print += "\q[Next Page,OnNextPage,next]" 
+	--
+	_print += "\n\n\![*]\q[Cancel,CANCEL]\e"
+	--
+	_print
+}
+
+OnNextPage
+{
+	if reference0 == "next"; varpage++
+	else; varpage--
+	--
+	OnVariations
+}
+
+OnCategory
+{
+	category = reference0
+	--
+	OnVariations
+}
+
+OnDress
+{
+	"\p[%(choice)]\![bind,%(category),%(reference0)]"
+}
+
+OnDressCheck
+{
+	dresscount = 0
+	--
+	for _i=0;_i<ARRAYSIZE(dresslog);_i++
+	{
+		_dresscheck = SPLIT(dresslog[_i],",")
+		--
+		if TOINT(_dresscheck[0]) == choice; dresscount ++
+	}
+}
+
+OnNotifyDressupInfo
+{
+	dresslog = reference
+	--
+	OnVariations
+}
+
+GetWeekDay
+{
+	if weekday == 0; "Sun"
+	elseif weekday == 1; "Mon"
+	elseif weekday == 2; "Tue"
+	elseif weekday == 3; "Wed"
+	elseif weekday == 4; "Thu"
+	elseif weekday == 5; "Fri"
+	else; "Sat"
+}
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11; "AM"
+ 	else; "PM"
+}
+
+Getnowmin
+{
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
+
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9; "0%(hour12)"
+	else; "%(hour12)"
+}
+
+Select.BACKTOMENU
+{
+	MenuRun
+}
+
+Select.configmenu
+{
+	TalkConfig
+}
+
+TalkConfig
+{
+	"\0\_q" 
+	--	
+	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+Select.CANCEL
+{
+	"\e"
+}

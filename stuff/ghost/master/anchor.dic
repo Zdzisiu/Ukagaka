@@ -1,0 +1,47 @@
+/*
+OnTranslate
+----
+Reference0:Original script.
+Reference1:
+	*Communicate for communicating only SSP.
+    Sstp-send for SSTP SEND.
+    Owned for SSTP.
+    Remote for non-local SSTP.
+    If you do not want to translate, notranslate.
+    In case of script from plugin, in case
+    of event reaction from plugin-script plugin,
+    corresponding plugin-event will be returned separated by commas. *If there is no match, it will be a missing number.
+Reference2: *SSP only Event ID that this script occurred. Missing number if event is not the cause.
+Reference3: *SSP only Reference of the above event separated by 1 byte value. Missing number if event is not the cause. 
+*/
+
+OnTranslate
+{
+	_talk = reference0
+	_talk = REPLACE(_talk, "Anchor 1", "\_a[anchor1]Anchor 1\_a")
+	--
+	if reference1 == "" && reference2 == "" { 
+		EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
+	}
+	else { 
+		TOSTR(_talk)
+	}
+}
+
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 
+	{
+	"\j[%(reference0)]\e" 
+	}
+	else 
+	{
+	case reference0
+		{
+			when "anchor1" 
+			{
+				"\0\s[0]This dialogue is for when Anchor 1 is clicked.\e"
+			}
+		}
+	}
+}

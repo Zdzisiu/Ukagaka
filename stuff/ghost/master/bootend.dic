@@ -1,0 +1,169 @@
+﻿OnFirstBoot
+{
+ 	lastTalk = "" 
+	passmin = 0 
+	passsec = 0 
+ 	username         = "USER" 
+	stroke           = 0	
+ 	teachusername    = 0	
+	mikireflag       = 0	
+ 	aitalkinterval = 400 
+ 	birthdayprint = "????" 
+	talktime = "5 minutes" 
+	deleteshitai = "OFF" 
+	nowshell = "master" 
+	interactions = IARRAY
+	active = "0.0"
+	if reference0 == 0 
+ 	{
+		"\1\s[10]\0\s[0]...\e"
+ 	}
+	else
+ 	{
+ 		{
+ 		"\1\s[10]\0\s[0]...\e"
+		}
+ 	}
+}
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+}
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+}
+
+OnBoot
+{
+	lastTalk = "" 
+	passmin = 0
+	passsec = 0
+	--
+	OnNameSet
+	--
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot 
+	--
+	_print = "\0\s[0]"
+	--
+	_activesplit = SPLIT(active," ")
+	_arraysize = ARRAYSIZE(_activesplit)
+	--
+	for _i = 1;_i <= _arraysize;_i ++
+	{ 
+		_split = SPLIT(_activesplit[_i],".")
+		--
+		_print += "\p[%(_split[0])]\s[%(_split[1])]"
+	}
+	--
+	_print
+}
+
+OnNameSet
+{
+	name[0] = "List of your items"	
+	name[1] = ""
+	name[2] = "Grill"
+	name[3] = "Table"
+	name[4] = "Lights"
+	name[5] = "Void"
+	name[6] = "Bean Bag"
+	name[7] = "Tree"
+	name[8] = ""
+	name[9] = ""
+	name[10] = ""
+	name[100] = "Dr. W.D Gaster Plushie"
+	name[101] = "S the Skeleton Plushie"
+	name[102] = "Ghost Plushie"
+	name[103] = "Dusty and Obsidian Plushie"
+	name[104] = "Azura Plushie"
+}
+
+OnClose
+{
+	timeslot = GetTimeSlot 
+	--
+	if passmin >= 5	
+	{
+		"\0\s[0]...\w8\w8"
+	}
+	else 
+	{
+		"\0\s[0]...\w8\w8"
+	}
+	--
+	"\-\e" 
+}
+
+OnWindowStateRestore
+{
+	_print = "\0\s[0]"
+	--
+	_activesplit = SPLIT(active," ")
+	_arraysize = ARRAYSIZE(_activesplit)
+	--
+	for _i = 1;_i <= _arraysize;_i ++
+	{ 
+		_split = SPLIT(_activesplit[_i],".")
+		--
+		_print += "\p[%(_split[0])]\s[%(_split[1])]"
+	}
+	--
+	_print
+}
+
+OnGhostChanging
+ {
+	if reference0 == "Clear" 
+	{
+		"\0\s[0]...\w8\w8\e"
+	}
+ 	else 
+	{
+		"\0\s[0]...\e"
+	}
+}
+
+OnGhostChanged
+{
+	"\0\s[0]\1\s[10]" 
+	--
+	if reference0 == "Clear" 
+	{
+		"\0\s[0]...\e"
+	}
+	else 
+	{
+		"...\e"
+	}
+}

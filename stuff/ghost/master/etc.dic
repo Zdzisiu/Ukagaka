@@ -1,0 +1,117 @@
+﻿OnInstallBegin
+{
+	"\0\s[0]Installing . . .\w8This zip or nar contains an install.txt file.\e"
+}
+
+OnInstallComplete
+ {
+	"\0\s[0]* You got a new %(reference0). \w8It's called  %(reference1).\e"
+}
+
+OnInstallFailure
+{
+	"\0\s[0]The installation has failed.\n\n[half]\w5"
+	--
+	if reference0 == "unsupported"; "This file is unsupported.\e"
+	elseif reference0 == "extraction"; "The file could not be extracted properly.\e"
+}
+
+OnInstallRefuse
+{
+	"\0\s[0]* This is not something you can install\w4, It may be for %(reference0) instead.\e"
+}
+
+OnUpdateBegin
+{
+	"\0\s[0]* Looking for new furniture\w8\e"
+}
+ 
+OnUpdateReady
+ {
+	"* There are %(TOINT(reference[0])+1) file updates.\w8\e"
+	
+}
+
+OnUpdateComplete
+{
+	if reference0 == "none"
+ 	{
+ 		"* There is nothing new.\e"
+	}
+ 	else
+	{
+		"Update successful!\e"
+ 	}
+}
+
+OnUpdateFailure
+{
+	if reference0 == "timeout"
+ 	{
+ 		"The update connection has timed out.\e"
+	}
+ 	elseif reference0 == "md5 miss"
+	{
+		"The MD5 hash of the files don't match.\e"
+ 	}
+	else
+ 	{
+ 		"The update could not be completed.\w8\0\s[0]The error is '%(reference0)'.\e"
+	}
+}
+
+OnUpdate.OnDownloadBegin
+{
+ 	if "aitalk" _in_ reference0 
+ 	{
+ 		"\0\s[0]We are going to download more dialogue.\w8It's in the aitalk file.\e"
+ 	}
+ 	else
+ 	{
+	"This is dialogue for finding a new file.\e"
+	
+	"\0\s[0]This is another bit of dialogue for finding a new file.\e"
+	}
+}
+
+OnUpdate.OnMD5CompareBegin
+{
+	"Checking the MD5 value.\e"
+}
+
+OnUpdate.OnMD5CompareComplete
+{
+	"\0\s[0]MD5 check good.\e"
+}
+
+OnUpdate.OnMD5CompareFailure
+{
+	"\0\s[0]The MD5 values don't match.\w8\e"
+}
+
+OnUpdatedataCreating
+{
+	"Creating the updates2.dau file.\e"
+}
+
+OnUpdatedataCreated
+{
+	"\0\s[0]Successfully created updates2.dau.\e"
+}
+
+OnNarCreating
+{
+	"\0\s[0]Creating the .nar file.\e"
+}
+
+OnNarCreated
+{
+	"\0\s[0]Successfully created '%(reference0)'.\e"
+}
+
+OnDisplayChange
+{
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+}
