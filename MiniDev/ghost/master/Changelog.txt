@@ -7,3 +7,4 @@
 - Choose the accent color
 - Turn off hour notification
 - changed the homeurl to github.io
+- Update from Function menu
