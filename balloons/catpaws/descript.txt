@@ -4,7 +4,7 @@ name,Cat Paws
 craftman,Zdzis
 craftmanw,Zdzis
 craftmanurl,
-homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/ballons/catpaws/"
+homeurl,https://zdzisiu.github.io/Ukagaka/ballons/catpaws/"
 
 font.name,DoctorJekyllNF
 

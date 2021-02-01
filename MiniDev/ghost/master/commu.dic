@@ -1,17 +1,8 @@
 OnCommunicate
  {
-	if reference0 == "user" || reference0 == "User"
- 	{
- 		ReplyToUser
-	}
-	elseif reference0 == "clothes"
-	{
-		ClothesCheck
-	}
- 	else
-	{
-		ReplyToGhost
- 	}
+	if reference0 == "user" || reference0 == "User"; ReplyToUser
+	elseif reference0 == "clothes"; ClothesCheck
+ 	else; ReplyToGhost
 }
 
 ReplyToUser
@@ -23,37 +14,29 @@ ReplyToGhost
 {
 	res_reference0 = reference0
 	--
-	if reference0 == "RYS-0825"
+	if reference0 == "RYS-0825"; RespondingToS
+	elseif reference0 == "Dusty"; RespondingToDusty
+	elseif reference0 == "Aurora.EXE"; RespondingToAurora
+	elseif reference0 == "Azura"; RespondingToAzura
+	elseif reference0 == "Omega"; RespondingToOmega
+	elseif "SendClothes0" _in_ reference1; SendClothes
+	elseif "StatusMD0" _in_ reference1; "\e StatusMD1,%(tentruth),%(meeting)"
+	elseif reference0 == "Plant"; RespondToPlant
+	elseif reference0 == "Stuff"; RespondToStuff
+}
+
+RespondToStuff
+{
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	--
+	if "OverlapStuff" _in_ reference1
 	{
-		RespondingToS
-	}
-	elseif reference0 == "Dusty"
-	{
-		RespondingToDusty
-	}
-	elseif reference0 == "Aurora.EXE"
-	{
-		RespondingToAurora
-	}
-	elseif reference0 == "Azura"
-	{
-		RespondingToAzura
-	}
-	elseif reference0 == "Omega"
-	{
-		RespondingToOmega
-	}
-	elseif "SendClothes0" _in_ reference1
-	{
-		SendClothes
-	}
-	elseif "StatusMD0" _in_ reference1
-	{
-		"\e StatusMD1,%(tentruth),%(meeting)"
-	}
-	elseif reference0 == "Plant"
-	{
-		RespondToPlant
+		dressupstuff = _ConvoTag[2]
+		_thing = _ConvoTag[1]
+		doingstuff = 1
+		--
+		"\e StartInteract,%(_thing),dis,MiniDev"
 	}
 }
 
@@ -134,14 +117,8 @@ RespondToPlant
 		_growstage = _ConvoTag[1]
 		res_reference0 = "Plant"
 		--
-		if (_growstage == "3" || _growstage == 3) && RAND(50) < 11
-		{
-			"%(distingstart)I think it's time to change my plant\e MzPlantRemove"
-		}
-		else
-		{
-			"\ePlantInfo0,7"
-		}
+		if (_growstage == "3" || _growstage == 3) && RAND(50) < 11; "%(distingstart)I think it's time to change my plant\e MzPlantRemove"
+		else; "\ePlantInfo0,7"
 		
 	}
 	elseif "PlantGrewMz0" _in_ reference1
@@ -160,25 +137,10 @@ RespondToPlant
 		_plantspecial = _ConvoTag[4]
 		res_reference0 = ""
 		--
-		if _plantstage == 3
-		{
-			"%(distingstart)%(_plantname)? Looks nice\e"
-		}
+		if _plantstage == 3; "%(distingstart)%(_plantname)? Looks nice\e"
 	}
 	--
 	"::%(_speech)"
-}
-
-//\![raise,OnClothesCheck]
-//Aurora dress 1 pl dark blue, and shoes pl dark blue ||
-//Azura : Shirt #1 or #2 or #6 d dark blue, pants long p dark blue, Hoodies Open b dark blue
-//Function running check if MD is wearing certain clothes
-Ontalkcheck
-{
-	res_reference0 = "Plant"
-		--
-		"%(distingstart)Oh, I have to water my plant\e MzCareWater1"
-		"%(distingstart)Oh, I need to water my plant\e MzCareWater1"
 }
 
 ClothesCheck
@@ -211,30 +173,6 @@ SendClothes
 	res_reference0 = reference0
 	--
 	"\e SendClothes1,%(dresslog)"
-}
-
-//\![bind,hoodie,p1 red,1]\![bind,shirt,d1 purple,1]\![bind,pants,p1 black,1]\![bind,shoes,p gray,1]
-//\![raise,OnCheck]
-// %(dresslog)
-//Test Function
-OnCheck
-{
-	if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && aurora != 1
-	{
-		"YEA"
-	}
-	else
-	{
-		"nah"
-	}
-}
-
-//\![raise,OnMeetAzura]
-OnMeetAzura
-{
-	res_reference0 = "Azura"
-	--
-	"%(distingstart)You mentioned underground, did you mean some kind of cave or a tunnel?\e WhatIsUnderground0"
 }
 
 OnGhostCallComplete
@@ -1174,14 +1112,8 @@ RespondingToS
 {
 	whoasked = "RYS-082"
 	--
-	if "GetMiniDevStats01" _in_ reference1 
-	{
-		ClothesCheck
-	}
-	else
-	{
-		"%(hihello)"
-	}
+	if "GetMiniDevStats01" _in_ reference1; ClothesCheck
+	else; "%(hihello)"
 }
 
 OnTalkWithGhosts //This should go in Commu, but it doesn't have to
@@ -1196,14 +1128,8 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
         when "Dusty"
         {
            	//res_reference0 = "Dusty"
-			if tentruth != 1 || (tentruth == 1 && meeting != 1)
-            {
-				"\e MiniDev-Dusty-01-01"
-			}
-			else
-			{
-				"\e MDRequestDustyStats"
-			}
+			if tentruth != 1 || (tentruth == 1 && meeting != 1); "\e MiniDev-Dusty-01-01"
+			else; "\e MDRequestDustyStats"
         }
 		when "Plant"
 		{
@@ -1211,10 +1137,7 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
             {
 				res_reference0 = "Plant"
 				--
-				if "virtual-gardener" _in_ m201zcharacter
-				{
-					"\e MzPotEmpty0"
-				}
+				if "virtual-gardener" _in_ m201zcharacter; "\e MzPotEmpty0"
 
 			}
 		}

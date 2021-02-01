@@ -1,0 +1,4 @@
+Charset,UTF-8
+type,shell
+name,M-z
+directory,M-z

@@ -1,5 +1,4 @@
-﻿
-//---- Username -----------------------------------------------------------------------
+﻿//---- Username -----------------------------------------------------------------------
 //Don't touch this.
 
 On_username
@@ -12,7 +11,7 @@ On_username
 
 On_homeurl
 {
-	"https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/MiniDev/"
+	"https://zdzisiu.github.io/Ukagaka/MiniDev/"
 }
 
 

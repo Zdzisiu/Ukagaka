@@ -8,63 +8,18 @@ OnToBinaryCheck
 
 OnToBinaryEnd
 {
-    
-    binarycode = reference0
+    _binarycode = reference0
     --
-    binarycode = REPLACE(binarycode,"A"," 01000001 ")
-    binarycode = RE_REPLACE(binarycode,"B"," 01000010 ")
-    binarycode = RE_REPLACE(binarycode,"C"," 01000011 ")
-    binarycode = RE_REPLACE(binarycode,"D"," 01000100 ")
-    binarycode = RE_REPLACE(binarycode,"E"," 01000101 ")
-    binarycode = RE_REPLACE(binarycode,"F"," 01000110 ")
-    binarycode = RE_REPLACE(binarycode,"G"," 01000111 ")
-    binarycode = RE_REPLACE(binarycode,"H"," 01001000 ")
-    binarycode = RE_REPLACE(binarycode,"I"," 01001001 ")
-    binarycode = RE_REPLACE(binarycode,"J"," 01001010 ")
-    binarycode = RE_REPLACE(binarycode,"K"," 01001011 ")
-    binarycode = RE_REPLACE(binarycode,"L"," 01001100 ")
-    binarycode = RE_REPLACE(binarycode,"M"," 01001101 ")
-    binarycode = RE_REPLACE(binarycode,"N"," 01001110 ")
-    binarycode = RE_REPLACE(binarycode,"O"," 01001111 ")
-    binarycode = RE_REPLACE(binarycode,"P"," 01010000 ")
-    binarycode = RE_REPLACE(binarycode,"Q"," 01010001 ")
-    binarycode = RE_REPLACE(binarycode,"R"," 01010010 ")
-    binarycode = RE_REPLACE(binarycode,"S"," 01010011 ")
-    binarycode = RE_REPLACE(binarycode,"T"," 01010100 ")
-    binarycode = RE_REPLACE(binarycode,"U"," 01010101 ")
-    binarycode = RE_REPLACE(binarycode,"V"," 01010110 ")
-    binarycode = RE_REPLACE(binarycode,"W"," 01010111 ")
-    binarycode = RE_REPLACE(binarycode,"X"," 01011000 ")
-    binarycode = RE_REPLACE(binarycode,"Y"," 01011001 ")
-    binarycode = RE_REPLACE(binarycode,"Z"," 01011010 ")
-    binarycode = RE_REPLACE(binarycode,"a"," 01100001 ")
-    binarycode = RE_REPLACE(binarycode,"b"," 01100010 ")
-    binarycode = RE_REPLACE(binarycode,"c"," 01100011 ")
-    binarycode = RE_REPLACE(binarycode,"d"," 01100100 ")
-    binarycode = RE_REPLACE(binarycode,"e"," 01100101 ")
-    binarycode = RE_REPLACE(binarycode,"f"," 01100110 ")
-    binarycode = RE_REPLACE(binarycode,"g"," 01100111 ")
-    binarycode = RE_REPLACE(binarycode,"h"," 01101000 ")
-    binarycode = RE_REPLACE(binarycode,"i"," 01101001 ")
-    binarycode = RE_REPLACE(binarycode,"j"," 01101010 ")
-    binarycode = RE_REPLACE(binarycode,"k"," 01101011 ")
-    binarycode = RE_REPLACE(binarycode,"l"," 01101100 ")
-    binarycode = RE_REPLACE(binarycode,"m"," 01101101 ")
-    binarycode = RE_REPLACE(binarycode,"n"," 01101110 ")
-    binarycode = RE_REPLACE(binarycode,"o"," 01101111 ")
-    binarycode = RE_REPLACE(binarycode,"p"," 01110000 ")
-    binarycode = RE_REPLACE(binarycode,"q"," 01110001 ")
-    binarycode = RE_REPLACE(binarycode,"r"," 01110010 ")
-    binarycode = RE_REPLACE(binarycode,"s"," 01110011 ")
-    binarycode = RE_REPLACE(binarycode,"t"," 01110100 ")
-    binarycode = RE_REPLACE(binarycode,"u"," 01110101 ")
-    binarycode = RE_REPLACE(binarycode,"v"," 01110110 ")
-    binarycode = RE_REPLACE(binarycode,"w"," 01110111 ")
-    binarycode = RE_REPLACE(binarycode,"x"," 01111000 ")
-    binarycode = RE_REPLACE(binarycode,"y"," 01111001 ")
-    binarycode = RE_REPLACE(binarycode,"z"," 01111010 ")
+    for _i=0;_i<51;_i++
+    {
+        _binary = trbin(_i)
+		_letter = _binary[0] 
+		_bcode = _binary[1] 
+        --
+        _binarycode = REPLACE(binarycode,_letter,_bcode+" ")
+    }
     --
-    "%(binarycode)\![open,inputbox,OnToBinaryEnd,-1]\e"
+    "%(_binarycode)\![open,inputbox,OnToBinaryEnd,-1]\e"
 }
 
 OnFromBinaryCheck

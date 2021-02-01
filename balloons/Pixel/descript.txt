@@ -1,7 +1,7 @@
 charset,Shift_JIS
 type,balloon
 name,Pixel
-homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/balloons/Pixel/
+homeurl,https://zdzisiu.github.io/Ukagaka/balloons/Pixel/
 use_self_alpha, 1
 
 origin.x,14

@@ -105,70 +105,57 @@
 
 Select.SetWallpaper_0
 {
-    
 	"\![set,wallpaper,%(Wallpaperfile),center]\0\s[0]The image is centered.\e"
 }
 Select.SetWallpaper_1
 {
-    
 	"\![set,wallpaper,%(Wallpaperfile),tile]\0\s[0]The image is tiled.\e"
 }
 Select.SetWallpaper_2
 {
-    
 	"\![set,wallpaper,%(Wallpaperfile),stretch]\0\s[0]The image is stretched.\e"
 }
 Select.SetWallpaper_Cancel
 {
-    
 	"\0\s[0]So you don't want to set the file as your desktop background? \0\s[0]Kay.\e"
 }
  
 OnInstallBegin
- {
-    
+{
 	"\0\s[0]Beginning installation\w8\0\s[0]This zip or nar contains an install.txt file.\e"
- }
+}
  
 OnInstallComplete
  {
-    
 	"\0" 
 	 --
     installed = reference1
 	--
 	if reference0 == "shell" 
-	 {	
+	{	
 	    "\s[0]I've installed a new shell.\w8\0\s[0]It's called  %(reference1).\e"
-	 }
+	}
 	elseif reference0 == "ghost" 
-	 {
+	{
 		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should I call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall]."
 		--
 		if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
 		{
-			if repairglitch != 1
-			{
-				"O̴h̸,̷ ̵a̶ ̵n̵e̴w̸ ̸p̸r̴o̷g̸r̸a̸m̶?̶"
-			}
-			else
-			{
-				"\1%(distingstart)Oh, a new program?"
-			}
-			
+			if repairglitch != 1; "O̴h̸,̷ ̵a̶ ̵n̵e̴w̸ ̸p̸r̴o̷g̸r̸a̸m̶?̶"
+			else; "\1%(distingstart)Oh, a new program?"
 		}
 		--
 		OnCountGhosts
-	 }
+	}
 	elseif reference0 == "balloon" 
-	 {
+	{
 		"\s[0]I've installed a new balloon.\w8\0\s[0] It's called %(reference1)\n\n[half]Should I chnage to it?\n\n[half]\q[Yes,changeballon]\n\q[No,nochangeb].\e"
-	 }
+	}
 	elseif reference0 == "plugin" 
-	 {
+	{
 		"\s[0]I've installed a plug-in.\w8\0\s[0] It's called %(reference1).\e"
 		
-	 }
+	}
 }
 
 Select.callghost
@@ -192,139 +179,91 @@ Select.nocall
 }
 
 OnInstallFailure
- {
-    
+{
 	"\0\s[0]The installation has failed.\n\n[half]\w5"
 	--
-	if reference0 == "unsupported" 
-	{
-		"This file is unsupported.\e"
-	
-	}	
-	elseif reference0 == "extraction" 
-	{
-		"The file could not be extracted properly.\e"
-	}
- }
+	if reference0 == "unsupported"; "This file is unsupported.\e"
+	elseif reference0 == "extraction"; "The file could not be extracted properly.\e"
+}
  
 OnInstallRefuse
- {
-    
+{
 	"\0\s[0]I can't install this. \w4It may be for %(reference0) instead.\e"
- }
+}
 
 OnVanishSelecting
 {
-    
 	"\0\s[0]\i[7]You want to uninstall me?\e"
 }
 
 OnVanishSelected
 {
-    
 	"\0\s[0]Oh .\w5 .\w5 .\w5 \w8\0\s[0]%(byebye) then.\w9\w9\e"
 }
 
-
-
 OnVanishCancel
 {
-    
 	"\0\s[0]\i[6]Guess I'm staying.\e"
 }
 
 TalkVanishButtonHold
 {
-    
 	"\0\s[0].\w5 .\w5 .\w5\e"
 }
  
 OnVanished
 {
-    
 	"\0\s[0]You uninstalled %(reference0)?\w8 Harsh\e" 
 }
 
  
 OnBIFFBegin
- {
-    
+{
 	"\0\s[0]Checking Email.\e"
- }
+}
  
 OnBIFFComplete
- {
-    
-	if reference0 == 0
-	 {
-		 "\0\s[0]There is no new mail.\e"
-	}
-	elseif reference0 == 1
-	 {
-		 "\0\s[0]There is one new email.\e"
-	}
-	elseif reference0 > 1 && reference0 < 11
-	{
-		"\0\s[0]There are %(reference0) emails.\e"
-	}
-	elseif reference0 > 100
-	{
-		"\0\s[0]There are %(reference0) emails unread.\e"
-	}
-	 else
-	{
-		"\0\s[0]There are %(reference0) emails.\e"
-	 }
+{
+	if reference0 == 0; "\0\s[0]There is no new mail.\e"
+	elseif reference0 == 1; "\0\s[0]There is one new email.\e"
+	elseif reference0 > 1 && reference0 < 11; "\0\s[0]There are %(reference0) emails.\e"
+	elseif reference0 > 100; "\0\s[0]There are %(reference0) emails unread.\e"
+	else; "\0\s[0]There are %(reference0) emails.\e"
 }
  
 OnBIFFFailure
- {
-    
-	if reference0 == "timeout"
-	 {
-		 "\0\s[0]The connection has timed out.\e"
-	}
-	 elseif reference0 == "kick" 
-	{
-		"\0\s[0]I can't access the account.\e"
-	 }
-	elseif reference0 == "defect"
-	 {
-		 "\0\s[0]The email account was not set up properly.\w8\0\s[0]It can be reset at the POP menu.\![open,configurationdialog]\e"		
-	}
-	 els
-	{
-		"\0\s[0]I can't connect to the account.\w8\0\s[0]The error returned is '%(reference[0])'.\e"
-	 }
+{
+	if reference0 == "timeout"; "\0\s[0]The connection has timed out.\e"
+	elseif reference0 == "kick"; "\0\s[0]I can't access the account.\e"
+	elseif reference0 == "defect"; "\0\s[0]The email account was not set up properly.\w8\0\s[0]It can be reset at the POP menu.\![open,configurationdialog]\e"		
+	else; "\0\s[0]I can't connect to the account.\w8\0\s[0]The error returned is '%(reference[0])'.\e"
 }
  
 OnUpdateBegin
- {
-    
+{
 	"\0\s[0]Starting Update.\w8\e"	
- }
+}
 
  
 OnUpdateReady
- {
+{
     _udatefiles = TOINT(reference[0]) + 1
+	--
 	"\0\s[0]There are %(_udatefiles) new files.\w8\e"
-	
- }
+}
 
 OnUpdateComplete
  {
-    
 	if reference0 == "none"
-	 {
-		 "\0\s[0]No update available\e"
+	{
+		"\0\s[0]No update available\e"
 	}
-	 else
+	else
 	{
 		OnToolCheck
 		--
 		"\0\s[0]Update successful! Do you want to see the changlog?\n\n[half]\q[Yes,changelog] | \q[No,chnglg]\e"
-	 }
+	}
 }
 
 Select.changelog
@@ -333,54 +272,23 @@ Select.changelog
 }
  
 OnUpdateFailure
- {
-    
-	if reference0 == "timeout"
-	{
-		 "\0\s[0]The update connection has timed out.\e"
-	}
-	 elseif reference0 == "md5 miss" 
-	{
-		"\0\s[0]The MD5 hash of the files don't match.\e"
-	}
-	else
-	{
-		 "\0\s[0]The update could not be completed.\w8\0\s[0] The error is '%(reference0)'.\e"
-	}
- }
+{
+	if reference0 == "timeout"; "\0\s[0]The update connection has timed out.\e"
+	elseif reference0 == "md5 miss"; "\0\s[0]The MD5 hash of the files don't match.\e"
+	else; "\0\s[0]The update could not be completed.\w8\0\s[0] The error is '%(reference0)'.\e"
+}
  
 OnUpdate.OnDownloadBegin
  {
 	"\_qUPDATING: %(reference0)\n\n"
 
-	if "aitalk" _in_ reference0
-	{
-		"Change in AI dialogue found\e"
-	}
-	elseif "mouse" _in_ reference0
-	{
-		"Change in interactions found\e"
-	}
-	elseif "menu" _in_ reference0
-	{
-		"Change in menu intractions found\e"
-	}
-	elseif "bootend" _in_ reference0
-	{
-		"Change in boot system found\e"
-	}
-	elseif "config" _in_ reference0
-	{
-		"Change in settings found\e"
-	}
-	elseif "clothes" _in_ reference1
-	{
-		"Change in clothing system found\e"
-	}
-	else //for files not specified above
-	{
-		""
-	} 
+	if "aitalk" _in_ reference0; "Change in AI dialogue found\e"
+	elseif "mouse" _in_ reference0; "Change in interactions found\e"
+	elseif "menu" _in_ reference0; "Change in menu intractions found\e"
+	elseif "bootend" _in_ reference0; "Change in boot system found\e"
+	elseif "config" _in_ reference0; "Change in settings found\e"
+	elseif "clothes" _in_ reference1; "Change in clothing system found\e"
+	else; ""
 	--
 	"\_q\w5\e"
  }
@@ -397,7 +305,6 @@ OnUpdateCheckComplete
 	{
 		"\b[-1]\e"
 	}
-	
 }
 
 Select.up
@@ -416,249 +323,208 @@ OnUpdateCheckFailure
 }
 
 OnUpdate.OnMD5CompareBegin
- {
-    
+{
 	"\0\s[0]e"
- }
+}
 
 OnUpdate.OnMD5CompareComplete
- {
-    
+{
 	"\0\s[0]\e"
 }
 
  
 OnUpdate.OnMD5CompareFailure
- {
-    
+{
 	"\0\s[0]The MD5 values don't match.\w8\e"
- }
+}
  
 OnHeadlinesenseBegin
- {
-    
+{
 	"\0\s[0]You've selected %(reference0).\e"
- }
+}
 
 OnHeadlinesense.OnFind
 {
-    
 	//----  What page You're on
-	 if reference2 == "First" || reference2 == "First and Last"
+	if reference2 == "First" || reference2 == "First and Last"
 	{
-		 //---- First page
+		//---- First page
 		"\0\b2\s[0]%(reference0):"
-	 }
+	}
 	elseif reference2 == "Next"
-	 {
+	{
 		//---- Second page
-		 "\0\b2\s[0]%(reference0):"
+		"\0\b2\s[0]%(reference0):"
 	}
 	 elseif reference2 == "Last"
 	{
-		 //---- Last page
+		//---- Last page
 		"\0\b2\s[0]%(reference0):"
-	 }
+	}
 	--
-	 //---- Headlines
+	//---- Headlines
 	"\n\n%reference3\n"
-	 --
+	--
 	//---- Pages
-	 if reference2 == "First" || reference2 == "Next"
+	if reference2 == "First" || reference2 == "Next"
 	{
-		 //---- Bottom buttons
-		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
-	 }
-	else
-	 {
 		//---- Bottom buttons
-		 "\![*]\q[Stop,Headline_Cancel]\e"
-	 }
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+	}
+	else
+	{
+		//---- Bottom buttons
+		"\![*]\q[Stop,Headline_Cancel]\e"
+	}
 	
 }
 
 
 Select.Headline_Cancel
 {
-    
 	"\0\s[0]Headline viewing complete.\e"
 }
  
 OnHeadlinesenseComplete
- {
-    
+{
 	"\0\s[0]No update. %(reference0).\e"
- }
+}
 
- 
 OnHeadlinesenseFailure
-  {
+{
     
 	"\0\s[0]The feed can't updated.\w5" 
-	 --
-	if reference0 == "can't download" 
-	 {
-		"It can't be downloaded."
-	 }
-	elseif reference0 == "can't analyze" 
-	 {
-		"It can't be analyzed."
-	 }
-	else 
-	 {
-		"I don't know why."
-	 }
 	--
-	 "\e" 
+	if reference0 == "can't download" 
+	{
+		"It can't be downloaded."
+	}
+	elseif reference0 == "can't analyze" 
+	{
+		"It can't be analyzed."
+	}
+	else 
+	{
+		"I don't know why."
+	}
+	--
+	"\e" 
 }
  
 OnUpdatedataCreating
- {
-    
+{
 	"\0\s[0]Creating the updates2.dau file.\e"
- }
+}
 
 OnUpdatedataCreated
- {
-    
+{
 	"\0\s[0]Successfully created updates2.dau.\e"
- }
+}
  
 OnNarCreating
- {
-    
+{
 	"\0\s[0]Creating the .nar file.\e"
- }
+}
 
 OnNarCreated
- {
-    
+{
 	"\0\s[0]Successfully created '%(reference0)'.\e"
- }
+}
 
  
 OnSNTPBegin
- {
-    
+{
 	"\0\s[0]I'm going to check the time.\w9\0\s[0]I am connecting to %(reference0).\e"
- }
+}
  
 OnSNTPCompare
- {
-    
-	 "Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
+{
+	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
 	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n/
-	 \n"
+	\n"
 	--
-	 if reference3 == 0 
+	if reference3 == 0 
 	{
-		 "\0\s[0]Your clock is accurate.\e" 
+		"\0\s[0]Your clock is accurate.\e" 
 	}
-	 else 
+	else 
 	{
-		 "\0\s[0]Your clock doesn't match.\w6\nShould I fix it?\n\n[half]/
+		"\0\s[0]Your clock doesn't match.\w6\nShould I fix it?\n\n[half]/
 		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
-		 \![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
 	}
- }
+}
  
 OnSNTPEXECUTE
- {
-    
+{
 	"\0\s[0]The clock has been fixed.\6\e"
- }
+}
 
 OnSNTPCANCEL
- {
-    
+{
 	"\0\s[0]The clock stayed the same.\e"
- }
+}
 
  
 OnSNTPFailure
- {
-    
+{
 	"\0\s[0]The clock wasn't changed.\w8\0\s[0]Something went wrong.\e"
- }
+}
 
-
- 
 OnDisplayChange
- {
+{
 	displaybpp    = reference0
-	 displaywidth  = reference1
+	displaywidth  = reference1
 	displayheight = reference2
- }
+}
 
-
- 
 OnScreenSaverStart
- {
-    
+{
 	"\0\s[0]The screensaver is starting.\e"
- }
+}
 
  
 OnScreenSaverEnd
- {
-    
+{
 	"\0\s[0]Back to work!\e"
- }
+}
 
  
 OnApplicationBoot
- {
-    
+{
 	"\0\s[0]%(reference0) just started.\e"
- }
+}
 
- 
 OnApplicationClose
- {
-    
+{
 	"\0\s[0]%(reference0) has closed.\e"
- }
+}
 
 OnApplicationFileOpen
- {
-    
+{
 	"\0\s[0]Opening %(reference1).\e"
- }
-
+}
 
 OnBatteryLow
- {
-    
+{
 	"\0\s[0]The laptop's battery is low. \w8\0\s[0]There is %(reference0) power left.\e"
- }
+}
  
 OnBatteryCritical
 {
-    
 	"\0\s[0]The laptop's battery is critically low.\e"
 }
  
 OnSysResourceLow
- {
-    
+{
 	"\0\s[0]The system resources are low.\e"
- }
+}
  
 OnShellScaling
 {
-    
-	if reference0 >= 150 
-	{
-		"\0\s[0]I'm now 150% of my size!\e"
-	}
-	elseif reference0 == 100 
-	{
-		"\0\s[0]I am normal sized.\e"
-	}
-	elseif reference0 == 50
-	{
-		"\0\s[0]Im now 50% of my size!\e"
-	}
+	if reference0 >= 150; "\0\s[0]I'm now 150% of my size!\e"
+	elseif reference0 == 100; "\0\s[0]I am normal sized.\e"
+	elseif reference0 == 50; "\0\s[0]Im now 50% of my size!\e"
 }
 
 OnDeviceArrival
@@ -668,14 +534,8 @@ OnDeviceArrival
 	
 	if ("wacom" _in_ "%(_device)" || "tablet" _in_ "%(_device)") && (tentruth == 1 || glitchboot <= 5)
 	{
-		if repairglitch != 1
-		{
-			"H̷m̴?̷ ̴I̵s̵ ̵t̵h̴a̴t̷ ̴a̵ ̷d̸r̷a̵w̸i̵n̵g̵ ̴t̸a̸b̷l̸e̶t?\e"
-		}
-		else
-		{
-			"%(distingstart)Hm? Is that a drawing tablet?\e"
-		}
+		if repairglitch != 1; "H̷m̴?̷ ̴I̵s̵ ̵t̵h̴a̴t̷ ̴a̵ ̷d̸r̷a̵w̸i̵n̵g̵ ̴t̸a̸b̷l̸e̶t?\e"
+		else; "%(distingstart)Hm? Is that a drawing tablet?\e"
 	}
 }
 
@@ -1468,20 +1328,17 @@ OnHourlyFound
 OnDownloadMoonPhase
 {
     "\0\s[0]Downloading moon phase... \![execute,http-get,https://www.moongiant.com/phase/today/,--async=OnMoonFound,--file=moon.html,--timeout=200]"
-
-
 }
 
 
 OnMoonFound{
-
 
     //file to be read
     _file = "var\\moon.html"
     //line being read
     _buff=""
     //regular expressions to extract data
-    _regphase=',"Phase: <span>([\w|\s]*)<./span>'
+    _regphase=regex[23]
     _found = 0;
     //using UTF-8 charset
     FCHARSET(1)

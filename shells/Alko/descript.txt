@@ -5,7 +5,7 @@ charset,UTF-8
 type,shell
 name,Alkohol
 craftman,Zdzisiu
-craftmanurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/shells/Alko
+craftmanurl,https://zdzisiu.github.io/Ukagaka/shells/Alko
 
 sakura.balloon.offsetx,0
 sakura.balloon.offsety,0

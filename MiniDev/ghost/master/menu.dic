@@ -1,13 +1,7 @@
 ﻿OpenSakuraMenu
 {
-	if tentruth == 1
-	{
-		"\n\_q\b4"
-	}
-	else
-	{
-		"\n\_q\b2"	
-	}
+	if tentruth == 1; "\n\_q\b4"
+	else; "\n\_q\b2"	
 	--
 	MenuRun
 }
@@ -31,7 +25,7 @@ MenuRun
 	if lastTalk != ""; "\![*]\q[Repeat,OnLastTalk] or "
 	--
  	"\![*]\q[Say something,altalk]\n\n[half]"
-	--
+	//--
 	//"\![*]\q[Test,OnTest]\n\n[half]"
 	--
 	"\![*]\q[Config Menu,configmenu]\n/
@@ -54,10 +48,7 @@ MenuRun
 		--
 		if meeting == 1
 		{
-			if m201relationship >= 25
-			{
-				"\![*]\q[Play a game,gamez]\n"
-			}
+			if m201relationship >= 25;"\![*]\q[Play a game,gamez]\n"
 			--
 			"\![*]\q[Actions,act]\n"
 		}
@@ -114,35 +105,19 @@ Select.gift
 
 timeformat
 {
-	if timeformatype == "STANDARD"
-	{
-		"%(nowhour):%(nowmin) %(ap)"
-	}
-	elseif timeformatype == "MILITARY"
-	{
-		"%(hour):%(minute)"
-	}
+	if timeformatype == "STANDARD"; "%(nowhour):%(nowmin) %(ap)"
+	elseif timeformatype == "MILITARY"; "%(hour):%(minute)"
 }
 
 dateformat
 {
-	if dateformatype == "dd/mm/yyyy"
-	{
-		"%(day)/%(month)/%(year)"
-	}
-	elseif dateformatype == "yyyy/mm/dd"
-	{
-		"%(year)/%(month)/%(day)"
-	}
-	elseif dateformatype == "mm/dd/yyyy"
-	{
-		"%(month)/%(day)/%(year)"
-	}
+	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
+	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
+	elseif dateformatype == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
 }
 
 Select.quote
 {
-        
     "\![execute,http-get,http://www.quotationspage.com/random.php,--async=OnQuoteFound,--file=quote.html,--timeout=200]"
 }
 
@@ -164,18 +139,17 @@ OnQuoteFound
 
                     if RE_SEARCH ( _buff, _regquote ) {
                             
-                            quote = RE_GETSTR[1]
+                        quote = RE_GETSTR[1]
                     }
                     
                     if RE_SEARCH ( _buff, _regeauthor ) {
                             
-                            author = RE_GETSTR[1]  
-                            _found = 1;     
+                        author = RE_GETSTR[1]  
+                         _found = 1;     
                     }
             }
     }
     --
-    
     FCLOSE(_file);
     --
     "\b2%(quote)\n\n[half]         -%(author)"
@@ -283,10 +257,7 @@ Select.bookr
 {
 	rand = RAND(5)
 	--
-	if rand == 0
-	{
-		rand = 1
-	}
+	if rand == 0; rand = 1
 	--
 	 ". . .\![execute,http-get,https://www.goodreads.com/list/show/116990.Best_Books_2020?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
 	 ". . .\![execute,http-get,https://www.goodreads.com/list/show/114787.Best_Books_2019?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
@@ -452,69 +423,38 @@ Select.ques
 		\![*]\q[Functions,funq]\n/
 		\![*]\q[Shortcut keys,skeyq]\n"
 		--
-		if scode == 1
-		{
-			"\![*]\q[Serial codes,secode]"
-		}
+		if scode == 1; "\![*]\q[Serial codes,secode]"
 		--
-		if truth >= 3
-		{
-			"\![*]\q[M̷̯̅-̷͚̎2̴̛ͅ0̵̺̅1̵̫͠z̴̤̃,m201z]"
-		}
+		if truth >= 3; "\![*]\q[M̷̯̅-̷͚̎2̴̛ͅ0̵̺̅1̵̫͠z̴̤̃,m201z]"
 		--
 		if meeting == 1
 		{
 			"\n\n[half]\![*]\q[How are you?,On201zQ,feelings]\n/
 			\![*]\q[Tell me about yourself,On201zQ,yourself]\n"
 			--
-			if glitchask == 1 && repairglitch != 1 && quest != 1 &&  quest != 2
-			{
-				"\![*]\q[Glitches,On201zQ,glitches]\n"
-			}
+			if glitchask == 1 && repairglitch != 1 && quest != 1 &&  quest != 2; "\![*]\q[Glitches,On201zQ,glitches]\n"
 			--
-			if repairglitch == 1 && searchforhobby != 1 && m201relationship > 100
-			{
-				"\![*]\q[Hobbies,On201zQ,hobbies]\n"
-			}
+			if repairglitch == 1 && searchforhobby != 1 && m201relationship > 100; "\![*]\q[Hobbies,On201zQ,hobbies]\n"
 			--
-			if (quest == 1 || quest == 3) && repairglitch != 1
-			{
-				"\![*]\q[Repair,deletethefiles]\n"
-			}
+			if (quest == 1 || quest == 3) && repairglitch != 1; "\![*]\q[Repair,deletethefiles]\n"
 			--
-			if david == 1
-			{
-				"\![*]\q[David,On201zQ,david]\n"
-			}
+			if david == 1; "\![*]\q[David,On201zQ,david]\n"
 			--
-			if ghostmet >= 1
-			{
-				"\![*]\q[Other Ghosts,On201zQ,otherghosts]\n"
-			}
+			if ghostmet >= 1; "\![*]\q[Other Ghosts,On201zQ,otherghosts]\n"
 		}
 	}
 	else
 	{
-		
 		"\![*]\q[A.R.I,ariq]\n/
 		\![*]\q[MiniDev,mdevq]\n/
 		\![*]\q[Functions,funq]\n/
 		\![*]\q[Shortcut keys,skeyq]\n"
 		--
-		if scode == 1
-		{
-			"\![*]\q[Serial codes,secode]\n"
-		}
+		if scode == 1; "\![*]\q[Serial codes,secode]\n"
 		--
-		if truth >= 2
-		{
-			"\![*]\q[M-201z,m201z]\n"
-		}
+		if truth >= 2; "\![*]\q[M-201z,m201z]\n"
 		--
-		if truth >= 1
-		{
-			"\![*]\q[Generation z,mz]\n"
-		}
+		if truth >= 1; "\![*]\q[Generation z,mz]\n"
 	}
 	--
 	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
@@ -720,20 +660,16 @@ On201zQ
 				"%(distingstart)M̴e̷?̴ \f[strike,1]I̸'̸m̸\f[default] .\w8 .\w8 .\w8 %(distingstart)\w8\f[bold,1]\f[italic,1]I̴ ̷w̷a̴s̸\f[default] a̷ ̸r̶o̷b̴o̴t̴"
 				"%(distingstart)T̶h̸e̷r̴e̵ ̷i̴s̷n̸'̸t̴ ̶r̶e̷a̵l̵l̴y̶ ̸a̶n̸y̴t̷h̶i̸n̸g̷ ̸i̵n̸t̷e̵r̷e̶s̴t̵i̴n̶g̸ ̴a̶b̵o̵u̶t̷ ̶m̵e̴,\w2 I̵ ̸h̶a̶v̴e̴n̷'̴t̶ e̵x̵p̵e̷r̶i̸e̵n̸c̴e̵d̸ ̴e̶n̷o̴u̵g̸h̷ ̷t̶h̷i̴n̴g̸s̵ ̶t̶o̶ ̶h̷a̴v̸e̶ ̵l̷i̶k̸e̷s̵ ̷a̶n̴d̸ ̸d̴i̵s̸l̶i̶k̸e̷s̶ .\w3 .\w3 .\w3 o̴r̸ ̴a̵ ̴h̶o̴b̵b̵y̷%(hobbyvar)"
 				"%(distingstart)M̶e̸?̸ ̸r̸i̵g̵h̶t̷ ̶n̸o̵w̸ ̵I̸'̴m̴ ̸j̴u̴s̸t̸ ̸a̶ ̴u̴s̸e̶l̷e̸s̶s̴ ̶s̶o̶f̸t̴w̷e̴r̸e̷"
-				if m201relationship > 100
-				{
-					"%(distingstart)T̸h̵e̶r̷e̸ ̸i̶s̷n̸'̶t̸ ̷m̸u̵c̸h̸ ̵t̷o̸ ̴t̶e̴l̴l̵ ̷a̷b̷o̴u̸t̶ ̵m̸e̸,\w6 I̴ ̷w̸a̴s̸ ̶a̵ ̴r̷o̷b̶o̴t̸,\w6 I̵ ̶g̵o̷t̸ ̸d̴e̵s̶t̴r̴o̵y̶e̶d̶ .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I̸ ̵g̴e̸t̷ ̶s̷t̶r̶e̶s̶s̶e̵d̶ ̴a̵r̴o̵u̸n̷d̴ ̶p̴e̶o̵p̷l̷e̶ ̷I̴ ̴d̷o̶n̸'̷t̴ ̴k̴n̸o̷w̵"
-				}
+
+				if m201relationship > 100; "%(distingstart)T̸h̵e̶r̷e̸ ̸i̶s̷n̸'̶t̸ ̷m̸u̵c̸h̸ ̵t̷o̸ ̴t̶e̴l̴l̵ ̷a̷b̷o̴u̸t̶ ̵m̸e̸,\w6 I̴ ̷w̸a̴s̸ ̶a̵ ̴r̷o̷b̶o̴t̸,\w6 I̵ ̶g̵o̷t̸ ̸d̴e̵s̶t̴r̴o̵y̶e̶d̶ .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I̸ ̵g̴e̸t̷ ̶s̷t̶r̶e̶s̶s̶e̵d̶ ̴a̵r̴o̵u̸n̷d̴ ̶p̴e̶o̵p̷l̷e̶ ̷I̴ ̴d̷o̶n̸'̷t̴ ̴k̴n̸o̷w̵"
 			}
 			else
 			{
 				"%(distingstart)Me? \f[strike,1]I'm\f[default] %(distingstart)\w8\f[bold,1]\f[italic,1]I was\f[default] a robot"
 				"%(distingstart)There isn't really anything interesting about me,\w2 I haven't epxerienced enough things to have likes and dislikes .\w3 .\w3 .\w3 or a hobby%(hobbyvar)"
 				"%(distingstart)Me? right now I'm just a useless softwere"
-				if m201relationship > 100
-				{
-					"%(distingstart)There isn't much to tell about me,\w6 I was a robot, I got destroyed .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I get stressed around people I don't know"
-				}
+
+				if m201relationship > 100; "%(distingstart)There isn't much to tell about me,\w6 I was a robot, I got destroyed .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I get stressed around people I don't know"
 			}
 		}
 		when "david"
@@ -747,10 +683,7 @@ On201zQ
 				"H̴͇́ḙ̷́ ̷̪̍a̷͉̾l̸̙̋w̷͙̆ǎ̴̮y̶͎͘ş̸̊ ̴̺͌t̵̨͒r̴̙̅ȋ̵̹e̶̤̔d̶͙̋ ̷̧̐t̴͔͛o̴̰̚ ̷̪́t̷̯͒ē̶̲l̵͓̂ĺ̶͇ ̵̊͜ḿ̴̮è̷̡ ̵̮͗j̸̥̅o̴͓͒k̷͕͆e̵̞̓s̵͚̍,̸̩̅ ̷̛͜ẗ̸̫́h̶͕͝e̸̙̿y̶̧̋ ̶̛̰w̴̥̍e̸̦̕r̶͔̊e̴̜͘ ̵̳͘h̶̦̉ô̷ͅr̴͇̔r̴̳͗i̶̡̔ḃ̵̝l̴̩͗é̴̬"
 				"H̸e̵ ̴a̴l̷w̴a̸y̵s̸ ̴t̵r̴i̶e̶d̸ ̸t̴o̷ ̷t̶e̷a̶c̷h̵ ̴m̴e̶ ̸t̵h̸i̴n̸g̷s̶ ̴I̷ ̴d̷i̴d̸n̵'̴t̸ ̵k̶n̶o̸w̵,\w2 h̸i̵s̶ ̸e̴x̷p̷l̷a̴i̸n̷i̸n̷g̸ ̷w̷a̵s̸ ̷c̸h̴a̴o̴t̶i̶c̵ ̸s̴o̸ ̸i̶t̴ ̴o̴f̸t̴e̷n̸ ̶e̶n̷d̴e̸d̵ ̸i̶n̷ ̴m̶e̶ ̶j̷u̴s̷t̸ ̵b̸e̷i̶n̴g̷ ̸m̸o̶r̶e̵ ̵c̸o̶n̷f̸u̶s̸e̵d̸"
 
-				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames
-				{
-					"H̷͍͝ē̶̬ ̷̪̽o̸̬͑n̴̢̕ć̷̦e̷͕̅ ̶̭̀f̵͍̌o̴̥͒u̴̪̓ń̶̢d̷̼̆ ̵͎̈a̶̦̐n̸̪͊o̷̖̽ľ̸̖d̸͖́ ̸̰͊n̷̟͝ô̷͎ẗ̷̬́ẻ̸̝b̷̰̓o̴͕͑o̶̺͆k̷̮̂\w3 i̵t̵ ̷w̸a̶s̴ ̴w̷r̸i̷t̶t̴e̶n̴ ̷i̸n̶ ̷a̵n̴ ̷u̴n̶i̷d̴e̶n̵t̵i̶f̷i̷e̵d̷ ̶l̵a̵n̴g̷u̴a̸g̷e̵ ̶a̵n̵d̸ ̶h̵a̷d̷ ̵s̶o̶m̵e̸ ̴w̶e̸i̶r̴d̴ ̸d̸r̸a̶w̷i̸n̶g̶s̶.̸\w4 H̴̰̍e̶͈̒ ̸̿ͅw̴̨͊a̸̞̾s̶̗͝ ̶͈̿r̶̄ͅe̸̻͠a̸̬̔l̶̨͑l̴̛͍y̸̳̓ ̴̬̌i̸͖̕ǹ̵̜t̷̝̃ĕ̷̡r̶̥̾ẻ̶̯š̴͈ẗ̶͓́e̷̺̍d̶̹́ ̷̟͆i̸̬͝n̷̛̬ ̴̌ͅį̵̂t̴̻͑,\w3 I̴'̶m̵ ̴p̷r̴e̵t̵t̴y̶ ̷s̸u̷r̸e̶ ̴h̵e̵ ̸w̸a̴s̶ ̶e̶v̴e̵n̶ ̵a̴b̴l̶e̵ ̴t̷o̵ ̴d̸e̸c̸o̵d̶e̷ ̴i̵t̸,\w4 .\w2 .\w2 .\w2 I̶̞͊ ̶̱̈ẘ̷͙ǫ̷̀n̶͚͆d̴͎̏e̷̤͘ȑ̵͔ ̴̣͒ẁ̴̦h̵̫̅a̴͙̒t̶͇͒ ̵̖̉d̸̰͂i̶̳̕d̷̝͂ ̸̟́h̷̨́ě̵̜ ̶̱͐f̷͙̊o̵̜͝u̶̹͘n̶͚͐d̷̈́͜ ̶͙̅i̷͕̚n̷̖̉ ̴̝̆i̴̻͌ṯ̵̎?̷̭͌"
-				}
+				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames; "H̷͍͝ē̶̬ ̷̪̽o̸̬͑n̴̢̕ć̷̦e̷͕̅ ̶̭̀f̵͍̌o̴̥͒u̴̪̓ń̶̢d̷̼̆ ̵͎̈a̶̦̐n̸̪͊o̷̖̽ľ̸̖d̸͖́ ̸̰͊n̷̟͝ô̷͎ẗ̷̬́ẻ̸̝b̷̰̓o̴͕͑o̶̺͆k̷̮̂\w3 i̵t̵ ̷w̸a̶s̴ ̴w̷r̸i̷t̶t̴e̶n̴ ̷i̸n̶ ̷a̵n̴ ̷u̴n̶i̷d̴e̶n̵t̵i̶f̷i̷e̵d̷ ̶l̵a̵n̴g̷u̴a̸g̷e̵ ̶a̵n̵d̸ ̶h̵a̷d̷ ̵s̶o̶m̵e̸ ̴w̶e̸i̶r̴d̴ ̸d̸r̸a̶w̷i̸n̶g̶s̶.̸\w4 H̴̰̍e̶͈̒ ̸̿ͅw̴̨͊a̸̞̾s̶̗͝ ̶͈̿r̶̄ͅe̸̻͠a̸̬̔l̶̨͑l̴̛͍y̸̳̓ ̴̬̌i̸͖̕ǹ̵̜t̷̝̃ĕ̷̡r̶̥̾ẻ̶̯š̴͈ẗ̶͓́e̷̺̍d̶̹́ ̷̟͆i̸̬͝n̷̛̬ ̴̌ͅį̵̂t̴̻͑,\w3 I̴'̶m̵ ̴p̷r̴e̵t̵t̴y̶ ̷s̸u̷r̸e̶ ̴h̵e̵ ̸w̸a̴s̶ ̶e̶v̴e̵n̶ ̵a̴b̴l̶e̵ ̴t̷o̵ ̴d̸e̸c̸o̵d̶e̷ ̴i̵t̸,\w4 .\w2 .\w2 .\w2 I̶̞͊ ̶̱̈ẘ̷͙ǫ̷̀n̶͚͆d̴͎̏e̷̤͘ȑ̵͔ ̴̣͒ẁ̴̦h̵̫̅a̴͙̒t̶͇͒ ̵̖̉d̸̰͂i̶̳̕d̷̝͂ ̸̟́h̷̨́ě̵̜ ̶̱͐f̷͙̊o̵̜͝u̶̹͘n̶͚͐d̷̈́͜ ̶͙̅i̷͕̚n̷̖̉ ̴̝̆i̴̻͌ṯ̵̎?̷̭͌"
 			}
 			else
 			{
@@ -761,18 +694,12 @@ On201zQ
 				"%(distingstart)He always tried to tell me jokes, they were horrible"
 				"%(distingstart)He always tried to teach me things I didn't know,\w2 his explaining was chaotic so it often ended in me just being more confused"
 
-				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames
-				{
-					"%(distingstart)He once found an OLDNTBK,\w3 it was written in an unidentified language and had some weird drawings.\w4 He was really interested in it,\w3 I'm pretty sure he was even able to decode it,\w4 .\w2 .\w2 .\w2 I wonder what did he found in it?"
-				}
+				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames; "%(distingstart)He once found an OLDNTBK,\w3 it was written in an unidentified language and had some weird drawings.\w4 He was really interested in it,\w3 I'm pretty sure he was even able to decode it,\w4 .\w2 .\w2 .\w2 I wonder what did he found in it?"
 			}
 		}
 		when "otherghosts"
 		{
-			if meetplant == 1
-			{
-				"\![*]\q[Plant,OnOtherGhostQue,plant]"
-			}
+			if meetplant == 1; "\![*]\q[Plant,OnOtherGhostQue,plant]"
 		}
 	}
 	--
@@ -787,12 +714,9 @@ OnOtherGhostQue
 	{
 		when "plant"
 		{
-				"'Plant' is interesting, now you can try to be a gardener without all the dirt and trouble ^^"
-				--
-				if "virtual-gardener" !_in_ m201zcharacter && "trees-are-nice" _in_ m201zcharacter
-				{
-					"\n\![*]\q[You can now grow plants too,growthemplants]"
-				}
+			"'Plant' is interesting, now you can try to be a gardener without all the dirt and trouble ^^"
+			--
+			if "virtual-gardener" !_in_ m201zcharacter && "trees-are-nice" _in_ m201zcharacter; "\n\![*]\q[You can now grow plants too,growthemplants]"
 		}
 	}
 	--
@@ -853,26 +777,11 @@ OnFunInfo
 {
 	case reference0
 	{
-		when "tool"
-		{
-			"Quick tools are shortcuts for my functions\x\cYou can customize them in the config menu\e"
-		}
-		when "logs"
-		{
-			"To acces your logs choose in menu 'User Logs' or click on a quick tool\x\cYou can use logs as a notes, jorunal or anything else of you choice\e"
-		}
-		when "to-od"
-		{
-			"To acces To-Do list you need to go to function menu and choose 'To-Do List' or click on a quick tool\x\cTo make a task click '+' and name the task. You don't need to number them,\w3 I do it automatically\x\cTo delete task click '-'\w3 and then click on a task you want to delete\w4\x\cTo mark task as done click on it\w3 (make sure that '-' is white)\e"
-		}
-		when "apps"
-		{
-			"To acces your apps choose in menu 'Open apps or projects'\x\cTo add apps to list you can drop a shortcut for them on me and I will automatically add them to your list\x\cTo open an app click it's name in the app menu\x\cTo delete an app click '-' and click on the app you want to delete\x\cTo rename an app click 'RENAME' and click on the app you want to rename"
-		}
-		when "projects"
-		{
-			"To acces your projects choose in menu 'Open apps or projects'\x\cTo add projects to list you can drop them on me and I will automatically add them to your list (if their extension is on the extension list)\x\cTo open a project click it's name in the project menu\x\cTo delete a projects click '-' and click on the project you want to delete\x\cTo rename a project click 'RENAME' and click on the project you want to rename"
-		}
+		when "tool"; "Quick tools are shortcuts for my functions\x\cYou can customize them in the config menu\e"
+		when "logs"; "To acces your logs choose in menu 'User Logs' or click on a quick tool\x\cYou can use logs as a notes, jorunal or anything else of you choice\e"
+		when "to-od"; "To acces To-Do list you need to go to function menu and choose 'To-Do List' or click on a quick tool\x\cTo make a task click '+' and name the task. You don't need to number them,\w3 I do it automatically\x\cTo delete task click '-'\w3 and then click on a task you want to delete\w4\x\cTo mark task as done click on it\w3 (make sure that '-' is white)\e"
+		when "apps"; "To acces your apps choose in menu 'Open apps or projects'\x\cTo add apps to list you can drop a shortcut for them on me and I will automatically add them to your list\x\cTo open an app click it's name in the app menu\x\cTo delete an app click '-' and click on the app you want to delete\x\cTo rename an app click 'RENAME' and click on the app you want to rename"
+		when "projects"; "To acces your projects choose in menu 'Open apps or projects'\x\cTo add projects to list you can drop them on me and I will automatically add them to your list (if their extension is on the extension list)\x\cTo open a project click it's name in the project menu\x\cTo delete a projects click '-' and click on the project you want to delete\x\cTo rename a project click 'RENAME' and click on the project you want to rename"
 	}
 	--
 	"\n\![*]\q[Back to questions,funq] or \![*]\q[I'm Done,CANCEL]\e"
@@ -883,9 +792,7 @@ Select.mz
 {
 	truth += 1
 	--
-	{
-		"ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"
-	}
+	{"ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"}	
 		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE"
 		"ERROR\w8\w8\w8GENERATION NOT FOUND"
 	{
@@ -1039,75 +946,42 @@ Select.altalk
 
 OnLastTalk 
 {
-	
 	"%(lastTalk)\e"
 }
 
 GetWeekDay
 {
-	if weekday == 0
-	{"Sun"}
-	elseif weekday == 1
-	{"Mon"}
-	elseif weekday == 2
-	{"Tue"}
-	elseif weekday == 3
-	{"Wed"}
-	elseif weekday == 4
-	{"Thu"}
-	elseif weekday == 5
-	{"Fri"}
-	else
-	{"Sat"}
+	if weekday == 0; "Sun"
+	elseif weekday == 1; "Mon"
+	elseif weekday == 2; "Tue"
+	elseif weekday == 3; "Wed"
+	elseif weekday == 4; "Thu"
+	elseif weekday == 5; "Fri"
+	else; "Sat"
 }
 
 GetAP
 {
- 	if hour >= 0 && hour <= 11
-	{
-		"AM"
-	}
- 	else
-	{
-		"PM"
-	}
+ 	if hour >= 0 && hour <= 11; "AM"
+ 	else; "PM"
 }
-
 
 Getnowmin
 {
-	if minute >= 0 && minute <=9
-	{
-		"0%(minute)"
-	}
-	else
-	{
-		"%(minute)"
-	}
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
 }
 
 Getnowhour
 {
-	if hour12 >= 0 && hour12 <=9
-	{
-		"0%(hour12)"
-	}
-	else
-	{
-		"%(hour12)"
-	}
+	if hour12 >= 0 && hour12 <=9; "0%(hour12)"
+	else; "%(hour12)"
 }
 
 Select.BACKTOMENU
 {
-	if tentruth == 1
-	{
-		"\n\_q\b4"
-	}
-	else
-	{
-		"\n\_q\b2"	
-	}
+	if tentruth == 1; "\n\_q\b4"
+	else; "\n\_q\b2"	
 	--
 	MenuRun
 }
@@ -1122,7 +996,9 @@ Select.dosomething
 	
 	"\0\b2What do you need?\n\n"
 	--
-	"\_q\![*]\q[Weather,weath]\n/
+	"\_qUpdate: %(acc)\q[Shell,OnUp,shell]\f[default] || %(acc)\q[Balloon,OnUp,bal]\f[default] || %(acc)\q[Ghost,OnUp,ghst]\f[default]\n\n[half]"
+	--
+	"\![*]\q[Weather,weath]\n/
 	\![*]\q[To-Do list,todotwooo]\n/
 	//\![*]\q[Music Player,music]\n/
 	\![*]\q[Reminders,OnReminders]\n/
@@ -1136,6 +1012,16 @@ Select.dosomething
 	\![*]\q[System Information,ChoiceSystemInformation]\n\n/
 	\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnUp
+{
+	case reference0
+	{
+		when "shell"; "\![Update,shell]\e"
+		when "bal"; "\![Update,balloon]\e"
+		when "ghst"; "\![Update,ghost+shell+balloon]\e"
+	}
 }
 
 Select.todotwooo
@@ -1153,10 +1039,7 @@ Select.todotwooo
 	{
 		pagetaskstatus[_i] = TOINT(pagetaskstatus[_i])
 		--
-		if pagetaskstatus[_i] == 0 || pagetaskstatus[_i] == ""
-		{
-			lefttask[pagenum]++
-		}
+		if pagetaskstatus[_i] == 0 || pagetaskstatus[_i] == ""; lefttask[pagenum]++
 	}
 	--
 	"\*\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]/
@@ -1164,40 +1047,22 @@ Select.todotwooo
 	--
 	for _i=1;_i<=taskamount[pagenum];_i++
 	{
-		if pagetaskstatus[_i] == 1
-		{
-			taskforpage += "\f[strike,1]\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\f[strike,0]\n"
-		}
-		else
-		{
-			taskforpage += "\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\n"
-		}
+		if pagetaskstatus[_i] == 1; taskforpage += "\f[strike,1]\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\f[strike,0]\n"
+		else; taskforpage += "\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\n"
 	}
 	--
 	"%(taskforpage)"
 	--
 	"\n\f[height,20]\q[+,qcrtsk] | "
 	--
-	if deltasks != 1
-	{
-		"\q[-,crtsk]\n"
-	}
-	else
-	{
-		"\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
-	}
+	if deltasks != 1; "\q[-,crtsk]\n"
+	else; "\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
 	--
 	"\f[height,10]"
 	--
-	if pagenum != 0
-	{
-		"\q[<-- ,prevpage]"
-	}
+	if pagenum != 0; "\q[<-- ,prevpage]"
 	--
-	if pagenum < todopagenum
-	{
-		"\q[ -->,nextpage]" 
-	}
+	if pagenum < todopagenum; "\q[ -->,nextpage]" 
 	--
 	"\n\q[Delete page,delpage]  | \q[Rename Page,repage] | \q[New Page,crepage]\n\n[half]/
 	\![*]\q[Close,closetodo]\f[height,default]\e"
@@ -1258,14 +1123,8 @@ Select.delpage
 		--
 		todopagenum--
 		--
-		if pagenum < todopagenum 
-		{
-			pagenum++
-		}
-		else
-		{
-			pagenum--
-		}
+		if pagenum < todopagenum; pagenum++
+		else; pagenum--
 	}
 	else
 	{
@@ -1289,14 +1148,8 @@ OnCreateTask
 
 Select.crtsk
 {
-	if deltasks != 1
-	{
-		deltasks = 1
-	}
-	else
-	{
-		deltasks = 0
-	}
+	if deltasks != 1; deltasks = 1
+	else; deltasks = 0
 	--
 	Select.todotwooo
 }
@@ -1305,14 +1158,8 @@ OnMarkTask
 {
 	choosenum = reference0
 	--
-	if deltasks == 1
-	{
-		OnDeleteTask
-	}
-	else
-	{
-		OnMarkTask_done
-	}
+	if deltasks == 1; OnDeleteTask
+	else; OnMarkTask_done
 }
 
 OnDeleteTask
@@ -1332,14 +1179,8 @@ OnDeleteTask
 
 OnMarkTask_done
 {
-	if pagetaskstatus[choosenum] == 0
-	{
-		pagetaskstatus[choosenum] = 1
-	}
-	else
-	{
-		pagetaskstatus[choosenum] = 0
-	}
+	if pagetaskstatus[choosenum] == 0; pagetaskstatus[choosenum] = 1
+	else; pagetaskstatus[choosenum] = 0
 	--
 	taskstatus[pagenum] = REPLACE(pagetaskstatus,",","+")
 	--
@@ -1366,14 +1207,8 @@ Select.ChoiceGarbagecan
 {
 	_gomicheck = FUNCTIONEX("saori\\gomi.dll", "-n")	
 
-	if _gomicheck == 0 
-	{
-		"\0You want me to empty your garbage?\w8Okay\w8\w8\w8\s[-1]\w8\w8\w8\w8It's empty already\e"
-	}
-	elseif _gomicheck >= 1 
-	{
-		"\0You want me to empty your garbage?\w8Okay\w8\w8\w8\s[-1]\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\cDone.\e"
-	}
+	if _gomicheck == 0; "\0You want me to empty your garbage?\w8Okay\w8\w8\w8\s[-1]\w8\w8\w8\w8It's empty already\e"
+	elseif _gomicheck >= 1; "\0You want me to empty your garbage?\w8Okay\w8\w8\w8\s[-1]\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\cDone.\e"
 }
 
 
@@ -1474,25 +1309,11 @@ Select.oapp
 		
 	}
 	--
-	if delapp == "ON"
-	{
-		appcontent += "\f[size,20]\n\f[color,230, 39, 25]\q[-,delap]\f[color,default] | \f[size,default]"
-
-	}
-	else
-	{
-		appcontent += "\f[size,20]\n\q[-,delap] | \f[size,default]"
-	}
+	if delapp == "ON"; appcontent += "\f[size,20]\n\f[color,230, 39, 25]\q[-,delap]\f[color,default] | \f[size,default]"
+	else; appcontent += "\f[size,20]\n\q[-,delap] | \f[size,default]"
 	--
-	if editap == "ON"
-	{
-		appcontent += "\f[color,230, 39, 25]\q[RENAME,edap]\f[color,default]"
-
-	}
-	else
-	{
-		appcontent += "\q[RENAME,edap]"
-	}
+	if editap == "ON"; appcontent += "\f[color,230, 39, 25]\q[RENAME,edap]\f[color,default]"
+	else; appcontent += "\q[RENAME,edap]"
 	--
 	appcontent += "\n[half]\n\![*]\q[ADD PROJECT TYPE,projtype]\n[half]\n\![*]\q[Nevermind,CANCEL]\n"
 	--
@@ -1796,37 +1617,19 @@ Select.statsgame
 	--
 	if repairglitch != 1
 	{
-		if userwins != 0
-		{
-			"T̶̰͝o̵͔͗d̴̢͝ä̶͖y̷̲͐ ̵͕͆ý̷̭o̷̝͘u̶̼̐ ̷̩̒w̵̦̽o̸̮̚n̷̺̒ %(userwins) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(userwinss)\n\n[half]"
-		}
+		if userwins != 0; "T̶̰͝o̵͔͗d̴̢͝ä̶͖y̷̲͐ ̵͕͆ý̷̭o̷̝͘u̶̼̐ ̷̩̒w̵̦̽o̸̮̚n̷̺̒ %(userwins) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(userwins))\n\n[half]"
 		--
-		if userlosses != 0
-		{
-			"Y̶̟͂o̶̳̽ư̴̜ ̴̗̆l̴͖̓o̴̡͋s̵̬̀ṯ̷̆ %(userlosses) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(userlossess)\n\n[half]"
-		}
+		if userlosses != 0; "Y̶̟͂o̶̳̽ư̴̜ ̴̗̆l̴͖̓o̴̡͋s̵̬̀ṯ̷̆ %(userlosses) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(userlosses))\n\n[half]"
 		--
-		if draws != 0
-		{
-			"W̸̬̍e̵̹̓ ̸̧͐h̶̫̋a̴̳̿d̸̘͂ ̸̮̃ã̵̟ ̷̲̿d̸̹̒r̸͍̾a̴͆ͅw̶̞͗ %(draws) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(drawss)\n\n[half]"
-		}
+		if draws != 0; "W̸̬̍e̵̹̓ ̸̧͐h̶̫̋a̴̳̿d̸̘͂ ̸̮̃ã̵̟ ̷̲̿d̸̹̒r̸͍̾a̴͆ͅw̶̞͗ %(draws) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(draws))\n\n[half]"
 	}
 	else
 	{
-		if userwins != 0
-		{
-			"%(distingstart)Today you won %(userwins) time%(userwinss)\n\n[half]"
-		}
+		if userwins != 0; "%(distingstart)Today you won %(userwins) time%(stemp(userwins))\n\n[half]"
 		--
-		if userlosses != 0
-		{
-			"%(distingstart)You lost %(userlosses) time%(userlossess)\n\n[half]"
-		}
+		if userlosses != 0; "%(distingstart)You lost %(userlosses) time%(stemp(userlosses))\n\n[half]"
 		--
-		if draws != 0
-		{
-			"%(distingstart)We had a draw %(draws) time%(drawss)\n\n[half]"
-		}
+		if draws != 0; "%(distingstart)We had a draw %(draws) time%(stemp(draws))\n\n[half]"
 	}
 	--
 	"\n[half]\![*]\q[Back to game menu,gamez]\n"
@@ -1836,51 +1639,12 @@ Select.statsgame
 	"\![*]\q[Nevermind,CANCEL]\e"
 }
 
-userlossess
-{
-	if userlosses == 1
-	{
-		""
-	}
-	else
-	{
-		"s"
-	}
-}
-
-userwinss
-{
-	if userwins == 1
-	{
-		""
-	}
-	else
-	{
-		"s"
-	}
-}
-
-drawss
-{
-	if draws == 1
-	{
-		""
-	}
-	else
-	{
-		"s"
-	}
-}
-
 OnWar
 {
 	games++
 	m201relationship++
 	--
-	if mood[1] >= 0
-	{
-		mood[1]--
-	}
+	if mood[1] >= 0; mood[1]--
 	--
 	cardu = RAND(14)
 	cardg = RAND(14)
@@ -1888,25 +1652,13 @@ OnWar
 	cardgs = RAND(5)
 	cardus = RAND(5)
 	--
-	if cardgs == 0
-	{
-		cardgs = 1
-	}
+	if cardgs == 0; cardgs = 1
 	--
-	if cardus == 0
-	{
-		cardus = 1
-	}
+	if cardus == 0; cardus = 1
 	--
-	if cardg == 0
-	{
-		cardg = 1
-	}
+	if cardg == 0; cardg = 1
 	--
-	if cardu == 0
-	{
-		cardu = 1
-	}
+	if cardu == 0; cardu = 1
 	--
 	OnShowCard
 	--
@@ -1952,14 +1704,8 @@ winorlosewar
 			{
 				if userwins < 3
 				{
-					if numofmood != 2 || numofmood != 5
-					{
-						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
-					}
-					else
-					{
-						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
-					}
+					if numofmood != 2 || numofmood != 5; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
+					else; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
 				}
 				else
 				{
@@ -1996,14 +1742,8 @@ winorlosewar
 			{
 				if userwins < 3
 				{
-					if numofmood != 2 || numofmood != 5
-					{
-						"You won ^^"
-					}
-					else
-					{
-						"You won"
-					}
+					if numofmood != 2 || numofmood != 5; "You won ^^"
+					else; "You won"
 				}
 				else
 				{
@@ -2115,27 +1855,15 @@ winorlosewar
 	}
 	elseif cardu == 1 && cardg == 1
 	{
-		if repairglitch != 1
-		{
-			"\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
-		}
-		else
-		{
-			"\0seems like it's a draw"
-		}
+		if repairglitch != 1; "\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
+		else; "\0seems like it's a draw"
 		--
 		draws++
 	}
 	elseif cardu == cardg 
 	{
-		if repairglitch != 1
-		{
-			"\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
-		}
-		else
-		{
-			"\0seems like it's a draw"
-		}
+		if repairglitch != 1; "\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
+		else; "\0seems like it's a draw"
 		--
 		draws++
 	}
@@ -2261,14 +1989,8 @@ winorlosewar
 			{
 				if userwins < 3
 				{
-					if numofmood != 2 || numofmood != 5
-					{
-						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
-					}
-					else
-					{
-						"Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
-					}
+					if numofmood != 2 || numofmood != 5; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
+					else; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
 				}
 				else
 				{
@@ -2305,14 +2027,8 @@ winorlosewar
 			{
 				if userwins < 3
 				{
-					if numofmood != 2 || numofmood != 5
-					{
-						"You won ^^"
-					}
-					else
-					{
-						"You won"
-					}
+					if numofmood != 2 || numofmood != 5; "You won ^^"
+					else; "You won"
 				}
 				else
 				{
@@ -2331,93 +2047,33 @@ winorlosewar
 
  OnShowCard
  {
-	if cardu == 13
-	{
-		fcardu = "K"
-	}
-	elseif cardu == 12
-	{
-		fcardu = "Q"
-	}
-	elseif cardu == 11
-	{
-		fcardu = "J"
-	}
-	elseif cardu == 1
-	{
-		fcardu = "A"
-	}
-	else
-	{
-		fcardu = cardu
-	}
+	if cardu == 13; fcardu = "K"
+	elseif cardu == 12; fcardu = "Q"
+	elseif cardu == 11; fcardu = "J"
+	elseif cardu == 1; fcardu = "A"
+	else; fcardu = cardu
 	--
-	if cardg == 13
-	{
-	fcardg = "K"
-	}
-	elseif cardg == 12
-	{
-		fcardg = "Q"
-	}
-	elseif cardg == 11
-	{
-		fcardg = "J"
-	}
-	elseif cardg == 1
-	{
-		fcardg = "A"
-	}
-	else
-	{
-		fcardg = cardg
-	}
+	if cardg == 13; fcardg = "K"
+	elseif cardg == 12; fcardg = "Q"
+	elseif cardg == 11; fcardg = "J"
+	elseif cardg == 1; fcardg = "A"
+	else; fcardg = cardg
 	--
-	if cardus == 1
-	{
-		fcardus = "♥"
-	}
-	elseif cardus == 2
-	{
-	fcardus = "♦"
-	}
-	elseif cardus == 3
-	{
-	fcardus = "♣"
-	}
-	elseif cardus == 4
-	{
-	fcardus = "♠"
-	}
+	if cardus == 1; fcardus = "♥"
+	elseif cardus == 2; fcardus = "♦"
+	elseif cardus == 3; fcardus = "♣"
+	elseif cardus == 4; fcardus = "♠"
 	--
-	if cardgs == 1
-	{
-	fcardzs = "♥"
-	}
-	elseif cardgs == 2
-	{
-	fcardzs = "♦"
-	}
-	elseif cardgs == 3
-	{
-	fcardzs = "♣"
-	}
-	elseif cardgs == 4
-	{
-	fcardzs = "♠"
-	}
+	if cardgs == 1; fcardzs = "♥"
+	elseif cardgs == 2; fcardzs = "♦"
+	elseif cardgs == 3; fcardzs = "♣"
+	elseif cardgs == 4; fcardzs = "♠"
 	--
 	field = "\_q\1Your Card:\n\n[half]%(fcardu)%(fcardus)\0\b[2]"
 	--
-	if repairglitch != 1
-	{
-		field += "M̴y̸ ̸C̴a̸r̷d̵:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
-	}
-	 else
-	{
-		field += "%(distingstart)My Card:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
-	}
- }
+	if repairglitch != 1; field += "M̴y̸ ̸C̴a̸r̷d̵:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
+	else; field += "%(distingstart)My Card:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
+}
 
 //OX游戏，by Pygmalion, loosely translated by Zar
 //edited some by vita to have the AI make mistakes
@@ -2437,10 +2093,7 @@ PlayOXshow
 	games++
 	m201relationship++
 	--
-	if mood[1] >= 0
-	{
-		mood[1]--
-	}
+	if mood[1] >= 0; mood[1]--
 	--
     //this function prints out the tictactoe array
     _tempstr = ""
@@ -2478,40 +2131,22 @@ PlayOXshow
         {
 			userwins++
 			--
-			if repairglitch != 1
-			{
-				"\_q\0\b[2]\n%(_tempstr)\n[half]\_qI̷ ̸l̸o̷s̴t̷ ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
-			}
-			else
-            {
-				"\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qI lost ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
-			}
+			if repairglitch != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_qI̷ ̸l̸o̷s̴t̷ ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			else; "\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qI lost ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
 		}
         
         {
 			draws++
 			--
-			if repairglitch != 1
-			{
-				"\_q\0\b[2]\n%(_tempstr)\n[half]\_qS̴e̶e̸m̵s̸ ̵l̴i̷k̶e̷ ̸i̸t̷'̸s̴ ̴a̴ ̸t̷i̵e̴.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
-			}
-			else
-            {
-            	"\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qSeems like it's a tie.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
-			}
+			if repairglitch != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_qS̴e̶e̸m̵s̸ ̵l̴i̷k̶e̷ ̸i̸t̷'̸s̴ ̴a̴ ̸t̷i̵e̴.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			else; "\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qSeems like it's a tie.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
         }
         
         {
 			userlosses++
 			--
-            if repairglitch != 1
-			{
-            	"\_q\0\b[2]\n%(_tempstr)\n[half]\_q\nI̶ ̷w̴o̸n̴ ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
-			}
-			else
-            {
-            	"\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_q\nI won ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
-			}
+            if repairglitch != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_q\nI̶ ̷w̴o̸n̴ ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			else; "\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_q\nI won ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
         }
     }
 	--
@@ -2670,14 +2305,8 @@ OXMistakes {
 
 Select.act
 {
-	if repairglitch != 1
-	{
-		"H̴m̴?̶\n\n[half]"
-	}
-	else
-	{
-		"%(distingstart)Hm?\n\n[half]"
-	}
+	if repairglitch != 1; "H̴m̴?̶\n\n[half]"
+	else; "%(distingstart)Hm?\n\n[half]"
 	--
 	if numofmood == 5 && m201relationship > 150
 	{
@@ -2701,14 +2330,8 @@ Select.act
 		"\![*]\q[Recommend...,recc]\n"
 	}
 	--
-	if plantcare != 1 && "virtual-gardener" _in_ m201zcharacter
-	{
-		"\![*]\q[Help me with plants,plantcare]\n"
-	}
-	elseif plantcare = 1 && "virtual-gardener" _in_ m201zcharacter
-	{
-		"\![*]\q[Stop helping me with plants,plantcareno]\n"
-	}
+	if plantcare != 1 && "virtual-gardener" _in_ m201zcharacter; "\![*]\q[Help me with plants,plantcare]\n"
+	elseif plantcare = 1 && "virtual-gardener" _in_ m201zcharacter; "\![*]\q[Stop helping me with plants,plantcareno]\n"
 	--
 	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
@@ -2911,10 +2534,7 @@ OnLearn_Animal_two
 
 OnLearn_Animal_three
 {
-	if reference0 != ""
-	{
-		animals += reference0 + "."
-	}
+	if reference0 != ""; animals += reference0 + "."
 	--
 	"%(ch)%(distingstart)How big is it?"
 	--
@@ -3032,7 +2652,6 @@ OnRecc_save
 				"%(distingstart)Uhm .\w6 .\w6 .\w6 .\w6 .\w6 what's anime?"
 				--
 				"\![*]\q[Japanese Animation,OnExplain,anime,lemmeexplain] | \![*]\q[. . . you know what, forget it,OnExplain,anime,iaintateach]"
-
 			}
 			else
 			{
@@ -3067,18 +2686,9 @@ OnRecc_save
 		{
 			recommended[9] += reference0 + "."
 			--
-			if uknowthis == "7 graves"
-			{
-				"%(distingstart)Oh, I think I know them! I saw one of their song on youtube, I think it was '%(7graves)'"
-			}
-			elseif uknowthis == "glass animals"
-			{
-				"%(distingstart)Oh, I think I know them! I saw one of their song on youtube, I think it was '%(glassanimals)'"
-			}
-			else
-			{
-				"%(distingstart)Hope I will be able to listen to it soon ^^"
-			}
+			if uknowthis == "7 graves"; "%(distingstart)Oh, I think I know them! I saw one of their song on youtube, I think it was '%(7graves)'"
+			elseif uknowthis == "glass animals"; "%(distingstart)Oh, I think I know them! I saw one of their song on youtube, I think it was '%(glassanimals)'"
+			else; "%(distingstart)Hope I will be able to listen to it soon ^^"
 		}
 		when "author"
 		{
@@ -3132,10 +2742,7 @@ OnHobby
 			{
 				"%(distingstart)Books? well, it might be nice\w3 but as long as I'm trapped here, I probably won't be able to read anything,\w3 unless you have some ebooks here .\w5 .\w5 .\w5 .\w5 .\w5 "
 				--
-				if " books " _in_ questionsasked
-				{
-					"Do you like to read books?\n\n[half]\q[Yes,OnUChar,book-worm,yes] | \q[No,OnUChar,book-worm,no]"
-				}
+				if " books " _in_ questionsasked; "Do you like to read books?\n\n[half]\q[Yes,OnUChar,book-worm,yes] | \q[No,OnUChar,book-worm,no]"
 				--
 				m201zcharacter += "book-worm "
 			}
@@ -3147,14 +2754,8 @@ OnHobby
 				--
 				"%(distingstart)I searched the web for some books and I found '%(booksplit[randbook])' by %(authorsplit[randbook])"
 				--
-				if "book-worm" _in_ usercharacter
-				{
-					",\w3 not sure what is it about maybe you might give it a read?"
-				}
-				else
-				{
-					",\w3 someday I might be able to read it"
-				}
+				if "book-worm" _in_ usercharacter; ",\w3 not sure what is it about maybe you might give it a read?"
+				else; ",\w3 someday I might be able to read it"
 			}
 		}
 		when "comics"
@@ -3357,14 +2958,8 @@ OnHobby
 			}
 			else
 			{
-				if animalslearnt < 1
-				{
-					"%(distingstart)I .\w8 .\w8 .\w8 still don't know any animals ._."
-				}
-				else
-				{
-					"%(distingstart)Animals seems interesting"
-				}
+				if animalslearnt < 1; "%(distingstart)I .\w8 .\w8 .\w8 still don't know any animals ._."
+				else; "%(distingstart)Animals seems interesting"
 			}
 		}
 		when "tech"
@@ -3849,47 +3444,17 @@ OnDrawCards
 	_tablecardnum = RAND(6)
 	_tablecardznak = RAND(4)
 	--
-	if _tablecardznak == 1
-	{
-		_tablecardznak = "♥"
-	}
-	elseif _tablecardznak == 2
-	{
-		_tablecardznak = "♦"
-	}
-	elseif _tablecardznak == 3
-	{
-		_tablecardznak = "♣"
-	}
-	else
-	{
-		_tablecardznak = "♠"
-	}
+	if _tablecardznak == 1; _tablecardznak = "♥"
+	elseif _tablecardznak == 2; _tablecardznak = "♦"
+	elseif _tablecardznak == 3; _tablecardznak = "♣"
+	else; _tablecardznak = "♠"
 	--
-	if _tablecardnum == 0
-	{
-		_tablecardnum = 5
-	}
-	elseif _tablecardnum == 1
-	{
-		_tablecardnum = 6
-	}
-	elseif _tablecardnum == 2
-	{
-		_tablecardnum = 7
-	}
-	elseif _tablecardnum == 3
-	{
-		_tablecardnum = 8
-	}
-	elseif _tablecardnum == 4
-	{
-		_tablecardnum = 9
-	}
-	else
-	{
-		_tablecardnum = 10
-	}
+	if _tablecardnum == 0; _tablecardnum = 5
+	elseif _tablecardnum == 1; _tablecardnum = 6
+	elseif _tablecardnum == 2; _tablecardnum = 7
+	elseif _tablecardnum == 3; _tablecardnum = 8
+	elseif _tablecardnum == 4; _tablecardnum = 9
+	else; _tablecardnum = 10
 	--
 	tablecard = _tablecardnum + " " + _tablecardznak
     --
@@ -3900,39 +3465,15 @@ OnDrawCards
         _znakiU[_i] = RAND(4)
         _znakiMz[_i] = RAND(4)
         --
-        if _cardsU[_i] == 11
-        {
-            _cardsU[_i] = "J"
-        }
-        elseif _cardsU[_i] == 12
-        {
-            _cardsU[_i] = "Q"
-        }
-        elseif _cardsU[_i] == 13
-        {
-            _cardsU[_i] = "K"
-        }
-		elseif _cardsU[_i] == 1
-        {
-            _cardsU[_i] = "A"
-        }
+        if _cardsU[_i] == 11;  _cardsU[_i] = "J"
+        elseif _cardsU[_i] == 12; _cardsU[_i] = "Q"
+        elseif _cardsU[_i] == 13; _cardsU[_i] = "K"
+		elseif _cardsU[_i] == 1; _cardsU[_i] = "A"
         --
-        if _cardsMz[_i] == 11
-        {
-            _cardsMz[_i] = "J"
-        }
-        elseif _cardsMz[_i] == 12
-        {
-            _cardsMz[_i] = "Q"
-        }
-        elseif _cardsMz[_i] == 13
-        {
-            _cardsMz[_i] = "K"
-        }
-		elseif _cardsMz[_i] == 1
-        {
-            _cardsMz[_i] = "A"
-        }
+        if _cardsMz[_i] == 11;  _cardsMz[_i] = "J"
+        elseif _cardsMz[_i] == 12; _cardsMz[_i] = "Q"
+        elseif _cardsMz[_i] == 13; _cardsMz[_i] = "K"
+		elseif _cardsMz[_i] == 1; _cardsMz[_i] = "A"
         --
         if _znakiU[_i] == 1
         {
@@ -3997,18 +3538,9 @@ OnCardChoice
 	{
 		warmode = 1	
 		--
-		if reference0 == "2"
-		{
-			spoilsofwar += 2
-		}
-		elseif reference0 == "3"
-		{
-			spoilsofwar += 3
-		}
-		else
-		{
-			spoilsofwar += 5
-		}
+		if reference0 == "2"; spoilsofwar += 2
+		elseif reference0 == "3"; spoilsofwar += 3
+		else; spoilsofwar += 5
 	}
 	elseif reference0 == "A"
 	{
@@ -4087,22 +3619,10 @@ OnMakaostuff
 			kartyUHs[usercnum] = "BHRT"
 		}
 		--
-		if _cardsU == 11
-		{
-			_cardsU = "J"
-		}
-		elseif _cardsU == 12
-		{
-			_cardsU = "Q"
-		}
-		elseif _cardsU == 13
-		{
-			_cardsU = "K"
-		}
-		elseif _cardsU == 1
-		{
-			_cardsU = "A"
-		}
+		if _cardsU == 11; _cardsU = "J"
+		elseif _cardsU == 12; _cardsU = "Q"
+		elseif _cardsU == 13; _cardsU = "K"
+		elseif _cardsU == 1; _cardsU = "A"
 		--
 		kartyUH[usercnum] = _cardsU + " " + _znakiU
 		--
@@ -4221,10 +3741,7 @@ OnSetTable
 		{
 			wait--
 			--
-			if wait == 0
-			{
-				stoprightthere = 0
-			}
+			if wait == 0; stoprightthere = 0
 			--
 			OnMzTurn
 		}
@@ -4292,18 +3809,9 @@ OnSetTable
 			}
 			--
 			//table += "\q[Stop Makao! ,OnMakaostuff,stopmakao] | " + "\q[Take Card,OnMakaostuff,takecard]"
-			if warmode  == 1
-			{
-				table += "\q[Take %(spoilsofwar) cards,OnUserWar]"
-			}
-			elseif stoprightthere == 1
-			{
-				table += "\q[Wait %(wait) turns,OnNoFour]"
-			}
-			else
-			{
-				table += "\q[Take Card,OnMakaostuff,takecard]"
-			}
+			if warmode  == 1; table += "\q[Take %(spoilsofwar) cards,OnUserWar]"
+			elseif stoprightthere == 1; table += "\q[Wait %(wait) turns,OnNoFour]"
+			else; table += "\q[Take Card,OnMakaostuff,takecard]"
 			--
 			//table += "\1%(kartyMz)"
 			--
@@ -4375,22 +3883,10 @@ OnUserWar
 			kartyUHs[usercnum] = "BHRT"
 		}
 		--
-		if _cardsU == 11
-		{
-			_cardsU = "J"
-		}
-		elseif _cardsU == 12
-		{
-			_cardsU = "Q"
-		}
-		elseif _cardsU == 13
-		{
-			_cardsU = "K"
-		}
-		elseif _cardsU == 1
-		{
-			_cardsU = "A"
-		}
+		if _cardsU == 11; _cardsU = "J"
+		elseif _cardsU == 12; _cardsU = "Q"
+		elseif _cardsU == 13; _cardsU = "K"
+		elseif _cardsU == 1; _cardsU = "A"
 		--
 		kartyUH[usercnum] = _cardsU + " " + _znakiU
 		--
@@ -4407,22 +3903,10 @@ OnUserWar
 
 OnChangeSign
 {
-	if reference0 == "heart"
-	{
-		tablecard = "A ♥" 
-	}
-	elseif reference0 == "diamond"
-	{
-		tablecard = "A ♦" 
-	}
-	elseif reference0 == "tree"
-	{
-		tablecard = "A ♣" 
-	}
-	else
-	{
-		tablecard = "A ♠" 
-	}
+	if reference0 == "heart"; tablecard = "A ♥" 
+	elseif reference0 == "diamond"; tablecard = "A ♦" 
+	elseif reference0 == "tree"; tablecard = "A ♣" 
+	else; tablecard = "A ♠" 
 	--
 	iwant = 0
 	turn = "M-201z"
@@ -4505,10 +3989,7 @@ OnMzTurn
 				{
 					gimme = RAND(11)
 					--
-					if gimme < 5
-					{
-						gimme = 5
-					}
+					if gimme < 5; gimme = 5
 					--
 					dialog = "gimme"
 				}
@@ -4533,10 +4014,7 @@ OnMzTurn
 			{
 				if _x != 1
 				{
-					if _usplit[0] == "Q"
-					{
-						stoprightthere = 0
-					}
+					if _usplit[0] == "Q"; stoprightthere = 0
 					--
 					tablecard = kartyMz[_i]
 					--
@@ -4564,18 +4042,9 @@ OnMzTurn
 					{
 						warmode = 1
 						--
-						if _usplit[0] == "K"
-						{
-							spoilsofwar += 5
-						}
-						elseif _usplit[0] == "3"
-						{
-							spoilsofwar += 3
-						}
-						elseif _usplit[0] == "2"
-						{
-							spoilsofwar += 2
-						}
+						if _usplit[0] == "K"; spoilsofwar += 5
+						elseif _usplit[0] == "3"; spoilsofwar += 3
+						elseif _usplit[0] == "2"; spoilsofwar += 2
 						--
 						dialog = "war_start"
 					}
@@ -4583,22 +4052,10 @@ OnMzTurn
 					{
 						_znakiU = RAND(4)
 						--
-						if _znakiU == 1
-						{
-							_znakiU = "♥"
-						}
-						elseif _znakiU == 2
-						{
-							_znakiU = "♦"
-						}
-						elseif _znakiU == 3
-						{
-							_znakiU = "♣"
-						}
-						else
-						{
-							_znakiU = "♠"
-						}
+						if _znakiU == 1; _znakiU = "♥"
+						elseif _znakiU == 2; _znakiU = "♦"
+						elseif _znakiU == 3; _znakiU = "♣"
+						else; _znakiU = "♠"
 						--
 						dialog = "i-want"
 						temp =  _znakiU
@@ -4607,10 +4064,7 @@ OnMzTurn
 					{
 						gimme = RAND(11)
 						--
-						if gimme < 5
-						{
-							gimme = 5
-						}
+						if gimme < 5; gimme = 5
 						--
 						dialog = "gimme"
 					}
@@ -4662,22 +4116,10 @@ OnMzTurn
 					kartyMZs[mzcnum] = "BHRT"
 				}
 				--
-				if _cardsU == 11
-				{
-					_cardsU = "J"
-				}
-				elseif _cardsU == 12
-				{
-					_cardsU = "Q"
-				}
-				elseif _cardsU == 13
-				{
-					_cardsU = "K"
-				}
-				elseif _cardsU == 1
-				{
-					_cardsU = "A"
-				}
+				if _cardsU == 11; _cardsU = "J"
+				elseif _cardsU == 12; _cardsU = "Q"
+				elseif _cardsU == 13; _cardsU = "K"
+				elseif _cardsU == 1; _cardsU = "A"
 				--
 				kartyMz[mzcnum] = _cardsU + " " + _znakiU
 				--
@@ -4696,10 +4138,7 @@ OnMzTurn
 		}
 		else
 		{
-			if gimmethenumber == 2
-			{
-				gimmethenumber = 0
-			}
+			if gimmethenumber == 2; gimmethenumber = 0
 			--
 			dialog = "take"
 			--
@@ -4748,22 +4187,10 @@ OnMzTakeCard
 		kartyMZs[mzcnum] = "BHRT"
 	}
 	--
-	if _cardsU == 11
-	{
-		_cardsU = "J"
-	}
-	elseif _cardsU == 12
-	{
-		_cardsU = "Q"
-	}
-	elseif _cardsU == 13
-	{
-		_cardsU = "K"
-	}
-	elseif _cardsU == 1
-	{
-		_cardsU = "A"
-	}
+	if _cardsU == 11; _cardsU = "J"
+	elseif _cardsU == 12; _cardsU = "Q"
+	elseif _cardsU == 13; _cardsU = "K"
+	elseif _cardsU == 1; _cardsU = "A"
 	--
 	kartyMz[mzcnum] = _cardsU + " " + _znakiU
 	--
@@ -4813,14 +4240,8 @@ OnPlay
 	{
 		musicp = 1
 		--
-		if mode == 1
-		{
-			"\p[15]\s[27]\p[16]\s[28]\p[17]\s[29]\p[18]\s[30]\p[19]\s[31]\p[20]\s[32]\p[21]\s[40]"
-		}
-		else
-		{
-			"\p[15]\s[33]\p[16]\s[34]\p[17]\s[35]\p[18]\s[36]\p[19]\s[37]\p[20]\s[38]\p[21]\s[39]"
-		}
+		if mode == 1; "\p[15]\s[27]\p[16]\s[28]\p[17]\s[29]\p[18]\s[30]\p[19]\s[31]\p[20]\s[32]\p[21]\s[40]"
+		else; "\p[15]\s[33]\p[16]\s[34]\p[17]\s[35]\p[18]\s[36]\p[19]\s[37]\p[20]\s[38]\p[21]\s[39]"
 	}
 	--
 	playing = 1

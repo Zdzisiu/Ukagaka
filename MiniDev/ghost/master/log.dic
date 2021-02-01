@@ -1,7 +1,7 @@
 ﻿logdisplay
 { 
     logcont[logpage] = ""
-     --
+    --
     truth += 1
     "\*\_q\b4\f[bold,1]LOG#%(logpage)\n/
     \f[bold,1]Log creator:\f[bold,default] %(logname[logpage])\n/
@@ -13,40 +13,25 @@
     if FOPEN(_file,'r') {
         for i=0;i<100;i++
         {
-            if FREAD(_file) != "-1"
-            {
-                logcont[logpage] += FREAD(_file)
-            }
+            if FREAD(_file) != "-1";  logcont[logpage] += FREAD(_file)
         }
     }
     FCLOSE(_file)
     --
     "\n%(logcont[logpage])\n\n[half]"
     --
-    if logpage == 1
-    {
-        "\q[OPEN LOG,olog]\n"
-    }
+    if logpage == 1; "\q[OPEN LOG,olog]\n"
     --
-    if logpage != 1 
-    {
-        " \q[<----,plog] "
-    }
+    if logpage != 1; " \q[<----,plog] "
     --
-    if logpage < 9 && FREAD( "logs/Log#%(logpage).txt") != "-1"
-    {
-        "\q[---->,nlog]\n"
-    }
+    if logpage < 9 && FREAD( "logs/Log#%(logpage).txt") != "-1";  "\q[---->,nlog]\n"
     --
     "\q[UPDATE LOG,ulog]\n/
     \q[CLOSE LOGS,clog]\_q\e"
 }
 
-
-
 Select.ulog
 {
-    
     "\q[DATE OF CREATION,docu]\n/
     \q[GENERATION,gu]\n"
 }
@@ -170,15 +155,9 @@ devlog
     \f[bold,1]Log creator:\f[bold,default] M-201z\n/
     \f[bold,1]Log:\f[bold,default] %(devlogcontent[devlogpage])\n\n"
     --
-    if devlogpage != 1
-    {
-    "\q[<----,dplog] "
-    }
+    if devlogpage != 1; "\q[<----,dplog] "
     --
-    if devlogpage < devlogcount 
-    {
-    " \q[---->,dnlog]"
-    }
+    if devlogpage < devlogcount;  " \q[---->,dnlog]"
     --
     "\n\q[UPDATE LOG,udlog]\n/
     \n\q[CREATE LOG,crdlog]\n/
@@ -192,7 +171,8 @@ clear
     {
         devlogcontent[_i] = ""
     }
-    devlogcount=1
+    --
+    devlogcount = 1
 }
 
 Select.crdlog
@@ -230,6 +210,7 @@ OnDevLogUpdate
         if firstresponse == 0
         {   
             firstresponse = 1
+            --
             if ("good" _in_ sayed || "fine" _in_ sayed) && (" not " !_in_ sayed || " no " !_in_ sayed || "n't" !_in_ sayed)
             { 
                 devlogcontent[1] += logprofile + "\n\n201: That's good \n201: Now you can create new logs here if you want"
@@ -273,23 +254,14 @@ userslog
         "\_q\b4\f[bold,1]LOG#%(userlogpage):\f[bold,default] %(ulogname[userlogpage])\n/
         \f[bold,1]Date of creation:\f[bold,default] %(userlogdata[userlogpage])\n"
         --
-        if logupdatedata[userlogpage] != ""
-        {
-        "\f[bold,1]Date of Update:\f[bold,default] %(logupdatedata[userlogpage])\n"
-        }
+        if logupdatedata[userlogpage] != ""; "\f[bold,1]Date of Update:\f[bold,default] %(logupdatedata[userlogpage])\n"
         --
         "\f[bold,1]Log creator:\f[bold,default] %(username)\n/
         \f[bold,1]Log:\f[bold,default]\n\n[half] %(userlogcontent[userlogpage])\n\n"
         --
-        if userlogpage != 1
-        {
-        "\q[<----,uplog] "
-        }
+        if userlogpage != 1; "\q[<----,uplog] "
         --
-        if userlogpage < userlogs 
-        {
-        " \q[---->,unlog]"
-        }
+        if userlogpage < userlogs;  " \q[---->,unlog]"
         --
         "\n\q[CREATE LOG,crelog] or \q[UPDATE LOG,uulog]\n\n[half]/
         \q[CHANGE LOG NAME,namlog]\n\n[half]/
@@ -316,8 +288,8 @@ Select.delalllog
 {
     
     "ARE YOU SURE YOU WANT TO DELETE ALL LOGS?\n\n/
-        \q[YES,yesdellog]\n/
-        \q[NO,displayuserlogs]"
+    \q[YES,yesdellog]\n/
+    \q[NO,displayuserlogs]"
 }
 
 Select.dellog
@@ -331,10 +303,7 @@ Select.dellog
         userlogdata[_i] = userlogdata[_i+1]
     }
     --
-    if userlogcontent[userlogpage] == ""
-    {
-        userlogpage -= 1
-    }
+    if userlogcontent[userlogpage] == ""; userlogpage -= 1
     --
     userlogs -= 1
     --
@@ -379,10 +348,7 @@ OnNewLogStart
 OnUserLog
 {
     userlogcontent[userlogs] = reference0
-    if FOPEN('/log/log#%(userlogs)','w')
-    {
-        FWRITE('/log/log#%(userlogs)',reference0)
-    }
+    if FOPEN('/log/log#%(userlogs)','w'); FWRITE('/log/log#%(userlogs)',reference0)
     "%(userslog)"
 
 }
@@ -622,16 +588,6 @@ Likes
     like[2] = "music listen listening,David often would play classical music\n201: And i would switch it to some other random music\n201: He was not happy when I played rap one time\n201: heh\n201: But i still like to listen to music from time to time"
     like[3] = "cat cats kitten kittens,"
     like[4] = "animals animal,"
-}
-
-Dislikes
-{
-
-}
-
-Neutral
-{
-
 }
 
 Adjectives

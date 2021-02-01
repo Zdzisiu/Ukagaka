@@ -6,7 +6,7 @@ type,shell
 name,Poison
 craftman,Zdzisiu
 craftmanurl,-
-homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/shells/poison
+homeurl,https://zdzisiu.github.io/Ukagaka/shells/poison
 
 sakura.balloon.offsetx,0
 sakura.balloon.offsety,0

@@ -2,14 +2,8 @@
  {
   	if nowmode != "QUIZ"
  	{
-		if reference3 == 0 
-		{
-			MouseMoveSakura
-		}
-		else 
-		{
-			MouseMoveKero
-		}
+		if reference3 == 0; MouseMoveSakura
+		else; MouseMoveKero
 	}
  }
 
@@ -38,14 +32,8 @@ MouseMoveSakura
 			{
 				if tentruth == 1 && meeting == 1 && petmz != 1 && petmz != 2 && m201relationship > 100 //Choice to pet MD or M-201z
 				{
-					if repairglitch != 1
-					{
-						"W̸h̵a̴t̷ ̷a̸r̸e̶ ̴y̴o̸u̵ ̵d̵o̶i̵n̴g̷?̷\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
-					}
-					else
-					{
-						"%(distingstart)What are you doing?\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
-					}
+					if repairglitch != 1; "W̸h̵a̴t̷ ̷a̸r̸e̶ ̴y̴o̸u̵ ̵d̵o̶i̵n̴g̷?̷\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
+					else; "%(distingstart)What are you doing?\n\n[half]\![Petting you!,petm201z] | \![Petting %(devname)!,petmd]"
 				}
 				elseif tentruth == 1 && meeting == 1 || petmz == 1 //petting M-201z
 				{
@@ -132,28 +120,16 @@ Select.petm201z
 {
 	petmz = 1
 	--
-	if repairglitch != 1
-	{
-		"O̴h, ̷w̴e̸l̷l̸ ̸I̸ ̵c̸a̴n̴'̴t̶ ̵f̵e̵e̴l̵ ̶i̸t̴ ̶b̸u̸t̴ ̵d̶o̸n̷'̴t̸ ̸l̸e̴t̷ ̵t̵h̶a̵t̵ ̵s̵t̵o̴p̶ ̷y̶o̴u̵ ^^'"
-	}
-	else
-	{
-		"%(distingstart)Oh, well I can't feel it but don't let that stop you ^^'"
-	}
+	if repairglitch != 1; "O̴h, ̷w̴e̸l̷l̸ ̸I̸ ̵c̸a̴n̴'̴t̶ ̵f̵e̵e̴l̵ ̶i̸t̴ ̶b̸u̸t̴ ̵d̶o̸n̷'̴t̸ ̸l̸e̴t̷ ̵t̵h̶a̵t̵ ̵s̵t̵o̴p̶ ̷y̶o̴u̵ ^^'"
+	else; "%(distingstart)Oh, well I can't feel it but don't let that stop you ^^'"
 }
 
 Select.petmd
 {
 	petmz = 2
 	--
-	if repairglitch != 1
-	{
-		"O̷H̴!̵ ̸t̴h̸a̸t̵'̵s̴ ̵c̵u̵t̸e̷ ^^'"
-	}
-	else
-	{
-		"%(distingstart)OH! that's cute ^^"
-	}
+	if repairglitch != 1; "O̷H̴!̵ ̸t̴h̸a̸t̵'̵s̴ ̵c̵u̵t̸e̷ ^^'"
+	else; "%(distingstart)OH! that's cute ^^"
 }
 
 MouseMoveKero
@@ -165,174 +141,69 @@ OnMouseDoubleClick
  {
  	if reference3 == 0 
 	{
-		if obsydian == 1
-		{
-			"\0\s[1]\![get,property,OnObsidianJumpDown,currentghost.scope(0).rect]"
-		}
-		else
-		{
-			MouseDoubleClickSakura
-		}
+		if obsydian == 1; "\0\s[1]\![get,property,OnObsidianJumpDown,currentghost.scope(0).rect]"
+		else; MouseDoubleClickSakura
  	}
-	else
- 	{
- 		MouseDoubleClickKero
-	}
- }
-
-MouseDoubleClickSakura
- {
- 		OpenSakuraMenu
- }
-
- 
-MouseDoubleClickKero
-{
-
 }
 
+MouseDoubleClickSakura
+{
+ 	OpenSakuraMenu
+}
 
 OnMouseClick
 {
-	if reference3 == 3
-	{
-		if reference4 == "a" 
-		{
-			Select.LOG
-		}
-	}
+	if reference3 == 3 && reference4 == "a"; Select.LOG
 	--
 	if reference3 == 4
 	{
-		if reference4 == "a"
-		{ 
-			mode = 1
-		}
-		else
-		{
-			mode = 2
-		}
+		if reference4 == "a"; mode = 1
+		else; mode = 2
 		--
 		"%(lightdark)"
-		
 	}
 	--
-	if reference3 == 5
+	if reference3 == 5 && reference4 == "a"; OnCheckWeather
+	--
+	if reference3 == 6 && reference4 == "a"; Select.stats
+	--
+	if reference3 == 7 && reference4 == "a"; Select.todo
+	--
+	if reference3 == 8 && reference4 == "a"; Select.configmenu
+	--
+	if reference3 == 9 && reference4 == "a"; Select.clothesmenu
+	--
+	if reference3 == 10 && reference4 == "a"; Select.oapp
+	--
+	if reference3 == 12 && reference4 == "a"; Select.todotwooo
+	--
+	if reference3 == 15 && reference4 == "a"
 	{
-		if reference4 == "a"
-		{
-			OnCheckWeather
-		}
+		playing = 1
+		--
+		"\![sound,resume]"
 	}
 	--
-	if reference3 == 6
+	if reference3 == 16 && reference4 == "a";
 	{
-		if reference4 == "a"
-		{
-			Select.stats
-		}
+		playing = 0
+		--
+		"\![sound,pause]"
 	}
 	--
-	if reference3 == 7
-	{
-		if reference4 == "a"
-		{
-			Select.todo
-		}
-	}
+	if reference3 == 17 && reference4 == "a"; "\![sound,stop]\![raise,OnPlay,%(songnum+1)]"
 	--
-	if reference3 == 8
-	{
-		if reference4 == "a"
-		{
-			Select.configmenu
-		}
-	}
+	if reference3 == 18 && reference4 == "a"; "\![sound,stop]\![raise,OnPlay,%(songnum-1)]"
 	--
-	if reference3 == 9
-	{
-		if reference4 == "a"
-		{
-			Select.clothesmenu
-		}
-	}
+	if reference3 == 19 && reference4 == "a"; "\e"
 	--
-	if reference3 == 10
-	{
-		if reference4 == "a"
-		{
-			Select.oapp
-		}
-	}
+	if reference3 == 20 && reference4 == "a"; Select.oapp
 	--
-	if reference3 == 12
+	if reference3 == 21 && reference4 == "a"
 	{
-		if reference4 == "a"
-		{
-			Select.todotwooo
-		}
-	}
-	--
-	if reference3 == 15
-	{
-		if reference4 == "a"
-		{
-			playing = 1
-			--
-			"\![sound,resume]"
-		}
-	}
-	--
-	if reference3 == 16
-	{
-		if reference4 == "a"
-		{
-			playing = 0
-			--
-			"\![sound,pause]"
-		}
-	}
-	--
-	if reference3 == 17
-	{
-		if reference4 == "a"
-		{
-			"\![sound,stop]\![raise,OnPlay,%(songnum+1)]"
-		}
-	}
-	--
-	if reference3 == 18
-	{
-		if reference4 == "a"
-		{
-			"\![sound,stop]\![raise,OnPlay,%(songnum-1)]"
-		}
-	}
-	--
-	if reference3 == 19
-	{
-		if reference4 == "a"
-		{
-			"\e"
-		}
-	}
-	--
-	if reference3 == 20
-	{
-		if reference4 == "a"
-		{
-			Select.oapp
-		}
-	}
-	--
-	if reference3 == 21
-	{
-		if reference4 == "a"
-		{
-			musicp = 0
-			playing = 0
-			--
-			"\![sound,stop]\p[15]\s[-1]\p[16]\s[-1]\p[17]\s[-1]\p[18]\s[-1]\p[19]\s[-1]\p[20]\s[-1]\p[21]\s[-1]"
-		}
+		musicp = 0
+		playing = 0
+		--
+		"\![sound,stop]\p[15]\s[-1]\p[16]\s[-1]\p[17]\s[-1]\p[18]\s[-1]\p[19]\s[-1]\p[20]\s[-1]\p[21]\s[-1]"
 	}
 }

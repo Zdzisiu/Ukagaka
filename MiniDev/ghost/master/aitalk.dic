@@ -37,10 +37,7 @@ RandomTalk
 		{
 			"%(m201ztalk)"
 
-			if MDisable != "ON"
-			{
-				"%(MDtalk)"
-			}
+			if MDisable != "ON"; "%(MDtalk)"
 		}
 		else
 		{
@@ -78,53 +75,28 @@ MDtalk
 		"%(myths)"
 	}
 
-	if RAND(50) > 30
-	{
-		"remember to take breaks from your computer, it's not healthy to sit like that for long periods of time"
-	}
+	if RAND(50) > 30; "remember to take breaks from your computer, it's not healthy to sit like that for long periods of time"
 	
-	if romantic == "ON"
-	{
-		"%(pickupline)"
-	}
+	if romantic == "ON"; "%(pickupline)"
 
 	{
 		if lefttask[pagenum] != 0
 		{
-			if lefttask[pagenum] == 1
-			{
-				"You still have 1 task to do on '%(namepage[pagenum])' list"
-			}
-			else
-			{
-				"You still have %(lefttask[pagenum]) tasks to do on '%(namepage[pagenum])' list"
-			}
+			if lefttask[pagenum] == 1; "You still have 1 task to do on '%(namepage[pagenum])' list"
+			else; "You still have %(lefttask[pagenum]) tasks to do on '%(namepage[pagenum])' list"
 
 			{
 				randtask = RAND(taskamount[pagenum])
 				--
-				if randtask == 0
-				{
-					randtask = 1
-				}
+				if randtask == 0; randtask = 1
 				--
 				for x=0,_i=0;x==0 || _i<=taskamount[pagenum];_i++
 				{
-					if pagetaskstatus[_i] != 1
-					{
-						x = 1
-					}
-					else
-					{
-						randtask = RAND(taskamount[pagenum])
-					}
-					
+					if pagetaskstatus[_i] != 1; x = 1
+					else; randtask = RAND(taskamount[pagenum])
 				}
 				--
-				if pagetasks[randtask] != "" 
-				{
-					"You should try completing one of the tasks, maybe try completing '%(pagetasks[randtask])' from '%(namepage[pagenum])'"
-				}
+				if pagetasks[randtask] != ""; "You should try completing one of the tasks, maybe try completing '%(pagetasks[randtask])' from '%(namepage[pagenum])'"
 			}
 		}
 	}
@@ -146,10 +118,7 @@ m201ztalk : nonoverlap
 	}
 	elseif meeting == 1
 	{
-		if ghostexcount > 0 && RAND(100) == 5//Put this in randomtalk somewhere
-		{
-			"\![raise,OnTalkWithGhosts]"
-		}
+		if ghostexcount > 0 && RAND(100) == 5; "\![raise,OnTalkWithGhosts]"
 
 		_FFOpen = FUNCTIONEX("findwin.dll","find",,"MozillaWindowClass")
 		_FFMin = FUNCTIONEX("findwin.dll","count",,"MozillaWindowClass")
@@ -167,14 +136,8 @@ m201ztalk : nonoverlap
 			--
 			if uprogrammist != 1
 			{ 
-				if repairglitch != 1
-				{
-					"a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-				}
-				else
-				{
-					"%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-				}
+				if repairglitch != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+				else; "%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
 			}			
 		}
 
@@ -189,17 +152,12 @@ m201ztalk : nonoverlap
 					if "@" _in_ _DisCap
 					{
 						_DiscordCap = REPLACE(_DiscordCap,"@","")
-						if _DisCap !_in_ discordpeps
-						{
-							discordpeps += _DisCap + "," // save people
-						}
+
+						if _DisCap !_in_ discordpeps; discordpeps += _DisCap + "," // save people
 					}
 					elseif "#" _in_ _DisCap
 					{
-						if _DisCap !_in_ discordgroup
-						{
-							discordgroup += _DisCap + "," //save groups
-						}
+						if _DisCap !_in_ discordgroup; discordgroup += _DisCap + "," //save groups
 					}
 				}
 			}
@@ -207,15 +165,8 @@ m201ztalk : nonoverlap
 			{
 				if _DiscordMin > 6
 				{
-					if repairglitch != 1
-					{
-						"\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
-					}
-					else
-					{
-						"%(distingstart). . . that's a lot of tabs"
-					}
-					
+					if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+					else; "%(distingstart). . . that's a lot of tabs"					
 				}
 			}
 			elseif "Visual Studio Code"
@@ -224,14 +175,8 @@ m201ztalk : nonoverlap
 				--
 				if uprogrammist != 1
 				{
-					if repairglitch != 1
-					{
-						"a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-					}
-					else
-					{
-						"%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-					}
+					if repairglitch != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+					else; "%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
 				}
 			}
 		}
@@ -240,28 +185,16 @@ m201ztalk : nonoverlap
 		{
 			if "Aniwatch" _in_ _FFCap || "Crunchyroll" _in_ _FFCap 
 			{
-				if repairglitch != 1
-				{
-					"H̴̪̀ǘ̵͚ḩ̷́,̸͎̈́ ̷̙͑w̵̑͜ȟ̴̲a̶̗̅t̷̟́ ̴̩͋i̷̧̎ś̸͕ ̴͕̈́'̶̙͒à̷̻n̵̝͆i̷̤̔m̷͚̂e̴̡͌'̸̳͐?̶͔̾"
-				}
-				else
-				{
-					"%(distingstart)Huh, what is 'anime'?"
-				}
+				if repairglitch != 1; "H̴̪̀ǘ̵͚ḩ̷́,̸͎̈́ ̷̙͑w̵̑͜ȟ̴̲a̶̗̅t̷̟́ ̴̩͋i̷̧̎ś̸͕ ̴͕̈́'̶̙͒à̷̻n̵̝͆i̷̤̔m̷͚̂e̴̡͌'̸̳͐?̶͔̾"
+				else; "%(distingstart)Huh, what is 'anime'?"
 			}
 
 			if _FFMin >= 1
 			{		
 				if _FFMin > 6
 				{
-					if repairglitch != 1
-					{
-						"\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
-					}
-					else
-					{
-						"%(distingstart). . . that's a lot of tabs"
-					}
+					if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+					else; "%(distingstart). . . that's a lot of tabs"
 				}
 			}
 		}
@@ -330,10 +263,7 @@ m201ztalk : nonoverlap
 					{
 						"%(distingstart).\w3 .\w3 .\w3"
 
-						if "Rain" _in_ currentweatherarray[5]
-						{
-							"%(distingstart)A lot of people associete shower with saddnes for some reason,\w6 for me rain was always something happy,\w5 giving plants the water they need."
-						}
+						if "Rain" _in_ currentweatherarray[5]; "%(distingstart)A lot of people associete shower with saddnes for some reason,\w6 for me rain was always something happy,\w5 giving plants the water they need."
 					}
 					when 3,4
 					{
@@ -484,10 +414,7 @@ m201ztalk : nonoverlap
 		{
 			"\![raise,OnGardenTalk]"
 
-			if narrator == 1 && nowshell == "M-201z"
-			{
-				NarratorTalks
-			}
+			if narrator == 1 && nowshell == "M-201z"; NarratorTalks
 
 			if "s the skeleton" _in_ TOLOWER("%(installedghostlist)")
 			{
@@ -565,10 +492,7 @@ m201ztalk : nonoverlap
 				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]The fu-"
 				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]?"
 				--
-				if narrator == 1
-				{
-					"\1%(distingnarr)* It wasn't me"
-				}
+				if narrator == 1; "\1%(distingnarr)* It wasn't me"
 			}
 
 			if "snail" _in_ TOLOWER("%(installedghostlist)")
@@ -630,15 +554,9 @@ m201ztalk : nonoverlap
 				"%(distingstart)'If spiders are spinning their webs, look for dry weather ahead'"
 			}
 
-			if "Snow" _in_ currentweatherarray[5]
-			{
-				"%(distingstart)'Snow like cotton, soon forgotten. Snow like meal, will give a great deal'"
-			}
+			if "Snow" _in_ currentweatherarray[5]; "%(distingstart)'Snow like cotton, soon forgotten. Snow like meal, will give a great deal'"
 
-			if month == 11 && "Snow" _in_ currentweatherarray[5]
-			{
-				"%(distingstart)'Ice in November to bury a duck, the rest of the winter is slush and muck'"
-			}
+			if month == 11 && "Snow" _in_ currentweatherarray[5]; "%(distingstart)'Ice in November to bury a duck, the rest of the winter is slush and muck'"
 
 			if "Rain" _in_ currentweatherarray[5]
 			{
@@ -650,17 +568,11 @@ m201ztalk : nonoverlap
 				"%(distingstart)'When coulds appear like towers, the earth is refreshed by frequent showers'"
 			}
 
-			if "Sunny" _in_ currentweatherarray[5]
-			{
-				"%(distingstart)'Moss dry, sunny sky, moss wet, rain you'll get.''"
-			}
+			if "Sunny" _in_ currentweatherarray[5]; "%(distingstart)'Moss dry, sunny sky, moss wet, rain you'll get.''"
 
 			if "Showers" _in_ currentweatherarray[5]
 			{
-				if month == 4
-				{
-					"%(distingstart)'April showers bring May flowers'"
-				}
+				if month == 4; "%(distingstart)'April showers bring May flowers'"
 
 				"%(distingstart)'Ring around the moon? Rain real soon'"
 				"%(distingstart)'If there is a ring around the moon, expect rain or snow soon'"
@@ -719,21 +631,14 @@ m201ztalk : nonoverlap
 				"H̷̞͊o̴̩͋w̴̖͘ ̸̣̒ị̴͐s̶͍͋ ̶͇̈y̴͎͝ó̸̡ǔ̸͉r̷̼̀ ̷̳͑m̵͆ͅõ̸̦r̶̼̃n̸͜͝i̴̥͝n̶͕̿g̸͉̀ ̷͉̔g̵̞̋o̴̹̚i̶̩̚n̵͔̅g̶̳̓?̷̍͜"
 				"D̷o̷n̸'̸t̷ ̷f̷o̷r̴g̶e̸t̸ ̴t̶o̶ ̷e̶a̸t̶ ̸b̸r̴e̶a̸k̷f̶a̵s̴t̴"
 
-				if "morning" !_in_ likes
-				{
-					"I̴ ̷f̴e̴e̵l̸ ̷a̵s̷ ̸i̴f̴ ̷I̴ ̴w̷a̸s̴ ̵h̴u̷m̷a̷n̸ ̵I̶ ̴w̵o̴u̶l̸d̶ ̸n̵o̵t̴ ̸b̸e̵ ̷a̵ ̸m̶o̵r̵n̵i̸n̵g̶ ̵p̶e̶r̵s̴o̸n̵ ̶:̵/̸"
-				}
+				if "morning" !_in_ likes; "I̴ ̷f̴e̴e̵l̸ ̷a̵s̷ ̸i̴f̴ ̷I̴ ̴w̷a̸s̴ ̵h̴u̷m̷a̷n̸ ̵I̶ ̴w̵o̴u̶l̸d̶ ̸n̵o̵t̴ ̸b̸e̵ ̷a̵ ̸m̶o̵r̵n̵i̸n̵g̶ ̵p̶e̶r̵s̴o̸n̵ ̶:̵/̸"
 			}
 			else
 			{
 				"%(distingstart)How is your morning going?"
 				"%(distingstart)Don't forget to eat breakfast"
 
-				if "mornings-bird" !_in_ m201zcharacter
-				{
-					"%(distingstart)I feel as if I was human I would not be a morning person :/"
-				}
-
+				if "mornings-bird" !_in_ m201zcharacter; "%(distingstart)I feel as if I was human I would not be a morning person :/"
 			}
 		}
 		elseif timeslot == "evening"
@@ -789,15 +694,8 @@ m201ztalk : nonoverlap
 		{
 			if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
 			{
-				if repairglitch != 1
-				{
-					"%(currentweatherarray[0])%(currentweatherarray[1])? W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
-				}
-				else
-				{
-					"%(distingstart)%(currentweatherarray[0])%(currentweatherarray[1])?Wow,\w4 seems like it's really hot where you are"
-				}
-				
+				if repairglitch != 1; "%(currentweatherarray[0])%(currentweatherarray[1])? W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
+				else; "%(distingstart)%(currentweatherarray[0])%(currentweatherarray[1])?Wow,\w4 seems like it's really hot where you are"
 			}
 		}
 	}
@@ -878,6 +776,9 @@ OnHourTimeSignal
 
 OnMinuteChange
 {
+	if timeformatype == "MILITARY"; _hours = hour
+	else; _hours = hour12 + "'o clock"
+	--
     if repairglitch != 1 && quest != 0; OnCheckGlitch
 	--
 	if narrator == 0 && repairglitch == 1 && nowshell == "M-201z"; OnUnlockNarrator
@@ -899,14 +800,8 @@ OnMinuteChange
 	{
 		if hour == remindh[_i] && minute == remindm[_i]
 		{
-			if remindring[_i] == "SILENCE"
-			{
-				"%(ch)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c"
-			}
-			else
-			{
-				"%(ch)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]"
-			}
+			if remindring[_i] == "SILENCE"; "%(ch)\_qIt's %(timeformat), you asked me to remind you '%(remindname[_i])'\x\c"
+			else; "%(ch)\_q%(remindring[_i])It's %(timeformat), you asked me to remind you '%(remindname[_i])', Click to stop the alarm\x\c\![sound,stop]"
 			--
 			break
 		}
@@ -923,51 +818,26 @@ OnMinuteChange
 			weatherquiet = 1
 			"\b[-1]\![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
 		}
- 		elseif hour == 12 
-		{
-			"\0It's noon\e"
-		}
- 		elseif hour == 0 
-		{
- 			"\0It's midnight\e"
-			"\0It's midnight!\e"
-		}
-		elseif hour == 23
-		{
-			if minute == 55 
-			{
-				"\05 minutes to midnight.\e"
-			}
-			else 
-			{
-				"\0It's 11 pm.\e"
-			}
-		}
-		elseif hour == 7 && minute == 30 && weekday == 0 
-		{
-			"\0It's 7:30 on Sunday.\e"
-		}
-		elseif hour == 16 
-		{
-			"\0It's 4 pm.\e"
-		}
 		elseif hour == 3 && minute == 14
 		{
 			"\0It's ghost hour\e"
 		}
 		else
 		{
-			"\0It's %(hour12)'o clock.\e"
+			if hrnt == "ON"
+			{
+				if hour == 24; "\0It's midnight.\e"
+				elseif hour == 12; "\0It's noon.\e"
+				else; "\0It's %(_hours).\e"
+				
+			}
 		}
 		--
 		OnMoodCheck
 		--
 		OnCharacterCheck
 		--
-		if upchec == "ON"
-		{
-			"\b[-1]\![updatebymyself,checkonly]\e"
-		}
+		if upchec == "ON"; "\b[-1]\![updatebymyself,checkonly]\e"
 	}
 	elseif minute == 30 
 	{
@@ -1005,46 +875,28 @@ OnSecondChange
 	{
 		EndMikireTalk
  	}
+	 
 	mikireflag = reference1
 
-	if reference2 == 1
-	{
- 		"\0\e"
-	}
+	if reference2 == 1; "\0\e"
 }
 
 MikireTalk
 {
-    
 	"\0Ummm\w8\w5 could you push Ctrl-Shift-F12?"
 }
  
 EndMikireTalk
 {
-    
 	"\0I'm back\w8 thanks!\e"
 }
 
 OnSurfaceRestore
 {
-	if tooln == "ON"
-	{
-		"%(lightdark)"
-	}
+	if tooln == "ON"; "%(lightdark)"
 	--
-	//Hiding Story Options
-	//tentruth = 0
-	//truth = 0
-	//AI = "OFF"
-	//--
-	if obsydian == 1
-	{
-		"\0\s[1]\1\s[-1]\e"
-	}
-	else
-	{
-		"\0\s[0]\1\s[-1]\e"
-	}
+	if obsydian == 1; "\0\s[1]\1\s[-1]\e"
+	else; "\0\s[0]\1\s[-1]\e"
 }
 
 OnKeyPress
@@ -1073,24 +925,15 @@ OnKeyPress
 		}
 		when "g"
 		{
-			if devop == 1
-			{
-				"\![reload,ghost]\e"
-			}
+			if devop == 1; "\![reload,ghost]\e"
 		}
 		when "h"
 		{
-			if devop == 1
-			{
-				"\![reload,shiori]\e"
-			}
+			if devop == 1; "\![reload,shiori]\e"
 		}
 		when "s"
 		{
-			if devop == 1
-			{
-				"\![reload,shell]\e"
-			}
+			if devop == 1; "\![reload,shell]\e"
 		}
 
 	}
@@ -1126,7 +969,6 @@ OnReminders
 	}
 	else
 	{
-
 		for _i=0;_i<remindcount;_i++
 		{
 			remindpage += "\![*]\q[" + remindname[_i] + ",OnRemindClick," + _i + "]\n" //a" 
@@ -1135,46 +977,18 @@ OnReminders
 	--
 	remindpage += "\n[half]\f[size,20]\q[+,addrem] | "
 	--
-	if delr == 1
-	{
-		remindpage += "\f[size,20]\f[color,#e62719]\q[-,deler]\f[color,default] | \f[size,default]"
-
-	}
-	else
-	{
-		remindpage += "\f[size,20]\q[-,deler] | \f[size,default]"
-	}
+	if delr == 1; remindpage += "\f[size,20]%(acc)\q[-,deler]\f[color,default] | \f[size,default]"
+	else; remindpage += "\f[size,20]\q[-,deler] | \f[size,default]"
 	--
-	if editr == 1
-	{
-		remindpage += "\f[color,#e62719]\q[EDIT,edar]\f[color,default]"
-
-	}
-	else
-	{
-		remindpage += "\q[EDIT,edar]"
-	}
+	if editr == 1; remindpage += "%(acc)\q[EDIT,edar]\f[color,default]"
+	else; remindpage += "\q[EDIT,edar]"
 	--
-	if usedefring == "OFF"
-	{
-		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,#e62719]\q[%(usedefring),defringuse]\f[color,default]"
-
-	}
-	else
-	{
-		remindpage += "\n\n[half]Use Default Ringtone:  \f[color,#1bcc2a]\q[%(usedefring),defringuse]\f[color,default]"
-	}
+	remindpage += "\n\n[half]Use Default Ringtone:  %(acc)\__q[defringuse]%(usedefring)\__q\f[color,default]"	
 	--
 	if usedefring == "ON"
 	{
-		if defring == ""
-		{
-			remindpage += "\n\n[half]DEFAULT RINGTONE:\f[color,#e62719] \q[NONE (SET),OnRingtone,def]\f[color,default]"
-		}
-		else
-		{
-			remindpage += "\n\n[half]DEFAULT RINGTONE:\f[color,#e62719] \q[%(defring),OnRingtone,def]\f[color,default]"
-		}
+		if defring == ""; remindpage += "\n\n[half]DEFAULT RINGTONE:%(acc) \q[NONE (SET),OnRingtone,def]\f[color,default]"
+		else; remindpage += "\n\n[half]DEFAULT RINGTONE:%(acc) \q[%(defring),OnRingtone,def]\f[color,default]"
 	}
 	--
 	remindpage += "\n\n[half]\![*]\q[Nevermind,Cancel]"
@@ -1184,14 +998,8 @@ OnReminders
 
 Select.defringuse
 {
-	if usedefring == "ON"
-	{
-		usedefring = "OFF"
-	}
-	else
-	{
-		usedefring = "ON"
-	}
+	if usedefring == "ON"; usedefring = "OFF"
+	else; usedefring = "ON"
 	--
 	OnReminders
 }
@@ -1408,18 +1216,9 @@ OnEditRem
 {
 	case reference0
 	{
-		when "name"
-		{
-			"\![open,inputbox,OnNewName,-1]"
-		}
-		when "time"
-		{
-			"\![open,timeinput,OnNewtime,-1]"
-		}
-		when "desc"
-		{
-			"\![open,inputbox,OnNewDesc,-1]"
-		}
+		when "name"; "\![open,inputbox,OnNewName,-1]"
+		when "time"; "\![open,timeinput,OnNewtime,-1]"
+		when "desc"; "\![open,inputbox,OnNewDesc,-1]"
 	}
 }
 
@@ -1449,14 +1248,8 @@ Select.programyez
 {
 	if repairglitch != 1
 	{
-		if quest != 1 &&  quest != 2// user haven't heard about the quest
-		{
-			"Ţ̴̪̓̑h̴͓̲͐a̷̢͖̚͝t̴̯̣́'̷̧̹͋s̷͕̥̍̄ ̷̼̃n̵̥͌̽ị̸̡́c̶͎̑̓ȇ̸̢,̵͎̎ ̷̼̎̂ḿ̴̢̻a̸̗͒ỵ̵̑b̵̯̚e̸̳͇̿̽ ̷̠̔y̶̲̚ȍ̸̯̏u̴̖̎̈͜ ̷̯̼̊w̶̞̬̃i̷̛͔l̴̫̿ḽ̸̭̇̚ ̴̭̬̽̚b̸̻̾͘ẻ̸̫̎ ̴̖̈́̌ä̸̝͔́́ḅ̷́̄ĺ̶̖̜̓ě̵̙̄ ̷̡̣̕t̷̛̜̾o̴̹̺̓ ̷̧̥̓r̸̩͗̌e̷̼͕͝p̴̡̱̅ä̸͈i̸̟̋ȑ̵̫̏ ̵̳̋͛͜t̴̩͇̓͝h̴͚͒e̴̖̓̈ ̵̡̰̑̕f̴̡̗́̅ỉ̶͚͝ĺ̵̘̮e̷̥͎͊ś̷̪̰?̶͕̓̍\n\n[half]\![*]\q[Rapair what files?,queststart] | \![*]\q[I don't think I can,questlater]"
-		}
-		elseif quest == 1 //User heard the quest, didn't start
-		{
-			"t̵͓͐͋h̸͕͍̳͙̎͛͋̚a̴̪͐͗t̸̞͛'̸͖͇̀̍̓̂s̶̹̪͎̋ ̸͇̖͉̔̒̅͜n̴̞̉̕i̷̡̛̪̩̇̈́c̵̡͛̅e̶̢͉̣̥͑̏̑͘,̴̧̇͂̕͝ ̴̘́̐̿p̵̘̖̂̓r̷͉̜̹̜̃̉͑̒ỗ̷͙́g̶̱̈́̿r̵͔͉̍ȧ̵̧̤̳͕͛̅͘m̴̜̬̆͆͝m̷̛̥̊̓͝i̵̦̾̓͜ṋ̵̨̧̦͘g̴͖̱̜͋̚ ̵̡̢̲̫̊í̸̬̥̝͌̾͘ͅs̸̮̖̟̒̚͝ͅ ̶̝̣̣̼̈́̈̅ả̸̺͕̀͗̉n̸̖͋̅ ̴̢̉̿̽ĩ̸͚̄n̷̙̫̜̏͜t̸͉̺̏̏͌̕e̵̲̯̔r̸̭̦͔̘͊ę̸̜͚̂ṡ̶̻̘̙̼̍͛̚t̴͌͘͜i̶͖͊͆̒́n̷͉̞̝͚̋͆g̷̢̳̎̒͂͠ ̶̣̗̞̩̎ȟ̴̡̪o̵͍͑̎̍͗b̸̭́̏̏̚b̷̬͍̄̽͂͝ͅy̸̔̎͜"
-		}
+		if quest != 1 &&  quest != 2; "Ţ̴̪̓̑h̴͓̲͐a̷̢͖̚͝t̴̯̣́'̷̧̹͋s̷͕̥̍̄ ̷̼̃n̵̥͌̽ị̸̡́c̶͎̑̓ȇ̸̢,̵͎̎ ̷̼̎̂ḿ̴̢̻a̸̗͒ỵ̵̑b̵̯̚e̸̳͇̿̽ ̷̠̔y̶̲̚ȍ̸̯̏u̴̖̎̈͜ ̷̯̼̊w̶̞̬̃i̷̛͔l̴̫̿ḽ̸̭̇̚ ̴̭̬̽̚b̸̻̾͘ẻ̸̫̎ ̴̖̈́̌ä̸̝͔́́ḅ̷́̄ĺ̶̖̜̓ě̵̙̄ ̷̡̣̕t̷̛̜̾o̴̹̺̓ ̷̧̥̓r̸̩͗̌e̷̼͕͝p̴̡̱̅ä̸͈i̸̟̋ȑ̵̫̏ ̵̳̋͛͜t̴̩͇̓͝h̴͚͒e̴̖̓̈ ̵̡̰̑̕f̴̡̗́̅ỉ̶͚͝ĺ̵̘̮e̷̥͎͊ś̷̪̰?̶͕̓̍\n\n[half]\![*]\q[Rapair what files?,queststart] | \![*]\q[I don't think I can,questlater]"// user haven't heard about the quest
+		elseif quest == 1 ; "t̵͓͐͋h̸͕͍̳͙̎͛͋̚a̴̪͐͗t̸̞͛'̸͖͇̀̍̓̂s̶̹̪͎̋ ̸͇̖͉̔̒̅͜n̴̞̉̕i̷̡̛̪̩̇̈́c̵̡͛̅e̶̢͉̣̥͑̏̑͘,̴̧̇͂̕͝ ̴̘́̐̿p̵̘̖̂̓r̷͉̜̹̜̃̉͑̒ỗ̷͙́g̶̱̈́̿r̵͔͉̍ȧ̵̧̤̳͕͛̅͘m̴̜̬̆͆͝m̷̛̥̊̓͝i̵̦̾̓͜ṋ̵̨̧̦͘g̴͖̱̜͋̚ ̵̡̢̲̫̊í̸̬̥̝͌̾͘ͅs̸̮̖̟̒̚͝ͅ ̶̝̣̣̼̈́̈̅ả̸̺͕̀͗̉n̸̖͋̅ ̴̢̉̿̽ĩ̸͚̄n̷̙̫̜̏͜t̸͉̺̏̏͌̕e̵̲̯̔r̸̭̦͔̘͊ę̸̜͚̂ṡ̶̻̘̙̼̍͛̚t̴͌͘͜i̶͖͊͆̒́n̷͉̞̝͚̋͆g̷̢̳̎̒͂͠ ̶̣̗̞̩̎ȟ̴̡̪o̵͍͑̎̍͗b̸̭́̏̏̚b̷̬͍̄̽͂͝ͅy̸̔̎͜" //User heard the quest, didn't start
 	}
 	else
 	{
@@ -1501,14 +1294,8 @@ Select.deletethefiles
 
 Select.programno
 {
-	if repairglitch != 1
-	{
-		"ḩ̴̇ṵ̷̗̐ḥ̷͕́,̴̩̠̈ ̷͎̑͜͠w̴̜̐h̴̲̃͊a̷̢̹͆͛t̵̮̲̿ ̸̘̀͆͜a̴͊͜r̵͕̝̈́ë̷̝́̃ ̷̗̔ỹ̸̪͖ȏ̷̱u̷͓̐ ̶͓̓̈́ų̷̢̑s̵͎̰̈í̶͓̕ň̵̋͜g̶̥͇̉̏ ̵̛̝̼̚V̵͍̅i̵̢͘s̸̮̍ȕ̷̮̊a̶̙̺͂̓l̸͓͐ͅ ̴̜̬̂Ṣ̷͊ť̸͜u̴̳͘̕d̴̝̫͂͝ì̷͓͇̾o̵̤̔ ̵̬̋̿C̴̠̐͆o̷̼͋d̴̘̤̄̒e̸̞̮͗̍ ̷̱̊̓f̴͉͌o̸̰̍͒r̶̩̀̚ ̴̻̔͘ť̵͈͝h̵͚͐͜e̶̛̤͈n̴͖̙̽?̶̳̚"
-	}
-	else
-	{
-		"%(distingstart)huh, what are you using %(codeprogram) for then?"
-	}
+	if repairglitch != 1; "ḩ̴̇ṵ̷̗̐ḥ̷͕́,̴̩̠̈ ̷͎̑͜͠w̴̜̐h̴̲̃͊a̷̢̹͆͛t̵̮̲̿ ̸̘̀͆͜a̴͊͜r̵͕̝̈́ë̷̝́̃ ̷̗̔ỹ̸̪͖ȏ̷̱u̷͓̐ ̶͓̓̈́ų̷̢̑s̵͎̰̈í̶͓̕ň̵̋͜g̶̥͇̉̏ ̵̛̝̼̚V̵͍̅i̵̢͘s̸̮̍ȕ̷̮̊a̶̙̺͂̓l̸͓͐ͅ ̴̜̬̂Ṣ̷͊ť̸͜u̴̳͘̕d̴̝̫͂͝ì̷͓͇̾o̵̤̔ ̵̬̋̿C̴̠̐͆o̷̼͋d̴̘̤̄̒e̸̞̮͗̍ ̷̱̊̓f̴͉͌o̸̰̍͒r̶̩̀̚ ̴̻̔͘ť̵͈͝h̵͚͐͜e̶̛̤͈n̴͖̙̽?̶̳̚"
+	else; "%(distingstart)huh, what are you using %(codeprogram) for then?"
 	--
 	uprogrammist = 1
 }
@@ -1540,42 +1327,15 @@ OnDisting
 		--
 		case distingtype
 		{
-			when "bold"
-			{
-				distingstart = "\f[bold,1]"
-			}
-			when "cursive"
-			{
-				distingstart = "\f[italic,1]"
-			}
-			when "strike"
-			{
-				distingstart = "\f[strike,1]"
-			}
-			when "underline"
-			{
-				distingstart = "\f[color,1]"
-			}
-			when "yellow"
-			{
-				distingstart = "\f[color,#fffa6b]"
-			}
-			when "green"
-			{
-				distingstart = "\f[color,#1bcc2a]"
-			}
-			when "red"
-			{
-				distingstart = "\f[color,#e62719]"
-			}
-			when "pink"
-			{
-				distingstart = "\f[color,#ffa1f7]"
-			}
-			when "custom"
-			{
-				"What color do you want?\![open,dialog,color,--id=OnCustomColor]\x"
-			}
+			when "bold"; distingstart = "\f[bold,1]"
+			when "cursive"; distingstart = "\f[italic,1]"
+			when "strike"; distingstart = "\f[strike,1]"
+			when "underline"; distingstart = "\f[color,1]"
+			when "yellow"; distingstart = "\f[color,#fffa6b]"
+			when "green"; distingstart = "\f[color,#1bcc2a]"
+			when "red"; distingstart = "\f[color,#e62719]"
+			when "pink"; distingstart = "\f[color,#ffa1f7]"
+			when "custom"; "What color do you want?\![open,dialog,color,--id=OnCustomColor]\x"
 		}
 		--
 		if formattype == 1 && distingtype != "custom" 
@@ -1598,42 +1358,15 @@ OnDisting
 		--
 		case nardistingtype
 		{
-			when "bold"
-			{
-				distingnarr = "\f[bold,1]"
-			}
-			when "cursive"
-			{
-				distingnarr = "\f[italic,1]"
-			}
-			when "strike"
-			{
-				distingnarr = "\f[strike,1]"
-			}
-			when "underline"
-			{
-				distingnarr = "\f[color,1]"
-			}
-			when "yellow"
-			{
-				distingnarr = "\f[color,#fffa6b]"
-			}
-			when "green"
-			{
-				distingnarr = "\f[color,#1bcc2a]"
-			}
-			when "red"
-			{
-				distingnarr = "\f[color,#e62719]"
-			}
-			when "pink"
-			{
-				distingnarr = "\f[color,#ffa1f7]"
-			}
-			when "custom"
-			{
-				"\1Choose Color\![open,dialog,color,--id=OnCustomColorNar]\x"
-			}
+			when "bold"; distingnarr = "\f[bold,1]"
+			when "cursive"; distingnarr = "\f[italic,1]"
+			when "strike"; distingnarr = "\f[strike,1]"
+			when "underline"; distingnarr = "\f[color,1]"
+			when "yellow"; distingnarr = "\f[color,#fffa6b]"
+			when "green"; distingnarr = "\f[color,#1bcc2a]"
+			when "red"; distingnarr = "\f[color,#e62719]"
+			when "pink"; distingnarr = "\f[color,#ffa1f7]"
+			when "custom"; "\1Choose Color\![open,dialog,color,--id=OnCustomColorNar]\x"
 		}
 		--
 		if formattype == 1 && nardistingtype != "custom" 
@@ -1712,7 +1445,6 @@ OnGardenTalk
 		if "butterflies" _in_ _attraction; "%(distingstart)%(TOPROPER(_plantname)) %(_attraction) you know, it makes for a great sight"
 	}
 }
-
 
 OnAnimalTalk
 {

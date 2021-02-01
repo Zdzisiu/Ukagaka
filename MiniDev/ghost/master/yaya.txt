@@ -7,8 +7,6 @@ charset.extension, UTF-8
 
 msglang,english
 
-
-
 include, system_config.txt
 		
 dic, string.dic			

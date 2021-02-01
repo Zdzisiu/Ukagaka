@@ -6,7 +6,7 @@ type,shell
 name,Potion
 craftman,Zdzisiu
 craftmanurl,-
-homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/shells/potion
+homeurl,https://zdzisiu.github.io/Ukagaka/shells/potion
 
 sakura.balloon.offsetx,0
 sakura.balloon.offsety,0

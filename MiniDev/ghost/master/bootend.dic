@@ -78,10 +78,7 @@ OnMood
 	--
 	for _i = 0 ; _i < moodsize ; _i ++ //reset mood
 	{
-		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "
-		{
-			mood[_i] = 0
-		}
+		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "; mood[_i] = 0
 	}
 	--
 	for _i=0;_i<moodsize*2;_i++
@@ -91,10 +88,7 @@ OnMood
 		mood[ranmood] += RAND(10)
 	}
 	--
-	if m201relationship < 100
-	{
-		mood[0] = 0
-	}
+	if m201relationship < 100; mood[0] = 0
 	--
 	OnMoodCheck
 }
@@ -104,10 +98,7 @@ OnMoodShuffle
 {
 	for _i = 0 ; _i < moodsize ; _i ++ //reset mood
 	{
-		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "
-		{
-			mood[_i] = 0
-		}
+		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "; mood[_i] = 0
 	}
 	--
 	for _i=0;_i<moodsize*2;_i++
@@ -221,34 +212,13 @@ NameInput
 
 GetTimeSlot
 {
-	if hour >= 5 && hour <= 8
-	{
-		"earlymorning"
-	}
-	elseif hour >= 9 && hour <= 11
-	{
-		"morning"
-	}
-	elseif hour >= 12 && hour <= 14
-	{
-		"lunch"
-	}
-	elseif hour >= 15 && hour <= 17
-	{
-		"afternoon"
-	}
-	elseif hour >= 18 && hour <= 20
-	{
-		"evening"
-	}
-	elseif hour >= 21 && hour <= 24
-	{
-		"latenight"
-	}
-	else
-	{
-		"midnight"
-	}
+	if hour >= 5 && hour <= 8; "earlymorning"
+	elseif hour >= 9 && hour <= 11; "morning"
+	elseif hour >= 12 && hour <= 14; "lunch"
+	elseif hour >= 15 && hour <= 17; "afternoon"
+	elseif hour >= 18 && hour <= 20; "evening"
+	elseif hour >= 21 && hour <= 24; "latenight"
+	else; "midnight"
 }
 
 GetDaySlot
@@ -267,11 +237,6 @@ OnBoot
 	cheerups = 0
 	draws = 0
 	games = 0
-	//Story functions OFF
-	//tentruth = 0
-	//truth = 0
-	//AI = "OFF"
-	//----
 	intalkconfig = 0 
 	weatherquiet = 0 
 	exponentiation = 0 
@@ -300,60 +265,27 @@ OnBoot
 	}
 	elseif tentruth == 1 || glitchboot <= 5
 	{
-		if dayslot == userbirthday 
-		{
-			"\0Happy B̶͉̕ï̴͓r̵̞̕t̷̠̀h̸́ͅd̵̀͜ǎ̸͕y̷̪͋ %(username)\e" 			
-		}
-		elseif dayslot == "6month 6day" 	
-		{
-			"\0Today is June 6th.\e"
-		}
-		elseif dayslot == "7month 4day"
-		{
-			"\0It's the fourth of July.\e"		
-		}
-		else
-		{
-			"%(normalboottalk)" 
-		}
+		if dayslot == userbirthday ; "\0Happy B̶͉̕ï̴͓r̵̞̕t̷̠̀h̸́ͅd̵̀͜ǎ̸͕y̷̪͋ %(username)\e" 			
+		elseif dayslot == "6month 6day"; "\0Today is June 6th.\e"
+		elseif dayslot == "7month 4day"; "\0It's the fourth of July.\e"		
+		else; "%(normalboottalk)" 
 	}
 	else
 	{
-		if dayslot == userbirthday 
-		{
-			"\0Happy Birthday %(username)\e" 			
-		}
-		elseif dayslot == "6month 6day" 	
-		{
-			"\0Today is June 6th.\e"
-		}
-		elseif dayslot == "7month 4day"
-		{
-			"\0It's the fourth of July.\e"		
-		}
-		else
-		{
-			"%(normalboottalk)" 
-		}
+		if dayslot == userbirthday; "\0Happy Birthday %(username)\e" 			
+		elseif dayslot == "6month 6day"; "\0Today is June 6th.\e"
+		elseif dayslot == "7month 4day"; "\0It's the fourth of July.\e"		
+		else; "%(normalboottalk)" 
 	}
 }
 
 OnCharacterCheck
 {
-	if mornings > 75 && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter
-	{
-		m201zcharacter += "mornings-bird "
-	}
+	if mornings > 75 && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter; m201zcharacter += "mornings-bird "
 	--
-	if midnight > 75 && "late-night-owl" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter
-	{
-		m201zcharacter += "late-night-owl "
-	}
+	if midnight > 75 && "late-night-owl" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter; m201zcharacter += "late-night-owl "
 	--
-	if midnight > 75 && "afternoon-cat" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter
-	{
-		m201zcharacter += "afternoon-cat "
-	}
+	if midnight > 75 && "afternoon-cat" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter; m201zcharacter += "afternoon-cat "
 }
 
 normalboottalk
@@ -369,35 +301,20 @@ normalboottalk
 	{
 		if timeslot == "morning" || timeslot == "earlymorning"
 		{
-			if "mornings-bird" !_in_ m201zcharacter
-			{
-				mornings++
-			}
+			if "mornings-bird" !_in_ m201zcharacter; mornings++
 			--
 			if "late-night-owl" _in_ m201zcharacter
 			{
 				mood[2]++
 				--
-				if repairglitch != 1
-				{
-					"H̸o̷w̷ ̶c̴a̷n̶ ̶y̷o̵u̶ ̸e̶v̴e̵n̵ ̴l̶i̷v̶e̵ ̵t̴h̴i̵s̴ ̵e̸a̷r̷l̸y̷"
-				}
-				else
-				{
-					"%(distingstart)How can you even live this early"
-				}
+				if repairglitch != 1; "H̸o̷w̷ ̶c̴a̷n̶ ̶y̷o̵u̶ ̸e̶v̴e̵n̵ ̴l̶i̷v̶e̵ ̵t̴h̴i̵s̴ ̵e̸a̷r̷l̸y̷"
+				else; "%(distingstart)How can you even live this early"
 			}
 			--
 			if "mornings-bird" _in_ m201zcharacter
 			{
-				if repairglitch != 1
-				{
-					"O̵h̶,̷ ̵y̸o̷u̴'̷r̶e̴ ̵u̴p̷ ̵e̴a̸r̵l̴y̶,̶ ̸g̴o̵o̶d̵ ̸m̶o̶r̴n̶i̸n̵g̸ ^^"
-				}
-				else
-				{
-					"%(distingstart)Oh, you're up early, good morning"
-				}
+				if repairglitch != 1; "O̵h̶,̷ ̵y̸o̷u̴'̷r̶e̴ ̵u̴p̷ ̵e̴a̸r̵l̴y̶,̶ ̸g̴o̵o̶d̵ ̸m̶o̶r̴n̶i̸n̵g̸ ^^"
+				else; "%(distingstart)Oh, you're up early, good morning"
 			}
 		}
 		elseif timeslot == "midnight" || timeslot == "latenight"
@@ -406,31 +323,16 @@ normalboottalk
 			{
 				mood[2]++
 				--
-				if repairglitch != 1
-				{
-					"Y̷o̶u̷ ̴s̸h̸o̸u̵l̴d̶ ̷g̴o̶ ̶t̸o̵ ̷s̷l̷e̶e̶p̶ ̴i̴n̸s̸t̴e̵a̷d̴ ̷o̸f̵ ̷u̴s̶i̷n̶g̴ ̸a̴ ̶c̷o̷m̸p̵u̶t̸e̵r̵"
-				}
-				else
-				{
-					"%(distingstart)You should go to sleep instead of using a computer"
-				}
+				if repairglitch != 1; "Y̷o̶u̷ ̴s̸h̸o̸u̵l̴d̶ ̷g̴o̶ ̶t̸o̵ ̷s̷l̷e̶e̶p̶ ̴i̴n̸s̸t̴e̵a̷d̴ ̷o̸f̵ ̷u̴s̶i̷n̶g̴ ̸a̴ ̶c̷o̷m̸p̵u̶t̸e̵r̵"
+				else; "%(distingstart)You should go to sleep instead of using a computer"
 			}
 			--
-			if "late-night-owl" !_in_ m201zcharacter
-			{
-				midnight++
-			}
+			if "late-night-owl" !_in_ m201zcharacter; midnight++
 			--
 			if "late-night-owl" _in_ m201zcharacter
 			{
-				if repairglitch != 1
-				{
-					"W̵o̸w̵,̸ ̴y̷o̸u̸'̵r̸e̸ ̸u̶p̷ ̵l̶a̸t̴e̴\w6 \f[height,7]w̴e̴l̸l̶ ̴n̴o̵t̸ ̷t̴h̴a̴t̶ ̸I̸ ̴m̵i̸n̶d̸"
-				}
-				else
-				{
-					"%(distingstart)Wow, you're up late\w6 \f[height,7]well not that I mind"
-				}
+				if repairglitch != 1; "W̵o̸w̵,̸ ̴y̷o̸u̸'̵r̸e̸ ̸u̶p̷ ̵l̶a̸t̴e̴\w6 \f[height,7]w̴e̴l̸l̶ ̴n̴o̵t̸ ̷t̴h̴a̴t̶ ̸I̸ ̴m̵i̸n̶d̸"
+				else; "%(distingstart)Wow, you're up late\w6 \f[height,7]well not that I mind"
 			}
 		}
 		else
@@ -441,14 +343,8 @@ normalboottalk
 			}
 			else
 			{
-				if repairglitch != 1
-				{
-					"P̴e̴r̶f̶e̷c̶t̶ ̶t̶i̵m̴e̶ ̵t̴o̸ ̶b̴e̵ ̵p̷r̵o̶d̸u̶c̵t̴i̴v̴e̶ ̶h̶u̴h̵?̶"
-				}
-				else
-				{
-					"%(distingstart)Perfect time to be productive huh?"
-				}
+				if repairglitch != 1; "P̴e̴r̶f̶e̷c̶t̶ ̶t̶i̵m̴e̶ ̵t̴o̸ ̶b̴e̵ ̵p̷r̵o̶d̸u̶c̵t̴i̴v̴e̶ ̶h̶u̴h̵?̶"
+				else; "%(distingstart)Perfect time to be productive huh?"
 			}
 		}
 	}
@@ -482,7 +378,7 @@ normalboottalk
 }
 
 OnClose
- {
+{
 	timeslot = GetTimeSlot 
 	--
 	if passmin >= 5	
@@ -502,7 +398,7 @@ OnClose
  	}	
  	else 
  	{
-		 if obsydian == 1
+		if obsydian == 1
     	{
 			if reference0 == "Dusty"
 			{
@@ -517,7 +413,7 @@ OnClose
  	}
  	--
 	"\-\e" 
- }
+}
 
 OnWindowStateMinimize
 {
@@ -533,12 +429,10 @@ OnWindowStateMinimize
 
 OnWindowStateRestore
 {
-	"\0\s[0]back to work!"
+	if obsydian == 1; "\1\s[-1]\0\s[1]back to work\e"
+	else; "\1\s[-1]\0\s[0]back to work\e"
 	--
-	if tooln == "ON"
-	{
-		"%(lightdark)"
-	}
+	if tooln == "ON"; "%(lightdark)"
 }
  
 OnGhostChanging
@@ -702,244 +596,103 @@ OnToolCheck //adding stuff after updates
 		m201zcharacter = ""
 		usercharacter = ""
 		--
-		if BL == ""
-		{
-			BL = "ON"
-		}
+		if BL == ""; BL = "ON"
 		--
-		if GL == ""
-		{
-			GL = "ON"
-		}
+		if GL == ""; GL = "ON"
 		--
-		if ecchi == ""
-		{
-			ecchi = "ON"
-		}
+		if ecchi == ""; ecchi = "ON"
 		--
-		if romancet == ""
-		{
-			romancet = "ON"
-		}
+		if romancet == ""; romancet = "ON"
 		--
-		if action == ""
-		{
-			action = "ON"
-		}
+		if action == ""; action = "ON"
 		--
-		if drama == ""
-		{
-			drama = "ON"
-		}
+		if drama == ""; drama = "ON"
 		--
-		if horror == ""
-		{
-			horror = "ON"
-		}
+		if horror == ""; horror = "ON"
 		--
-		if m201relationship == ""
-		{
-			m201relationship = 0
-		}
+		if m201relationship == ""; m201relationship = 0
 		--
 		for _i=0;_i<=taskamount;_i++
 		{
-			if "\f[" _in_ todos[_i]
-			{
-				todostatus[_i] = 1
-			}	
-			else
-			{
-				todostatus[_i] = 0
-			}
+			if "\f[" _in_ todos[_i]; todostatus[_i] = 1
+			else; todostatus[_i] = 0
 		}
 		--
-		if hsphere == ""
-		{
-			hsphere = "Northern"
-		}
+		if hsphere == ""; hsphere = "Northern"
 		--
-		if usedefring == ""
-		{
-			usedefring = "OFF"
-		}
+		if usedefring == ""; usedefring = "OFF"
 		--
-		if remindcount == ""
-		{
-			remindcount = 0
-		}
+		if remindcount == ""; remindcount = 0
 		--
-		if weathermenu == ""
-		{
-			weathermenu = "OFF"
-		}
+		if weathermenu == ""; weathermenu = "OFF"
 		--
-		if moonmenu == ""
-		{
-			moonmenu = "OFF"
-		}
+		if moonmenu == ""; moonmenu = "OFF"
 		--
-		if tooln == ""
-		{
-			tooln = "OFF"
-		}
+		if tooln == ""; tooln = "OFF"
 		--
-		if dlbtn == ""
-		{
-			dlbtn = "OFF"
-		}
+		if dlbtn == ""; dlbtn = "OFF"
 		--
 		calcbtn = "OFF"
 		--
-		if logbtn == ""
-		{
-			logbtn = "OFF"
-		}
+		if logbtn == ""; logbtn = "OFF"
 		--
-		if lesbtn == ""
-		{
-			lesbtn = "OFF"
-		}
+		if lesbtn == ""; lesbtn = "OFF"
 		--
-		if webtn == ""
-		{
-			webtn = "OFF"
-		}
+		if webtn == ""; webtn = "OFF"
 		--
-		if setbtn == ""
-		{
-			setbtn = "OFF"
-		}
+		if setbtn == ""; setbtn = "OFF"
 		--
-		if statbtn == ""
-		{
-			statbtn = "OFF"
-		}
+		if statbtn == ""; statbtn = "OFF"
 		--
-		if trabtn == ""
-		{
-			trabtn = "OFF"
-		}
+		if trabtn == ""; trabtn = "OFF"
 		--
-		if todobtn == ""
-		{
-			todobtn = "OFF"
-		}
+		if todobtn == ""; todobtn = "OFF"
 		--
-		if cusbtn == ""
-		{
-			cusbtn = "OFF"
-		}
+		if cusbtn == ""; cusbtn = "OFF"
 		--
-		if appbtn == ""
-		{
-			appbtn = "OFF"
-		}
+		if appbtn == ""; appbtn = "OFF"
 		--
-		if sticky == ""
-		{
-			sticky = "OFF"
-		}
+		if sticky == ""; sticky = "OFF"
 		--
-		if nice == ""
-		{
-			nice = "OFF"
-		}
+		if nice == ""; nice = "OFF"
 		--
-		if rude == ""
-		{
-			rude = "OFF"
-		}
+		if rude == ""; rude = "OFF"
 		--
-		if curses == ""
-		{
-			curses = "OFF"
-		}
+		if curses == ""; curses = "OFF"
 		--
-		if insults == ""
-		{
-			insults = "OFF"
-		}
+		if insults == ""; insults = "OFF"
 		--
-		if stupid == ""
-		{
-			stupid = "OFF"
-		}
+		if stupid == ""; stupid = "OFF"
 		--
-		if smart == ""
-		{
-			smart = "OFF"
-		}
+		if smart == ""; smart = "OFF"
 		--
-		if romantic == ""
-		{
-			romantic = "OFF"
-		}
+		if romantic == ""; romantic = "OFF"
 		--
-		if outgoing == ""
-		{
-			outgoing = "OFF"
-		}
+		if outgoing == ""; outgoing = "OFF"
 		--
-		if loner == ""
-		{
-			loner = "OFF"
-		}
+		if loner == ""; loner = "OFF"
 		--
-		if optimistic == ""
-		{
-			optimistic = "OFF"
-		}
+		if optimistic == ""; optimistic = "OFF"
 		--
-		if pessimistic == ""
-		{
-			pessimistic = "OFF"
-		}
+		if pessimistic == ""; pessimistic = "OFF"
 		--
-		if djokes == ""
-		{
-			djokes = "OFF"
-		}
+		if djokes == ""; djokes = "OFF"
 		--
-		if pessimistic == ""
-		{
-			pessimistic = "OFF"
-		}
+		if pessimistic == ""; pessimistic = "OFF"
 		--
-		if pocket == ""
-		{
-			pocket = "OFF"
-		}
+		if pocket == ""; pocket = "OFF"
 		--
-		if projecttypes == ""
-		{
-			projecttypes = "sai sai2 mdp kra blend"
-		}
+		if projecttypes == ""; projecttypes = "sai sai2 mdp kra blend"
 		--
-		if upchec == ""
-		{
-			upchec = "OFF"
-		}
+		if upchec == ""; upchec = "OFF"
 		--
-		if dateformatype == ""
-		{
-			dateformatype = "dd/mm/yyyy"
-		}
+		if dateformatype == ""; dateformatype = "dd/mm/yyyy"
 		--
-		if timeformatype == ""
-		{
-			timeformatype = "STANDARD"
-		}
+		if timeformatype == ""; timeformatype = "STANDARD"
 		--
-		if mornings == ""
-		{
-			mornings = 0
-		}
+		if mornings == ""; mornings = 0
 		--
-		if midnight == ""
-		{
-			midnight = 0
-		}
+		if midnight == ""; midnight = 0
 		--
 		OnUpdateVariables
 	}
@@ -1046,6 +799,11 @@ OnUpdateVariables
 		narrator = 0
 		distingnarr = ""
 		nardistingtype = "default"
+	}
+	elseif vers == "1.0.7"
+	{
+		vers = "1.0.8"
+		acc = "\f[color,#4cfc98]"
 	}
 	--
 	if narrator == 0 && repairglitch == 1

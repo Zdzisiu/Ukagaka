@@ -1,0 +1,5 @@
+ghost/master/logs/,noupdate
+ghost/master/var/,noupdate
+ghost/master/aud/,noupdate
+ghost/master/app/,noupdate
+ghost/master/projects/,noupdate

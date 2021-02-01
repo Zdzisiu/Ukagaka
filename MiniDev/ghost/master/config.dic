@@ -61,103 +61,111 @@ Select.hemisph
 	TalkConfig
 }
 
+Select.hrntc
+{
+	if hrnt == "ON"; hrnt = "OFF"
+	else; hrnt = "ON"
+	--
+	TalkConfig
+}
+
 TalkConfig
 {
     
-	"\0\b4\_q\![set,autoscroll,disable]" 
+	"\0\b4\_q\![set,autoscroll,disable]\*" 
 	--
-	"\f[bold,1]Your Name:\f[bold,0] %(username) \f[sup,1](\q[Change,TEACHNAME])\f[sup,0]\n"
+	"\f[bold,1]Your Name:\f[default] %(acc)\q[%(username),TEACHNAME]\f[default]\n"
 	--
-	"\f[bold,1]Pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change,TEACHPRONOUN])\f[sup,0]\n"
+	"\f[bold,1]Pronouns:\f[default] %(acc)\q[%(heshe)/%(himher)/%(hisher),TEACHPRONOUN]\f[default]\n"
 	--
-	"\f[bold,1]Birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change,TEACHBDAY])\f[sup,0]\n"
+	"\f[bold,1]Birthday:\f[default] %(acc)\q[%(birthdayprint),TEACHBDAY]\f[default]\n"
 	--
-	"\f[bold,1]Talk Rate:\f[bold,0] %(talktime) \f[sup,1](\q[Change,talkinter])\f[sup,0]\n\n[half]"
-    --
-	"\f[bold,1]Dev Name:\f[bold,0] %(devname) \f[sup,1](\q[Change,changedev])\f[sup,0]\n"
+	"\f[bold,1]Talk Rate:\f[default] %(acc)\__q[talkinter]%(talktime)\__q\f[default]\n"
+	--
+	"\f[bold,1]Dev Name:\f[default] %(acc)\q[%(devname),changedev]\f[default]\n"
+	--
+	"\f[bold,1]Hour Notice:\f[default] %(acc)\q[%(hrnt),hrntc]\f[default]\n"
+	--
+	if repairglitch == 1 && tentruth == 1; "\f[bold,1]Disable %(devname) Talking:\f[bold,0] %(acc)\q[%(MDisable),mdtalk]\f[default]\n"
 	--
 	//"\f[bold,1]\![*]\q[Accessibility,acces]\f[bold,0]\n"
 	--
-	if repairglitch == 1 && tentruth == 1
-	{
-		"%(distingstart)\![*]\q[Change M-201z Formatting,format]\f[default]\n"
-		--
-		"\![*]Disable %(devname) Talking? \f[color,#e62719]\q[%(MDisable),mdtalk]\f[default]\n"
-	}
+	"\n[half]\![*]\f[bold,1]\q[Change Accent Color,OnAccColor]\f[default]\n"
+	--
+	if repairglitch == 1 && tentruth == 1; "%(distingstart)\![*]\q[Change M-201z Formatting,format]\f[default]\n"
 	--
 	if narrator != 0 && nowshell == "M-201z"; "%(distingnarr)\![*]\q[Change Narrator Formatting,OnFormattingNar,config]\f[default]\n"
 	--
-	"\f[bold,1]\![*]\q[Change Traits,traits]\f[bold,0]\n"
+	"\f[bold,1]\![*]\q[Change Traits,traits]\f[default]\n"
 	--
-	"\f[bold,1]\![*]\q[Change tags,OnRecomConfig]\f[bold,0]\n\n[half]"
+	"\f[bold,1]\![*]\q[Change tags,OnRecomConfig]\f[default]\n\n[half]"
 	--
-	"\f[bold,1]\f[color,#e62719]\q[%(timeformatype),timetype]\f[color,default] TIME\f[bold,0]\n"
+	"\f[bold,1]%(acc)\q[%(timeformatype),timetype]\f[default] TIME\n"
 	--
-	"\f[bold,1]DATE FORMAT:\f[color,#e62719]\q[%(dateformatype),datetype]\f[color,default]\f[bold,0]\n\n[half]"
+	"\f[bold,1]DATE FORMAT:%(acc)\q[%(dateformatype),datetype]\f[default]\n\n[half]"
+	--
+	if weathermenu != "ON"
+	{
+		"Weather: %(acc) \q[%(weathermenu),weatheron]\f[default]\n"
+	}
+	else
+	{
+		"Weather %(acc) \q[%(weathermenu),weatheroff]\f[default] ("
+		--
+		"%(acc)\q[%(currentweatherarray[1]),startunit]\f[default])\n"
+	}
+	--
+	if moonmenu != "ON"; "Moon Phase: %(acc) \q[%(moonmenu),moonon]\f[default]\n"
+	--
+	"Hemisphere: %(acc) \q[%(hsphere),hemisph]\f[default]\n"
+	--
+	if upchec != "ON"; "Auto update check: %(acc) \q[%(upchec),upcheck]\f[default]\n"
+	--
+	if deleteshitai != "ON"; "\f[default]Enable Uninstall?: %(acc) \q[%(deleteshitai),deleteon]\f[default]\n\n[half]"
+	--
+	"\n[half]\f[bold,1]Quick tools:\n\n[half]\f[default]"
+	--
+	"Quick tools: %(acc) \q[%(tooln),tool]\f[default]\n\n[half]"
+	--
+	"light/dark button: %(acc) \q[%(dlbtn),ldbtn]\f[default]\n"
+	--
+	"Logs: %(acc) \q[%(logbtn),lobtn]\f[default]\n"
+	--
+	"Weather: %(acc) \q[%(webtn),wbtn]\f[default]\n"
+	--
+	"Settings: %(acc) \q[%(setbtn),sbtn]\f[default]\n"
+	--
+	"Statistics: %(acc) \q[%(statbtn),stbtn]\f[default]\n"
+	--
+	"To-Do: %(acc) \q[%(todobtn),tdbtn]\f[default]\n"
+	--
+	"Cuztomization: %(acc) \q[%(cusbtn),cubtn]\f[default]\n"
+	--
+	"Open App: %(acc) \q[%(appbtn),apbtn]\f[default]\n"
+	--
+	"\n[half]Sticky tools: %(acc) \q[%(sticky),sticbtn]\f[default]\n"	
+	--
+	"\![*]\q[Reset Tools Positions,OnMoveQTool]\n"
 	--
 	//"\f[bold,1]\![*]\q[Change Likes and Dislikes,likedis]\f[bold,0]\n"
 	//--
 	//"\f[bold,1]\![*]\q[Change Fears,fear]\f[bold,0]\n\n[half]"
 	//--
-    if weathermenu != "ON"
-	{
-		"\f[color,default]\f[bold,0]Weather: \f[color,#e62719] \q[%(weathermenu),weatheron]\f[color,default]\f[sup,0]\n"
-	}
-	else
-	{
-		"\f[color,default]\f[bold,0]Weather \f[color,#1bcc2a] \q[%(weathermenu),weatheroff]\f[color,default] ("
-		--
-		"\f[color,#e62719] \q[%(currentweatherarray[1]),startunit]\f[color,default]\f[sup,0])\n"
-	}
-    --
-	if moonmenu != "ON"; "\f[color,default]\f[bold,0]Moon Phase: \f[color,#e62719] \q[%(moonmenu),moonon]\f[color,default]\n"
-	else; "\f[color,default]\f[bold,0]Moon Phase: \f[color,#1bcc2a] \q[%(moonmenu),moonoff]\f[color,default]\n"
-	--
-	"\f[color,default]\f[bold,0]Hemisphere: \f[color,#e62719] \q[%(hsphere),hemisph]\f[color,default]\n"
-    --
-	if upchec != "ON"; "\f[color,default]\f[bold,0]Auto update check: \f[color,#e62719] \q[%(upchec),upcheck]\f[color,default]\n"
-	else; "\f[color,default]\f[bold,0]Auto update check: \f[color,#1bcc2a] \q[%(upchec),upcheck]\f[color,default]\n"
-    --
-	if deleteshitai != "ON"; "\f[color,default]\f[bold,0]Enable Uninstall?: \f[color,#e62719] \q[%(deleteshitai),deleteon]\f[color,default]\n\n[half]"
-	else; "\f[color,default]\f[bold,0]Enable Uninstall?: \f[color,#1bcc2a] \q[%(deleteshitai),deleteoff]\f[color,default]\n\n[half]"
-	--
-    "\n[half]\f[bold,1]Quick tools:\n\n[half]\f[bold,0]"
-    --
-    if tooln != "ON"; "\f[color,default]Quick tools: \f[color,#e62719] \q[%(tooln),tool]\f[color,default]\n\n[half]"
-	else; "\f[color,default]Quick tools: \f[color,#1bcc2a] \q[%(tooln),tool]\f[color,default]\n\n[half]"		
-	--
-    if dlbtn != "ON"; "\f[color,default]light/dark button: \f[color,#e62719] \q[%(dlbtn),ldbtn]\f[color,default]\n"
-	else; "\f[color,default]light/dark button: \f[color,#1bcc2a] \q[%(dlbtn),ldbtn]\f[color,default]\n"		
-	--
-	if logbtn != "ON"; "\f[color,default]Logs: \f[color,#e62719] \q[%(logbtn),lobtn]\f[color,default]\n"
-	else; "\f[color,default]Logs: \f[color,#1bcc2a] \q[%(logbtn),lobtn]\f[color,default]\n"		
-	--
-    if webtn != "ON"; "\f[color,default]Weather: \f[color,#e62719] \q[%(webtn),wbtn]\f[color,default]\n"
-	else; "\f[color,default]Weather: \f[color,#1bcc2a] \q[%(webtn),wbtn]\f[color,default]\n"		
-    --
-    if setbtn != "ON"; "\f[color,default]Settings: \f[color,#e62719] \q[%(setbtn),sbtn]\f[color,default]\n"
-	else; "\f[color,default]Settings: \f[color,#1bcc2a] \q[%(setbtn),sbtn]\f[color,default]\n"		
-    --
-    if statbtn != "ON"; "\f[color,default]Statistics: \f[color,#e62719] \q[%(statbtn),stbtn]\f[color,default]\n"
-	else; "\f[color,default]Statistics: \f[color,#1bcc2a] \q[%(statbtn),stbtn]\f[color,default]\n"		
-    --
-    if todobtn != "ON"; "\f[color,default]To-Do: \f[color,#e62719] \q[%(todobtn),tdbtn]\f[color,default]\n"
-	else; "\f[color,default]To-Do: \f[color,#1bcc2a] \q[%(todobtn),tdbtn]\f[color,default]\n"		
-	--
-    if cusbtn != "ON"; "\f[color,default]Cuztomization: \f[color,#e62719] \q[%(cusbtn),cubtn]\f[color,default]\n"
-	else; "\f[color,default]Cuztomization: \f[color,#1bcc2a] \q[%(cusbtn),cubtn]\f[color,default]\n"		
-	--
-	if appbtn != "ON"; "\f[color,default]Open App: \f[color,#e62719] \q[%(appbtn),apbtn]\f[color,default]\n"
-	else; "\f[color,default]Open App: \f[color,#1bcc2a] \q[%(appbtn),apbtn]\f[color,default]\n"		
-	--
-	if sticky != "ON"; "\n[half]\f[color,default]Sticky tools: \f[color,#e62719] \q[%(sticky),sticbtn]\f[color,default]\n"
-	else; "\n[half]\f[color,default]Sticky tools: \f[color,#1bcc2a] \q[%(sticky),sticbtn]\f[color,default]\n"		
-	--
-	"\![*]\q[Reset Tools Position,OnMoveQTool]\n"
-	--
 	"\n[half]\![*]\q[Back to the menu,BACKTOMENU]\n"
     --
 	"\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnAccColor
+{
+	"%(cha)What color do you want?\![open,dialog,color,--id=OnCustomAccColor]"
+}
+
+OnCustomAccColor
+{
+	acc = "\f[color,"+ reference2 +"]"
+	--
+	TalkConfig
 }
 
 Select.acces
@@ -633,18 +641,9 @@ OnTalkCustom
 	--
 	case talkinttima
 	{
-		when "seconds"
-		{
-			"%(ch)I should speak every . . . seconds.\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
-		}
-		when "minutes"
-		{
-			"%(ch)I should speak every . . . minutes.\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
-		}
-		when "hours"
-		{
-			"%(ch)I should speak every . . . hours.\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
-		}
+		when "seconds"; "%(ch)I should speak every . . . seconds.\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
+		when "minutes"; "%(ch)I should speak every . . . minutes.\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
+		when "hours"; "%(ch)I should speak every . . . hours.\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
 	}
 }
 
@@ -766,160 +765,57 @@ Select.traits
 	"\_q\b2"
 	--
 	//POSITIVE:
-    if nice != "ON" && rude != "ON"
-	{
-		"\f[color,default]Nice: \f[color,#e62719] \q[%(nice),nicec]\f[color,default]\n"
-	}
-	elseif rude == "ON"
-	{
-		"\f[color,default]\f[strike,1]Nice\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Nice: \f[color,#1bcc2a] \q[%(nice),nicec]\f[color,default]\n"		
-	}
+    if nice != "ON" && rude != "ON"; "\f[default]Nice: %(acc) \q[%(nice),nicec]\f[default]\n"
+	elseif rude == "ON"; "\f[default]\f[strike,1]Nice\f[strike,0]\f[default]\n"		
+	else; "\f[default]Nice: %(acc)\q[%(nice),nicec]\f[default]\n"		
 	--
-	//NEGATIVE
-	if rude != "ON" && nice != "ON"
-	{
-		"\f[color,default]Rude: \f[color,#e62719] \q[%(rude),rudec]\f[color,default]\n"
-	}
-	elseif nice == "ON"
-	{
-		"\f[color,default]\f[strike,1]Rude\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Rude: \f[color,#1bcc2a] \q[%(rude),rudec]\f[color,default]\n"		
-	}
+	if smart != "ON" && stupid != "ON"; "\f[default]Intelligent: %(acc) \q[%(smart),smac]\f[default]\n"
+	elseif stupid == "ON"; "\f[default]\f[strike,1]Intelligent\f[strike,0]\f[default]\n"		
+	else; "\f[default]Intelligent: %(acc)\q[%(smart),smac]\f[default]\n"		
 	--
-	if rude == "ON" && curses != "ON"
-	{
-		"\f[color,default]Curses: \f[color,#e62719] \q[%(curses),curc]\f[color,default]\n"
-	}
-	elseif rude == "ON"
-	{
-		"\f[color,default]Curses: \f[color,#1bcc2a] \q[%(curses),curc]\f[color,default]\n"		
-	}
-	--
-	if rude == "ON" && insults != "ON"
-	{
-		"\f[color,default]Insults: \f[color,#e62719] \q[%(insults),insc]\f[color,default]\n"
-	}
-	elseif rude == "ON"
-	{
-		"\f[color,default]Insults: \f[color,#1bcc2a] \q[%(insults),insc]\f[color,default]\n"		
-	}
-	--
-	if smart != "ON" && stupid != "ON"
-	{
-		"\f[color,default]Intelligent: \f[color,#e62719] \q[%(smart),smac]\f[color,default]\n"
-	}
-	elseif stupid == "ON"
-	{
-		"\f[color,default]\f[strike,1]Intelligent\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Intelligent: \f[color,#1bcc2a] \q[%(smart),smac]\f[color,default]\n"		
-	}
-	--
-	if stupid != "ON" && smart != "ON"
-	{
-		"\f[color,default]Unintelligent: \f[color,#e62719] \q[%(stupid),stuc]\f[color,default]\n"
-	}
-	elseif smart == "ON"
-	{
-		"\f[color,default]\f[strike,1]Unintelligent\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Unintelligent: \f[color,#1bcc2a] \q[%(stupid),stuc]\f[color,default]\n"		
-	}
+	if stupid != "ON" && smart != "ON"; "\f[default]Unintelligent: %(acc) \q[%(stupid),stuc]\f[default]\n"
+	elseif smart == "ON"; "\f[default]\f[strike,1]Unintelligent\f[strike,0]\f[default]\n"		
+	else; "\f[default]Unintelligent: %(acc)\q[%(stupid),stuc]\f[default]\n"		
 	--
 	//NEUTRAL traitS:
 	/*if funny != "ON"
 	{
-		"\f[color,default]Funny: \f[color,#e62719] \q[%(funny),func]\f[color,default]\n"
+		"\f[default]Funny: %(acc) \q[%(funny),func]\f[default]\n"
 	}
 	else
 	{
-		"\f[color,default]Funny: \f[color,#1bcc2a] \q[%(funny),func]\f[color,default]\n"		
+		"\f[default]Funny: %(acc)\q[%(funny),func]\f[default]\n"		
 	}
 	--
 		if djokes != "ON"
 		{
-			"\f[color,default]Dark Humor: \f[color,#e62719] \q[%(djokes),darktop]\f[color,default]\n"
+			"\f[default]Dark Humor: %(acc) \q[%(djokes),darktop]\f[default]\n"
 		}
 		else
 		{
-			"\f[color,default]Dark Humor: \f[color,#1bcc2a] \q[%(djokes),darktop]\f[color,default]\n"		
+			"\f[default]Dark Humor: %(acc)\q[%(djokes),darktop]\f[default]\n"		
 		}
-	--
 	--*/
-
-	if romantic != "ON"
-	{
-		"\f[color,default]Romantic: \f[color,#e62719] \q[%(romantic),romc]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Romantic: \f[color,#1bcc2a] \q[%(romantic),romc]\f[color,default]\n"		
-	}
+	if romantic != "ON"; "\f[default]Romantic: %(acc) \q[%(romantic),romc]\f[default]\n"
+	else; "\f[default]Romantic: %(acc)\q[%(romantic),romc]\f[default]\n"		
 	--
-	if outgoing != "ON" && loner != "ON"
-	{
-		"\f[color,default]Outgoing: \f[color,#e62719] \q[%(outgoing),outc]\f[color,default]\n"
-	}
-	elseif loner == "ON"
-	{
-		"\f[color,default]\f[strike,1]Outgoing\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Outgoing: \f[color,#1bcc2a] \q[%(outgoing),outc]\f[color,default]\n"		
-	}
+	if outgoing != "ON" && loner != "ON"; "\f[default]Outgoing: %(acc) \q[%(outgoing),outc]\f[default]\n"
+	elseif loner == "ON"; "\f[default]\f[strike,1]Outgoing\f[strike,0]\f[default]\n"		
+	else; "\f[default]Outgoing: %(acc)\q[%(outgoing),outc]\f[default]\n"		
 	--
-	if loner != "ON" && outgoing != "ON"
-	{
-		"\f[color,default]Loner: \f[color,#e62719] \q[%(loner),lonc]\f[color,default]\n"
-	}
-	elseif outgoing == "ON"
-	{
-		"\f[color,default]\f[strike,1]Loner\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Loner: \f[color,#1bcc2a] \q[%(loner),lonc]\f[color,default]\n"		
-	}
+	if loner != "ON" && outgoing != "ON"; "\f[default]Loner: %(acc) \q[%(loner),lonc]\f[default]\n"
+	elseif outgoing == "ON"; "\f[default]\f[strike,1]Loner\f[strike,0]\f[default]\n"		
+	else; "\f[default]Loner: %(acc)\q[%(loner),lonc]\f[default]\n"		
 	--
-	if pessimistic != "ON" && optimistic != "ON"
-	{
-		"\f[color,default]Pessimistic: \f[color,#e62719] \q[%(pessimistic),pesc]\f[color,default]\n"
-	}
-	elseif optimistic == "ON"
-	{
-		"\f[color,default]\f[strike,1]Pessimistic\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Pessimistic: \f[color,#1bcc2a] \q[%(pessimistic),pesc]\f[color,default]\n"		
-	}
+	if pessimistic != "ON" && optimistic != "ON"; "\f[default]Pessimistic: %(acc) \q[%(pessimistic),pesc]\f[default]\n"
+	elseif optimistic == "ON"; "\f[default]\f[strike,1]Pessimistic\f[strike,0]\f[default]\n"		
+	else; "\f[default]Pessimistic: %(acc)\q[%(pessimistic),pesc]\f[default]\n"		
 	--
-	if optimistic != "ON" && pessimistic != "ON"
-	{
-		"\f[color,default]Optimistic: \f[color,#e62719] \q[%(optimistic),optc]\f[color,default]\n"
-	}
-	elseif pessimistic == "ON"
-	{
-		"\f[color,default]\f[strike,1]Optimistic\f[strike,0]\f[color,default]\n"		
-	}
-	else
-	{
-		"\f[color,default]Optimistic: \f[color,#1bcc2a] \q[%(optimistic),optc]\f[color,default]\n"		
-	}
+	if optimistic != "ON" && pessimistic != "ON"; "\f[default]Optimistic: %(acc) \q[%(optimistic),optc]\f[default]\n"
+	elseif pessimistic == "ON"; "\f[default]\f[strike,1]Optimistic\f[strike,0]\f[default]\n"		
+	else; "\f[default]Optimistic: %(acc)\q[%(optimistic),optc]\f[default]\n"		
 	--
-	"\n[half]\![*]\q[trait info,triinfo]\n"
+	"\n[half]\![*]\q[trait info,script:\![open,file,ghost/master/Traits.txt\]]\n"
     --
 	"\n[half]\![*]\q[Back to the config menu,configmenu]\n"
     --
@@ -960,112 +856,64 @@ Select.outc
 
 Select.stuc
 {
-	if stupid == "ON"
-	{
-		stupid = "OFF"
-	}
-	else
-	{
-		stupid = "ON"
-	}
+	if stupid == "ON"; stupid = "OFF"
+	else; stupid = "ON"
 	--
 	Select.traits
 }
 
 Select.romc
 {
-	if romantic == "ON"
-	{
-		romantic = "OFF"
-	}
-	else
-	{
-		romantic = "ON"
-	}
+	if romantic == "ON"; romantic = "OFF"
+	else; romantic = "ON"
 	--
 	Select.traits
 }
 
 Select.func
 {
-	if funny == "ON"
-	{
-		funny = "OFF"
-	}
-	else
-	{
-		funny = "ON"
-	}
+	if funny == "ON"; funny = "OFF"
+	else; funny = "ON"
 	--
 	Select.traits
 }
 
 Select.smac
 {
-	if smart == "ON"
-	{
-		smart = "OFF"
-	}
-	else
-	{
-		smart = "ON"
-	}
+	if smart == "ON"; smart = "OFF"
+	else; smart = "ON"
 	--
 	Select.traits
 }
 
 Select.nicec
 {
-	if nice == "ON"
-	{
-		nice = "OFF"
-	}
-	else
-	{
-		nice = "ON"
-	}
+	if nice == "ON"; nice = "OFF"
+	else; nice = "ON"
 	--
 	Select.traits
 }
 
 Select.rudec
 {
-	if rude == "ON"
-	{
-		rude = "OFF"
-	}
-	else
-	{
-		rude = "ON"
-	}
+	if rude == "ON"; rude = "OFF"
+	else; rude = "ON"
 	--
 	Select.traits
 }
 
 Select.curc
 {
-	if curses == "ON"
-	{
-		curses = "OFF"
-	}
-	else
-	{
-		curses = "ON"
-	}
+	if curses == "ON"; curses = "OFF"
+	else; curses = "ON"
 	--
 	Select.traits
 }
 
 Select.insc
 {
-	if insults == "ON"
-	{
-		insults = "OFF"
-	}
-	else
-	{
-		insults = "ON"
-	}
+	if insults == "ON"; insults = "OFF"
+	else; insults = "ON"
 	--
 	Select.traits
 }
@@ -1077,14 +925,8 @@ Select.triinfo
 
 Select.darktop
 {
-	if djokes == "ON"
-	{
-		djokes = "OFF"
-	}
-	else
-	{
-		djokes = "ON"
-	}
+	if djokes == "ON"; djokes = "OFF"
+	else; djokes = "ON"
 	--
 	Select.jokes
 }
@@ -1094,74 +936,23 @@ OnRecomConfig
 {
 	"\b4\_qInclude | Exclude tags (anime/manga)\n\n[half]"
 	--
-	if BL != "ON"
-	{
-		"\f[color,default]BL: \f[color,#e62719] \q[%(BL),OnRecC,bl]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]BL: \f[color,#1bcc2a] \q[%(BL),OnRecC,bl]\f[color,default]\n"		
-	}
+	"\f[default]BL: %(acc) \q[%(BL),OnRecC,bl]\f[default]\n"
 	--
-	if GL != "ON"
-	{
-		"\f[color,default]GL: \f[color,#e62719] \q[%(GL),OnRecC,gl]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]GL: \f[color,#1bcc2a] \q[%(GL),OnRecC,gl]\f[color,default]\n"		
-	}
+	"\f[default]GL: %(acc) \q[%(GL),OnRecC,gl]\f[default]\n"
 	--
-	if ecchi != "ON"
-	{
-		"\f[color,default]Ecchi: \f[color,#e62719] \q[%(ecchi),OnRecC,ecchi]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Ecchi: \f[color,#1bcc2a] \q[%(ecchi),OnRecC,ecchi]\f[color,default]\n"		
-	}
+	"\f[default]Ecchi: %(acc) \q[%(ecchi),OnRecC,ecchi]\f[default]\n"		
 	--
-	if romancet != "ON"
-	{
-		"\f[color,default]Romance: \f[color,#e62719] \q[%(romancet),OnRecC,romance]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Romance: \f[color,#1bcc2a] \q[%(romancet),OnRecC,romance]\f[color,default]\n"		
-	}
+	"\f[default]Romance: %(acc) \q[%(romancet),OnRecC,romance]\f[default]\n"
 	--
-	if action != "ON"
-	{
-		"\f[color,default]Action: \f[color,#e62719] \q[%(action),OnRecC,action]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Action: \f[color,#1bcc2a] \q[%(action),OnRecC,action]\f[color,default]\n"		
-	}
+	"\f[default]Action: %(acc) \q[%(action),OnRecC,action]\f[default]\n"
 	--
-	if drama != "ON"
-	{
-		"\f[color,default]Drama: \f[color,#e62719] \q[%(drama),OnRecC,drama]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Drama: \f[color,#1bcc2a] \q[%(drama),OnRecC,drama]\f[color,default]\n"		
-	}
+	"\f[default]Drama: %(acc) \q[%(drama),OnRecC,drama]\f[default]\n"
 	--
-	if horror != "ON"
-	{
-		"\f[color,default]Horror: \f[color,#e62719] \q[%(horror),OnRecC,horror]\f[color,default]\n"
-	}
-	else
-	{
-		"\f[color,default]Horror: \f[color,#1bcc2a] \q[%(horror),OnRecC,horror]\f[color,default]\n"		
-	}
+	"\f[default]Horror: %(acc) \q[%(horror),OnRecC,horror]\f[default]\n"
 	--
 	"\n[half]\![*]\q[Back to the config menu,configmenu]\n"
     --
 	"\![*]\q[Nevermind,CANCEL]\e"
-
-	
 }
 
 OnRecC
@@ -1170,80 +961,38 @@ OnRecC
 	{
 		when "horror"
 		{
-			if horror == "OFF"
-			{
-				horror = "ON"
-			}
-			else
-			{
-				horror = "OFF"
-			}
+			if horror == "OFF"; horror = "ON"
+			else; horror = "OFF"
 		}
 		when "drama"
 		{
-			if drama == "OFF"
-			{
-				drama = "ON"
-			}
-			else
-			{
-				drama = "OFF"
-			}
+			if drama == "OFF"; drama = "ON"
+			else; drama = "OFF"
 		}
 		when "action"
 		{
-			if action == "OFF"
-			{
-				action = "ON"
-			}
-			else
-			{
-				action = "OFF"
-			}
+			if action == "OFF"; action = "ON"
+			else; action = "OFF"
 		}
 		when "romance"
 		{
-			if romancet == "OFF"
-			{
-				romancet = "ON"
-			}
-			else
-			{
-				romancet = "OFF"
-			}
+			if romancet == "OFF"; romancet = "ON"
+			else; romancet = "OFF"
 		}
 		when "ecchi"
 		{
-			if ecchi == "OFF"
-			{
-				ecchi = "ON"
-			}
-			else
-			{
-				ecchi = "OFF"
-			}
+			if ecchi == "OFF"; ecchi = "ON"
+			else; ecchi = "OFF"
 		}
 		when "bl"
 		{
-			if BL == "OFF"
-			{
-				BL = "ON"
-			}
-			else
-			{
-				BL = "OFF"
-			}
+			if BL == "OFF"; BL = "ON"
+			else; BL = "OFF"
 		}
 		when "gl"
 		{
-			if GL == "OFF"
-			{
-				GL = "ON"
-			}
-			else
-			{
-				GL = "OFF"
-			}
+			if GL == "OFF"; GL = "ON"
+			else; GL = "OFF"
 		}
 	}
 	--
@@ -1258,54 +1007,27 @@ OnRecC
 	action
 	*/
 	--
-	if GL == "OFF"
-	{
-		excludedtags += ",GL,Yuri"
-	}
+	if GL == "OFF"; excludedtags += ",GL,Yuri"
 	--
-	if BL == "OFF"
-	{
-		excludedtags += ",BL,Yaoi"
-	}
+	if BL == "OFF"; excludedtags += ",BL,Yaoi"
 	--
-	if horror == "OFF"
-	{
-		excludedtags += ",Horror"
-	}
+	if horror == "OFF"; excludedtags += ",Horror"
 	--
-	if drama == "OFF"
-	{
-		excludedtags += ",Drama"
-	}
+	if drama == "OFF"; excludedtags += ",Drama"
 	--
-	if ecchi == "OFF"
-	{
-		excludedtags += ",Ecchi"
-	}
+	if ecchi == "OFF"; excludedtags += ",Ecchi"
 	--
-	if romancet == "OFF"
-	{
-		excludedtags += ",Romance"
-	}
+	if romancet == "OFF"; excludedtags += ",Romance"
 	--
-	if action == "OFF"
-	{
-		excludedtags += ",Action"
-	}
+	if action == "OFF"; excludedtags += ",Action"
 	--
 	OnRecomConfig
 }
 
 Select.mdtalk
 {
-	if MDisable == "ON"
-	{
-		MDisable = "OFF"
-	}
-	else
-	{
-		MDisable = "ON"
-	}
+	if MDisable == "ON"; MDisable = "OFF"
+	else; MDisable = "ON"
 	--
 	TalkConfig
 }

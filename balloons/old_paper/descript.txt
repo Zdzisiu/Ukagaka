@@ -1,7 +1,7 @@
 charset,UTF-8
 type,balloon
 name,Old Paper
-homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/ballons/old_paper/"
+homeurl,https://zdzisiu.github.io/Ukagaka/ballons/old_paper/"
 
 use_self_alpha,1
 
