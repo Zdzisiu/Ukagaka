@@ -1,0 +1,331 @@
+﻿OnFirstBoot
+{
+
+ 	lastTalk = "" 
+	passmin = 0 
+	passsec = 0 
+ 	username         = "USER" 
+	stroke           = 0	
+ 	teachusername    = 0	
+	mikireflag       = 0	
+ 	aitalkinterval = 400 
+ 	birthdayprint = "????" 
+	talktime = "5 minutes" 
+	deleteshitai = "OFF" 
+	nowshell = "default_shell"
+	
+	if reference0 == 0
+ 	{
+
+		"\![enter,passivemode]\0\s[0]\0\s[0]Who the fuck are you, huh?\w8\w8 Is it another joke of that loser Zafear?\w8 UGHHHHHHHHH\w8 whatever,\w6 I don't care\x\c\1(You say he should use:\n\n[half]/
+		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
+		\![*]\q[She/Her/ Hers,choicefirstsheher]\n/
+		\![*]\q[They/Them/Their, choicefirsttheythem]\e "
+	}
+	else
+ 	{
+ 		{
+ 			"\0\s[0]\0\s[0]It's you,\w8\w8 again\w8\w8 JUST GREAT.\e" //mad/bored exp
+		}
+ 	}
+}
+
+Select.choicefirsthehim
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	--
+	NameInput
+}
+
+Select.choicefirstsheher
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	--
+	NameInput
+}
+
+Select.choicefirsttheythem
+{
+	himher = "them"
+	heshe = "they"
+	hisher = "theirs"
+	--
+	NameInput
+}
+
+NameInput
+{	
+	"\0\s[0]Did I fucking asked?\w8 I don't think so\![leave,passivemode]\w8\1\s[0](You say he should call you) \![open,inputbox,OnNameFirstTeach,-1]\e" //bored exp
+}
+OnNameFirstTeach
+{
+	username = "trash"
+	"\0\s[0]I still don't give a fuck,\w8 I will just call you trash,\w7 now\w8 fuck off\1(Such a nice and stable individual)\e" //mock exp
+}
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+}
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+}
+
+OnBoot
+ {
+	lastTalk = "" 
+	passmin = 0
+	passsec = 0
+	
+ 	"\0\s[0]\0\s[0]" 
+	
+	--
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot 
+
+	if dayslot == userbirthday 
+	{
+		"\0\s[0]It's %(bornmonthprint) %(borndayprint),\w8 another year closer to death,\w8 hopefully that wait will end\_v[aud/laugh2.wav] soon.\e" //laugh, mock/ev smile exp
+	}
+	else
+	{
+		"%(normalboottalk)" 
+	}
+}
+
+normalboottalk
+{
+	if RAND(100) < 50
+		{
+		"\0\s[0]What the fuck do you want.\e" //mad/uninteresed	
+		"\0\s[0]Wonderfull,\w8 you again.\e" //eye roll or smth, mad/uninteresed
+		"\0\s[0]Why is a trash like you\w3 STILL bothering me?\e" //mad/uninteresed
+		"\0\s[0]Don't you think it's perfect day\w8\w8 TO LEAVE ME THE FUCK ALONE.\e"	
+		}
+ 	else
+ 	{		
+		if timeslot == "earlymorning" 
+		{
+		"\0\s[0]You should go back to sleep\w8 and hopefully never wake\_v[aud/laugh2.wav] up again.\e" //laugh	
+		}
+		elseif timeslot == "morning"
+		{
+		"\0\s[0]Don't you have school or some other shit to do?\e"		
+		}
+		elseif timeslot == "lunch"
+		{
+		"\0\s[0]It's time for lunch\w8 so go\w5 eat\w5 shit\w5 \_v[aud/laugh2.wav]trashbag.\e"		
+		"\0\s[0]Go eat shit and stop bothering me.\e"	
+		}
+		elseif timeslot == "afternoon"
+		{
+		"\0\s[0]This is an afternoon boot dialogue.\w8\0\s[0]That it is.\e"
+		}
+		elseif timeslot == "evening"
+		{
+ 		"\0\s[0]This is an evening boot dialogue.\0\s[0]Between the hours of 18 and 20.\e"
+		}
+		elseif timeslot == "latenight"
+		{
+ 		"\0\s[0]This is a late night boot dialogue.\1\w8\s[10]Between 21 and 24.\e"		
+ 		"\0\s[0]This is another late night boot dialogue.\1\w8\s[10]That it is.\e"		
+ 		"\0\s[0]This is the third late night boot dialogue.\w8\0\s[0]Between 21 and 24.\e"
+		}
+		else 
+		{
+		"\0\s[0]This is a middle of the night boot dialogue.\1\w8\s[10]From midnight to five.\e"		
+ 		"\0\s[0]This is another middle of the night boot dialogue.\1\w8\s[10]That it is.\e"
+ 		"\0\s[0]This is the third middle of the night boot dialogue.\w8\0\s[0]Very late at night.\e"
+		}
+	}
+}
+
+OnClose
+ {
+ timeslot = GetTimeSlot
+ --
+	if passmin >= 5
+	{
+		"\0\s[0]Finally\w8\w8"
+	}
+ 	else 
+ 	{
+ 		"\0\s[0]You bring me here just for that?\w8\w8 fuck off\w8\w8"
+ 	}
+ 	--
+	"\-\e" 
+}
+
+OnWindowStateRestore
+ {
+	"\0\s[0]What the fuck.\e"
+}
+
+OnGhostChanging
+ {
+	if reference0 == "Kagamari" 
+	{
+		"\0\s[0]What are you doing\w8\w8\e"
+	}
+ 	else 
+	{
+		"\0\s[0]FINALLY\w8\w8 you will bother someone else.\e"
+		
+	}
+}
+
+OnGhostChanged
+{
+	"\0\s[0]\0\s[0]"
+	--
+	if reference0 == "Kagamari"
+	{
+		"\0\s[0]What\e"
+	}
+	else
+	{
+		"\0\s[0]UGH,\w8 go back to bothering that shit %(reference0)\e"
+
+	}
+}
+
+OnShellChanging
+ {
+	if reference0 == "Hypothetical Shell that doesn't actually exist"
+	{
+	"\0\s[0]This dialogue is specifically for changing to this particular shell.\w8\0\w8\s[9]It totally exists.\w8\e"
+	//Then rewrite this line as appropriate.
+	}
+	else //if you don't have any specific dialogue for a specific shell
+	{
+	"\0\s[0]This dialogue is for changing shells.\w8\0\s[0]Sure is.\w8\e"
+	
+	"\0\s[0]This is another bit of dialogue for changing shells.\w8\0\s[8]I wonder how many people will actually have multiple shells?\e"
+	
+	//Rewrite these two lines as you need.
+	}
+ }
+ 
+ 
+ //--OnShellChanged
+ 
+ //The sister to the above, this is the dialogue after you've changed the shell.
+ 
+OnShellChanged
+ {
+ 	if reference0 == "GT Default Shell" //Again, this is the name of your shell as you put in the descript.txt file for that shell.
+ 	{
+ 		nowshell = "default_shell" //This is the folder name for your shell. Not the same as the above! 
+		
+ 		"\0\s[0]This dialogue is for switching to our default shell.\w8\1\s[18]No really, will anyone actually put in the work to use these functions?\w8\0\s[9]\n\n[half]Shh.\e"
+		//Replace dialogue as required.
+ 	}
+ 	elseif reference0 == "Hypothetical Shell that doesn't actually exist" //You can use as many elseifs for as many shells as you've got.
+ 	{
+ 		nowshell = "totallyrealshell"
+		
+ 		"\0\s[0]This dialogue is for switching to that hypothetical shell.\e"
+		
+ 		"\0\s[0]This is another bit of dialogue for switching to this hypothetical shell.\w8\1\s[18]Man if you actually use this, you should tell Zar, it'll blow her mind.\w8\0\n\n[half]\s[9]Shut up, we're not supposed to be in-character here.\e"
+		//Replace these bits with whatever you have in mind.
+ 	}
+ 	elseif reference0 == "Another totally real shell wow"
+ 	{
+ 		nowshell = "thiswouldbesomuchwork"
+		
+ 		"\0\s[0]This dialogue is after we've switched to another totally real shell.\e"
+		//Replace this as well.
+ 	}
+ 	else //For any shell without a specific name, or if you don't want to bother with individual responses to a shell.
+ 	{
+	"\0\s[0]This dialogue is after we've changed our shell to %(reference[0]).\w8\1\s[18]How many shells you got?\e"
+	
+	//Note the %(reference[0]) here! This time that should store the name of whatever shell you're switching to. To be honest, I have not experimented with this too much because making shells is a pain in the tuckus, but I'm going to take cindysuke's coding on faith and assume reference[0] is correct instead of reference0. Replace this bit of dialogue as you need.
+	}
+ }
+
+
+ //--OnDressupChanged
+ 
+ //This runs whenever you fiddle with their clothing via the dress-up option, if you've set any for your ghost. Honestly setting up clothing is a nightmare and I hate doing it, and if your ghost is going to be moving around substantially or at all, clothing won't stay in the right place anyway. So unless you're like a real expert on surfaces.txt coding and rigging up clothing for different poses or you're intense or dedicated enough to set up clothing in the right place for every pose you do, I would not bother with clothing for your ghost.
+ //HOWEVER I can't begrudge people who actually would put in that effort! And in that case, this function is for you. For now, I'll fill this in with some hypothetical items. Replace the dialogue below with whatever you need.
+
+OnDressupChanged
+{
+if reference0 == 0 //in OnDressupChanged, reference0 refers to the character, therefore this is evaluating which character in question is getting dressed up. 0 is the main character, as you know from the walkthrough by now.
+	{
+	if reference1 == "Clothing for Girl" //This is the name of the clothing item in the descript.txt file, I'm pretty sure.
+		{
+			if reference2 == 1 //This checks if you're putting it on.
+			{
+			"\0\s[0]You put my clothing item on me.\w8\1\s[19]lol like zar would ever bother with clothes for a ghost.\w8\0\s[9]\n\n[half]Shut up dude you're going to get us in trouble.\e"
+			}
+			else // This checks if you're taking it off.
+			{
+			"\0\s[0]You took the clothing item off.\e"
+			}
+		}		
+	}
+else //if reference0 isn't the main character, then it has to be the side character.
+	{
+	if reference1 == "some kind of clothing for triangle??" //The name of the item of clothing in the descript.txt file in your shell folder.
+		{
+			if reference2 == 1 //If you put it on
+			{
+			"\0\s[0]I'm wearing some kind of clothing.\w8\0\s[8]Maybe a hat?\e"
+			}
+			else //When you take it off.
+			{
+			"\0\s[0]You took off some kind of clothing.\e"
+			}
+		}
+	elseif reference1 == "i'm gonna say a propeller beanie" //As you've seen above, you can use elseifs to expand the list if you have more than one item.
+		{
+			if reference2 == 1 //if you're putting it on
+			{
+			"\0\s[0]You put a hat on me.\w8\0\s[6]lol.\w8\1\n\n[half]\s[11]Shaddap.\e"
+			}
+			else //when you take it off
+			{
+			"\0\s[0]You took off the hat.\e"
+			}
+		}
+	}
+}
+
+//If you are super dedicated to doing clothes, I'd recommend checking out some more in-depth FLELE tutorials for stuff about clothing until I muster up the energy to write a walkthrough page for it.

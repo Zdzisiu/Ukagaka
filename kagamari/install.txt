@@ -1,0 +1,7 @@
+﻿
+charset,UTF-8
+type,ghost
+name,Kagamari
+directory,kagamari
+
+balloon.directory,z_simple
