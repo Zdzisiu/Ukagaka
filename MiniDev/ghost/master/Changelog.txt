@@ -1,4 +1,9 @@
-1.0.6
+1.0.7
 - To-Do list now wraps the tasks
 - I noticed some problem with manga and book recommendation function, for now it will only display titles
 - Added anime recommendations
+
+1.0.8
+- Choose the accent color
+- Turn off hour notification
+- changed the homeurl to github.io
