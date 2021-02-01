@@ -804,6 +804,7 @@ OnUpdateVariables
 	{
 		vers = "1.0.8"
 		acc = "\f[color,#4cfc98]"
+		hrnt = "ON"
 	}
 	--
 	if narrator == 0 && repairglitch == 1
