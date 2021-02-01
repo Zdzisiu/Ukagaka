@@ -1,0 +1,176 @@
+﻿On_\person
+{
+ 	person
+}
+
+shirtsweekday
+{
+	"\s[0]"
+	--
+	/*case sleep
+	{
+		when 0
+		{
+			case shirttd
+			{
+				when 0
+				{
+					"\s[0]"
+				}
+				when 1
+				{
+					"\s[1]"
+				}
+				when 2
+				{
+					"\s[2]"
+				}
+				when 3
+				{
+					"\s[3]"
+				}
+				when 4
+				{
+					"\s[4]"
+				}
+				when 5
+				{
+					"\s[5]"
+				}
+				when 6
+				{
+					"\s[0]"
+				}
+			}
+
+		}
+		when 1
+		{
+			case shirttd
+			{
+				when 0
+				{
+					"\s[11]"
+				}
+				when 1
+				{
+					"\s[12]"
+				}
+				when 2
+				{
+					"\s[13]"
+				}
+				when 3
+				{
+					"\s[14]"
+				}
+				when 4
+				{	
+					"\s[15]"
+				}
+				when 5
+				{
+					"\s[16]"
+				}
+				when 6
+				{
+					"\s[11]"
+				}
+			}
+
+		}
+	}*/
+	--
+	if blanketon == 1
+	{
+		"\i[11]"
+	}
+}
+
+cha //Don't time out the balloon
+{
+	"\![set,balloontimeout,0]"
+}
+
+bdaydial
+{
+	if userbirthday == "12month 25day"
+	{
+		"\0%(shirtsweekday)Happy Christmas and happy birthday %(username)\x\c does that mean that i can call you Jesus?"
+		"\0%(shirtsweekday)Happy Christmas and happy birthday %(username)\x\c does that mean that i can call you savior?"
+	}
+	elseif userbirthday == "10month 29day"
+	{
+		"\0%(shirtsweekday)Happy birthday, %(username) .\w8 .\w8 .\w8 Today is also Dr Alex's birthday .\w8 .\w8 .\w8 hope she's not overworking herself."
+	}
+	elseif userbirthday == "2month 14day"
+	{
+		"\0%(shirtsweekday)Birthday on Valentines day?\w8 cute. \w8\w8\w8\0Happy birthday, %(username)."
+	}
+	elseif userbirthday == "12month 31day"
+	{
+		"\0%(shirtsweekday)Happy new year.\w8\0 and Happy birthday, %(username)."
+		"\0%(shirtsweekday)Happy new year.\w8\0 and Happy birthday, %(username)."
+	}
+	else
+	{
+		"\0%(shirtsweekday)It's %(bornmonthprint) %(borndayprint).\w8Happy birthday, %(username)."
+		"\0%(shirtsweekday)It's %(bornmonthprint) %(borndayprint).\w8Happy birthday, %(username)."
+	}
+}
+
+orchidsss
+{
+	if orchid > 1; "orchid"
+	else; "orchideas"
+}
+
+mnoga
+{
+	if stuff > 1; "s"
+}
+
+season
+{
+	if hsphere == "Northern"
+	{
+		if month > 2 && month < 6; "Spring"
+		elseif month > 5 && month < 9; "Summer"
+		elseif month > 8 && month < 12; "Autumn"
+		else; "Winter"
+	}
+	else
+	{
+		if month > 2 && month < 6; "Fall"
+		elseif month > 5 && month < 9; "Winter"
+		elseif month > 8 && month < 12; "Spring"
+		else; "Summer"
+	}
+}
+
+himgian
+{
+	"Gian"
+	"him"
+}
+
+axvarilang
+{
+	"niziee,mum"
+	"lumza,dad"
+	"akai,sister"
+	"nimze,grandma"
+	"luze,grandpa"
+	"mazi,cat"
+	"mari,cats"
+	"kiri,crow"
+	"kasaza,sheep"
+}
+
+TOPROPER
+{
+    _word = _argv[0]
+    _letter = TOUPPER(SUBSTR(_word,0,1))
+    _word = SUBSTR(_word,1,STRLEN(_word)-1)
+    _letter + _word
+}

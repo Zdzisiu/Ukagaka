@@ -1,0 +1,753 @@
+﻿
+OpenSakuraMenu
+{
+	if sleep != 1
+	{
+		if cancelmin == 5
+		{
+			"\0\i[7]\b1Do you actally want something or are you just poking me for fun?" //angry boi
+		}
+		else
+		{	
+			"\0\i[7]\b1What do you need?"
+			"\0\i[7]\b1Yes?"
+			"\0\i[7]\b1What is it?"
+		}
+		--
+		"\1\b2"
+		--
+		MenuRun
+	}
+	else
+	{
+		SleepMenu
+	}
+	
+}
+
+SleepMenu
+{
+	"\1Do you want to wake him up?\n\n[half]"
+	--
+	"\![*]\q[Yes,wakup]\n/
+	\![*]\q[No,dontwake]\n"
+}
+
+Select.dontwake
+{
+	"\1You let him sleep"
+}
+
+Select.wakup
+{
+	sleep = 0
+	--
+	"\1You woke him up\0%(shirtsweekday)Oh, sorry seems like I fell asleep\n"
+	--
+	if moodstring == "sleepy"; "\1He still seems tired"
+	--
+	OpenSakuraMenu
+}
+
+OnBACKTOMENU
+{
+	OpenSakuraMenu
+}
+
+MenuRun
+ {	
+ 	wd = GetWeekDay 
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	--
+	"\_q" 
+	--
+	if lastTalk != ""; "\![*]\q[Can you repeat?,OnLastTalk]\n\n[half]"
+	--
+ 	"\![*]\q[Say something,altalk]\n\n[half]"
+	--
+	"\![*]\q[Config Menu,configmenu]\n\n[half]/
+    \![*]\q[Ask him something,asksomething]\n/
+	\![*]\q[Play a game,games]\n/
+	\![*]\q[Give him something,givesomething]\n/
+	\![*]\q[Actions,act]\n\n[half]/
+	//\![*]\q[SayTest,saysmth]\n\n[half]/
+	//\![*]\q[Test Code,OnAxverian]\n\n[half]/
+	\![*]\q[Ask for a favor,dosomething]\n/
+	\![*]\q[Dev Config,devconfig]\n\n[half]/
+	\![*]\q[Nevermind,CANCEL]\n\n"
+	--
+	if weathermenu == "ON"; "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5]) — %(season)\n"
+	--
+	"Coins: %(coins)\n%(wd) %(timeformat), %(dateformat)\e"
+	
+}
+
+Select.games
+{
+	"\0What would you like to play?\n\n[half]\1"
+	--
+	"\![*]\q[War,OnWar]\n/
+	//\![*][Battleships,OnWar]\n/
+	\f[strike,1]Battleships\f[strike,0]\n"
+	//\![*]\q[Makao,OnMakao]\n
+	//\f[strike,1]Makao\f[strike,0]\n
+	--
+	"\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
+ 	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.altalk
+{
+	AiTalk
+}
+
+//Leave this alone
+OnLastTalk 
+{
+	"%(lastTalk)\e"
+}
+
+GetWeekDay
+{
+	if weekday == 0; "Sun"
+	elseif weekday == 1; "Mon"
+	elseif weekday == 2; "Tue"
+	elseif weekday == 3; "Wed"
+	elseif weekday == 4 ;"Thu"
+	elseif weekday == 5 ;"Fri"
+	else ;"Sat"
+}
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11; "AM"
+ 	else; "PM"
+}
+
+Getnowmin
+{
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
+
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9; "0%(hour12)"
+	else; "%(hour12)"
+}
+
+
+Select.BACKTOMENU
+{
+	OpenSakuraMenu
+}
+
+
+Select.asksomething
+{
+	"\0You have questions?\w8 I will be happy to answer them.\1\b2you ask him about:\n\n"
+ 	"\0Hmm?\1\b2you ask him about:\n\n"
+	"\0huh?\w8 What do you want to know?\1\b2you ask him about:\n\n"
+    --
+	if lab == 1; "\![*]\q[Laboratory,laboratory]\n"
+	--
+	if dralex == 1; "\![*]\q[Dr Alex,alex]\n"
+	--
+	if drjelonka == 1; "\![*]\q[Dr Jelonka,jelonka]\n"
+	--
+	if drzane == 1; "\![*]\q[Dr Zane,zane\n"
+	--
+	if drarktur == 1; "\![*]\q[Dr Arktur,arktur]\n"
+	--
+	if drlydia == 1; "\![*]\q[Dr Lydia,lydia]\n"
+	--
+	if scientist == 1; "\![*]\q[Scientists,labhuman]\n"
+	--
+	if positiverel > 25
+	{
+		"\![*]\q[His favories,favorites]\n/
+		\![*]\q[His least favories,leastfavorites]\n"
+	}
+	--
+	if positiverel > 100; "\![*]\q[His skills,skills]\n"
+	--
+	if positiverel > 125; "\![*]\q[His friends,friends]\n"
+	--
+	if positiverel > 150; "\![*]\q[His family,familia]\n"
+	--
+    "\![*]\q[Himself,gian]\n\n[half]/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+ 	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.plush  
+{
+	"\1\b2what plush do you want to give him?\n\n"
+    --
+	"\![*]\q[Alpaca,plush1]\n/
+	\![*]\q[Cat,plush2]\n/
+	\![*]\q[Bird,plush3]\n/
+	\![*]\q[Sheep,plush4]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+ 	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.givesomething
+{
+	"\1\b2what do you want to give him?\n\n"
+    --
+	if drawing == 1; "\![*]\q[Drawing,drawing]\n"
+	--
+	if painter == 1; "\![*]\q[Painting,painting]\n"
+	--
+	if poet == 1 ; "\![*]\q[Poem,poem]\n"
+	--
+	if sew == 1; "\![*]\q[Hand sewn plushie,doll]\n"
+	--
+	"\![*]\q[Plush,plush]\n/
+	\![*]\q[Candy,candy]\n/
+	\![*]\q[Potted plant,potplant]\n/
+    \![*]\q[Sweater,sweater]\n/
+    \![*]\q[Love letter,letterlove]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+ 	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.act
+{
+	"\0\b2(what do you want to do?)\n\n"
+    --
+	"\![*]\q[Prise him,prise]\n\n[half]/
+	//\![*]\q[Mock him,mock]\n\n[half]/
+	//\![*]\q[offend him,offend]\n\n[half]/
+	\![*]\q[Flirt with him,flirt]\n\n[half]/
+	//\![*]\q[Scare him,scare]\n\n[half]/
+	\![*]\q[Compliment him,complinment]\n\n[half]/
+	\![*]\q[Back to main menu,BACKTOMENU]\n\n[half]/
+ 	\![*]\q[Nevermind,CANCEL]\e"
+}
+Select.dosomething
+{
+	"\0\b2(You ask him to:).\n\n"
+	--
+	"\![*]\q[Open Calendar,CALENDAR]\n\n[half]/
+	\![*]\q[Weather,OnCheckWeather]\n/
+	\![*]\q[Check Email,MailCheck]\n/
+	\![*]\q[Open SSP Preferences,sspconfig]\n/
+	\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
+	\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.CALENDAR
+{
+	"\0Opening the calendar.\![open,calendar]\e"
+}
+
+Select.sspconfig
+{
+	"\0Opening the SSP config menu.\![open,configurationdialog]\e"
+	
+}
+
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	
+	
+	if _gomicheck == 0 
+	{
+		"\1He seems offended\0\nReally? Emptying garbage can?\x\c\w8\w8(he sighs relived)It's already empty.\e"
+		
+	}
+	elseif _gomicheck >= 1 
+	{
+		garbage +=1
+		--
+		shirttd = RAND(6)
+		--
+		"\1He seams offended\0\nReally? Emptying garbage can?0\n[half]\1he does it, but doesn't seems happy about it[raise,OnGarbagecanEmpty]\x\cNow i need to change\s[-1]\w8\w8\w8\w8\w8\0%(shirtsweekday)\e"		
+	}
+}
+
+
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+
+
+Select.HEADLINECANCEL
+{
+	"\0Finished with headlines.\e"
+}
+
+	
+
+OnChoiceTimeout
+{
+	"\0The menu has timed out.\e"
+}
+
+OpenKeroMenu
+{
+	"\1\s[20]What do you want to do?\n\n"
+	--
+	"\![*]\q[Check inventory,OnBag,0,menu]\n/
+	\![*]\q[Memory,memo]\n/
+	\![*]\q[Check stats,stats]\n/
+	//\![*]\q[Music Player,musicplay]\n\n[half]/
+	\n[half]\![*]\q[Nevermind,cancel]\e"
+}
+
+Select.memo
+{
+	if username != ""; "Name: %(username)\n"
+	--
+	if UserAge != ""; "Age: %(UserAge)\n"
+	--
+	if UserNation != ""; "Nationality: %(UserNation)\n"
+	--
+	if UserHobby != ""; "Hobbies: %(UserHobby)\n"
+	--
+	if FavoriteAnimal != ""; "Favorite Animals: %(FavoriteAnimal)\n"
+	--
+	if FavoriteColor != ""; "Favorite colors: %(FavoriteColor)\n"
+	--
+	"\n\![*]\q[Nevermind,cancel]\e"
+}
+
+ Select.stats
+ {
+	"\1\b2You petted Gian %(petcountvariable) times\n/
+	You punched Gian %(punchcountvariable) times\n/
+	You and Gian have %(commonthings) things in common\n/
+	Today you give him:\n/
+	%(sweaters) sweaters\n/
+	%(plants) potted plants\n/
+	%(candy) candies\n/
+	%(catplush) cat plushies\n/
+	%(alpacaplush) alpaca plushies\n/
+	%(sheepplush) sheep plushies\n/
+	%(birdplush) bird plushies\n/
+	%(loveletters) love letters\n"
+	--
+	if drawing >= 1 ; "%(drawings) drawings\n"
+	--
+	if painter >= 1; "%(paintings) paintings\n"
+	--
+	if poet >= 1; "%(poems) poems\n"
+	--
+	if  sew >= 1; "%(dolls) handsewn dolls\n/"
+	--
+	"\![*]\q[Nevermind,cancel]\e"
+
+}
+
+OnBag
+{
+	//name,amount,description
+	if reference0 == "-1" || reference0 == "1"; bagpage += TOINT(reference0)
+	--
+	_num = TOINT(_argv[0])
+	--
+	if reference1 != "menu"; bagpage = 0
+	--
+	_emp = 0
+	_hitems = 0
+	_names = "clover,apple,tulip,rose,orchid,blanket,sweater,hat,scarf,shiny stone,ring"
+	_size = ARRAYSIZE(names)
+	_am = bagpage * 8
+	_amount = clover + "," + apples + "," + tulip + "," + rose + "," + orchid + ","+ blanket + ","+ sweater + ","+ hat + ","+ scarf + ","+ shinystone + ","+ ring  
+	_desc = "Normal clover%(mnoga),Normal apple%(mnoga)+ very healthy,Tulip%(mnoga)+ if you have enough maybe you can make a bouquet or a flower crown?,Rose%(mnoga)+ if you have enough maybe you can make a bouquet?,%(orchidsss)+ if you have enough maybe you can make a bouquet?,Very warm+ very cozy,Very warm+ very cozy,Keep your ears warm,Keep warm,Very shiny+ very pretty,Pretty and shiny+ as all things should be"
+	_items = (_names,_amount,_desc)
+	--
+	for _i = 0;_i < _size;_i ++
+	{
+		_emp += TOINT(_amount[_i])
+	}
+	--
+	if _emp == 0
+	{
+		"\1Your bag is empty"
+	}
+	else
+	{
+		_print = "\1\b6\*%(cha)You check your bag, you have:\n\n[half]"
+		--
+		for _i = _am;_i < _size;_i ++//_size;_i ++
+		{
+			stuff = TOINT(_items[1][_i])
+			--
+			if _items[1][_i] > 0
+			{
+				_hitems += 1
+				--
+				if _i == _num && reference1 != "menu"; _print += "\f[color,#71ebc8]"
+				--
+				if _i == 4 && _items[1][_i] > 1; _print += "\![*]\q[Orchideas [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
+				elseif _i == 8 && _items[1][_i] > 1; _print += "\![*]\q[Skarves [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
+				else ; _print += "\![*]\q[" + TOPROPER(_items[0][_i]) + "%(mnoga) [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
+				--
+				if _i == _num; _print += "\f[default]"
+			}
+		}
+		--
+		_print += "\n[half]"
+		--
+		if bagpage > 0; _print += "\![*]\q[Previous Page,OnBag,-1]   "
+		--
+		if _hitems == 8; _print += "\![*]\q[Next Page,OnBag,1]   "
+		--
+		_print += "\![*]\q[Nevermind,cancel]"
+		--
+		if _argv[0] != ""
+		{
+			stuff = TOINT(_items[1][_num])
+			--
+			for _i = 0;_i < 12 - _hitems;_i ++
+			{ 
+				_print += "\n"
+			}
+			--
+			_print += "\n[half]" + REPLACE(TOPROPER(_items[2][_num]),"+",",")
+		}
+		--
+		_print
+	}
+}
+
+OnItem
+{
+
+}
+
+OnChoiceHover
+{
+	case reference1
+	{
+		when "OnItem"; OnBag(reference2)
+	}
+}
+
+OpenSheepMenu
+{
+	if opensheep != 1
+	{
+		if sheeptrudaction != 1
+		{
+			"\1The sheep looks at you, it seems like it want's something to eat, maybe you should give it some apples or clovers?\n"
+			--
+			sheeptrudaction =  1
+		}
+		--
+		if clover < 5 && apples < 2
+		{
+			"\1You don't have enough food to give to the sheep"
+		}
+		elseif clover >= 5 || apples >= 2s
+		{
+			"\1Do you want to give the food to the sheep?\n\n[half]"
+			--
+			"\![*]\q[Yes,OnOpenShop,sheep]\n/
+			\![*]\q[No,nofood]"
+		}
+		--
+		"\![*]\q[Navermind,cancelll]\e"
+	}
+	else
+	{
+		_names = ""
+		_am = shoppage * 8
+		_price = "" 
+		_desc = ""
+		_size = ARRAYSIZE(names)
+		_items = (_names,_amount,_desc)
+		--
+		OnShop("sheep",_items,_size)
+	}
+	
+}
+
+sheepnoises
+{
+	"Baa"
+	"Baaa"
+	"Baaaa"
+	"Mee"
+	"Meee"
+	"Meeee"
+	"Bah"
+	"Baah"
+	"Baaah"
+}
+
+OnShop
+{
+	//name,amount,description
+	if reference0 == "-1" || reference0 == "1"; shoppage += TOINT(reference0)
+	--
+	_num = TOINT(_argv[0])
+	--
+	_items = _argv[0]
+	_hitems = 0
+	_am = shoppage * 8
+	--
+	_print = "\1\b6\*%(cha)%(sheepnoises)"
+	--
+	for _i = _am;_i < _size;_i ++
+	{
+		if _items[1][_i] > 0
+		{
+			stuff = TOINT(_items[1][_i])
+			--
+			_hitems += 1
+			--
+			if _i == _num && _argv[0] != "sheep"; _print += "\f[color,#71ebc8]"
+			--
+			_print += "\![*]\q[" + TOPROPER(_items[0][_i]) + "%(mnoga) [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
+			--
+			if _i == _num; _print += "\f[default]"
+		}
+	}
+	--
+	_print += "\n[half]"
+	--
+	if bagpage > 0; _print += "\![*]\q[Previous Page,OnBag,-1]   "
+	--
+	if _hitems == 8; _print += "\![*]\q[Next Page,OnBag,1]   "
+	--
+	_print += "\![*]\q[Nevermind,cancel]"
+	--
+	if _argv[0] != "" && _argv[0] != "sheep"
+	{
+		stuff = TOINT(_items[1][_num])
+		--
+		for _i = 0;_i < 12 - _hitems;_i ++
+		{ 
+			_print += "\n"
+		}
+		--
+		_print += "\n[half]" + REPLACE(TOPROPER(_items[2][_num]),"+",",")
+	}
+	--
+	_print
+}
+
+OnBuy
+{
+	case reference0
+	{
+		when "blanket"
+		{
+			if coins >= 20
+			{
+				coins -= 20
+				--
+				blanket = 1
+				--
+				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
+			}
+			else
+			{
+				"\1You don't have enough coins"
+			}
+			
+		}
+		when "sweater"
+		{
+			if coins >= 10
+			{
+				coins -= 10
+				--
+				sweater += 1
+				--
+				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
+			}
+			else
+			{
+				"\1You don't have enough coins"
+			}
+			
+		}
+		when "hat"
+		{
+			if coins >= 7
+			{
+				coins -= 7
+				--
+				hat += 1
+				--
+				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
+			}
+			else
+			{
+				"\1You don't have enough coins"
+			}
+		}
+		when "scarf"
+		{
+			if coins >= 7
+			{
+				coins -= 7
+				--
+				scarf += 1
+				--
+				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
+			}
+			else
+			{
+				"\1You don't have enough coins"
+			}
+		}
+	}
+	--
+	"\x\c"
+	--
+	OpenSheepMenu
+
+}
+
+OnOpenShop
+{
+	case reference0
+	{
+		when "sheep"
+		{
+			"\1The sheep looks happy"
+			--
+			opensheep = 1
+			OpenSheepMenu
+		}
+		when "crow"
+		{
+			if reference1 == "coin"
+			{
+				"\1How many coins are you willing to give him?\![open,sliderinput,OnCoinsCrow,-1,0,0,%(coins)]"
+			}
+			else
+			{
+				"\1Crow took the %(reference1) and hid it inside the hole, he seems happy"
+				--
+				opencrow = 1
+				--
+				if reference1 == "shiny stone"
+				{
+					shinystone -= 1
+				}
+				elseif reference1 == "ring"
+				{
+					ring -= 1
+				}
+				--
+				OpenCrowMenu
+			}
+			
+		}
+	}
+}
+
+OnCoinsCrow
+{
+	if reference0 < 50
+	{
+		"\1The crow is not impressed, it want's more"
+	}
+	else
+	{
+		"\1Crow took the coins and hid them inside the hole, he seems happy\x\c"
+		--
+		opencrow = 1
+		coins -= reference0
+		OpenCrowMenu
+	}
+}
+
+OpenCrowMenu
+{
+	if opencrow != 1
+	{
+		if crowtrudaction != 1
+		{
+			"\1The crow looks at you, maybe you should give him something shiny?\x\c"
+			--
+			crowtrudaction =  1
+		}
+		--
+		if coin < 1 && ring < 1 && shinystone < 1
+		{
+			"\1You don't have anything that crow would like"
+		}
+		elseif coin >= 1 || ring >= 1 || shinystone >= 1
+		{
+			"\1What do you want to give the crow?\n\n[half]"
+			--
+			if coin >= 1; "\![*]\q[Coins,OnOpenShop,crow,coin]\n"
+			--
+			if shinystone >= 1; "\![*]\q[Shiny stone,OnOpenShop,crow,shiny stone]\n"
+			--
+			if ring >= 1; "\![*]\q[Ring,OnOpenShop,crow,ring]\n"
+		}
+	}
+	else
+	{
+		if  ring < 1 && shinystone < 1
+		{
+			"\1You don't have anything that crow would like\n\n[half]"
+		}
+		elseif ring >= 1 || shinystone >= 1
+		{
+			"\1What do you want to sell to the crow?\n\n[half]"
+			--
+			if shinystone >= 1; "\![*]\q[Shiny stone,OnSell,stone]: 20 coins\n"
+			--
+			if ring >= 1; "\![*]\q[Ring,OnSell,ring]: 10 coins\n"
+		}
+	}
+	--
+	"\![*]\q[Navermind,cancelll]\e"
+	
+}
+
+OnSell
+{
+	case reference0
+	{
+		when "ring"
+		{
+			ring -= 1
+			coins += 10
+		}
+		when "stone"
+		{
+			shinystone -= 1
+			coins += 20
+		}
+	}
+	--
+	"The crow is happy with the exchange\x\cYou now have %(coins) coins\x\c"
+	--
+	OpenCrowMenu
+}

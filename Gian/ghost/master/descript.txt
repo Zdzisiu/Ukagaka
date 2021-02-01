@@ -1,0 +1,18 @@
+﻿charset,UTF-8
+
+name,Gian
+type,ghost
+
+sakura.name,Gian
+kero.name,-
+
+craftman,Zdzisiu
+craftmanw,Zdzisiu
+craftmanurl,
+
+//This is coding stuff, don't touch it.
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll
+
+icon,fish.ico

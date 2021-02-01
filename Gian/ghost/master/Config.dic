@@ -1,0 +1,419 @@
+﻿Select.configmenu
+{
+	TalkConfig
+}
+
+Select.TEACHPRONOUN
+{
+	"\0How should I refer to you?\w5\n\n[half]\_q/
+	\![*]\q[He-His-Him,choicemasc]\n/
+	\![*]\q[She-Her-Her,choicefem]\n/	
+	\![*]\q[They-Their-Them,choiceneither]\e"
+}
+
+Select.choicemasc
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	--
+	"\0I will refere to you as 'he' then\e"
+}
+
+Select.choicefem
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	--
+	"\0I will refere to you as 'she' then\e"
+}
+
+Select.choiceneither
+{
+	presuffix = "undefine"
+	himher = "them"
+	heshe = "they"
+	hisher = "their"
+	--
+	"\0I will refere to you as 'they' then\e"
+}
+
+Select.deleteon
+{
+	if deleteshitai == "OFF"
+	{
+		deleteshitai = "ON"
+	}
+	else
+	{
+		deleteshitai = "OFF"
+	}
+	--
+	TalkConfig
+}
+
+Select.TEACHBDAY
+{
+	dayslot = GetDaySlot 
+	
+	"\0What month were you born? \w8Write the number.\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+OnUserBornMonth
+{
+	_tempmonth = reference0 
+	if _tempmonth >= 1 && _tempmonth <= 12 
+	{
+		bornmonth = _tempmonth
+		bornmonthprint = Printmonth
+		--
+		"\0So you were born in %(bornmonthprint).\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
+	
+	}
+	else 
+	{
+		"\0There is no month like that. Maybe try again\![open,inputbox,OnUserBornMonth,-1]\e"
+	
+	}
+}
+
+Printmonth
+{
+	if bornmonth == 1; "January"
+	elseif bornmonth == 2; "February"
+	elseif bornmonth == 3; "March"
+	elseif bornmonth == 4; "April"
+	elseif bornmonth == 5; "May"
+	elseif bornmonth == 6; "June"
+	elseif bornmonth == 7; "July"
+	elseif bornmonth == 8; "August"
+	elseif bornmonth == 9; "September"
+	elseif bornmonth == 10; "October"
+	elseif bornmonth == 11; "November"
+	else; "December"
+}
+
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31; "%(bornday)st"
+	elseif bornday == 2 || bornday == 22; "%(bornday)nd"
+	elseif bornday == 3 || bornday == 23; "%(bornday)rd"
+	else; "%(bornday)th"
+}	
+
+
+OnUserBornDay
+{
+	tempday = reference0 
+	
+	if bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12 
+	{
+		if tempday >= 1 && tempday <= 31 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			
+			"%(birthchecked)"
+		}
+		else 
+		{
+			"\0There is no day like that. Let's try again.\![open,inputbox,OnUserBornDay,-1]\e"
+			
+		}
+	}
+	elseif bornmonth == 2 
+	{
+		if tempday >= 1 && tempday <= 29 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			
+			"%(birthchecked)"
+
+		}
+		else
+		{
+			"\0There is no day like that. Maybe try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}
+	else 
+	{
+		if tempday >= 1 && tempday <= 30 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			
+			"%(birthchecked)"
+		}
+		else
+		{
+			"\0There is no day like that. Maybe try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}		
+}
+
+birthchecked
+{
+	if userbirthday == dayslot ; "\0Today is your birthday then.\w8 Happy birthday, %(username).\e"
+	else; "\So your birthday is %(bornmonthprint) %(borndayprint)? I will remember.\e"
+}
+
+
+Select.talkinter
+{
+	"\1\b2How often should Gian speak?\w8\0%(shirtsweekday)The interval is currently set to %(talktime)./
+	\n\n[half]/
+	\![*]\q[Every 30 seconds,TALKMAX]\n/
+	\![*]\q[Every minute,TALKHIGH]\n/
+	\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+	\![*]\q[Every 5 minutes,TALKPOOR]\n/
+	\![*]\q[Every 15 minutes,TALKRARE]\n/
+	\![*]\q[Every 30 minutes,TALKOVRARE]\n/
+    \![*]\q[Set own,TALKOWN]\n/
+	\![*]\q[Don't speak,TALKNONE]\n\n[half]/
+	\![*]\q[Don't change,TalksTill]\e"
+}
+
+Select.TALKOWN
+{
+	"How often should I speak?(Write in minutes)\![open,inputbox,OnSpeakTime,-1]"
+}
+
+OnSpeakTime
+{
+	temptalktime = reference0
+    if reference0 == 1
+    {
+        talktime = "minute"
+    }
+    else
+    {
+        talktime = reference0 + " minutes"
+    }
+	--
+	aitalkinterval = temptalktime * 90
+	
+	"I will speak every %(talktime)\e"
+}
+
+Select.TalksTill
+{
+	"\1No change to the talk rate.\e"
+}
+
+Select.TALKMAX
+{
+	talktime = "30 seconds" 
+	aitalkinterval = 45 
+	
+	"\1Gian will speak every 30 seconds.\e"
+}
+
+Select.TALKHIGH
+{
+	talktime = "minute"
+	aitalkinterval = 90
+	
+	"\1Gian will speak every minute.\e"
+}
+
+Select.TALKNORMAL
+{
+	talktime = "3 minutes"
+	aitalkinterval = 270
+	
+	"\1Gian will speak every three minutes.\e"
+}
+
+Select.TALKPOOR
+{
+	talktime = "5 minutes"
+	aitalkinterval = 400
+	
+	"\1Gian will speak every five minutes.\e"
+}
+
+Select.TALKRARE
+{
+	talktime = "15 minutes"
+	aitalkinterval = 1200
+	
+	"\1Gian will speak every fifteen minutes.\e"
+}
+
+Select.TALKOVRARE
+{
+	talktime = "30 minutes"
+	aitalkinterval = 2400
+	
+	"\1Gian will speak every thirty minutes.\e"
+}
+
+Select.TALKNONE
+{
+	talktime = "silence"
+	aitalkinterval = 0
+	
+	"\1Gian is not going to talk at all.\e"
+}
+
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+Select.CANCEL
+{
+	cancelmin++
+	--
+	"\1You decide to not do anything\e"
+}
+
+TalkConfig
+{
+	"\1\b[2]\_q"
+	--
+	"\f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
+	--
+	"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
+	--
+	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n\n"
+	--
+	"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	--	
+	"\![*]Enable Uninstall?\f[bold,1] \n\q[%(deleteshitai),deleteon]\f[bold,0]\n\n[half]\n"
+	--
+	"\f[color,default]\f[bold,0]Weather \f[color,#e62719] \q[%(weathermenu),weatheron]\f[color,default]\n"
+	--
+	if locationcode == ""; "Location for weather check: \![*]\q[Set Location,OnWeatherLocation]\n"
+	else; "Location for weather check: \![*]\q[%(curlocation),OnWeatherLocation]\n"
+	--
+	"\f[bold,1]\f[color,#71ebc8]\q[%(timeformatype),timetype]\f[color,default] TIME\f[bold,0]\n"
+	--
+	"\f[bold,1]DATE FORMAT: \f[color,#71ebc8]\q[%(dateformatype),datetype]\f[color,default]\f[bold,0]\n\n[half]"
+	--
+	"\f[color,default]\f[bold,0]Moon Phase: \f[color,#71ebc8] \q[%(moonmenu),moonon]\f[color,default]\n"
+	--
+	if moonmenu == "ON"; "\f[color,default]\f[bold,0]Hemisphere: \f[color,#71ebc8] \q[%(hsphere),hemisph]\f[color,default]\n"
+    --
+	"\f[color,default]\f[bold,0]Auto update check: \f[color,#71ebc8] \q[%(upchec),upcheck]\f[color,default]\n"
+    --
+	"\![*]\f[bold,1]\q[Reset,resetuser]\f[bold,0]\n\n"
+	--	
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+OnCelc //F to C conversion
+{
+	celc = (currentweatherarray[0] - 32)
+	celc = celc * (5.0/9.0)
+	firstnumcelc = TOINT(celc)
+	toroundup = ERASE(celc,0,2)
+	--
+	if (firstnumcelc[0] < 10 && firstnumcelc[0] > 0) || (firstnumcelc[0] > -10 && firstnumcelc[0] < 0)
+	{
+		celc = ERASE(celc,4,10)
+		runpnum = 1
+	}
+	else
+	{
+		celc = ERASE(celc,5,10)
+		runpnum = 2
+	}
+	--
+	if toroundup < 50; celc = ERASE(celc,runpnum,10)
+	else; celc = TOINT(ERASE(celc,runpnum,10)) + 1
+	//--
+	//"C: %(celc) F: %(currentweatherarray[0])"
+}
+
+timeformat
+{
+	if timeformatype == "STANDARD"; "%(nowhour):%(nowmin) %(ap)"
+	elseif timeformatype == "MILITARY"; "%(hour):%(nowmin)"
+}
+
+dateformat
+{
+	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
+	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
+	elseif dateformatype == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
+}
+
+Select.resetuser
+{
+	reset = 1
+	--
+	OnVaraiables
+	--
+	OnFirstBoot
+}
+
+Select.degreeez
+{
+	if "C" _in_ currentweatherarray[1]; currentweatherarray[1] = REPLACE(currentweatherarray[1],"C","F")
+	else; currentweatherarray[1] = REPLACE(currentweatherarray[1],"F","C")
+	--
+	TalkConfig
+}
+
+Select.datetype
+{
+	case dateformatype
+	{
+		when "dd/mm/yyyy"; dateformatype = "yyyy/mm/dd"
+		when "yyyy/mm/dd"; dateformatype = "mm/dd/yyyy"
+		when "mm/dd/yyyy"; dateformatype = "dd/mm/yyyy"
+	}
+	--
+	TalkConfig
+}
+
+Select.timetype
+{
+	case timeformatype
+	{
+		when "STANDARD"; timeformatype = "MILITARY"
+		when "MILITARY"; timeformatype = "STANDARD"
+	}
+	--
+	TalkConfig
+
+}
+
+Select.upcheck
+{
+	case upchec
+	{
+		when "ON"; upchec = "OFF"
+		when "OFF"; upchec = "ON"
+	}
+	--
+	TalkConfig
+}
+
+Select.moonon
+{
+	if moonmenu = "OFF"; moonmenu = "ON"
+	else; moonmenu = "OFF"
+    --
+	TalkConfig
+}
+
+
+Select.weatheron
+{
+	if weathermenu == "OFF"; weathermenu = "ON"
+	else; weathermenu = "OFF"
+    --
+	TalkConfig
+}

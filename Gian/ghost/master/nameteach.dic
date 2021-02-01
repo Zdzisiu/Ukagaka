@@ -1,0 +1,110 @@
+﻿OnTeachName	
+{
+	if reference0 == "TEACHNAME"
+	{
+		"\0%(shirtsweekday)You wan't to change your name?\w8 how should i call you then\![open,inputbox,OnNameTeach,-1]\e"
+	}
+	else
+	{
+
+	}
+}
+
+OnNameTeach
+{
+	tempname = reference0
+	_tolowername = TOLOWER(reference0)
+	--
+	if _tolowername == "gian" 
+	{
+		"\0Choosing that name might be pretty confusing\x\cMaybe choose something else.\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "" || reference0 == " " || reference0 == "   " 
+	{
+		username = "NULL" 
+		"You \w8. \w8. \w8. didn't write anything.\e"
+	}
+	elseif _tolowername == "alex"  || _tolowername == "zane" || _tolowername == "lydia" || _tolowername == "jelonka" || _tolowername == "arktur" 
+	{
+		"\0Oh,\w6 really?\w8 Do you want a title?\x\c\![*]\q[Nope,titlenone]\n"
+		--
+		if presuffix == "masculine" 
+		{
+		"\![*]\q[Mr.,titlemr]\n/
+		\![*]\q[Master,titlemaster]\n"
+		}
+		elseif presuffix == "feminine" 
+		{
+		"\![*]\q[Ms.,titlems]\n/
+		\![*]\q[Lady,titlelady]\n"
+		}
+		-- 
+		"\![*]\q[-ssi,titlessi]\n/
+		\![*]\q[-san,titlesan]\e"
+	}
+	else 
+	{
+		"\0%(shirtsweekday)Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+		--
+		if presuffix == "masculine" 
+		{
+		"\![*]\q[Mr.,titlemr]\n/
+		\![*]\q[Master,titlemaster]\n"
+		}
+		elseif presuffix == "feminine" 
+		{
+		"\![*]\q[Ms.,titlems]\n/
+		\![*]\q[Lady,titlelady]\n"
+		}
+		-- 
+		"\![*]\q[-ssi,titlessi]\n/
+		\![*]\q[-san,titlesan]\e"
+	}
+}
+
+Select.titlenone
+{
+	username = tempname
+	NameDone
+}
+
+Select.titlemr
+{
+	username = "Mr. " + tempname
+	NameDone
+}
+
+Select.titlemaster
+{
+	username = "Master " + tempname
+	NameDone
+}
+		
+Select.titlems
+{
+	username = "Ms. " + tempname
+	NameDone
+}
+
+Select.titlelady
+{
+	username = "Lady " + tempname
+	NameDone
+}
+
+Select.titlessi
+{
+	username = tempname + "-ssi"
+	NameDone
+}
+
+Select.titlesan
+{
+	username = tempname + "-san"
+	NameDone
+}
+
+NameDone
+{
+	"\0%(shirtsweekday)I will call you %(username) then.\e"
+}

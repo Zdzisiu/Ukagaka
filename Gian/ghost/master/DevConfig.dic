@@ -1,0 +1,64 @@
+﻿Select.creloadg
+{
+"\![reload,ghost]\e"
+}
+
+Select.creloads
+{
+"\![reload,shiori]\e"
+}
+
+Select.devconfig
+{
+	--
+	"\n\n\_q\b2" 
+	--
+	"\![*]\q[Erase all values,cvalues]\n\n[half]/
+	\![*]\q[Show values,svalue]\n\n[half]/
+	\![*]\q[Shirts,cshirt]\n\n[half]/
+
+ 	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+}
+
+Select.svalue
+{
+	"\0\_qDr Zane = %(drzane), Dr Jelonka = %(drjelonka), Dr Arktur = %(drarktur), Dr Lydia = %(drlydia), Dr Alex = %(dralex), Labolatory = %(lab), Scientists = %(scientist)\n\n/
+	Suicide = %(suicide), Depression = %(depression), Hotline = %(hotline)\n\n[half]/
+	Common things = %(commonthings), Pet Count = %(petcountvariable), Punch Count = %(punchcountvariable) affection variable = %(affectionvariable)\n\n[half]/
+	ho = %(ho) ds = %(ds) ut = %(ut) garbageshirt = %(garbageshirt) Animal = %(FavoriteAnimal) Backpack = %(BackpackC) Color = %(FavoriteColor) User Hobby = %(UserHobby)\e"
+}
+
+Select.cvalues
+{    
+	drzane	         = 0
+    drjelonka        = 0
+    drarktur         = 0
+    drlydia			 = 0
+	dralex 			 = 0
+	lab		 	 	 = 0	
+	scientist		 = 0
+	suicide 		 = 0
+	depression		 = 0
+	hotline 		 = 0
+	commonthings	 = 0
+    petcountvariable = 0
+    punchcountvariable = 0
+	affectionvariable = 25
+	lovevariable	= 0
+	drawing			 = 0
+	painter 		 = 0
+	anime			 = 0
+	gaming			 = 0
+	reading 		 = 0
+	puzzles 		 = 0
+	write			 = 0
+	knit			 = 0
+	sew 			 = 0
+	cosplay			 = 0
+	photography		 = 0
+}
+
+Select.cshirt
+{
+	"%(shirtsweekday)"
+}

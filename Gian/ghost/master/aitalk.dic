@@ -1,0 +1,576 @@
+﻿AiTalk
+ {
+	if RAND(10) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" ; lastTalk = RandomTalk
+			else ; lastTalk = ChainTalk
+
+			lastTalk
+		}
+ 		else
+		{ 
+			MikireTalk
+ 		}
+	}
+ }
+
+RandomTalk : nonoverlap
+{
+	if sleep != 1
+	{
+		
+		"\0\i[4]\1You hear soft humming\n\n" //Make "music" animation
+
+		"\1He seems to be thinking about something\e" 
+		
+		"\0\i[4]\1Gian is humming calm song\n\n"
+		
+		if ghostexcount > 0
+		{
+			_number = RAND(ghostexcount) 
+			--
+			_checkname = "%(ghostexlist[_number])" 
+			--
+			if _checkname == "MVSans"; _checkname = "Sans"
+			elseif _checkname == "RYS-0825"; _checkname = "S"
+			--
+			case _checkname
+			{    
+				when "Wilson"
+				{
+					"\1You notice that Gian is looking at Wilson,\w3 mumbling\w6\0\f[height,10]I think I saw him somewhere,\w8 but where?\f[height,100%]\e"
+				}
+				when "Sans","Gaster","Papyrus","S"
+				{
+					"\1You notice that Gian is looking at %(_checkname),\w3 mumbling\w6\0\f[height,10]Is that a skeleton?\f[height,100%]\1\w8\n\n[half]You decided not to comment\e"
+				}
+				when "Toriel"
+				{
+					"\1You notice that Gian is looking at Toriel,\w3 mumbling\w6\0\f[height,10]Is that a goat?\f[height,100%]\1\w8\n\n[half]You decided not to comment\e"
+				}
+			}
+		}
+
+		if blanketon == 1
+		{
+			blanketon = 0
+			--
+			"\1Gian took off the blanket\p[5]\s[21]\0Thanks for it but it's getting too warm for me"
+		}
+	}
+	else
+	{
+		SleepDialogues
+	}
+	
+	
+	if RAND(10) == 2
+	{
+		if season == "Spring"; "\p[4]\s[100]\e"
+		elseif season == "Summer"; "\p[4]\s[101]\e"
+		elseif season == "Autumn"; "\p[4]\s[102]\e"
+		elseif season == "Winter"; "\p[4]\s[103]\e"
+	}
+
+	if moodstring == "sleepy" || moodstring == "bored"
+	{
+		sleep = 1
+		sleepmin = 0
+		--
+		"\0\s[1]\i[4]\__w[animation,4]\i[5]%(shirtsweekday)"
+		--
+		if moodstring == "sleepy"; timeforsleep = RAND(60)*(RAND(3)+1)
+		else; timeforsleep = RAND(30)*(RAND(3)+1)
+		--
+		OnSleepVar
+	}
+
+	if RAND(50) == 5
+	{
+		sheep = 1
+		--
+		"\p[6]\s[58]\e"
+	}
+
+	if RAND(50) == 6
+	{	
+		crow = 1
+		--
+		"\p[7]\s[59]\e"
+	}
+	
+}
+
+Select.musictalk
+{
+	"\0\i[7]%(musictalkrandom)"
+}
+
+OnMinuteChange
+ {
+	timeslot = GetTimeSlot
+	affectionvariable = positiverel - negativerel
+	cancelmin = 0
+	petcountminute = 0
+	--
+	OnMoodCheck
+	--
+	if sleep == 1
+	{
+		sleepmin += 1
+		--
+		if sleepmin == timeforsleep
+		{
+			sleep = 0
+			--
+			WakingUp
+		}
+	}
+	--
+	if weathermenu == "ON" 
+	{
+		weatherquiet = 1
+		"\b[-1]\![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
+	}
+	--
+	if sheep == 1
+	{
+		sheepopen += 1
+		--
+		if sheepopen == 10
+		{
+			sheep = 0
+			sheepopen = 0
+			--
+			"\p[6]\s[-1]\1The sheep is gone"
+		}
+	}
+	--
+	if crow == 1
+	{
+		crowopen += 1
+		--
+		if crowopen == 10
+		{
+			crow = 0
+			crowopen = 0
+			--
+			"\p[6]\s[-1]\1The crow is gone"
+		}
+	}
+	--
+ 	if minute == 0 
+	{
+		if hour == 0
+		{
+ 			"\0%(username) it's so late!\w8 Better go to sleep\e"
+ 			"\0Aren't you scared to sit behind screen so late?\e"
+ 			"\0Isn't it to late?\e"
+		}
+	}
+	//Don't touch this part.
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+ }
+
+ WakingUp
+ {
+	if blanketon != 1
+	{
+		"\0\s[0]%(shirtsweekday)\1Gian woke up"
+	}
+	else
+	{
+		blanketon = 0
+		--
+		"\1He woke up\p[5]\s[21]\0\s[0]%(shirtsweekday)Thanks for the blanket"
+	}
+	
+ }
+
+
+OnSecondChange
+ {
+	if passsec == 60
+	{
+		passsec = 0
+		passmin = passmin + 1
+	}
+ 	else
+	{
+		passsec = passsec + 1
+	}
+	if mikireflag == 1 && reference1 == 0
+	{
+		EndMikireTalk
+	}
+	
+	mikireflag = reference1
+	
+	if reference2 == 1
+	{
+		
+	}
+ }
+
+OnOverlap
+{
+	if reference0 != "1-0" || reference0 != "0-1"
+	{
+		if "0-" _in_ reference0 || "-0" _in_ reference0
+		{
+			if "5-" _in_ reference0 || "-5" _in_ reference0 //blanket
+			{
+				if sleep == 1
+				{
+					/*if positiverel > 150 && negativerel < 35
+					{
+						blanketon = 1
+						--
+						"\p[5]\s[-1]\1You put the blanket around his shoulders\x\c\1He looks cozy"
+					}
+					elseif positiverel < 150 && negativerel < 35
+					{
+						blanketon = 1
+						--
+						"\p[5]\s[-1]\0\i[11]\1You put the blanket around his shoulders\x\c\1He shifts in his sleep"
+					}
+					elseif negativerel > 35  && positiverel < 50 && punchcountvariable < 15
+					{
+						"\1You put the blanket around his shoulders\x\c\1He shifts in his sleep and blankets falls\x\c\p[5]\s[-1]\1You put the blanket back in your backpack"
+					}
+					elseif negativerel > 35  && positiverel < 50 && punchcountvariable > 15
+					{
+						"\1You put the blanket around his shoulders\x\c\1He shivers and the blanket falls\x\c\p[5]\s[-1]\1You put the blanket back in your backpack"
+					}*/
+
+					if positiverel > 150
+					{
+						blanketon = 1
+						--
+						"\p[5]\s[-1]\1You put the blanket around his shoulders\x\c\1He looks cozy"
+					}
+					elseif positiverel < 150
+					{
+						blanketon = 1
+						--
+						"\p[5]\s[-1]\0\i[11]\1You put the blanket around his shoulders\x\c\1He shifts in his sleep"
+					}
+				}
+				else
+				{
+					if positiverel > 150 && negativerel < 35
+					{
+						blanketon = 1
+						--
+						"\p[5]\s[-1]\0\i[14]\1You put the blanket around his shoulders\0Thanks!" //suprise, happines
+					}
+					elseif positiverel < 150 && negativerel < 35
+					{
+						"\1You try put the blanket around his shoulders\0No thanks" //suprise, embarrassment
+					}
+				}
+			}
+			
+		}
+		elseif "1-" _in_ reference0 || "-1" _in_ reference0
+		{
+			if "5-" _in_ reference0 || "-5" _in_ reference0 //blanket
+			{
+				blanketmode = 1
+				"\p[5]\s[-1]\1You put the blanket back in your backpack"
+			}
+		}
+	}
+	--
+	"\0%(shirtsweekday)"
+}
+ 
+MikireTalk
+{
+	"\1Gian is gone off your screen, better push Ctrl-Shift-F12 to bring him back"
+}
+
+ 
+EndMikireTalk
+{
+	"\1Gian looks unsure of what happened\e"
+}
+
+
+//**** OnSurfaceRestore *****************************************************************
+//OnSurfaceRestore is a handy function. What this does is that after a short period of time, the ghost will go back to its default pose, so you won't have a ghost stuck in one expression for too long. It's also helpful if you've made one of the characters disappear using \s[-1] in dialogue and didn't bring them back at the end of it. This will do that for you.
+//I'm going to comment out the if/else statements in this because the circumstances in which they'd come up seem pretty unlikely and unnecessary if you're just going to be making a simple ghost. You can just leave this function alone and move on if you want. However, if you do want to use them, just uncomment the lines by deleting the slashes and fill in the info as you need.
+
+//*********************Advanced User Info*******************************
+//You can put if statements in OnSurfaceRestore to make exceptions for certain poses, or to make sure that once they're in a certain pose, they stay in that pose. For example, if you turn my Hunter and Smoker ghost into eggplants, there's a check for the their eggplant pose numbers to make sure they STAY eggplants when OnSurfaceRestore is called.
+//You can also use OnSurfaceRestore to clean up things that might be left on the screen, primarily from using p[number]\s[] to call up other objects or characters. Just make sure to add a p[number]\s[-1] to OnSurfaceRestore, and that should get rid of it each time the ghost cleans itself up.
+//***********************************************************************
+
+OnSurfaceRestore
+{
+	"\0%(shirtsweekday)\1\s[10]"
+	--
+	if sheep == 1; "\p[6]\s[58]"
+}
+		
+	
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+		OnAiTalk
+	}
+	elseif reference0 == "s"
+	{
+		"\0%(shirtsweekday)\1\s[10]"
+	}
+	elseif reference0 == "i"
+	{
+		Select.items
+	}
+	elseif reference0 == "l" //&& axlang == 1
+	{
+		"\1You ask Gian to teach you a word in Axvarian\x[noclear]\0Let me think \w6. \w6. \w6.\n\n[half]"
+		--
+		_ax = axvarilang
+		_axv = _ax[0] 
+		_eng = _ax[1] 
+		--
+		"'%(_axv)' means '%(_eng)' in english"
+		"'%(_eng)' is '%(_axv)' in Axvarian"
+	}
+}
+
+
+OnMoodCheck
+{
+	moodstring = ""
+	--
+	arr[0] = mood[0]
+	--
+	for _j=0;_j<moodsize;_j++
+	{
+		if arr[0] < TOINT(mood[_j])
+		{
+			arr[0] = mood[_j]
+			numofmood = _j
+		}
+		elseif arr[0] == TOINT(mood[_j])
+		{
+			ramod = RAND(2)
+			--
+			if ramod == 1
+			{
+				arr[0] = mood[_j]
+				numofmood = _j
+			}
+		}
+		
+	}
+	--
+	moodstring = moodlib[numofmood]
+	--
+	moodpage = "\_q\1\b[8]\s[-1]Mood for today: %(moodstring)\n\n[half]"
+	--
+	for _i=0;_i<ARRAYSIZE(moodlib);_i++
+	{
+		moodpage += moodlib[_i] + ": " + mood[_i] + "\n"
+	}
+	--
+	//moodpage
+	--
+
+}
+
+//\![raise,OnSleepVar]
+OnSleepVar
+{
+	sleeplib = "standard,nightmare,night terror,lucid dream,recurring,false awakening"
+	rememberdream = RAND(3) //1: don't remember | 2: remember in parts | 3: rememebr
+	//reset mood
+	sleep = 0
+	sleepsize = ARRAYSIZE(sleeplib)
+	--
+	for _i=0;_i<=sleepsize;_i++
+	{
+		sleep[_i] = 0
+	}
+	--
+	if affectionvariable < 50; sleep[5]++
+	--
+	if moodstring == "sleepy"; sleep[0]++
+	--
+	if mood[2] == 0; sleep[1]++
+	--
+	if moodstring == "relaxed" || moodstring == "inspired"; sleep[3]++
+	--
+	if moodstring == "scared"; sleep[4]+=2
+	--
+	sleepnumss = RAND(sleepsize)
+	--
+	for _i=0;_i<sleepnumss;_i++
+	{
+		ransleep = RAND(sleepsize)
+		randsleepvar = RAND(10)
+		--
+		sleep[ransleep] += TOINT(randsleepvar)
+	}
+	--
+	OnSleepCheck
+}
+
+OnSleepCheck
+{
+	sleepstring = ""
+	--
+	arr[0] = sleep[0]
+	--
+	for _j=0;_j<sleepsize;_j++
+	{
+		if arr[0] < TOINT(sleep[_j])
+		{
+			arr[0] = sleep[_j]
+			numofsleep = _j
+		}
+		elseif arr[0] == TOINT(sleep[_j])
+		{
+			ramod = RAND(2)
+			--
+			if ramod == 1
+			{
+				arr[0] = sleep[_j]
+				numofsleep = _j
+			}
+		}
+		
+	}
+	--
+	sleepstring = sleeplib[numofsleep]
+	--
+	sleeppage = "\_q\1\b[8]Dream Type: %(sleepstring)\n\n[half]"
+	--
+	for _i=0;_i<ARRAYSIZE(sleeplib);_i++
+	{
+		sleeppage += sleeplib[_i] + ": " + sleep[_i] + "\n"
+	}
+	--
+	//sleeppage
+	//--
+}
+
+SleepDialogues
+{
+	case numofsleep
+	{
+		//standard,nightmare,night terror,lucid dream,recurring,false awakening"
+		//   0    ,    1    ,      2     ,     3     ,    4    ,      5       
+		when 0
+		{
+			"\1Gian shifts in his sleep"
+			"\1He looks peacfull"
+			"\1"
+		}
+		when 1
+		{
+
+		}
+		when 2
+		{
+			
+		}
+		when 3
+		{
+			
+		}
+		when 4
+		{
+			
+		}
+		when 5
+		{
+			
+		}
+	}
+}
+
+mumble: nonoverlap
+{
+	"zz"
+	"Zz"
+	"zZ"
+	"zgH"
+	"fmm"
+	"nzZ"
+	"hgh"
+	""
+	--
+	dots = ""
+	for _i=0;_i<RAND(5)+3;_i++
+	{
+		dots += ".\w8 "
+	}
+}
+
+sleepmumbl: nonoverlap
+{
+	"%(mumble)%(dots)"
+	"%(dots)%(mumble)%(dots)"
+	"%(dots)%(mumble)"
+	"%(mumble)%(dots)%(mumble)"
+}
+
+sleepmumbl_two: nonoverlap
+{
+	"%(sleepmumbl) .\w8 .\w8 %(peepsndrs).\w8 .\w8 %(sleepmumbl)"
+	"%(sleepmumbl) .\w8 .\w8 %(peepsndrs)?.\w8 .\w8 %(sleepmumbl)"
+	"%(sleepmumbl)?.\w8 .\w8 %(peepsndrs).\w8 .\w8 %(sleepmumbl)"
+	"%(sleepmumbl).\w8 .\w8 %(peepsndrs).\w8 .\w8 %(sleepmumbl)?"
+	"%(sleepmumbl).\w8 .\w8 %(peepsndrs)?"
+	"%(sleepmumbl).\w8 .\w8 %(peepsndrs)?"
+	"%(sleepmumbl)?%(peepsndrs)"
+	"%(sleepmumbl)?"
+	"%(sleepmumbl).\w8 .\w8 %(familyyy).\w8 .\w8 %(sleepmumbl)"
+	"%(sleepmumbl).\w8 .\w8 %(familyyy)?.\w8 .\w8 %(sleepmumbl)"
+	"%(sleepmumbl)?.\w8 .\w8 %(familyyy).\w8 .\w8 %(sleepmumbl)"
+	"%(sleepmumbl).\w8 .\w8 %(familyyy).\w8 .\w8 %(sleepmumbl)?"
+	"%(sleepmumbl).\w8 .\w8 %(familyyy)?"
+	"%(sleepmumbl)?.\w8 .\w8 %(familyyy)"
+}
+
+peepsndrs: nonoverlap
+{
+	"Dr "
+	""
+	--
+	"Jelonka"
+	"Alex"
+	"Sierra"
+	"Nicholas"
+	"Arktur"
+	"Moore"
+	"David"
+}
+
+familyyy: nonoverlap
+{
+	"mom"
+	"mum"
+	"dad"
+	"father"
+	"sis"
+	"sister"
+	"gran"
+	"niziee" //mum
+	"lumza" //dad
+	"akai" //sister
+	"nimze" //grandma
+}

@@ -1,0 +1,626 @@
+﻿Select.familia : nonoverlap
+{
+	
+	{
+		"\0My family?\w8 there isn't much i can tell you\w4 \i[10]I .\w8 .\w8 .\w8 don't remember them much.\n\n"
+		--
+		"\1\![*]\q[What do you mean?,contfamily1]\n/
+		\![*]\q[(you decide not to push),contfamily2]\n\n[half]/
+		\![*]\q[...,contfamily3]\e"
+	}
+	{
+		"\0People from lab are my family\w8 .\w6 .\w6 .\w6\n\n"
+		"\0\i[13]There isn't much to say about it.\n\n"
+	}
+}
+
+Select.contfamily1
+{
+	"\0\i[6]Scientists found me when I was little,\i[11]\w6 so I don't remember my family .\w8 .\w8 .\w8 \i[8]now people from labolatory are my family.\e"
+}
+
+Select.contfamily2
+{
+	"\0\i[14]\1He is silent\e"
+}
+
+Select.contfamily3
+{
+	"\0\i[14]\1Silence surrounds you\e"
+}
+
+Select.gian : nonoverlap
+{
+	if UserAge != ""; "\1You ask Gian about his age\x\c\0I'm 21, how about you?\![open,sliderinput,OnAge,-1,18,10,99]\n\n"
+
+	"\1You ask %(himgian) about his hobbies\x\c\0I like to read books\w8, also Dr Arktur got me into anime and cartoons\f[height,10]I don't watch it as much as he does though.\x\c What's your hobby?\![open,inputbox,OnHobby,-1]\n\n"	
+	"\1You ask %(himgian) about his birthday\x\c\0I don't know exact date but we calebrate it 19th of July\w8 the day Nathan found me.\n\n"
+	"\1You ask %(himgian) about his relationships\x\c\0\i[12]I .\w8 .\w8 .\w8\i[11]\i[12] Uhhh .\w8 .\w8 .\w8 .\w8\x\cI\w8\w8 wasn't in any.\n\n"
+	"\1You ask %(himgian) about his relationships\x\c\0\i[12]I .\w8 .\w8 .\w8\i[11]\i[12] Uhhh .\w8 .\w8 .\w8 .\w8\x\cI\w8\w8 wasn't in any.\n\n"
+	"\1You ask %(himgian) if he prefers when it's hot or cold)\Cold\n\n"
+}
+
+OnHobby
+{
+	if reference0 !_in_ UserHobby; UserHobby += " " + reference0
+	--
+	UserHobby = TOLOWER(reference0)
+	--
+	if "draw" _in_ UserHobby
+	{
+		drawing = 1
+		"\0you like to draw?\w5 that's nice,\x\c"
+		--
+		"Dr Alex"
+		"Dr Jelonka"
+		"Dr Lydia"
+		--
+		"  likes to draw too,\w8 maybe you would get along?\e"
+	}
+	elseif "paint" _in_ UserHobby
+	{
+		painter = 1
+		"\0Painting huh?\w4 That's nice and creative hobby.\e"
+	}
+	elseif "anime" _in_ UserHobby
+	{
+		anime = 1
+		"\0\i[8]You would get along with a lot of people in the lab.\e"
+	}
+	elseif "gaming" _in_ UserHobby
+	{
+		gaming = 1
+		"\0Playing games is a fun way to spend time.\e"
+	}
+	elseif "read" _in_ UserHobby || "book" _in_ UserHobby
+	{
+		reading = 1
+		--
+		if commonthings >= 1; "\0Another thing in common, it seems, maybe we can swap books someday?\e"
+		else; "\0I'm happy that we have something in common, maybe we can swap books someday?\e"
+		--
+		commonthings += 1
+	}
+	elseif "writing" _in_ UserHobby || "write" _in_ UserHobby
+	{
+		write = 1
+		"\0What do you write,\w4 poems or maybe books\w6\f[height,10] or fanfiction\f[height,100%]?\![open,inputbox,OnWriting,-1]\e" 
+	}
+	elseif "knit" _in_ UserHobby
+	{
+		scientist += 1
+		knit = 1
+		"\0Wow,\w5 I've never met anyone who can knit.\w8\w8\f[height,10]so many scientists and no one can do this\f[height,100%]\w8\w8. That's a cool hobby\e"	
+	}
+	elseif "sew" _in_ UserHobby 
+	{
+		sew = 1
+		"\0Sewing is hard,\w3 but an useful hobby,\w3 isn't it?\w6 I can sew a little but that's mostly because no one else in lab can do this, so i had to learn, \f[height,10]now I am the one to do repairs when they they tear something.\f[height,100%]\e"
+	}
+	elseif "cosplay" _in_ UserHobby
+	{
+		cosplay = 1
+		"\0Dr Arktur\f[height,10] and most others\f[height,100%] would be really excited to talk to you.\e"
+	}
+	elseif "photo" _in_ UserHobby
+	{
+		photography = 1
+		"\0Photography is cool,\w5 have you taken some good photos recently?\e"
+	}
+	elseif "cook" _in_ UserHobby || "bake"  _in_ UserHobby
+	{
+		cook = 1
+		"\0That's a nice and helpfull hobby\e"
+	}
+	elseif "sport" _in_ UserHobby || "athlet" _in_ UserHobby || "gym" _in_ UserHobby || "basketball" _in_ UserHobby || "volleyball" _in_ UserHobby
+	{
+		sport = 1
+		"\0Sport is cool\e"
+	}
+	else
+	{
+		"\0That's a nice hobby\n\n"
+		"\0That's an interesting hobby\n\n"
+	}
+}
+
+OnWriting
+{
+	writ = TOLOWER(reference0)
+	if "poem" _in_ writ
+	{
+		poet = 1
+		"\0That's cool,\w5 poems are can be great way to express feelings"
+	}
+	elseif "fanfiction" _in_ writ || "ff" _in_ writ
+	{
+		"\0You would probably get along with"
+		--
+		"Dr Alex"
+		"Dr Jelonka"
+		"Dr Lydia"
+		--
+		" \f[height,10]and a lot others\f[height,100%]"
+	}
+	elseif "books" _in_ writ
+	{
+		if reading == 1; "\0Writers that also are readers are the best \f[height,10]\i[13]some just slap some random sentences and call it a story\f[height,100%]"
+		else; "\0Enjoyable hobby, isn't it?"
+	}
+	else
+	{
+		"\0That's cool"
+	}
+	
+}
+
+OnAge
+{
+	UserAge = reference0
+	if UserAge >= 21
+	{
+		"\0Oh,\w6 you're older then me.\e"
+	}
+	elseif UserAge == 21
+	{
+		commonthings += 1
+		"\0We are the same age then.\e"
+	}
+	elseif UserAge <= 14 && UserAge >= 12
+	{
+		"\0%(UserAge)? Then you're still in middle school, right?\e"
+	}
+	elseif UserAge <= 18 && UserAge >= 14
+	{
+		"\0%(UserAge)? Then you're in high school, am I right?\e"
+	}
+	else 
+	{
+		"\0Oh, so you're younger then me?\e"
+	}
+	--
+	if UserAge < 19; love = 0
+}
+
+Select.friends 
+{	
+	"\1You ask %(himgian) about his friends"
+	--
+	"\x\c\0Friends?\w7 I don't really have anyone beside scientists\w6.\n\n"
+	"\x\c\0I have scientist that I like\w6 but no one beside them.\n\n"
+	"\x\c\0My firends? Dr Jelonka, Dr Arktur, Dr Zane, Dr Lydia and Dr Alex are my best friends.\n\n"
+}
+
+Select.skills 
+{
+	"\1You ask %(himgian) about his skills"
+	--
+	"\x\c\0Uhh .\w8 .\w8 .\w8 I can cook?\x\cI'm not the best at it,\w5 but I'm one of few in the lab that can cook something edible.\n\n"
+	"\x\c\0Hmmm .\w5 .\w4 .\w5 I can play guitar a little,\w4 Dr Alex taught me,\w5 I can play few songs,\w5 but it's nothing special.\n\n"
+	"\x\c\0I'm good with understanding body language\w6 Dr Lydia thought me how to read expressions and behaviors.\e"
+}
+
+Select.favorites 
+{
+    "\1You ask %(himgian)"
+	--
+	"about his favorite"
+	"if he has a favorite"
+	--
+	" color\x\c\0My favorite color? hmm .\w8 .\w8 .\w8 .\w8\x\c\0Definitly white.\x\c\0Did you know white represents purity and perfection?\x\c\0 What's your favorite color?\![open,inputbox,OnColor,-1]\n\n"
+	" animal\x\c\0Favorite animal? I like sheeps and alpacas.\x\c\0How about you?\![open,inputbox,OnAnimal,-1]\n\n"
+	" book\x\c\0Favorite Book? \w8It's hard to chose \w8let me think\w8\w8\w8\w8\c I think it would be 'The Chosen'\x\c\0What's your favorite title?\![open,inputbox,OnBook,-1]\n\n"
+	" song\x\c\0Song\n\n"
+	" author\x\c\0Song\n\n"
+	" author\x\c\0Song\n\n"
+	" food\x\c\0Song\n\n"
+
+}
+
+Select.leastfavorites 
+{
+    "\0response least favorites color (pink).\n\n"
+	"\0response least favorites animal (cats,birds).\n\n"
+	"\0response least favorites \n\n"
+}
+OnColor
+{ 
+	if reference0 !_in_ FavoriteColor; FavoriteColor += " " + reference0
+	--
+   	FavoriteColor = TOLOWER(reference0)
+   	--
+   	if "white" _in_ FavoriteColor
+    {
+		if commonthings >= 0; "\0You like white too?\w3 then we heve another thing in common.\e"
+		else; "\0You like white too?\w3 then we heve something in common.\e"
+		--
+		commonthings += 1
+	}
+   elseif "purple" _in_ FavoriteColor
+	{
+		FavoriteColor = "purple"
+	   "\0It's Dr Jelonka's favorite color,\w2 it represents imagination and crativity .\w8 .\w8 .\w8 maybe that's why it't her favorite?\e"
+    }
+   elseif "pink" _in_ FavoriteColor
+	{
+		FavoriteColor = "pink"
+	   "\0Pink,\w5 color of unconditional love,\w8\w8it's not really my thing\e"
+    }
+   elseif "yellow" _in_ FavoriteColor
+	{
+		FavoriteColor = "yellow"
+	   "\0Color of sunflowers,\w8 optimistic and cheerfull.\w5 It also represents intelect.\e"
+    }
+   elseif "blue" _in_ FavoriteColor
+	{
+		FavoriteColor = "blue"
+	   "\0Color of trust, loyality and peace,\w4 Dr. Jelonka realy likes this color.\w5\w5 I wonder what's she's doing right now\e"
+    }
+   elseif "red"  _in_ FavoriteAnimal
+	{
+		FavoriteColor = "red"
+	   "\0Realy nice color,\w5 passionate and active.\e"
+    }
+   elseif "brown" _in_ FavoriteColor
+	{
+		FavoriteColor = "brown"
+	   "\0Dr Lydia once said that she hates that color\w8 she didnt say why thoug.\e"
+    }
+   elseif "black" _in_ FavoriteColor
+	{
+		FavoriteColor =  "black"
+	   "\0Like night sky, color of secrets and myteries.\e"
+    }
+   elseif "orange" _in_ FavoriteColor
+	{
+		FavoriteColor = "orange"
+	   "\0Orange is such a nice color.\w6 Means comunnication and positivity.\e"
+    }
+   elseif "violet" _in_ FavoriteColor
+	{
+		FavoriteColor = "violet"
+	   "\0Color of spirituality and imagination.\w5 I like it too.\e"
+    }
+   elseif "indygo" _in_ FavoriteColor
+	{
+		FavoriteColor = "indygo"
+	   "\0Idealistic color,\w4 represents intuition.\e"
+    }
+   elseif "gray" _in_ FavoriteColor
+	{
+		FavoriteColor = "gray"
+	   "\0Unemotional and neutral,\w7 but still nice.\e"
+    }
+   elseif "magenta" _in_ FavoriteColor
+	{
+		FavoriteColor = "magenta"
+	   "\0Magenta,\w8  color of harmony and balance.\e"
+    }
+   elseif "green" _in_ FavoriteColor
+	{
+		FavoriteColor = "green"
+	   "\0It's Dr. Alex and Dr Lydia favorite color too,\w5 it represents balance and growth.\e"
+    }
+    else
+	{
+		"\0That's a nice color.\e"
+	}
+}
+
+OnAnimal
+{
+   	if reference0 !_in_ FavoriteAnimal; FavoriteAnimal += " " + reference0
+	--
+  	 FavoriteAnimal = TOLOWER(reference0)
+   	--
+   	if "cat" _in_ FavoriteAnimal
+	{
+		FavoriteAnimal = "cat"
+		"\0Such a scary crature,\w2 I don't understand why dr Jelonka likes them so much\x\cagresive packs of claws and teeth.\w5 At least most of them is small.\e"
+	}
+	elseif "eagle" _in_ FavoriteAnimal || "howk" _in_ FavoriteAnimal
+	{
+		"\0Birds are scary,\w5 big claws and unpredictable behavior.\e"
+	}
+	elseif "tiger" _in_ FavoriteAnimal || "lion" _in_ FavoriteAnimal || "panthera" _in_ FavoriteAnimal || "cheetah" _in_ FavoriteAnimal || "leopard" _in_ FavoriteAnimal || "puma" _in_ FavoriteAnimal || "jaguar" _in_ FavoriteAnimal
+	{
+		"\0Big cats are horrifing\w5, I never want to meet one.\e"
+	}
+	elseif "sheep" _in_ FavoriteAnimal || "alpaca" _in_ FavoriteAnimal
+	{
+		if commonthings >=1; "\0Another thing in common, it seems.\e"
+		else; "\0I'm happy that we have something in common.\e"
+		--
+		commonthings +=1
+		
+	}
+	elseif "wolf" _in_ FavoriteAnimal || "wovles"  _in_ FavoriteAnimal
+	{
+		FavoriteAnimal = "wolf"
+		"\0Dr Alex loves wolves. She says that they are amazing, for me they are quite scary.\e"
+	}
+	elseif "owl" _in_ FavoriteAnimal
+	{
+		FavoriteAnimal = "owl"
+		"\0Birds are terrifying, big claws and unpredictable behavior, but Dr Alex likes owls for some reason.\e"
+	}
+    elseif "snake" _in_ FavoriteAnimal
+    {
+		FavoriteAnimal = "snake"
+		"\0Snakes are dangerous, but thay don't look so scary. Dr Alex likes them,\w5 she says they are cute \e"
+	}
+	else
+	{
+		"\0%(FavoriteAnimal)?\w8\w8 That's cool.\e"
+	}
+}
+
+OnBook
+{
+	UserBook = reference0
+	"\0Interesting.\e"
+}
+
+Select.prise 
+{
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+	"\0prise.\n\n"
+}
+
+Select.flirt 
+{
+	"\0Flirt.\n\n"
+	"\0Flirt.\n\n"
+	"\0Flirt.\n\n"
+    "\0Flirt.\n\n"
+	"\0Flirt.\n\n"
+	"\0Flirt.\n\n"
+	"\0Flirt.\n\n"
+	"\0Flirt.\n\n"
+	"\0Flirt.\n\n"
+}
+
+Select.potplant  
+{
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+}
+
+Select.candy  
+{
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+	"\0candy.\n\n"
+}
+
+Select.letterlove  
+{
+	if affectionvariable <=25 //negative response to letter
+	{
+		"\0Love letter NEGATIVE.\n\n"
+		"\0Love letter NEGATIVE.\n\n"
+		"\0Love letter NEGATIVE.\n\n"
+	}
+	elseif affectionvariable <= 50 //neutral response to letter 
+	{
+		"\0Uhh .\w7 .\w7  .\w7  .\w7\x\c\1He seems ucomfortable and doesn't respond\e"
+		"\0Love letter NEUTRAL.\n\n"
+		"\0Love letter NEUTRAL.\n\n"
+	}
+	elseif affectionvariable <= 75 //friendly response to letter
+	{
+		affectionvariable += 1
+		"\0Love letter FRIENDLY.\n\n"
+		"\0Love letter FRIENDLY.\n\n"
+		"\0Love letter FRIENDLY.\n\n"
+	}
+	elseif lovevariable >= 75 //Love response
+	{
+		lovevariable += 1
+		"\0Love letter.\n\n"
+		"\0Love letter.\n\n"
+		"\0Love letter.\n\n"
+	}
+}
+
+Select.plush1  //Alpaca
+{
+	affectionvariable += 2
+    "\0Plush 1.\n\n"
+    "\0Plush 1.\n\n"
+	"\0Plush 1.\n\n"
+    "\0Plush 1.\n\n"
+    "\0Plush 1.\n\n"
+	"\0Plush 1.\n\n"
+    "\0Plush 1.\n\n"
+    "\0Plush 1.\n\n"
+}
+
+Select.plush2  //Cat
+{
+	affectionvariable -= 1
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+	"\0Plush 2.\n\n"
+}
+
+Select.plush3  //Bird
+{
+	affectionvariable -= 1
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+	"\0Plush 3.\n\n"
+}
+Select.plush4  //Sheep
+{
+	affectionvariable += 2
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+
+
+Select.lydia
+{
+	drlydia += 1
+	"\1You ask Gian who's Dr. Lydia\x\c\0 Huh,\w5 Dr Lydia? She's one of scientists in lab, she is\w6 .\w6 .\w6 .\w6 unpredictable.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.alex
+{
+	dralex += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.labolatory
+{
+	lab += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.zane
+{
+	drzane += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.arktur
+{
+	drarktur += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.jelonka
+{
+	drjelonka += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.labhuman
+{
+	scientist += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.poem
+{
+	affectionvariable += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+
+Select.doll
+{
+	affectionvariable += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+Select.drawing
+{
+	affectionvariable += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+
+Select.painting
+{
+	affectionvariable += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}
+
+Select.complinment
+{
+	affectionvariable += 1
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+	"\0Plush 4.\n\n"
+}

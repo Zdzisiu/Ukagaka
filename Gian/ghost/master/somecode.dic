@@ -1,0 +1,1303 @@
+﻿Select.jorunal
+{
+	page = "\1(You open his jorunal on random page)\x\c"
+	--
+	_jmonth = RAND(TOINT(month))
+	--
+	if _jmonth == 0
+	{
+		_jmonth = 1
+	}
+	--
+	if _jmonth != TOINT(month)
+	{
+		case _jmonth
+		{
+			when 2
+			{
+				jday = RAND(29) + 1
+			}
+			when 1,3,5,7,8,10,12
+			{
+				jday = RAND(31) + 1
+			}
+			when 4,6,9,11
+			{
+				jday = RAND(30) + 1
+			}
+
+		}
+	}
+	else
+	{
+		jday = RAND(day) + 1
+	}
+	--
+	if jday < 10
+	{
+		jday = "0" + jday
+	}
+	--
+	if _jmonth < 10 
+	{
+		_jmonth = "0" + _jmonth
+	}
+	jodate = jday + "." + _jmonth + "." + year
+	--
+	//"\cRandom date: %(jodate)"
+	--
+	page += "%(jodate):\n\n[half]"
+	--
+	page += "%(start). %(middle)\n\n[half]"
+	--
+	page
+	//--
+	//page += "Book of the day:\n\n[half] %(booktitles)"
+	/*"\*\b4\f[bold,1]%(jopagedate[jopagenum])\n\n[half]/
+	%(jopagecont[jopagenum])\n\n[half]"
+    --
+    if jopagenum != 1
+    {
+    "\q[<----,dplog] "
+    }
+    --
+    if jopagenum < jopagecount
+    {
+    " \q[---->,dnlog]"
+    }
+    --
+    "\q[Close,clog]"*/
+}
+
+booktitles : nonoverlap
+{
+
+}
+
+middle : nonoverlap
+{
+	"I also %(action) and %(action)"
+	"I also %(action)"
+	"Also I %(action)"
+	"Later i %(action)"
+	"Later i %(action) and %(action)"
+}
+
+start : nonoverlap
+{
+	"Today I %(action)"
+	"I %(action) today"
+	"Today was %(howday), I %(action)"
+}
+
+howday
+{
+	"boring"
+	"interesting"
+}
+
+action : nonoverlap
+{
+	"read %(readings)"
+	"watched %(watching)"
+	"had medical examination"
+	"helped %(doctors) %(help)"
+}
+
+help : nonoverlap
+{
+	"move some boxes"
+	"find a book about %(them)"
+	"find %(doctors)"
+	"look for %(doctors)"
+}
+
+them : nonoverlap
+{
+	"history of %(history)"
+	"anatomy of %(allanimal)"
+	"geography"
+	"architecture"
+}
+
+history
+{
+	"Uniated States of America"
+	"Poland"
+	"Middle East"
+	"Architecture of %(ARCH)"
+}
+
+ARCH
+{
+	"Ancient Greece"
+	"Ancient Cultures"
+	"Europe"
+	"Asia"
+}
+
+action2 : nonoverlap
+{
+	"testing some chemicals"
+	"examining an animal. They said it was %(allanimal)"
+}
+
+watching : nonoverlap
+{
+	"TV"
+	"an anime"
+	"a cartoon"
+	"a movie"
+	"a serial"
+	"a scientist that were %(action2)"
+}
+
+readings : nonoverlap
+{
+	"a comic%(andit) was %(itwas)"
+	"a manga%(andit) was %(itwas)"
+	"a book%(andit) was %(itwas)"
+	"a book about %(about)"
+	"a magazine"
+	"a novel%(andit) was %(itwas)"
+	"a newspaper"
+}
+
+about : nonoverlap
+{
+	"history of %(historybook)"
+	"manga"
+	"anime"
+	"middle east"
+	"Europe"
+	"USA"
+	"Canada"
+	"Poland"
+	"Taiwan"
+	"tools"
+	"medicine"
+	"heart diseases"
+	"mental illneses"
+	"depression"
+	"domesticated animals"
+}
+
+historybook : nonoverlap
+{
+	"manga"
+	"anime"
+	"middle east"
+	"Europe"
+	"USA"
+	"Canada"
+	"Poland"
+	"Taiwan"
+	"tools"
+	"comics"
+	"animation"
+	"2D animation"
+	"3D animation"
+	"computers"
+	"games"
+}
+
+andit : nonoverlap
+{
+	", it"
+}
+
+doctors : nonoverlap
+{
+	"Dr Lydia"
+	"Dr Alex"
+	"Dr Arktur"
+	"Dr Zane"
+	"Dr Jelonka"
+	"a scientist"
+	"Dr Nicholas"
+	"Sierra"
+}
+
+itwas : nonoverlap
+{
+	"interesting"
+	"weird"
+	"kinda"
+	"stupid"
+	"boring"
+	"funny"
+}
+
+allanimal
+{
+	"%(mammals)"
+	"%(reptiles)"
+	"%(amphibians)"
+	"%(birds)"
+	"%(arthropods)"
+	"%(fishes)"
+}
+
+mammals
+{
+	"Aardvark"
+	"African Elephant"
+	"African Wild Dog"
+	"African Lion"
+	"Arctic Fox"
+	"Arctic Hare"
+	"Armadillo"
+	"Asian Elephant"
+	"Asian Lion"
+	"Aye-Aye"
+	"Baboon"
+	"Bactrian Camel"
+	"Beaver"
+	"Beluga Whale"
+	"Bengal Tiger"
+	"Black Bear"
+	"Black-Footed Ferret"
+	"Black Rhinoceros"
+	"Blue Whale"
+	"Bobcat"
+	"Bottlenose Dolphin"
+	"Brown Bear"
+	"California Sea Lion"
+	"Caribou"
+	"Cheetah"
+	"Chimpanzee"
+	"Chipmunk"
+	"Clouded Leopard"
+	"Wombat"
+	"Cottontail Rabbit"
+	"Cougar"
+	"Coyote"
+	"Dingo"
+	"Domestic Cat"
+	"Domestic Dog"
+	"Dugong"
+	"Eastern Gray Kangaroo"
+	"Elephant Seal"
+	"Elk"
+	"Fennec Fox"
+	"Fossa"
+	"Fur Seal"
+	"Gelada"
+	"Giant Anteater"
+	"Giant Panda"
+	"Giant River Otter"
+	"Gibbon"
+	"Giraffe"
+	"Lion"
+	"Gray Whale"
+	"Grizzly Bear"
+	"Groundhog"
+	"Harbor Porpoise"
+	"Hare"
+	"Harp Seal"
+	"Hawaiian Monk Seal"
+	"Hedgehog"
+	"Hippopotamus"
+	"Horse"
+	"Howler Monkey"
+	"Human"
+	"Humpback Whale"
+	"Impala"
+	"Rhinoceros"
+	"Jaguar"
+	"Killer Whale"
+	"Kinkajou"
+	"Koala"
+	"Leopard"
+	"Leopard Seal"
+	"Fox"
+	"Llama"
+	"Lynx"
+	"Manatee"
+	"Mandrill"
+	"Meerkat"
+	"Mongoose"
+	"Moose"
+	"Mountain Goat"
+	"Mountain Gorilla"
+	"Mountain Lion"
+	"Mouse Lemur"
+	"Musk-Ox"
+	"Mole Rat"
+	"Narwhal"
+	"Otter"
+	"Nutria"
+	"Ocelot"
+	"Opossum"
+	"Orangutan"
+	"Orca"
+	"Platypus"
+	"Polar Bear"
+	"Porcupine"
+	"Prairie Dog"
+	"Proboscis Monkey"
+	"Pronghorn"
+	"Horse"
+	"Raccoon"
+	"Red Fox"
+	"Red Kangaroo"
+	"Red Leaf Monkey"
+	"Red Panda"
+	"Red Uakari"
+	"Rhesus Monkey"
+	"Right Whale"
+	"Ringed Seal"
+	"Lemur"
+	"Sheep"
+	"Sea Otter"
+	"Siberian Tiger"
+	"Sifaka"
+	"Skunk"
+	"Sloth Bear"
+	"Snow Leopard"
+	"Snowshoe Hare"
+	"Spectacled Bear"
+	"Spider Monkey"
+	"Spotted Hyena"
+	"Squirrel"
+	"Steller Sea Lion"
+	"Sumatran Rhinoceros"
+	"Sumatran Tiger"
+	"Sun Bear"
+	"Tapir"
+	"Tasmanian Devil"
+	"Gazelle"
+	"Sloth"
+	"Sloth"
+	"Wallaby"
+	"Walrus"
+	"Warthog"
+	"Water Buffalo"
+	"Weddell Seal"
+	"Gorilla"
+	"White Rhinoceros"
+	"Whale"
+	"White-Eared Kob"
+	"White-Tailed Deer"
+	"Wildebeest"
+	"Wolf"
+	"Wolverine"
+	"Zebra"
+}
+
+amphibians
+{
+	"African Bullfrog"
+	"African Clawed Frog"
+	"Alpine Newt"
+	"American Bullfrog"
+	"American Green Tree Frog"
+	"American Toad"
+	"Arboreal Salamander"
+	"Axolotl"
+	"Australian Green Tree Frog"
+	"Alpine Salamander"
+	"Argentine Horned Frog"
+	"Amargosa Toad"
+	"Amazon Milk Frog"
+	"Anderson’s Crocodile Newt"
+	"Arroyo Toad"
+	"Blue Tailed Fire Belly Newt"
+	"Blue Legged Mantella"
+	"Bumble Bee Toad"
+	"Barking Tree Frog"
+	"Barred Tiger Salamander"
+	"Big Eyed Tree Frog"
+	"Black Salamander"
+	"Black Toad"
+	"Blue Poison Dart Frog"
+	"Blue Spotted Salamander"
+	"Bronze Frog"
+	"Brown Tree Frog"
+	"Boreal Chorus Frog"
+	"Black Rain Frog"
+	"Black-Spotted Newt"
+	"Black Bellied Salamander"
+	"Boreal Toad"
+	"Copes Tree Frog"
+	"Common Newt"
+	"Chinese Gliding Frog"
+	"California Newt"
+	"California Slender Salamander"
+	"California Tiger Salamander"
+	"California Tree Frog"
+	"Cane Toad"
+	"Canyon Tree Frog"
+	"Chinese Giant Salamander"
+	"Chiricahua Leopard Frog"
+	"Common Toad"
+	"Chinese Fire Belly Newt"
+	"Cape Rain Frog"
+	"Coastal Giant Salamander"
+	"Clown Frog"
+	"California Red Legged Frog"
+	"Canadian Toad"
+	"Coqui"
+	"Chinese Warty Newt"
+	"Dwarf Pixie Frog"
+	"Desert Rain Frog"
+	"European Tree Frog"
+	"Eastern American Toad"
+	"Emperor Newt"
+	"European Green Toad"
+	"Eastern Narrowmouth Toad"
+	"Eastern Leopard Toad"
+	"European Fire Bellied Toad"
+	"Eastern Spadefoot Toad"
+	"Fire Salamander"
+	"Four Toed Salamander"
+	"Fowlers Toad"
+	"Frosted Flatwoods Salamander"
+	"Granular Glass Frog"
+	"Ghost Glass Frog"
+	"Gliding Tree Frog"
+	"Golden Poison Dart Frog"
+	"Golden Toad"
+	"Goliath Frog"
+	"Gray Tree Frog"
+	"Great Crested Newt"
+	"Green And Black Poison Dart Frog"
+	"Green Frog"
+	"Green Salamander"
+	"Gulf Coast Toad"
+	"Golden Mantella"
+	"Greenhouse Frog"
+	"Golden Coqui"
+	"Green and Golden Bell Frog"
+	"Great Basin Spadefoot"
+	"Greater Siren"
+	"Grotto Salamander"
+	"Hong Kong Newt"
+	"Harlequin Frog"
+	"Hellbender Salamander"
+	"Houston Toad"
+	"Hairy Frog"
+	"Italian Crested Newt"
+	"Idaho Giant Salamander"
+	"Illinois Chorus Frog"
+	"Japanese Giant Salamander"
+	"Jefferson Salamander"
+	"Japanese Fire Belly Newt"
+	"Kihansi Spray Toad"
+	"Kokoe Poison Dart Frog"
+	"Leopard Tree Frog"
+	"Long Toed Salamander"
+	"Lowland Leopard Frog"
+	"Little Grass Frog"
+	"Lesser Siren"
+	"Long-tailed Salamander"
+	"Luristan Newt"
+	"Malabar Flying Frog"
+	"Mountain Chicken Frog"
+	"Marbled Newt"
+	"Marbled Salamander"
+	"Mountain Yellow Legged Frog"
+	"Mudpuppy"
+	"Mountain Dusky Salamander"
+	"Mississippi Gopher Frog"
+	"Mink Frog"
+	"Mountain Chorus Frog"
+	"Mallorcan Midwife Toad"
+	"Mozambique Rain Frog"
+	"Mud Salamander"
+	"Nicaragua Giant Glass Frog"
+	"Northern Cricket Frog"
+	"Natterjack Toad"
+	"Northern Dusky Salamander"
+	"Northern Green Frog"
+	"Northern Leopard Frog"
+	"Northern Two-lined Salamander"
+	"Northwestern Salamander"
+	"Northern Slimy Salamander"
+	"Northern Zigzag Salamander"
+	"Northern Red-Legged Frog"
+	"Northern Dwarf Siren"
+	"Orange Thighed Tree Frog"
+	"Olm"
+	"Ornate Chorus Frog"
+	"Oriental Fire-Bellied Toad"
+	"Pacific Tree Frog"
+	"Paddle Tail Newt"
+	"Panamanian Golden Frog"
+	"Pebble Toad"
+	"Pine Barrens Tree Frog"
+	"Plains Leopard Frog"
+	"Purple Frog"
+	"Plains Spadefoot Toad"
+	"Pickerel Frog"
+	"Phantasmal Poison Frog"
+	"Palmate Newt"
+	"Plateau Tiger Salamander"
+	"Pygmy Salamander"
+	"Rabb’s Fringe Limbed Tree Frog"
+	"Reticulated Glass Frog"
+	"Red Backed Salamander"
+	"Red Bellied Newt"
+	"Red Eyed Tree Frog"
+	"Red Salamander"
+	"Red Spotted Newt"
+	"Red Spotted Toad"
+	"Relict Leopard Frog"
+	"Rough Skinned Newt"
+	"Rio Grande Chirping Frog"
+	"Rococo Toad"
+	"Ringed Salamander"
+	"Splendid Leaf Frog"
+	"Smallmouth Salamander"
+	"Southern Leopard Frog"
+	"Southern Toad"
+	"Southern Two-lined Salamander"
+	"Spanish Ribbed Newt"
+	"Spotted Salamander"
+	"Spring Salamander"
+	"Squirrel Tree Frog"
+	"Strawberry Poison Dart Frog"
+	"Surinam Toad"
+	"Southern Dusky Salamander"
+	"Streamside Salamander"
+	"Spring Peeper"
+	"Solomon Island Leaf Frog"
+	"Southern Chorus Frog"
+	"Southern Dwarf Siren"
+	"Shenandoah Salamander"
+	"Striped Newt"
+	"Siberian Salamander"
+	"Three Striped Poison Dart Frog"
+	"Texas Blind Salamander"
+	"Texas Toad"
+	"Tiger Salamander"
+	"Titicaca Water Frog"
+	"Turtle Frog"
+	"Upland Chorus Frog"
+	"Vampire Frog"
+	"Vietnamese Mossy Frog"
+	"Wallace’s Flying Frog"
+	"Western Clawed Frog"
+	"Wyoming Toad"
+	"Western Toad"
+	"White Lipped Tree Frog"
+	"Whites Tree Frog"
+	"Wood Frog"
+	"Woodhouse Toad"
+	"Western Spadefoot Toad"
+	"Western Leopard Toad"
+	"Western Chorus Frog"
+	"Waxy Monkey Tree Frog"
+	"Water Holding Frog"
+	"Waterfall Frog"
+	"White-spotted Slimy Salamander"
+	"White-spotted Salamander"
+	"Western Slimy Salamander"
+	"Yellow Banded Poison Dart Frog"
+	"Yosemite Toad"
+	"Yellow Bellied Toad"
+	"Yellow Spotted Tree Frog"
+}
+
+birds
+{
+	"Ostrich"
+	"Brown Kiwi"
+	"Emperor Penguin"
+	"Common Loon"
+	"Wandering Albatross"
+	"Snow Petrel"
+	"Red-billed Tropicbird"
+	"Dalmatian Pelican"
+	"Northern Gannet"
+	"Flightless Cormorant"
+	"Magnificent Frigatebird"
+	"Eurasian Bittern"
+	"European White Stork"
+	"Shoebill"
+	"Scarlet ibis"
+	"Black-faced Spoonbill"
+	"Lesser Flamingo"
+	"Bewick’s Swan"
+	"Snow goose"
+	"Red-breasted Goose"
+	"Common eider"
+	"California Condor"
+	"Bald Eagle"
+	"Lammergeyer"
+	"Montagu’s Harrier"
+	"Harpy Eagle"
+	"Secretary Bird"
+	"Peregrine"
+	"Malleefowl"
+	"Western Capercaillie"
+	"Satyr Tragopan"
+	"Congo Pearfowl"
+	"Hoatzin"
+	"Whooping Crane"
+	"Red-crowned Crane"
+	"Corncrake"
+	"Takahe"
+	"Kagu"
+	"Sunbittern"
+	"Great Bustard"
+	"Ibisbill"
+	"Black-winged Stilt"
+	"Egyptian Plover"
+	"Northern Lapwing"
+	"Red Knot"
+	"Ruff"
+	"Spoon-billed Sandpiper"
+	"Red-necked Phalarope"
+	"Plains-wanderer"
+	"Ross’s Gull"
+	"Arctic Tern"
+	"Atlantic Puffin"
+	"Mauritius Pink Pigeon"
+	"Kakapo"
+	"Hyacinth Macaw"
+	"Great Blue Turaco"
+	"Common Cuckoo"
+	"Greater Roadrunner"
+	"Snowy Owl"
+	"Eurasian Eagle-Owl"
+	"Oilbird"
+	"Common Swift"
+	"Sword-billed Hummingbird"
+	"Resplendent Quetzal"
+	"Laughing Kookaburra"
+	"Common Kingfisher"
+	"Blue-crowned Motmot"
+	"European Bee-eater"
+	"Lilac-breated Roller"
+	"Hoopoe"
+	"Rhinoceros Hornbill"
+	"Toco Toucan"
+	"Eurasian Wryneck"
+	"Ivory-billed Woodpecker"
+	"Gurney’s Pitta"
+	"Bearded Bellbird"
+	"Andean Cock-of-the-Rock"
+	"Red-capped Manakin"
+	"Noisy Scrub-bird"
+	"Superb Lyrebird"
+	"Eurasian Skylark"
+	"Barn Swallow"
+	"Bohemian Waxwing"
+	"Hypocolius"
+	"Winter Wren"
+	"Northern Mockingbird"
+	"American Robin"
+	"Common Nightingale"
+	"Dartford Warbler"
+	"Gray-necked Picathartes"
+	"Wallcreeper"
+	"Long-tailed Tit"
+	"Red-backed Shrike"
+	"Wilson’s Bird-of-paradise"
+	"Northern Raven"
+	"New Caledonian Crow"
+	"Kirtland’s Warbler"
+	"Darwin’s Finches"
+	"Long-tailed Paradise-whydah"
+	"House Sparrow"
+}
+
+reptiles
+{
+	"American Alligator"
+	"Chinese Alligator"
+	"Cuban Crocodile"
+	"Dwarf Caiman"
+	"Malayan Gharial"
+	"Banded Gila Monster"
+	"Black Tree Monitor"
+	"Blue Spiny Lizard"
+	"Blue-tongued Skink"
+	"Chinese Crocodile Lizard"
+	"Green Iguana"
+	"Henkel's Leaftailed Gecko"
+	"Inland Bearded Dragon"
+	"Leopard Gecko"
+	"Mexican Beaded Lizard"
+	"New Caledonia Giant Gecko"
+	"Scheltopusik"
+	"Warren's Girdled Lizard"
+	"Western Chuckwalla"
+	"Anatolian Viper"
+	"Armenian Viper"
+	"Aruba Island Rattlesnake"
+	"Ball Python"
+	"Black Milk Snake"
+	"Black Rat Snake"
+	"Black-headed Python"
+	"Boelen's Python"
+	"Bolkar Viper"
+	"Brazilian Rainbow Boa"
+	"Caucasus Viper"
+	"Central American Bushmaster"
+	"Central Asian Cobra"
+	"Corn Snake"
+	"Dumeril's Boa"
+	"Eastern Diamondback Rattlesnake"
+	"Emerald Tree Boa"
+	"Grand Canyon Rattlesnake"
+	"Great Basin Gopher Snake"
+	"Green Anaconda"
+	"Jamaican Boa"
+	"King Cobra"
+	"Lataste's Viper"
+	"Madagascar Tree Boa"
+	"Massasauga Rattlesnake"
+	"Mexican Lance-headed Rattlesnake"
+	"Moorish Viper"
+	"Mt. Mang Pitviper"
+	"Ocellate Mountain Viper"
+	"Osage Copperhead"
+	"Prairie Kingsnake"
+	"Red-tailed Boa Constrictor"
+	"Reticulated Python"
+	"Ridgenosed Rattlesnake"
+	"Rosy Boa"
+	"Side-striped Palm-pitviper"
+	"Speckled Forest Pitviper"
+	"Stuart's Milk Snake"
+	"Szechwan Speckled Pitviper"
+	"Timber Rattlesnake"
+	"West African Gaboon Viper"
+	"Western Cottonmouth"
+	"Western Pygmy Rattlesnake"
+	"Yellow-blotched Palm-pitviper"
+	"Aldabra Tortoise"
+	"Alligator Snapping Turtle"
+	"Arakan Forest Turtle"
+	"Asian Giant Pond Turtle"
+	"Box Turtle"
+	"Common Map Turtle"
+	"Egyptian Tortoise"
+	"Galapagos Tortoise"
+	"Leopard Tortoise"
+	"McCord's Box Turtle"
+	"Murray River Turtle"
+	"Narrow-headed Softshell Turtle"
+	"Northern Spider Tortoise"
+	"Ornate Box Turtle"
+	"Pig-nosed Turtle"
+	"Red-bellied Short-necked Turtle"
+	"South American Yellow-foot Tortoise"
+	"Spotted Turtle"
+}
+
+arthropods
+{
+	"Ant"
+	"Aphid"
+	"Beetle"
+	"Butterfly"
+	"Cicada"
+	"Cockroach"
+	"Dragonfly"
+	"Flea"
+	"Fly"
+	"Grasshopper"
+	"Leaf hopper"
+	"Lice"
+	"Mayfly"
+	"Praying mantis"
+	"Stink bug"
+	"Silverfish"
+	"Termit"
+	"Walking stick"
+	"Black widow spider"
+	"Brown recluse"
+	"Chigger"
+	"Crab spider"
+	"Daddy longleg"
+	"Harvestmen"
+	"Mite"
+	"Orb weaver"
+	"Scorpion"
+	"Spider"
+	"Tick"
+	"Whip tailed scorpion"
+	"Wind scorpion"
+}
+
+fishes
+{
+	"Betta Fish"
+	"Goldfish"
+	"Achilles Tang" 
+	"Fantail goldfish" 
+	"Siamese Fighting Fish" 
+	"Glow Light Tetra"
+	"Red Platy" 
+	"Molly" 
+	"Common goldfish" 
+	"Angelfish" 
+	"Afra Cichlid" 
+	"Black Moor Goldfish" 
+	"Sucker-Mouth Catfish" 
+	"Neon Tetra" 
+	"Plecostomus" 
+	"Oranda"
+	"Corydoras paleatus"
+	"Gold Angelfish"
+	"Butterfly Koi"
+	"Black Balloon Molly"
+	"Silver dollar fish" 
+	"Oscar" 
+	"Tiger Barb" 
+	"Bristlenose Pleco" 
+	"Tiger Oscar" 
+	"White Cloud Mountain Minnow" 
+	"African butter catfish" 
+	"Emerald catfish" 
+	"Dwarf Lionfish" 
+	"Rummy-nose tetra" 
+	"Gold Gourami"
+	"Flowerhorn" 
+	"Teira Batfish" 
+	"Butterfly tail"
+	"Black Phantom Tetra" 
+	"Yellow boxfish" 
+	"Gold barb" 
+	"Silver Angelfish" 
+	"Ghost Catfish" 
+	"Black Tetra" 
+	"Ruyunion" 
+	"Crystal eyed catfish"
+	"Sarasa Comet Goldfish" 
+	"Black Molly" 
+	"Marble Molly" 
+	"Spotted Grouper" 
+	"American Rock" 
+	"Clown Fish" 
+	"African Butterfly Fish" 
+	"Green neon tetra" 
+	"Ryukin goldfish"
+	"Gold Mickey Mouse Platy" 
+	"Red Marlboro Discus" 
+	"Yellow tang" 
+	"Albino Cory"
+	"Bartlett's anthias" 
+	"Albino Angelfish" 
+	"Guppies" 
+	"Orange chromide" 
+	"Koi Angelfish" 
+	"Scooter blenny" 
+	"Clown sailfin pleco" 
+	"Mickey Mouse Platty" 
+	"Clown barb"
+}
+
+
+ OnWar
+ {
+	cardu = RAND(14)
+	cardg = RAND(14)
+	--
+	if cardg == 0
+	{
+		cardg = 1
+	}
+	--
+	if cardu == 0
+	{
+		cardu = 1
+	}
+	--
+	OnShowCard
+	--
+	if cardu == 1 && cardg != 1
+	{
+		field += "\0Oh, seems like you won"
+	}
+	elseif cardu != 1 && cardg == 1
+	{
+		field += "\0Oh, seems like i won"
+	}
+	elseif cardu == 1 && cardg == 1
+	{
+		field += "\0Oh, seems like it's a draw"
+	}
+	elseif cardu == cardg 
+	{
+		field += "\0Oh, seems like it's a draw"
+	}
+	elseif cardu < cardg 
+	{
+		field += "\0Oh, seems like i won"
+	}
+	else
+	{
+		field += "\0Oh, seems like you won"
+	}
+	--
+	field += "\n\n[half]\![*]\q[PLAY AGAIN,OnWar]\n\![*]\q[CLOSE,close]\e"
+	--
+	field
+	--
+	"\e"
+ }
+
+ OnShowCard
+ {
+	 if cardu == 13
+	 {
+		 fcardu = "K"
+	 }
+	 elseif cardu == 12
+	 {
+		 fcardu = "Q"
+	 }
+	 elseif cardu == 11
+	 {
+		 fcardu = "J"
+	 }
+	elseif cardu == 1
+	 {
+		 fcardu = "A"
+	 }
+	 else
+	 {
+		 fcardu = cardu
+	 }
+	 --
+	 if cardg == 13
+	 {
+		fcardg = "K"
+	 }
+	 elseif cardg == 12
+	 {
+		 fcardg = "Q"
+	 }
+	 elseif cardg == 11
+	 {
+		 fcardg = "J"
+	 }
+	 elseif cardg == 1
+	 {
+		 fcardg = "A"
+	 }
+	 else
+	 {
+		 fcardg = cardg
+	 }
+	 --
+	 field = "\_q\1Your Card:\n\n[half]#%(fcardu)##\n####\n####\n##%(fcardu)#\p[3]\b[2]Gians Card:\n\n[half]#%(fcardg)##\n####\n####\n##%(fcardg)#\_q"
+ }
+
+ OnGenerate
+ {
+	 generator = ""
+	 --
+	 
+	for _j = 0; _j < 5;_j++
+	{
+		for _i = 0;_i < synum;_i++
+		{
+			word += sylabs
+		}
+		--
+		generator += "\n" + word
+		synum = RAND(7) + 2
+	 	word = ""
+	 }
+	 --
+	 "\_q"
+	 --
+	 generator
+ }
+
+
+ sylabs
+ {
+//syl = "ba,ca,da,fa,ga,ha,ja,ka,la,ma,na,pa,ra,sa,ta,va,wa,qa,xa,ya,za,be,ce,de,fe,ge,he,je,ke,le,me,ne,pe,re,se,te,ve,we,qe,xe,ye,ze,bi,ci,di,fi,gi,hi,ji,ki,li,mi,ni,pi,ri,si,ti,vi,wi,qi,xi,yi,zi,bo,co,do,fo,go,ho,jo,ko,lo,mo,no,po,ro,so,to,vo,wo,qo,xo,yo,zo,bu,cu,du,fu,gu,hu,ju,ku,lu,mu,nu,pu,ru,su,tu,vu,wu,qu,xu,yu,zu,a,e,i,j,o,u,',-"
+	"ba"
+	"ca"
+	"da"
+	"fa"
+	"ga"
+	"ha"
+	"ja"
+	"ka"
+	"la"
+	"ma"
+	"na"
+	"pa"
+	"ra"
+	"sa"
+	"ta"
+	"va"
+	"wa"
+	"qa"
+	"xa"
+	"ya"
+	"za"
+	"be"
+	"ce"
+	"de"
+	"fe"
+	"ge"
+	"he"
+	"je"
+	"ke"
+	"le"
+	"me"
+	"ne"
+	"pe"
+	"re"
+	"se"
+	"te"
+	"ve"
+	"we"
+	"qe"
+	"xe"
+	"ye"
+	"ze"
+	"bi"
+	"ci"
+	"di"
+	"fi"
+	"gi"
+	"hi"
+	"ji"
+	"ki"
+	"li"
+	"mi"
+	"ni"
+	"pi"
+	"ri"
+	"si"
+	"ti"
+	"vi"
+	"wi"
+	"qi"
+	"xi"
+	"yi"
+	"zi"
+	"bo"
+	"co"
+	"do"
+	"fo"
+	"go"
+	"ho"
+	"jo"
+	"ko"
+	"lo"
+	"mo"
+	"no"
+	"po"
+	"ro"
+	"so"
+	"to"
+	"vo"
+	"wo"
+	"qo"
+	"xo"
+	"yo"
+	"zo"
+	"bu"
+	"cu"
+	"du"
+	"fu"
+	"gu"
+	"hu"
+	"ju"
+	"ku"
+	"lu"
+	"mu"
+	"nu"
+	"pu"
+	"ru"
+	"su"
+	"tu"
+	"vu"
+	"wu"
+	"qu"
+	"xu"
+	"yu"
+	"zu"
+	"a"
+	"e"
+	"i"
+	"j"
+	"o"
+	"u"
+	"'"
+ }
+
+//\![raise,OnTestAx]
+//\![raise,OnAxverian]
+//%(langeng=' cat , cats ')%(langax=' mazi , make ')
+//CURRENT LIBRARY:\n ENG:\n%(langeng)\n AX:\n%(langax)
+//one cat two cats
+//There was one cat, no other cats bothered that cat, yet the cat wasn't lonely! He was still happy. Are you like that cat?  
+
+OnTestAx
+{
+	langeng = "cat ,cats "
+	langax = "mazi ,make "
+	--
+	OnAxverian
+}
+
+OnAxverian
+{
+	"\![open,input,OnAxverianTran,-1]\e"
+}
+
+numberssss
+{
+	'1'
+	'2'
+	'3'
+	'4'
+	'5'
+}
+
+OnAxverianTran
+{
+	afttran = ""
+	--
+	_betranex = TOLOWER(reference0)
+	--
+	_betranex = REPLACE(_betranex,"."," - ")
+	--
+	_betranex = REPLACE(_betranex,","," + ")
+	--
+	_betranex = REPLACE(_betranex,"!"," ! ")
+	--
+	_betranex = REPLACE(_betranex,"?"," ? ")
+	--
+	betran = SPLIT(_betranex," ")
+	//langax = SPLIT(langax,",")
+	//langeng = SPLIT(langax,",")
+	--
+	//show = ARRAYSIZE(betran)
+	//--
+	//show
+	for _i=0;_i<ARRAYSIZE(betran);_i++
+	{
+		if betran[_i] != "!" || betran[_i] != "?" || betran[_i] != "-" || betran[_i] != "+"
+		{
+			synumsss = RAND(5)
+			--
+			wtf = betran[_i] + " "
+			--
+			sizeax = ARRAYSIZE(langeng) - 1
+			--
+			for x=0;x!=1;z=0
+			{
+				if betran[_i] _in_ langeng
+				{
+					for _j=0;_j<ARRAYSIZE(langeng);_j++
+					{
+						if betran[_i] _in_ langeng[_j]
+						{
+							if REPLACE(betran[_i],langeng[_j],"") == "ing"
+							{
+								if STRLEN(langax[_j]) > 2
+								{
+									string = ERASE(langax[_j],-1,1)
+								}
+								--
+								word = langax[_j] + "iea"
+							}
+							elseif REPLACE(betran[_i],langeng[_j],"") == "s" || REPLACE(betran[_i],langeng[_j],"") == "es"
+							{
+								if STRLEN(langax[_j]) > 2
+								{
+									string = ERASE(langax[_j],-1,2)
+								}
+								--
+								word = string + "ka"
+							}
+							elseif REPLACE(betran[_i],langeng[_j],"") == "d" || REPLACE(betran[_i],langeng[_j],"") == "ed"
+							{
+								if STRLEN(langax[_j]) > 2
+								{
+									string = ERASE(langax[_j],-1,2)
+								}
+								--
+								word = string + "sis" 
+							}
+							--
+							word = langax[_j]
+							word = REPLACE(word," ","")
+							--
+							x=1
+							afttran += word + " "
+						}
+					}
+				}
+				else
+				{
+					//"NAY"
+					for _f = 0;_f<synumsss;_f++
+					{
+						word += sylabs
+					}
+					--
+					if word _in_ langax
+					{
+						for _f = 0;_f<synumsss;_f++
+						{
+							word += sylabs
+						}
+					}
+					--
+					langeng += "," + betran[_i] + " "
+					afttran += word + " "
+					langax += "," + word + " "
+					word = ""
+					x=1
+				}
+			}
+		}
+		else
+		{
+			afttran += betran[_i] + " "
+		}
+	}
+	--
+	afttran = REPLACE(afttran," - ",".")
+	afttran = REPLACE(afttran," + ",",")
+	--
+	"\_q\1\s[-1]\*English:\n\n[half]%(reference0)\n\nAxverian:\n\n[half]%(afttran)\n\nCURRENT LIBRARY:\n ENG:\n%(langeng)\n AX:\n%(langax)\x\![open,input,OnAxverianTran,-1]"
+
+}
+
+OnAxverianTranlibr
+{
+	_file = "lib\\verbs.txt"
+	_buff=""
+	_found = 0
+	verbs = ""
+    FCHARSET(1)
+	--
+	if FOPEN(_file,'r')
+	{
+		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) 
+		{
+			verbs += FREAD(_file)
+		}
+	}
+	--
+	verbs = SPLIT(verbs,",")
+	--
+	for _i=0;_i<ARRAYSIZE(verbs);_i++
+	{
+		for _f = 0;_f<synumsss;_f++
+		{
+			
+		}
+		--
+		langeng += "," + betran[_i] + " "
+		afttran += word + " "
+		langax += "," + word + " "
+		word = ""
+		x=1
+	}
+}

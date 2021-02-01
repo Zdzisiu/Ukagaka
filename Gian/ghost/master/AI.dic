@@ -1,0 +1,128 @@
+Select.saysmth
+{
+    "\0huh?\![open,inputbox,OnSayedThing,-1]"
+}
+
+OnSayedThing
+{
+    sayed = reference0
+    sayed = TOLOWER(reference0)
+    ProcessSayed
+}
+
+ProcessSayed
+{
+    if "not" _in_ sayed || "no" _in_ sayed || "don't" _in_ sayed; negation = 1
+    --
+    if "you" _in_ sayed; mentiongian = 1
+    --
+    if "he" _in_ sayed || "she" _in_ sayed || "they" _in_ sayed;  thirdpersonhe = 1
+    --
+    if "do" _in_ sayed || "are" _in_ sayed || "is" _in_ sayed || "am" _in_ sayed || "?" _in_ sayed; doareis = 1
+    --
+    if " i " _in_ sayed || " i'm " _in_ sayed; usermention = 1
+    --
+    if "feel" _in_ sayed || "think" _in_ sayed;  userthink = 1
+    --
+    ProcessSayedNext
+}
+
+ProcessSayedNext
+{
+    if negation == 1 && mentiongian == 1 
+    {
+        if "nice" _in_ sayed || "pretty" _in_ sayed || "handsome" _in_ sayed || "good" _in_ sayed || "cute" _in_ sayed 
+        {
+            sadgian = 1
+            "\0.\w8 .\w8 .\w8\x\c(He just looks at you)"
+        }
+        elseif "bad" _in_ sayed || "worse" _in_ sayed || "ugly" _in_ sayed 
+        {
+            flatteredgian = 1
+            "\0uhh.\w8 .\w8 .\w8 Thanks"
+        }
+    }
+    elseif mentiongian == 1 && negation != 1
+    {
+        if "nice" _in_ sayed || "pretty" _in_ sayed || "handsome" _in_ sayed || "good" _in_ sayed || "cute" _in_ sayed 
+        {
+            flatteredgian = 1
+            "\0.\w8 .\w8 .\w8\x\c(He looks happy)"
+        }
+        elseif "bad" _in_ sayed || "worse" _in_ sayed || "ugly" _in_ sayed 
+        {
+            sadgian = 1
+            "\0.\w8 .\w8 .\w8\x\c(He looks sad)"
+        }
+    }
+    elseif thirdpersonhe == 1 && mentiongian != 1 && negation == 1 && doareis != 1 && usermention != 1
+    {
+        if "nice" _in_ sayed || "pretty" _in_ sayed || "handsome" _in_ sayed || "good" _in_ sayed || "cute" _in_ sayed 
+        {
+            "\0Why do you think so?"
+        }
+        elseif "bad" _in_ sayed || "worse" _in_ sayed || "ugly" _in_ sayed 
+        {
+            "\0that's good"
+        }
+    } 
+    elseif usermention == 1 && negation != 1 && doareis != 1 && thirdpersonhe != 1
+    {
+        if "nice" _in_ sayed || "pretty" _in_ sayed || "handsome" _in_ sayed || "good" _in_ sayed || "cute" _in_ sayed 
+        {
+            "I'm happy you think about yourself like that"
+        }
+        elseif "bad" _in_ sayed || "worse" _in_ sayed || "ugly" _in_ sayed 
+        {
+            "You shouldn't think about youself like that"
+        }
+    }
+    elseif usermention == 1 && negation == 1 && doareis != 1 && thirdpersonhe != 1  && mentiongian != 1
+    {
+        if "nice" _in_ sayed || "pretty" _in_ sayed || "handsome" _in_ sayed || "good" _in_ sayed || "cute" _in_ sayed 
+        {
+            "You shouldn't think about youself like that"
+        }
+        elseif "bad" _in_ sayed || "worse" _in_ sayed || "ugly" _in_ sayed 
+        {
+            "thats a good attitude"
+        }
+    }
+    elseif usermention == 1 && negation == 1 && doareis == 1 && mentiongian != 1
+    {
+        if "nice" _in_ sayed || "pretty" _in_ sayed || "handsome" _in_ sayed || "good" _in_ sayed || "cute" _in_ sayed 
+        {
+            "I think you are great"
+        }
+        elseif "bad" _in_ sayed || "worse" _in_ sayed || "ugly" _in_ sayed 
+        {
+            "Yes"
+        }
+    }
+    elseif usermention == 1 && negation != 1 && doareis == 1
+    {
+        if "nice" _in_ sayed || "pretty" _in_ sayed || "handsome" _in_ sayed || "good" _in_ sayed || "cute" _in_ sayed 
+        {
+            "Yes you are"
+        }
+        elseif "bad" _in_ sayed || "worse" _in_ sayed || "ugly" _in_ sayed 
+        {
+            "No you arent"
+        }
+    }
+    else
+    {
+        "\0i'm sorry but i don't understand"
+    }
+    
+    AfterMath
+}
+
+AfterMath
+{
+    thirdpersonhe = 0
+    negation = 0
+    mention = 0
+    doareis = 0
+    usermention = 0
+}
