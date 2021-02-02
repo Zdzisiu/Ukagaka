@@ -1,14 +1,7 @@
 ﻿ OpenSakuraMenu
 {
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]"
-	}
-	else
-	{
-		"Meow"
-	}
-	
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]"
+	else; "Meow"	
 	--
 	MenuRun
 } 
@@ -22,10 +15,7 @@ MenuRun
 	--
 	"\n\n\_q\b2" 
 	--
-	if lastTalk != "" 
-	{
-	  "\![*]\q[Last Meow,OnLastTalk]\n"
-	}
+	if lastTalk != ""; "\![*]\q[Last Meow,OnLastTalk]\n"
 	--
  	"\![*]\q[Meow,altalk]\n\n[half]"
 	--
@@ -92,58 +82,32 @@ OnLastTalk
 
 GetWeekDay
 {
-	if weekday == 0
-	{"Sun"}
-	elseif weekday == 1
-	{"Mon"}
-	elseif weekday == 2
-	{"Tue"}
-	elseif weekday == 3
-	{"Wed"}
-	elseif weekday == 4
-	{"Thu"}
-	elseif weekday == 5
-	{"Fri"}
-	else
-	{"Sat"}
+	if weekday == 0; "Sun"
+	elseif weekday == 1; "Mon"
+	elseif weekday == 2; "Tue"
+	elseif weekday == 3; "Wed"
+	elseif weekday == 4; "Thu"
+	elseif weekday == 5; "Fri"
+	else; "Sat"
 }
-
 
 GetAP
 {
- 	if hour >= 0 && hour <= 11
- 		{
- 			"AM"
- 		}
- 	else
- 		{
- 			"PM"
- 		}
-} 
+ 	if hour >= 0 && hour <= 11; "AM"
+ 	else; "PM"
+}
 
 Getnowmin
 {
-	if minute >= 0 && minute <=9
-		{
-			"0%(minute)"
-		}
-	else
-		{
-			"%(minute)"
-		}
-} 
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
 
 Getnowhour
 {
-	if hour12 >= 0 && hour12 <=9
-		{
-			"0%(hour12)"
-		}
-	else
-		{
-			"%(hour12)"
-		}
-} 
+	if hour12 >= 0 && hour12 <=9; "0%(hour12)"
+	else; "%(hour12)"
+}
 
 Select.BACKTOMENU
 {
@@ -187,10 +151,7 @@ OnSundVol
 {
 	volume = reference0
 	--
-	if purrmode == "ON"
-	{
-		"\![sound,option,s/long purr.wav,--volume=%(volume)]"
-	} 
+	if purrmode == "ON"; "\![sound,option,s/long purr.wav,--volume=%(volume)]"
 	--
 	TalkConfig
 }
@@ -215,144 +176,85 @@ Select.deleteoff
 } 
 
 Select.talkinter
- 	{
- 		"\0\s[0]\b2How often does the cat meows? Right now: %(talktime)\n\n[half]/
- 		\![*]\q[Every 30 seconds,TALKMAX]\n/
-		\![*]\q[Every minute,TALKHIGH]\n/
- 		\![*]\q[Every 3 minutes,TALKNORMAL]\n/
-		\![*]\q[Every 5 minutes,TALKPOOR]\n/
- 		\![*]\q[Don't meow,TALKNONE]\n\n[half]/
-		\![*]\q[Don't change,TalksTill]\e"
-	}
-
+{
+	"\0\s[0]\b2How often does the cat meows? Right now: %(talktime)\n\n[half]/
+	\![*]\q[Every 30 seconds,TALKMAX]\n/
+	\![*]\q[Every minute,TALKHIGH]\n/
+	\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+	\![*]\q[Every 5 minutes,TALKPOOR]\n/
+	\![*]\q[Don't meow,TALKNONE]\n\n[half]/
+	\![*]\q[Don't change,TalksTill]\e"
+}
 
 Select.TalksTill
 {
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
 	--
 	TalkConfig
 }
-
 
 Select.TALKMAX
 {
 	talktime = "30 seconds" 
 	aitalkinterval = 45 
 	
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
 }
-
 
 Select.TALKHIGH
 {
 	talktime = "minute"
 	aitalkinterval = 90
 	--
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
 }
-
 
 Select.TALKNORMAL
 {
 	talktime = "3 minutes"
 	aitalkinterval = 270
 	--
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
-	
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
 }
-
 
 Select.TALKPOOR
 {
 	talktime = "5 minutes"
 	aitalkinterval = 400
 	--
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
 }
-
 
 Select.TALKNONE
 {
 	talktime = "SILENCE"
 	aitalkinterval = 0 
 	--
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
 }
 
-	
 
 Select.TEACHNAME
 {
 	OnTeachName	
 }
 
-	
-
 Select.CANCEL
 { 
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
 }
-
 
 Select.dosomething
 { 
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]"
-	}
-	else
-	{
-		"Meow"
-	}
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]"
+	else; "Meow"
 	--
 	"\![*]\q[Open Calendar,CALENDAR]\n/
 	\![*]\q[Check Email,MailCheck]\n/
@@ -365,29 +267,15 @@ Select.dosomething
 
 Select.CALENDAR
 {
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\![open,calendar]\e" 	
-	}
-	else
-	{
-		"\0\s[0]Meow\![open,calendar]\e" 
-	}
-
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\![open,calendar]\e" 	
+	else; "\0\s[0]Meow\![open,calendar]\e" 
 }
 
 
 Select.sspconfig
 {
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\![open,configurationdialog]\e" 
-	}
-	else
-	{
-		"\0\s[0]Meow\![open,configurationdialog]\e" 
-	}
-	
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\![open,configurationdialog]\e" 
+	else; "\0\s[0]Meow\![open,configurationdialog]\e" 	
 }
 
 
@@ -397,26 +285,14 @@ Select.ChoiceGarbagecan
 	
 	if _gomicheck == 0 
 	{
-		if silence != "ON" 
-		{
-			"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]It was empty.\e"
-		}
-		else
-		{
-			"Meow, It was empty."
-		}		
+		if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]It was empty.\e"
+		else; "Meow, It was empty."
 	}
 	elseif _gomicheck >= 1 
 	{
-		if silence != "ON"
-		{ 
-			"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\![raise,OnGarbagecanEmpty]\cDone.\e" 
-		}
-		else
-		{
-			"\0\s[0]Meow\![raise,OnGarbagecanEmpty]\cDone.\e" 
-		} 
-		}
+		if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\![raise,OnGarbagecanEmpty]\cDone.\e" 
+		else; "\0\s[0]Meow\![raise,OnGarbagecanEmpty]\cDone.\e" 
+	}
 } 
 
 OnGarbagecanEmpty
@@ -452,13 +328,7 @@ Select.HEADLINECANCEL
 } 
 
 OnChoiceTimeout
- {
-	if silence != "ON" 
-	{
-		"\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
-	}
-	else
-	{
-		"Meow"
-	}
- } 
+{
+	if silence != "ON"; "\0\s[0]\![sound,play,s/%(meows),--volume=%(volume)]\e"
+	else; "Meow"
+} 

@@ -89,7 +89,7 @@ shirtsweekday
 
 cha //Don't time out the balloon
 {
-	"\![set,balloontimeout,0]"
+	"\![set,balloontimeout,0]\*"
 }
 
 bdaydial
@@ -123,11 +123,6 @@ orchidsss
 {
 	if orchid > 1; "orchid"
 	else; "orchideas"
-}
-
-mnoga
-{
-	if stuff > 1; "s"
 }
 
 season
@@ -167,10 +162,28 @@ axvarilang
 	"kasaza,sheep"
 }
 
+sheepnoises
+{
+	"Baa"
+	"Baaa"
+	"Baaaa"
+	"Mee"
+	"Meee"
+	"Meeee"
+	"Bah"
+	"Baah"
+	"Baaah"
+}
+
 TOPROPER
 {
     _word = _argv[0]
     _letter = TOUPPER(SUBSTR(_word,0,1))
     _word = SUBSTR(_word,1,STRLEN(_word)-1)
     _letter + _word
+}
+
+stemp
+{
+	if TOINT(_argv[0]) != 1; "s"
 }

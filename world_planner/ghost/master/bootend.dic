@@ -23,15 +23,14 @@
 	"\1\s[10]\0\s[0]"
 	--
 	FOPEN("write.txt","r")
+	--
 	for _i=0;x != 1;_i++
 	{
 		englib[_i] = FREAD("write.txt")
 		--
-		if englib[_i] == "-1"
-		{
-			x = 1
-		}
+		if englib[_i] == "-1"; x = 1
 	}
+	--
 	FCLOSE("write.txt")
 	--
 	"Welcome human\e"
@@ -47,10 +46,7 @@ OnMood
 	--
 	for _i=0;_i<moodsize;_i++
 	{
-		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "
-		{
-			mood[_i] = 0
-		}
+		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "; mood[_i] = 0
 	}
 	--
 	moodnumss = RAND(moodsize)
@@ -60,14 +56,8 @@ OnMood
 		ranmood = RAND(moodsize)
 		randmoodvar = RAND(10)
 		--
-		if mood[ranmood] = 0
-		{
-			mood[ranmood] = TOINT(randmoodvar)
-		}
-		else
-		{
-			mood[ranmood] += TOINT(randmoodvar)
-		}
+		if mood[ranmood] = 0; mood[ranmood] = TOINT(randmoodvar)
+		else; mood[ranmood] += TOINT(randmoodvar)
 	}
 	--
 	OnMoodCheck
@@ -116,45 +106,21 @@ OnMoodCheck
 
 OnBootVariables
 {
-	if 	igsave == ""
-	{
-		igsave = "ON"
-	}
+	if 	igsave == ""; igsave = "ON"
 	--
-	if 	male == ""
-	{
-		male = "ON"
-	}
+	if 	male == ""; male = "ON"
 	--
-	if 	female == ""
-	{
-		female = "ON"
-	}
+	if 	female == ""; female = "ON"
 	--
-	if 	mtf == ""
-	{
-		mtf = "ON"
-	}
+	if 	mtf == ""; mtf = "ON"
 	--
-	if 	ftm == ""
-	{
-		ftm = "ON"
-	}
+	if 	ftm == ""; ftm = "ON"
 	--
-	if 	nonbinary == ""
-	{
-		nonbinary = "ON"
-	}
+	if 	nonbinary == ""; nonbinary = "ON"
 	--
-	if 	genfluid == ""
-	{
-		genfluid = "ON"
-	}
+	if 	genfluid == ""; genfluid = "ON"
 	--
-	if 	deadyn == ""
-	{
-		deadyn = "ON"
-	}
+	if 	deadyn == ""; deadyn = "ON"
 }
 
 OnVariables
@@ -261,66 +227,21 @@ OnVariables
 
 GetTimeSlot
 {
-	if hour >= 5 && hour <= 8
-	{
-		"earlymorning"
-	}
-	elseif hour >= 9 && hour <= 11
-	{
-		"morning"
-	}
-	elseif hour >= 12 && hour <= 14
-	{
-		"lunch"
-	}
-	elseif hour >= 15 && hour <= 17
-	{
-		"afternoon"
-	}
-	elseif hour >= 18 && hour <= 20
-	{
-		"evening"
-	}
-	elseif hour >= 21 && hour <= 24
-	{
-		"latenight"
-	}
-	else
-	{
-		"midnight"
-	}
+	if hour >= 5 && hour <= 8; "earlymorning"
+	elseif hour >= 9 && hour <= 11; "morning"
+	elseif hour >= 12 && hour <= 14; "lunch"
+	elseif hour >= 15 && hour <= 17; "afternoon"
+	elseif hour >= 18 && hour <= 20; "evening"
+	elseif hour >= 21 && hour <= 24; "latenight"
+	else; "midnight"
 }
 
 timeofdayown
 {
-	if hour >= 5 && hour <= 8
-	{
-		"morning"
-	}
-	elseif hour >= 9 && hour <= 11
-	{
-		"morning"
-	}
-	elseif hour >= 12 && hour <= 14
-	{
-		"afternoon"
-	}
-	elseif hour >= 15 && hour <= 17
-	{
-		"afternoon"
-	}
-	elseif hour >= 18 && hour <= 20
-	{
-		"evening"
-	}
-	elseif hour >= 21 && hour <= 24
-	{
-		"evening"
-	}
-	else
-	{
-		"evening"
-	}
+	if (hour >= 5 && hour <= 8) || (hour >= 9 && hour <= 11); "morning"
+	elseif (hour >= 12 && hour <= 14) || (hour >= 15 && hour <= 17); "afternoon"
+	elseif (hour >= 18 && hour <= 20) || (hour >= 21 && hour <= 24); "evening"
+	else; "evening"
 }
 
 GetDaySlot
@@ -342,21 +263,14 @@ OnBoot
 	OnMood
 	--
 	"\0Good %(timeofdayown), %(username)"
-	--
 }
 
 OnClose
 {
 	timeslot = GetTimeSlot 
 	--
-	if passmin >= 5	
-	{
-		"\0...\w8\w8"
-	}
-	else 
-	{
-		"\0...\w8\w8"
-	}
+	if passmin >= 5; "\0...\w8\w8"
+	else; "\0...\w8\w8"
 	--
 	"\-\e" 
 }
@@ -368,28 +282,16 @@ OnWindowStateRestore
 
 OnGhostChanging
  {
-	if reference0 == "Conlanger" 
-	{
-		"\0\s[0]...\w8\w8\e"
-	}
- 	else 
-	{
-		"\0\s[0]...\e"
-	}
+	if reference0 == "Conlanger"; "\0\s[0]...\w8\w8\e"
+ 	else; "\0\s[0]...\e"
 }
 
 OnGhostChanged
 {
 	"\0\s[0]\1\s[10]" 
 	--
-	if reference0 == "Conlanger" 
-	{
-		"\0\s[0]...\e"
-	}
-	else 
-	{
-		"...\e"
-	}
+	if reference0 == "Conlanger"; "\0\s[0]...\e"
+	else ; "...\e"
 }
 
 OnShellChanged

@@ -17,6 +17,7 @@ dic, commu.dic
 dic, nameteach.dic
 dic, anchor.dic
 
+
 //---- Log Location -------------------------------------------------------------------------
 //Don't touch it.
 

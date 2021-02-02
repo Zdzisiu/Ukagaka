@@ -10,9 +10,9 @@
 		{
 			if "_ref" _in_ _filename
 			{	
-				whatref = REPLACE(_filename,"_ref","")
+				_whatref = REPLACE(_filename,"_ref","")
 				--
-				"Is this a reference sheet for '%(whatref)?'\n\n[half]"
+				"Is this a reference sheet for '%(_whatref)?'\n\n[half]"
 				--
 				"\![*]\q[Yes,OnRefUpload,%(file)]\n/
 				\![*]\q[No,noupload]\e"
@@ -26,8 +26,8 @@
 			}
 			elseif "_map" _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(counname)") _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(placename)")
 			{
-				whatmap = REPLACE(_filename,"_map","")
-				"Is this a map for '%(whatmap)?'\n\n[half]"
+				_whatmap = REPLACE(_filename,"_map","")
+				"Is this a map for '%(_whatmap)?'\n\n[half]"
 				--
 				"\![*]\q[Yes,OnMapUpload,%(file)]\n/
 				\![*]\q[No,noupload]\e"
@@ -36,12 +36,9 @@
 			{
 				if igsave == "ON"
 				{
-					e = FCOPY(reference0,"images")
+					_e = FCOPY(reference0,"images")
 					--
-					if e == 1
-					{
-						"I copied this image to my book"
-					}
+					if _e == 1;"I copied this image to my book"
 				}
 				else
 				{
@@ -64,9 +61,9 @@ Select.noupload
 {
 	if igsave == "ON"
 	{
-		e = FCOPY(reference0,"images")
+		_e = FCOPY(reference0,"images")
 		--
-		if e == 1
+		if _e == 1
 		{
 			"I copied this image to my book"
 			"I saved this image to my book"
@@ -82,9 +79,9 @@ Select.noupload
 
 OnRefUpload
 {
-	e = FCOPY(reference0,"refsheets")
+	_e = FCOPY(reference0,"refsheets")
 	--
-	if e == 1
+	if _e == 1
 	{
 		"I copied this reference sheet to my book"
 		"I saved this reference sheet to my book"
@@ -95,9 +92,9 @@ OnRefUpload
 
 OnPortraitUpload
 {
-	e = FCOPY(reference0,"portraits")
+	_e = FCOPY(reference0,"portraits")
 	--
-	if e == 1
+	if _e == 1
 	{
 		"I copied this portrait to my book"
 		"I saved this portrait to my book"
@@ -108,9 +105,9 @@ OnPortraitUpload
 
 OnMapUpload
 {
-	e = FCOPY(reference0,"maps")
+	_e = FCOPY(reference0,"maps")
 	--
-	if e == 1
+	if _e == 1
 	{
 		"I copied this Map to my book"
 		"I saved this Map to my book"

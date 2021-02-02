@@ -550,136 +550,79 @@ surname
 
 randsylabs
 {
-	word = ""
-	letter = RAND(ARRAYSIZE(alphabettemp))
+	_word = ""
+	_letter = RAND(ARRAYSIZE(alphabettemp))
 	--
-	num = RAND(maxletter)
+	_num = RAND(maxletter)
 	--
-	if num < minletter
-	{
-		num = minletter
-	}
+	if _num < minletter; _num = minletter
 	--
-	for _j=0;_j<=num;_j++
+	for _j=0;_j<=_num;_j++
 	{
 		if rulethree == "ON"
 		{
 			for _x=0;_x<=numcom;_x++
 			{
-				newlet = RAND(ARRAYSIZE(alphabettemp))
+				_newlet = RAND(ARRAYSIZE(alphabettemp))
 				--
-				if newlet == letter
+				if _newlet == _letter
 				{
 					if RAND(2) == 1
 					{
-						if alphabettemp[letter-newlet] == ""
-						{
-							letter = ARRAYSIZE(alphabettemp)
-						}
-						else
-						{
-							letter += _x-newlet
-						}
+						if alphabettemp[_letter-_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
+						else; _letter += _x-_newlet
 					}
 					else
 					{
-						if alphabettemp[letter+newlet] == ""
-						{
-							letter = ARRAYSIZE(alphabettemp)
-						}
-						else
-						{
-							letter += _x+newlet
-						}
+						if alphabettemp[_letter+_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
+						else; _letter += _x+_newlet
 					}
 				}
 				--
-				if letterprev == alphabettemp[letter+_x]
+				if _letterprev == alphabettemp[_letter+_x]
 				{
 					if RAND(2) == 1
 					{
-						if alphabettemp[letter-newlet] == ""
-						{
-							letter = ARRAYSIZE(alphabettemp)
-						}
-						else
-						{
-							letter += _x-newlet
-						}
+						if alphabettemp[_letter-_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
+						else; _letter += _x-_newlet
 					}
 					else
 					{
-						if alphabettemp[letter+newlet] == ""
-						{
-							letter = ARRAYSIZE(alphabettemp)
-						}
-						else
-						{
-							letter += _x+newlet
-						}
+						if alphabettemp[_letter+_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
+						else; _letter += _x+_newlet
 					}
 				}
 				--
-				if letterprev == alphabettemp[letter-_x]
+				if _letterprev == alphabettemp[_letter-_x]
 				{
 					if RAND(2) == 1
 					{
-						if alphabettemp[letter-newlet] == ""
-						{
-							letter = ARRAYSIZE(alphabettemp)
-						}
-						else
-						{
-							letter += _x-newlet
-						}
+						if alphabettemp[_letter-_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
+						else; _letter += _x-_newlet
 					}
 					else
 					{
-						if alphabettemp[letter+newlet] == ""
-						{
-							letter = ARRAYSIZE(alphabettemp)
-						}
-						else
-						{
-							letter += _x+newlet
-						}
+						if alphabettemp[_letter+_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
+						else; _letter += _x+_newlet
 					}
 				}
 			}
 		}
 		--
-		if ruletwo == "ON"
-		{
-			if alphabettemp[letter] == letterprev
-			{
-				letter += 1
-			}
-		}
+		if ruletwo == "ON" && alphabettemp[_letter] == letterprev; _letter += 1
 		--
-		if ruleone == "ON"
-		{
-			if "'" _in_ word && "'" _in_ alphabettemp[letter]
-			{
-				word = REPLACE(word,"'","")
-			}
-		}
+		if ruleone == "ON" && "'" _in_ _word && "'" _in_ alphabettemp[_letter]; _word = REPLACE(_word,"'","")
 		--
-		if letterprev == "'" && alphabettemp[letter] == "-"
-		{
-			letter = RAND(15)
-		}
-		elseif letterprev == "-" && alphabettemp[letter] == "'"
-		{
-			letter = RAND(15)
-		}
+		if _letterprev == "'" && alphabettemp[_letter] == "-"; _letter = RAND(15)
+		elseif _letterprev == "-" && alphabettemp[_letter] == "'"; _letter = RAND(15)
 		--
-		word += alphabettemp[letter]
-		letterprev = alphabettemp[letter]
+		_word += alphabettemp[_letter]
+		_letterprev = alphabettemp[_letter]
 	}
 	--
-	word = ERASE(word,0,1)
-	_buffer = SUBSTR(word,0,1)
-	word = INSERT(word,0,TOUPPER(_buffer))
+	_word = ERASE(_word,0,1)
+	_buffer = SUBSTR(_word,0,1)
+	_word = INSERT(_word,0,TOUPPER(_buffer))
 	--
 	"%(word)"
 }
@@ -2702,35 +2645,17 @@ isdead
 
 gender
 {
-	if male == "ON"
-	{
-		"Male"
-	}
+	if male == "ON"; "Male"
 
-	if female == "ON"
-	{
-		"Female"
-	}
+	if female == "ON"; "Female"
 
-	if mtf == "ON"
-	{
-		"Male (FTM)"
-	}
+	if mtf == "ON"; "Male (FTM)"
 
-	if ftm == "ON"
-	{
-		"Female (MTF)"
-	}
+	if ftm == "ON"; "Female (MTF)"
 
-	if nonbinary == "ON"
-	{
-		"Non-binary"
-	}
+	if nonbinary == "ON"; "Non-binary"
 
-	if genfluid == "ON"
-	{
-		"Gender Fluid"
-	}
+	if genfluid == "ON"; "Gender Fluid"
 }
 
 race
@@ -2935,14 +2860,9 @@ housmate
 
 yanold
 {
-	if charage[charcount] > 50
-	{
-		"old"
-	}
-	else
-	{
-		"young"
-	}
+	if charage[charcount] > 50; "old"
+	elseif charage[charcount] > 25; "middle aged"
+	else; "young"
 }
 
 isa
@@ -3158,7 +3078,6 @@ bigorsmol
 	"big "
 	"small "
 	""
-	
 }
 
 side
@@ -3182,14 +3101,8 @@ bodypart
 
 clothes
 {
-	if "Female" _in_ chargender[charcount]
-	{
-		"dresses"
-	}
-	elseif "Male" _in_ chargender[charcount]
-	{
-		"suits"
-	}
+	if "Female" _in_ chargender[charcount]; "dresses"
+	elseif "Male" _in_ chargender[charcount]; "suits"
 
 	"%(clothestop) and %(clothesbottoms)"
 }
@@ -3298,15 +3211,9 @@ mappiece
 	//mapblack
 	mapwhite
 
-	if RAND(2) == 1
-	{
-		forest
-	}
+	if RAND(2) == 1; forest
 
-	if RAND(3) == 2
-	{
-		lake
-	}
+	if RAND(3) == 2; lake
 }
 
 
@@ -3481,14 +3388,8 @@ OnMapgentwo
 				}
 			}
 			--
-			if RAND(2) == 1
-			{
-				forestx += forestoffset
-			}
-			else
-			{
-				forestx -= forestoffset
-			}
+			if RAND(2) == 1; forestx += forestoffset
+			else; forestx -= forestoffset
 			--
 			foresty += 1
 			--
@@ -3615,14 +3516,8 @@ OnMapgentwotwo
 				}
 			}
 			--
-			if RAND(2) == 1
-			{
-				forestx += forestoffset
-			}
-			else
-			{
-				forestx -= forestoffset
-			}
+			if RAND(2) == 1; forestx += forestoffset
+			else; forestx -= forestoffset
 			--
 			foresty += 1
 			--
@@ -3695,15 +3590,9 @@ OnMapgentwotwo
 			_x++
 		}
 		--
-		if _z == 35
-		{
-			_z = 0
-		}
+		if _z == 35; _z = 0
 		--
-		if mapgtwonew[_i] == ""
-		{
-			mapgtwonew[_i] = groundsign
-		}
+		if mapgtwonew[_i] == ""; mapgtwonew[_i] = groundsign
 		--
 		mapp += mapgtwonew[_i]
 	}
@@ -3784,21 +3673,12 @@ OnMapgenold
 				}
 			}
 			--
-			if RAND(2) == 1
-			{
-				forestx += forestoffset
-			}
-			else
-			{
-				forestx -= forestoffset
-			}
+			if RAND(2) == 1; forestx += forestoffset
+			else; forestx -= forestoffset
 			--
 			foresty += 1
 			--
-			if _s == forestheight
-			{
-				foresd = 1
-			}
+			if _s == forestheight; foresd = 1
 			--
 			forestoffset = RAND(5)
 			forestwide = RAND(60) + 2
@@ -3829,10 +3709,7 @@ OnMapgenold
 			//--
 			villagey += 1
 			--
-			if _s == villageheight
-			{
-				villaged = 1
-			}
+			if _s == villageheight; villaged = 1
 			--
 			//villageoffset = RAND(5)
 			if _s == villageheight/5

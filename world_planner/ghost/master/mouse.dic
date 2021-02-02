@@ -14,14 +14,8 @@ OnMouseMove
 {
 	if nowmode != "QUIZ"
 	{
-		if reference3 == 0 
-		{
-			MouseMoveSakura
-		}
-		else 
-		{
-			MouseMoveKero
-		}
+		if reference3 == 0; MouseMoveSakura
+		else; MouseMoveKero
 	}
 }
 
@@ -33,14 +27,9 @@ MouseMoveSakura
  		if stroke >= 40 
 		{
  			stroke = 0 
-			if reference4 == "Head" 
- 			{
-				"\0...\e"
- 			}
- 			elseif reference4 == "Face" 
- 			{
- 				"\0...\e"
- 			}
+
+			if reference4 == "Head"; "\0...\e"
+ 			elseif reference4 == "Face"; "\0...\e"
  		}
 	}
  	else
@@ -57,14 +46,9 @@ MouseMoveKero
  		if stroke >= 40
 		{
 			stroke = 0
-			if reference4 == "Head" 
- 			{
-				"\0...\e"
- 			}
- 			elseif reference4 == "Face" 
- 			{
- 				"\0...\e"
- 			}
+
+			if reference4 == "Head"; "\0...\e"
+ 			elseif reference4 == "Face"; "\0...\e"
  		}
 	}
  	else
@@ -87,36 +71,18 @@ Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not 
 
 OnMouseDoubleClick
 {
- 	if reference3 == 0 
-	{
-		MouseDoubleClickSakura
- 	}
-	else
- 	{
- 		MouseDoubleClickKero
-	}
+ 	if reference3 == 0; MouseDoubleClickSakura
+	else; MouseDoubleClickKero
 }
 
 MouseDoubleClickSakura
- {
- 	if reference4 == "Head" || reference4 == "Face" 
-	{
-		"\0...\e"
- 	}
-	else
- 	{
- 		OpenSakuraMenu
-	}
- }
+{
+ 	if reference4 == "Head" || reference4 == "Face"; "\0...\e"
+	else; OpenSakuraMenu
+}
  
 MouseDoubleClickKero
- {
- 	if reference4 == "Face" 
-	{
-		"\1\s[10]...\e"
- 	}
-	else 
- 	{
-		OpenKeroMenu 
-	}
- }
+{
+ 	if reference4 == "Face"; "\1\s[10]...\e"
+	else; OpenKeroMenu 
+}

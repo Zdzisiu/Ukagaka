@@ -1,13 +1,6 @@
 ﻿OnTeachName	
 {
-	if reference0 == "TEACHNAME" 
-	{
-		"\0What should I call you?\![open,inputbox,OnNameTeach,-1]\e"
-	}
-	else
-	{
-
-	}
+	if reference0 == "TEACHNAME";"\0What should I call you?\![open,inputbox,OnNameTeach,-1]\e"
 }
 
 OnNameTeach
@@ -28,13 +21,13 @@ OnNameTeach
 		--
 		if presuffix == "masculine" 
 		{
-		"\![*]\q[Mr.,titlemr]\n/
-		\![*]\q[Master,titlemaster]\n"
+			"\![*]\q[Mr.,titlemr]\n/
+			\![*]\q[Master,titlemaster]\n"
 		}
 		elseif presuffix == "feminine" 
 		{
-		"\![*]\q[Ms.,titlems]\n/
-		\![*]\q[Lady,titlelady]\n"
+			"\![*]\q[Ms.,titlems]\n/
+			\![*]\q[Lady,titlelady]\n"
 		}
 		-- 
 		"\![*]\q[-ssi,titlessi]\n/
@@ -50,7 +43,6 @@ Select.titleown
 
 OnTitle
 {
-	
 	usertitle = reference0
 	"Should it be befor or after your name?\n"
 	--
@@ -60,27 +52,15 @@ OnTitle
 
 Select.titleafter
 {
-	if "-" _in_ usertitle
-	{
-		username = tempname + "%(usertitle)"
-	}
-	else
-	{
-		username = tempname + " %(usertitle)"
-	}
+	if "-" _in_ usertitle; username = tempname + "%(usertitle)"
+	else; username = tempname + " %(usertitle)"
 	NameDone
 }
 
 Select.titlebefore
 {
-	if "-" _in_ usertitle
-	{
-		username = "%(usertitle)" + tempname
-	}
-	else
-	{
-		username = "%(usertitle) " + tempname
-	}
+	if "-" _in_ usertitle; username = "%(usertitle)" + tempname
+	else; username = "%(usertitle) " + tempname
 	NameDone
 }
 

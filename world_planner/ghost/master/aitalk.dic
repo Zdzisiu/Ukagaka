@@ -620,10 +620,8 @@ OnMinuteChange
 {
 	timeslot = GetTimeSlot 
 	moodminute += 1
-	if moodminute == 30
-	{
-		OnMoodCheck
-	}
+	--
+	if moodminute == 30; OnMoodCheck
 	--
  	if minute == 0 
 	{
@@ -648,19 +646,20 @@ Reference4: *SSP only (at OS level) Time left unattended. In seconds
 OnSecondChange
 {
 	if passsec == 60
- 		{
-	 	passsec = 1
- 		passmin = passmin + 1
-		}
+	{
+		passsec = 1
+		passmin = passmin + 1
+	}
  	else
- 		{
-	 	passsec = passsec + 1
-		}
+	{
+		passsec = passsec + 1
+	}
+	--
 	if mikireflag == 1 && reference1 == 0
-		{
-			EndMikireTalk
- 		}
-		mikireflag = reference1
+	{
+		EndMikireTalk
+	}
+	mikireflag = reference1
 	if reference2 == 1
 	{
 
@@ -689,28 +688,10 @@ Reference4: *SSP only Modifier keys are listed separated by commas. Example: "ct
 
 OnKeyPress
 {
-	if reference0 == "t"
-	{
-		OnAiTalk
-	}
-	elseif reference0 == "r"
-	{
-		OnLastTalk
-	}
-	elseif reference0 == "z"
-	{
-		OnVariables
-	}
-	elseif reference0 == "s"
-	{
-		"\![reload,shiori]"
-	}
-	elseif reference0 == "a"
-	{
-		"\![reload,shell]"
-	}
-	elseif reference0 == "f1"
-	{
-		"\![open,readme]"
-	}
+	if reference0 == "t"; OnAiTalk
+	elseif reference0 == "r"; OnLastTalk
+	elseif reference0 == "z"; OnVariables
+	elseif reference0 == "s"; "\![reload,shiori]"
+	elseif reference0 == "a"; "\![reload,shell]"
+	elseif reference0 == "f1"; "\![open,readme]"
 }

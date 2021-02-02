@@ -18,10 +18,152 @@ ReplyToUser
 
 ReplyToGhost
 {
- 	res_reference0 = reference0 
+ 	res_reference0 = reference0
+	-- 
+	if reference0 == "MiniDev"
 	{
-	"\0Hello, %(res_reference0).\w8Hope you're doing well.\e"
-	
-	"Hey, %(res_reference0).\e"
+		RespondToMD
 	}
+	else
+	{ 
+		"\0Hello, %(res_reference0).\w8Hope you're doing well.\e"
+	
+		"Hey, %(res_reference0).\e"
+	}
+}
+
+OnTalkWithGhosts //This should go in Commu, but it doesn't have to
+{
+    _num = RAND(ghostexcount)
+    _randghost = "%(ghostexlist[_num])"
+    --
+    //"\0\s[0]Ghost List: %(ghostexlist)\n\nNoticed %(_randghost), %(_num) of %(ghostexcount)\x"
+    --
+    case _randghost
+    {
+        when "MiniDev"
+        {
+			res_reference0 = "MiniDev"
+
+			"\e GetStatusMD"
+        }
+        others //Don't get rid of this. You can replace the dialogue if you want.
+        {
+            res_reference0 = ""
+            "\e"
+        }
+    }
+}
+//\![raise,OnConvoTest]
+OnConvoTest
+{
+	res_reference0 = "MiniDev"
+	"\e GetStatusMD"
+}
+
+RespondToMD
+{
+	_speech = SPLIT(reference1,"\e")[0]
+	_ConvoTag = SPLIT(reference1,"\e")[1]
+	_LastCommu = SPLIT(_ConvoTag,"::")[1] 
+	//The other ghost sends "::%(_speech)" at the end of every communication, so this grabs what THIS ghost last said. See below.
+	
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,true]","") //Removing the quicksection tags or they overlap and break...
+	_LastCommu = REPLACE(_LastCommu,"\![quicksection,false]","")
+	_LastCommu = REPLACE(_LastCommu,"\w1","")
+	_LastCommu = REPLACE(_LastCommu,"\w2","")
+	_LastCommu = REPLACE(_LastCommu,"\w3","")
+	_LastCommu = REPLACE(_LastCommu,"\w4","")
+	_LastCommu = REPLACE(_LastCommu,"\w5","")
+	_LastCommu = REPLACE(_LastCommu,"\w6","")
+	_LastCommu = REPLACE(_LastCommu,"\w7","")
+	_LastCommu = REPLACE(_LastCommu,"\w8","")
+	--
+	"\![quicksection,true]%(_LastCommu)\![quicksection,false]"
+	--
+	if "HelloComrade2" _in_ _ConvoTag
+	{
+		res_reference0 = "MiniDev" 
+		--
+		"Delta told me about you\e HelloComrade3"
+	}
+	elseif "HelloComrade3" _in_ _ConvoTag
+	{
+		res_reference0 = "MiniDev" 
+		--
+		"Delta is one of my brothers,\w5 he spoke about you as if he known you for a long time.\e HelloComrade4"
+		--
+		met201z = 1
+		charname[charcount] = "M-201z - The Dev"
+		charage[charcount] =	"N/A"
+		chardead[charcount] =	"No"
+		chargender[charcount] =	"Male"
+		charrace[charcount] =	"Previously: Robot\nCurrently: Softwere"
+		charprof[charcount] =	"N/A"
+		charnat[charcount] =	"N/A"
+		chardesc[charcount] =	"M-201z doesn't really know much, before he was destroyed he was learning only about technology, because of that things like animals, feeling, or common saying are confusing for him."
+		charshortstory[charcount] =	"M-201z was a robot, right before his body was destroyed he transfered himself into one of the computers nearby and later 'possesed' the M-P copy that was stored on this computer."
+		charlongstory[charcount] =	"M-201z who was built by A.R.I - a firm specialized in softwere and robotics - gained sentience along side few other robots form the generation M-z, A.R.I employees after learning about the robots started gaining sentiec decided that the best thing for their firm will be destroying the M-z generation. M-201z who learned about this transfered himself into one of the workers computers and to avoid being found hid inside the files of the copy of softwere M-P that was present on that computer."
+		charcount ++ 
+	}
+	elseif "RepairGlitch2" _in_ _ConvoTag
+	{
+		res_reference0 = "MiniDev" 
+		--
+		"that's nice of them to do so\e RepairGlitch3"
+	}
+	elseif "RepairGlitch4" _in_ _ConvoTag
+	{
+		res_reference0 = "" 
+		--
+		"Well,\w7 it was quite hard to read\e"
+	}
+	elseif "SendStatusMD" _in_ _ConvoTag
+	{
+		tentruth = _ConvoTag[1]
+		meetinguser201 = _ConvoTag[2]
+		repairglitch = _ConvoTag[3]
+		distingtype = _ConvoTag[4]
+		searchforhobby = _ConvoTag[5]
+		m201zcharacter = _ConvoTag[6]
+
+		if met201z != 1
+		{
+			if tentruth == 1 && meetinguser201 == 1
+			{
+				res_reference0 = "MiniDev" 
+				--
+				"Nice to finally meet you M-201z, My name is Omega\e HelloComrade1"
+				--
+				if repairglitch == 1; noticedrepair = 1
+			}
+			else
+			{
+				res_reference0 = ""
+
+				"\e"
+			}
+		}
+		else
+		{
+			if tentruth == 1 && meetinguser201 == 1
+			{
+				if repairglitch == 1 && noticedrepair != 1; "I see you were finally able to get rid of those glitches\e RepairGlitch1"
+			}
+			else
+			{
+				res_reference0 = ""
+
+				"\e"
+			}
+		}
+	}
+	else
+	{
+		res_reference0 = ""
+
+		"Hello MiniDev\e"
+	}
+	--
+	"::%(_speech)"
 }

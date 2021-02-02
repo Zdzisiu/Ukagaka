@@ -339,28 +339,30 @@ Select.memo
 	"\n\![*]\q[Nevermind,cancel]\e"
 }
 
- Select.stats
- {
-	"\1\b2You petted Gian %(petcountvariable) times\n/
-	You punched Gian %(punchcountvariable) times\n/
-	You and Gian have %(commonthings) things in common\n/
+Select.stats
+{
+	"\1\b2You petted Gian %(petcountvariable) time%(stemp(petcountvariable))\n/
+	You punched Gian %(punchcountvariable) time%(stemp(punchcountvariable))\n/
+	You and Gian have %(commonthings) thing%(stemp(commonthings)) in common\n/
 	Today you give him:\n/
-	%(sweaters) sweaters\n/
-	%(plants) potted plants\n/
-	%(candy) candies\n/
-	%(catplush) cat plushies\n/
-	%(alpacaplush) alpaca plushies\n/
-	%(sheepplush) sheep plushies\n/
-	%(birdplush) bird plushies\n/
-	%(loveletters) love letters\n"
+	%(sweaters) sweater%(stemp(sweaters))\n/
+	%(plants) potted plant%(stemp(plants))\n"
 	--
-	if drawing >= 1 ; "%(drawings) drawings\n"
+	if drawing == 1; "%(candy) candy\n"
+	else; "%(candy) candies\n"
 	--
-	if painter >= 1; "%(paintings) paintings\n"
+	"%(catplush) cat plushie%(stemp(catplush))\n/
+	%(alpacaplush) alpaca plushie%(stemp(alpacaplush))\n/
+	%(sheepplush) sheep plushie%(stemp(sheepplush))\n/
+	%(birdplush) bird plushie%(stemp(birdplush))\n"
 	--
-	if poet >= 1; "%(poems) poems\n"
+	if drawing >= 1; "%(drawings) drawing%(stemp(drawing))\n"
 	--
-	if  sew >= 1; "%(dolls) handsewn dolls\n/"
+	if painter >= 1; "%(paintings) painting%(stemp(paintings))\n"
+	--
+	if poet >= 1; "%(poems) poem%(stemp(poems))\n"
+	--
+	if  sew >= 1; "%(dolls) handsewn doll%(stemp(dolls))\n/"
 	--
 	"\![*]\q[Nevermind,cancel]\e"
 
@@ -381,7 +383,7 @@ OnBag
 	_size = ARRAYSIZE(names)
 	_am = bagpage * 8
 	_amount = clover + "," + apples + "," + tulip + "," + rose + "," + orchid + ","+ blanket + ","+ sweater + ","+ hat + ","+ scarf + ","+ shinystone + ","+ ring  
-	_desc = "Normal clover%(mnoga),Normal apple%(mnoga)+ very healthy,Tulip%(mnoga)+ if you have enough maybe you can make a bouquet or a flower crown?,Rose%(mnoga)+ if you have enough maybe you can make a bouquet?,%(orchidsss)+ if you have enough maybe you can make a bouquet?,Very warm+ very cozy,Very warm+ very cozy,Keep your ears warm,Keep warm,Very shiny+ very pretty,Pretty and shiny+ as all things should be"
+	_desc = "Normal clover%(stemp(clover)),Normal apple%(stemp(apples))+ very healthy,Tulip%(stemp(tulip))+ if you have enough maybe you can make a bouquet or a flower crown?,Rose%(stemp(rose))+ if you have enough maybe you can make a bouquet?,%(orchidsss)+ if you have enough maybe you can make a bouquet?,Very warm+ very cozy,Very warm+ very cozy,Keep your ears warm,Keep warm,Very shiny+ very pretty,Pretty and shiny+ as all things should be"
 	_items = (_names,_amount,_desc)
 	--
 	for _i = 0;_i < _size;_i ++
@@ -399,7 +401,7 @@ OnBag
 		--
 		for _i = _am;_i < _size;_i ++//_size;_i ++
 		{
-			stuff = TOINT(_items[1][_i])
+			_stuff = TOINT(_items[1][_i])
 			--
 			if _items[1][_i] > 0
 			{
@@ -409,7 +411,7 @@ OnBag
 				--
 				if _i == 4 && _items[1][_i] > 1; _print += "\![*]\q[Orchideas [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
 				elseif _i == 8 && _items[1][_i] > 1; _print += "\![*]\q[Skarves [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
-				else ; _print += "\![*]\q[" + TOPROPER(_items[0][_i]) + "%(mnoga) [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
+				else ; _print += "\![*]\q[" + TOPROPER(_items[0][_i]) + "%(stemp(_stuff)) [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
 				--
 				if _i == _num; _print += "\f[default]"
 			}
@@ -484,24 +486,11 @@ OpenSheepMenu
 		_price = "" 
 		_desc = ""
 		_size = ARRAYSIZE(names)
-		_items = (_names,_amount,_desc)
+		_items = (_names,_amount,_desc,_prices)
 		--
 		OnShop("sheep",_items,_size)
 	}
 	
-}
-
-sheepnoises
-{
-	"Baa"
-	"Baaa"
-	"Baaaa"
-	"Mee"
-	"Meee"
-	"Meeee"
-	"Bah"
-	"Baah"
-	"Baaah"
 }
 
 OnShop
@@ -512,16 +501,17 @@ OnShop
 	_num = TOINT(_argv[0])
 	--
 	_items = _argv[0]
+	//_prices = _items
 	_hitems = 0
 	_am = shoppage * 8
 	--
-	_print = "\1\b6\*%(cha)%(sheepnoises)"
+	_print = "\1\b6%(cha)%(sheepnoises)"
 	--
 	for _i = _am;_i < _size;_i ++
 	{
 		if _items[1][_i] > 0
 		{
-			stuff = TOINT(_items[1][_i])
+			_stuff = TOINT(_items[1][_i])
 			--
 			_hitems += 1
 			--
