@@ -10,7 +10,7 @@
 	mikireflag       = 0 
 	completed = 0
 	apps = 0 //Apps tutorial 
-	tooln = "ON" //q-tools on
+	tooln = "OFF" //q-tools on
 	weathermenu = "OFF" //weather on menu
 	moonmenu = "OFF" //moonphase on menu
 	curlocation = "" 
@@ -44,7 +44,7 @@
 	--
 	if reference0 == 0 
  	{
-		"\![open,file,ghost/master/credits-readme.txt]\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
+		"\1\s[10]\0\s[0]\![open,file,ghost/master/credits-readme.txt]\cHello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
 		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
 		\![*]\q[They/Them/Their,choicefirsttheythem]\n/
@@ -429,10 +429,12 @@ OnWindowStateMinimize
 
 OnWindowStateRestore
 {
-	if obsydian == 1; "\1\s[-1]\0\s[1]back to work\e"
-	else; "\1\s[-1]\0\s[0]back to work\e"
+	if obsydian == 1; "\1\s[-1]\0\s[1]back to work"
+	else; "\1\s[-1]\0\s[0]back to work"
 	--
 	if tooln == "ON"; "%(lightdark)"
+	--
+	"\e"
 }
  
 OnGhostChanging
@@ -576,6 +578,18 @@ FirstBootVariables
 	meeting = 0
 	devlogcount	= 1
 	AI = "OFF"
+	tooln = "OFF"
+	dlbtn = "OFF"
+	calcbtn = "OFF"
+	logbtn = "OFF"
+	lesbtn = "OFF"
+	webtn = "OFF"
+	setbtn = "OFF"
+	statbtn = "OFF"
+	trabtn = "OFF"
+	todobtn = "OFF"
+	cusbtn = "OFF"
+	appbtn = "OFF"
 }
 
 //\![raise,OnToolCheck]
