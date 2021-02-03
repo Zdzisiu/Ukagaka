@@ -33,7 +33,7 @@ RandomTalk
 	}
 	else
 	{
-		if tentruth == 1 || glitchboot <= 5
+		if tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)
 		{
 			"%(m201ztalk)"
 
@@ -675,7 +675,7 @@ m201ztalk : nonoverlap
 	{
 		if (TOINT(currentweatherarray[0]) <= 15 && "C" _in_ currentweatherarray[1]) || (TOINT(currentweatherarray[0]) <= 60 && "F" _in_ currentweatherarray[1])
 		{
-			if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+			if meeting == 1 && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
 			{
 				if repairglitch != 1
 				{
@@ -692,7 +692,7 @@ m201ztalk : nonoverlap
 		}
 		elseif (TOINT(currentweatherarray[0]) >= 30 && "C" _in_ currentweatherarray[1]) || (TOINT(currentweatherarray[0]) >= 90 && "F" _in_ currentweatherarray[1])
 		{
-			if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+			if meeting == 1 && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
 			{
 				if repairglitch != 1; "%(currentweatherarray[0])%(currentweatherarray[1])? W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
 				else; "%(distingstart)%(currentweatherarray[0])%(currentweatherarray[1])?Wow,\w4 seems like it's really hot where you are"

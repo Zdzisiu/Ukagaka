@@ -263,7 +263,7 @@ OnBoot
 	{
 		OnTenTruth
 	}
-	elseif tentruth == 1 || glitchboot <= 5
+	elseif tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)
 	{
 		if dayslot == userbirthday ; "\0Happy B̶͉̕ï̴͓r̵̞̕t̷̠̀h̸́ͅd̵̀͜ǎ̸͕y̷̪͋ %(username)\e" 			
 		elseif dayslot == "6month 6day"; "\0Today is June 6th.\e"

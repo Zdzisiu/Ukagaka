@@ -24,7 +24,7 @@
 		}
 		when ".txt"
 		{
-			if (tentruth == 1 || glitchboot <= 5)  && meeting == 1
+			if (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55))  && meeting == 1
 			{
 				if repairglitch != 1
 				{
@@ -139,7 +139,7 @@ OnInstallComplete
 	{
 		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should I call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall]."
 		--
-		if meeting == 1 && (tentruth == 1 || glitchboot <= 5) 
+		if meeting == 1 && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
 		{
 			if repairglitch != 1; "O̴h̸,̷ ̵a̶ ̵n̵e̴w̸ ̸p̸r̴o̷g̸r̸a̸m̶?̶"
 			else; "\1%(distingstart)Oh, a new program?"
@@ -532,7 +532,7 @@ OnDeviceArrival
 	_device = reference[0][0,","] + reference[0][1,","] + reference[0][2,","] + reference[0][4,","]
 	_device = TOLOWER(_device) 
 	
-	if ("wacom" _in_ "%(_device)" || "tablet" _in_ "%(_device)") && (tentruth == 1 || glitchboot <= 5)
+	if ("wacom" _in_ "%(_device)" || "tablet" _in_ "%(_device)") && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55))
 	{
 		if repairglitch != 1; "H̷m̴?̷ ̴I̵s̵ ̵t̵h̴a̴t̷ ̴a̵ ̷d̸r̷a̵w̸i̵n̵g̵ ̴t̸a̸b̷l̸e̶t?\e"
 		else; "%(distingstart)Hm? Is that a drawing tablet?\e"

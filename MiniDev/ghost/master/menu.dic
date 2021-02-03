@@ -20,7 +20,7 @@ MenuRun
 	--
 	if tentruth == 1; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
 	elseif tentruth == 2; "\![*]\q[Reboot,rebot]\n\n[half]"
-	elseif glitchboot <= 5; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,gboot]\n\n[half]"
+	elseif glitchboot >= 50 && glitchboot <= 55; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,gboot]\n\n[half]"
 	--
 	if lastTalk != ""; "\![*]\q[Repeat,OnLastTalk] or "
 	--
@@ -42,7 +42,7 @@ MenuRun
 	--
 	if AI == "ON";"\![*]\q[AI chat,saysmth]\n"
 	--
-	if tentruth == 1 || glitchboot <= 5
+	if tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)
 	{
 		"\![*]\q[L̷̜̚o̶̭̾g̵̨̽s̶͇̅,log]\n"
 		--
