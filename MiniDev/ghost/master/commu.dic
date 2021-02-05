@@ -199,7 +199,7 @@ OnGhostCallComplete
 				mood[1]--
 				mood[4]++
 			}
-			elseif reference0 == "Azura" && metazura != 1 && metazura != 2
+			elseif reference0 == "Azura" && "Azura-1" !_in_ ghostmet && "Azura-2" !_in_ ghostmet
 			{
 				res_reference0 = "Azura"
 				--
@@ -269,7 +269,7 @@ OnGhostCallComplete
 				meetplant == 1
 				ghostmet++
 			}
-			elseif reference0 == "Azura" && metazura != 1 && metazura != 2
+			elseif reference0 == "Azura" && "Azura-1" !_in_ ghostmet && "Azura-2" !_in_ ghostmet
 			{
 				res_reference0 = "Azura"
 				--
@@ -734,13 +734,13 @@ RespondingToAzura
 		--
 		if repairglitch != 1
 		{
-			metazura = 1
+			ghostmet ,= "Azura-1"
 			--
 			"I̵ ̸d̵o̵u̸b̶t̴ ̵a̸n̶y̴o̷n̴e̶ ̶c̴a̷n̷ ̶h̸e̷l̵p̵ ̵m̴e̵ ̵r̵i̵g̴h̸t̵ ̴n̸o̵w̴ ̸b̶u̶t̷ ̴t̸h̵a̷n̷k̶s̸ ̵a̴n̶y̷w̵a̷y̸s̷\e"
 		}
 		else
 		{
-			metazura = 2
+			ghostmet ,= "Azura-2"
 			--
 			"%(distingstart)I doubt anyone can help me right now but thanks anyways\e"
 		}	
@@ -869,7 +869,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch == 1 && metazura == 1 && glitchconvo != 1
+		if repairglitch == 1 && "Azura-1" _in_ ghostmet && glitchconvo != 1
 		{
 			"\e GlitchStart"
 		}		
@@ -1009,14 +1009,14 @@ RespondingToDusty //convos with Dusty
 		res_reference0 = "Dusty"
 		"\0\s[0]\i[9000]\![get,property,OnObsidianJumpDown,currentghost.scope(0).rect]"
 	}
-    elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && meetobsidian != 1
+    elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && "Dusty" !_in_ ghostmet
     {
 		res_reference0 = "Dusty"
 		obsydian = 1
-		meetobsidian = 1
+		ghostmet ,= "Dusty"
         "\0\s[1]Oh, %(hihello) kitty\e MiniDevPickupObsidian03"
     }
-	elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && meetobsidian == 1
+	elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && "Dusty" _in_ ghostmet
     {
 		res_reference0 = "Dusty"
 		obsydian = 1
@@ -1143,7 +1143,7 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
 		}
 		when "Azura"
 		{
-			if tentruth == 1 && meeting == 1 && (metazura == 1 || metazura == 2)
+			if tentruth == 1 && meeting == 1 && ("Azura-1" _in_ ghostmet && "Azura-2" _in_ ghostmet)
             {
 				res_reference0 = "Azura"
 				--
@@ -1276,7 +1276,7 @@ RespondingToOmega
 			"%(distingstart)Weird, I don't remeber any 'Delta'.\w7 Well\w6 nice to meet you Omega\e"
 		}
 		--
-		meetingomega = 1
+		ghostmet ,= "Omega"
 	}
 	elseif "GetStatusMD" _in_ _ConvoTag
 	{

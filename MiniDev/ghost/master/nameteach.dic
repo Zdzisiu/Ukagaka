@@ -160,8 +160,8 @@ OnNameTeach
 			}
 			elseif presuffix == "feminine"
 			{
-			"\![*]\q[Ms.,titlems]\n/
-			\![*]\q[Lady,titlelady]\n"
+				"\![*]\q[Ms.,titlems]\n/
+				\![*]\q[Lady,titlelady]\n"
 			}
 			-- 
 			"\![*]\q[-ssi,titlessi]\n/

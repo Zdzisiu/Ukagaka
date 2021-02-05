@@ -25,36 +25,20 @@ OnRandom_Start
 	--
 	"\_qColors:\n\n[half]"
 	--
-	"Plain: %(acc)\q[%(plain),OnColorRandom,plain]\n/
-	Pastel: %(acc)\q[%(pastel),OnColorRandom,pastel]\n/
-	Dark: %(acc)\q[%(dark),OnColorRandom,dark]\n/
-	Bright: %(acc)\q[%(bright),OnColorRandom,bright]\n"
+	"Plain: %(acc)\q[%(plain),OnColorRandom,plain]\f[default]\n/
+	Pastel: %(acc)\q[%(pastel),OnColorRandom,pastel]\f[default]\n/
+	Dark: %(acc)\q[%(dark),OnColorRandom,dark]\f[default]\n/
+	Bright: %(acc)\q[%(bright),OnColorRandom,bright]\f[default]\n"
 	--
 	"\n[half]\![*]\q[Start,OnRandom]"
 }
 
 OnColorRandom
 {
-	if reference0 == "plain"
-	{
-		if plain != "ON"; plain = "ON"
-		else; plain = "OFF"
-	}
-	elseif reference0 == "pastel"
-	{
-		if pastel != "ON"; pastel = "ON"
-		else; pastel = "OFF"
-	}
-	elseif reference0 == "dark"
-	{
-		if dark != "ON"; dark = "ON"
-		else; dark = "OFF"
-	}
-	else
-	{
-		if bright != "ON"; bright = "ON"
-		else; bright = "OFF"
-	}
+	if reference0 == "plain"; plain = onnoff(plain)
+	elseif reference0 == "pastel"; pastel = onnoff(pastel)
+	elseif reference0 == "dark"; dark = onnoff(dark)
+	else; bright = onnoff(bright)
 	--
 	OnRandom_Start
 }
@@ -163,10 +147,7 @@ clothes
 	--
 	"\![bind,skin,%(skinssss),1]"
 	""
-
-
 }
-
 
 skinssss
 {
@@ -247,7 +228,7 @@ OnOutfit
 	--
 	if azura == 1; "\![*]\q[Azura,OnOutfit_dress,azura]\n"
 	--
-	if meetobsidian == 1; "\![*]\q[Dusty,OnOutfit_dress,dusty]\n"
+	if "Dusty" _in_ ghostmet; "\![*]\q[Dusty,OnOutfit_dress,dusty]\n"
 	--
 	"\![*]\q[Stelluna,OnOutfit_dress,stelluna]\n"
 	--

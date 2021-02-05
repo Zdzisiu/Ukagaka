@@ -4,6 +4,11 @@ On_\person
  	person
 }
 
+nameracerand
+{
+	randsylabs
+}
+
 namerand
 {
 	charnamesmale
@@ -550,79 +555,136 @@ surname
 
 randsylabs
 {
-	_word = ""
-	_letter = RAND(ARRAYSIZE(alphabettemp))
+	word = ""
+	letter = RAND(ARRAYSIZE(alphabettemp))
 	--
-	_num = RAND(maxletter)
+	num = RAND(maxletter)
 	--
-	if _num < minletter; _num = minletter
+	if num < minletter
+	{
+		num = minletter
+	}
 	--
-	for _j=0;_j<=_num;_j++
+	for _j=0;_j<=num;_j++
 	{
 		if rulethree == "ON"
 		{
 			for _x=0;_x<=numcom;_x++
 			{
-				_newlet = RAND(ARRAYSIZE(alphabettemp))
+				newlet = RAND(ARRAYSIZE(alphabettemp))
 				--
-				if _newlet == _letter
+				if newlet == letter
 				{
 					if RAND(2) == 1
 					{
-						if alphabettemp[_letter-_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
-						else; _letter += _x-_newlet
+						if alphabettemp[letter-newlet] == ""
+						{
+							letter = ARRAYSIZE(alphabettemp)
+						}
+						else
+						{
+							letter += _x-newlet
+						}
 					}
 					else
 					{
-						if alphabettemp[_letter+_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
-						else; _letter += _x+_newlet
+						if alphabettemp[letter+newlet] == ""
+						{
+							letter = ARRAYSIZE(alphabettemp)
+						}
+						else
+						{
+							letter += _x+newlet
+						}
 					}
 				}
 				--
-				if _letterprev == alphabettemp[_letter+_x]
+				if letterprev == alphabettemp[letter+_x]
 				{
 					if RAND(2) == 1
 					{
-						if alphabettemp[_letter-_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
-						else; _letter += _x-_newlet
+						if alphabettemp[letter-newlet] == ""
+						{
+							letter = ARRAYSIZE(alphabettemp)
+						}
+						else
+						{
+							letter += _x-newlet
+						}
 					}
 					else
 					{
-						if alphabettemp[_letter+_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
-						else; _letter += _x+_newlet
+						if alphabettemp[letter+newlet] == ""
+						{
+							letter = ARRAYSIZE(alphabettemp)
+						}
+						else
+						{
+							letter += _x+newlet
+						}
 					}
 				}
 				--
-				if _letterprev == alphabettemp[_letter-_x]
+				if letterprev == alphabettemp[letter-_x]
 				{
 					if RAND(2) == 1
 					{
-						if alphabettemp[_letter-_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
-						else; _letter += _x-_newlet
+						if alphabettemp[letter-newlet] == ""
+						{
+							letter = ARRAYSIZE(alphabettemp)
+						}
+						else
+						{
+							letter += _x-newlet
+						}
 					}
 					else
 					{
-						if alphabettemp[_letter+_newlet] == ""; _letter = ARRAYSIZE(alphabettemp)
-						else; _letter += _x+_newlet
+						if alphabettemp[letter+newlet] == ""
+						{
+							letter = ARRAYSIZE(alphabettemp)
+						}
+						else
+						{
+							letter += _x+newlet
+						}
 					}
 				}
 			}
 		}
 		--
-		if ruletwo == "ON" && alphabettemp[_letter] == letterprev; _letter += 1
+		if ruletwo == "ON"
+		{
+			if alphabettemp[letter] == letterprev
+			{
+				letter += 1
+			}
+		}
 		--
-		if ruleone == "ON" && "'" _in_ _word && "'" _in_ alphabettemp[_letter]; _word = REPLACE(_word,"'","")
+		if ruleone == "ON"
+		{
+			if "'" _in_ word && "'" _in_ alphabettemp[letter]
+			{
+				word = REPLACE(word,"'","")
+			}
+		}
 		--
-		if _letterprev == "'" && alphabettemp[_letter] == "-"; _letter = RAND(15)
-		elseif _letterprev == "-" && alphabettemp[_letter] == "'"; _letter = RAND(15)
+		if letterprev == "'" && alphabettemp[letter] == "-"
+		{
+			letter = RAND(15)
+		}
+		elseif letterprev == "-" && alphabettemp[letter] == "'"
+		{
+			letter = RAND(15)
+		}
 		--
-		_word += alphabettemp[_letter]
-		_letterprev = alphabettemp[_letter]
+		word += alphabettemp[letter]
+		letterprev = alphabettemp[letter]
 	}
 	--
-	_word = ERASE(_word,0,1)
-	_buffer = SUBSTR(_word,0,1)
-	_word = INSERT(_word,0,TOUPPER(_buffer))
+	word = ERASE(word,0,1)
+	_buffer = SUBSTR(word,0,1)
+	word = INSERT(word,0,TOUPPER(_buffer))
 	--
 	"%(word)"
 }
@@ -2639,23 +2701,41 @@ isdead
 {
 	"Yes"
 	"No"
-	"They are undead"
-	"They are immortal"
+	"Undead"
+	"Immortal"
 }
 
 gender
 {
-	if male == "ON"; "Male"
+	if male == "ON"
+	{
+		"Male"
+	}
 
-	if female == "ON"; "Female"
+	if female == "ON"
+	{
+		"Female"
+	}
 
-	if mtf == "ON"; "Male (FTM)"
+	if mtf == "ON"
+	{
+		"Male (FTM)"
+	}
 
-	if ftm == "ON"; "Female (MTF)"
+	if ftm == "ON"
+	{
+		"Female (MTF)"
+	}
 
-	if nonbinary == "ON"; "Non-binary"
+	if nonbinary == "ON"
+	{
+		"Non-binary"
+	}
 
-	if genfluid == "ON"; "Gender Fluid"
+	if genfluid == "ON"
+	{
+		"Gender Fluid"
+	}
 }
 
 race
@@ -2663,7 +2743,7 @@ race
 	racesize = ARRAYSIZE(charrace)
 	randrace = RAND(racesize)
 	--
-	if chardead[charcount] == "They are immortal"
+	if chardead[charcount] == "Immortal"
 	{
 		"Vampire"
 		"Angel"
@@ -2672,7 +2752,7 @@ race
 		"Demon"
 		"Grim Reaper"
 	}
-	elseif chardead[charcount] == "They are undead"
+	elseif chardead[charcount] == "Undead"
 	{
 		"Zombie"
 		"Skeleton"
@@ -2713,16 +2793,20 @@ race
 	"Robot"
 	"Clone"
 	"Werewolf"
-	"%(charrace[randrace])"
+
+	if racecount >= 1
+	{
+		"%(charrace[randrace])"
+	}
 }
 
 //Story generation
 
 firstpart_story
 {
-	"%(charname[charcount]) is a %(isa) that lives in %(place) and %(whatdoyoudo)"
-	"%(charname[charcount]) is a %(isa) that lives in %(place) and %(whatdoyoudo)"
-	"%(charname[charcount]) is a %(isa) that lives in %(place) with their %(housmate)"
+	"%(charname[charcount]) is a%(isa) that lives in %(place) and %(whatdoyoudo)"
+	"%(charname[charcount]) is a%(isa) that lives in %(place) and %(whatdoyoudo)"
+	"%(charname[charcount]) is a%(isa) that lives in %(place) with their %(housmate)"
 }
 
 whatdoyoudo
@@ -2761,7 +2845,11 @@ nationality
 	"Italian"
 	"French"
 	"Australian"
-	"%(counname[randcountry])'ian"
+
+	if countrycount >= 1
+	{
+		"%(counname[randcountry])'ian"
+	}
 }
 
 search
@@ -2827,7 +2915,11 @@ place
 	"beside a lake"
 	"beside the ocean"
 	"beside a river"
-	"%(counname[randcountry])"
+
+	if countrycount >= 1
+	{
+		"%(counname[randcountry])'ian"
+	}
 }
 
 housmate
@@ -2860,9 +2952,14 @@ housmate
 
 yanold
 {
-	if charage[charcount] > 50; "old"
-	elseif charage[charcount] > 25; "middle aged"
-	else; "young"
+	if charage[charcount] > 50
+	{
+		"n old"
+	}
+	else
+	{
+		" young"
+	}
 }
 
 isa
@@ -3042,13 +3139,264 @@ charclass //Wizard and etc.
 	"Psychic"
 }
 
-
-looks
+shehetheychar
 {
-	"%(charname[charcount]) is %(height), they have %(darknbright) %(color) eyes and %(hairlenght) %(hairtype) hair, they usually wear %(clothes). They %(accesorynstuff)"
+	if "Male" _in_ chargender[charcount]
+	{
+		"he"
+	}
+	elseif "Female" _in_ chargender[charcount]
+	{
+		"she"
+	}
+	else
+	{
+		"they"
+	}
 }
 
-height
+herhistheir
+{
+	if "Male" _in_ chargender[charcount]
+	{
+		"his"
+	}
+	elseif "Female" _in_ chargender[charcount]
+	{
+		"her"
+	}
+	else
+	{
+		"their"
+	}
+	
+}
+
+havehaschar
+{
+	if "Male" _in_ chargender[charcount] || "Female" _in_ chargender[charcount]
+	{
+		"has"
+	}
+	else
+	{
+		"have"
+	}
+}
+
+isare
+{
+	if "Male" _in_ chargender[charcount] || "Female" _in_ chargender[charcount]
+	{
+		"is"
+	}
+	else
+	{
+		"are"
+	}
+}
+
+schar
+{	
+	if "Male" _in_ chargender[charcount] || "Female" _in_ chargender[charcount]
+	{
+		"s"
+	}
+	else
+	{
+		""
+	}
+}
+
+dontdoesnt
+{
+	if "Male" _in_ chargender[charcount] || "Female" _in_ chargender[charcount]
+	{
+		"doesn't"
+	}
+	else
+	{
+		"don't"
+	}
+}
+
+
+//eyes, hair
+looks
+{
+	"%(charname[charcount]) is a %(isa), %(shehetheychar) usually wear%(schar) %(color), %(color) and %(color), herhistheir %(darknbright) %(color) hair is %(hairlenght) and %(hairtype).\n%(shehetheychar) usually wear%(schar) %(clothes). %(shehetheychar) %(accesorynstuff)"
+	"%(charname[charcount]) is %(height), %(shehetheychar) %(havehaschar) %(darknbright) %(color) eyes and %(hairlenght) %(hairtype) hair, %(shehetheychar) usually wear%(schar) %(clothes). %(shehetheychar) %(accesorynstuff)"
+	"%(charname[charcount]) is %(height), %(shehetheychar) %(havehaschar) %(darknbright) %(color) eyes and %(hairlenght) %(hairtype) hair, %(shehetheychar) usually wear%(schar) %(clothes)."
+	"%(charname[charcount]) is a %(isa), %(shehetheychar) usually wear%(schar) %(color), %(color) and %(color), herhistheir %(darknbright) %(color) hair is %(hairlenght) and %(hairtype).\n%(shehetheychar) usually wear%(schar) %(clothes)"
+	--
+	"they are %(TOLOWER(chartrait)) and %(TOLOWER(chartrait))."
+}
+
+chartrait : nonoverlap
+{
+    "Demanding"
+    "Thoughtful"
+    "Keen"
+    "Disagreeable"
+    "Simple"
+    "Fancy"
+    "Plain"
+    "Excited"
+    "Studious"
+    "Inventive"
+    "Creative"
+    "Thrilling"
+    "Intelligent"
+    "Proud"
+   	"Fun-loving"
+    "Daring"
+    "Bright"
+    "Serious"
+    "Funny"
+    "Humorous"
+    "Lazy"
+    "a Dreamer"
+    "Helpful"
+    "Simple-minded"
+    "Friendly"
+    "Adventurous"
+    "Timid"
+    "Shy"
+    "Pitiful"
+    "Cooperative"
+    "Lovable"
+    "Ambitious"
+    "Quiet"
+    "Curious"
+    "Reserved"
+    "Pleasing"
+    "Bossy"
+    "Witty"
+    "Energetic"
+    "Cheerful"
+    "Smart"
+    "Impulsive"
+    "Honest"
+    "Brave"
+    "Compassionate"
+    "Leader"
+    "Courageous"
+    "Unselfish"
+    "Loyal"
+    "Hard-working"
+    "Independent"
+    "Selfish"
+    "Responsible"
+    "Considerate"
+    "Self-confident"
+    "Humble"
+    "Poor"
+    "Rich"
+    "Strong"
+    "Handsome"
+    "Pretty"
+    "Ugly"
+    "Messy"
+    "Gentle"
+    "Wild"
+    "Joyful"
+    "Busy"
+    "Patriotic"
+    "Neat"
+    "Popular"
+    "Successful"
+    "Proper"
+    "Tireless"
+    "Plain"
+    "Imaginative"
+    "Mischievous"
+
+}
+
+randracedesc
+{
+	"%(racename[racecount]) are a %(commonrare) race found in %(placerace). They are %(carnomniharbi)."
+	"%(racename[racecount]) are %(carnomniharbi) that can be %(commonraretwo) found in %(placerace)."
+	--
+	" They are usually %(color)"
+	--
+	""
+	" and %(color)."
+	" %(color) and %(color)."
+	--
+	" They have %(RAND(4)+2) arms "
+	" They don't have arms "
+	--
+	"and %(RAND(4)+2) legs. "
+	"and they don't have legs. "
+	--
+	"%(racename[racecount])'ans are covered in %(furscals)."
+	"%(racename[racecount])'ans are covered in %(furscals) and %(furscals)."
+	"%(racename[racecount])'ans are partialy covered in %(furscals) and %(furscals)."
+	"%(racename[racecount])'ans are partialy covered in %(furscals)."
+	"%(racename[racecount])'ans don't have any feathers, scales, fur or hair."
+	--
+	" They have beaks."
+	" "
+}
+
+furscals : nonoverlap
+{
+	"fur"
+	"scales"
+	"feathers"
+	"hair"
+}
+
+commonraretwo
+{
+	"uniquely"
+	"commonly"
+	"rarerly"
+}
+
+carnomniharbi
+{
+	"omnivores"
+	"carnivores"
+	"harbivores"
+	"cannibals"
+	"a race that consumes %(foodfortherace)"
+}
+
+foodfortherace
+{
+	"souls"
+	"blood"
+	"stones"
+	"minerals"
+	"energy"
+}
+
+placerace
+{
+	"the moountains"
+	"lakes"
+	"the sea"
+	"the forests"
+	"the caves"
+	"the underground"
+	"flying islands"
+	"the jungle"
+	"the dessert"
+	"cold places"
+	"warm places"
+	"the rain forests"
+}
+
+commonrare
+{
+	"common"
+	"rare"
+	"unique"
+}
+
+height 
 {
 	"short"
 	"tall"
@@ -3064,13 +3412,13 @@ darknbright
 
 accesorynstuff
 {
-	"have a %(bigorsmol)scar on their %(bodypart)"
-	"wear one earring on their %(side) ear"
-	"have brow piercing"
-	"have lip piercing"
-	"have tangue piercing"
-	"wear a necklace"
-	"don't wear any accesories"
+	"%(havehaschar) a %(bigorsmol)scar on their %(bodypart)"
+	"wear%(schar) one earring on their %(side) ear"
+	"%(havehaschar) brow piercing"
+	"%(havehaschar) lip piercing"
+	"%(havehaschar) tangue piercing"
+	"%(havehaschar) a necklace"
+	"%(dontdoesnt) wear any accesories"
 }
 
 bigorsmol
@@ -3078,6 +3426,7 @@ bigorsmol
 	"big "
 	"small "
 	""
+	
 }
 
 side
@@ -3101,8 +3450,14 @@ bodypart
 
 clothes
 {
-	if "Female" _in_ chargender[charcount]; "dresses"
-	elseif "Male" _in_ chargender[charcount]; "suits"
+	if "Female" _in_ chargender[charcount]
+	{
+		"dresses"
+	}
+	elseif "Male" _in_ chargender[charcount]
+	{
+		"suits"
+	}
 
 	"%(clothestop) and %(clothesbottoms)"
 }
@@ -3146,7 +3501,7 @@ hairlenght
 	"half shaved"
 }
 
-color
+color : nonoverlap
 {
 	"black"
 	"grey"
@@ -3160,7 +3515,7 @@ color
 	"blue"
 	"violet"
 	"pink"
-	"magents"
+	"magenta"
 }
 
 ch
@@ -3168,162 +3523,29 @@ ch
 	"\![set,balloontimeout,0]"
 }
 
-//\![raise,OnMapgen]
-OnMapgen
-{
-	genmap = "\b6\_q"
-	--
-	for _x=0,_i=0;_i<=2554;_x++,_i++
-	{
-		//if "\f[color,000000]" _in_ genmapar[_i-1]
-		//{
-		//	if RAND(3) == 2
-		//	{
-		//		genmap += "!+%(mapwhite)"
-		//	}
-		//	else
-		//	{
-		//		genmap += "!+%(mappiece)"
-		//	}
-		//}
-		//else
-		//{
-			genmap += "!+%(mappiece)"
-		//}
-		--
-		genmapar = SPLIT(genmap,"!")
-	}
-	--
-	genmap = REPLACE(genmap,"!","")
-	genmapar = SPLIT(genmap,"+")
-	mapp = "\b6"
-	--
-	for _i=0;_i<=2554;_i++
-	{
-		mapp += genmapar[_i]
-	}
-	--
-	mapp
-}
-
-mappiece
-{
-	//mapblack
-	mapwhite
-
-	if RAND(2) == 1; forest
-
-	if RAND(3) == 2; lake
-}
-
-
-mapblack
-{
-
-	"\f[color,000000]#"
-	"\f[color,000000]#+#"
-	"\f[color,000000]#+#+#"
-	"\f[color,000000]#+#+#+#"
-	"\f[color,000000]#+#+#+#+#"
-	"\f[color,000000]#+#+#+#+#+#"
-	"\f[color,000000]#+#+#+#+#+#+#"
-	"\f[color,000000]#+#+#+#+#+#+#+#"
-}
-
-mapwhite
-{
-	"\f[color,FFFFFF]#"
-	"\f[color,FFFFFF]#+#"
-	"\f[color,FFFFFF]#+#+#"
-	"\f[color,FFFFFF]#+#+#+#"
-	"\f[color,FFFFFF]#+#+#+#+#"
-	"\f[color,FFFFFF]#+#+#+#+#+#"
-	"\f[color,FFFFFF]#+#+#+#+#+#+#"
-	"\f[color,FFFFFF]#+#+#+#+#+#+#+#"
-	"\f[color,FFFFFF]#+#+#+#+#+#+#+#+#"
-	"\f[color,FFFFFF]#+#+#+#+#+#+#+#+#+#"
-}
-
-forest
-{
-	"\f[color,048b1d]#+#+#"
-	"\f[color,048b1d]#+#+#+#"
-	"\f[color,048b1d]#+#+#+#+#"
-	"\f[color,048b1d]#+#+#+#+#+#"
-	"\f[color,048b1d]#+#+#+#+#+#+#"
-	"\f[color,048b1d]#+#+#+#+#+#+#+#"
-}
-
-lake
-{
-	"\f[color,0972ae]#+#+#"
-	"\f[color,0972ae]#+#+#+#"
-	"\f[color,0972ae]#+#+#+#+#"
-	"\f[color,0972ae]#+#+#+#+#+#"
-	"\f[color,0972ae]#+#+#+#+#+#+#"
-	"\f[color,0972ae]#+#+#+#+#+#+#+#"
-}
-
-OnPix
-{
-	test="\b6\_q"
-	--
-	for _i=0;_i<(37*30);_i++
-	{
-		test += "%(signs)"
-	}
-	--
-	test
-}
-
-signs
-{
-	/*if RAND(30) == 1
-	{
-		forestsign
-		//villagesign
-		//riversign = "\_b[water.png,inline,--option=use_self_alpha]"//"\f[color,0972ae]#"
-		forestsign = "\_b[tree.png,inline,--option=use_self_alpha]"//"\f[color,109320]#"
-		villagesign = "\_b[home.png,inline,--option=use_self_alpha]"//"\f[color,FFFFFF]#"
-	}
-	//elseif RAND(3) == 1
-	//{
-		//riversign = "\_b[water.png,inline,--option=use_self_alpha]"//"\f[color,0972ae]#"
-	//}
-	else
-	{*/
-		groundsign = "\_b[grass.png,inline,--option=use_self_alpha]"//"\f[color,472810]#"
-		groundsign
-	//}
-	//--
-	//riversign
-	//groundsign
-}
 
 //\![raise,OnMapGenVar]
 //%(howlongmap)
 OnMapGenVar
 {
-	riversign = "\_b[water.png,inline,--option=use_self_alpha]"//"\f[color,0972ae]#"
-	groundsign = "\_b[grass.png,inline,--option=use_self_alpha]"//"\f[color,472810]#"
-	forestsign = "\_b[tree.png,inline,--option=use_self_alpha]"//"\f[color,109320]#"
-	villagesign = "\_b[home.png,inline,--option=use_self_alpha]"//"\f[color,FFFFFF]#"
-	riverwide = RAND(10) + 2
-	forestx = RAND(30) + 3
-	forestwide = RAND(30) + 5
-	forestheight = RAND(50)
-	foresty = RAND(20) + 5
-	rivery = RAND(5) + 5
-	riverx = RAND(30)
-	villagex = RAND(30) + 5
-	villagewide = RAND(30) + 5
-	villageheight = RAND(30)
-	villagey = RAND(20)
-	villaged = 0
-	mapgtwo = "\1\b6\_q"
-	//mapgtwonew = IARRAY
+	signs = ("\_b[water.png,inline,--option=use_self_alpha]","\_b[grass.png,inline,--option=use_self_alpha]","\_b[tree.png,inline,--option=use_self_alpha]","\_b[home.png,inline,--option=use_self_alpha]")
+	river = (RAND(10) + 2,RAND(5) + 5,RAND(30)) //0: width | 1: x | 2: y | 3: height
+	village = (RAND(30) + 5, RAND(30) + 5,RAND(20),RAND(30) + 5) //0: width | 1: x | 2: y | 3: height
+	forest = (RAND(30) + 5,RAND(20) + 5,RAND(20) + 5,RAND(50)) //0: width | 1: x | 2: y | 3: height
+	/*river[0] = RAND(10) + 2
+	river[1] = RAND(30)
+	river[2] = RAND(5) + 5
+	forest[0] = RAND(30) + 5
+	forest[1] = RAND(30) + 3
+	forest[2] = RAND(20) + 5
+	forest[3] = RAND(50)
+	village[0] = RAND(30) + 5
+	village[1] = RAND(30) + 5
+	village[2] = RAND(20)
+	village[3] = RAND(30)*/
 	foresd = 0
 	riverd = 0
+	mapgtwo = "\1\b6\_q"
 	--
 	for _i=0;_i<1010;_i++
 	{
@@ -3345,72 +3567,78 @@ OnMapgentwo
 			_s+=1
 		}
 		--
-		if _z == riverx && riverd != 1 && _s == rivery
+		if _z == river[1] && riverd != 1 && _s == river[2]
 		{
-			for _x=0;_x<riverwide;_x++,_i++
+			for _x=0;_x<river[0];_x++,_i++
 			{
-				mapgtwo += riversign
+				mapgtwo += signs[0]
 				_z++
 				--
 				if _z == 35
 				{
-					_x = riverwide
+					_x = river[0]
 					mapgtwo += "\n"
 					_z=0
 					_s+=1
 				}
 			}
 			--
-			riverx += riveroffset
-			rivery += 1
+			river[1] += riveroffset
+			river[2] += 1
 			--
-			if riverx == 36
+			if river[1] == 36
 			{
-				riverx = 0
+				river[1] = 0
 				riverd = 1
 			}
 			--
 			riveroffset = RAND(5)
-			riverwide = RAND(10) + 2
+			river[0] = RAND(10) + 2
 		}
-		elseif _z == forestx && foresd != 1 && _s == foresty
+		elseif _z == forest[1] && foresd != 1 && _s == forest[2]
 		{
-			for _x=0;_x<forestwide;_x++,_z++,_i++
+			for _x=0;_x<forest[0];_x++,_z++,_i++
 			{
-				mapgtwo += forestsign
+				mapgtwo += signs[2]
 				--
 				if _z == 35
 				{
-					_x = forestwide
+					_x = forest[0]
 					mapgtwo += "\n"
 					_z=0
 					_s+=1
 				}
 			}
 			--
-			if RAND(2) == 1; forestx += forestoffset
-			else; forestx -= forestoffset
+			if RAND(2) == 1
+			{
+				forest[1] += forestoffset
+			}
+			else
+			{
+				forest[1] -= forestoffset
+			}
 			--
-			foresty += 1
+			forest[2] += 1
 			--
-			if _s == forestheight
+			if _s == forest[3]
 			{
 				foresx = 0
 				foresd = 1
 			}
 			--
 			forestoffset = RAND(5)
-			forestwide = RAND(30) + 2
+			forest[0] = RAND(30) + 2
 		}
-		elseif _z == villagex && villaged != 1 && _s == villagey
+		elseif _z == village[1] && villaged != 1 && _s == village[2]
 		{
-			for _x=0;_x<villagewide;_x++,_z++,_i++
+			for _x=0;_x<village[0];_x++,_z++,_i++
 			{
-				mapgtwo += villagesign
+				mapgtwo += signs[3]
 				--
 				if _z == 35
 				{
-					_x = villagewide
+					_x = village[0]
 					mapgtwo += "\n"
 					_z=0
 					_s+=1
@@ -3420,39 +3648,39 @@ OnMapgentwo
 			if RAND(2) == 1
 			{ 
 				villageoffset += RAND(5)
-				villagewide += villageoffset
-				villagex -=  RAND(5)
+				village[0] += villageoffset
+				village[1] -=  RAND(5)
 			}
 			else
 			{
 				villageoffset -= RAND(5)
-				villagewide -= villageoffset
-				villagex +=  RAND(5)
+				village[0] -= villageoffset
+				village[1] +=  RAND(5)
 			}
 			--
-			villagey += 1
+			village[2] += 1
 			--
-			if _s == villageheight
+			if _s == village[3]
 			{
 				villaged = 0
 				villaged = 1
 			}
 			--
 			//villageoffset = RAND(5)
-			//if _s == (villageheight/2)
+			//if _s == (village[3]/2)
 		//	{
-				//villagewide = villagewide - RAND(5)
-				//villagex +=  RAND(5)
+				//village[0] = village[0] - RAND(5)
+				//village[1] +=  RAND(5)
 			//}
 			//else
 			//{
-			//	villagewide = villagewide + RAND(5)
-				//villagex -= RAND(5)
+			//	village[0] = village[0] + RAND(5)
+				//village[1] -= RAND(5)
 			//}
 		}
 		else
 		{
-			mapgtwo += groundsign
+			mapgtwo += signs[1]
 		}
 
 	}
@@ -3460,281 +3688,499 @@ OnMapgentwo
 	mapgtwo += "\0\![*]\q[I'm Done,Cancel] or \![*]\q[Generate Again,OnMapGenVar]"
 	--
 	mapgtwo
+}
+
+randfloradesc
+{
+	if planttypegen == "Random"
+	{
+		randplanttype = RAND(2)
+	}
+	elseif planttypegen == "Tree"
+	{
+		randplanttype = 1
+	}
+	elseif planttypegen == "Bush"
+	{
+		randplanttype = 2
+	}
+	elseif planttypegen == "Flower"
+	{
+		randplanttype = 0
+	}
+	--
+	"%(floraaname[floracount]) is a %(heighplant) %(planttype), "
+	-- 
+	if randplanttype == 0
+	{
+		"it is %(color). "
+		"it can be %(color) and %(color). "
+		"it can be %(color) or %(color) in a %(flwrcolorpatrn) pattern. "
+		"it can be %(color), %(color) or %(color) in a %(flwrcolorpatrn) pattern. "
+		"it can be %(color), %(color), %(color) or %(color) in a %(flwrcolorpatrn) pattern. "
+		"it can be %(color) and %(color) or %(color) and %(color) in a %(flwrcolorpatrn) pattern. "
+		--
+		"It has %(heighplant) petals and is %(shapeflwr) with a %(pettalarr) petal arrangement. "
+		--
+		"Those flower grow %(flowgrowth)."
+	}
+	elseif randplanttype == 1
+	{
+		"it has %(color) %(leaftype) "
+		--
+		"and it's bark %(bark)."
+		--
+		""
+		"it grows %(fruitsize)"
+		"it grows %(flowersizze)"
+	}
+	elseif randplanttype == 2
+	{
+		"it has %(color) %(leafshape) leaves with a %(leafedge) edge."
+		--
+		""
+		"it grows %(fruitsize)"
+		"it grows %(flowersizze)"
+		--
+		"."
+	}
 
 }
 
-OnMapgentwotwo
+flowersizze
 {
-	for _i=0,_z=0,_s=0,_x;_i<(37*30);_i++,_z++
+	"big"
+	"small"
+	"medium sized"
+	--
+	", %(color)"
+	", %(color) and %(color)"
+	--
+	" flowers. "
+	--
+	"Those flowers are %(poizon)"
+	""
+	--
+	"."
+}
+
+poizon
+{
+	"poisonus"
+	"edible"
+}
+
+fruitsize
+{
+	"big"
+	"small"
+	"medium sized"
+	--
+	", %(color)"
+	", %(color) and %(color)"
+	--
+	" fruits. Those fruits are "
+	--
+	"poisonus"
+	"edible"
+	"unedible"
+	--
+	"."
+}
+
+bark
+{
+	"is smooth"
+	"has %(deepthgroov)grooves"
+	"is scaly"
+}
+
+deepthgroov
+{
+	"deep "
+	"shallow "
+	""
+}
+
+flwrcolorpatrn
+{
+	"self-coloured"
+	"bicoloured"
+	"picotee"
+	"striped"
+}
+
+flowgrowth
+{
+	"in solitary"
+	"in a cluster"
+	"in an umbel"
+	"as flowerhead"
+	"as recame"
+	"as cyme"
+	"as spike"
+	"as corymb"
+	"as pinacle"
+}
+
+pettalarr
+{
+	"single"
+	"recurved"
+	"reflexed"
+	"semi-double"
+	"double"
+	"fully souble"
+}
+
+shapeflwr
+{
+	"cross"
+	"star"
+	"saucer"
+	"cup"
+	"bell "
+	"tubular"
+	"funnel"
+	"pitcher"
+	"trumpet"
+	"salverform"
+	"rosette"
+	"pompom"
+	"pea"
+	"slipper"
+	--
+	"-shaped"
+}
+
+heighplant
+{
+	if randplanttype == 2
 	{
-		if _z == 36
-		{
-			//mapgtwonew[_i] += "\n"
-			_z=0
-			_s+=1
-		}
-		--
-		if _z == riverx && riverd != 1 && _s == rivery
-		{
-			for _x=0;_x<=riverwide;_x++,_z++,_i++
-			{
-				mapgtwonew[_i] = riversign
-				--
-				if _z == 36
-				{
-					_x = riverwide
-					//mapgtwonew[_i] += "\n"
-					_z=0
-					_s+=1
-				}
-			}
-			--
-			riverx += riveroffset
-			rivery += 1
-			--
-			if riverx == 36
-			{
-				riverx = 0
-				riverd = 1
-			}
-			--
-			riveroffset = RAND(5)
-			riverwide = RAND(10) + 2
-		}
-		elseif _z == forestx && foresd != 1 && _s == foresty
-		{
-			for _x=0;_x<=forestwide;_x++,_z++,_i++
-			{
-				mapgtwonew[_i] = forestsign
-				--
-				if _z == 36
-				{
-					_x = forestwide
-					//mapgtwonew[_i] += "\n"
-					_z=0
-					_s+=1
-				}
-			}
-			--
-			if RAND(2) == 1; forestx += forestoffset
-			else; forestx -= forestoffset
-			--
-			foresty += 1
-			--
-			if _s == forestheight
-			{
-				foresx = 0
-				foresd = 1
-			}
-			--
-			forestoffset = RAND(5)
-			forestwide = RAND(30) + 2
-		}
-		elseif _z == villagex && villaged != 1 && _s == villagey
-		{
-			for _x=0;_x<=villagewide;_x++,_z++,_i++
-			{
-				mapgtwonew[_i] = villagesign
-				--
-				if _z == 36
-				{
-					_x = villagewide
-					//mapgtwonew[_i] += "\n"
-					_z=0
-					_s+=1
-				}
-			}
-			--
-			//if RAND(2) == 1
-			//{
-			//	villagex += villageoffset
-			//}
-			//else
-			//{
-			//	villagex -= villageoffset
-			//}
-			//--
-			villagey += 1
-			--
-			if _s == villageheight
-			{
-				villaged = 0
-				villaged = 1
-			}
-			--
-			//villageoffset = RAND(5)
-			if _s == villageheight/2
-			{
-				villagewide = villagewide - RAND(5)
-				villagex +=  RAND(5)
-			}
-			else
-			{
-				villagewide = villagewide + RAND(5)
-				villagex -= RAND(5)
-			}
-		}
-		else
-		{
-			mapgtwonew[_i] = groundsign
-		}
+		"high"
 	}
-	--
-	mapp = "\b6\_q"
-	--
-	for _i=0,_z=0,_x=0;_i<(37*30);_i++,_z++
+
+	"small"
+	"big"
+	"large"
+	"medium sized"
+}
+
+planttype
+{
+	switch randplanttype
 	{
-		if _z == _x
-		{
-			mapgtwonew[_i] = groundsign
-			_x++
-		}
-		--
-		if _z == 35; _z = 0
-		--
-		if mapgtwonew[_i] == ""; mapgtwonew[_i] = groundsign
-		--
-		mapp += mapgtwonew[_i]
+		"flower"
+		"tree"
+		"bush"
 	}
+}
+
+leaftype
+{
+	"needles"
+	"scales"
+	"%(leafshape) leaves with a %(leafedge) edge"
+}
+
+leafshape
+{
+	"oval"
+	"lanceolate"
+	"obovate"
+	"elliptical"
+	"spatulate"
+	"cordate"
+	"oblanceolate"
+	"obcordate"
+	"oblong"
+	"linear"
+	"peltete"
+	"cuneate"
+	"reniform"
+	"hastete"
+}
+
+leafedge
+{
+	"smooth"
+	"saw-tooth"
+	"loges"
+}
+
+florarandgrowth
+{
+	"%(floraaname[floracount]) grows in a %(climateplantz) climate."
 	--
-	"%(mapp)"
+	if randplanttype == 0
+	{
+		"It grows %(wherdoesitgrow)"
+		""
+	}
+}
+
+climateplantz
+{
+	{
+		"hot"
+		"cold"
+		"rainy"
+		--
+		{
+			"and"
+			--
+			"dry"
+			"moist"
+		}
+		""
+	}
+
+	"mild"
+}
+
+wherdoesitgrow
+{
+	{
+	"on "
+	--
+	"animals corpses"
+	"tree trunks"
+	"living organisms"
+	}
+
+	{
+	"in "
+	--
+	"animals corpses"
+	"tree trunks"
+	"living organisms"
+	"lakes"
+	"rivers"
+	"the sea"
+	"the ocean"
+	}
+}
+
+randfaunadesc
+{
+	"%(faunaname[faunacount]) are %(heighplant) and "
+	--
+	"are covered in %(colorfull) %(furscals)."
+	"are covered in %(colorfull) %(furscals) and %(colorfull) %(furscals)."
+	"are partialy covered in %(colorfull) %(furscals) and %(colorfull) %(furscals)."
+	"partialy covered in %(colorfull) %(furscals)."
+	"don't have any feathers, scales, fur or hair."
+	--
+	" They live in %(animalliving) and are %(carnomniharbi)."
+}
+
+animalliving
+{
+	"lakes"
+	"forests"
+	"the mountains"
+	"underground caves"
+	"underground rivers"
+	"caves"
+	"rivers"
+	"lakes"
+	"the sea"
+	"the ocean"
+	"plains"
+	"villages"
+	"cities"
+	"jungles"
+	"canions"
+}
+
+colorfull
+{
+	"%(color), %(color) and %(color)"
+	"%(color)"
+	"%(color) and %(color)"
+}
+
+randanimalbehavior
+{
+	"%(faunaname[faunacount]) are %(agressiveornice) towards other spiecies and live in %(grouping)."
+}
+
+agressiveornice
+{
+	"agressive"
+	"passive"
+	"neutral"
+	"friendly"
+}
+
+grouping
+{
+	"groups"
+	"solitary"
+	"pairs"
+}
+
+
+randitemdesc
+{
+	"%(itemsaname[itemcount]) is a %(weapons) and "
+	"%(itemsaname[itemcount]) is a %(casualitems) and "
+	--
+	"it is %(color)."
+	"it is %(color) and %(color)."
+	"it is %(color), %(color) and %(color)."
+}
+
+weapons
+{
+	{
+		"hook"
+		"butterfly"
+		"hunting"
+		"arming"
+		"basket-hilted"
+		"side"
+		"boar"
+		"flame-bladed"
+		"great"
+		"heading"
+		"small"
+		"arming"
+		"sickle"
+		--
+		" sword"
+	}
 	
-}
-
-//\![raise,OnMapGenVarold]
-OnMapGenVarold
-{
-	riversign = "\f[color,0972ae]&"
-	groundsign = "\f[color,472810]#"
-	forestsign = "\f[color,109320]^"
-	villagesign = "\f[color,FFFFFF]+"
-	riverwide = RAND(10) + 2
-	forestx = RAND(60) + 3
-	forestwide = RAND(30) + 5
-	forestheight = RAND(100) + forestx
-	foresty = RAND(20) + 5
-	rivery = RAND(5) + 5
-	riverx = RAND(50) + 3
-	villagex = RAND(60) + 5
-	villagewide = RAND(30) + 5
-	villageheight = RAND(50) + villagex
-	villagey = RAND(20)
-	villaged = 0
-	mapgtwo = "\b6\_q"
-	foresd = 0
-	riverd = 0
-	--
-	OnMapgenold
-}
-
-OnMapgenold
-{
-	for _i=0,_z=0,_s=0,_x;_i<=2255;_i++,_z++
 	{
-		if _z == riverx && riverd != 1 && _s == rivery
-		{
-			for _x=0;_x<=riverwide;_x++,_z++,_i++
-			{
-				mapgtwo += riversign
-				--
-				if _z == 73
-				{
-					_x = riverwide
-					mapgtwo += "\n"
-					_z=0
-					_s+=1
-				}
-			}
-			--
-			riverx += riveroffset
-			rivery += 1
-			--
-			if riverx == 73
-			{
-				riverx = 0
-				riverd = 1
-			}
-			--
-			riveroffset = RAND(5)
-			riverwide = RAND(10) + 2
-		}
-		elseif _z == forestx && foresd != 1 && _s == foresty
-		{
-			for _x=0;_x<=forestwide;_x++,_z++,_i++
-			{
-				mapgtwo += forestsign
-				--
-				if _z == 73
-				{
-					_x = forestwide
-					mapgtwo += "\n"
-					_z=0
-					_s+=1
-				}
-			}
-			--
-			if RAND(2) == 1; forestx += forestoffset
-			else; forestx -= forestoffset
-			--
-			foresty += 1
-			--
-			if _s == forestheight; foresd = 1
-			--
-			forestoffset = RAND(5)
-			forestwide = RAND(60) + 2
-		}
-		elseif _z == villagex && villaged != 1 && _s == villagey
-		{
-			for _x=0;_x<=villagewide;_x++,_z++,_i++
-			{
-				mapgtwo += villagesign
-				--
-				if _z == 73
-				{
-					_x = villagewide
-					mapgtwo += "\n"
-					_z=0
-					_s+=1
-				}
-			}
-			--
-			//if RAND(2) == 1
-			//{
-			//	villagex += villageoffset
-			//}
-			//else
-			//{
-			//	villagex -= villageoffset
-			//}
-			//--
-			villagey += 1
-			--
-			if _s == villageheight; villaged = 1
-			--
-			//villageoffset = RAND(5)
-			if _s == villageheight/5
-			{
-				villagewide = villagewide - RAND(5)
-				villagex +=  RAND(5)
-			}
-			else
-			{
-				villagewide = villagewide + RAND(5)
-				villagex -= RAND(5)
-			}
-		}
-		else
-		{
-			mapgtwo += groundsign
-		}
+		"bronze age"
+		"knightly"
+		"ear"
+		"ballock"
+		"rondel"
+		"hunting"
+		"trench"
+		"push "
 		--
-		if _z == 73
-		{
-			mapgtwo += "\n"
-			_z=0
-			_s+=1
-		}
+		" dagger"
 	}
-	--
-	mapgtwo
+	"shield"
+	"bow"
+	"spear"
+	"brass knuckles"
+	"gauntlet"
+	"hammer"
+	{
+		"combat"
+		"butterfly"
+		"ballistic"
+		"throwing"
+		"trench"
+		"genoese"
+		--
+		"knife"
+	}
+	"axe"
+	"katana"
+	"fan"
+	"bayonet"
+	"karambit"
+	"war scythe"
+	"scythe"
+	{
+		"hira"
+		"bo"
+		--
+		" shuriken"
+	}
+	"kunai"
+	"harpoon"
+	{
+		"long"
+		"recurved "
+		"short "
+		"reflex "
+		"cross"
+		--
+		"bow"
+	}
+	"blowgun"
+	"whip"
+	"chain"
+	"nunchaku"
+	"staff"
+}
+
+casualitems
+{
+	"rock"
+	"guitar"
+	"flute"
+	"cymbal"
+	"tambourine"
+	"piano"
+	"cup"
+	"box"
+	"chest"
+	"bottle"
+	"deck of cards"
+	"shirt"
+	"cloak"
+	"necklace"
+	"earrings"
+	"crown"
+	"staff"
+	"cloth"
+	"plate"
+	"bowl"
+	"ring"
+	"bracelet"
+	"bag"
+	"sack"
+	"pencil"
+	"fountain pen"
+	"notebook"
+	"scroll"
+	"book"
+	"lamp"
+	"table"
+	"broom"
+	"sculpture"
+	"mirror"
+}
+
+randitemability
+{
+	"A demon lives inside it"
+	{
+		"Faery"
+		"Wind"
+		"Fire"
+		"Water"
+		"Earth"
+		"Plant"
+		"Shadow"
+		"Light"
+		"Mind"
+		--
+		" Magic"
+	}
+
+	{
+		"Wind"
+		"Fire"
+		"Water"
+		"Earth"
+		"Plant"
+		"Shadow"
+		"Light"
+		"Mind"
+		"Time"
+		"Ice"
+		--
+		" control"
+	}
+	"Stealing souls"
+	"Teleportation"
+	"Divination"
+	"Mind Reading"
 }

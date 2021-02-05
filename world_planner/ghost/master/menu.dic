@@ -1,33 +1,125 @@
 ﻿OpenSakuraMenu
 {
-	"\_q\b4%(ch)..."
+	"\_q\b4\i[1]%(ch)What do you need?"
 	--
 	MenuRun
 }
 
 MenuRun
- {	
+{	type = ""
  	wd = GetWeekDay
  	ap = GetAP
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
-	"\n\n" 
+	"\n\n[half]" 
 	--
-	if lastTalk != ""; "\![*]\q[Can you repeat?,OnLastTalk]\n"
+	if lastTalk != "";  "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n"
 	--
  	"\![*]\q[Say something,altalk]\n\n[half]"
- 	"\![*]\q[Talk to me,altalk]\n\n[half]"
 	--
-	"\![*]\q[Language,langstuff]\n/
-	\![*]\q[Generators,generators]\n/
-	\![*]\q[World Planning,worldplan]\n/
-	\![*]\q[Images,imglib]\n/
-	\![*]\q[Ask,askomega]\n\n[half]"
+	if curworld != ""; "\f[bold,1]Current World: %(curworld)\f[bold,0]\n\n[half]"
+	--
+	if curworld != ""; "\![*]\q[Change World,worldchange]\n\n[half]"
+	else; "\![*]\q[Choose World,worldchange]\n\n[half]"
+	--
+	if curworld != ""
+	{
+		"\![*]\q[Generators,generators]\n/
+		\![*]\q[World Planning,worldplan]\n\n[half]"
+	}
+	--
+	//\![*]\q[Language,langstuff]\n
+	"\![*]\q[Images,imglib]\n"
+	--
+	"\![*]\q[Ask,askomega]\n\n[half]"
 	--
 	"\![*]\q[Config Menu,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n\n[half]/
- 	\![*]\q[Nevermind,CANCEL]\n\n%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+ 	\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(timeformat), %(dateformat)\e"
+}
+
+Select.worldchange
+{
+	//worldcount
+	//world[worldcount]
+	_page = "\b2\_qYour Worlds:\n\n[half]"
+	--
+	for _i=0;_i<worldcount;_i++
+	{
+		_page += "\![*]\q[" + world[_i] + ",OnWorldChange," + _i + "]\n"
+	}
+	--
+	_page += "\f[size,10]\n\n[half]\![*]\q[Add World,addwrld]"
+	--
+	if worldcount > 1; _page += " || \![*]\q[Delet World,delwrld]"
+	--
+	_page += "\f[default]\n\n[half]\![*]\q[Nevermind,CANCEL]"
+	--
+	_page
+}
+
+Select.delwrld
+{
+	//worldcount
+	//world[worldcount]
+	_page = "\b2\_qYour Worlds:\n\n[half]"
+	--
+	for _i=1;_i<worldcount;_i++
+	{
+		_page += "\![*]\q[" + world[_i] + ",OnWorldDel," + _i +"]\n"
+	}
+	--
+	_page += "\n\n[half]\![*]\q[Go Back,worldchange] || \![*]\q[Nevermind,CANCEL]"
+	--
+	_page
+}
+
+Select.addwrld
+{
+	"How would you like yo name your new world?\![open,inputbox,OnAddWorld,-1]"
+}
+
+OnAddWorld
+{
+	world[worldcount] = reference0
+	worldcount++
+	--
+	Select.worldchange
+}
+
+OnWorldDel
+{
+	_t = TOINT(reference0)
+	for _i=_t;_i<worldcount;_i++
+	{
+		world[_i] = world[_i+1]
+	}
+	--
+	worldcount--
+	--
+	Select.delwrld
+}
+
+OnWorldChange
+{
+	_t = TOINT(reference0)
+	curworld = world[_t]
+	--
+	OpenSakuraMenu
+}
+
+timeformat
+{
+	if timeformatype == "STANDARD"; "%(nowhour):%(nowmin) %(ap)"
+	elseif timeformatype == "Military"; "%(hour):%(nowmin)"
+}
+
+dateformat
+{
+	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
+	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
+	else; "%(month)/%(day)/%(year)"
 }
 
 Select.askomega
@@ -43,10 +135,10 @@ Select.askomega
 	"\n\n[half]\f[bold,1]Omega:\f[bold,0]\n\n[half]"
 	--
 	"\![*]\q[Who are you?,OnAskOmega,him]\n/
-	//\![*]\q[How are you?,OnAskOmega,mood]\n/
+	\![*]\q[How are you?,OnAskOmega,mood]\n/
 	//\![*]\q[How was your day?,OnAskOmega,day]\n/
 	\![*]\q[How old are you?,OnAskOmega,age]\n/
-	\n\n[half]\![*]\q[Nevermind,Cancel] or \![*]\q[Go back,BACKTOMENU]\e"
+	\n\n[half]\![*]\q[Nevermind,CANCEL] or \![*]\q[Go back,BACKTOMENU]\e"
 }
 
 OnAskOmega
@@ -59,1059 +151,292 @@ OnAskOmega
 		}
 		when "mood"
 		{
-			if friendship > 50
+			case currmood
 			{
-				case currmood
+				when 0 //thoughtfull
 				{
-					when 0 //thoughtfull
+					if mood[1] > 5
 					{
-						if mood[1] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today was quite a calm day."
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today I had little work so I could just relax."
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I feel sluggish from lack of sleep but it's nothing to worry about."
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 "
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
-
-						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts"
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today was quite a calm day."
 					}
-					when 1 //happy
+
+					if mood[2] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today I had little work so I could just relax."
 					}
-					when 2 //relaxed
+
+					if mood[3] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 well, there isn't much to do around here so I'm quite bored but it's nothing to worry about."
 					}
-					when 3 //sleepy
+
+					if mood[4] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Well, today was not the best day but I will manage."
 					}
-					when 4 //bored
+
+					if mood[5] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Today I got an unexpecteed .\w8 .\w8 .\w8 \f[italic,1]visitor\f[italic,0], it was not a pleasant visit"
 					}
-					when 5 //sad
+
+					if mood[6] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Today I got an unexpecteed .\w8 .\w8 .\w8 \f[italic,1]visitor\f[italic,0], they were quite rude and unpleasant but it's nothing to stress about."
 					}
-					when 6 //annoyed
+
+					if mood[7] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Honestly, I'm tired . . . it was a long day."
 					}
-					when 7 //angry
+
+					"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts"
+				}
+				when 1 //happy
+				{
+					if mood[0] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today was quite a calm day."
 					}
-					when 8 //exited
+
+					if mood[2] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)I'm quite happy today,\w5 I had little to no work so I could just relax and read"
 					}
-					when 9 //tired
+
+					if mood[3] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)I'm good,\w7 even thought it can get quite boring here"
+					}
 
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
+					if mood[5] > 5
+					{
+						"%(ch)I'm good .\w7 .\w7 .\w7 even thought today I had some \f[italic,1]unpleasant visitor\f[italic,0] today."
+						"%(ch)I'm good .\w7 .\w7 .\w7 even thought today I had some \f[italic,1]unpleasant expiriences\f[italic,0] today."
+					}
 
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
+					if mood[7] > 5
+					{
+						"%(ch)I'm tired from work but overall it was still a good day"
+					}
 
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
+				}
+				when 2 //relaxed
+				{
+					if mood[0] > 5
+					{
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today I had little work so I could just relax."
+					}
 
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
+					if mood[1] > 5
+					{
+						"%(ch)I'm quite happy today,\w5 I had little to no work so I could just relax and read"
+					}
 
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
+					if mood[3] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
+					if mood[4] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
+					if mood[5] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
+					if mood[6] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+					if mood[7] > 5
+					{
+						"%(ch)"
 					}
 				}
-			}
-			else
-			{
-				case currmood
+				when 3 //bored
 				{
-					when 0 //thoughtfull
+					if mood[0] > 5
 					{
-						if mood[1] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today was quite a calm day"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I'm good, today I had little work so I could just relax"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 I feel sluggish from lack of sleep but it's nothing to worry about"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 "
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
-
-						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts"
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 well, there isn't much to do around here so I'm quite bored but it's nothing to worry about."
 					}
-					when 1 //happy
+
+					if mood[1] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)I'm good,\w7 even thought it can get quite boring here"
 					}
-					when 2 //relaxed
+
+					if mood[3] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)"
 					}
-					when 3 //sleepy
+
+					if mood[5] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)"
 					}
-					when 4 //bored
+
+					if mood[6] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)"
 					}
-					when 5 //sad
+
+					if mood[7] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)"
 					}
-					when 6 //annoyed
+				}
+				when 4 //sad
+				{
+					if mood[0] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Well, today was not the best day but I will manage."
 					}
-					when 7 //angry
+
+					if mood[2] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)"
 					}
-					when 8 //exited
+
+					if mood[3] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[9] > 3
-						{
-							"%(ch)"
-						}
-
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)"
 					}
-					when 9 //tired
+
+					if mood[4] > 5
 					{
-						if mood[0] > 3
-						{
-							"%(ch)"
-						}
+						"%(ch)"
+					}
 
-						if mood[1] > 3
-						{
-							"%(ch)"
-						}
+					if mood[6] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[2] > 3
-						{
-							"%(ch)"
-						}
+					if mood[7] > 5
+					{
+						"%(ch)"
+					}
+				}
+				when 5 //annoyed
+				{
+					if mood[0] > 5
+					{
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Today I got an unexpecteed .\w8 .\w8 .\w8 \f[italic,1]visitor\f[italic,0], it was not a pleasant visit"
+					}
 
-						if mood[3] > 3
-						{
-							"%(ch)"
-						}
+					if mood[1] > 5
+					{
+						"%(ch)I'm good .\w7 .\w7 .\w7 even thought today I had some \f[italic,1]unpleasant visitor\f[italic,0] today."
+						"%(ch)I'm good .\w7 .\w7 .\w7 even thought today I had some \f[italic,1]unpleasant expiriences\f[italic,0] today."
+					}
 
-						if mood[4] > 3
-						{
-							"%(ch)"
-						}
+					if mood[2] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[5] > 3
-						{
-							"%(ch)"
-						}
+					if mood[3] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[6] > 3
-						{
-							"%(ch)"
-						}
+					if mood[4] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[7] > 3
-						{
-							"%(ch)"
-						}
+					if mood[5] > 5
+					{
+						"%(ch)"
+					}
 
-						if mood[8] > 3
-						{
-							"%(ch)"
-						}
+					if mood[7] > 5
+					{
+						"%(ch)"
+					}
+				}
+				when 6 //angry
+				{
+					if mood[0] > 5
+					{
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Today I got an unexpecteed .\w8 .\w8 .\w8 \f[italic,1]visitor\f[italic,0], they were quite rude and unpleasant but it's nothing to stress about."
+					}
 
-						if mood[10] > 3
-						{
-							"%(ch)"
-						}
+					if mood[2] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[3] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[4] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[5] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[6] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[7] > 5
+					{
+						"%(ch)"
+					}
+				}
+				when 7 //tired
+				{
+					if mood[0] > 5
+					{
+						"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry I got lost in thoughts\x\cHow am I?\w5 Honestly, I'm tired . . . it was a long day."
+					}
+
+					if mood[1] > 5
+					{
+						"%(ch)I'm tired from work but overall it was still a good day"
+					}
+
+					if mood[2] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[3] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[4] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[5] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[6] > 5
+					{
+						"%(ch)"
+					}
+
+					if mood[7] > 5
+					{
+						"%(ch)"
 					}
 				}
 			}
@@ -1136,7 +461,6 @@ OnAskOmega
 		{
 			"%(ch)I'm a librarian."
 			"%(ch)I'm a guardian."
-			"%(ch)I'm gods servant."
 		}
 		when "age"
 		{
@@ -1149,8 +473,8 @@ OnAskOmega
 	"\x\c"
 	--
 	Select.askomega
-}
 
+}
 //======================================IMAGE LIBRARY==============================================
 Select.imglib
 {
@@ -1175,7 +499,6 @@ Select.imglib
 		{
 			imglist += "\q[" + _imgs[_i] + ",OnOpenIMG," + _imgs[_i] + "," + _trueimg[_i] +"]\n"
 		}
-		
 	}
 	--
 	if delimg == "ON"; imglist += "\f[size,20]\n\f[color,230, 39, 25]\q[-,delim]\f[color,default] | \f[size,default]"
@@ -1252,7 +575,6 @@ OnReImg
 	--
 	Select.imglib
 }
-
 //=======================================SUB MENUS=============================================
 Select.langstuff
 {
@@ -1289,11 +611,15 @@ Select.generators
 {
 	"\_q\b2%(ch)" 
 	--
-	"\![*]\q[Characters,OnCharacterGen,generator]\n/
-	//\![*]\q[Countries,OnCountriesGen]\n/
-	//\![*]\q[Races,OnRaceGen]\n/
+	"\![*]\q[Characters,OnGenConfigRand,generator,character]\n/
+	//\![*]\q[Countries,OnGenConfigRand,generator,country]\n/
+	\![*]\q[Races,OnGenConfigRand,generator,race]\n/
+	\![*]\q[Animal,OnGenConfigRand,generator,animal]\n/
+	\![*]\q[Plant,OnGenConfigRand,generator,plant]\n/
+	\![*]\q[Item,OnGenConfigRand,generator,item]\n/
+	//\![*]\q[Place,OnGenConfigRand,generator,place]\n/
 	\![*]\q[Maps,OnMapGenVar]\n\n[half]/
-	\![*]\q[Config,OnCharacterGen,config]\n\n[half]/
+	\![*]\q[Config,OnGenConfigRand,config,config]\n\n[half]/
 	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,BACKTOMENU]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 
 }
@@ -1317,7 +643,7 @@ OnLanguages
 	langfile = FENUM('languages','+')
 	if langfile == ""
 	{
-		langcontent +="\f[bold,1]You havent made any languages\f[bold,0]\![open,file,app]"
+		langcontent +="\f[bold,1]You haven't made any languages\f[bold,0]\![open,file,app]"
 	}
 	else
 	{
@@ -1411,44 +737,25 @@ OnReApp
 //====================================================================================
 GetWeekDay
 {
-	if weekday == 0
-	{"Sun"}
-	elseif weekday == 1
-	{"Mon"}
-	elseif weekday == 2
-	{"Tue"}
-	elseif weekday == 3
-	{"Wed"}
-	elseif weekday == 4
-	{"Thu"}
-	elseif weekday == 5
-	{"Fri"}
-	else
-	{"Sat"}
+	if weekday == 0; "Sun"
+	elseif weekday == 1; "Mon"
+	elseif weekday == 2; "Tue"
+	elseif weekday == 3; "Wed"
+	elseif weekday == 4; "Thu"
+	elseif weekday == 5; "Fri"
+	else; "Sat"
 }
 
 GetAP
 {
- 	if hour >= 0 && hour <= 11
-	{
-		"AM"
-	}
- 	else
-	{
-		"PM"
-	}
+ 	if hour >= 0 && hour <= 11; "AM"
+ 	else; "PM"
 }
 
 Getnowmin
 {
-	if minute >= 0 && minute <=9
-	{
-		"0%(minute)"
-	}
-	else
-	{
-		"%(minute)"
-	}
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
 }
 
 Getnowhour
@@ -1468,20 +775,28 @@ Select.configmenu
 
 TalkConfig
 {
-	"\b[2]\_q%(ch)" 
+	"\b[4]\_q%(ch)" 
 	--
-	"\f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
+	"Your name: \f[bold,1]\q[%(username),TEACHNAME]\n"
 	--
-	"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
+	"\f[bold,0]Your pronouns: \f[bold,1]\q[%(heshe)/%(himher)/%(hisher),TEACHPRONOUN]\f[bold,0]\n"
 	--
-	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n\n"
+	"Your birthday: \f[bold,1]\q[%(birthdayprint),TEACHBDAY]\f[bold,0]\n"
 	--
-	"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	"Talk Rate: \f[bold,1]\q[%(talktime),talkinter]\f[bold,0]\n\n"
 	--
-	"\f[bold,1]Save all images: \f[bold,0]\q[%(igsave),imgs]\n\n"
+	"Save all images: \f[bold,1]\q[%(igsave),imgs]\f[bold,0]\n\n"
+	--
+	"Hemisphere: \f[bold,1]\q[%(hsphere),hemisph]\f[bold,0]\n"
+	--
+	"Time Format: \f[bold,1]\q[%(timeformatype),timetype]\f[bold,0]\n"
+	--
+	"Date Format: \f[bold,1]\q[%(dateformatype),datetype]\f[bold,0]\n"
+	--
+	"Auto update check: \f[bold,1]\q[%(upchec),upcheck]\f[bold,0]\n"
 	--		
 	{
-	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]"
 	}
 	--
 	"\![*]\q[Back to the menu,BACKTOMENU]\e"
@@ -1489,8 +804,52 @@ TalkConfig
 
 Select.imgs
 {
-	if igsave == "ON"; igsave = "OFF"
-	else; igsave = "ON"
+	igsave = onnoff(igsave)
+	--
+	TalkConfig
+}
+
+onnoff
+{
+	if _argv[0] == "ON"; "OFF"
+	else; "ON"
+}
+
+Select.hemisph
+{
+	if hsphere == "Northern"; hsphere = "Southern"
+	else; hsphere = "Northern"
+	--
+	TalkConfig
+}
+
+Select.datetype
+{
+	case dateformatype
+	{
+		when "dd/mm/yyyy"; dateformatype = "yyyy/mm/dd"
+		when "yyyy/mm/dd"; dateformatype = "mm/dd/yyyy"
+		others; dateformatype = "dd/mm/yyyy"
+	}
+	--
+	TalkConfig
+}
+
+Select.timetype
+{
+	case timeformatype
+	{
+		when "Standard"; timeformatype = "Military"
+		others; timeformatype = "Standard"
+	}
+	--
+	TalkConfig
+
+}
+
+Select.upcheck
+{
+	upchec = onnoff(upchec)
 	--
 	TalkConfig
 }
@@ -1622,10 +981,22 @@ Printmonth
 
 Printday
 {
-	if bornday == 1 || bornday == 21 || bornday == 31; "%(bornday)st"
-	elseif bornday == 2 || bornday == 22; "%(bornday)nd"
-	elseif bornday == 3 || bornday == 23; "%(bornday)rd"
-	else; "%(bornday)th"
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{
+	"%(bornday)st"
+	}
+	elseif bornday == 2 || bornday == 22
+	{
+	"%(bornday)nd"
+	}
+	elseif bornday == 3 || bornday == 23
+	{
+	"%(bornday)rd"
+	}
+	else
+	{
+	"%(bornday)th"
+	}
 }	
 
 OnUserBornDay
@@ -1680,8 +1051,14 @@ OnUserBornDay
 
 birthchecked
 {
-	if userbirthday == dayslot; "So your birthday is today, happy birthday then %(username).\e"
-	else; "Your birthday is %(bornmonthprint) %(borndayprint). I will remember.\e"
+	if userbirthday == dayslot 
+	{
+		"So your birthday is today, happy birthday then %(username).\e"
+	}
+	else 
+	{
+		"Your birthday is %(bornmonthprint) %(borndayprint). I will remember.\e"
+	}
 }
 
 Select.talkinter
@@ -1712,9 +1089,18 @@ OnTalkCustom
 	--
 	case talkinttima
 	{
-		when "seconds"; "%(ch)I should speak every . . . seconds.\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
-		when "minutes"; "%(ch)I should speak every . . . minutes.\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
-		when "hours"; "%(ch)I should speak every . . . hours.\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
+		when "seconds"
+		{
+			"%(ch)I should speak every . . . seconds.\![open,sliderinput,OnTalkCustomize,-1,30,30,59]"
+		}
+		when "minutes"
+		{
+			"%(ch)I should speak every . . . minutes.\![open,sliderinput,OnTalkCustomize,-1,1,1,59]"
+		}
+		when "hours"
+		{
+			"%(ch)I should speak every . . . hours.\![open,sliderinput,OnTalkCustomize,-1,1,1,24]"
+		}
 	}
 }
 
@@ -1728,7 +1114,7 @@ OnTalkCustomize
 		{
 			talktime = "%(timecustom) seconds" 
 			aitalkinterval = timecustom 
-			"I will speak every %(timecustom) seconds.\e"
+			"I will speak every %(timecustom).\e"
 		}
 		when "minutes"
 		{
@@ -1742,7 +1128,7 @@ OnTalkCustomize
 			{
 				talktime = "%(timecustom) minutes" 
 				aitalkinterval = timecustom * 60
-				"I will speak every %(talktime) minutes.\e"
+				"I will speak every %(talktime).\e"
 			}
 		}
 		when "hours"
@@ -1757,7 +1143,7 @@ OnTalkCustomize
 			{
 				talktime = "%(talktime) hours" 
 				aitalkinterval = timecustom * 3600
-				"I will speak every %(talktime) hours.\e"
+				"I will speak every %(talktime).\e"
 			}
 		}
 	}
@@ -1810,7 +1196,8 @@ Select.TEACHNAME
 
 Select.CANCEL
 {
-	"...\e"
+	type = ""
+	"\i[2]\e"
 }
 
 Select.dosomething
@@ -1865,8 +1252,7 @@ Select.ChoiceSystemInformation
 	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
 	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
 	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
-	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
-	\e"
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\e"
 }
 
 Select.MailCheck
@@ -1881,7 +1267,7 @@ Select.HEADLINECANCEL
 
 OnChoiceTimeout
 {
-	"The menu has timed out.\e"
+	"\i[2]\e"
 }
 
 OpenKeroMenu
@@ -1920,14 +1306,15 @@ OnLanguageGenerator_save
 	{
 		letter = RAND(ARRAYSIZE(alphabettemp))
 		--
-		for _z=0;_z!=1;_a++
-		{
-			num = RAND(maxletter)
-			--
-			if num >= minletter; _z = 1
-		}
+		num = RAND(maxletter)
 		--
-		if num < minletter; num = minletter
+		if num < minletter
+		{
+			for num = RAND(maxletter);num >= minletter;_let++
+			{
+				
+			}
+		}
 		--
 		for _j=0;_j<=num;_j++
 		{
@@ -1941,13 +1328,25 @@ OnLanguageGenerator_save
 					{
 						if RAND(2) == 1
 						{
-							if alphabettemp[letter-newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x-newlet
+							if alphabettemp[letter-newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x-newlet
+							}
 						}
 						else
 						{
-							if alphabettemp[letter+newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x+newlet
+							if alphabettemp[letter+newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x+newlet
+							}
 						}
 					}
 					--
@@ -1955,13 +1354,25 @@ OnLanguageGenerator_save
 					{
 						if RAND(2) == 1
 						{
-							if alphabettemp[letter-newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x-newlet
+							if alphabettemp[letter-newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x-newlet
+							}
 						}
 						else
 						{
-							if alphabettemp[letter+newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x+newlet
+							if alphabettemp[letter+newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x+newlet
+							}
 						}
 					}
 					--
@@ -1969,24 +1380,45 @@ OnLanguageGenerator_save
 					{
 						if RAND(2) == 1
 						{
-							if alphabettemp[letter-newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x-newlet
+							if alphabettemp[letter-newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x-newlet
+							}
 						}
 						else
 						{
-							if alphabettemp[letter+newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x+newlet
+							if alphabettemp[letter+newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x+newlet
+							}
 						}
 					}
 				}
 			}
 			--
-			if ruletwo == "ON" && alphabettemp[letter] == letterprev; letter += 1
+			if ruletwo == "ON"
+			{
+				if alphabettemp[letter] == letterprev
+				{
+					letter ++
+				}
+			}
 			--
-			if ruleone == "ON" && "'" _in_ word && "'" _in_ alphabettemp[letter]; word = REPLACE(word,"'","")
-			--
-			if letterprev == "'" && alphabettemp[letter] == "-"; letter = RAND(15)
-			elseif letterprev == "-" && alphabettemp[letter] == "'"; letter = RAND(15)
+			if ruleone == "ON"
+			{
+				if "'" _in_ word && "'" _in_ alphabettemp[letter]
+				{
+					word = REPLACE(word,"'","")
+				}
+			}
 			--
 			word += alphabettemp[letter]
 			letterprev = alphabettemp[letter]
@@ -2011,10 +1443,16 @@ OnLanguageGenerator_resave
 		{
 			num = RAND(maxletter)
 			--
-			if num >= minletter; _z = 1
+			if num >= minletter
+			{
+				_z = 1
+			}
 		}
 		--
-		if num < minletter; num = minletter
+		if num < minletter
+		{
+			num = minletter
+		}
 		--
 		for _j=0;_j<=num;_j++
 		{
@@ -2028,13 +1466,25 @@ OnLanguageGenerator_resave
 					{
 						if RAND(2) == 1
 						{
-							if alphabettemp[letter-newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x-newlet
+							if alphabettemp[letter-newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x-newlet
+							}
 						}
 						else
 						{
-							if alphabettemp[letter+newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x+newlet
+							if alphabettemp[letter+newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x+newlet
+							}
 						}
 					}
 					--
@@ -2042,13 +1492,25 @@ OnLanguageGenerator_resave
 					{
 						if RAND(2) == 1
 						{
-							if alphabettemp[letter-newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x-newlet
+							if alphabettemp[letter-newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x-newlet
+							}
 						}
 						else
 						{
-							if alphabettemp[letter+newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x+newlet
+							if alphabettemp[letter+newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x+newlet
+							}
 						}
 					}
 					--
@@ -2056,24 +1518,54 @@ OnLanguageGenerator_resave
 					{
 						if RAND(2) == 1
 						{
-							if alphabettemp[letter-newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x-newlet
+							if alphabettemp[letter-newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x-newlet
+							}
 						}
 						else
 						{
-							if alphabettemp[letter+newlet] == ""; letter = ARRAYSIZE(alphabettemp)
-							else; letter += _x+newlet
+							if alphabettemp[letter+newlet] == ""
+							{
+								letter = ARRAYSIZE(alphabettemp)
+							}
+							else
+							{
+								letter += _x+newlet
+							}
 						}
 					}
 				}
 			}
 			--
-			if ruletwo == "ON" && alphabettemp[letter] == letterprev; letter += 1
+			if ruletwo == "ON"
+			{
+				if alphabettemp[letter] == letterprev
+				{
+					letter ++
+				}
+			}
 			--
-			if ruleone == "ON" && "'" _in_ word && "'" _in_ alphabettemp[letter]; word = REPLACE(word,"'","")
+			if ruleone == "ON"
+			{
+				if "'" _in_ word && "'" _in_ alphabettemp[letter]
+				{
+					word = REPLACE(word,"'","")
+				}
+			}
 			--
-			if letterprev == "'" && alphabettemp[letter] == "-"; letter = RAND(15)
-			elseif letterprev == "-" && alphabettemp[letter] == "'"; letter = RAND(15)
+			if letterprev == "'" && alphabettemp[letter] == "-"
+			{
+				letter = RAND(15)
+			}
+			elseif letterprev == "-" && alphabettemp[letter] == "'"
+			{
+				letter = RAND(15)
+			}
 			--
 			word += alphabettemp[letter]
 			letterprev = alphabettemp[letter]
@@ -2095,13 +1587,14 @@ OnLanguageGenerator_end
 Select.updatelib
 {
 	FOPEN("write.txt","r")
-	_x = 0
-	--
-	for _i=0;_x != 1;_i++
+	for _i=0;x != 1;_i++
 	{
 		englib[_i] = FREAD("write.txt")
 		--
-		if englib[_i] == "-1"; _x = 1
+		if englib[_i] == "-1"
+		{
+			x = 1
+		}
 	}
 	--
 	"\cEnglish Library Updated\e"
@@ -2109,7 +1602,10 @@ Select.updatelib
 
 OnGenConfig
 {
-	if reference0 != ""; type = reference0
+	if reference0 != ""
+	{
+		type = reference0
+	}
 	--
 	"\b2\_q%(ch)\q[Max letters: %(maxletter),maxlet]\n/
 	\q[Min letters: %(minletter),minlet]\n"
@@ -2120,10 +1616,19 @@ OnGenConfig
 	\q[Don't repete letters: %(ruletwo),OnRules,two]\n/
 	\q[Phonetic conditions %(rulethree),OnRules,three]\n"
 	--
-	if rulethree == "ON"; "\q[Condition number: %(numcom),connum]\n"
+	if rulethree == "ON"
+	{
+		"\q[Condition number: %(numcom),connum]\n"
+	}
 	--
-	if type == "save"; "\n[half]\![*]\q[I'm Done,OnLanguageGenerator_start]"
-	else; "\n[half]\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,langstuff]"
+	if type == "save"
+	{
+		"\n[half]\![*]\q[I'm Done,OnLanguageGenerator_start]"
+	}
+	else
+	{
+		"\n[half]\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,langstuff]"
+	}
 
 }
 
@@ -2169,18 +1674,36 @@ OnRules
 	{
 		when "one"
 		{
-			if ruleone != "ON"; ruleone = "ON"
-			else; ruleone = "OFF"
+			if ruleone != "ON"
+			{
+				ruleone = "ON"
+			}
+			else
+			{
+				ruleone = "OFF"
+			}
 		}
 		when "two"
 		{
-			if ruletwo != "ON"; ruletwo = "ON"
-			else; ruletwo = "OFF"
+			if ruletwo != "ON"
+			{
+				ruletwo = "ON"
+			}
+			else
+			{
+				ruletwo = "OFF"
+			}
 		}
 		when "three"
 		{
-			if rulethree != "ON"; rulethree = "ON"
-			else; rulethree = "OFF"
+			if rulethree != "ON"
+			{
+				rulethree = "ON"
+			}
+			else
+			{
+				rulethree = "OFF"
+			}
 		}
 	}
 	--
@@ -2279,7 +1802,7 @@ OnTranslatetwo
 		if num == "-1"
 		{
 			translated += "? "
-			newwords += 1
+			newwords ++
 			englib[engsize+newwords] = totransl[_i]
 		}
 		else
@@ -2290,43 +1813,61 @@ OnTranslatetwo
 	--
 	page = "\c\b2English:\n" + reference0 + "\n\n[half]Translated:\n" + translated
 	--
-	if " ? " _in_ translated; page += "\n[half]I'm adding unknown words to my library, next time while making a language they will be included"
+	if " ? " _in_ translated
+	{
+		page += "\n[half]I'm adding unknown words to my library, next time while making a language they will be included"
+
+	}
 	--
 	page += "\n\n[half]\![*]\q[translate again,OnTransl]\n\n[half]\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,langstuff]"
 	--
 	"%(page)"
 }
 
-//i like that cat he's always nice you know
 //===================================CHARACTER STUFF=================================================
 OnCharacterList
 {
-	charlist = "\_q\b2%(ch)"
+	_charlist = "\_q\b2%(ch)"
 	--
 	if charcount != 0
 	{
-		charlist += "\f[bold,1]Your Characters:\f[bold,0]\n\n[half]"
+		_charlist += "\f[bold,1]Your Characters:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<charcount;_i++
 		{
-			charlist += "\![*]\q[" + charname[_i] + ",OnCharcterClick," + _i +"]\n"
+			if charworld[_i]  == curworld
+			{
+				_charlist += "\![*]\q[" + charname[_i] + ",OnCharcterClick," + _i +"]\n"
+			}
 		}
 	}
 	else
 	{
-		charlist += "You don't have any characters yet\n\n[half]"
+		_charlist += "You don't have any characters yet\n\n[half]"
 	}
 	--
-	charlist += "\f[size,10]\n\![*]\q[Add Character,OnAddCharacter]\n"
+	_charlist += "\f[size,10]\n\![*]\q[Add Character,OnAddCharacter]\n"
 	--
-	if removechar == 1; charlist += "\f[color,230, 39, 25]\![*]\q[Remove Character,removechar]\f[color,default]\n"
-	else; charlist += "\![*]\q[Remove Character,removechar]\n"
+	if removechar == 1
+	{
+		_charlist += "\f[color,230, 39, 25]\![*]\q[Remove Character,removechar]\f[color,default]\n"
+	}
+	else
+	{
+		_charlist += "\![*]\q[Remove Character,removechar]\n"
+	}
 	--
-	if editchar == 1; charlist += "\f[color,230, 39, 25]\![*]\q[Edit Character,edchar]\f[color,default]"
-	elsevcharlist += "\![*]\q[Edit Character,edchar]"
+	if editchar == 1
+	{
+		_charlist += "\f[color,230, 39, 25]\![*]\q[Edit Character,edchar]\f[color,default]"
+	}
+	else
+	{
+		_charlist += "\![*]\q[Edit Character,edchar]"
+	}
 	--
-	charlist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
-	charlist
+	_charlist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_charlist
 }
 
 Select.edchar
@@ -2397,7 +1938,7 @@ OnCharcterClick
 		\![*]\q[Long Story,OnEdit,longstory]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnCharacterList]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -2411,16 +1952,47 @@ OnEdit
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnNameChange,-1]"
-		when "age"; "\![open,input,OnAgeChange,-1]"
-		when "dead"; "\![open,input,OnDeadChange,-1]"
-		when "gender"v"\![open,input,OnGenderChange,-1]"
-		when "race"; "\![open,input,OnRaceChange,-1]"
-		when "prof"; "\![open,input,OnProfChange,-1]"
-		when "nationality"; "\![open,input,OnNatChange,-1]"
-		when "desc"; "\![open,input,OnDescChange,-1]"
-		when "shortstory"; "\![open,input,OnSStoryChange,-1]"
-		when "longstory"; "\![open,input,OnLStoryChange,-1]"
+		when "name"
+		{
+			"\![open,input,OnNameChange,-1]"
+		}
+		when "age"
+		{
+			"\![open,input,OnAgeChange,-1]"
+		}
+		when "dead"
+		{
+			"\![open,input,OnDeadChange,-1]"
+		}
+		when "gender"
+		{
+			"\![open,input,OnGenderChange,-1]"
+		}
+		when "race"
+		{
+			"\![open,input,OnRaceChange,-1]"
+		}
+
+		when "prof"
+		{
+			"\![open,input,OnProfChange,-1]"
+		}
+		when "nationality"
+		{
+			"\![open,input,OnNatChange,-1]"
+		}
+		when "desc"
+		{
+			"\![open,input,OnDescChange,-1]"
+		}
+		when "shortstory"
+		{
+			"\![open,input,OnSStoryChange,-1]"
+		}
+		when "longstory"
+		{
+			"\![open,input,OnLStoryChange,-1]"
+		}
 	}
 }
 
@@ -2536,7 +2108,7 @@ OnLStoryChange
 
 Select.fullstory
 {
-	page = "\_q\b4%(ch)" + REPLACE(characterstuff[8],"+",",") + REPLACE(charlongstory[choosennum],"+",",") + "\n" + "\n[half]\![*]\q[End,Cancel]"
+	page = "\_q\b4%(ch)" + REPLACE(characterstuff[8],"+",",") + REPLACE(charlongstory[choosennum],"+",",") + "\n" + "\n[half]\![*]\q[End,CANCEL]"
 	--
 	page
 }
@@ -2612,7 +2184,8 @@ OnAddCharacter_longstory
 OnAddCharacter_End
 {
 	charlongstory[charcount] = REPLACE(reference0,",","+")
-	charcount += 1
+	charworld[charcount] = curworld
+	charcount ++
 	choosennum = charcount - 1
 	--
 	"\b4Done, here is your character:\x\c\b4\_q"
@@ -2624,33 +2197,48 @@ OnAddCharacter_End
 //=========================================COUNTRY STUFF===========================================
 OnCountries
 {
-	countrylist = "\_q\b2%(ch)"
+	_countrylist = "\_q\b2%(ch)"
 	--
 	if countrycount != 0
 	{
-		countrylist += "\f[bold,1]Your Characters:\f[bold,0]\n\n[half]"
+		_countrylist += "\f[bold,1]Your Characters:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<countrycount;_i++
 		{
-			countrylist += "\![*]\q[" + counname[_i] + ",OnCountryClick," + _i +"]\n"
+			if charworld[_i]  == curworld
+			{
+				_countrylist += "\![*]\q[" + counname[_i] + ",OnCountryClick," + _i +"]\n"
+			}
 		}
 	}
 	else
 	{
-		countrylist += "You don't have any countries yet\n\n[half]"
+		_countrylist += "You don't have any countries yet\n\n[half]"
 	}
 	--
-	countrylist += "\f[size,10]\n\![*]\q[Add Country,OnAddCountry]\n"
+	_countrylist += "\f[size,10]\n\![*]\q[Add Country,OnAddCountry]\n"
 	--
-	if removecoun == 1; countrylist += "\f[color,230, 39, 25]\![*]\q[Remove Country,removecoun]\f[color,default]\n"
-	else; countrylist += "\![*]\q[Remove Country,removecoun]\n"
+	if removecoun == 1
+	{
+		_countrylist += "\f[color,230, 39, 25]\![*]\q[Remove Country,removecoun]\f[color,default]\n"
+	}
+	else
+	{
+		_countrylist += "\![*]\q[Remove Country,removecoun]\n"
+	}
 	--
-	if editcoun == 1; countrylist += "\f[color,230, 39, 25]\![*]\q[Edit Country,edcoun]\f[color,default]"
-	else; countrylist += "\![*]\q[Edit Country,edcoun]"
+	if editcoun == 1
+	{
+		_countrylist += "\f[color,230, 39, 25]\![*]\q[Edit Country,edcoun]\f[color,default]"
+	}
+	else
+	{
+		_countrylist += "\![*]\q[Edit Country,edcoun]"
+	}
 	--
-	countrylist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_countrylist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	--
-	countrylist
+	_countrylist
 }
 
 Select.edcoun
@@ -2708,7 +2296,7 @@ OnCountryClick
 		\![*]\q[Description,OnEditCountry,state]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnCountries]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -2722,9 +2310,18 @@ OnEditCountry
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnCNameChange,-1]"
-		when "history"; "\![open,input,OnHistoryChange,-1]"
-		when "state"; "\![open,input,OnStateChange,-1]"
+		when "name"
+		{
+			"\![open,input,OnCNameChange,-1]"
+		}
+		when "history"
+		{
+			"\![open,input,OnHistoryChange,-1]"
+		}
+		when "state"
+		{
+			"\![open,input,OnStateChange,-1]"
+		}
 	}
 }
 
@@ -2784,7 +2381,8 @@ OnAddCountry_state
 OnAddCountry_end
 {
 	countrystate[countrycount] = REPLACE(reference0,",","+")
-	countrycount += 1
+	countryworld[countrycount] = curworld
+	countrycount ++
 	choosennum = countrycount - 1
 	--
 	"\b4Done, here is your country:\x\c\b4\_q"
@@ -2796,7 +2394,10 @@ OnAddCountry_end
 //======================================CHARACTER PAGE==============================================
 OnCharacterPage
 {
-	if reference0 == "translate"; choosennum = reference1
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
 	--
 	charpage = "\b4\_q%(ch)" 
 	portraits = FENUM('portraits','+')
@@ -2805,9 +2406,18 @@ OnCharacterPage
 	{
 		if charname[choosennum] == "Omega"
 		{
-			if nowshell == "Omega 2.0" && "Omega 2" _in_ portraits; charpage += "\_b[portraits/Omega 2.png,inline,--option=use_self_alpha]\n\n"
-			elseif nowshell == "Omega human ver." && "Omega 3" _in_ portraits; charpage += "\_b[portraits/Omega 3.png,inline,--option=use_self_alpha]\n\n"
-			else; charpage += "\_b[portraits/" + charname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+			if nowshell == "Omega 2.0" && "Omega 2" _in_ portraits
+			{
+				charpage += "\_b[portraits/Omega 2.png,inline,--option=use_self_alpha]\n\n"
+			}
+			elseif nowshell == "Omega human ver." && "Omega 3" _in_ portraits
+			{
+				charpage += "\_b[portraits/Omega 3.png,inline,--option=use_self_alpha]\n\n"
+			}
+			else
+			{
+				charpage += "\_b[portraits/" + charname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+			}
 		}
 		else
 		{
@@ -2819,28 +2429,44 @@ OnCharacterPage
 	--
 	refsheets = FENUM('refsheets','+')
 	--
-	if TOLOWER(charname[choosennum]) _in_ TOLOWER(refsheets); placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + charname[choosennum] + "]\n\n"
+	if TOLOWER(charname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + charname[choosennum] + "]\n\n"
+	}
 	--
-	cahrpage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnCharacterList]"
+	if type != "generator"
+	{
+		charpage += "\n\n[half]\![*]\q[End,CANCEL]\n\![*]\q[Go back to the list,OnCharacterList]"
+	}
+	--
 	charpage = REPLACE(charpage,"+",",")
 }
 //=========================================COUNTRY PAGE===========================================
 OnCountryPage
 {
-	if reference0 == "translate"; choosennum = reference1
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
 	--
 	maps = FENUM('maps','+')
 	countrypage = "\b4\_q%(ch)"
 	--
 	countrypage += countrytuff[0] + counname[choosennum] + "\n\n[half]" + countrytuff[1] + countryhistory[choosennum] + "\n\n[half]" + countrytuff[2] + countrystate[choosennum]
 	--
-	if TOLOWER(counname[choosennum]) _in_ TOLOWER(maps); countrypage += "\n\n\![*]\q[Show the map,omap]"
+	if TOLOWER(counname[choosennum]) _in_ TOLOWER(maps)
+	{
+		countrypage += "\n\n\![*]\q[Show the map,omap]"
+	}
 	--
 	refsheets = FENUM('refsheets','+')
 	--
-	if TOLOWER(counname[choosennum]) _in_ TOLOWER(refsheets); placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racenacounnameme[choosennum] + "]\n\n"
+	if TOLOWER(counname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racenacounnameme[choosennum] + "]\n\n"
+	}
 	--
-	countrypage += "\n\n[half]\![*]\q[Laws,laws]\n" + "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnCountries]"
+	countrypage += "\n\n[half]\![*]\q[Laws,laws]\n" + "\n\n[half]\![*]\q[End,CANCEL]\n\![*]\q[Go back to the list,OnCountries]"
 	--
 	//\![*]\q[Stories,OnStoriesC]"
 	countrypage = REPLACE(countrypage,"+",",")
@@ -2884,13 +2510,25 @@ OnStoriesC
 	--
 	storylist += "\f[size,10]\n\![*]\q[Add Story,OnAddStory]\n"
 	--
-	if removestory == 1; storylist += "\f[color,230, 39, 25]\![*]\q[Remove Story,OnRemoveEditS,rem]\f[color,default]\n"
-	else; storylist += "\![*]\q[Remove Story,OnRemoveEditS,rem]\n"
+	if removestory == 1
+	{
+		storylist += "\f[color,230, 39, 25]\![*]\q[Remove Story,OnRemoveEditS,rem]\f[color,default]\n"
+	}
+	else
+	{
+		storylist += "\![*]\q[Remove Story,OnRemoveEditS,rem]\n"
+	}
 	--
-	if editstory == 1; storylist += "\f[color,230, 39, 25]\![*]\q[Edit Story,OnRemoveEditS,edi]\f[color,default]"
-	else; storylist += "\![*]\q[Edit Story,OnRemoveEditS,edi]"
+	if editstory == 1
+	{
+		storylist += "\f[color,230, 39, 25]\![*]\q[Edit Story,OnRemoveEditS,edi]\f[color,default]"
+	}
+	else
+	{
+		storylist += "\![*]\q[Edit Story,OnRemoveEditS,edi]"
+	}
 	--
-	storylist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	storylist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	--
 	storylist
 }
@@ -2936,7 +2574,6 @@ OnCStoryClick
 			counstorynames[_i] = counstorynames[_i+1]
 			counstory[_i] = counstory[_i+1]
 		}
-		--
 		OnStoriesC
 	}
 	elseif editstory == 1
@@ -2947,7 +2584,7 @@ OnCStoryClick
 		\![*]\q[Story,OnEditStory,descr]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnRaces]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -2959,8 +2596,14 @@ OnEditStory
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnSCNameChange,-1]"
-		when "descr"; "\![open,input,OnSCStoryChange,-1]"
+		when "name"
+		{
+			"\![open,input,OnSCNameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnSCStoryChange,-1]"
+		}
 	}
 }
 
@@ -3013,7 +2656,7 @@ OnStoryPage
 	--
 	storypage += "\f[bold,1]" + REPLACE(storynames[choosennum],"#",",") + "\f[bold,0]:\n\n[half]" + REPLACE(stories[choosennum],"#",",")
 	--
-	storypage += "\n\n[half]\![*]\q[End,Cancel],\q[Go back to the list,OnStoriesC," + countrynum + "]\n"
+	storypage += "\n\n[half]\![*]\q[End,CANCEL],\q[Go back to the list,OnStoriesC," + countrynum + "]\n"
 	--
 	storypage
 }
@@ -3065,13 +2708,24 @@ Select.laws
 	--
 	lawpage += "\n[half]\f[size,10]\n[half]\![*]\q[Add law,addlaw]\n"
 	--
-	if removelaw == 1; lawpage += "\f[color,230, 39, 25]\![*]\q[Remove law,removelaw]\f[color,default]\n"
-	else; lawpage += "\![*]\q[Remove law,removelaw]\n"
+	if removelaw == 1
+	{
+		lawpage += "\f[color,230, 39, 25]\![*]\q[Remove law,removelaw]\f[color,default]\n"
+	}
+	else
+	{
+		lawpage += "\![*]\q[Remove law,removelaw]\n"
+	}
 	--
-	if editlaw == 1; lawpage += "\f[color,230, 39, 25]\![*]\q[Edit law,edlaw]\f[color,default]\n"
-	else; lawpage += "\![*]\q[Edit law,edlaw]\n"
-	--
-	lawpage += "\f[size,default]\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,OnCountryPageBack]"
+	if editlaw == 1
+	{
+		lawpage += "\f[color,230, 39, 25]\![*]\q[Edit law,edlaw]\f[color,default]\n"
+	}
+	else
+	{
+		lawpage += "\![*]\q[Edit law,edlaw]\n"
+	}
+	lawpage += "\f[size,default]\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,OnCountryPageBack]"
 	--
 	lawpage
 }
@@ -3090,8 +2744,14 @@ Select.addlaw
 
 OnNewLaw
 {
-	if counlaws[choosennum] != ""; counlaws[choosennum] += "+" + REPLACE(reference0,",","#")
-	else; counlaws[choosennum] += REPLACE(reference0,",","#")
+	if counlaws[choosennum] != ""
+	{
+		counlaws[choosennum] += "+" + REPLACE(reference0,",","#")
+	}
+	else
+	{
+		counlaws[choosennum] += REPLACE(reference0,",","#")
+	}
 	--
 	Select.laws
 }
@@ -3157,27 +2817,48 @@ OnEditLaw
 	Select.laws
 }
 
-//===================================CHARACTER GENERATOR=================================================
-OnCharacterGen
+//===================================RACE GENERATOR=================================================
+OnGenerateRace
 {
-	type = reference0
-	OnRandGenConfig
+	racename[racecount] = nameracerand
+	racedesc[racecount] = randracedesc
+	racehistory[racecount] = "?"
+	raceculture[racecount] = "?"
+	racebeliefs[racecount] = "?"
+
+	racecount++
+	choosennum = racecount - 1
+	--
+	OnRacePage
+	--
+	racepage += "\n\n[half]\![*]\q[Generate Again,OnGenerateRace,generator]\n\n[half]\![*]\q[I'm Done,CANCEL]"
+	--
+	racepage
 }
 
+//===================================CHARACTER GENERATOR=================================================
 OnGenerateChar
 {
-	randcharpage = "\b4\_q%(ch)"
 	charname[charcount] = namerand + " " + surname
 	--
 	for _x=0;_x!=1;_i++
 	{
 		charage[charcount] = RAND(maxage)
 		--
-		if charage[charcount] >= minage; _x = 1
+		if charage[charcount] >= minage
+		{
+			_x = 1
+		}
 	}
 	--
-	if deadyn == "ON"; chardead[charcount] = isdead
-	else; chardead[charcount] = "No"
+	if deadyn == "ON"
+	{
+		chardead[charcount] = isdead
+	}
+	else
+	{
+		chardead[charcount] = "No"
+	}
 	--
 	chargender[charcount] = gender
 	charnat[charcount] = nationality
@@ -3186,49 +2867,127 @@ OnGenerateChar
 	chardesc[charcount] = REPLACE(looks,",","+")
 	charshortstory[charcount] = REPLACE(firstpart_story,",","+")
 
-	charcount += 1
+	charcount ++
 	choosennum = charcount - 1
 	--
 	OnCharacterPage
 	--
-	charpage += "\n\n[half]\![*]\q[Generate Again,OnCharacterGen,generator]\n\n[half]\![*]\q[I'm Done,Cancel]"
+	charpage += "\n\n[half]\![*]\q[Generate Again,OnGenerateChar,generator]\n\n[half]\![*]\q[I'm Done,CANCEL]"
 	--
 	charpage = REPLACE(charpage,"\![*]\q[Show Full Story,fullstory]\n","")
 	charpage
 }
-//=================================RAND CONFIG=================================================== 
+//=================================GENERATOR CONFIG=================================================== 
+OnGenConfigRand
+{
+	type = reference0
+	typetwo = reference1
+	--
+	OnRandGenConfig
+}
+
 OnRandGenConfig
 {
-	"\_q%(ch)\b4\f[bold,1]Character Settings:\f[bold,]\n\n[half]"
+	if type != "config" 
+	{
+		if typetwo == "character" 
+		{
+			"\_q%(ch)\b4\f[bold,1]Character Settings:\f[bold,0]\n\n[half]"
+			--
+			"Max age: \f[bold,1]\q[%(maxage),maxagechange]\f[bold,0]\n"
+			--
+			"Minimum age: \f[bold,1]\q[%(minage),minagechange]\f[bold,0]\n"
+			--
+			"Generate dead characters?: \f[bold,1]\q[%(deadyn),deadchange]\f[bold,0]\n"
+			--
+			"\n[half]\f[bold,1]Gender Toggles:\n\n[half]\f[bold,0]"
+			--
+			"Male: \f[bold,1]\q[%(male),OnChangeGender,male]\f[bold,0]\n"
+			--
+			"Female: \f[bold,1]\q[%(female),OnChangeGender,female]\f[bold,0]\n"
+			--
+			"Male (FTM): \f[bold,1]\q[%(mtf),OnChangeGender,mtf]\f[bold,0]\n"
+			--
+			"Female (MTF): \f[bold,1]\q[%(ftm),OnChangeGender,ftm]\f[bold,0]\n"
+			--
+			"Non-binary: \f[bold,1]\q[%(nonbinary),OnChangeGender,nonbinary]\f[bold,0]\n"
+			--
+			"Gender Fluid: \f[bold,1]\q[%(genfluid),OnChangeGender,genfluid]\f[bold,0]\n"
+			--
+			"\n[half]\![*]\q[I'm Done,OnGenerateChar]"
+		}
+		elseif typetwo == "race"
+		{
+			OnGenerateRace
+		}
+		elseif typetwo == "plant"
+		{
+			"\_q%(ch)\b2\f[bold,1]Plant Settings:\f[bold,0]\n\n[half]"
+			--
+			"Type of plant to generate: \f[bold,1]\q[%(planttypegen),changeplant]\f[bold,0]\n"
+			--
+			"\n[half]\![*]\q[I'm Done,OnGeneratePlant]"
+		}
+		elseif typetwo == "animal"
+		{
+			OnGenerateAnimal
+		}
+		elseif typetwo == "item"
+		{
+			OnGenerateItem
+		}
+	}
+	else
+	{
+		"\_q%(ch)\b4\f[bold,1]Character Settings:\f[bold,]\n\n[half]"
+		--
+		"Max age: \f[bold,1]\q[%(maxage),maxagechange]\f[bold,0]\n"
+		--
+		"Minimum age: \f[bold,1]\q[%(minage),minagechange]\f[bold,0]\n"
+		--
+		"Generate dead characters?: \f[bold,1]\q[%(deadyn),deadchange]\f[bold,0]\n"
+		--
+		"\n[half]\f[bold,1]Gender Toggles:\n\n[half]\f[bold,0]"
+		--
+		"Male: \f[bold,1]\q[%(male),OnChangeGender,male]\f[bold,0]\n"
+		--
+		"Female: \f[bold,1]\q[%(female),OnChangeGender,female]\f[bold,0]\n"
+		--
+		"Male (FTM): \f[bold,1]\q[%(mtf),OnChangeGender,mtf]\f[bold,0]\n"
+		--
+		"Female (MTF): \f[bold,1]\q[%(ftm),OnChangeGender,ftm]\f[bold,0]\n"
+		--
+		"Non-binary: \f[bold,1]\q[%(nonbinary),OnChangeGender,nonbinary]\f[bold,0]\n"
+		--
+		"Gender Fluid: \f[bold,1]\q[%(genfluid),OnChangeGender,genfluid]\f[bold,0]\n"
+		--
+		"\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,generators]"
+	}
+}
+
+Select.changeplant
+{
+	case planttypegen 
+	{
+		when "Random"
+		{
+			planttypegen  = "Tree"
+		}
+		when "Tree"
+		{
+			planttypegen  = "Flower"
+		}
+		when "Flower"
+		{
+			planttypegen  = "Bush"
+		}
+		others
+		{
+			planttypegen  = "Random"
+		}
+	}
 	--
-	"Max age: \f[bold,1]\q[%(maxage),maxagechange]\f[bold,0]\n"
-	--
-	"Minimum age: \f[bold,1]\q[%(minage),minagechange]\f[bold,0]\n"
-	--
-	"Generate dead characters?: \f[bold,1]\q[%(deadyn),deadchange]\f[bold,0]\n"
-	--
-	"\n[half]\f[bold,1]Gender Toggles:\n\n[half]\f[bold,0]"
-	--
-	if male == "ON"; "Male: \f[bold,1]\f[color,#047111]\q[%(male),OnChangeGender,male]\f[color,default]\f[bold,0]\n"
-	else; "Male: \f[bold,1]\q[%(male),OnChangeGender,male]\f[bold,0]\n"
-	--
-	if female == "ON"; "Female: \f[bold,1]\f[color,#047111]\q[%(female),OnChangeGender,female]\f[color,default]\f[bold,0]\n"
-	else; "Female: \f[bold,1]\q[%(female),OnChangeGender,female]\f[bold,0]\n"
-	--
-	if mtf == "ON"; "Male (FTM): \f[bold,1]\f[color,#047111]\q[%(mtf),OnChangeGender,mtf]\f[color,default]\f[bold,0]\n"
-	else; "Male (FTM): \f[bold,1]\q[%(mtf),OnChangeGender,mtf]\f[bold,0]\n"
-	--
-	if ftm == "ON"; "Female (MTF): \f[bold,1]\f[color,#047111]\q[%(ftm),OnChangeGender,ftm]\f[color,default]\f[bold,0]\n"
-	else; "Female (MTF): \f[bold,1]\q[%(ftm),OnChangeGender,ftm]\f[bold,0]\n"
-	--
-	if nonbinary == "ON"; "Non-binary: \f[bold,1]\f[color,#047111]\q[%(nonbinary),OnChangeGender,nonbinary]\f[color,default]\f[bold,0]\n"
-	else; "Non-binary: \f[bold,1]\q[%(nonbinary),OnChangeGender,nonbinary]\f[bold,0]\n"
-	--
-	if genfluid == "ON"; "Gender Fluid: \f[bold,1]\f[color,#047111]\q[%(genfluid),OnChangeGender,genfluid]\f[color,default]\f[bold,0]\n"
-	else; "Gender Fluid: \f[bold,1]\q[%(genfluid),OnChangeGender,genfluid]\f[bold,0]\n"
-	--
-	if type == "generator"; "\n[half]\![*]\q[I'm Done,OnGenerateChar]"
-	else; "\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,generators]"
+	OnRandGenConfig
 }
 
 OnChangeGender
@@ -3237,33 +2996,69 @@ OnChangeGender
 	{
 		when "male"
 		{
-			if male == "ON"; male = "OFF"
-			else; male = "ON"
+			if male == "ON"
+			{
+				male = "OFF"
+			}
+			else
+			{
+				male = "ON"
+			}
 		}
 		when "female"
 		{
-			if female == "ON"; female = "OFF"
-			else; female = "ON"
+			if female == "ON"
+			{
+				female = "OFF"
+			}
+			else
+			{
+				female = "ON"
+			}
 		}
 		when "mtf"
 		{
-			if mtf == "ON"; mtf = "OFF"
-			else; mtf = "ON"
+			if mtf == "ON"
+			{
+				mtf = "OFF"
+			}
+			else
+			{
+				mtf = "ON"
+			}
 		}
 		when "ftm"
 		{
-			if ftm == "ON"; ftm = "OFF"
-			else; ftm = "ON"
+			if ftm == "ON"
+			{
+				ftm = "OFF"
+			}
+			else
+			{
+				ftm = "ON"
+			}
 		}
 		when "nonbinary"
 		{
-			if nonbinary == "ON"; nonbinary = "OFF"
-			else; nonbinary = "ON"
+			if nonbinary == "ON"
+			{
+				nonbinary = "OFF"
+			}
+			else
+			{
+				nonbinary = "ON"
+			}
 		}
 		when "genfluid"
 		{
-			if genfluid == "ON"; genfluid = "OFF"
-			else; genfluid = "ON"
+			if genfluid == "ON"
+			{
+				genfluid = "OFF"
+			}
+			else
+			{
+				genfluid = "ON"
+			}
 		}
 	}
 	--
@@ -3272,8 +3067,14 @@ OnChangeGender
 
 Select.deadchange
 {
-	if deadyn == "ON"; deadyn = "OFF"
-	else; deadyn = "ON"
+	if deadyn == "ON"
+	{
+		deadyn = "OFF"
+	}
+	else
+	{
+		deadyn = "ON"
+	}
 	--
 	OnRandGenConfig
 }
@@ -3318,33 +3119,48 @@ OnChangedAge
 //===================================RACES=================================================
 OnRaces
 {
-	racelist = "\_q\b2%(ch)"
+	_racelist = "\_q\b2%(ch)"
 	--
 	if racecount != 0
 	{
-		racelist += "\f[bold,1]Your Races:\f[bold,0]\n\n[half]"
+		_racelist += "\f[bold,1]Your Races:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<racecount;_i++
 		{
-			racelist += "\![*]\q[" + racename[_i] + ",OnRaceClick," + _i +"]\n"
+			if charworld[_i]  == curworld
+			{
+				_racelist += "\![*]\q[" + racename[_i] + ",OnRaceClick," + _i +"]\n"
+			}
 		}
 	}
 	else
 	{
-		racelist += "You don't have any races yet\n\n[half]"
+		_racelist += "You don't have any races yet\n\n[half]"
 	}
 	--
-	racelist += "\f[size,10]\n\![*]\q[Add Race,OnAddRace]\n"
+	_racelist += "\f[size,10]\n\![*]\q[Add Race,OnAddRace]\n"
 	--
-	if removerace == 1; racelist += "\f[color,230, 39, 25]\![*]\q[Remove Race,removeraces]\f[color,default]\n"
-	else; racelist += "\![*]\q[Remove Race,removeraces]\n"
+	if removerace == 1
+	{
+		_racelist += "\f[color,230, 39, 25]\![*]\q[Remove Race,removeraces]\f[color,default]\n"
+	}
+	else
+	{
+		_racelist += "\![*]\q[Remove Race,removeraces]\n"
+	}
 	--
-	if editrace == 1; racelist += "\f[color,230, 39, 25]\![*]\q[Edit Race,edrace]\f[color,default]"
-	else; racelist += "\![*]\q[Edit Race,edrace]"
+	if editrace == 1
+	{
+		_racelist += "\f[color,230, 39, 25]\![*]\q[Edit Race,edrace]\f[color,default]"
+	}
+	else
+	{
+		_racelist += "\![*]\q[Edit Race,edrace]"
+	}
 	--
-	racelist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_racelist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	--
-	racelist
+	_racelist
 }
 
 Select.edrace
@@ -3405,7 +3221,7 @@ OnRaceClick
 		\![*]\q[Beliefes,OnEditRace,beliefes]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnRaces]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -3419,11 +3235,26 @@ OnEditRace
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnRNameChange,-1]"
-		when "descr"; "\![open,input,OnRDescChange,-1]"
-		when "history"; "\![open,input,OnRHistoryChange,-1]"
-		when "culture"; "\![open,input,OnRCultureChange,-1]"
-		when "beliefes"; "\![open,input,OnRBeliefesChange,-1]"
+		when "name"
+		{
+			"\![open,input,OnRNameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnRDescChange,-1]"
+		}
+		when "history"
+		{
+			"\![open,input,OnRHistoryChange,-1]"
+		}
+		when "culture"
+		{
+			"\![open,input,OnRCultureChange,-1]"
+		}
+		when "beliefes"
+		{
+			"\![open,input,OnRBeliefesChange,-1]"
+		}
 	}
 }
 
@@ -3522,8 +3353,9 @@ OnAddRace_beliefs
 
 OnAddRace_end
 {
-	racebeliefs[countrycount] = REPLACE(reference0,",","+")
-	racecount += 1
+	racebeliefs[racecount] = REPLACE(reference0,",","+")
+	raceworld[racecount] = curworld
+	racecount ++
 	choosennum = racecount - 1
 	--
 	"\b4Done, here is your race:\x\c\b4\_q"
@@ -3535,7 +3367,10 @@ OnAddRace_end
 
 OnRacePage
 {
-	if reference0 == "translate"; choosennum = reference1
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
 	--
 	racepage = "\b4\_q%(ch)"
 	--
@@ -3543,9 +3378,15 @@ OnRacePage
 	--
 	refsheets = FENUM('refsheets','+')
 	--
-	if TOLOWER(racename[choosennum]) _in_ TOLOWER(refsheets); placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racename[choosennum] + "]\n\n"
+	if TOLOWER(racename[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + racename[choosennum] + "]\n\n"
+	}
 	--
-	racepage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnRaces]"
+	if type != "generator"
+	{
+		racepage += "\n\n[half]\![*]\q[End,CANCEL]\n\![*]\q[Go back to the list,OnRaces]"
+	}
 	--
 	//"\n\n[half]\![*]\q[Stories,racestories]" +
 	racepage = REPLACE(racepage,"+",",")
@@ -3553,33 +3394,48 @@ OnRacePage
 //===================================PLACES=================================================
 OnPlances
 {
-	placelist = "\_q\b2%(ch)"
+	_placelist = "\_q\b2%(ch)"
 	--
 	if placecount != 0
 	{
-		placelist += "\f[bold,1]Your Places:\f[bold,0]\n\n[half]"
+		_placelist += "\f[bold,1]Your Places:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<placecount;_i++
 		{
-			placelist += "\![*]\q[" + placename[_i] + ",OnPlaceClick," + _i +"]\n"
+			if charworld[_i]  == curworld
+			{
+				_placelist += "\![*]\q[" + placename[_i] + ",OnPlaceClick," + _i +"]\n"
+			}
 		}
 	}
 	else
 	{
-		placelist += "You don't have any places yet\n\n[half]"
+		_placelist += "You don't have any places yet\n\n[half]"
 	}
 	--
-	placelist += "\f[size,10]\n\![*]\q[Add Place,OnAddPlace]\n"
+	_placelist += "\f[size,10]\n\![*]\q[Add Place,OnAddPlace]\n"
 	--
-	if removeplaces == 1; placelist += "\f[color,230, 39, 25]\![*]\q[Remove Place,removeplace]\f[color,default]\n"
-	else; placelist += "\![*]\q[Remove Place,removeplace]\n"
+	if removeplaces == 1
+	{
+		_placelist += "\f[color,230, 39, 25]\![*]\q[Remove Place,removeplace]\f[color,default]\n"
+	}
+	else
+	{
+		_placelist += "\![*]\q[Remove Place,removeplace]\n"
+	}
 	--
-	if editplace == 1; placelist += "\f[color,230, 39, 25]\![*]\q[Edit Place,edplace]\f[color,default]"
-	else; placelist += "\![*]\q[Edit Place,edplace]"
+	if editplace == 1
+	{
+		_placelist += "\f[color,230, 39, 25]\![*]\q[Edit Place,edplace]\f[color,default]"
+	}
+	else
+	{
+		_placelist += "\![*]\q[Edit Place,edplace]"
+	}
 	--
-	placelist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_placelist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	--
-	placelist
+	_placelist
 }
 
 Select.edplace
@@ -3636,7 +3492,7 @@ OnPlaceClick
 		\![*]\q[History,OnEditPlace,history]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnPlances]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -3650,9 +3506,18 @@ OnEditPlace
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnPNameChange,-1]"
-		when "descr"; "\![open,input,OnPDescChange,-1]"
-		when "history"; "\![open,input,OnPHistoryChange,-1]"
+		when "name"
+		{
+			"\![open,input,OnPNameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnPDescChange,-1]"
+		}
+		when "history"
+		{
+			"\![open,input,OnPHistoryChange,-1]"
+		}
 	}
 }
 
@@ -3712,7 +3577,8 @@ OnAddPlace_history
 OnAddPlace_end
 {
 	placehistory[placecount] = REPLACE(reference0,",","+")
-	placecount += 1
+	placeworld[placecount] = curworld
+	placecount ++
 	choosennum = placecount - 1
 	--
 	"\b4Done, here is your place:\x\c\b4\_q"
@@ -3724,7 +3590,10 @@ OnAddPlace_end
 
 OnPlacePage
 {
-	if reference0 == "translate"; choosennum = reference1
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
 	--
 	placepage = "\b4\_q%(ch)"
 	--
@@ -3732,42 +3601,63 @@ OnPlacePage
 	--
 	refsheets = FENUM('refsheets','+')
 	--
-	if TOLOWER(placename[choosennum]) _in_ TOLOWER(refsheets); placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + placename[choosennum] + "]\n\n"
+	if TOLOWER(placename[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		placepage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + placename[choosennum] + "]\n\n"
+	}
 	--
-	placepage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnPlance]"
+	if type != "generator"
+	{
+		placepage += "\n\n[half]\![*]\q[End,CANCEL]\n\![*]\q[Go back to the list,OnPlance]"
+	}
 	--
 	placepage = REPLACE(placepage,"+",",")
 }
 //===================================ANIMALS=================================================
 OnAnimals
 {
-	animlist = "\_q\b2%(ch)"
+	_animlist = "\_q\b2%(ch)"
 	--
 	if faunacount != 0
 	{
-		animlist += "\f[bold,1]Your Animals:\f[bold,0]\n\n[half]"
+		_animlist += "\f[bold,1]Your Animals:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<faunacount;_i++
 		{
-			animlist += "\![*]\q[" + faunaname[_i] + ",OnAnimalClick," + _i +"]\n"
+			if charworld[_i]  == curworld
+			{
+				_animlist += "\![*]\q[" + faunaname[_i] + ",OnAnimalClick," + _i +"]\n"
+			}
 		}
 	}
 	else
 	{
-		animlist += "You don't have any animals yet\n\n[half]"
+		_animlist += "You don't have any animals yet\n\n[half]"
 	}
 	--
-	animlist += "\f[size,10]\n\![*]\q[Add Animal,OnAddAnimal]\n"
+	_animlist += "\f[size,10]\n\![*]\q[Add Animal,OnAddAnimal]\n"
 	--
-	if removeanima == 1; animlist += "\f[color,230, 39, 25]\![*]\q[Remove Animal,removeanim]\f[color,default]\n"
-	else; animlist += "\![*]\q[Remove Animal,removeanim]\n"
+	if removeanima == 1
+	{
+		_animlist += "\f[color,230, 39, 25]\![*]\q[Remove Animal,removeanim]\f[color,default]\n"
+	}
+	else
+	{
+		_animlist += "\![*]\q[Remove Animal,removeanim]\n"
+	}
 	--
-	if editanim == 1; animlist += "\f[color,230, 39, 25]\![*]\q[Edit Animal,edanim]\f[color,default]"
-	else; animlist += "\![*]\q[Edit Animal,edanim]"
+	if editanim == 1
+	{
+		_animlist += "\f[color,230, 39, 25]\![*]\q[Edit Animal,edanim]\f[color,default]"
+	}
+	else
+	{
+		_animlist += "\![*]\q[Edit Animal,edanim]"
+	}
 	--
-	animlist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_animlist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	--
-	animlist
+	_animlist
 }
 
 Select.edanim
@@ -3824,7 +3714,7 @@ OnAnimalClick
 		\![*]\q[Behavior,OnEditAnimal,behavior]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnAnimals]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -3838,9 +3728,18 @@ OnEditAnimal
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnANameChange,-1]"
-		when "descr"; "\![open,input,OnADescChange,-1]"
-		when "behavior"; "\![open,input,OnABehavior,-1]"
+		when "name"
+		{
+			"\![open,input,OnANameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnADescChange,-1]"
+		}
+		when "behavior"
+		{
+			"\![open,input,OnABehavior,-1]"
+		}
 	}
 }
 
@@ -3901,7 +3800,8 @@ OnAddAnimal_behavior
 OnAddAnimal_end
 {
 	faunabehavior[faunacount] = REPLACE(reference0,",","+")
-	faunacount += 1
+	faunaworld[faunacount] = curworld
+	faunacount ++
 	choosennum = faunacount - 1
 	--
 	"\b4Done, here is your animal:\x\c\b4\_q"
@@ -3922,48 +3822,71 @@ OnAnimalPage
 	--
 	portraits = FENUM('portraits','+')
 	--
-	if TOLOWER(faunaname[choosennum]) _in_ TOLOWER(portraits); animalpage += "\_b[portraits/" + faunaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
-	--
+	if TOLOWER(faunaname[choosennum]) _in_ TOLOWER(portraits)
+	{
+		animalpage += "\_b[portraits/" + faunaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	}
 	animalpage += faunastuff[0] + faunaname[choosennum] + "\n\n[half]" + faunastuff[1] + faunadesc[choosennum] + "\n\n[half]" + faunastuff[2] + faunabehavior[choosennum]
 	--
 	refsheets = FENUM('refsheets','+')
 	--
-	if TOLOWER(faunaname[choosennum]) _in_ TOLOWER(refsheets); animalpage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + faunaname[choosennum] + "]\n\n"
+	if TOLOWER(faunaname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		animalpage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + faunaname[choosennum] + "]\n\n"
+	}
 	--
-	animalpage += "\n\n[half]\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnAnimals]"
+	if type != "generator"
+	{
+		animalpage += "\n\n[half]\![*]\q[End,CANCEL]\n\![*]\q[Go back to the list,OnAnimals]"
+	}
 	--
 	animalpage = REPLACE(animalpage,"+",",")
 }
 //===================================PLANTS=================================================
 OnPlants
 {
-	plantlist = "\_q\b2%(ch)"
+	_plantlist = "\_q\b2%(ch)"
 	--
 	if floracount != 0
 	{
-		plantlist += "\f[bold,1]Your Plants:\f[bold,0]\n\n[half]"
+		_plantlist += "\f[bold,1]Your Plants:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<floracount;_i++
 		{
-			plantlist += "\![*]\q[" + floraaname[_i] + ",OnPlantClick," + _i +"]\n"
+			if charworld[_i]  == curworld
+			{
+				_plantlist += "\![*]\q[" + floraaname[_i] + ",OnPlantClick," + _i +"]\n"
+			}
 		}
 	}
 	else
 	{
-		plantlist += "You don't have any plants yet\n\n[half]"
+		_plantlist += "You don't have any plants yet\n\n[half]"
 	}
 	--
-	plantlist += "\f[size,10]\n\![*]\q[Add Plant,OnAddPlant]\n"
+	_plantlist += "\f[size,10]\n\![*]\q[Add Plant,OnAddPlant]\n"
 	--
-	if removeplant == 1; plantlist += "\f[color,230, 39, 25]\![*]\q[Remove Plant,removeplan]\f[color,default]\n"
-	else; plantlist += "\![*]\q[Remove Plant,removeplan]\n"
+	if removeplant == 1
+	{
+		_plantlist += "\f[color,230, 39, 25]\![*]\q[Remove Plant,removeplan]\f[color,default]\n"
+	}
+	else
+	{
+		_plantlist += "\![*]\q[Remove Plant,removeplan]\n"
+	}
 	--
-	if editplant == 1; plantlist += "\f[color,230, 39, 25]\![*]\q[Edit Plant,edplan]\f[color,default]"
-	else; plantlist += "\![*]\q[Edit Plant,edplan]"
+	if editplant == 1
+	{
+		_plantlist += "\f[color,230, 39, 25]\![*]\q[Edit Plant,edplan]\f[color,default]"
+	}
+	else
+	{
+		_plantlist += "\![*]\q[Edit Plant,edplan]"
+	}
 	--
-	plantlist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_plantlist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	--
-	plantlist
+	_plantlist
 }
 
 Select.edplan
@@ -4020,7 +3943,7 @@ OnPlantClick
 		\![*]\q[Conditions,OnEditPlant,conditions]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnAnimals]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -4034,9 +3957,18 @@ OnEditPlant
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnPlNameChange,-1]"
-		when "descr"; "\![open,input,OnPlDescChange,-1]"
-		when "conditions"; "\![open,input,OnPlConditions,-1]"
+		when "name"
+		{
+			"\![open,input,OnPlNameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnPlDescChange,-1]"
+		}
+		when "conditions"
+		{
+			"\![open,input,OnPlConditions,-1]"
+		}
 	}
 }
 
@@ -4097,7 +4029,8 @@ OnAddPlant_conditions
 OnAddPlant_end
 {
 	floralivingcon[floracount] = REPLACE(reference0,",","+")
-	floracount += 1
+	floraworld[floracount] = curworld
+	floracount ++
 	choosennum = floracount - 1
 	--
 	"\b4Done, here is your plant:\x\c\b4\_q"
@@ -4109,21 +4042,33 @@ OnAddPlant_end
 
 OnPlantPage
 {
-	if reference0 == "translate"; choosennum = reference1
+	if reference0 == "translate"
+	{
+		choosennum = reference1
+	}
 	--
 	plantpage = "\b4\_q%(ch)"
 	--
 	portraits = FENUM('portraits','+')
 	--
-	if TOLOWER(floraaname[choosennum]) _in_ TOLOWER(portraits); plantpage += "\_b[portraits/" + floraaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	if TOLOWER(floraaname[choosennum]) _in_ TOLOWER(portraits)
+	{
+		plantpage += "\_b[portraits/" + floraaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	}
 	--
 	plantpage += florastuff[0] + floraaname[choosennum] + "\n\n[half]" + florastuff[1] + floradesc[choosennum] + "\n\n[half]" + florastuff[2] + floralivingcon[choosennum]
 	--
 	refsheets = FENUM('refsheets','+')
 	--
-	if TOLOWER(floraaname[choosennum]) _in_ TOLOWER(refsheets); plantpage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + floraaname[choosennum] + "]\n\n"
+	if TOLOWER(floraaname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		plantpage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + floraaname[choosennum] + "]\n\n"
+	}
 	--
-	plantpage += "\n\n\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnPlants]"
+	if type != "generator"
+	{
+		plantpage += "\n\n\![*]\q[End,CANCEL]\n\![*]\q[Go back to the list,OnPlants]"
+	}
 	--
 	plantpage = REPLACE(plantpage,"+",",")
 }
@@ -4143,36 +4088,51 @@ OnOpenRef
 	--
 	"\![open,file,refsheets/%(reffarray[foundnum])]"
 }
-//===================================PLANTS=================================================
+//===================================ITEMS=================================================
 OnItems
 {
-	itemlist = "\_q\b2%(ch)"
+	_itemlist = "\_q\b2%(ch)"
 	--
 	if itemcount != 0
 	{
-		itemlist += "\f[bold,1]Your Items:\f[bold,0]\n\n[half]"
+		_itemlist += "\f[bold,1]Your Items:\f[bold,0]\n\n[half]"
 		--
 		for _i=0;_i<itemcount;_i++
 		{
-			itemlist += "\![*]\q[" + itemsaname[_i] + ",OnItemClick," + _i +"]\n"
+			if charworld[_i]  == curworld
+			{
+				_itemlist += "\![*]\q[" + itemsaname[_i] + ",OnItemClick," + _i +"]\n"
+			}
 		}
 	}
 	else
 	{
-		itemlist += "You don't have any items yet\n\n[half]"
+		_itemlist += "You don't have any items yet\n\n[half]"
 	}
 	--
-	itemlist += "\f[size,10]\n\![*]\q[Add Item,OnAddItem]\n"
+	_itemlist += "\f[size,10]\n\![*]\q[Add Item,OnAddItem]\n"
 	--
-	if removeitems == 1; itemlist += "\f[color,230, 39, 25]\![*]\q[Remove Item,removeitm]\f[color,default]\n"
-	else; itemlist += "\![*]\q[Remove Item,removeitm]\n"
+	if removeitems == 1
+	{
+		_itemlist += "\f[color,230, 39, 25]\![*]\q[Remove Item,removeitm]\f[color,default]\n"
+	}
+	else
+	{
+		_itemlist += "\![*]\q[Remove Item,removeitm]\n"
+	}
 	--
-	if edititem == 1; itemlist += "\f[color,230, 39, 25]\![*]\q[Edit Item,editm]\f[color,default]"
-	else; itemlist += "\![*]\q[Edit Item,editm]"
+	if edititem == 1
+	{
+		_itemlist += "\f[color,230, 39, 25]\![*]\q[Edit Item,editm]\f[color,default]"
+	}
+	else
+	{
+		_itemlist += "\![*]\q[Edit Item,editm]"
+	}
 	--
-	itemlist += "\f[size,default]\n\n[half]\![*]\q[End,Cancel] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_itemlist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	--
-	itemlist
+	_itemlist
 }
 
 Select.editm
@@ -4219,9 +4179,7 @@ OnItemClick
 			itemshistory[_i] = itemshistory[_i+1]
 			itemsowner[_i] = itemsowner[_i+1]
 		}
-		--
 		itemcount -= 1
-		--
 		OnItems
 	}
 	elseif edititem == 1
@@ -4235,7 +4193,7 @@ OnItemClick
 		\![*]\q[Owner,OnEditItem,owner]\n"
 		--
 		"\n[half]\![*]\q[Go Back,OnItems]\n/
-		\![*]\q[Nevermind,Cancel]\e"
+		\![*]\q[Nevermind,CANCEL]\e"
 	}
 	else
 	{
@@ -4249,11 +4207,26 @@ OnEditItem
 {
 	case reference0
 	{
-		when "name"; "\![open,input,OnINameChange,-1]"
-		when "descr"; "\![open,input,OnIDescChange,-1]"
-		when "ability"; "\![open,input,OnIAbility,-1]"
-		when "history"; "\![open,input,OnIHistory,-1]"
-		when "owner"; "\![open,input,OnIOwner,-1]"
+		when "name"
+		{
+			"\![open,input,OnINameChange,-1]"
+		}
+		when "descr"
+		{
+			"\![open,input,OnIDescChange,-1]"
+		}
+		when "ability"
+		{
+			"\![open,input,OnIAbility,-1]"
+		}
+		when "history"
+		{
+			"\![open,input,OnIHistory,-1]"
+		}
+		when "owner"
+		{
+			"\![open,input,OnIOwner,-1]"
+		}
 	}
 }
 
@@ -4350,7 +4323,8 @@ OnAddItem_owner
 OnAddItem_end
 {
 	itemsowner[itemcount] = REPLACE(reference0,",","+")
-	itemcount += 1
+	itemworld[itemcount] = curworld
+	itemcount ++
 	choosennum = itemcount - 1
 	--
 	"\b4%(ch)Done, here is your plant:\x\c\b4\_q"
@@ -4371,15 +4345,113 @@ OnItemPage
 	--
 	portraits = FENUM('portraits','+')
 	--
-	if TOLOWER(itemsaname[choosennum]) _in_ TOLOWER(portraits); itempage += "\_b[portraits/" + itemsaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	if TOLOWER(itemsaname[choosennum]) _in_ TOLOWER(portraits)
+	{
+		itempage += "\_b[portraits/" + itemsaname[choosennum] + ".png,inline,--option=use_self_alpha]\n\n"
+	}
 	--
 	itempage += itemstuff[0] + itemsaname[choosennum] + "\n\n[half]" + itemstuff[1] + itemsdesc[choosennum] + "\n\n[half]" + itemstuff[2] + itemsability[choosennum] + "\n\n[half]" + itemshistory[3] + floralivingcon[choosennum] + "\n\n[half]" + itemstuff[4] + itemsowner[choosennum]
 	--
 	refsheets = FENUM('refsheets','+')
 	--
-	if TOLOWER(itemsaname[choosennum]) _in_ TOLOWER(refsheets); itempage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + itemsaname[choosennum] + "]\n\n"
+	if TOLOWER(itemsaname[choosennum]) _in_ TOLOWER(refsheets)
+	{
+		itempage += "\n\n[half]\![*]\q[Open Reference Sheet,OnOpenRef," + itemsaname[choosennum] + "]\n\n"
+	}
 	--
-	itempage += "\n\n\![*]\q[End,Cancel]\n\![*]\q[Go back to the list,OnItems]"
+	itempage += "\n\n\![*]\q[End,CANCEL]\n\![*]\q[Go back to the list,OnItems]"
 	--
 	itempage = REPLACE(itempage,"+",",")
+}
+////===================================ANIMAL GENERATOR=================================================
+OnGenerateAnimal
+{
+	faunaname[faunacount] = randsylabs
+	faunadesc[faunacount] = randfaunadesc
+	faunabehavior[faunacount] = randanimalbehavior
+
+	faunacount ++
+	choosennum = faunacount - 1
+	--
+	OnAnimalPage
+	--
+	animalpage += "\n\n[half]\![*]\q[Generate Again,OnGenerateAnimal,generator]\n\n[half]\![*]\q[I'm Done,CANCEL]"
+	--
+	animalpage
+}
+
+////===================================PLANT GENERATOR=================================================
+
+OnGeneratePlant
+{
+	floraaname[floracount] = randsylabs
+	floradesc[floracount] = randfloradesc
+	floralivingcon[floracount] = florarandgrowth
+
+	floracount ++
+	choosennum = floracount - 1
+	--
+	OnPlantPage
+	--
+	plantpage += "\n\n[half]\![*]\q[Generate Again,OnGeneratePlant,generator]\n\n[half]\![*]\q[I'm Done,CANCEL]"
+	--
+	plantpage
+}
+
+
+////===================================ITEM GENERATOR=================================================
+OnGenerateItem
+{
+	itemsaname[itemcount] = nameracerand
+	itemsdesc[itemcount] = randitemdesc
+	itemsability[itemcount] = randitemability
+	itemsowner[itemcount] = "N/A"
+
+	itemcount ++
+	choosennum = itemcount - 1
+	--
+	OnItemPage
+	--
+	itempage += "\n\n[half]\![*]\q[Generate Again,OnGenerateItem,generator]\n\n[half]\![*]\q[I'm Done,CANCEL]"
+	--
+	itempage
+}
+
+
+////===================================PLACE GENERATOR=================================================
+OnGeneratePlace
+{
+	racename[racecount] = nameracerand
+	racedesc[racecount] = randracedesc
+	racehistory[racecount] = "?"
+	raceculture[racecount] = "?"
+	racebeliefs[racecount] = "?"
+
+	racecount ++
+	choosennum = racecount - 1
+	--
+	OnRacePage
+	--
+	racepage += "\n\n[half]\![*]\q[Generate Again,OnGeneratePlace,generator]\n\n[half]\![*]\q[I'm Done,CANCEL]"
+	--
+	racepage
+}
+
+////===================================COUNTRY GENERATOR=================================================
+OnGenerateCountry
+{
+	racename[racecount] = nameracerand
+	racedesc[racecount] = randracedesc
+	racehistory[racecount] = "?"
+	raceculture[racecount] = "?"
+	racebeliefs[racecount] = "?"
+
+	racecount ++
+	choosennum = racecount - 1
+	--
+	OnRacePage
+	--
+	racepage += "\n\n[half]\![*]\q[Generate Again,OnGenerateCountry,generator]\n\n[half]\![*]\q[I'm Done,CANCEL]"
+	--
+	racepage
 }

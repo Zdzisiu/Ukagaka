@@ -10,9 +10,9 @@
 		{
 			if "_ref" _in_ _filename
 			{	
-				_whatref = REPLACE(_filename,"_ref","")
+				whatref = REPLACE(_filename,"_ref","")
 				--
-				"Is this a reference sheet for '%(_whatref)?'\n\n[half]"
+				"Is this a reference sheet for '%(whatref)?'\n\n[half]"
 				--
 				"\![*]\q[Yes,OnRefUpload,%(file)]\n/
 				\![*]\q[No,noupload]\e"
@@ -26,8 +26,8 @@
 			}
 			elseif "_map" _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(counname)") _in_ TOLOWER(_filename) || TOLOWER(_filename) _in_ TOLOWER("%(placename)")
 			{
-				_whatmap = REPLACE(_filename,"_map","")
-				"Is this a map for '%(_whatmap)?'\n\n[half]"
+				whatmap = REPLACE(_filename,"_map","")
+				"Is this a map for '%(whatmap)?'\n\n[half]"
 				--
 				"\![*]\q[Yes,OnMapUpload,%(file)]\n/
 				\![*]\q[No,noupload]\e"
@@ -50,6 +50,43 @@
 		{
 			"%(_filename)%(_fileext) is a music file.\e"
 		}
+		when ".txt"
+		{
+			if "_ch" _in_ _filename
+			{	
+				_e = FCOPY(reference0,"chapters")
+			}
+			--
+			_linec = 0 //line count
+			_wordc = 0 //word count
+			_charc = 0 //character count
+			--
+			FOPEN(reference0,"r")
+			for _i=0,_x=0;_x != 1;_i++
+			{
+				_line = FREAD(reference0)
+				--
+				if _line == "-1"
+				{
+					_x = 1
+				}
+				else
+				{
+					_linec++ //add one to the line count
+					_wordsz = SPLIT(_line," ") //split line to words
+					_z = ARRAYSIZE(_wordsz) //how many words
+					_wordc += _z //add amount of words to the word count
+					--
+					for _j=0;_j<_z;_j++
+					{
+						_charc += STRLEN(_wordsz[_j]) //add amount of characters in a word to the word count
+					}
+				}
+			}
+			FCLOSE(reference0)
+			--
+			"\b2%(_filename)%(_fileext) Statistics:\n\n[half]Line count: %(_linec)\n\n[half]Word count: %(_wordc)\n\n[half]Character count: %(_charc)\e"
+		}
 		others
 		{
 			"\0This is %(_filename)%(_fileext).\e"
@@ -63,7 +100,7 @@ Select.noupload
 	{
 		_e = FCOPY(reference0,"images")
 		--
-		if _e == 1
+		if e == 1
 		{
 			"I copied this image to my book"
 			"I saved this image to my book"
@@ -81,7 +118,7 @@ OnRefUpload
 {
 	_e = FCOPY(reference0,"refsheets")
 	--
-	if _e == 1
+	if e == 1
 	{
 		"I copied this reference sheet to my book"
 		"I saved this reference sheet to my book"
@@ -94,7 +131,7 @@ OnPortraitUpload
 {
 	_e = FCOPY(reference0,"portraits")
 	--
-	if _e == 1
+	if e == 1
 	{
 		"I copied this portrait to my book"
 		"I saved this portrait to my book"
@@ -107,10 +144,10 @@ OnMapUpload
 {
 	_e = FCOPY(reference0,"maps")
 	--
-	if _e == 1
+	if e == 1
 	{
-		"I copied this Map to my book"
-		"I saved this Map to my book"
+		"I copied this map to my book"
+		"I saved this map to my book"
 		"Map saved"
 		"I saved it"
 	}
@@ -145,6 +182,7 @@ OnInstallComplete
  	}
 	elseif reference0 == "ghost"
  	{
+		installed = reference1
 		"I have installed a new Ghost.\w8It's called %(reference1)\n\n[half]Do you want to me to call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall].\e"
  	}
 	elseif reference0 == "balloon"

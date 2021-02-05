@@ -15,13 +15,7 @@ Select.reset
 
 Select.deleteon
 {
-	deleteshitai = "ON"
-	TalkConfig
-}
-
-Select.deleteoff
-{
-	deleteshitai = "OFF"
+	deleteshitai = onnoff(deleteshitai)
 	TalkConfig
 }
 
@@ -63,8 +57,7 @@ Select.hemisph
 
 Select.hrntc
 {
-	if hrnt == "ON"; hrnt = "OFF"
-	else; hrnt = "ON"
+	hrnt = onnoff(hrnt)
 	--
 	TalkConfig
 }
@@ -84,9 +77,9 @@ TalkConfig
 	--
 	"\f[bold,1]Dev Name:\f[default] %(acc)\q[%(devname),changedev]\f[default]\n"
 	--
-	"\f[bold,1]Hour Notice:\f[default] %(acc)\q[%(hrnt),hrntc]\f[default]\n"
+	"\f[bold,1]Hour Notice:\f[default] %(acc)\q[%(hrnt),OnButtonChange,hrnt,%(hrnt)]\f[default]\n"
 	--
-	if repairglitch == 1 && tentruth == 1; "\f[bold,1]Disable %(devname) Talking:\f[bold,0] %(acc)\q[%(MDisable),mdtalk]\f[default]\n"
+	if repairglitch == 1 && tentruth == 1; "\f[bold,1]Disable %(devname) Talking:\f[bold,0] %(acc)\q[%(MDisable),OnButtonChange,MDisable,%(MDisable)]\f[default]\n"
 	--
 	//"\f[bold,1]\![*]\q[Accessibility,acces]\f[bold,0]\n"
 	--
@@ -98,52 +91,52 @@ TalkConfig
 	--
 	"\f[bold,1]\![*]\q[Change Traits,traits]\f[default]\n"
 	--
-	"\f[bold,1]\![*]\q[Change tags,OnRecomConfig]\f[default]\n\n[half]"
-	--
+	//"\f[bold,1]\![*]\q[Change tags,OnRecomConfig]\f[default]\n\n[half]"
+	//--
 	"\f[bold,1]%(acc)\q[%(timeformatype),timetype]\f[default] TIME\n"
 	--
 	"\f[bold,1]DATE FORMAT:%(acc)\q[%(dateformatype),datetype]\f[default]\n\n[half]"
 	--
 	if weathermenu != "ON"
 	{
-		"Weather: %(acc) \q[%(weathermenu),weatheron]\f[default]\n"
+		"Weather: %(acc) \q[%(weathermenu),OnButtonChange,weathermenu,%(weathermenu)]\f[default]\n"
 	}
 	else
 	{
-		"Weather %(acc) \q[%(weathermenu),weatheroff]\f[default] ("
+		"Weather %(acc) \q[%(weathermenu),OnButtonChange,weathermenu,%(weathermenu)]\f[default] ("
 		--
 		"%(acc)\q[%(currentweatherarray[1]),startunit]\f[default])\n"
 	}
 	--
-	if moonmenu != "ON"; "Moon Phase: %(acc) \q[%(moonmenu),moonon]\f[default]\n"
+	"Moon Phase: %(acc) \q[%(moonmenu),OnButtonChange,moonmenu,%(moonmenu)]\f[default]\n"
 	--
 	"Hemisphere: %(acc) \q[%(hsphere),hemisph]\f[default]\n"
 	--
-	if upchec != "ON"; "Auto update check: %(acc) \q[%(upchec),upcheck]\f[default]\n"
+	"Auto update check: %(acc) \q[%(upchec),OnButtonChange,upchec,%(upchec)]\f[default]\n"
 	--
-	if deleteshitai != "ON"; "\f[default]Enable Uninstall?: %(acc) \q[%(deleteshitai),deleteon]\f[default]\n\n[half]"
+	"\f[default]Enable Uninstall?: %(acc) \q[%(deleteshitai),OnButtonChange,deleteshitai,%(deleteshitai)]\f[default]\n\n[half]"
 	--
 	"\n[half]\f[bold,1]Quick tools:\n\n[half]\f[default]"
 	--
-	"Quick tools: %(acc) \q[%(tooln),tool]\f[default]\n\n[half]"
+	"Quick tools: %(acc) \q[%(tooln),OnButtonChange,tooln,%(tooln)]\f[default]\n\n[half]"
 	--
-	"light/dark button: %(acc) \q[%(dlbtn),ldbtn]\f[default]\n"
+	"light/dark button: %(acc) \q[%(dlbtn),OnButtonChange,dlbtn,%(dlbtn)]\f[default]\n"
 	--
-	"Logs: %(acc) \q[%(logbtn),lobtn]\f[default]\n"
+	"Logs: %(acc) \q[%(logbtn),OnButtonChange,logbtn,%(logbtn)]\f[default]\n"
 	--
-	"Weather: %(acc) \q[%(webtn),wbtn]\f[default]\n"
+	"Weather: %(acc) \q[%(webtn),OnButtonChange,webtn,%(webtn)]\f[default]\n"
 	--
-	"Settings: %(acc) \q[%(setbtn),sbtn]\f[default]\n"
+	"Settings: %(acc) \q[%(setbtn),OnButtonChange,setbtn,%(setbtn)]\f[default]\n"
 	--
-	"Statistics: %(acc) \q[%(statbtn),stbtn]\f[default]\n"
+	"Statistics: %(acc) \q[%(statbtn),OnButtonChange,statbtn,%(statbtn)]\f[default]\n"
 	--
-	"To-Do: %(acc) \q[%(todobtn),tdbtn]\f[default]\n"
+	"To-Do: %(acc) \q[%(todobtn),OnButtonChange,todobtn,%(todobtn)]\f[default]\n"
 	--
-	"Cuztomization: %(acc) \q[%(cusbtn),cubtn]\f[default]\n"
+	"Cuztomization: %(acc) \q[%(cusbtn),OnButtonChange,cusbtn,%(cusbtn)]\f[default]\n"
 	--
-	"Open App: %(acc) \q[%(appbtn),apbtn]\f[default]\n"
+	"Open App: %(acc) \q[%(appbtn),OnButtonChange,appbtn,%(appbtn)]\f[default]\n"
 	--
-	"\n[half]Sticky tools: %(acc) \q[%(sticky),sticbtn]\f[default]\n"	
+	"\n[half]Sticky tools: %(acc) \q[%(sticky),sticbtn,%(sticbtn)]\f[default]\n"	
 	--
 	"\![*]\q[Reset Tools Positions,OnMoveQTool]\n"
 	--
@@ -156,85 +149,15 @@ TalkConfig
 	"\![*]\q[Nevermind,CANCEL]\e"
 }
 
-OnAccColor
+OnButtonChange
 {
-	"%(cha)What color do you want?\![open,dialog,color,--id=OnCustomAccColor]"
-}
-
-OnCustomAccColor
-{
-	acc = "\f[color,"+ reference2 +"]"
+	LETTONAME(reference0,onnoff(reference1))
 	--
-	TalkConfig
-}
-
-Select.acces
-{
-
-}
-
-Select.degreeez
-{
-	if "C" _in_ currentweatherarray[1]; currentweatherarray[1] = REPLACE(currentweatherarray[1],"C","F")
-	else; currentweatherarray[1] = REPLACE(currentweatherarray[1],"F","C")
+	if "btn" _in_ reference0 || reference0 == "tooln"; "%(lightdark)"
 	--
-	TalkConfig
-}
-
-Select.startunit
-{
-	unitchange = 1
-	--
-	Select.switchunits
-}
-
-Select.datetype
-{
-	case dateformatype
-	{
-		when "dd/mm/yyyy"; dateformatype = "yyyy/mm/dd"
-		when "yyyy/mm/dd"; dateformatype = "mm/dd/yyyy"
-		when "mm/dd/yyyy"; dateformatype = "dd/mm/yyyy"
-	}
-	--
-	TalkConfig
-}
-
-Select.timetype
-{
-	case timeformatype
-	{
-		when "STANDARD"; timeformatype = "MILITARY"
-		when "MILITARY"; timeformatype = "STANDARD"
-	}
-	--
-	TalkConfig
-
-}
-
-Select.upcheck
-{
-	case upchec
-	{
-		when "ON"; upchec = "OFF"
-		when "OFF"; upchec = "ON"
-	}
-	--
-	TalkConfig
-}
-
-Select.apbtn
-{
-	case appbtn
-	{
-		when "ON"; appbtn = "OFF"
-		when "OFF"; appbtn = "ON"
-	}
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-	
+	if reference2 == "trait"; Select.traits
+	elseif reference2 == "rec"; OnRecC
+	else; TalkConfig
 }
 
 Select.sticbtn
@@ -258,17 +181,6 @@ Select.sticbtn
 	TalkConfig
 }
 
-Select.tool
-{
-	if tooln == "ON"; tooln = "OFF"
-	else; tooln = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-	
-}
-
 Select.changedev
 {
 	"\![open,inputbox,OnDevName,-1]"
@@ -277,144 +189,6 @@ Select.changedev
 OnDevName
 {
 	devname = reference0
-	--
-	TalkConfig
-}
-
-Select.cubtn
-{
-	if cusbtn == "ON"; cusbtn = "OFF"
-	else; cusbtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.tdbtn
-{
-	if todobtn == "ON"; todobtn = "OFF"
-	else; todobtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.trbtn
-{
-	if trabtn == "ON"; trabtn = "OFF"
-	else; trabtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.stbtn
-{
-	if statbtn == "ON";statbtn = "OFF"
-	else;statbtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.sbtn
-{
-	if setbtn == "ON"; setbtn = "OFF"
-	else; setbtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.wbtn
-{
-	if webtn == "ON"; webtn = "OFF"
-	else; webtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.ldbtn
-{
-	if dlbtn == "ON"; dlbtn = "OFF"
-	else; dlbtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.cbtn
-{
-	if calcbtn == "ON"; calcbtn = "OFF"
-	else; calcbtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.lobtn
-{
-	if logbtn == "ON"; logbtn = "OFF"
-	else; logbtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.lebtn
-{
-	if lesbtn == "ON"; lesbtn = "OFF"
-	else; lesbtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.rbtn
-{
-	if rembtn == "ON"; rembtn = "OFF"
-	else; rembtn = "ON"
-	--
-	"%(lightdark)"
-	--
-	TalkConfig
-}
-
-Select.moonon
-{
-	moonmenu = "ON"
-    --
-	TalkConfig
-}
-
-Select.moonoff
-{
-    moonmenu = "OFF"
-    --
-	TalkConfig
-}
-
-Select.weatheron
-{
-	weathermenu = "ON"
-	--
-	TalkConfig
-}
-
-Select.weatheroff
-{
-	weathermenu = "OFF"
 	--
 	TalkConfig
 }
@@ -507,8 +281,8 @@ Select.TEACHBDAY
 
 OnUserBornMonth
 {
-	_tempmonth = reference0 //this stores what the user input in as a variable called _tempmonth
-	if _tempmonth >= 1 && _tempmonth <= 12 //if the month is a valid month
+	_tempmonth = reference0 
+	if _tempmonth >= 1 && _tempmonth <= 12
 	{
 		bornmonth = _tempmonth
 		bornmonthprint = Printmonth
@@ -517,7 +291,6 @@ OnUserBornMonth
 	else 
 	{
 	"\0There is no month like that,\w5 try again\![open,inputbox,OnUserBornMonth,-1]\e"
-	//You can replace this dialogue as well up to the \! tag, as mentioned. You need to leave the tag for the input box so they can put in a correct month.
 	}
 }
 
@@ -537,7 +310,6 @@ Printmonth
 	else; "December"
 }
 
-
 Printday
 {
 	if bornday == 1 || bornday == 21 || bornday == 31; "%(bornday)st"
@@ -548,7 +320,7 @@ Printday
 
 OnUserBornDay
 {
-	tempday = reference0 //storing the input in tempday
+	tempday = reference0
 	
 	if bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12 //This is checking to see if it's one of the months with 31 days.
 	{
@@ -764,56 +536,15 @@ Select.traits
 {
 	"\_q\b2"
 	--
-	//POSITIVE:
-    if nice != "ON" && rude != "ON"; "\f[default]Nice: %(acc) \q[%(nice),nicec]\f[default]\n"
-	elseif rude == "ON"; "\f[default]\f[strike,1]Nice\f[strike,0]\f[default]\n"		
-	else; "\f[default]Nice: %(acc)\q[%(nice),nicec]\f[default]\n"		
+    "\f[default]Nice: %(acc) \q[%(nice),OnButtonChange,nice,%(nice),trait]\f[default]\n"		
 	--
-	if smart != "ON" && stupid != "ON"; "\f[default]Intelligent: %(acc) \q[%(smart),smac]\f[default]\n"
+	if stupid != "ON"; "\f[default]Intelligent: %(acc) \q[%(smart),OnButtonChange,smart,%(smart),trait]\f[default]\n"
 	elseif stupid == "ON"; "\f[default]\f[strike,1]Intelligent\f[strike,0]\f[default]\n"		
-	else; "\f[default]Intelligent: %(acc)\q[%(smart),smac]\f[default]\n"		
 	--
-	if stupid != "ON" && smart != "ON"; "\f[default]Unintelligent: %(acc) \q[%(stupid),stuc]\f[default]\n"
+	if smart != "ON"; "\f[default]Unintelligent: %(acc) \q[%(stupid),OnButtonChange,stupid,%(stupid),trait]\f[default]\n"
 	elseif smart == "ON"; "\f[default]\f[strike,1]Unintelligent\f[strike,0]\f[default]\n"		
-	else; "\f[default]Unintelligent: %(acc)\q[%(stupid),stuc]\f[default]\n"		
 	--
-	//NEUTRAL traitS:
-	/*if funny != "ON"
-	{
-		"\f[default]Funny: %(acc) \q[%(funny),func]\f[default]\n"
-	}
-	else
-	{
-		"\f[default]Funny: %(acc)\q[%(funny),func]\f[default]\n"		
-	}
-	--
-		if djokes != "ON"
-		{
-			"\f[default]Dark Humor: %(acc) \q[%(djokes),darktop]\f[default]\n"
-		}
-		else
-		{
-			"\f[default]Dark Humor: %(acc)\q[%(djokes),darktop]\f[default]\n"		
-		}
-	--*/
-	if romantic != "ON"; "\f[default]Romantic: %(acc) \q[%(romantic),romc]\f[default]\n"
-	else; "\f[default]Romantic: %(acc)\q[%(romantic),romc]\f[default]\n"		
-	--
-	if outgoing != "ON" && loner != "ON"; "\f[default]Outgoing: %(acc) \q[%(outgoing),outc]\f[default]\n"
-	elseif loner == "ON"; "\f[default]\f[strike,1]Outgoing\f[strike,0]\f[default]\n"		
-	else; "\f[default]Outgoing: %(acc)\q[%(outgoing),outc]\f[default]\n"		
-	--
-	if loner != "ON" && outgoing != "ON"; "\f[default]Loner: %(acc) \q[%(loner),lonc]\f[default]\n"
-	elseif outgoing == "ON"; "\f[default]\f[strike,1]Loner\f[strike,0]\f[default]\n"		
-	else; "\f[default]Loner: %(acc)\q[%(loner),lonc]\f[default]\n"		
-	--
-	if pessimistic != "ON" && optimistic != "ON"; "\f[default]Pessimistic: %(acc) \q[%(pessimistic),pesc]\f[default]\n"
-	elseif optimistic == "ON"; "\f[default]\f[strike,1]Pessimistic\f[strike,0]\f[default]\n"		
-	else; "\f[default]Pessimistic: %(acc)\q[%(pessimistic),pesc]\f[default]\n"		
-	--
-	if optimistic != "ON" && pessimistic != "ON"; "\f[default]Optimistic: %(acc) \q[%(optimistic),optc]\f[default]\n"
-	elseif pessimistic == "ON"; "\f[default]\f[strike,1]Optimistic\f[strike,0]\f[default]\n"		
-	else; "\f[default]Optimistic: %(acc)\q[%(optimistic),optc]\f[default]\n"		
+	"\f[default]Romantic: %(acc) \q[%(romantic),OnButtonChange,romantic,%(romantic),trait]\f[default]\n"	
 	--
 	"\n[half]\![*]\q[trait info,script:\![open,file,ghost/master/Traits.txt\]]\n"
     --
@@ -822,133 +553,28 @@ Select.traits
 	"\![*]\q[Nevermind,CANCEL]\e"
 }
 
-Select.optc
-{
-	if optimistic == "ON"; optimistic = "OFF"
-	else; optimistic = "ON"
-	--
-	Select.traits
-}
-
-Select.pesc
-{
-	if pessimistic == "ON"; pessimistic = "OFF"
-	else; pessimistic = "ON"
-	--
-	Select.traits
-}
-
-Select.lonc
-{
-	if loner == "ON"; loner = "OFF"
-	else; loner = "ON"
-	--
-	Select.traits
-}
-
-Select.outc
-{
-	if outgoing == "ON"; outgoing = "OFF"
-	else; outgoing = "ON"
-	--
-	Select.traits
-}
-
-Select.stuc
-{
-	if stupid == "ON"; stupid = "OFF"
-	else; stupid = "ON"
-	--
-	Select.traits
-}
-
-Select.romc
-{
-	if romantic == "ON"; romantic = "OFF"
-	else; romantic = "ON"
-	--
-	Select.traits
-}
-
-Select.func
-{
-	if funny == "ON"; funny = "OFF"
-	else; funny = "ON"
-	--
-	Select.traits
-}
-
-Select.smac
-{
-	if smart == "ON"; smart = "OFF"
-	else; smart = "ON"
-	--
-	Select.traits
-}
-
-Select.nicec
-{
-	if nice == "ON"; nice = "OFF"
-	else; nice = "ON"
-	--
-	Select.traits
-}
-
-Select.rudec
-{
-	if rude == "ON"; rude = "OFF"
-	else; rude = "ON"
-	--
-	Select.traits
-}
-
-Select.curc
-{
-	if curses == "ON"; curses = "OFF"
-	else; curses = "ON"
-	--
-	Select.traits
-}
-
-Select.insc
-{
-	if insults == "ON"; insults = "OFF"
-	else; insults = "ON"
-	--
-	Select.traits
-}
-
 Select.triinfo
 {
 	"\![open,file,ghost/master/Traits.txt]"
 }
 
-Select.darktop
-{
-	if djokes == "ON"; djokes = "OFF"
-	else; djokes = "ON"
-	--
-	Select.jokes
-}
-
-
 OnRecomConfig
 {
 	"\b4\_qInclude | Exclude tags (anime/manga)\n\n[half]"
 	--
-	"\f[default]BL: %(acc) \q[%(BL),OnRecC,bl]\f[default]\n"
+	"\f[default]BL: %(acc)\q[%(BL),OnButtonChange,BL,%(BL),rec]\f[default]\n"
 	--
-	"\f[default]GL: %(acc) \q[%(GL),OnRecC,gl]\f[default]\n"
+	"\f[default]GL: %(acc)\q[%(GL),OnButtonChange,GL,%(GL),rec]\f[default]\n"
 	--
-	"\f[default]Ecchi: %(acc) \q[%(ecchi),OnRecC,ecchi]\f[default]\n"		
+	"\f[default]Ecchi: %(acc)\q[%(ecchi),OnButtonChange,ecchi,%(ecchi),rec]\f[default]\n"		
 	--
-	"\f[default]Romance: %(acc) \q[%(romancet),OnRecC,romance]\f[default]\n"
+	"\f[default]Romance: %(acc)\q[%(romancet),OnButtonChange,romancet,%(romancet),rec]\f[default]\n"
 	--
-	"\f[default]Action: %(acc) \q[%(action),OnRecC,action]\f[default]\n"
+	"\f[default]Action: %(acc)\q[%(action),OnButtonChange,action,%(action),rec]\f[default]\n"
 	--
-	"\f[default]Drama: %(acc) \q[%(drama),OnRecC,drama]\f[default]\n"
+	"\f[default]Drama: %(acc)\q[%(drama),OnButtonChange,drama,%(drama),rec]\f[default]\n"
 	--
-	"\f[default]Horror: %(acc) \q[%(horror),OnRecC,horror]\f[default]\n"
+	"\f[default]Horror: %(acc)\q[%(horror),OnButtonChange,horror,%(horror),rec]\f[default]\n"
 	--
 	"\n[half]\![*]\q[Back to the config menu,configmenu]\n"
     --
@@ -957,45 +583,6 @@ OnRecomConfig
 
 OnRecC
 {
-	case reference0
-	{
-		when "horror"
-		{
-			if horror == "OFF"; horror = "ON"
-			else; horror = "OFF"
-		}
-		when "drama"
-		{
-			if drama == "OFF"; drama = "ON"
-			else; drama = "OFF"
-		}
-		when "action"
-		{
-			if action == "OFF"; action = "ON"
-			else; action = "OFF"
-		}
-		when "romance"
-		{
-			if romancet == "OFF"; romancet = "ON"
-			else; romancet = "OFF"
-		}
-		when "ecchi"
-		{
-			if ecchi == "OFF"; ecchi = "ON"
-			else; ecchi = "OFF"
-		}
-		when "bl"
-		{
-			if BL == "OFF"; BL = "ON"
-			else; BL = "OFF"
-		}
-		when "gl"
-		{
-			if GL == "OFF"; GL = "ON"
-			else; GL = "OFF"
-		}
-	}
-	--
 	excludedtags = "tagsssss"
 	/*
 	horror
@@ -1024,10 +611,58 @@ OnRecC
 	OnRecomConfig
 }
 
-Select.mdtalk
+OnAccColor
 {
-	if MDisable == "ON"; MDisable = "OFF"
-	else; MDisable = "ON"
+	"%(cha)What color do you want?\![open,dialog,color,--id=OnCustomAccColor]"
+}
+
+OnCustomAccColor
+{
+	acc = "\f[color,"+ reference2 +"]"
 	--
 	TalkConfig
+}
+
+Select.acces
+{
+
+}
+
+Select.degreeez
+{
+	if "C" _in_ currentweatherarray[1]; currentweatherarray[1] = REPLACE(currentweatherarray[1],"C","F")
+	else; currentweatherarray[1] = REPLACE(currentweatherarray[1],"F","C")
+	--
+	TalkConfig
+}
+
+Select.startunit
+{
+	unitchange = 1
+	--
+	Select.switchunits
+}
+
+Select.datetype
+{
+	case dateformatype
+	{
+		when "dd/mm/yyyy"; dateformatype = "yyyy/mm/dd"
+		when "yyyy/mm/dd"; dateformatype = "mm/dd/yyyy"
+		when "mm/dd/yyyy"; dateformatype = "dd/mm/yyyy"
+	}
+	--
+	TalkConfig
+}
+
+Select.timetype
+{
+	case timeformatype
+	{
+		when "STANDARD"; timeformatype = "MILITARY"
+		when "MILITARY"; timeformatype = "STANDARD"
+	}
+	--
+	TalkConfig
+
 }

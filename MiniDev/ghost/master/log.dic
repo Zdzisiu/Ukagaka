@@ -203,7 +203,8 @@ OnDevLogUpdate
 {
     sayed = TOLOWER(reference0)
     respondlog = reference0
-    logprofile = "\n\n" + username + ": " + respondlog
+    logprofile = "\n\n[half]" + username + ": " + respondlog
+    devlogcontent[devlogpage] += logprofile
     --
     if devlogpage == 1
     {
@@ -233,6 +234,8 @@ OnDevLogUpdate
     {
         OnLogAI
     }
+    --
+    devlog
 }
 
 Select.displayuserlogs
@@ -569,14 +572,6 @@ ElseLib
 Un
 {
     unknown[0] = ""
-}
-
-truthssssss
-{
-    tentruth = 1
-    truthboot = 1
-    devlogunolock = 1
-    devlogunolock =1
 }
 
 Likes

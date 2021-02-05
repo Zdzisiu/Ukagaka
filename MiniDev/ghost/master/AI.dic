@@ -1,6 +1,6 @@
 Select.saysmth
 {
-    "\![open,inputbox,OnSayedThing,-1)]"
+    "\![open,inputbox,OnSayedThing,-1]"
 }
 
 OnSayedThing
@@ -16,48 +16,6 @@ OnSayedThing
     --
     ProcessSayed
     //Analize
-}
-
-Analize
-{
-    /*sentences = SPLIT(sayed,".")
-    --
-    for _i=0;_i<ARRAYSIZE(sentences);_i++,_x++
-    {
-        sentences[_i] = REPLACE(sentences[_i],"!","")
-        sentences[_i] = REPLACE(sentences[_i],",","")
-        sentences[_i] = REPLACE(sentences[_i],"?","")
-        words[_x] = REPLACE(sentences[_i]," ","+")
-    }*/
-    sayed = REPLACE(sayed,"!","")
-    sayed = REPLACE(sayed,",","")
-    sayed = REPLACE(sayed,"?","")
-    words = SPLIT(sayed," ")
-    wordcount = ARRAYSIZE(words)
-    --
-    for _i=0;_i<wordcount;_i++
-    {
-        case words[_i]
-        {
-            when "no","don't","cannot"; wordan[_i] = "no"
-            when "you","your","you're","yours"; wordan[_i] = "you"
-            when "i'm","i"; wordan[_i] = "i"
-            when "she","he","they","she's","he's","they're"; wordan[_i] = words[_i]
-            when "are","is","am"; wordan[_i] = ""
-            when "was","were"; wordan[_i] = "was"
-            other;  wordan[_i] = words[_i]
-        }
-    }
-    --
-    //reconstruct
-    reconstructed = ""
-    --
-    for _i=0;_i<wordcount;_i++
-    {
-        reconstructed += wordan[_i] + " "
-    }
-    --
-    "%(reconstructed)"
 }
 
 ProcessSayed
@@ -315,14 +273,9 @@ AfterMath
     "\![open,inputbox,OnSayedThing,-1]"
 }
 
-
 // probably will never finish lmao
 OnLogAI
 {
-    sayed = REPLACE(sayed,"?","")
-    sayed = REPLACE(sayed,".","")
-    sayed = REPLACE(sayed,",","")
-    sayed = REPLACE(sayed,"!","")
     splitsayed = SPLIT(sayed," ")
     sayedsize = ARRAYSIZE(splitsayed)
     --
@@ -334,8 +287,6 @@ OnLogAI
     --
     Likes
     --
-    devlogcontent[devlogpage] += logprofile
-    --
     Adjectives
     --
     phrasetype = ""
@@ -345,111 +296,114 @@ OnLogAI
 
 OnUnderstandLog
 {
-    for _j = 0;_j<=sayedsize;_j++
+    _j = 0
+    --
+    foreach splitsayed ; _p
     {
-        if "not" _in_ splitsayed[_j] || "don't" _in_ splitsayed[_j] || "no" _in_ splitsayed[_j] || "n't" _in_ splitsayed[_j] || "cannot" _in_ splitsayed[_j]
+        _j++
+        --
+        if splitsayed[_j] _in_ " not don't no nope nah cannot " || "n't" _in_  splitsayed[_j]
         {
             negation = 1
-            no = "%(_j)"
+            no = _j
         }
         elseif "i" _in_ splitsayed[_j] || "i'm" _in_ splitsayed[_j]
         {
             usermention = 1
-            I = "%(_j)"
+            I = _j
         }
         elseif "you" _in_ splitsayed[_j] || "your" _in_ splitsayed[_j] || "you're" _in_ splitsayed[_j]
         {
             youmention = 1
-            you = "%(_j)"
+            you = _j
         }
-
         elseif "he " _in_ splitsayed[_j] || "she" _in_ splitsayed[_j] || "it" _in_ splitsayed[_j] || "he's" _in_ splitsayed[_j] || " she's " _in_ splitsayed[_j] || " it's " _in_ splitsayed[_j]
         {
             hesheitmention = 1
-            he = "%(_j)"
+            he = _j
         }      
         elseif "we" _in_ splitsayed[_j] || "they" _in_ splitsayed[_j] || "they're" _in_ splitsayed[_j] || " we're " _in_ splitsayed[_j]
         {
             wetheymention = 1
-            we = "%(_j)"
+            we = _j
         }       
         elseif "?" _in_ splitsayed[_j]
         {
-            questionmark = "%(_j)"
+            questionmark = _j
         }
         elseif "." _in_ splitsayed[_j]
         {
-            dot = "%(_j)"
+            dot = _j
         }
         elseif "," _in_ splitsayed[_j]
         {
-            przecinek = "%(_j)"
+            przecinek = _j
         }
         elseif "!" _in_ splitsayed[_j]
         {
-            wykrzyknik = "%(_j)"
+            wykrzyknik = _j
         }
         elseif "what" _in_ splitsayed[_j]
         {
             phrasetype = " what question"
-            what = "%(_j)"
+            what = _j
         }
         elseif "who" _in_ splitsayed[_j]
         {
             phrasetype = " who question"
-            who = "%(_j)"
+            who = _j
         }
         elseif "when" _in_ splitsayed[_j]
         {
             phrasetype = " when question"
-            whenq = "%(_j)"
+            whenq = _j
         }
         elseif  "which" _in_ splitsayed[_j]
         {
             phrasetype = " which question"
-            which = "%(_j)"
+            which = _j
         }
         elseif "why" _in_ splitsayed[_j]
         {
             phrasetype = " why question"
-            why = "%(_j)"
+            why = _j
         }
         elseif "how" _in_ splitsayed[_j]
         {
             phrasetype = " how question "
-            how = "%(_j)"
+            how = _j
         }
         elseif "do" _in_ splitsayed[_j] || "don't" _in_ splitsayed[_j] || "does" _in_ splitsayed[_j] || "doesn't" _in_ splitsayed[_j]
         {
             phrasetype += " normal question "
             tense = "present"
-            does = "%(_j)"
+            does = _j
         }
         elseif "did" _in_ splitsayed[_j] || "didn't" _in_ splitsayed[_j]
         {
             phrasetype += " normal question " 
             tense = "past"
-            did = "%(_j)"
+            did = _j
         }
         elseif "is" _in_ splitsayed[_j] || "isn't" _in_ splitsayed[_j] || "has" _in_ splitsayed[_j] || "hasn't" _in_ splitsayed[_j] || "are" _in_ splitsayed[_j] || "aren't" _in_ splitsayed[_j] || "haven't" _in_ splitsayed[_j] || "have" _in_ splitsayed[_j] 
         {
             phrasetype += " normal question "
             tense = "present"
-            is = "%(_j)"
+            is = _j
         }
         elseif "was" _in_ splitsayed[_j] || "wasn't" _in_ splitsayed[_j] || "were" _in_ splitsayed[_j] || "weren't" _in_ splitsayed[_j] || "had" _in_ splitsayed[_j] || "hadn't" _in_ splitsayed[_j] 
         {
             phrasetype += " normal question "
             tense = "past"
-            was = "%(_j)"
+            was = _j
         }
         //elseif splitsayed[_j] _in_ "%(adje)" || splitsayed[_j] _in_ "%(thing)" || splitsayed[_j] _in_ "%(place)" || splitsayed[_j] _in_ "%(being)" || splitsayed[_j] _in_ "%(els)"
         //{
-          //  wordtolib = "%(_j)"
+          //  wordtolib = _j
         //}
         else
         {
-            //wha[_i] = splitsayed["%(_j)"]
+            //wha[_i] = splitsayed[_j]
            // --
             //devlogcontent[devlogpage] +=  "\n201: what is " + wha[_i] + "?"
            // --
@@ -459,253 +413,19 @@ OnUnderstandLog
         }
     }
     --
-    OnProcessLognext
+    OnAI_Log
+    /*for _j = 0,_temp="";_j<=sayedsize;_j++
+    {
+        _temp += splitsayed[_j]
+    }
+    --
+    _temp*/
+
+}
+
+OnAI_Log
+{
+    devlogcontent[devlogpage] += "\n\n[half]201: I don't think I understand what you mean, sorry"
 }
 
 //Do you like %(thing)?
-
-OnProcessLognext
-{
-    if "?" _in_ respondlog //questions
-    { 
-        if "am I the" _in_ sayed 
-        {
-            for _i=0;_i<10;_i++
-            {
-                if splitsayed[3] _in_ adje[_i][0]
-                {
-                    devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
-                    --
-                    "%(devlog)"
-                    --
-                    break
-                }
-            }
-
-        }
-        elseif "am I" _in_ sayed 
-        {
-            for _i=0;_i<10;_i++
-            {
-                if splitsayed[2] _in_ adje[_i][0]
-                {
-                    devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
-                    --
-                    "%(devlog)"
-                    --
-                    break
-                }
-            }
-
-        }
-        elseif "normal question" _in_ phrasetype//Do
-        {
-            if youmention == 1 && does == 0 //Do you ....
-            {
-                if "like" _in_ sayed
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if " to " _in_ splitsayed[3]
-                        {
-                            if splitsayed[4] _in_ like[_i][0]
-                            {
-                                devlogcontent[devlogpage] += "\n\n201: " + like[_i][1]
-                                --
-                                "%(devlog)"
-                                --
-                                break
-                            }
-                        }
-                        elseif " to " _in_ splitsayed[4]
-                        {
-                            if splitsayed[5] _in_ like[_i][0]
-                            {
-                                devlogcontent[devlogpage] += "\n\n201: " + like[_i][1]
-                                --
-                                "%(devlog)"
-                                --
-                                break
-                            }
-                        }
-                        else
-                        {
-                            if splitsayed[3] _in_ like[_i][0]
-                            {
-                                devlogcontent[devlogpage] += "\n\n201: " + like[_i][1]
-                                --
-                                "%(devlog)"
-                                --
-                                break
-                            }
-                        }
-                    
-                    }
-                }
-            }
-        }
-    }
-    else //statments
-    {
-        if usermention == 1 //I || I'm
-        {
-            if negation != 1
-            {
-                if "feel" _in_ sayed
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[2] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][3]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i'm" _in_ sayed
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[1] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i am" _in_ sayed 
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[2] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i'm the" _in_ sayed
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[2] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i am the" _in_ sayed 
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[3] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][5]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-            }
-            else
-            {
-                if "don't feel" _in_ sayed
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[3] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][4]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i'm not" _in_ sayed
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[2] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i am not" _in_ sayed 
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[3] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i'm not the" _in_ sayed
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[3] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-                elseif "i am not the" _in_ sayed 
-                {
-                    for _i=0;_i<10;_i++
-                    {
-                        if splitsayed[4] _in_ adje[_i][0]
-                        {
-                            devlogcontent[devlogpage] += "\n\n201: " + adje[_i][6]
-                            --
-                            "%(devlog)"
-                            --
-                            break
-                        }
-                    }
-
-                }
-            }    
-        }
-    }
-}
-

@@ -5,7 +5,7 @@
 
 On_homeurl
 {
-	"https://zdzisiu.github.io/Ukagaka/world_planner/"
+	"https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/world_planner/"
 }
 
 On_recommendrootbutton.caption
@@ -42,12 +42,12 @@ On_kero.recommendsites
 
 On_updatebutton.caption
 {
-	"Update Menu Caption"
+	"Update"
 }
 
 On_dressuprootbutton.caption
 {
-	"Dress-Up Caption"
+	"Dress-Up"
 }
 
 On_headlinesenserootbutton.caption

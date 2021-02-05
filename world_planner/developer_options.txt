@@ -1,0 +1,4 @@
+ghost/master/languages/,noupdate
+ghost/master/maps/,noupdate
+ghost/master/refsheets/,noupdate
+ghost/master/images/,noupdate

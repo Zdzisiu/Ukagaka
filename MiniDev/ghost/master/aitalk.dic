@@ -828,7 +828,10 @@ OnMinuteChange
 			{
 				if hour == 24; "\0It's midnight.\e"
 				elseif hour == 12; "\0It's noon.\e"
-				else; "\0It's %(_hours).\e"
+				else{
+					if timeformatype == "MILITARY"; "\0It's %(hour).\e"
+					else; "\0It's %(hour12) 'o clock.\e"
+				}
 				
 			}
 		}

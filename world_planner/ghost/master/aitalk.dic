@@ -31,7 +31,7 @@ RandomTalk : nonoverlap
 		{
 			if mood[1] > 5
 			{
-				"%(ch).\w7 . \w7 .\w7 oh, did you ask me something? Sorry i got lost in thoughts"
+				
 			}
 
 			if mood[2] > 5
@@ -78,8 +78,6 @@ RandomTalk : nonoverlap
 			{
 				"%(ch)"
 			}
-			
-			"%(ch).\w7 . \w7 .\w7 oh, did you say something?\w4 Sorry i got lost in thoughts"
 		}
 		when 1 //happy
 		{
@@ -603,7 +601,16 @@ RandomTalk : nonoverlap
 		}
 
 	}*/
-	"..."
+	
+	"I hope %(guardians) isn't causing any trouble while I'm here"
+	".\w5 .\w5 .\w5 When I get back I will have a lot of work"
+	".\w5 .\w5 .\w5 I have to finally clean my desk when I get back"
+	"I wonder how is %(guardians) doing?"
+	
+	if ghostexcount > 0 //Put this in randomtalk somewhere
+	{
+		"\![raise,OnTalkWithGhosts]"
+	}
 }
 
 /*
@@ -616,12 +623,22 @@ Reference3: 1 when talk can be played, 0 otherwise.
 Reference4: *SSP only (at OS level) Time left unattended. In seconds. 
 */
 
+guardians
+{
+	"SGM"
+	"DLT"
+	"ZTA"
+	"OMNCRN"
+}
+
 OnMinuteChange
 {
 	timeslot = GetTimeSlot 
 	moodminute += 1
-	--
-	if moodminute == 30; OnMoodCheck
+	if moodminute == 30
+	{
+		OnMoodCheck
+	}
 	--
  	if minute == 0 
 	{
@@ -646,20 +663,19 @@ Reference4: *SSP only (at OS level) Time left unattended. In seconds
 OnSecondChange
 {
 	if passsec == 60
-	{
-		passsec = 1
-		passmin = passmin + 1
-	}
+ 		{
+	 	passsec = 1
+ 		passmin = passmin + 1
+		}
  	else
-	{
-		passsec = passsec + 1
-	}
-	--
+ 		{
+	 	passsec = passsec + 1
+		}
 	if mikireflag == 1 && reference1 == 0
-	{
-		EndMikireTalk
-	}
-	mikireflag = reference1
+		{
+			EndMikireTalk
+ 		}
+		mikireflag = reference1
 	if reference2 == 1
 	{
 
@@ -688,10 +704,28 @@ Reference4: *SSP only Modifier keys are listed separated by commas. Example: "ct
 
 OnKeyPress
 {
-	if reference0 == "t"; OnAiTalk
-	elseif reference0 == "r"; OnLastTalk
-	elseif reference0 == "z"; OnVariables
-	elseif reference0 == "s"; "\![reload,shiori]"
-	elseif reference0 == "a"; "\![reload,shell]"
-	elseif reference0 == "f1"; "\![open,readme]"
+	if reference0 == "t"
+	{
+		OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+		OnLastTalk
+	}
+	elseif reference0 == "z"
+	{
+		OnVariables
+	}
+	elseif reference0 == "s"
+	{
+		"\![reload,shiori]"
+	}
+	elseif reference0 == "a"
+	{
+		"\![reload,shell]"
+	}
+	elseif reference0 == "f1"
+	{
+		"\![open,readme]"
+	}
 }

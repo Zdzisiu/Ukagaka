@@ -18,7 +18,41 @@ Reference3: *SSP only Reference of the above event separated by 1 byte value. Mi
 OnTranslate
 {
 	_talk = reference0
-	_talk = REPLACE(_talk, "Anchor 1", "\_a[anchor1]Anchor 1\_a")
+	if sigma != 1
+	{
+		_talk = REPLACE(_talk, "SGM", "\_a[sigma]Sigma\_a")
+	}
+	else
+	{
+		_talk = REPLACE(_talk, "SGM", "Sigma")
+	}
+	--
+	if delta != 1
+	{
+		_talk = REPLACE(_talk, "DLT", "\_a[delta]Delta\_a")
+	}
+	else
+	{
+		_talk = REPLACE(_talk, "DLT", "Delta")
+	}
+	--
+	if zeta != 1
+	{
+		_talk = REPLACE(_talk, "ZTA", "\_a[zeta]Zeta\_a")
+	}
+	else
+	{
+		_talk = REPLACE(_talk, "ZTA", "Zeta")
+	}
+	--
+	if omnicron != 1
+	{
+		_talk = REPLACE(_talk, "OMNCRN", "\_a[omnicron]Omnicron\_a")
+	}
+	else
+	{
+		_talk = REPLACE(_talk, "OMNCRN", "Omnicron")
+	}
 	--
 	if reference1 == "" && reference2 == "" { 
 		EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
@@ -36,11 +70,91 @@ OnAnchorSelect
 	}
 	else 
 	{
-	case reference0
+		case reference0
 		{
-			when "anchor1" 
+			when "Sigma" 
 			{
-				"\0\s[0]This dialogue is for when Anchor 1 is clicked.\e"
+				"Sigma is my sister, she's friendly and open, she guards the Bottomless Lake\e"
+				--
+				charname[charcount] = "Sigma"
+				charage[charcount] =	"Unknown"
+				chardead[charcount] =	"Yes"
+				chargender[charcount] =	"Female"
+				charrace[charcount] =	"Guardian"
+				charprof[charcount] =	"Guardian of the Bottomless Lake/Lifeguard"
+				charnat[charcount] =	"Galmarian"
+				chardesc[charcount] =	"Sigma is white, grey and gold Guardian, she is friendly, energetic and open to people."
+				charshortstory[charcount] =	"Sigma was previously a human working as a security guard, after her death gods reincarnated her into the Guardian of the Bottomless Lake"
+				charlongstory[charcount] =	"Sigma who was previously a human doesn't remember her true name, it was hidden after her death, she still has her memories but names and faces have been hidden by gods to make sure Sigma won't go searching after her lost life. Currently she lives in a cottage beside the Bottomless Lake guarding it so no one falls inside."
+				charcount ++ 
+				--
+				placename[placecount] = "Bottomless Lake"
+				placedesc[placecount] =  "Bottomles Lake is a body of water beside the Demon Forest, anything and anyone that falls inside is erased from the past, present, because of that one knows if anyone ever fell inside the lake"
+				placehistory[placecount] = "The lake was made from the Past's tears after her sister Future gone missing"
+				placecount++
+			}
+			when "delta" 
+			{
+				"Delta is one of my brothers, he joined us quite recently and is very energetic and friendly,\w5 he guard the Underworld Tree\e"
+				--
+				charname[charcount] = "Delta"
+				charage[charcount] =	"Unknown"
+				chardead[charcount] =	"Yes"
+				chargender[charcount] =	"Male"
+				charrace[charcount] =	"Guardian"
+				charprof[charcount] =	"Guardian of the Underworld Tree/Gardener"
+				charnat[charcount] =	"Galmarian"
+				chardesc[charcount] =	"Delta is an energetic, hard working and kind. Delta is a Guardian in shades of blue"
+				charshortstory[charcount] =	"Delta was previously a human working as freelance programmer, after his death he was reincarnated him into the Guardian of the Underworld Tree"
+				charlongstory[charcount] =	"Delta is the only Guardian who remembers evertyhing before his death, including his name, which he keeps a secret from the other guardians. He likes to tell them stories about people that were around him, even though he misses a lot of them he doesn't regret becoming a guardian. Currently he lives with Zeta in a cottage on the Death Mountain."
+				charcount ++ 
+				--
+				placename[placecount] = "Underwrld Tree"
+				placedesc[placecount] =  "Underworld Tree is a barrier between the living and the dead, it works like a lantern, to draw in the dead and guide the to the underworld."
+				placehistory[placecount] = "Underwrld Tree was a present created by the Tree God for his partner Death to ease his work."
+				placecount++
+			}
+			when "zeta" 
+			{
+				"Zeta is one of my brothers, he is neat and polite, he guards the Soul Cave\e"
+				--
+				charname[charcount] = "Zeta"
+				charage[charcount] =	"Unknown"
+				chardead[charcount] =	"Yes"
+				chargender[charcount] =	"Male"
+				charrace[charcount] =	"Guardian"
+				charprof[charcount] =	"Guardian of the Soul Cave/caver"
+				charnat[charcount] =	"Galmarian"
+				chardesc[charcount] =	"Zeta is reserved, always living in his own world, he is a Guardian in shades of purple and black. He guards the Soul Cave that is the gate to the underworld."
+				charshortstory[charcount] =	"Zeta was previously a human, he was an art student, after his death gods reincarnated him into the Guardian of the Soul Cave"
+				charlongstory[charcount] =	"Zeta who was previously a human doesn't remember his true name, it was hidden after his death, he still has his memories but names and faces have been hidden by gods to make sure he won't go searching after his lost life. Currently he lives with Delta in a cottage on the Death Mountain."
+				charcount++
+				--
+				placename[placecount] = "Soul Cave"
+				placedesc[placecount] =  "Soul cave is the gate to the underworld, only Death and Zeta have the key."
+				placehistory[placecount] = "Soul Cave is ageless, it was always somewhere, in this form or another. It was moved beside the Underworld Tree by Death"
+				placecount++
+			}
+			when "omnicron" 
+			{
+				"Omnicron is one of my sibling, they are quite shy so not many Galmarians are aware of their existance, they guard the Demon Forest\e"
+				--
+				charname[charcount] = "Omnicron"
+				charage[charcount] =	"Unknown"
+				chardead[charcount] =	"Yes"
+				chargender[charcount] =	"Non-Binary"
+				charrace[charcount] =	"Guardian"
+				charprof[charcount] =	"Guardian of the Demon Forest/Forest Ranger"
+				charnat[charcount] =	"Galmarian"
+				chardesc[charcount] =	"Omnicron is the guardian of the Demon Forest, they are the white and blue Guardian, they guard the Demon Forest"
+				charshortstory[charcount] =	"omnicron was previously a human working living beside a forest, after their death gods reincarnated them into the Guardian of the Demon Forest"
+				charlongstory[charcount] =	"Omega who was previously a human doesn't remember their true name, it was hidden after his death, they still have their memories but names and faces have been hidden by gods to make sure Omnicron won't go searching after their lost life. Currently They live in a cottage in the Demon Forest making sure no one goes inside it."
+				charcount ++ 
+				--
+				placename[placecount] = "Demon Forest"
+				placedesc[placecount] =  "Demon Forest is a forest in which there is a gate to the Demon Place"
+				placehistory[placecount] = "Demon Forest was just a normal forest until Demon King opened there a gate to the Demon Place"
+				placecount++
 			}
 		}
 	}

@@ -6,12 +6,18 @@
  	person
 }
 
-//-------------------FUNCTIONS------------------------
+//========================FUNCTIONS========================
 
 max
 {
     _sorted = ASORT('double,descending',_argv)
     _sorted[0]
+}
+
+onnoff
+{
+	if _argv[0] == "ON"; "OFF"
+	else; "ON"
 }
 
 min
@@ -117,105 +123,6 @@ HSVtoRGB
 		"R : " + _R + "\nG : " + _G + "\nB : " + _B*/
 		_R,_G,_B
 	}
-}
-
-//%(GayAgenda('Gay Pride','gay'))\n%(GayAgenda('Ace Pride','ace'))\n%(GayAgenda('pan Pride','pan'))\n%(GayAgenda('bi Pride','bi'))\n%(GayAgenda('Trans Pride','trans'))\n%(GayAgenda('Aro Pride','aro'))\n%(GayAgenda('Non-Binary Pride','nonbinary'))
-GayAgenda
-{
-	_print = ""
-	_colors = IARRAY
-	_colnum = 0
-	_c = 0
-	_len = STRLEN(_argv[0])
-	--
-	case _argv[1]
-	{
-		when "gay"
-		{
-			_colnum = 7
-			_colors ,= "#FF0000"
-			_colors ,= "#FF8F00"
-			_colors ,= "#FFFF00"
-			_colors ,= "#008F00"
-			_colors ,= "#00C1C1"
-			_colors ,= "#3E0099"
-			_colors ,= "#8F008F"
-		}
-		when "ace"
-		{
-			_colnum = 4
-			_colors ,= "#000000"
-			_colors ,= "#7F7F7F"
-			_colors ,= "#FFFFFF"
-			_colors ,= "#660066"
-		}
-		when "pan"
-		{
-			_colnum = 3
-			_colors ,= "#FF208D"
-			_colors ,= "#F2C71B"
-			_colors ,= "#21B1FF"
-
-		}
-		when "bi"
-		{
-			_colnum = 3
-			_colors ,= "#FE4593"
-			_colors ,= "#B13FE4"
-			_colors ,= "#385FB7"
-		}
-		when "trans"
-		{
-			_colnum = 3
-			_colors ,= "#5BCEFA"
-			_colors ,= "#F3AAB9"
-			_colors ,= "#FFFFFF"
-
-		}
-		when "nonbinary"
-		{
-			_colnum = 4
-			_colors ,= "#FFF430"
-			_colors ,= "#FFFFFF"
-			_colors ,= "#CDACE8"
-			_colors ,= "#000000"
-		}
-		when "aro"
-		{
-			_colnum = 5
-			_colors ,= "#3DA542"
-			_colors ,= "#A8D378"
-			_colors ,= "#FFFFFF"
-			_colors ,= "#A9A9A9"
-			_colors ,= "#000000"
-		}
-		others
-		{
-			_colnum = 7
-			_colors ,= "#FF0000"
-			_colors ,= "#FF8F00"
-			_colors ,= "#FFFF00"
-			_colors ,= "#008F00"
-			_colors ,= "#00C1C1"
-			_colors ,= "#3E0099"
-			_colors ,= "#8F008F"
-		}
-	}
-	--
-	_letternum = _len/_colnum
-	_de = _len%_colnum
-	--
-	for _i = 0; _i <= _len; _i+=_letternum
-	{
-		if _c > _colnum;break
-        _print += "\f[color," + _colors[_c] + "]"
-		_print += SUBSTR(_argv[0],_i,_letternum)
-		_c ++ 
-	}
-	--
-	_print += "\f[default]"
-	--
-	_print
 }
 
 TOPROPER

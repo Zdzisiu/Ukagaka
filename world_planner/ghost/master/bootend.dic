@@ -7,7 +7,7 @@
 	stroke           = 0	
  	teachusername    = 0	
 	mikireflag       = 0	
-	x = 0
+	_x = 0
  	aitalkinterval = 400 
 	charcount = 0
 	moodminute = 0
@@ -18,19 +18,19 @@
 	--
 	OnVariables
 	--
+	OnBootVariables
+	--
 	OnMood
 	--
 	"\1\s[10]\0\s[0]"
 	--
 	FOPEN("write.txt","r")
-	--
-	for _i=0;x != 1;_i++
+	for _i=0;_x != 1;_i++
 	{
 		englib[_i] = FREAD("write.txt")
 		--
-		if englib[_i] == "-1"; x = 1
+		if englib[_i] == "-1";_x = 1
 	}
-	--
 	FCLOSE("write.txt")
 	--
 	"Welcome human\e"
@@ -39,7 +39,7 @@
 //\s[0]\![raise,OnMood]%(moodpage)
 OnMood
 {
-	moodlib = "thoughtfull,happy,relaxed,sleepy,bored,sad,annoyed,angry,exited,tired"
+	moodlib = "thoughtful,happy,relaxed,bored,sad,annoyed,angry,tired"
 	//reset mood
 	mood = 0
 	moodsize = ARRAYSIZE(moodlib)
@@ -51,13 +51,12 @@ OnMood
 	--
 	moodnumss = RAND(moodsize)
 	--
-	for _i=0;_i<moodnumss;_i++
+	for _i=0;_i<moodnumss+3;_i++
 	{
 		ranmood = RAND(moodsize)
 		randmoodvar = RAND(10)
 		--
-		if mood[ranmood] = 0; mood[ranmood] = TOINT(randmoodvar)
-		else; mood[ranmood] += TOINT(randmoodvar)
+		mood[ranmood] += TOINT(randmoodvar)
 	}
 	--
 	OnMoodCheck
@@ -104,8 +103,11 @@ OnMoodCheck
 
 }
 
+//\![raise,OnBootVariables]
 OnBootVariables
 {
+	if ghostsmet == ""; ghostsmet = IARRAY
+	--
 	if 	igsave == ""; igsave = "ON"
 	--
 	if 	male == ""; male = "ON"
@@ -121,15 +123,64 @@ OnBootVariables
 	if 	genfluid == ""; genfluid = "ON"
 	--
 	if 	deadyn == ""; deadyn = "ON"
+	--
+	characterstuff = "\f[bold+1]Name: \f[bold+0],\f[bold+1]Age: \f[bold+0],\f[bold+1]Dead?: \f[bold+0],\f[bold+1]Gender: \f[bold+0],\f[bold+1]Race: \f[bold+0],\f[bold+1]Proffesion: \f[bold+0],\f[bold+1]Nationality: \f[bold+0],\f[bold+1]Description:\n\n[half]\f[bold+0],\f[bold+1]Shortend Story:\n\n[half]\f[bold+0],\f[bold+1]Full Story:\n\n[half]\f[bold+0]"
+	countrytuff = "\f[bold+1]Name: \f[bold+0],\f[bold+1]History:\n\n[half]\f[bold+0],\f[bold+1]Description:\n\n[half]\f[bold+0]"
+	racestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Culture:\f[bold+0]\n\n[half],\f[bold+1]Beliefs:\f[bold+0]\n\n[half]"
+	placestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half]"
+	faunastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Behavior:\f[bold+0]\n\n[half]"
+	florastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Growth conditions:\f[bold+0]\n\n[half]"
+	itemstuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Abilities:\f[bold+0]\n\n[half],\f[bold+1]Owner:\f[bold+0]\n\n[half]"
+	--
+	if worldcount == ""
+	{
+		worldcount = 1
+		world[0] = "Default"
+	}
+	--
+	if curworld == ""; curworld = "Default"
+	--
+	for _i=0;_i<charcount;_i++
+	{
+		if charworld[_i]  == ""; charworld[_i] = "Default"
+	}
+	--
+	for _i=0;_i<=countrycount;_i++
+	{
+		if countryworld[_i]  == ""; countryworld[_i] = "Default"
+	}
+	--
+	for _i=0;_i<racecount;_i++
+	{
+		if raceworld[_i]  == ""; raceworld[_i] = "Default"
+	}
+	--
+	for _i=0;_i<placecount;_i++
+	{
+		if placeworld[_i]  == ""; placeworld[_i] = "Default"
+	}
+	--
+	for _i=0;_i<faunacount;_i++
+	{
+		if faunaworld[_i]  == ""; faunaworld[_i] = "Default"
+	}
+	--
+	for _i=0;_i<floracount;_i++
+	{
+		if floraworld[_i]  == ""; floraworld[_i] = "Default"
+	}
+	--
+	for _i=0;_i<itemcount;_i++
+	{
+		if itemworld[_i]  == ""; itemworld[_i] = "Default"
+	}
 }
 
 OnVariables
 {
-	characterstuff = "\f[bold+1]Name: \f[bold+0],\f[bold+1]Age: \f[bold+0],\f[bold+1]Dead?: \f[bold+0],\f[bold+1]Gender: \f[bold+0],\f[bold+1]Race: \f[bold+0],\f[bold+1]Proffesion: \f[bold+0],\f[bold+1]Nationality: \f[bold+0],\f[bold+1]Description:\n\n[half]\f[bold+0],\f[bold+1]Shortend Story:\n\n[half]\f[bold+0],\f[bold+1]Full Story:\n\n[half]\f[bold+0]"
 	maxage = 100
 	deadyn = "ON"
 	minage = 16
-	charcount = 2
 	igsave = "ON"
 	male = "ON"
 	female = "ON"
@@ -138,6 +189,8 @@ OnVariables
 	nonbinary = "ON"
 	genfluid = "ON"
 	--
+	characterstuff = "\f[bold+1]Name: \f[bold+0],\f[bold+1]Age: \f[bold+0],\f[bold+1]Dead?: \f[bold+0],\f[bold+1]Gender: \f[bold+0],\f[bold+1]Race: \f[bold+0],\f[bold+1]Proffesion: \f[bold+0],\f[bold+1]Nationality: \f[bold+0],\f[bold+1]Description:\n\n[half]\f[bold+0],\f[bold+1]Shortend Story:\n\n[half]\f[bold+0],\f[bold+1]Full Story:\n\n[half]\f[bold+0]"
+	charcount = 2
 	charname[0] = "Character's name"
 	charage[0] =	"Character's age"
 	chardead[0] =	"Is the character dead?"
@@ -148,6 +201,7 @@ OnVariables
 	chardesc[0] =	"Character's description"
 	charshortstory[0] =	"Character's story - short version"
 	charlongstory[0] =	"Character's story - full version"
+	charworld[0] = "Default"
 	--
 	charname[1] = "Omega"
 	charage[1] =	"Unknown"
@@ -158,7 +212,8 @@ OnVariables
 	charnat[1] =	"Galmarian"
 	chardesc[1] =	"Omega is one of the Guardians, he guards the Eternal Library.\nOmega is a black and red Guardian with golden eye and red horns.\nHe's calm to the point of seeming emotionless."
 	charshortstory[1] =	"Omega was previously a human working in the library, after his death gods reincarnated him into the Guardian of Knowledge"
-	charlongstory[1] =	"Omega who was previously a human doesn't remember his true name, it was hidden after his death, he still has his memories but names and faces have been hidden by gods to make sure Omega won't go searching after his lost life. Currently he lives in the Eternal Library in Galmar making sure no one tries to steal it's hidden knowledge"
+	charlongstory[1] =	"Omega who was previously a human doesn't remember his true name, it was hidden after his death, he still has his memories but names and faces have been hidden by gods to make sure Omega won't go searching after his lost life. Currently he lives in the Eternal Library in Galmar making sure no one tries to steal it's hidden knowledge (and so no one get's lost)"
+	charworld[1]  = "Default"
 	--
 	countrytuff = "\f[bold+1]Name: \f[bold+0],\f[bold+1]History:\n\n[half]\f[bold+0],\f[bold+1]Description:\n\n[half]\f[bold+0]"
 	countrycount = 2
@@ -170,6 +225,7 @@ OnVariables
 	counstory[1] = ""
 	couneventname[1] = ""
 	counevent[1] = ""
+	countryworld[1] = "Default"
 	--
 	counname[0] = "Country's name"
 	countryhistory[0] = "Country's history"
@@ -179,6 +235,7 @@ OnVariables
 	counstory[0] = "The story+Other story#the other story"
 	couneventname[0] = "Name of the event"
 	counevent[0] = "The event"
+	countryworld[0] = "Default"
 	--
 	racestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Culture:\f[bold+0]\n\n[half],\f[bold+1]Beliefs:\f[bold+0]\n\n[half]"
 	racecount = 2
@@ -187,48 +244,54 @@ OnVariables
 	racehistory[0] = "Race's history"
 	raceculture[0] = "Race's culture"
 	racebeliefs[0] = "Race's beliefs"
+	raceworld[0] = "Default"
 	--
 	racename[1] = "Guardians"
 	racedesc[1] =  "Guardians are a race made by gods to - like the name implies, guard different trsures"
 	racehistory[1] = "Guardians were made by gods to - like the name implies, guard different trsures"
 	raceculture[1] = "Guardians are gods' servants and therefore they loyal to them and carry out any task given to them"
 	racebeliefs[1] = "Guardians beliefs are different depending on their god patron"
+	raceworld[1] = "Default"
 	--
 	placestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half]"
 	placecount = 2
 	placename[0] = "Place's Name"
 	placedesc[0] =  "Place's description"
 	placehistory[0] = "Place's history"
+	placeworld[0] = "Default"
 	--
 	placename[1] = "Eternal Library"
 	placedesc[1] =  "Eternal Library is an endless library with the knowledge from all times, places, universes and timelines. It is currently guarded by Omega"
 	placehistory[1] = "Not even gods know when or why was the Eternal Library created"
+	placeworld[1] = "Default"
 	-- 
 	faunastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Behavior:\f[bold+0]\n\n[half]"
 	faunacount = 1
 	faunaname[0] = "Animal's name"
 	faunadesc[0] =  "Animal's description"
 	faunabehavior[0] = "Animal's behavior"
+	faunaworld[0] = "Default"
 	--
 	florastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Growth conditions:\f[bold+0]\n\n[half]"
 	floracount = 1
 	floraaname[0] = "Plant's name"
 	floradesc[0] =  "Plant's description"
 	floralivingcon[0] = "Growth conditions"
+	floraworld[0] = "Default"
 	-- 
-	itemstuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Abilities:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Owner:\f[bold+0]\n\n[half]"
+	itemstuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Abilities:\f[bold+0]\n\n[half],\f[bold+1]Owner:\f[bold+0]\n\n[half]"
 	itemcount = 1
 	itemsaname[0] = "Item's name"
 	itemsdesc[0] =  "Item's description"
 	itemsability[0] =  "Item's abilities"
-	itemshistory[0] =  "Item's history"
 	itemsowner[0] =  "Item's Owner"
+	itemworld[0] = "Default"
 }
 
 GetTimeSlot
 {
 	if hour >= 5 && hour <= 8; "earlymorning"
-	elseif hour >= 9 && hour <= 11; "morning"
+	elseif hour >= 9 && hour <= 11v"morning"
 	elseif hour >= 12 && hour <= 14; "lunch"
 	elseif hour >= 15 && hour <= 17; "afternoon"
 	elseif hour >= 18 && hour <= 20; "evening"
@@ -238,9 +301,12 @@ GetTimeSlot
 
 timeofdayown
 {
-	if (hour >= 5 && hour <= 8) || (hour >= 9 && hour <= 11); "morning"
-	elseif (hour >= 12 && hour <= 14) || (hour >= 15 && hour <= 17); "afternoon"
-	elseif (hour >= 18 && hour <= 20) || (hour >= 21 && hour <= 24); "evening"
+	if hour >= 5 && hour <= 8; "morning"
+	elseif hour >= 9 && hour <= 11; "morning"
+	elseif hour >= 12 && hour <= 14; "afternoon"
+	elseif hour >= 15 && hour <= 17; "afternoon"
+	elseif hour >= 18 && hour <= 20; "evening"
+	elseif hour >= 21 && hour <= 24; "evening"
 	else; "evening"
 }
 
@@ -269,29 +335,20 @@ OnClose
 {
 	timeslot = GetTimeSlot 
 	--
-	if passmin >= 5; "\0...\w8\w8"
-	else; "\0...\w8\w8"
+	if passmin >= 10; "\0That was a short but I hope I was helpfull nonetheless\w8\w8"
+	else;"\0Farewell %(username)\w8\w8"
 	--
 	"\-\e" 
 }
 
 OnWindowStateRestore
 {
-	"\0\s[0]...\e"
-}
-
-OnGhostChanging
- {
-	if reference0 == "Conlanger"; "\0\s[0]...\w8\w8\e"
- 	else; "\0\s[0]...\e"
+	"\0\s[0]\1\s[10]" 
 }
 
 OnGhostChanged
 {
 	"\0\s[0]\1\s[10]" 
-	--
-	if reference0 == "Conlanger"; "\0\s[0]...\e"
-	else ; "...\e"
 }
 
 OnShellChanged

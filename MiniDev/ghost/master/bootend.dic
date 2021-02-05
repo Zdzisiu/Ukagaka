@@ -813,12 +813,31 @@ OnUpdateVariables
 		narrator = 0
 		distingnarr = ""
 		nardistingtype = "default"
+		--
+		OnUpdateVariables
 	}
 	elseif vers == "1.0.7"
 	{
 		vers = "1.0.8"
 		acc = "\f[color,#4cfc98]"
 		hrnt = "ON"
+		--
+		OnUpdateVariables
+	}
+	elseif vers == "1.0.8"
+	{
+		vers = "1.0.9"
+		ghostmet = IARRAY
+		--
+		if meetobsidian == 1; ghostmet ,= "Dusty"
+		--
+		if meetplant == 1; ghostmet ,= "Plant"
+		--
+		if metazura == 1; ghostmet ,= "Azura-1"
+		--
+		if metazura == 2; ghostmet ,= "Azura-2"
+		--
+		if meetingomega == 1; ghostmet ,= "Omega"
 	}
 	--
 	if narrator == 0 && repairglitch == 1

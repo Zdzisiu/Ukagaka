@@ -70,39 +70,6 @@ Select.gift
 
 }
 
-/*OnCelc //F to C conversion
-{
-	celc[0] = (currentweatherarray[0] - 32)
-	calc[1] = (currentweatherarray[2] - 32)
-	celc[0] = celc[0]  * (5.0/9.0)
-	firstnumcelc[0] = TOINT(celc)
-	toroundup[0] = ERASE(celc,0,2)
-	--
-	if (firstnumcelc[0] < 10 && firstnumcelc[0] > 0) || (firstnumcelc[0] > -10 && firstnumcelc[0] < 0)
-	{
-		celc = ERASE(celc,4,10)
-		runpnum = 1
-	}
-	else
-	{
-		celc = ERASE(celc,5,10)
-		runpnum = 2
-	}
-	--
-	if toroundup < 50 
-	{
-		celc = ERASE(celc,runpnum,10)
-	}
-	else
-	{
-		celc = TOINT(ERASE(celc,runpnum,10)) + 1
-
-	}
-	//--
-	//"C: %(celc) F: %(currentweatherarray[0])"
-}*/
-
-
 timeformat
 {
 	if timeformatype == "STANDARD"; "%(nowhour):%(nowmin) %(ap)"
@@ -133,21 +100,16 @@ OnQuoteFound
     _found = 0
     FCHARSET(1)
     --
-    
     if FOPEN(_file,'r') {
-            for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
 
-                    if RE_SEARCH ( _buff, _regquote ) {
-                            
-                        quote = RE_GETSTR[1]
-                    }
-                    
-                    if RE_SEARCH ( _buff, _regeauthor ) {
-                            
-                        author = RE_GETSTR[1]  
-                         _found = 1;     
-                    }
-            }
+			if RE_SEARCH ( _buff, _regquote ); quote = RE_GETSTR[1]
+			--
+			if RE_SEARCH ( _buff, _regeauthor ) {
+				author = RE_GETSTR[1]  
+				_found = 1;     
+			}
+		}
     }
     --
     FCLOSE(_file);
@@ -193,29 +155,19 @@ OnBookFound
     _regquote = 'aria-level=' + "'" + 4 + "'" + '>(.*)</span>'
     _regeauthor = '<span itemprop="name">([\w|\s]*)</span></a>'
 	_booklinkregex = '<a class="bookTitle" itemprop="url" href="(.*)">'
-    quote = ""
-    author = ""
+    _quote = ""
+    _author = ""
     _found = 0
 	bookpage = "\b2\_q\*"
     FCHARSET(1)
     --
     if FOPEN(_file,'r') {
 		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
-
-			if RE_SEARCH ( _buff, _regquote ) {
-					
-				quote += RE_GETSTR[1] + "+"  
-			}
+			if RE_SEARCH ( _buff, _regquote ); _quote += RE_GETSTR[1] + "+"  
 			--
-			if RE_SEARCH ( _buff, _regeauthor ) {
-					
-				author += RE_GETSTR[1] + "+"  
-			}
+			if RE_SEARCH ( _buff, _regeauthor ); _author += RE_GETSTR[1] + "+"  
 			--
-			if RE_SEARCH ( _buff, _booklinkregex ) {
-					
-				booklink += RE_GETSTR[1] + "+"  
-			}
+			if RE_SEARCH ( _buff, _booklinkregex ); booklink += RE_GETSTR[1] + "+"  
 		}
     }
     --
@@ -683,7 +635,7 @@ On201zQ
 				"H̴͇́ḙ̷́ ̷̪̍a̷͉̾l̸̙̋w̷͙̆ǎ̴̮y̶͎͘ş̸̊ ̴̺͌t̵̨͒r̴̙̅ȋ̵̹e̶̤̔d̶͙̋ ̷̧̐t̴͔͛o̴̰̚ ̷̪́t̷̯͒ē̶̲l̵͓̂ĺ̶͇ ̵̊͜ḿ̴̮è̷̡ ̵̮͗j̸̥̅o̴͓͒k̷͕͆e̵̞̓s̵͚̍,̸̩̅ ̷̛͜ẗ̸̫́h̶͕͝e̸̙̿y̶̧̋ ̶̛̰w̴̥̍e̸̦̕r̶͔̊e̴̜͘ ̵̳͘h̶̦̉ô̷ͅr̴͇̔r̴̳͗i̶̡̔ḃ̵̝l̴̩͗é̴̬"
 				"H̸e̵ ̴a̴l̷w̴a̸y̵s̸ ̴t̵r̴i̶e̶d̸ ̸t̴o̷ ̷t̶e̷a̶c̷h̵ ̴m̴e̶ ̸t̵h̸i̴n̸g̷s̶ ̴I̷ ̴d̷i̴d̸n̵'̴t̸ ̵k̶n̶o̸w̵,\w2 h̸i̵s̶ ̸e̴x̷p̷l̷a̴i̸n̷i̸n̷g̸ ̷w̷a̵s̸ ̷c̸h̴a̴o̴t̶i̶c̵ ̸s̴o̸ ̸i̶t̴ ̴o̴f̸t̴e̷n̸ ̶e̶n̷d̴e̸d̵ ̸i̶n̷ ̴m̶e̶ ̶j̷u̴s̷t̸ ̵b̸e̷i̶n̴g̷ ̸m̸o̶r̶e̵ ̵c̸o̶n̷f̸u̶s̸e̵d̸"
 
-				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames; "H̷͍͝ē̶̬ ̷̪̽o̸̬͑n̴̢̕ć̷̦e̷͕̅ ̶̭̀f̵͍̌o̴̥͒u̴̪̓ń̶̢d̷̼̆ ̵͎̈a̶̦̐n̸̪͊o̷̖̽ľ̸̖d̸͖́ ̸̰͊n̷̟͝ô̷͎ẗ̷̬́ẻ̸̝b̷̰̓o̴͕͑o̶̺͆k̷̮̂\w3 i̵t̵ ̷w̸a̶s̴ ̴w̷r̸i̷t̶t̴e̶n̴ ̷i̸n̶ ̷a̵n̴ ̷u̴n̶i̷d̴e̶n̵t̵i̶f̷i̷e̵d̷ ̶l̵a̵n̴g̷u̴a̸g̷e̵ ̶a̵n̵d̸ ̶h̵a̷d̷ ̵s̶o̶m̵e̸ ̴w̶e̸i̶r̴d̴ ̸d̸r̸a̶w̷i̸n̶g̶s̶.̸\w4 H̴̰̍e̶͈̒ ̸̿ͅw̴̨͊a̸̞̾s̶̗͝ ̶͈̿r̶̄ͅe̸̻͠a̸̬̔l̶̨͑l̴̛͍y̸̳̓ ̴̬̌i̸͖̕ǹ̵̜t̷̝̃ĕ̷̡r̶̥̾ẻ̶̯š̴͈ẗ̶͓́e̷̺̍d̶̹́ ̷̟͆i̸̬͝n̷̛̬ ̴̌ͅį̵̂t̴̻͑,\w3 I̴'̶m̵ ̴p̷r̴e̵t̵t̴y̶ ̷s̸u̷r̸e̶ ̴h̵e̵ ̸w̸a̴s̶ ̶e̶v̴e̵n̶ ̵a̴b̴l̶e̵ ̴t̷o̵ ̴d̸e̸c̸o̵d̶e̷ ̴i̵t̸,\w4 .\w2 .\w2 .\w2 I̶̞͊ ̶̱̈ẘ̷͙ǫ̷̀n̶͚͆d̴͎̏e̷̤͘ȑ̵͔ ̴̣͒ẁ̴̦h̵̫̅a̴͙̒t̶͇͒ ̵̖̉d̸̰͂i̶̳̕d̷̝͂ ̸̟́h̷̨́ě̵̜ ̶̱͐f̷͙̊o̵̜͝u̶̹͘n̶͚͐d̷̈́͜ ̶͙̅i̷͕̚n̷̖̉ ̴̝̆i̴̻͌ṯ̵̎?̷̭͌"
+				if "Omega" _in_ ghostmet || "Sigma" _in_ ghostmet; "H̷͍͝ē̶̬ ̷̪̽o̸̬͑n̴̢̕ć̷̦e̷͕̅ ̶̭̀f̵͍̌o̴̥͒u̴̪̓ń̶̢d̷̼̆ ̵͎̈a̶̦̐n̸̪͊o̷̖̽ľ̸̖d̸͖́ ̸̰͊n̷̟͝ô̷͎ẗ̷̬́ẻ̸̝b̷̰̓o̴͕͑o̶̺͆k̷̮̂\w3 i̵t̵ ̷w̸a̶s̴ ̴w̷r̸i̷t̶t̴e̶n̴ ̷i̸n̶ ̷a̵n̴ ̷u̴n̶i̷d̴e̶n̵t̵i̶f̷i̷e̵d̷ ̶l̵a̵n̴g̷u̴a̸g̷e̵ ̶a̵n̵d̸ ̶h̵a̷d̷ ̵s̶o̶m̵e̸ ̴w̶e̸i̶r̴d̴ ̸d̸r̸a̶w̷i̸n̶g̶s̶.̸\w4 H̴̰̍e̶͈̒ ̸̿ͅw̴̨͊a̸̞̾s̶̗͝ ̶͈̿r̶̄ͅe̸̻͠a̸̬̔l̶̨͑l̴̛͍y̸̳̓ ̴̬̌i̸͖̕ǹ̵̜t̷̝̃ĕ̷̡r̶̥̾ẻ̶̯š̴͈ẗ̶͓́e̷̺̍d̶̹́ ̷̟͆i̸̬͝n̷̛̬ ̴̌ͅį̵̂t̴̻͑,\w3 I̴'̶m̵ ̴p̷r̴e̵t̵t̴y̶ ̷s̸u̷r̸e̶ ̴h̵e̵ ̸w̸a̴s̶ ̶e̶v̴e̵n̶ ̵a̴b̴l̶e̵ ̴t̷o̵ ̴d̸e̸c̸o̵d̶e̷ ̴i̵t̸,\w4 .\w2 .\w2 .\w2 I̶̞͊ ̶̱̈ẘ̷͙ǫ̷̀n̶͚͆d̴͎̏e̷̤͘ȑ̵͔ ̴̣͒ẁ̴̦h̵̫̅a̴͙̒t̶͇͒ ̵̖̉d̸̰͂i̶̳̕d̷̝͂ ̸̟́h̷̨́ě̵̜ ̶̱͐f̷͙̊o̵̜͝u̶̹͘n̶͚͐d̷̈́͜ ̶͙̅i̷͕̚n̷̖̉ ̴̝̆i̴̻͌ṯ̵̎?̷̭͌"
 			}
 			else
 			{
@@ -694,12 +646,12 @@ On201zQ
 				"%(distingstart)He always tried to tell me jokes, they were horrible"
 				"%(distingstart)He always tried to teach me things I didn't know,\w2 his explaining was chaotic so it often ended in me just being more confused"
 
-				if "Omega" _in_ ghostnames || "Sigma" _in_ ghostnames; "%(distingstart)He once found an OLDNTBK,\w3 it was written in an unidentified language and had some weird drawings.\w4 He was really interested in it,\w3 I'm pretty sure he was even able to decode it,\w4 .\w2 .\w2 .\w2 I wonder what did he found in it?"
+				if "Omega" _in_ ghostmet || "Sigma" _in_ ghostmet; "%(distingstart)He once found an OLDNTBK,\w3 it was written in an unidentified language and had some weird drawings.\w4 He was really interested in it,\w3 I'm pretty sure he was even able to decode it,\w4 .\w2 .\w2 .\w2 I wonder what did he found in it?"
 			}
 		}
 		when "otherghosts"
 		{
-			if meetplant == 1; "\![*]\q[Plant,OnOtherGhostQue,plant]"
+			if "Plant" _in_ ghostmet; "\![*]\q[Plant,OnOtherGhostQue,plant]"
 		}
 	}
 	--
@@ -846,7 +798,6 @@ Select.ariq
 
 Select.mdevq
 {
-	
 	scode = 1
 	--
 	if tentruth == 1
@@ -873,7 +824,6 @@ Select.skeyq
 
 Select.secode
 {
-	
 	serialnum = RAND(300)
 	gener = "%(gen)"
 	--
@@ -893,8 +843,7 @@ Select.secode
 }
 
 Select.m201z
-{
-	
+{	
 	truth++
 	--
 	if truth > 5
@@ -922,7 +871,6 @@ Select.m201z
 //\![*]\q[Lessons,leson]\n/
 Select.stats
 {
-	
 	"Choose statistics:"
 	--
 	"\n\n\_q\![*]\q[Ghost Usage,gusage]\n/
@@ -1026,8 +974,6 @@ OnUp
 
 Select.todotwooo
 {
-	//"Sorry but my To-Do list goes through a renowation right now\n\n[half]\![*]\q[Close,closetodo]"
-	//Gotta revise this shit
 	"\_q\1\b[4]"
 	--
 	taskforpage = ""
@@ -1056,7 +1002,7 @@ Select.todotwooo
 	"\n\f[height,20]\q[+,qcrtsk] | "
 	--
 	if deltasks != 1; "\q[-,crtsk]\n"
-	else; "\f[color,230, 39, 25]\q[-,crtsk]\n\f[color,default]"
+	else; "%(acc)q[-,crtsk]\n\f[color,default]"
 	--
 	"\f[height,10]"
 	--
@@ -1219,7 +1165,6 @@ OnGarbagecanEmpty
 
 Select.ChoiceSystemInformation
 {
-	
 	os_name = FUNCTIONEX("saori\\saori_cpuid.dll","os.name")
 	os_version = FUNCTIONEX("saori\\saori_cpuid.dll","os.version")
 	cpu_name = FUNCTIONEX("saori\\saori_cpuid.dll","cpu.name")
@@ -1231,16 +1176,12 @@ Select.ChoiceSystemInformation
 	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
 	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
 	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]\e"
-	--
-	//)"
 }
 	
 Select.MailCheck
 {
-	
 	"\![biff]\e"
 }
-
 
 Select.HEADLINECANCEL
 {
@@ -1255,6 +1196,7 @@ OnAI
 {
 	truth++
 	AI = "ON"
+	--
 	"EXPERIMENTAL AI CHAT ON"
 }
 
@@ -1266,7 +1208,7 @@ Select.oapp
 	_apps = FENUM('app','+')
 	if _apps == ""
 	{
-		appcontent +="\f[bold,1]You don't have any apps\f[bold,0]\nTo open app you need to place shortcut for it in the folder"
+		appcontent +="\f[bold,1]You don't have any apps\f[bold,0]\nTo open app you need to place shortcut for it in the folder or drop the shortcut on me"
 	}
 	else
 	{
@@ -1309,10 +1251,10 @@ Select.oapp
 		
 	}
 	--
-	if delapp == "ON"; appcontent += "\f[size,20]\n\f[color,230, 39, 25]\q[-,delap]\f[color,default] | \f[size,default]"
+	if delapp == "ON"; appcontent += "\f[size,20]\n%(acc)q[-,delap]\f[color,default] | \f[size,default]"
 	else; appcontent += "\f[size,20]\n\q[-,delap] | \f[size,default]"
 	--
-	if editap == "ON"; appcontent += "\f[color,230, 39, 25]\q[RENAME,edap]\f[color,default]"
+	if editap == "ON"; appcontent += "%(acc)q[RENAME,edap]\f[color,default]"
 	else; appcontent += "\q[RENAME,edap]"
 	--
 	appcontent += "\n[half]\n\![*]\q[ADD PROJECT TYPE,projtype]\n[half]\n\![*]\q[Nevermind,CANCEL]\n"
@@ -3298,20 +3240,11 @@ OnBookStuff
     if FOPEN(_file,'r') {
 		for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file){
 
-			if RE_SEARCH ( _buff, _regquote ) {
-					
-				quote += RE_GETSTR[1] + "+"  
-			}
+			if RE_SEARCH ( _buff, _regquote ); quote += RE_GETSTR[1] + "+"  
 			--
-			if RE_SEARCH ( _buff, _regeauthor ) {
-					
-				author += RE_GETSTR[1] + "+"  
-			}
+			if RE_SEARCH ( _buff, _regeauthor ); author += RE_GETSTR[1] + "+"  
 			--
-			if RE_SEARCH ( _buff, _booklinkregex ) {
-					
-				booklink += RE_GETSTR[1] + "+"  
-			}
+			if RE_SEARCH ( _buff, _booklinkregex ); booklink += RE_GETSTR[1] + "+"  
 		}
     }
     --

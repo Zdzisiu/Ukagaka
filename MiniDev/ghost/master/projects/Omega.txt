@@ -1,0 +1,46 @@
+Plants:
+    - type:
+        - native (growing wildly in the area)
+        - agricultural (used for farming)
+        - horticultural (used as decorations, for example in gardens)
+        - weeds (invasive species, can cause trouble for the native species).
+Description example:
+Tree (conifer)
+    The Krum Fir is a native to the Krüor region. It grows up to 40 meters and can live up to 150 years. The Krum Fir has thin, scaly bark, a narrow trunk with a cylindrical shape, ending in a high treetop.
+    It has thin needles, mostly dark green in color. The cones open up at spring.
+    It can withstand freezing winters and relatively hot summers.
+    The Krum Fir is used in some parks and gardens as decoration – as the tree can thrive in a variety of environments, its seeds can be planted even in climates unnatural for it, like cities and near-sea areas.
+
+Tree (deciduous)
+
+    The Tree of Healing is native to the Elven Forests. It is a small tree, only reaching about 10 meters. In four years after reaching adulthood, the tree can hold apples, in the right circumstances. These apples, if correctly processed, can work as a healing ointment, mending to cuts, preventing infection.
+    The Tree of Healing can live up to 30 years, which means that the apples are produced for only about 8 years in the tree’s life.
+    This tree is heavily sought after, because of its healing abilities. However, it cannot survive radical changes in its environment and as the Elven forests are mostly destroyed or inaccessible, the apples are very rare at this point in time.
+
+Flower
+
+    The Hunter’s Blessing is a big flower, reaching heights of 2 meters. It grows mostly on hunting grounds, as the heavy presence of animals helps the flower to reach its ideal conditions, blooming approximately a year after the seeds are planted, striking a deep blue color with six smaller leaves.
+    It is often used by skilled hunters to arrange meetings and send messages, as the flower’s stem includes patterns unique to its growing place – hunters can cut off one of the flowers, and another hunter could, by reading the stem, determine the particular location where it was cut off.
+
+Mushroom
+
+    The Hog’s Family is a mushroom growing in clusters of five. The largest of the so-called family is often called the male, or the father. This mushroom is responsible for distributing supplies to the whole family, while the second largest, the mother, creates new offsprings that are released in the form of airborne spores as soon as the family dies. The mother always dies last, as the father always prefers to supplying her with water and other nutrients, before all the other family members. The three smaller individuals simply gather said nutrients from the ground.
+    Most often, the Hog’s Family has a light brown color, with tens of small spikes growing out of every member. These spikes protect the family from potential predators, such as squirrels and similar forest life.
+    The cluster of mushrooms grows on rocky foundations in forests.
+
+----------------------------------------------------------------------------------------
+Animals
+Type
+    - a rodent
+    - a mammal
+    - a fish
+    - a reptile
+    - something else
+    - Is it bi-pedal?
+    - Carnivore or vegetarian?
+
+Evolution
+
+In the vast majority of cases, you shouldn’t just stick anything that looks cool on the animal – almost everything has a reason when it comes to different parts of animals. Animals that are often preyed upon might benefit more from having 4 legs because they use them to run from predators. A bright coloration of a bird’s feathers might not be ideal when trying to hide from a predator, but it might help them attract a fine mate. Claws can be used either to attack prey or to crush hard of fruit (like a coconut).
+
+Another aspect to take into consideration is the area the animal might live in – species inhabiting a harsh, icy plain will have to have plenty of measures protecting them from the cold. Desert animals often have larger ears, for example, that are used for cooling. Monkeys living in a jungle might have long tails they can use to grip branches for swinging.
