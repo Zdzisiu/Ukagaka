@@ -72,7 +72,7 @@ OnAnchorSelect
 	{
 		case reference0
 		{
-			when "Sigma" 
+			when "sigma" 
 			{
 				"Sigma is my sister, she's friendly and open, she guards the Bottomless Lake\e"
 				--
@@ -123,7 +123,7 @@ OnAnchorSelect
 				chardead[charcount] =	"Yes"
 				chargender[charcount] =	"Male"
 				charrace[charcount] =	"Guardian"
-				charprof[charcount] =	"Guardian of the Soul Cave/caver"
+				charprof[charcount] =	"Guardian of the Soul Cave/Caver"
 				charnat[charcount] =	"Galmarian"
 				chardesc[charcount] =	"Zeta is reserved, always living in his own world, he is a Guardian in shades of purple and black. He guards the Soul Cave that is the gate to the underworld."
 				charshortstory[charcount] =	"Zeta was previously a human, he was an art student, after his death gods reincarnated him into the Guardian of the Soul Cave"
@@ -146,14 +146,14 @@ OnAnchorSelect
 				charrace[charcount] =	"Guardian"
 				charprof[charcount] =	"Guardian of the Demon Forest/Forest Ranger"
 				charnat[charcount] =	"Galmarian"
-				chardesc[charcount] =	"Omnicron is the guardian of the Demon Forest, they are the white and blue Guardian, they guard the Demon Forest"
+				chardesc[charcount] =	"Omnicron is the guardian of the Demon Forest, they are the white and blue Guardian, they are quite shy and like plants"
 				charshortstory[charcount] =	"omnicron was previously a human working living beside a forest, after their death gods reincarnated them into the Guardian of the Demon Forest"
-				charlongstory[charcount] =	"Omega who was previously a human doesn't remember their true name, it was hidden after his death, they still have their memories but names and faces have been hidden by gods to make sure Omnicron won't go searching after their lost life. Currently They live in a cottage in the Demon Forest making sure no one goes inside it."
+				charlongstory[charcount] =	"Omega who was previously a human doesn't remember their true name, it was hidden after their death, they still have their memories but names and faces have been hidden by gods to make sure Omnicron won't go searching after their lost life. Currently They live in a cottage in the Demon Forest making sure no one goes inside it."
 				charcount ++ 
 				--
 				placename[placecount] = "Demon Forest"
 				placedesc[placecount] =  "Demon Forest is a forest in which there is a gate to the Demon Place"
-				placehistory[placecount] = "Demon Forest was just a normal forest until Demon King opened there a gate to the Demon Place"
+				placehistory[placecount] = "Demon Forest was just a normal forest until Demon King opened there a gate to the Demon Palace"
 				placecount++
 			}
 		}

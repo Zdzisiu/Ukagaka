@@ -33,12 +33,19 @@
 	}
 	FCLOSE("write.txt")
 	--
-	"Welcome human\e"
+	if reference0 == 0 
+ 	{
+		"Welcome human, my name is Omega, I was sent here to aid in your work, I'm in your care from now on\e"
+	}
+	else
+ 	{
+ 		"Welcome again human\e"
+ 	}
 }
 
 //\s[0]\![raise,OnMood]%(moodpage)
 OnMood
-{
+{	//		        0       1      2      3    4     5      6    7
 	moodlib = "thoughtful,happy,relaxed,bored,sad,annoyed,angry,tired"
 	//reset mood
 	mood = 0
@@ -99,8 +106,6 @@ OnMoodCheck
 	}
 	--
 	//moodpage
-	--
-
 }
 
 //\![raise,OnBootVariables]
@@ -129,7 +134,7 @@ OnBootVariables
 	racestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half],\f[bold+1]Culture:\f[bold+0]\n\n[half],\f[bold+1]Beliefs:\f[bold+0]\n\n[half]"
 	placestuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]History:\f[bold+0]\n\n[half]"
 	faunastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Behavior:\f[bold+0]\n\n[half]"
-	florastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Growth conditions:\f[bold+0]\n\n[half]"
+	florastuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Growth conditions:\f[bold+0]\n\n[half],\f[bold+1]Properties:\f[bold+0] "
 	itemstuff = "\f[bold+1]Name:\f[bold+0] ,\f[bold+1]Description:\f[bold+0]\n\n[half],\f[bold+1]Abilities:\f[bold+0]\n\n[half],\f[bold+1]Owner:\f[bold+0]\n\n[half]"
 	--
 	if worldcount == ""
@@ -291,7 +296,7 @@ OnVariables
 GetTimeSlot
 {
 	if hour >= 5 && hour <= 8; "earlymorning"
-	elseif hour >= 9 && hour <= 11v"morning"
+	elseif hour >= 9 && hour <= 11; "morning"
 	elseif hour >= 12 && hour <= 14; "lunch"
 	elseif hour >= 15 && hour <= 17; "afternoon"
 	elseif hour >= 18 && hour <= 20; "evening"
@@ -335,7 +340,7 @@ OnClose
 {
 	timeslot = GetTimeSlot 
 	--
-	if passmin >= 10; "\0That was a short but I hope I was helpfull nonetheless\w8\w8"
+	if passmin >= 10; "\0That was short, but I hope I was helpfull nonetheless\w8\w8"
 	else;"\0Farewell %(username)\w8\w8"
 	--
 	"\-\e" 

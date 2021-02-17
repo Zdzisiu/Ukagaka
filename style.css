@@ -1,266 +1,266 @@
 body {
-	background: #030203 url("img/back.png") no-repeat fixed;
-	background-size: cover;
-	color: #f1ebeb;
-	font-family: "Share Tech Mono", monospace;
-	height: 100%;
+    background: #030203 url("img/back.png") no-repeat fixed;
+    background-size: cover;
+    color: #f1ebeb;
+    font-family: "Share Tech Mono", monospace;
+    height: 100%;
 }
 
 .shella {
-	width: 257px;
-	display: inline-block;
-	text-align: center;
+    width: 257px;
+    display: inline-block;
+    text-align: center;
 }
 
 #ar {
-	margin-top: -1vw;
+    margin-top: -1vw;
 }
 
 
 #frstbtn {
-	margin-left: 1vw;
+    margin-left: 1vw;
 }
 
 article {
-	float: right;
-	background: #2e264be1;
-	padding: 2vw;
-	height: auto;
-	width: 65vw;
-	margin-top: 1vw;
-	font-size: 1vw;
+    float: right;
+    background: #2e264be1;
+    padding: 2vw;
+    height: auto;
+    width: 65vw;
+    margin-top: 1vw;
+    font-size: 1vw;
 }
 
 #ukg {
-	width: 4vw;
-	left: 0;
-	margin-top: 1vw;
-	height: auto;
-	border-radius: 5vw;
-	position: absolute;
+    width: 4vw;
+    left: 0;
+    margin-top: 1vw;
+    height: auto;
+    border-radius: 5vw;
+    position: absolute;
 }
 
 #web {
-	margin-left: 3vw;
+    margin-left: 3vw;
 }
 
 .sidenote {
-	float: left;
-	background-color: #266e8ad7;
-	width: 27vw;
-	left: 0;
-	z-index: 0;
-	height: auto;
-	padding: 1vw;
-	margin-top: 3.5vw;
-	position: fixed;
+    float: left;
+    background-color: #266e8ad7;
+    width: 27vw;
+    left: 0;
+    z-index: 0;
+    height: auto;
+    padding: 1vw;
+    margin-top: 3.5vw;
+    position: fixed;
 }
 
 aside {
-	float: left;
-	background-color: #266e8ad7;
-	width: 27vw;
-	left: 0;
-	z-index: 0;
-	height: auto;
-	padding: 1vw;
-	margin-top: 490px;
-	position: fixed;
+    float: left;
+    background-color: #266e8ad7;
+    width: 27vw;
+    left: 0;
+    z-index: 0;
+    height: auto;
+    padding: 1vw;
+    margin-top: 490px;
+    position: fixed;
 }
 
 .banner {
-	float: left;
-	width: 27vw;
-	padding: 1vw;
-	left: 0;
-	z-index: 0;
-	height: auto;
-	margin-top: 335px;
-	position: fixed;
-	background-color: #266e8ad7;
+    float: left;
+    width: 27vw;
+    padding: 1vw;
+    left: 0;
+    z-index: 0;
+    height: auto;
+    margin-top: 335px;
+    position: fixed;
+    background-color: #266e8ad7;
 }
 
 .dropdown {
-	position: relative;
-	display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 a {
-	text-decoration: none;
-	color: #ff89ef;
+    text-decoration: none;
+    color: #ff89ef;
 }
 
 nav {
-	background-color: #712263;
-	width: 29vw;
-	top: 0;
-	z-index: 1;
-	left: 0;
-	height: 3.5vw;
-	position: fixed;
+    background-color: #712263;
+    width: 29vw;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    height: 3.5vw;
+    position: fixed;
 }
 
 nav a {
-	color: #f1ebeb;
-	padding: 1.5vw;
+    color: #f1ebeb;
+    padding: 1.5vw;
 }
 
 .navbtn {
-	background-color: #712263;
-	color: #f1ebeb;
-	float: left;
-	padding: 1.15vw 2vw;
-	font-size: 1vw;
+    background-color: #712263;
+    color: #f1ebeb;
+    float: left;
+    padding: 1.15vw 2vw;
+    font-size: 1vw;
 }
 
 .dropdown-content {
-	margin-top: 3.4vw;
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	width: 12vw;
-	z-index: 1;
+    margin-top: 3.4vw;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 12vw;
+    z-index: 1;
 }
 
 .dropdown-content p {
-	border-bottom: 0.1vw solid black;
-	font-weight: bold;
-	color: black;
-	padding: 1vw;
-	text-decoration: none;
-	display: block;
+    border-bottom: 0.1vw solid black;
+    font-weight: bold;
+    color: black;
+    padding: 1vw;
+    text-decoration: none;
+    display: block;
 }
 
 .dropdown-content a {
-	color: black;
-	text-decoration: none;
-	display: block;
+    color: black;
+    text-decoration: none;
+    display: block;
 }
 
 .dropdown-content a:hover {
-	background-color: #ddd;
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
-	display: block;
+    display: block;
 }
 
 .navbtn:hover {
-	background-color: #b058a1;
+    background-color: #b058a1;
 }
 
 .hidden {
-		color: #2e264be1;
+    color: #2e264be1;
 }
 
 iframe {
-	width: 100%;	
-	}
+    width: 100%;
+}
 
 .code {
-	background: linear-gradient(75deg, rgba(14,14,14,1) 75%, rgba(49,49,49,1) 100%);
-	border-radius: 50px;
-	padding: 20px;
-	font-size: 0.9vw;
-	font-family: "Share Tech Mono", monospace;
+    background: linear-gradient(75deg, rgba(14, 14, 14, 1) 75%, rgba(49, 49, 49, 1) 100%);
+    border-radius: 50px;
+    padding: 20px;
+    font-size: 0.9vw;
+    font-family: "Share Tech Mono", monospace;
 }
 
 .string {
-	color: #CA9371;
+    color: #CA9371;
 }
 
 .if {
-	color: #307ab7;
+    color: #307ab7;
 }
 
 .bracket {
-	color: #f2c42b;
+    color: #f2c42b;
 }
 
 @media screen and (max-width: 800px) {
-		nav {
-		width: 100%;
-		height: 10vw;
-	}
+    nav {
+        width: 100%;
+        height: 10vw;
+    }
 
-		.navbtn {
-		font-size: 5vw;
-			padding: 2vw;
-		}
-	
-		#ar {
-		margin-top: 4.5vw;
-	}
-	
-	article {
-		float: left;
-		width: 95%;
-		font-size: 3vw;
-	}
-	
-	#ukg{
-	width: 8vw;
-	height: auto;
-		margin-top: 7vw;
-	border-radius: 5vw;
-	position: absolute;
-	}
-	
-	#web {
-	margin-left: 1vw;
-}
-	
-	.sidenote {
-	width: 100%;
-	margin-left: -1vw;
-	height: auto;
-	padding: 1vw;
-	margin-top: 1vw;
-	position: relative;
-}
-	
-	aside {
-		width: 100%;
-		margin-left: -1vw;
-		height: auto;
-		margin-top: 1vw;
-		position: relative;
-	}
-	
-	.dropdown-content {
-		margin-top: 9vw;
-		width: 30vw;
-		font-size: 4vw;
-}
-	
-	.banner {
-		float: left;
-		width: 100%;
-		padding: 1vw;
-		left: 0;
-		margin-left: -1vw;
-		z-index: 0;
-		height: auto;
-		margin-top: 1vw;
-		position: relative;
+    .navbtn {
+        font-size: 5vw;
+        padding: 2vw;
+    }
 
-	}
-	
-	#frstbtn {
-		margin-left: 15%;
-	}
-	
-	img {
-	width: 100%;
-	max-width: 100%;
-	height: auto;
-}
-	
-	.code {
-	background: linear-gradient(75deg, rgba(14,14,14,1) 75%, rgba(49,49,49,1) 100%);
-	border-radius: 50px;
-	padding: 20px;
-	font-size: 1.2vw;
-	font-family: "Share Tech Mono", monospace;
-}
+    #ar {
+        margin-top: 4.5vw;
+    }
+
+    article {
+        float: left;
+        width: 95%;
+        font-size: 3vw;
+    }
+
+    #ukg {
+        width: 8vw;
+        height: auto;
+        margin-top: 7vw;
+        border-radius: 5vw;
+        position: absolute;
+    }
+
+    #web {
+        margin-left: 1vw;
+    }
+
+    .sidenote {
+        width: 100%;
+        margin-left: -1vw;
+        height: auto;
+        padding: 1vw;
+        margin-top: 1vw;
+        position: relative;
+    }
+
+    aside {
+        width: 100%;
+        margin-left: -1vw;
+        height: auto;
+        margin-top: 1vw;
+        position: relative;
+    }
+
+    .dropdown-content {
+        margin-top: 9vw;
+        width: 30vw;
+        font-size: 4vw;
+    }
+
+    .banner {
+        float: left;
+        width: 100%;
+        padding: 1vw;
+        left: 0;
+        margin-left: -1vw;
+        z-index: 0;
+        height: auto;
+        margin-top: 1vw;
+        position: relative;
+
+    }
+
+    #frstbtn {
+        margin-left: 15%;
+    }
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .code {
+        background: linear-gradient(75deg, rgba(14, 14, 14, 1) 75%, rgba(49, 49, 49, 1) 100%);
+        border-radius: 50px;
+        padding: 20px;
+        font-size: 1.2vw;
+        font-family: "Share Tech Mono", monospace;
+    }
 }

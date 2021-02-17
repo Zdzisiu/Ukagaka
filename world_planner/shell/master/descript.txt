@@ -3,7 +3,7 @@ seriko.use_self_alpha, 1
 
 charset,UTF-8
 type,shell
-name,Default Omega
+name,Omega
 craftman,Zdzisiu
 craftmanurl,-
 

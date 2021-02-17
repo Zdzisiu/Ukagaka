@@ -2,8 +2,8 @@ Charset,UTF-8
 install,652203843
 homeurl_found,1
 homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/world_planner/
-surfacecount,21
+surfacecount,5
 update_result,OK(0)
 firstboot,652203843
-commitmemorysize,223022
-lastboot,665796987
+commitmemorysize,91075
+lastboot,665880030

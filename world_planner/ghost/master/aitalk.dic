@@ -25,7 +25,7 @@
 
 RandomTalk : nonoverlap
 {
-	/*case currmood
+	case currmood
 	{
 		when 0 //thoughtfull
 		{
@@ -600,7 +600,7 @@ RandomTalk : nonoverlap
 			}
 		}
 
-	}*/
+	}
 	
 	"I hope %(guardians) isn't causing any trouble while I'm here"
 	".\w5 .\w5 .\w5 When I get back I will have a lot of work"

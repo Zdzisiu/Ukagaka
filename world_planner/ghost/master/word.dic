@@ -3690,6 +3690,11 @@ OnMapgentwo
 	mapgtwo
 }
 
+/*The Krum Fir is a native to the Krüor region. It grows up to 40 meters and can live up to 150 years. The Krum Fir has thin, scaly bark, a narrow trunk with a cylindrical shape, ending in a high treetop.
+It has thin needles, mostly dark green in color. The cones open up at spring.
+It can withstand freezing winters and relatively hot summers.
+The Krum Fir is used in some parks and gardens as decoration – as the tree can thrive in a variety of environments, its seeds can be planted even in climates unnatural for it, like cities and near-sea areas.
+*/
 randfloradesc
 {
 	if planttypegen == "Random"
@@ -3958,6 +3963,28 @@ wherdoesitgrow
 	"rivers"
 	"the sea"
 	"the ocean"
+	}
+}
+
+floraprops
+{
+	{
+		"When eaten "
+		--
+		"allows breathing underwater"
+		"puts in a coma"
+		"heals all wounds"
+		"makes you blind"
+	}
+
+	{
+		"when burned, the smoke "
+		--
+		"makes you high"
+		"is acidic"
+		"shows spirits"
+		"lures in fae"
+		""
 	}
 }
 

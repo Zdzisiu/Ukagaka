@@ -5,53 +5,27 @@ version,1
 
 surface0
 {
-element0,overlay,surface0.png,0,0
+element0,base,surface0.png,0,0
 
-animation0.interval,random,4
-animation0.pattern1,overlay,1000,75,0,0
-animation0.pattern2,stop,2,0,0
-animation0.pattern3,overlay,1001,75,0,0
-animation0.pattern4,overlay,1000,75,0,0
-animation0.pattern5,overlay,1009,75,0,0
-animation0.pattern6,start,2,0,0
-animation0.pattern7,overlay,-1,100,0,0
+animation0.interval,always
+animation0.pattern0,overlay,1000,100,0,0
 
-animation1.interval,always
-animation1.pattern0,overlay,1008,1,0,0
+animation1.interval,never
+animation1.pattern0,stop,0
+animation1.pattern1,overlay,1000,100,0,0
+animation1.pattern2,overlay,1001,100,0,0
+animation1.pattern3,overlay,1002,100,0,0
+animation1.pattern4,overlay,1003,100,0,0
 
-animation2.interval,always
-animation2.pattern0,overlay,1009,1,0,0
-
-animation3.interval,always
-animation3.pattern0,overlay,2000,75,0,0
-animation3.pattern1,overlay,2003,75,0,0
-animation3.pattern2,overlay,2000,75,0,0
-animation3.pattern3,overlay,2001,75,0,0
-animation3.pattern4,overlay,2002,75,0,0
-animation3.pattern5,overlay,2001,75,0,0
-
-animation4.interval,always
-animation4.pattern0,overlay,2010,75,0,0
-animation4.pattern1,overlay,2013,75,0,0
-animation4.pattern2,overlay,2014,75,0,0
-animation4.pattern3,overlay,2013,75,0,0
-animation4.pattern4,overlay,2011,75,0,0
-animation4.pattern5,overlay,2012,75,0,0
-animation4.pattern6,overlay,2011,75,0,0
-
-animation5.interval,always
-animation5.pattern0,overlay,2024,100,0,0
-animation5.pattern1,overlay,2025,100,0,0
-animation5.pattern2,overlay,2026,100,0,0
-animation5.pattern3,overlay,2025,100,0,0
-
-animation6.interval,always
-animation6.pattern0,overlay,2020,75,0,0
-animation6.pattern1,overlay,2021,75,0,0
-animation6.pattern2,overlay,2022,75,0,0
-animation6.pattern3,overlay,2023,75,0,0
-animation6.pattern4,overlay,2022,75,0,0
-animation6.pattern5,overlay,2021,75,0,0
+animation2.interval,never
+animation2.pattern0,stop,1
+animation2.pattern1,stop,0
+animation2.pattern2,overlay,1003,100,0,0
+animation2.pattern3,overlay,1002,100,0,0
+animation2.pattern4,overlay,1001,100,0,0
+animation2.pattern5,overlay,1000,100,0,0
+animation2.pattern6,start,0
+animation2.pattern7,overlay,-1,100,0,0
 
 }
 
