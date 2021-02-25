@@ -1,6 +1,6 @@
 ﻿OpenSakuraMenu
 {
-	if tentruth == 1; "\n\_q\b4"
+	if tentruth == 1; "\n\n\_q\b4"
 	else; "\n\_q\b2"	
 	--
 	MenuRun
@@ -25,8 +25,6 @@ MenuRun
 	if lastTalk != ""; "\![*]\q[Repeat,OnLastTalk] or "
 	--
  	"\![*]\q[Say something,altalk]\n\n[half]"
-	//--
-	//"\![*]\q[Test,OnTest]\n\n[half]"
 	--
 	"\![*]\q[Config Menu,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n/
@@ -37,8 +35,6 @@ MenuRun
 	\![*]\q[User Logs,LOG]\n"
 	--
 	if nowshell == "M-201z";"\![*]\q[Items,gift]\n"
-	//--
-	//"\![*]\q[TEST,OnMakao]\n"
 	--
 	if AI == "ON";"\![*]\q[AI chat,saysmth]\n"
 	--
@@ -54,13 +50,15 @@ MenuRun
 		}
 	}
 	--
-	"\n[half]\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(timeformat), %(dateformat)" 
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(timeformat), %(dateformat)" 
 	--
 	if weathermenu == "ON"; "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5])"
 	--
 	if moonmenu == "ON";"\n\f[bold,1]Moon:\f[default] %(phase)"
 	--
-	"\n\n[half]\f[height,10]Version: %(vers)\f[default]"
+	"\n\n[half]\f[height,11]Version: %(vers)"
+	--
+	"\nInstance: M-%(modelp)P\f[default]"
 	--
 	"\e"
 }
@@ -70,19 +68,6 @@ Select.gift
 
 }
 
-timeformat
-{
-	if timeformatype == "STANDARD"; "%(nowhour):%(nowmin) %(ap)"
-	elseif timeformatype == "MILITARY"; "%(hour):%(minute)"
-}
-
-dateformat
-{
-	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
-	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
-	elseif dateformatype == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
-}
-
 Select.quote
 {
     "\![execute,http-get,http://www.quotationspage.com/random.php,--async=OnQuoteFound,--file=quote.html,--timeout=200]"
@@ -90,7 +75,6 @@ Select.quote
 
 OnQuoteFound
 {
-        
     _file = "var\\quote.html"
     _buff = ""
     _regquote = '.html">(.*)</a> </dt><dd class="author"><div class="icons">'
@@ -119,7 +103,6 @@ OnQuoteFound
 
 Select.req //recommendations
 {
-	
 	"\b2What would you want?\n\n[half]\_q"
 	--
 	"\![*]\q[Books,bookr]\n"
@@ -219,17 +202,6 @@ Select.bookr
 	 ". . .\![execute,http-get,https://www.goodreads.com/list/best_of_year/2016%22?id=95160.Best_Books_of_2016?page=%(rand),--async=OnBookFound,--file=book.html,--timeout=200]"
 }
 
-
-/*
-horror
-drama
-GL
-BL
-ecchi
-romancet
-action
-*/
-
 OnMangaFound
 {
 	_file = "var\\manga.html"
@@ -320,22 +292,6 @@ Select.mangar
 	--
 	 ". . .\![execute,http-get,https://www.anime-planet.com/manga/all?page=%(rand),--async=OnMangaFound,--file=manga.html,--timeout=200]"
 }
-
-Select.mobier
-{
-
-}
-
-Select.cartoonr
-{
-
-}
-
-Select.serialr
-{
-
-}
-
 
 Select.gboot
 {
@@ -563,7 +519,7 @@ On201zQ
 						}
 						elseif m201relationship > 200
 						{
-							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 I'm just thinking about everything"
+							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 I'm just thinking about the past"
 							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
 							"%(distingstart)I'm .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
 							"%(distingstart)I .\w5 .\w5 .\w5"
@@ -941,13 +897,14 @@ Select.CANCEL
 
 Select.dosomething
 {
-	
-	"\0\b2What do you need?\n\n"
+	"\0\b4\_q%(cha)What do you need?\n\n"
 	--
-	"\_qUpdate: %(acc)\q[Shell,OnUp,shell]\f[default] || %(acc)\q[Balloon,OnUp,bal]\f[default] || %(acc)\q[Ghost,OnUp,ghst]\f[default]\n\n[half]"
+	"Update:\n%(acc)\q[Shell,OnUp,shell]\f[default] | %(acc)\q[Balloon,OnUp,bal]\f[default] | %(acc)\q[Ghost,OnUp,ghst]\f[default]\n\n[half]"
 	--
 	"\![*]\q[Weather,weath]\n/
-	\![*]\q[To-Do list,todotwooo]\n/
+	\![*]\q[To-Do list,todo]\n/
+	\![*]\q[Recipes,recipe]\n/
+	//\![*]\q[Convert Units,unit]\n/
 	//\![*]\q[Music Player,music]\n/
 	\![*]\q[Reminders,OnReminders]\n/
 	\![*]\q[Recommend,req]\n/
@@ -962,6 +919,705 @@ Select.dosomething
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
+Select.recipe //Menu
+{
+	if sirecnum == ""; sirecnum = 0 //Saved recipes
+	--
+	if srecnum == ""; srecnum = 0 //Userbase recipes
+	--
+	if urecnum == ""; urecnum = 0 //User recipes
+	--
+	dltrec = 0 //Delete
+	--
+	ingrs = 1 //Show ingridients
+	--
+	if stps == ""; stps = 0 //Show steps
+	--
+	if recipesite[0] == "" //Base for multiple recipe site search, leave it as it is
+	{
+		recipesite[0] = "allrecipes.com"
+		recipesite[1] = "https://www.allrecipes.com/search/results/?wt="
+	}
+	--
+	"\b2\_qLast Searched: \__q[OnRecipeSearch,%(websrch)]%(acc)%(TOPROPER(websrch))\f[default]\__q\n\n[half]" //Last searched word
+	--
+	"Last Recipe: \__q[OnRecipeShow]%(acc)%(TOPROPER(lstrecipe))\f[default]\__q\n\n\n[half]" //Last opened recipe
+	--
+	"\![*]\q[Userbase Recipes,usrrcp]\n/
+	\![*]\q[Find Recipes,fndrecipe]\n/
+	\![*]\q[Your Recipes,usrcp]\n/
+	\![*]\q[Saved Recipes,svdrcp]\n\n[half]/
+	\![*]\q[Go back,dosomething]  |  \q[Nevermind,CANCEL]\e"
+}
+
+Select.svdrcp
+{
+	_page = ""
+	--
+	if sirecnum > 15; _page = "\b4\_q%(cha)\f[bold,1]Saved Recipes\f[bold,0]\n\n[half]"
+	else; _page = "\b2\_q%(cha)\f[bold,1]Saved Recipes\f[bold,0]\n\n[half]"
+	--
+	if sirecnum != 0 //If there is at least one recipe
+	{
+		for _i=0;_i<sirecnum;_i++ //Pull all the names
+		{
+			_page += "\__q[OnSIRecipes," + _i + "]" + sirecipename[_i] + "\__q\n"
+		}
+	}
+	else
+	{
+		_page += "You don't have any saved recipes\n\n[half]"
+	}
+	--
+	if dltrec == 1; _page += "%(acc)\n[half]\![*]\q[Delete,OnZChnage,dltrec," + dltrec + ",sirec]\f[default]\n\n[half]" //Delete toggle
+	else; _page += "\n[half]\![*]\q[Delete,OnZChnage,dltrec," + dltrec + ",sirec]\n\n[half]"
+	--
+	_page += "\![*]\q[Go back,recipe] | \q[Close,cls]\e"
+	--
+	_page
+}
+
+Select.usrcp
+{
+	_page = ""
+	--
+	if urecnum > 15; _page = "\b4\_q%(cha)\f[bold,1]Your Recipes\f[bold,0]\n\n[half]"
+	else; _page = "\b2\_q%(cha)\f[bold,1]Your Recipes\f[bold,0]\n\n[half]"
+	--
+	if urecnum != 0 //If there is at least one recipe
+	{
+		for _i=0;_i<urecnum;_i++ //Pull all the names
+		{
+			_page += "\__q[OnURecipe," + _i + "]" + recipename[_i] + "\__q\n"
+		}
+	}
+	else
+	{
+		_page += "You don't have any saved recipes\n\n[half]"
+	}
+	--
+	_page += "\n[half]\q[Add,addrcp]  |  "
+	--
+	if dltrec == 1; _page += "%(acc)\q[Delete,OnZChnage,dltrec," + dltrec + ",rec]\f[default]  |  " //Delete toggle
+	else; _page += "\q[Delete,OnZChnage,dltrec," + dltrec + ",rec]  |  "
+	--
+	_page += "\q[Upload All,upldrec]\n\n[half]" //Upload all recipes to Server
+	--
+	_page += "\![*]\q[Go back,recipe] | \q[Close,cls]\e"
+	--
+	_page
+}
+
+Select.upldrec
+{
+	for _i=0;_i<urecnum;_i++
+	{
+		_file = "var\\recipes\\M-" +  modelp + "P - " + recipename[_i] + ".txt" //File name M-[\d]P - Recipe name
+		_ing = SPLIT(recingr[_i],"+") //split ingridients
+		_stp = SPLIT(recstep[_i],"+") //split steps
+		--
+		_size[0] = ARRAYSIZE(_ing)
+		_size[1] = ARRAYSIZE(_stp)
+		--
+		if FOPEN(_file,"w") //Write the document
+		{
+			FWRITE(_file,"Name: " + recipename[_i])
+			FWRITE(_file,"Author: " + nickname)
+			FWRITE(_file,"Ingridients:")
+			--
+			for _j=0;_j<_size[0];_j++
+			{
+				FWRITE(_file,_ing[_j])
+			}
+			--
+			FWRITE(_file,"Steps:")
+			--
+			for _j=0;_j<_size[1];_j++
+			{
+				FWRITE(_file,_stp[_j])
+			}
+		}
+		--
+		FCLOSE(_file)
+		--
+		FUNCTIONEX("saori/filetransfer.dll","upload","http","ukg.ct8.pl/index.php",_file) //Upload file
+		--
+		_z = FDEL(_file) //Delete file
+	}
+	--
+	"Recipes Uploaded\x"
+	--
+	Select.usrcp
+}
+
+Select.upld
+{
+	_file = "var\\recipes\\M-" +  modelp + "P - " + recipename[urecnum] + ".txt" //File name M-[\d]P - Recipe name
+	_ing = SPLIT(recingr[recnum],"+") //split ingridients
+	_stp = SPLIT(recstep[recnum],"+") //split steps
+	--
+	_size[0] = ARRAYSIZE(_ing)
+	_size[1] = ARRAYSIZE(_stp)
+	--
+	if FOPEN(_file,"w") //Write the document
+	{
+		FWRITE(_file,"Name: " + recipename[urecnum])
+		FWRITE(_file,"Author: " + nickname)
+		FWRITE(_file,"Ingridients:")
+		--
+		for _i=0;_i<_size[0];_i++
+		{
+			FWRITE(_file,_ing[_i])
+		}
+		--
+		FWRITE(_file,"Steps:")
+		--
+		for _i=0;_i<_size[1];_i++
+		{
+			FWRITE(_file,_stp[_i])
+		}
+	}
+	--
+	FCLOSE(_file)
+	--
+	FUNCTIONEX("saori/filetransfer.dll","upload","http","ukg.ct8.pl/index.php",_file) //Upload file
+	--
+	_z = FDEL(_file) //Delete file
+	--
+	"Recipe Uploaded\x"
+	--
+	OnURecipe
+}
+
+OnURecipe
+{
+	if reference0 != ""; recnum = TOINT(reference0)
+	--
+	_ingpage = ""
+	_stppage = ""
+	--
+	if dltrec == 1 //Delete recipe
+	{
+		for _i=recnum;_i<urecnum;_i++
+		{
+			recipename[_i] = recipename[_i+1]
+			recingr[_i] = recingr[_i+1]
+			recstep[_i] = recstep[_i+1]
+		}
+		--
+		urecnum--
+		--
+		Select.usrcp
+	}
+	else //Show recipe
+	{
+		_ing = SPLIT(recingr[recnum],"+")
+		_stp = SPLIT(recstep[recnum],"+")
+		--
+		_stppage = ""
+		_ingpage = ""
+		--
+		_size[0] = ARRAYSIZE(_ing)
+		_size[1] = ARRAYSIZE(_stp)
+		--
+		_page = "\b8\_q%(cha)\f[bold,1]" + recipename[recnum] + "\f[bold,0]\n\n[half]"
+		-- 
+		_page += "\f[bold,1]\__q[OnZChnage,ingrs,%(ingrs),recpeg]Ingridients\__q\f[bold,0]\n"
+		--
+		for _i=0;_i<_size[0];_i++
+		{
+			_ingpage += _ing[_i] + "\n"
+		}
+		--
+		if ingrs == 1; _page += _ingpage
+		--
+		_page += "\n[half]\f[bold,1]\__q[OnZChnage,stps,%(stps),recpeg]Steps\__q\f[bold,0]\n"
+		--
+		for _i=0;_i<_size[1];_i++
+		{
+			_stppage += _i+1 + ". " + _stp[_i] + "\n"
+		}
+		--
+		if stps == 1; _page += _stppage
+		--
+		_page += "\n[half]\q[Upload,upld]\n\n[half]\q[Go back,usrcp] | \q[Close,cls]\e"
+		--
+		_page
+	}
+}
+
+Select.addrcp
+{
+	"%(cha)Name of your recipe\![open,inputbox,OnSvRec,-1]\e"
+}
+
+OnSvRec
+{
+	recipename[urecnum] = TOPROPER(reference0)
+	--
+	"%(cha)Write ingredients separated with a ','\![open,inputbox,OnSvRec_two,-1]\e"
+}
+
+OnSvRec_two
+{
+	recingr[urecnum] = REPLACE(reference0,",","+")
+	--
+	"%(cha)Write steps separated with a ','\![open,inputbox,OnSvRec_end,-1]\e"
+}
+
+OnSvRec_end
+{
+	urecnum++
+	recstep[urecnum] = REPLACE(reference0,",","+")
+	--
+	_ing = SPLIT(recingr[recnum],"+")
+	_stp = SPLIT(recstep[recnum],"+")
+	--
+	_stppage = ""
+	_ingpage = ""
+	--
+	_size[0] = ARRAYSIZE(_ing)
+	_size[1] = ARRAYSIZE(_stp)
+	--
+	_page = "\b8\_q%(cha)\f[bold,1]" + recipename[recnum] + "\f[bold,0]\n\n[half]"
+	-- 
+	_page += "\f[bold,1]\__q[OnZChnage,ingrs,%(ingrs),recpeg]Ingridients\__q\f[bold,0]\n"
+	--
+	for _i=0;_i<_size[0];_i++
+	{
+		_ingpage += _ing[_i] + "\n"
+	}
+	--
+	if ingrs == 1; _page += _ingpage
+	--
+	_page += "\n[half]\f[bold,1]\__q[OnZChnage,stps,%(stps),recpeg]Steps\__q\f[bold,0]\n"
+	--
+	for _i=0;_i<_size[1];_i++
+	{
+		_stppage += _stp[_i] + "\n"
+	}
+	--
+	if stps == 1; _page += _stppage
+	--
+	_page += "\n[half]\q[Go back,usrcp] | \q[Close,cls]\e"
+	--
+	_page
+}
+
+OnUpdtURec
+{
+	"\![execute,http-get,http://ukg.ct8.pl/userpec.php,--async=OnURecipes,--file=urecipes.txt,--timeout=200]"
+}
+
+Select.usrrcp
+{
+	_page = ""
+	--
+	if srecnum > 15; _page = "\b4\_q%(cha)\f[bold,1]Userbase Recipes\f[bold,0]\n\n[half]"
+	else; _page = "\b2\_q%(cha)\f[bold,1]Userbase Recipes\f[bold,0]\n\n[half]"
+	--
+	if srecnum != 0
+	{
+		for _i=1;_i<=srecnum;_i++
+		{
+			_page += "\__q[OnSRecipe," + _i + "]" + srecipename[_i] + "\__q\n"
+		}
+	}
+	else
+	{
+		_page += "There are no recipes\n\n[half]"
+	}
+	--
+	_page += "\q[Update,OnUpdtURec]\n\n[half]"
+	--
+	if dltrec == 1; _page += "\q[Delete,OnZChnage,dltrec," + dltrec + ",rec]\n\n[half]"
+	--
+	_page += "\q[Go back,recipe] | \q[Close,cls]\e"
+	--
+	_page
+}
+
+OnSRecipe
+{
+	if reference0 != ""; recnum = TOINT(reference0)
+	--
+	_ingpage = ""
+	_stppage = ""
+	--
+	if dltrec == 1
+	{
+		for _i=recnum;_i<srecnum;_i++
+		{
+			srecipename[_i] = srecipename[_i+1]
+			srecipauth[_i] = srecipauth[_i+1]
+			srecingr[_i] = srecingr[_i+1]
+			srecstep[_i] = srecstep[_i+1]
+		}
+		--
+		srecnum--
+		--
+		Select.usrrcp
+	}
+	else
+	{
+		_ing = SPLIT(srecingr[recnum],"+")
+		_stp = SPLIT(srecstep[recnum],"+")
+		--
+		_stppage = ""
+		_ingpage = ""
+		--
+		_size[0] = ARRAYSIZE(_ing)
+		_size[1] = ARRAYSIZE(_stp)
+		--
+		_page = "\b8\_q%(cha)\f[bold,1]" + srecipename[recnum] + "\f[bold,0] by " + srecipauth[recnum] + "\n\n[half]"
+		-- 
+		_page += "\f[bold,1]\__q[OnZChnage,ingrs,%(ingrs),recpeg]Ingridients\__q\f[bold,0]\n"
+		--
+		for _i=0;_i<_size[0];_i++
+		{
+			_ingpage += _ing[_i] + "\n"
+		}
+		--
+		if ingrs == 1; _page += _ingpage
+		--
+		_page += "\n[half]\f[bold,1]\__q[OnZChnage,stps,%(stps),recpeg]Steps\__q\f[bold,0]\n"
+		--
+		for _i=0;_i<_size[1];_i++
+		{
+			_stppage += _i+1 + ". " + _stp[_i] + "\n"
+		}
+		--
+		if stps == 1; _page += _stppage
+		--
+		_page += "\n[half]\q[Go back,usrrcp] | \q[Close,cls]\e"
+		--
+		_page
+	}
+}
+
+//FUNCTIONEX("saori/filetransfer.dll","upload","http","ukg.ct8.pl/index.php","./Traits.txt")
+//"\![execute,http-get,http://ukg.ct8.pl/userpec.php,--async=OnURecipes,--file=urecipes.txt,--timeout=200]"
+
+OnURecipes
+{
+	_file = "var\\urecipes.txt"
+	_buff = ""
+	_line = ""
+	srecnum = 0
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+		for _z=0; _z != -1; _line = FREAD(_file)
+		{
+			if _line == -1 || _line == "-1"
+			{
+				_z = 1
+				break
+			}
+			else
+			{
+				if "Name: " _in_ _line
+				{
+					srecnum++
+					srecipename[srecnum] = REPLACE(_line,"Name:","")
+				}
+				elseif "Author: " _in_ _line
+				{
+					srecipauth[srecnum] = REPLACE(_line,"Author:","")
+				}
+				elseif "Ingridients: " _in_ _line
+				{
+					srecingr[srecnum] = REPLACE(_line,"Ingridients:","")
+				}
+				elseif "Steps: " _in_ _line
+				{
+					srecstep[srecnum] = REPLACE(_line,"Steps:","")
+				}
+			}
+		}
+    }
+	--
+    FCLOSE(_file);
+	--
+	Select.usrrcp
+}
+
+Select.fndrecipe
+{
+	"\![open,inputbox,OnRecipeSearch,-1]\e"
+}
+
+OnRecipeSearch
+{
+	websrch = reference0
+	//https://www.allrecipes.com/search/results/?wt=cake
+	"\![execute,http-get,%(recipesite[1])%(websrch),--async=OnRecipeF,--file=recipes.html,--timeout=200]"
+}
+
+OnRecipeF
+{
+	_file = "var\\recipes.html"
+    _buff= ""
+	_regresul = '<span class="subtext">(.*)recipe results for </span>'
+    _reglink = '<a href="https://www.allrecipes.com/recipe/(.*)/" data-content-provider-id="" data-internal-referrer-link="hub recipe" class="fixed-recipe-card__title-link">'
+    _found = 0
+	_ar = ""
+	_res = ""
+	_page = "\b4\_q%(cha)\![set,autoscroll,disable]"
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+		for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file)
+		{
+			if RE_SEARCH (_buff,_reglink) 
+			{
+				_ar ,= RE_GETSTR[1]
+			}
+
+			if RE_SEARCH (_buff,_regresul) 
+			{
+				_res = RE_GETSTR[1]
+			}
+		}
+    }
+	--
+    FCLOSE(_file);
+	--
+	_page += "\f[bold,1]" + _res + "recipes found:\f[bold,0]\n\n[half]"
+	//\j[http://ssp.shillest.net/]
+    --
+	for _i=1;_i<15;_i++
+	{
+		_rec = SPLIT(_ar[_i],"/")
+		_rec[1] = REPLACE(_rec[1],"-"," ")
+		_rec[1] = TOPROPER(_rec[1])
+		--
+		//\q[wwww,script:\j[http://ssp.shillest.net/\]]
+		//_page += "\![*]\q[" + _rec[1] + ",script:\j[https://www.allrecipes.com/recipe/" + _ar[_i] + "\]]\n"
+		_page += "\__q[script:\![execute,http-get,https://www.allrecipes.com/recipe/" + _ar[_i] + ",--async=OnRecipeShow,--file=recipe.html,--timeout=200\]]" + TOPROPER(_rec[1]) + "\__q\n\n[50]"
+	}
+	--
+	_page + "\![*]\q[Open Web,script:\j[%(recipesite[1])%(websrch)\]]\n\n[half]\![*]\q[Go back,dosomething]  |  \![*]\q[Nevermind,CANCEL]"
+}
+
+OnRecipeShow
+{
+	//reccoll 0: Ingridients 1: Steps
+	if reference0 == "ingr";ingrs = TOINT(reference1)
+	elseif reference0 == "step";stps = TOINT(reference1)
+	--
+	_file = "var\\recipe.html"
+    _buff= ""
+	_lines = IARRAY
+	_linkre = '        "mainEntityOfPage": "(.*)"'
+	_ar = ""
+	_res = ""
+	_page = "\b8\_q%(cha)\![set,autoscroll,disable]"
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+		for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file)
+		{
+			if RE_SEARCH (_buff,'"caption":') 
+			{
+				_lines ,= _buff
+				--
+				for _len = 0,_z=0;_z != 1 || _len != 100;_len++
+				{
+					_buff = FREAD(_file)
+					_lines ,= _buff
+					--
+					if RE_SEARCH(_buff,'"recipeCategory":')
+					{ 
+						_z = 1
+						break
+					}
+				}
+			}
+			if RE_SEARCH (_buff,_linkre) 
+			{
+				_res = RE_GETSTR[1]
+			}
+
+		}
+    } 
+	--
+    FCLOSE(_file);
+	--
+	_title = ""
+	_ingr = ""
+	_step = ""
+	_time = ""
+	_ingpage = ""
+	_pagestp = ""
+	--
+	for _i = 0;_i < _len || _i != 100;_i++
+	{
+		if "caption" _in_ _lines[_i]
+		{
+			_title = REPLACE(_lines[_i],'          "caption": "',"")
+			_title = REPLACE(_title,'"'," ")
+			_page += "\f[height,17]\f[bold,1]" + _title + "\f[default]\n\n[half]"
+			if reference0 == "save"; sirecipename[sirecnum] = _title
+			lstrecipe = _title
+		}
+		elseif "recipeIngredient" _in_ _lines[_i]
+		{
+			if ingrs != 1; _page += "\n[half]\f[bold,1]\q[Ingridients:,OnRecipeShow,ingr,1]\f[bold,0]\n"
+			else; _page += "\n[half]\f[bold,1]\q[Ingridients:,OnRecipeShow,ingr,0]\f[bold,0]\n"
+			--
+			for _i = _i+1,_z = 0;_z != 1;_i++
+			{
+				if "]," _in_ _lines[_i] || "," !_in_ _lines[_i]
+				{
+					_z = 1
+				}
+				else
+				{
+
+					_ingr = REPLACE(_lines[_i],"          ","")
+					_ingr = REPLACE(_ingr,'"',"")
+					_ingr = REPLACE(_ingr,'½',"1/2")
+					_ingr = REPLACE(_ingr,'¼',"1/4")
+					_ingr = REPLACE(_ingr,'¾',"3/4")
+					_ingr = REPLACE(_ingr,',',"")
+					_ingpage +=  _ingr + "\n"
+				}
+			}
+			--
+			if ingrs == 1
+			{
+				_page += _ingpage
+			}
+			--
+			if reference0 == "save"; sirecingr[sirecnum] = _ingpage
+			--
+			_page += "\n[half]"
+		}
+		elseif "recipeInstructions" _in_ _lines[_i]
+		{
+			if stps != 1; _page += "\n[half]\f[bold,1]\q[Instructions:,OnRecipeShow,step,1]\f[bold,0]\n"
+			else; _page += "\n[half]\f[bold,1]\q[Instructions:,OnRecipeShow,step,0]\f[bold,0]\n"
+			--
+			for _i=_i+1,_f=0,_z = 0;_z != 1;_i++
+			{
+				if "]," _in_ _lines[_i]
+				{
+					_z = 1
+				}
+				elseif "HowToStep" _in_ _lines[_i]
+				{
+					_f++
+					_step = REPLACE(_lines[_i+1],'            "text": ',"")
+					_step = REPLACE(_step,'"',"")
+					_pagestp += _f + ". " + _step + "\n[half]"
+				}
+			}
+			--
+			if stps == 1
+			{
+				_page += _pagestp
+			}
+			--
+			if reference0 == "save"; sirecstep[sirecnum] = _ingpage
+		}
+	}
+	--
+	if reference0 == "save"
+	{
+		sirecnum++
+		--
+		"Recipe Saved\x"
+		--
+		Select.svdrcp
+	}
+	else
+	{
+		_page + "\n\n[half]\![*]\q[Open,script:\j[" + _res + "\]] | \![*]\q[Save,OnRecipeShow,save] \n\n[half]\![*]\q[Go back,dosomething]  |  \![*]\q[Nevermind,CANCEL]"
+	}
+}
+
+OnSIRecipes
+{
+	if reference0 != ""; recnum = TOINT(reference0)
+	--
+	_ingpage = ""
+	_stppage = ""
+	_page = ""
+	--
+	if dltrec == 1
+	{
+		for _i=recnum;_i<srecnum;_i++
+		{
+			sirecipename[_i] = sirecipename[_i+1]
+			sirecingr[_i] = sirecingr[_i+1]
+			sirecstep[_i] = sirecstep[_i+1]
+		}
+		--
+		sirecnum--
+		--
+		Select.svdrcp
+	}
+	else
+	{
+		_page = "\b8\_q%(cha)\f[bold,1]" + sirecipename[recnum] + "\f[bold,0]\n\n[half]"
+		-- 
+		_page += "\f[bold,1]\__q[OnZChnage,ingrs,%(ingrs),srecpeg]Ingridients\__q\f[bold,0]\n"
+		--
+		if ingrs == 1; _page += sirecingr[recnum]
+		--
+		_page += "\n[half]\f[bold,1]\__q[OnZChnage,stps,%(stps),srecpeg]Steps\__q\f[bold,0]\n"
+		--
+		if stps == 1; _page += sirecstep[recnum]
+		--
+		_page += "\n[half]\q[Go back,usrrcp] | \q[Close,cls]\e"
+		--
+		_page
+	}
+}
+
+Select.unit
+{
+	"\![*]\q[Metric,OnConvert,met]\n/
+	\![*]\q[Imperial,OnConvert,imp]\n/
+	\![*]\q[Temperature,OnConvert,temp]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+OnConvert
+{
+	case reference0
+	{
+		when "temp"
+		{
+			"\![*]\q[F to C,OnTempCon,f-c]\n/
+			\![*]\q[C to T,OnTempCon,c-f]\n/
+			\![*]\q[Nevermind,CANCEL]\e"
+		}
+		when "met"
+		{
+			"\![*]\q[Distance,OnMetCon,f-c]\n/
+			\![*]\q[Mass,OnMetCon,c-f]\n/
+			\![*]\q[Time,OnMetCon,c-f]\n/
+			\![*]\q[Nevermind,CANCEL]\e"
+		}
+		when "imp"
+		{
+			"\![*]\q[Distance,OnMetCon,f-c]\n/
+			\![*]\q[Mass,OnMetCon,c-f]\n/
+			\![*]\q[Volume,OnMetCon,c-f]\n/
+			\![*]\q[Area,OnMetCon,c-f]\n/
+			\![*]\q[Time,OnMetCon,c-f]\n/
+			\![*]\q[Nevermind,CANCEL]\e"
+		}
+	}
+}
+
+OnTempCon
+{
+
+}
+
 OnUp
 {
 	case reference0
@@ -972,59 +1628,213 @@ OnUp
 	}
 }
 
-Select.todotwooo
+Select.todo
 {
-	"\_q\1\b[4]"
+	_page = ""
 	--
+	if todopagenum < 4; _page = "\b0\_q%(cha)Your Lists:\n\n[half]"
+	elseif todopagenum < 10; _page = "\b2\_q%(cha)Your Lists:\n\n[half]"
+	elseif todopagenum < 15; _page = "\b4\_q%(cha)Your Lists:\n\n[half]"
+	--
+	if todopagenum != 0
+	{
+		for _i=0;_i<todopagenum;_i++
+		{
+			if namepage[_i] == ""; namepage[_i] = "unnamed"
+			--
+			//%(countarray(taskstatus[0],'0','+'))
+			_tsk = countarray(taskstatus[_i],'1','+')
+			--
+			_page += "\![*]\q[" + namepage[_i] + ",OnPageClick," + _i + "]        " + _tsk + "/" + taskamount[_i] + "\n"
+		}
+	}
+	else
+	{
+		_page += "You don't have any lists\n\n[half]"
+	}
+	--
+	_page += "\n"
+	--
+	if delepage == 1
+	{
+		_page += "%(acc)\q[Delete,OnZChnage,delepage,%(delepage),todo]\f[default]  |  "
+	}
+	else; _page += "\q[Delete,OnZChnage,delepage,%(delepage),todo]  |  "
+	--
+	if repage == 1
+	{
+		_page += "%(acc)\q[Rename,OnZChnage,repage,%(repage),todo]\f[default]  |  "
+	}
+	else; _page += "\q[Rename,OnZChnage,repage,%(repage),todo]  |  "
+	--
+	_page += "\q[Add,crepage]\n\n[half]\![*]\q[Close,closetodo]"
+	--
+	_page
+}
+
+//\n\q[Delete page,delpage]  | \q[Rename Page,repage] | \q[New Page,crepage]
+
+OnPageClick
+{
+	pagenum = TOINT(reference0)
+	--
+	if repage == 1
+	{
+		OnRePage
+	}
+	elseif delepage == 1
+	{
+		OnDelPage
+	}
+	else
+	{
+		OnTODOList
+	}
+}
+
+OnTODOList
+{
+	"\_q\b4"
+	--
+	//Structure:
+	//task+task2@subtask1#subtask2+task3
 	taskforpage = ""
 	lefttask = 0
 	pagetasks = REPLACE(tasks[pagenum],"+",",")
 	pagetaskstatus = REPLACE(taskstatus[pagenum],"+",",")
+	_z = countarray(taskstatus[pagenum],'1','+')
+	lefttask[pagenum] = taskamount[pagenum] - TOINT(_z)
 	--
-	for _i=1;_i<=taskamount[pagenum];_i++
-	{
-		pagetaskstatus[_i] = TOINT(pagetaskstatus[_i])
-		--
-		if pagetaskstatus[_i] == 0 || pagetaskstatus[_i] == ""; lefttask[pagenum]++
-	}
-	--
-	"\*\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]/
+	"%(cha)\f[bold,1]%(namepage[pagenum])\n\n[half]\f[bold,0]/
 	Number of Tasks: \f[bold,1]%(taskamount[pagenum])\f[bold,0]\nTasks to do: %(lefttask[pagenum])\n\n[half]"
 	--
 	for _i=1;_i<=taskamount[pagenum];_i++
 	{
-		if pagetaskstatus[_i] == 1; taskforpage += "\f[strike,1]\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\f[strike,0]\n"
-		else; taskforpage += "\__q[OnMarkTask," + _i + "]" + _i + ". " + pagetasks[_i] + "\__q\n"
+		if "@" _in_ pagetasks[_i]
+		{
+			_task = SPLIT(pagetasks[_i],"@")
+			_subtasks = SPLIT(_task[1],"#")
+			_subsize = ARRAYSIZE(_subtasks)
+			--
+			if pagetaskstatus[_i] == 1; taskforpage += "\f[strike,1]\__q[OnMarkTask," + _i + "]" + _i + ". " + TOPROPER(_task[0]) + "\__q\f[strike,0]\n"
+			else
+			{ 
+				_sub = ""
+				_sfs = 0
+				taskforpage += "\__q[OnMarkTask," + _i + "]" + _i + ". " + TOPROPER(_task[0]) + "\__q     "
+				--
+				for _j=0;_j<_subsize-1;_j++
+				{
+					if _subtasks[_j] != ""
+					{
+						if "=1=" _in_ _subtasks[_j]
+						{
+							_sfs++
+							_tsk = REPLACE(_subtasks[_j],"=1=","")
+							_sub += "\__q[OnSubMarkTask," + _j + "," + _i +"]    \f[strike,1]- " + TOPROPER(_tsk) + "\__q\f[strike,0]\n"
+						}
+						else; _sub += "\__q[OnSubMarkTask," + _j + "," + _i +"]    - " + TOPROPER(_subtasks[_j]) + "\__q\n"
+					}
+				}
+				--
+				taskforpage += _sfs + "/" + (_subsize-1) + "\n" + _sub
+			}
+
+		}
+		else
+		{
+			if pagetaskstatus[_i] == 1; taskforpage += "\f[strike,1]\__q[OnMarkTask," + _i + "]" + _i + ". " + TOPROPER(pagetasks[_i]) + "\__q\f[strike,0]\n"
+			else; taskforpage += "\__q[OnMarkTask," + _i + "]" + _i + ". " + TOPROPER(pagetasks[_i]) + "\__q\n"
+		}
 	}
 	--
 	"%(taskforpage)"
 	--
-	"\n\f[height,20]\q[+,qcrtsk] | "
+	"\nAdd: \q[Task,qcrtsk] | "
 	--
-	if deltasks != 1; "\q[-,crtsk]\n"
-	else; "%(acc)q[-,crtsk]\n\f[color,default]"
+	if subtasks != 1; "\q[Subtask,OnZChnage,subtasks,%(subtasks),todolist]\n\n[half]"
+	else; "%(acc)\q[Subtask,OnZChnage,subtasks,%(subtasks),todolist]\f[default]\n\n[half]"
 	--
-	"\f[height,10]"
+	if deltasks != 1; "\q[Delete,OnZChnage,deltasks,%(deltasks),todolist]\n"
+	else; "%(acc)\q[Delete,OnZChnage,deltasks,%(deltasks),todolist]\f[default]\n"
 	--
-	if pagenum != 0; "\q[<-- ,prevpage]"
+	"\n[half]\![*]\q[Go Back,todo]  |  \![*]\q[Close,closetodo]\e"
+}
+
+OnSubMarkTask
+{
+	choosenum = reference0
+	_tasknum = reference1 
+	_tasktemp = ""
+	pagetasks = REPLACE(tasks[pagenum],"+",",")
+	_allsub = ""
+	_task = SPLIT(pagetasks[_tasknum],"@")
+	_subtasks = SPLIT(_task[1],"#")
+	_subsize = ARRAYSIZE(_subtasks)
 	--
-	if pagenum < todopagenum; "\q[ -->,nextpage]" 
+	if deltasks == 1
+	{
+		_tasktemp = REPLACE(pagetasks[_tasknum],"#" + _subtasks[choosenum]+"#","#")
+		--
+		tasks[pagenum] = REPLACE(tasks[pagenum],pagetasks[_tasknum],_tasktemp)
+		--
+		OnTODOList
+	}
+	else
+	{
+		if "=1=" !_in_ _subtasks[choosenum];_tasktemp = REPLACE(pagetasks[_tasknum],"#"+_subtasks[choosenum]+"#","#=1=" +_subtasks[choosenum]+"#")
+		else
+		{
+			if choosenum != 0
+			{
+				_tasktemp = REPLACE("#"+_subtasks[choosenum]+"#","=1=","")
+				_tasktemp = REPLACE(pagetasks[_tasknum],"#"+_subtasks[choosenum]+"#",_tasktemp)
+			}
+			else
+			{
+				_tasktemp = REPLACE(_subtasks[choosenum]+"#","=1=","")
+				_tasktemp = REPLACE(pagetasks[_tasknum],_subtasks[choosenum]+"#",_tasktemp)
+			}
+		}
+		--
+		tasks[pagenum] = REPLACE(tasks[pagenum],pagetasks[_tasknum],_tasktemp)
+		--
+		OnTODOList
+	}
+}
+
+OnAddSubTask
+{
+	pagetasks = REPLACE(tasks[pagenum],"+",",")
+	_temp = pagetasks[choosenum]
 	--
-	"\n\q[Delete page,delpage]  | \q[Rename Page,repage] | \q[New Page,crepage]\n\n[half]/
-	\![*]\q[Close,closetodo]\f[height,default]\e"
+	if "@" !_in_ pagetasks[choosenum]
+	{
+		_temp += "@"
+	}
+	--
+	_temp += reference0 + "#"
+	--
+	tasks[pagenum] = REPLACE(tasks[pagenum],pagetasks[choosenum],_temp)
+	--
+	OnTODOList
 }
 
 Select.crepage
 {
-	todopagenum++
-	pagenum++
-	namepage[pagenum] = ""
-	taskamount[pagenum]
-	--
-	Select.todotwooo
+	"\_qHow do you want to name your list?\![open,inputbox,OnCPAGELIST,-1]"
 }
 
-Select.repage
+OnCPAGELIST
+{ 
+	namepage[todopagenum] = reference0
+	taskamount[todopagenum] = 0
+	todopagenum++
+	--
+	Select.todo
+}
+
+OnRePage
 {
 	"\![open,inputbox,OnRenamePage,-1]"
 }
@@ -1033,21 +1843,7 @@ OnRenamePage
 {
 	namepage[pagenum] = reference0
 	--
-	Select.todotwooo
-}
-
-Select.nextpage
-{
-	pagenum++
-	--
-	Select.todotwooo
-}
-
-Select.prevpage
-{
-	pagenum--
-	--
-	Select.todotwooo
+	Select.todo
 }
 
 Select.qcrtsk
@@ -1055,41 +1851,31 @@ Select.qcrtsk
 	"\![open,inputbox,OnCreateTask,-1]"
 }
 
-Select.delpage
+OnDelPage
 {
-	if pagenum != 0
+	pagenum = TOINT(reference0)
+	--
+	for _i=pagenum;_i<todopagenum;_i++
 	{
-		for _i=pagenum;_i<todopagenum;_i++
-		{
-			taskstatus[_i] = taskstatus[_i+1]
-			tasks[_i] = tasks[_i+1]
-			namepage[_i] = namepage[_i+1]
-			taskamount[_i] = taskamount[_i+1]
-		}
-		--
-		todopagenum--
-		--
-		if pagenum < todopagenum; pagenum++
-		else; pagenum--
-	}
-	else
-	{
-		taskstatus[pagenum] = 0
-		tasks[pagenum] = ""
-		namepage[pagenum] = ""
-		taskamount[_i] = 0
+		taskstatus[_i] = taskstatus[_i+1]
+		tasks[_i] = tasks[_i+1]
+		namepage[_i] = namepage[_i+1]
+		taskamount[_i] = taskamount[_i+1]
 	}
 	--
-	Select.todotwooo
+	todopagenum--
+	--
+	Select.todo
 }
 
 OnCreateTask
 {
 	taskamount[pagenum]++
+	pagetaskstatus[_i] = 0
 	pagetasks[taskamount[pagenum]] = reference0
 	tasks[pagenum] = REPLACE(pagetasks,",","+")
 	--
-	Select.todotwooo
+	OnTODOList
 }
 
 Select.crtsk
@@ -1097,7 +1883,7 @@ Select.crtsk
 	if deltasks != 1; deltasks = 1
 	else; deltasks = 0
 	--
-	Select.todotwooo
+	OnTODOList
 }
 
 OnMarkTask
@@ -1105,6 +1891,7 @@ OnMarkTask
 	choosenum = reference0
 	--
 	if deltasks == 1; OnDeleteTask
+	elseif subtasks == 1; "\![open,inputbox,OnAddSubTask,-1]\e"
 	else; OnMarkTask_done
 }
 
@@ -1120,7 +1907,7 @@ OnDeleteTask
 	taskstatus[pagenum] = REPLACE(pagetaskstatus,",","+")
 	taskamount[pagenum]--
 	--
-	Select.todotwooo
+	OnTODOList
 }
 
 OnMarkTask_done
@@ -1130,7 +1917,7 @@ OnMarkTask_done
 	--
 	taskstatus[pagenum] = REPLACE(pagetaskstatus,",","+")
 	--
-	Select.todotwooo
+	OnTODOList
 }
 
 Select.weath
@@ -1251,10 +2038,10 @@ Select.oapp
 		
 	}
 	--
-	if delapp == "ON"; appcontent += "\f[size,20]\n%(acc)q[-,delap]\f[color,default] | \f[size,default]"
+	if delapp == "ON"; appcontent += "\f[size,20]\n%(acc)\q[-,delap]\f[color,default] | \f[size,default]"
 	else; appcontent += "\f[size,20]\n\q[-,delap] | \f[size,default]"
 	--
-	if editap == "ON"; appcontent += "%(acc)q[RENAME,edap]\f[color,default]"
+	if editap == "ON"; appcontent += "%(acc)\q[RENAME,edap]\f[color,default]"
 	else; appcontent += "\q[RENAME,edap]"
 	--
 	appcontent += "\n[half]\n\![*]\q[ADD PROJECT TYPE,projtype]\n[half]\n\![*]\q[Nevermind,CANCEL]\n"

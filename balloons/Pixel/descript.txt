@@ -1,4 +1,4 @@
-charset,Shift_JIS
+charset,UTF-8
 type,balloon
 name,Pixel
 homeurl,https://zdzisiu.github.io/Ukagaka/balloons/Pixel/

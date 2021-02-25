@@ -3,7 +3,7 @@
     logcont[logpage] = ""
     --
     truth += 1
-    "\*\_q\b4\f[bold,1]LOG#%(logpage)\n/
+    "\*\_q\b8\f[bold,1]LOG#%(logpage)\n/
     \f[bold,1]Log creator:\f[bold,default] %(logname[logpage])\n/
     \f[bold,1]Current Generation:\f[bold,default] %(loggen[logpage])\n"
     --
@@ -128,18 +128,20 @@ Select.LOG
     --
     /*if devlogunolock == 1 && tentruth == 1
     {
-        "CHOSE USER\n\n"
+        "CHOOSE USER\n\n"
         --
         "\q[M-201z,displaydevlogs] --- \q[%(logusername),displayuserlogs]"
     }
     else
     {*/
-        userlogpage = 1
-        --
-        "%(userslog)"
+        //userlogpage = 1
+        //--
+        //"%(userslog)"
+        OnLogSelect
     //}
     
 }
+
 Select.displaydevlogs
 {
     devlogpage = 1
@@ -150,7 +152,7 @@ Select.displaydevlogs
 devlog
 {
     
-    "\*\b4\f[bold,1]LOG#%(devlogpage)\n/
+    "\*\b8\f[bold,1]LOG#%(devlogpage)\n/
     Date of creation:\f[bold,default] %(devlogdata[devlogpage])\n/
     \f[bold,1]Log creator:\f[bold,default] M-201z\n/
     \f[bold,1]Log:\f[bold,default] %(devlogcontent[devlogpage])\n\n"
@@ -240,62 +242,114 @@ OnDevLogUpdate
 
 Select.displayuserlogs
 {
-    userlogpage = 1
-    "%(userslog)"
+    OnLogSelect
 }
 
-userslog
+OnLogSelect
 {
-    
-    if userlogs == 0
-    {
-        "NO LOGS FOUND\n\n/
+    _page = ""
+    _d = ""
+	--
+	if userlogs < 4; _page = "\b0\_q%(cha)Your Logs:\n\n[half]"
+	elseif userlogs < 10; _page = "\b2\_q%(cha)Your Logs:\n\n[half]"
+	elseif userlogs < 15; _page = "\b4\_q%(cha)Your Logs:\n\n[half]"
+	--
+	if userlogs != 0
+	{
+		for _i=1;_i<=userlogs;_i++
+		{
+			if ulogname[_i] == ""; ulogname[_i] = "unnamed"
+            --
+            if logupdatedata[_i] != ""; _page += "\![*]\q[" + ulogname[_i] + ",OnLogClick," + _i + "]        \f[height,10]" + logupdatedata[_i] + "\f[default]\n"
+            else; _page += "\![*]\q[" + ulogname[_i] + ",OnLogClick," + _i + "]        \f[height,10]" + userlogdata[_i] + "\f[default]\n"
+		}
+	}
+	else
+	{
+		"\_qNO LOGS FOUND\n\n/
         \q[CREATE LOG,crelog]\n\n[half]\q[Back to menu,OnBACKTOMENU]\e"
-    }
-    else
-    { 
-        "\_q\b4\f[bold,1]LOG#%(userlogpage):\f[bold,default] %(ulogname[userlogpage])\n/
-        \f[bold,1]Date of creation:\f[bold,default] %(userlogdata[userlogpage])\n"
-        --
-        if logupdatedata[userlogpage] != ""; "\f[bold,1]Date of Update:\f[bold,default] %(logupdatedata[userlogpage])\n"
-        --
-        "\f[bold,1]Log creator:\f[bold,default] %(username)\n/
-        \f[bold,1]Log:\f[bold,default]\n\n[half] %(userlogcontent[userlogpage])\n\n"
-        --
-        if userlogpage != 1; "\q[<----,uplog] "
-        --
-        if userlogpage < userlogs;  " \q[---->,unlog]"
-        --
-        "\n\q[CREATE LOG,crelog] or \q[UPDATE LOG,uulog]\n\n[half]/
-        \q[CHANGE LOG NAME,namlog]\n\n[half]/
-        \q[DELETE ALL LOGS,delalllog] or \q[DELETE LOG,dellog]\n\n[half]/
-        \q[CLOSE LOGS,clog]\_q"
-    }
+	}
+	--
+	_page += "\n\f[height,12]"
+	--
+    //\q[CREATE LOG,crelog] or \q[UPDATE LOG,uulog]\n\n[half]/
+    //\q[CHANGE LOG NAME,namlog]\n\n[half]/
+    //\q[DELETE ALL LOGS,delalllog] or \q[DELETE LOG,dellog]\n\n[half]/
+	if dellog == 1
+	{
+		_page += "%(acc)\q[Delete,OnZChnage,dellog,%(dellog),log]\f[color,default]  |  "
+	}
+	else; _page += "\q[Delete,OnZChnage,dellog,%(dellog),log]  |  "
+	--
+	if relog == 1
+	{
+		_page += "%(acc)\q[Rename,OnZChnage,relog,%(relog),log]\f[color,default]  |  "
+	}
+	else; _page += "\q[Rename,OnZChnage,relog,%(relog),log]  |  "
+	--
+    if uplog == 1
+	{
+		_page += "%(acc)\q[Update,OnZChnage,uplog,%(uplog),log]\f[color,default]  |  "
+	}
+	else; _page += "\q[Update,OnZChnage,uplog,%(uplog),log]  |  "
+	--
+	_page += "\q[Add,crelog]\f[default]\n\n[half]\![*]\q[Close,closetodo]"
+	--
+	_page
+}
+
+OnLogClick
+{
+    userlogpage = TOINT(reference0)
+	--
+	if relog == 1
+	{
+		"\![open,inputbox,OnUserLogName,-1]\e"
+	}
+	elseif dellog == 1
+	{
+		OnDelLog
+	}
+    elseif uplog == 1
+	{
+	    "\![open,inputbox,OnUserLogUpdate,-1]"
+	}
+	else
+	{
+		OnUserslog
+	}
+}
+
+OnUserslog
+{
+    "\_q\b8\f[bold,1]%(cha)LOG#%(userlogpage):\f[bold,default] %(ulogname[userlogpage])\n/
+    \f[bold,1]Date of creation:\f[bold,default] %(userlogdata[userlogpage])\n"
+    --
+    if logupdatedata[userlogpage] != ""; "\f[bold,1]Date of Update:\f[bold,default] %(logupdatedata[userlogpage])\n"
+    --
+    "\f[bold,1]Log creator:\f[bold,default] %(username)\n/
+    \f[bold,1]Log:\f[bold,default]\n\n[half] %(userlogcontent[userlogpage])\n\n"
+    --
+    "\n\q[Close,clog] | \q[Go Back,OnLogSelect]"
     --
     "\e"
-}
-
-Select.namlog
-{
-    "\![open,inputbox,OnUserLogName,-1]\e"
 }
 
 OnUserLogName
 {
     ulogname[userlogpage] = reference0
     --
-    "%(userslog)"
+    OnLogSelect
 }
 
 Select.delalllog
 {
-    
-    "ARE YOU SURE YOU WANT TO DELETE ALL LOGS?\n\n/
+    "\_qARE YOU SURE YOU WANT TO DELETE ALL LOGS?\n\n/
     \q[YES,yesdellog]\n/
     \q[NO,displayuserlogs]"
 }
 
-Select.dellog
+OnDelLog
 {
     for _i=userlogpage;_i<=userlogs;_i++
     {
@@ -306,54 +360,38 @@ Select.dellog
         userlogdata[_i] = userlogdata[_i+1]
     }
     --
-    if userlogcontent[userlogpage] == ""; userlogpage -= 1
-    --
     userlogs -= 1
     --
-    "%(userslog)"
+    OnLogSelect
 }
 
 Select.crelog
 {
-    OnNewLogStart
+    "\_qName your Log \![open,inputbox,OnNewLogStart,-1]"
 }
-
-Select.unlog
-{
-    userlogpage += 1
-    "%(userslog)"
-}
-
-Select.uulog
-{
-    "\![open,inputbox,OnUserLogUpdate,-1]"
-} 
 
 OnUserLogUpdate
 {
     userlogcontent[userlogpage] = reference0
-    logupdatedata[userlogpage] = nowhour + ":" + nowmin + " " + ap + "  " + day + "/" + month + "/" + year
-    "%(userslog)"
-}
-
-Select.uplog
-{
-    userlogpage -= 1
-    "%(userslog)"
+    logupdatedata[userlogpage] = timeformat + " . " + dateformat
+    --
+    OnLogSelect
 }
 
 OnNewLogStart
 {   userlogs += 1
-    userlogdata[userlogs] = nowhour + ":" + nowmin + " " + ap + "  " + day + "/" + month + "/" + year
-    "\![open,inputbox,OnUserLog,-1]"
+    ulogname[userlogs] = reference0 
+    logupdatedata[_i] = ""
+    userlogdata[userlogs] = timeformat + " . " + dateformat
+    "\_qWrite your log\![open,inputbox,OnUserLog,-1]"
 }
 
 OnUserLog
 {
+    userlogpage = userlogs
     userlogcontent[userlogs] = reference0
-    if FOPEN('/log/log#%(userlogs)','w'); FWRITE('/log/log#%(userlogs)',reference0)
-    "%(userslog)"
-
+    //if FOPEN('/log/log#%(userlogs)','w'); FWRITE('/log/log#%(userlogs)',reference0)
+    OnUserslog
 }
 
 Select.yesdellog

@@ -1,6 +1,9 @@
 ﻿OpenSakuraMenu
 {
-	"\0\s[0]\b2..."
+	if workmode != 1
+	{
+		"\0\s[0]\b2..."
+	}
 	--
 	MenuRun
 }
@@ -12,22 +15,335 @@ MenuRun
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
-	"\n\n\_q\b2" 
-	--
-	if lastTalk != "" 
+	if workmode != 1
 	{
-	  "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n"
+		"\n\n[half]\_q\b2" 
+		--
+		if lastTalk != "" 
+		{
+		"\![*]\q[Repeat Last Dialogue,OnLastTalk]\n"
+		}
+		--
+		"\![*]\q[Say something,altalk]\n\n[half]"
+		--
+		"\![*]\q[Questions,ques]\n"
+		--
+		"\![*]\q[Work Mode ON,workmodes]\n"
+		--
+		"\![*]\q[Config Menu,configmenu]\n/
+		\![*]\q[Functions,dosomething]\n\n[half]/
+		\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	}
+	else
+	{
+		"\n\n[half]\_q\b2Active Ghost: \f[bold,1]%(activeghost[0])\f[bold,0]\n" 
+		--
+		if shellorghost == "Shell"
+		{
+			"Active Shell: \f[bold,1]%(activeghost[3])\f[bold,0]\n"
+		}
+		--
+		"\n[half]\![*]\q[Ghosts,ghosts]\n"
+		--
+		if shellorghost == "Shell"
+		{
+			"\n[half]\![*]\q[Shells,OnChngShell]\n"
+			--
+			"\![*]\q[Change range of surfaces,OnSettingsBatchChange]\n"
+			--
+			"\![*]\q[Surfaces.txt,OnReadFile_Surfaces]\n"
+		}
+		--
+		"\n[half]Edit: \f[bold,1]\q[%(shellorghost),OnChangeFolder,shellorghost]\f[bold,0]\n\n[half]"
+		--
+		"\![*]\q[Work Mode OFF,workmodes]\n"
+		--
+		"\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+
+	}
+	
+}
+
+/*activeghost
+0. Name
+1. Active Shell Folder
+2. Path
+3. Active shell Name
+*/
+Select.workmodes
+{
+	if workmode != 1
+	{
+		workmode = 1
+	}
+	else
+	{
+		workmode = 0
 	}
 	--
- 	"\![*]\q[Say something,altalk]\n\n[half]"
+	OpenSakuraMenu
+}
+
+Select.ghosts
+{
+	page = "\b4\_q\n\n"
 	--
-	"\![*]\q[Questions,ques]\n"
+	for _i=0;_i<ARRAYSIZE(installedghostlist);_i++
+	{
+		if installedghostlist[_i] _in_ workspace[0]
+		{
+			page += "\![*]\q[" + installedghostlist[_i] + ",OnChooseGhost," + _i + "," + shellorghost + "," + installedghostlist[_i] + "]\n"
+		}
+	}
 	--
-	"\![*]\q[Change range of surfaces,changerane]\n\n[half]"
+	if page == "\b4\_q\n\n"
+	{
+		page += "\f[bold,1]No ghosts added\f[bold,0]"
+	}
 	--
-	"\![*]\q[Config Menu,configmenu]\n/
-	\![*]\q[Functions,dosomething]\n\n[half]/
- 	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	page += "\n\n[half]\f[bold,1]Edit Workspace:\f[bold,0] \n\q[Remove ghost,removework] | \q[Add ghost,addwork]\n\n[half]\![*]\q[Nevermind,CANCEL]"
+	--
+	page
+}
+
+Select.removework
+{
+	page = "\b4\_q\n\n"
+	--
+	for _i=0;_i<ARRAYSIZE(installedghostlist);_i++
+	{
+		if installedghostlist[_i] _in_ workspace[0]
+		{
+			page += "\![*]\q[" + installedghostlist[_i] + ",OnRMVGhost," + _i + "," + installedghostlist[_i] + "]\n"
+		}
+	}
+	--
+	page += "\n\n[half]\![*]\q[Nevermind,CANCEL] | \![*]\q[Go Back,ghosts]"
+	--
+	page
+}
+
+OnRMVGhost
+{
+	workspace[0] = REPLACE(workspace[0],reference1,"")
+	--
+	Select.removework
+}
+
+Select.addwork
+{
+	page = "\b4\_q\n\n"
+	--
+	for _i=0;_i<ARRAYSIZE(installedghostlist);_i++
+	{
+		if installedghostlist[_i] !_in_ workspace[0]
+		{
+			page += "\![*]\q[" + installedghostlist[_i] + ",OnAddWRK," + _i + "," + installedghostlist[_i] +  ",]\n"
+		}
+	}
+	--
+	page += "\n\n[half]\![*]\q[Nevermind,CANCEL] | \![*]\q[Go Back,ghosts]"
+	--
+	page
+}
+
+OnAddWRK
+{
+	workspace[0] += reference1 + "|"
+	--
+	Select.addwork
+}
+
+OnChooseGhost
+{
+	activeghost[1] = ""
+	activeghost[0] = reference2
+	page = "\![get,property,OnChooseWorkspace,ghostlist.index("+ reference0 + ").path]"
+	--
+	page
+}
+
+OnChooseWorkspace
+{
+	activeghost[2] = REPLACE(reference0,"\","/") //"
+	file = activeghost[2]
+	--
+	OpenSakuraMenu
+}
+
+OnChngShell
+{
+	_shellfile = file + "shell/"
+	_shells = FENUM(_shellfile,",")
+	_shells = REPLACE(_shells,"\","") //"{
+	--
+	pageshell = "\b4\_qChoose shell:\n\n"
+	--
+	foreach _shells ; _p
+	{
+		if !FOPEN(_filename = _shellfile + "\%(_p)\descript.txt","r")
+			return
+		while (_line = FREAD(_filename)) != -1;
+		{
+			if CUTSPACE(_line[0]) == "name"
+			{ 
+				shellsnames ,= CUTSPACE(_line[1])
+				break;
+			}
+		}
+	}
+	for _i=1;_i<ARRAYSIZE(_shells)+1;_i++
+	{
+		pageshell += "\![*]\q[" + shellsnames[_i] + ",OnChooseShell," + _shells[_i-1] + "," + shellsnames[_i] + "]\n\n[half]"
+	}
+	--
+	pageshell += "\![*]\q[Nevermind,Cancel]\e"
+	--
+	pageshell
+}
+
+
+//\![raise,GetShells]
+GetShells
+{
+	_shellfile = file + "shell/"
+	_shells = FENUM(_shellfile,",")
+	_shells = REPLACE(_shells,"\","") //"{
+	--
+ 	_shellsnames = IARRAY
+  	_paths = FENUM("..\..\shell")
+  foreach _paths ; _p
+  {
+    if FOPEN(_filename = "..\..\shell\%(_p)\descript.txt","r")
+    {
+      while (_line = FREAD(_filename)) != -1;
+      {
+        if CUTSPACE(_line[0]) == "sakura"
+        { 
+          _shellsnames ,= CUTSPACE(_line[1])
+          break;
+        }
+     }
+      FCLOSE(_filename)
+    }
+  }
+  _shellsnames
+}
+
+OnReadFile_Surfaces
+{
+	_file = activeghost[2] + "shell/" + activeghost[1] + "/surfaces.txt"
+	--
+	line = ""
+	lines = ""
+	_x = 0
+	lenght = 0
+	--
+	if FOPEN(_file,"r")
+	{
+		//"Opened %(file)"
+		/*}
+		else
+		{
+			"error"
+		}
+		--*/
+		for _i=0;_x!=1;_i++
+		{
+			line = FREAD(_file)
+			lenght++
+			--
+			if line == "-1"
+			{
+				_x = 1
+			}
+			else
+			{
+				lines += line + "\n"
+			}
+		}
+		--
+		FCLOSE(_file)
+	}
+	else
+	{
+		"error %(_file)"
+	}
+	--
+	ReadSurfaces
+}
+
+ReadSurfaces
+{
+	page = "\b4\_q"
+	linebyline = SPLIT(lines,"\n")
+	--
+	for _i=0;_i<=lenght;_i++
+	{
+		if RE_SEARCH(linebyline[_i],"surface(\.*)") && "element" !_in_ linebyline[_i]
+		{
+			_surfacenum = RE_GETSTR[1]
+			page += "\![*]\q[" + linebyline[_i] + ",OnDescSurf," + surfacenum + "," + _i + "]\n"
+		}
+	}
+	--
+	page
+}
+
+OnDescSurf
+{
+	page = "\b4\_q"
+	--
+	for _i=reference1+1;_i<=lenght;_i++
+	{
+		if linebyline[_i] != ""
+		{
+			if "}" _in_ linebyline[_i]
+			{
+				_i = lenght
+			}
+			elseif "{" _in_ linebyline[_i]
+			{
+				
+			}
+			else
+			{
+			}
+		}
+
+	}
+	--
+	page
+}
+
+OnChooseShell
+{
+	activeghost[1] = reference0
+	activeghost[3] = reference1
+	--
+	OpenSakuraMenu
+}
+
+OnChangeStuFFG
+{
+	edit = reference0
+	page = "\![get,property,OnGetPath,ghostlist.index("+ reference1 + ").path]"
+	--
+	page
+}
+
+OnChangeFolder
+{
+	if shellorghost == "Shell"
+	{
+		shellorghost = "Ghost"
+	}
+	else
+	{
+		shellorghost = "Shell"
+	}
+	--
+	OpenSakuraMenu
 }
 
 Select.ques
@@ -37,25 +353,54 @@ Select.ques
 	"\n[half]\![*]\q[I'm Done,CANCEL]"
 }
 
-Select.changerane
+OnSettingsBatchChange
 {
-	"\![open,file,surface]Put the surfaces that you want to change here\![open,inputbox,OnBatchChange,-1] and write the starting number"
+	if changed != ""
+	{
+			if changed == "howmany"
+			{
+				batchchange[0] = TOINT(reference0)
+			}
+			elseif changed == "oldstart"
+			{
+				batchchange[1] = TOINT(reference0)
+			}
+			elseif changed == "newstart"
+			{
+				batchchange[2] = TOINT(reference0)
+			}
+			--
+			changed = ""
+	}
+	--
+	"\_q\b2How many surfaces to change: \f[bold,1]\q[%(batchchange[0]),OnChangeStat_sur,howmany]\f[bold,0]\n\n[half]"
+	--
+	"\b2Old starting number: \f[bold,1]\q[%(batchchange[1]),OnChangeStat_sur,oldstart]\f[bold,0]\n\n[half]"
+	--
+	"\b2New starting number: \f[bold,1]\q[%(batchchange[2]),OnChangeStat_sur,newstart]\f[bold,0]\n\n[half]"
+	--
+	"\![*]\q[CHANGE,OnBatchChange]"
+}
+
+OnChangeStat_sur
+{
+	changed = reference0
+	--
+	"\![open,inputbox,OnSettingsBatchChange]"
 }
 
 OnBatchChange
 {
-	_surfaces = FENUM("surface")
-	_surfnum = ARRAYSIZE(_surfaces)
-	_newnum = TOINT(reference0)
+	_start = batchchange[1]
+	_newstart = batchchange[2]
+	_howmanu = batchchange[0]
 	--
-	for _i=0;_i<=_surfnum;_i++
+	for _i=0;_i<=_howmanu;_i++
 	{
-		FRENAME("surface/%(_surfaces[_i])","surface/surface%(_newnum).png")
-		--
-		_newnum++ 
+		FRENAME(file + "/shell/" + activeghost[1] + "/surface" + (_start + _i) + ".png",file + "/shell/" + activeghost[1] + "/surface" + (_newstart + _i) + ".png")
 	}
 	--
-	"\![open,file,surface]"
+	"\![open,file,%(file)/shell/%(activeghost[1])]"
 }
 
 OnQuestion
@@ -604,14 +949,14 @@ OnConvert_write
 		}
 		elseif "pattern" _in_ lines[_i] 
 		{
-			_linereg = '(\d*)pattern(\d*)'
+			_linereg = '(\d*)pattern(\d*),'
 
 			if RE_SEARCH ( lines[_i], _linereg ) {
 				intervalnum = RE_GETSTR[1]
-				patternnum = RE_GETSTR[2]
+				patternnum = RE_GETSTR[1]
 			}
 			--
-			newfile += "animation" + intervalnum + ".pattern" + patternnum + "," + subline[3] + "," + subline[1] + "," + subline[2] + "0," + subline[4] + "," + subline[5] + "\n"
+			newfile += "animation" + intervalnum + ".pattern" + patternnum + "," + subline[3] + "," + subline[1] + "," + subline[2]  + "," + subline[4] + "," + subline[5] + "\n"
 		}
 		else
 		{
@@ -644,10 +989,3 @@ OnConvert_write
 }
 //1pattern0,101,70,overlay,200,100 --> animation1.pattern0,overlay,101,700,200,100
 //0        , 1 ,2 ,3,     ,4  ,5
-/*
-descript
-{
-version,1
-collision-sort,ascend
-animation-sort,ascend
-}*/

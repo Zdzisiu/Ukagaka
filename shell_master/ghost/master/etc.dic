@@ -3,6 +3,7 @@
 	_filepath = SPLITPATH(reference0)
 	_filename = _filepath[2]
 	_fileext = TOLOWER(_filepath[3])
+	--
 	case _fileext
 	{
 		when ".jpg", ".jpeg", ".bmp"
@@ -17,15 +18,37 @@
 		{
 			if _filename == "surfaces"
 			{
-				FCOPY(reference0,"conversion")
-				--
-				OnConvert_read
+				if FCOPY(reference0,"conversion")
+				{
+					OnConvert_read
+				}
+				else
+				{
+					"There was an error, sorry"
+				}
 			}
+		}
+		when ".lnk"
+		{
+			"Is it a shell or a ghost?\n\n[half]\![*]\q[Shell,OnGS,shell,%(reference0)] | \![*]\q[Ghost,OnGS,ghost,%(reference0)]"
 		}
 		others
 		{
 			"\0\s[0]This is %(_filename)%(_fileext).\e"
 		}
+	}
+}
+
+OnGS
+{
+
+	if FCOPY(reference1,reference0+"s")
+	{
+		"Copied to the %(reference0) folder"
+	}
+	else
+	{
+		"There was an error, sorry"
 	}
 }
 

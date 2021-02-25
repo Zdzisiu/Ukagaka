@@ -28,7 +28,7 @@
 	nowshell = "Original Dev" 
 	devname = "MiniDev" //MD name
 	mode = 2 //dark mode/ligt mode
-	modelp = RAND(300) //MD Model
+	modelp = RAND(10000) //MD Model
 	--
 	FirstBootArrays // log arrays
 	--
@@ -240,7 +240,7 @@ OnBoot
 	intalkconfig = 0 
 	weatherquiet = 0 
 	exponentiation = 0 
-	glitchboot = RAND(100) // random chance to get a glitched boot
+	glitchboot = RAND(100) //random chance to get a glitched boot
     --
  	"\0\s[0]\1\s[-1]%(lightdark)" 
 	--
@@ -258,6 +258,8 @@ OnBoot
 	OnArraysCheck
 	--
 	OnCharacterCheck
+	--
+	if token == 0; "\![execute,http-get,http://ukg.ct8.pl/token.txt,--async=OnTokenCheck,--file=token.txt,--timeout=200]"
 	--
 	if truth >= 10 && truthboot == 0
 	{
@@ -828,6 +830,14 @@ OnUpdateVariables
 	{
 		vers = "1.0.9"
 		ghostmet = IARRAY
+		nickname = "user" + RAND(10000)
+		token = 0
+		uiclps = 1
+		clrclps = 1
+		mdclps = 1
+		qbtnclps = 1
+		menclps = 1
+		othclps = 1
 		--
 		if meetobsidian == 1; ghostmet ,= "Dusty"
 		--
@@ -838,13 +848,63 @@ OnUpdateVariables
 		if metazura == 2; ghostmet ,= "Azura-2"
 		--
 		if meetingomega == 1; ghostmet ,= "Omega"
+		--
+		if token == 0; "\![execute,http-get,http://ukg.ct8.pl/token.txt,--async=OnTokenCheck,--file=token.txt,--timeout=200]"
 	}
 	--
 	if narrator == 0 && repairglitch == 1
 	{
-		//OnUnlockNarrator
+		OnUnlockNarrator
 	}
+}
 
+OnTokenCheck
+{
+	_file = "var\\token.txt"
+	_tokens = IARRAY
+	_line = ""
+    FCHARSET(1)
+    --
+    if FOPEN(_file,'r') {
+		for _z=0; _z != -1; _line = FREAD(_file)
+		{ 
+			if _line == -1 || _line == "-1"
+			{
+				_z = 1
+				break
+			}
+			else
+			{
+				_tokens ,= _line
+			}
+		}
+	}
+	--
+    FCLOSE(_file)
+	--
+	if ASEARCH("M-" + modelp + "P",_tokens) != -1
+	{
+		modelp = RAND(3000)
+		--
+		OnTokenCheck
+	}
+	else
+	{
+		_arr = ARRAYSIZE(_tokens)
+		--
+		if FOPEN(_file,'a') {
+			FWRITE(_file,"M-" + modelp + "P")
+		}
+		--
+		FCLOSE(_file)
+		--
+		FUNCTIONEX("saori/filetransfer.dll","upload","http","ukg.ct8.pl/index.php","./"+_file)
+		--
+		_z = FDEL(_file)
+		--
+		//"done"
+		token = 1
+	}
 }
 
 OnUnlockNarrator

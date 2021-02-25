@@ -80,20 +80,28 @@ MDtalk
 	if romantic == "ON"; "%(pickupline)"
 
 	{
-		if lefttask[pagenum] != 0
+		_rnd = RAND(todopagenum)
+		if lefttask[_rnd] != 0
 		{
-			if lefttask[pagenum] == 1; "You still have 1 task to do on '%(namepage[pagenum])' list"
-			else; "You still have %(lefttask[pagenum]) tasks to do on '%(namepage[pagenum])' list"
+			pagetaskstatus = REPLACE(taskstatus[_rnd],"+",",")
+			--
+			{
+				_z = countarray(taskstatus[_rnd],'1','+')
+				lefttask[_rnd] = taskamount[_rnd] - TOINT(_z)
+				--
+				if lefttask[_rnd] == 1; "You still have 1 task to do on '%(namepage[_rnd])' list"
+				else; "You still have %(lefttask[_rnd]) tasks to do on '%(namepage[_rnd])' list"
+			}
 
 			{
-				randtask = RAND(taskamount[pagenum])
+				randtask = RAND(taskamount[_rnd])
 				--
 				if randtask == 0; randtask = 1
 				--
-				for x=0,_i=0;x==0 || _i<=taskamount[pagenum];_i++
+				for x=0,_i=0;x!=1 || _i<=taskamount[_rnd];_i++
 				{
-					if pagetaskstatus[_i] != 1; x = 1
-					else; randtask = RAND(taskamount[pagenum])
+					if pagetaskstatus[_i] != "1"; x = 1
+					else; randtask = RAND(taskamount[_rnd])
 				}
 				--
 				if pagetasks[randtask] != ""; "You should try completing one of the tasks, maybe try completing '%(pagetasks[randtask])' from '%(namepage[pagenum])'"
@@ -709,8 +717,6 @@ NarratorTalks
 
 	"\1%(distingnarr)* M-201z is curiously looking through your %(folder)\w8\w8\0%(distingstart)\f[height,10]Snitches get stiches\w8\w8\1%(distingnarr)\n\n[half]* He spent too much time on Urban Dictionary\w8\w8\0\f[default]%(distingstart)\n\n[half]>:c"
 
-	
-
 	case numofmood
 	{
 		when 0
@@ -730,6 +736,7 @@ NarratorTalks
 
 			"\1%(distingnarr)* He seems to be at peace"
 			"\1%(distingnarr)* He looks relaxed"
+			"\1%(distingnarr)* He seems relaxed"
 			"\1%(distingnarr)* He looks peaceful"
 
 		}

@@ -14,9 +14,18 @@ Select.clothesmenu
 	\![*]\q[Dresses,dress]\n/
 	\![*]\q[Shoes,shoes]\n"
 	--
-	"\![*]\q[Outfits,OnOutfit]\n\n[half]\![*]\q[Reset,OnReset]\n\![*]\q[Random outfit,OnRandom_Start]\n\n[half]"
+	"\![*]\q[Outfits,OnOutfit]\n\n[half]/
+	\![*]\q[Reset,OnReset]\n/
+	//\![*]\q[Your Outfits,svdoutf]\n/
+	//\![*]\q[Save,OnReset]\n/
+	\![*]\q[Random outfit,OnRandom_Start]\n\n[half]"
 	--
 	"\![*]\q[Nevermind,CANCEL]"
+}
+
+Select.svdoutf
+{
+
 }
 
 OnRandom_Start
@@ -381,23 +390,6 @@ OnNotifyDressupInfo
 	//"0,legs,white_sandals,default,mustselect,0,,"
 	dresslog = reference //0
 }
-
-/*OnDressupChanged
-{
-	dressup = reference3 + "," + reference1 + ","+ reference2 + "."
-	--
-	dressupcheck = reference3 + "," + reference1
-	--
-	if dressupcheck _in_ clothesstring
-	{
-		clothesstring = REPLACE(clothesstring,dressupcheck+",1.",dressup)
-		clothesstring = REPLACE(clothesstring,dressupcheck+",0.",dressup)
-	}
-	else
-	{
-		clothesstring += dressup
-	}
-}*/
 
 OnBindCol
 {
