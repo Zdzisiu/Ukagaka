@@ -1,10 +1,19 @@
-Name: Chclt cakeeeeeeeeeeeeeeee
-Author: 
+Name: Chclt cakeeeee
+
+Author: Zdzisiu
+
 Ingridients:
+
 choclt
+
 cakr
+
 Steps:
+
 take choclt
+
 take cake
+
 put choclt on cake
+
 <br/>

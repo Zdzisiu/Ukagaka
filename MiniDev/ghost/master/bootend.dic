@@ -28,7 +28,7 @@
 	nowshell = "Original Dev" 
 	devname = "MiniDev" //MD name
 	mode = 2 //dark mode/ligt mode
-	modelp = RAND(10000) //MD Model
+	modelp = RAND(1000) //MD Model
 	--
 	FirstBootArrays // log arrays
 	--
@@ -884,7 +884,7 @@ OnTokenCheck
 	--
 	if ASEARCH("M-" + modelp + "P",_tokens) != -1
 	{
-		modelp = RAND(3000)
+		modelp = RAND(1000)
 		--
 		OnTokenCheck
 	}
