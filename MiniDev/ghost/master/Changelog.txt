@@ -10,14 +10,14 @@
 - Update from Function menu
 
 1.0.9
-- Reworked the ToDo list
-	- No more searching lists by arrows, now they are displayed in a menu first by their name
-	- Add sub tasks by clicking 'subtask' and then on a main taks
-	- Beside their name is a counter of how many task you completed/how many are on a list
-	- Main tasks that have subtasks also have a counter like that
+- Reworked the To-Do list
+    - No more searching lists by arrows, now they are displayed in a menu first by their name
+    - Add sub tasks by clicking 'subtask' and then on a main task
+    - Beside their name is a counter of how many task you completed/how many are on a list
+    - Main tasks that have subtasks also have a counter like that
 - Reworked the Logs
-	- No more searching logs by arrows, now they are displayed in a menu first by their name just like todo lists
-	- Beside their name is displayed the date of creation/update
+    - No more searching logs by arrows, now they are displayed in a menu first by their name just like todo lists
+    - Beside their name is displayed the date of creation/update
 - Fixed some AiDialogues
 - Meet the narrator!
 - Now Your M-P can deal with food recipes!
