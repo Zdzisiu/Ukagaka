@@ -390,12 +390,12 @@ OnClose
 			if reference0 == "Dusty"
 			{
 				obsydian = 0
-				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)"
+				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)\-\e"
 			}
 		}
 		else
 		{
-			"\0%(byebye) %(users)"
+			"\0%(byebye) %(users)\-\e"
 		}	
  	}	
  	else 
@@ -405,16 +405,14 @@ OnClose
 			if reference0 == "Dusty"
 			{
 				obsydian = 0
-				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)"
+				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)\-\e"
 			}
 		}
 		else
 		{
- 			"\0Woah,\w8 that was quick\w8\w8\w8\w8\c %(byebye)%(users)\w8\w8\w8\w8"
+ 			"\0Woah,\w8 that was quick\w8\w8\w8\w8\c %(byebye)%(users)\w8\w8\w8\w8\-\e"
 		}
  	}
- 	--
-	"\-\e" 
 }
 
 OnWindowStateMinimize

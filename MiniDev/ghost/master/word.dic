@@ -420,7 +420,7 @@ byebye
 	"Ciao"
 	"Adieu"
 
-	if obsidianjump == 1; "Smell ya later\e:eval=obsidianjump='0'"
+	if obsidianjump == 1; "Smell ya later%(obsidianjump=0)"
 }
 
 users
