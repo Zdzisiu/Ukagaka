@@ -29,6 +29,7 @@ MenuRun
 	"\![*]\q[Config Menu,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n/
 	//\![*]\q[Anime News,aninews]\n/
+	//\![*]\q[Test,OnTest]\n/
 	\![*]\q[Customize,clothesmenu]\n\n[half]/
 	\![*]\q[Questions,ques]\n/
 	\![*]\q[Open an app | project,oapp]\n/
@@ -61,6 +62,11 @@ MenuRun
 	"\nInstance: M-%(modelp)P\f[default]"
 	--
 	"\e"
+}
+
+OnTest
+{
+	FUNCTIONEX("saori_test.dll","hi")
 }
 
 Select.gift
