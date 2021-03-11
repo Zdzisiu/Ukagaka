@@ -1,3 +1,5 @@
 Charset,UTF-8
 install,650752737
-update_result,NG(404)
+homeurl_found,1
+homeurl,https://zdzisiu.github.io/Ukagaka/balloons/Pixel/
+update_result,OK(0)
