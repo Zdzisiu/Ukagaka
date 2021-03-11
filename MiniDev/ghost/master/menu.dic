@@ -1743,7 +1743,7 @@ OnTODOList
 					}
 				}
 				--
-				taskforpage += _sfs + "/" + (_subsize-1) + "\n" + _sub
+				taskforpage += _sfs + "/" + (_subsize-1) + "\n" + _sub + "\n[half]"
 			}
 
 		}
@@ -1754,7 +1754,7 @@ OnTODOList
 		}
 	}
 	--
-	"%(taskforpage)"
+	"%(REPLACE(taskforpage,'!$',','))"
 	--
 	"\nAdd: \q[Task,qcrtsk] | "
 	--
@@ -1819,7 +1819,7 @@ OnAddSubTask
 		_temp += "@"
 	}
 	--
-	_temp += reference0 + "#"
+	_temp += REPLACE(reference0,",","!$") + "#"
 	--
 	tasks[pagenum] = REPLACE(tasks[pagenum],pagetasks[choosenum],_temp)
 	--
@@ -1878,7 +1878,7 @@ OnCreateTask
 {
 	taskamount[pagenum]++
 	pagetaskstatus[_i] = 0
-	pagetasks[taskamount[pagenum]] = reference0
+	pagetasks[taskamount[pagenum]] = REPLACE(reference0,",","!$")
 	tasks[pagenum] = REPLACE(pagetasks,",","+")
 	--
 	OnTODOList

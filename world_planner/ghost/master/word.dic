@@ -4,6 +4,35 @@ On_\person
  	person
 }
 
+OnZChnage
+{
+	LETTONAME(reference0,onezero(reference1))
+	--
+	if reference0 == "removechar"
+	{ 
+		movechar = 0
+		editchar = 0
+	}
+	elseif reference0 == "editchar"
+	{ 
+		removechar = 0
+		uplog = 0
+	}
+	elseif reference0 == "movechar"
+	{ 
+		editchar = 0
+		removechar = 0
+	}
+	--
+	if reference2 == "char"; OnCharacterList
+}
+
+onezero //onezero(variable)
+{
+	if _argv[0] == 1 || _argv[0] == "1"; 0
+	else; 1
+}
+
 nameracerand
 {
 	randsylabs
@@ -14,6 +43,12 @@ namerand
 	charnamesmale
 	charnamesfemale
 	randsylabs
+}
+
+guardianstruble
+{
+	"DLT"
+	"SGM"
 }
 
 surname

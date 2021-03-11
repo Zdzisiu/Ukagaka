@@ -247,7 +247,7 @@ OnAskOmega
 
 					if mood[5] > 5
 					{
-						"%(ch).\w7 . \w7 .\w7 %(guardians) "
+						"%(ch)Besides %(guardianstruble) causing a mess in the library which rose my blood pressure through the roof\w7 and I don't even have blood,\w6 it was a relaxing day"
 					}
 
 					if mood[6] > 5
@@ -607,7 +607,6 @@ Select.worldplan
 	\![*]\q[Cancel,CANCEL] or \![*]\q[Go back,BACKTOMENU]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 
 }
-
 
 Select.generators
 {
@@ -1848,58 +1847,37 @@ OnCharacterList
 		_charlist += "You don't have any characters yet\n\n[half]"
 	}
 	--
-	_charlist += "\f[size,10]\n\![*]\q[Add Character,OnAddCharacter]\n"
+	_charlist += "\f[size,11]\n\q[Add,OnAddCharacter] | "
 	--
 	if removechar == 1
 	{
-		_charlist += "\f[color,230, 39, 25]\![*]\q[Remove Character,removechar]\f[color,default]\n"
+		_charlist += "\f[color,230, 39, 25]\q[Remove,OnZChnage,removechar,%(removechar),char]\f[color,default] | "
 	}
 	else
 	{
-		_charlist += "\![*]\q[Remove Character,removechar]\n"
+		_charlist += "\q[Remove,OnZChnage,removechar,%(removechar),char] | "
+	}
+	--
+	if movechar == 1
+	{
+		_charlist += "\f[color,230, 39, 25]\q[Move,OnZChnage,movechar,%(movechar),char]\f[color,default] | "
+	}
+	else
+	{
+		_charlist += "\q[Move,OnZChnage,movechar,%(movechar),char] | "
 	}
 	--
 	if editchar == 1
 	{
-		_charlist += "\f[color,230, 39, 25]\![*]\q[Edit Character,edchar]\f[color,default]"
+		_charlist += "\f[color,230, 39, 25]\q[Edit,OnZChnage,editchar,%(editchar),char]\f[color,default]"
 	}
 	else
 	{
-		_charlist += "\![*]\q[Edit Character,edchar]"
+		_charlist += "\q[Edit,OnZChnage,editchar,%(editchar),char]"
 	}
 	--
 	_charlist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	_charlist
-}
-
-Select.edchar
-{
-	if editchar == 1
-	{
-		editchar = 0
-	}
-	else
-	{
-		removechar = 0
-		editchar = 1
-	}
-	--
-	OnCharacterList
-}
-
-Select.removechar
-{
-	if removechar == 1
-	{
-		removechar = 0
-	}
-	else
-	{
-		editchar = 0
-		removechar = 1
-	}
-	--
-	OnCharacterList
 }
 
 OnCharcterClick
