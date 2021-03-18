@@ -27,3 +27,7 @@
 - Config menu now has collapsible categories
 - Set a nickname for yourself in the config menu
 - Now you can see your M-P serial number in the menu
+
+1.1.0
+- AI dialogue fixes
+- Fixed not being able to mark the first subtask as done
