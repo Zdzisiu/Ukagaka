@@ -1788,7 +1788,11 @@ OnSubMarkTask
 	}
 	else
 	{
-		if "=1=" !_in_ _subtasks[choosenum];_tasktemp = REPLACE(pagetasks[_tasknum],"#"+_subtasks[choosenum]+"#","#=1=" +_subtasks[choosenum]+"#")
+		if "=1=" !_in_ _subtasks[choosenum]
+		{
+			if choosenum != 0; _tasktemp = REPLACE(pagetasks[_tasknum],"#"+_subtasks[choosenum]+"#","#=1=" +_subtasks[choosenum]+"#")
+			else; _tasktemp = REPLACE(pagetasks[_tasknum],_subtasks[choosenum]+"#","=1=" +_subtasks[choosenum]+"#")
+		}
 		else
 		{
 			if choosenum != 0

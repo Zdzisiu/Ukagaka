@@ -80,34 +80,46 @@ MDtalk
 	if romantic == "ON"; "%(pickupline)"
 
 	{
-		_rnd = RAND(todopagenum)
-		if lefttask[_rnd] != 0
+		_rnd = RAND(todopagenum-1)+1 //random page num
+		pagetaskstatus = REPLACE(taskstatus[_rnd],"+",",")
+		pagetasks = REPLACE(tasks[_rnd],"+",",")
+		--
 		{
-			pagetaskstatus = REPLACE(taskstatus[_rnd],"+",",")
+			_z = countarray(taskstatus[_rnd],'1','+')
+			lefttask[_rnd] = taskamount[_rnd] - TOINT(_z)
 			--
-			{
-				_z = countarray(taskstatus[_rnd],'1','+')
-				lefttask[_rnd] = taskamount[_rnd] - TOINT(_z)
-				--
-				if lefttask[_rnd] == 1; "You still have 1 task to do on '%(namepage[_rnd])' list"
-				else; "You still have %(lefttask[_rnd]) tasks to do on '%(namepage[_rnd])' list"
-			}
+			if lefttask[_rnd] == 1; "You still have 1 task to do on '%(namepage[_rnd])' list"
+			else; "You still have %(lefttask[_rnd]) tasks to do on '%(namepage[_rnd])' list"
+		}
 
+		{
+			_randtask = RAND(taskamount[_rnd])
+			_z = 0
+			--
+			if _randtask == 0; _randtask = 1
+			--
+			for _x=0,_i=0;_x != 1 || _i <= taskamount[_rnd];_i++
 			{
-				randtask = RAND(taskamount[_rnd])
-				--
-				if randtask == 0; randtask = 1
-				--
-				for x=0,_i=0;x!=1 || _i<=taskamount[_rnd];_i++
+				if pagetaskstatus[_i] != "1"; _x = 1
+				else; _randtask = RAND(taskamount[_rnd])
+			}
+			--
+			if pagetasks[_randtask] != "" && pagetaskstatus[_randtask] != "1"
+			{
+				if "@" _in_ pagetasks[_randtask]
 				{
-					if pagetaskstatus[_i] != "1"; x = 1
-					else; randtask = RAND(taskamount[_rnd])
+					_task = SPLIT(pagetasks[_randtask],"@")
+					"You should try completing one of the tasks, maybe try completing something from '%(_task[0])' from '%(namepage[_rnd])'"
 				}
-				--
-				if pagetasks[randtask] != ""; "You should try completing one of the tasks, maybe try completing '%(pagetasks[randtask])' from '%(namepage[pagenum])'"
+				else
+				{
+					"You should try completing one of the tasks, maybe try completing '%(pagetasks[_randtask])' from '%(namepage[_rnd])'"
+				}
 			}
 		}
 	}
+	--
+	"\e"
 }
 
 m201ztalk : nonoverlap

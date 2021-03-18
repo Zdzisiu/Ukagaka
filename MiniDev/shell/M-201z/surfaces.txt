@@ -1,0 +1,413 @@
+descript
+{
+    version,1
+}
+
+surface0-1
+{
+    collision0,63,61,123,62,Head
+    collision1,68,65,116,97,Face
+
+    element0,overlay,surface0.png,0,0
+
+    animation0.interval,always
+    animation0.pattern0,overlay,1000,1,0,0
+
+    animation1.interval,always
+    animation1.pattern0,overlay,2000,1,0,0
+
+    animation2.interval,never
+    animation2.pattern0,overlay,4001,50,0,0
+    animation2.pattern0,overlay,4000,50,0,0
+}
+
+surface0
+{
+    animation9000.interval,never
+    animation9000.pattern0,overlay,9910,60,0,50
+    animation9000.pattern1,overlay,9910,60,0,100
+    animation9000.pattern2,overlay,9910,60,0,150
+    animation9000.pattern3,overlay,-1,100,0,0
+}
+
+surface1
+{
+	collision2,63,32,125,56,Obsidian
+
+    animation9000.interval,always
+    animation9000.pattern0,overlay,9900,60,0,0
+
+    animation9001.interval,always
+    animation9001.pattern0,overlay,9902,150,0,0
+    animation9001.pattern1,overlay,9903,150,0,0
+    animation9001.pattern2,overlay,9904,150,0,0
+    animation9001.pattern3,overlay,9905,150,0,0
+    animation9001.pattern4,overlay,9906,150,0,0
+    animation9001.pattern5,overlay,9905,150,0,0
+    animation9001.pattern6,overlay,9904,150,0,0
+    animation9001.pattern7,overlay,9903,150,0,0
+    animation9001.pattern8,overlay,9902,150,0,0
+}
+
+//--------------------------------------------------------------
+//DARK
+surface2
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3000.png,0,0
+}
+
+surface3
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3001.png,0,0
+}
+
+surface4
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3002.png,0,0
+}
+
+surface5
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3003.png,0,0
+}
+surface6
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3010.png,0,0
+}
+
+surface7
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3011.png,0,0
+}
+
+surface8
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3012.png,0,0
+}
+
+surface9
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3013.png,0,0
+}
+
+surface11
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3004.png,0,0
+}
+
+surface12
+{
+    collision0,169,14,218,61,b
+
+    element0,overlay,surface3014.png,0,0
+}
+
+surface13
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3005.png,0,0
+}
+
+surface14
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3006.png,0,0
+}
+
+surface15
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3007.png,0,0
+}
+
+surface16
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3008.png,0,0
+}
+
+surface17
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3009.png,0,0
+}
+
+surface18
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3015.png,0,0
+}
+
+surface19
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3016.png,0,0
+}
+
+surface20
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3017.png,0,0
+}
+
+surface21
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3018.png,0,0
+}
+
+surface22
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3019.png,0,0
+}
+
+surface23
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3020.png,0,0
+}
+
+surface24
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3021.png,0,0
+}
+
+surface25
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3022.png,0,0
+}
+
+surface26
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3023.png,0,0
+}
+
+surface27
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3024.png,0,0
+}
+
+surface28
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3025.png,0,0
+}
+
+surface29
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3026.png,0,0
+}
+
+surface30
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3027.png,0,0
+}
+
+surface31
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3028.png,0,0
+}
+
+surface32
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3029.png,0,0
+}
+
+surface33
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3030.png,0,0
+}
+
+surface34
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3031.png,0,0
+}
+
+surface35
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3032.png,0,0
+}
+
+surface36
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3033.png,0,0
+}
+
+surface37
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3034.png,0,0
+}
+
+surface38
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3035.png,0,0
+}
+
+surface39
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3037.png,0,0
+}
+
+surface40
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3036.png,0,0
+}
+
+char3.tooltips
+{
+    a, Open Logs
+}
+
+char4.tooltips
+{
+    a, Light Mode
+    b, Dark Mode
+}
+
+char5.tooltips
+{
+    a, Weather
+}
+
+char6.tooltips
+{
+    a, Statistics
+}
+
+char7.tooltips
+{
+    a, To-Do list
+}
+
+char8.tooltips
+{
+    a, Settings
+}
+
+char9.tooltips
+{
+    a, Customize
+}
+
+char10.tooltips
+{
+    a, Open apps
+}
+
+char11.tooltips
+{
+    a, Stats
+}
+
+char12.tooltips
+{
+    a, Open To-Do list
+}
+
+char13.tooltips
+{
+    a, Customize
+}
+
+char14.tooltips
+{
+    a, Open App
+}
+
+char15.tooltips
+{
+    a, Unpause
+}
+
+char16.tooltips
+{
+    a, Pause
+}
+
+char17.tooltips
+{
+    a, Next Song
+}
+
+char18.tooltips
+{
+    a, Previous Song
+}
+
+char19.tooltips
+{
+    a, Delete song
+}
+
+char20.tooltips
+{
+    a, Add to Playlist
+}
+
+char21.tooltips
+{
+    a, Close Music Player 
+}
