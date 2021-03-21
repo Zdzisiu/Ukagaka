@@ -942,7 +942,7 @@ Select.recipe //Menu
 	if recipesite[0] == "" //Base for multiple recipe site search, leave it as it is
 	{
 		recipesite[0] = "allrecipes.com"
-		recipesite[1] = "https://www.allrecipes.com/search/results/?wt="
+		recipesite[1] = "https://www.allrecipes.com/search/results/?search="
 	}
 	--
 	"\b2\_qLast Searched: \__q[OnRecipeSearch,%(websrch)]%(acc)%(TOPROPER(websrch))\f[default]\__q\n\n[half]" //Last searched word
@@ -1356,7 +1356,6 @@ Select.fndrecipe
 OnRecipeSearch
 {
 	websrch = reference0
-	//https://www.allrecipes.com/search/results/?wt=cake
 	"\![execute,http-get,%(recipesite[1])%(websrch),--async=OnRecipeF,--file=recipes.html,--timeout=200]"
 }
 
@@ -1365,7 +1364,7 @@ OnRecipeF
 	_file = "var\\recipes.html"
     _buff= ""
 	_regresul = '<span class="subtext">(.*)recipe results for </span>'
-    _reglink = '<a href="https://www.allrecipes.com/recipe/(.*)/" data-content-provider-id="" data-internal-referrer-link="hub recipe" class="fixed-recipe-card__title-link">'
+    _reglink = 'href="https://www.allrecipes.com/recipe/(.*)/"'
     _found = 0
 	_ar = ""
 	_res = ""
@@ -1392,7 +1391,7 @@ OnRecipeF
 	_page += "\f[bold,1]" + _res + "recipes found:\f[bold,0]\n\n[half]"
 	//\j[http://ssp.shillest.net/]
     --
-	for _i=1;_i<15;_i++
+	for _i=1;_i<25;_i+=2
 	{
 		_rec = SPLIT(_ar[_i],"/")
 		_rec[1] = REPLACE(_rec[1],"-"," ")
@@ -1400,10 +1399,10 @@ OnRecipeF
 		--
 		//\q[wwww,script:\j[http://ssp.shillest.net/\]]
 		//_page += "\![*]\q[" + _rec[1] + ",script:\j[https://www.allrecipes.com/recipe/" + _ar[_i] + "\]]\n"
-		_page += "\__q[script:\![execute,http-get,https://www.allrecipes.com/recipe/" + _ar[_i] + ",--async=OnRecipeShow,--file=recipe.html,--timeout=200\]]" + TOPROPER(_rec[1]) + "\__q\n\n[50]"
+		_page += "\__q[script:\![execute,http-get,https://www.allrecipes.com/recipe/" + _ar[_i] + ",--async=OnRecipeShow,--file=recipe.html,--timeout=200\]]" + TOPROPER(_rec[1]) + "\__q\n\n[half]"
 	}
 	--
-	_page + "\![*]\q[Open Web,script:\j[%(recipesite[1])%(websrch)\]]\n\n[half]\![*]\q[Go back,dosomething]  |  \![*]\q[Nevermind,CANCEL]"
+	_page + "-------------------\n\![*]\q[Open Web,script:\j[%(recipesite[1])%(websrch)\]]\n\n[half]\![*]\q[Go back,recipe]  |  \![*]\q[Nevermind,CANCEL]"
 }
 
 OnRecipeShow

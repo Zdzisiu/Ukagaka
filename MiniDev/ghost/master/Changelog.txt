@@ -31,3 +31,6 @@
 1.1.0
 - AI dialogue fixes
 - Fixed not being able to mark the first subtask as done
+
+1.1.1
+- Recipes were broken, now they are not
