@@ -193,7 +193,7 @@ OnInstallRefuse
 
 OnVanishSelecting
 {
-	"\0\s[0]\i[7]You want to uninstall me?\e"
+	"\0\s[0]You want to uninstall me?\e"
 }
 
 OnVanishSelected
@@ -203,7 +203,7 @@ OnVanishSelected
 
 OnVanishCancel
 {
-	"\0\s[0]\i[6]Guess I'm staying.\e"
+	"\0\s[0]Guess I'm staying.\e"
 }
 
 TalkVanishButtonHold
@@ -282,12 +282,12 @@ OnUpdate.OnDownloadBegin
  {
 	"\_qUPDATING: %(reference0)\n\n"
 
-	if "aitalk" _in_ reference0; "Change in AI dialogue found\e"
-	elseif "mouse" _in_ reference0; "Change in interactions found\e"
-	elseif "menu" _in_ reference0; "Change in menu intractions found\e"
-	elseif "bootend" _in_ reference0; "Change in boot system found\e"
-	elseif "config" _in_ reference0; "Change in settings found\e"
-	elseif "clothes" _in_ reference1; "Change in clothing system found\e"
+	if "aitalk" _in_ reference0; "Change in AI dialogue found"
+	elseif "mouse" _in_ reference0; "Change in interactions found"
+	elseif "menu" _in_ reference0; "Change in menu intractions found"
+	elseif "bootend" _in_ reference0; "Change in boot system found"
+	elseif "config" _in_ reference0; "Change in settings found"
+	elseif "clothes" _in_ reference1; "Change in clothing system found"
 	else; ""
 	--
 	"\_q\w5\e"
@@ -299,12 +299,9 @@ OnUpdateCheckComplete
 	{
 		if reference3 !_in_ "%(toup)"; toup ,= reference3
 		--
-		if slnt != 1
-		{
-			"There is an update avalible for: %(toup)"
-			--
-			"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
-		}
+		"There is an update avalible"
+		--
+		"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
 	}
 	else
 	{
