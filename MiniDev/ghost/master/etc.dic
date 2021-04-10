@@ -291,15 +291,20 @@ OnUpdate.OnDownloadBegin
 	else; ""
 	--
 	"\_q\w5\e"
- }
+}
 
 OnUpdateCheckComplete
 {
 	if reference0 != "none"
 	{
-		"There is an update avalible"
+		if reference3 !_in_ "%(toup)"; toup ,= reference3
 		--
-		"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
+		if slnt != 1
+		{
+			"There is an update avalible for: %(toup)"
+			--
+			"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
+		}
 	}
 	else
 	{
@@ -309,7 +314,17 @@ OnUpdateCheckComplete
 
 Select.up
 {
-	"\![update,ghost+shell+balloon]"
+	/*_usize = ARRAYSIZE(toup)
+	_up = ""
+	--
+	for _i = 0;_i<3;_i++
+	{
+		_up += toup[_i] + "+"
+		toup[_i] = ""
+	}
+	--
+	_up = ERASE(_up, -1 ,1 )*/
+	"\![update,ghost+balloon+shell]"
 }
 
 Select.lat

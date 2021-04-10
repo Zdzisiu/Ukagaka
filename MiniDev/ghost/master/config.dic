@@ -49,7 +49,7 @@ TalkConfig
 	{
 		"\f[bold,1]Your Name:\f[default] %(acc)\q[%(username),TEACHNAME]\f[default]\n"
 		--
-		"\f[bold,1]Your Nickname:\f[default] %(acc)\q[%(nickname),TEACHNAME]\f[default]\n"
+		"\f[bold,1]Your Nickname:\f[default] %(acc)\q[%(nickname),nicknamechange]\f[default]\n"
 		--
 		"\f[bold,1]Pronouns:\f[default] %(acc)\q[%(heshe)/%(himher)/%(hisher),TEACHPRONOUN]\f[default]\n"
 		--
@@ -65,6 +65,8 @@ TalkConfig
 		"\f[bold,1]Dev Name:\f[default] %(acc)\q[%(devname),script:\![open,inputbox,OnDevName,-1\]]\f[default]\n"
 		--
 		"\f[bold,1]Hour Notice:\f[default] %(acc)\q[%(hrnt),OnButtonChange,hrnt,%(hrnt)]\f[default]\n"
+		--
+		"\f[bold,1]Notice other windows:\f[default] %(acc)\q[%(noticewin),OnButtonChange,noticewin,%(noticewin)]\f[default]\n"
 		--
 		if repairglitch == 1 && tentruth == 1; "\f[bold,1]Disable %(devname) Talking:\f[bold,0] %(acc)\q[%(MDisable),OnButtonChange,MDisable,%(MDisable)]\f[default]\n"
 		--

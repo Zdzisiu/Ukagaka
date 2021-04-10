@@ -554,21 +554,6 @@ FirstBootArrays //set arrays for logs
 	devlogcontent[1] = "201: Look what i can do :D\w8\n201: You can update log to respond to me\w8\n201: It's like a chat!\w8\n201: So,\w5 how are you?\n"
 }
 
-//Triats OFF
-OnTriats
-{
-	//POSITIVE TRIATS:
-	nice = "OFF"
-	smart  = "OFF"
-	optimistic  = "OFF"
-	//NEGATIVE TRIATS:
-	pessimistic = "OFF"
-	stupid = "OFF"
-	//NEUTRAL TRIATS:
-	funny = "OFF"
-	romantic = "OFF"
-}
-
 FirstBootVariables 
 {
 	truth = 0
@@ -590,6 +575,13 @@ FirstBootVariables
 	todobtn = "OFF"
 	cusbtn = "OFF"
 	appbtn = "OFF"
+	nice = "OFF"
+	smart  = "OFF"
+	optimistic  = "OFF"
+	pessimistic = "OFF"
+	stupid = "OFF"
+	funny = "OFF"
+	romantic = "OFF"
 }
 
 //\![raise,OnToolCheck]
@@ -849,7 +841,12 @@ OnUpdateVariables
 		--
 		if token == 0; "\![execute,http-get,http://ukg.ct8.pl/token.txt,--async=OnTokenCheck,--file=token.txt,--timeout=200]"
 	}
-	elseif vers == "1.0.9"; vers = "1.1.1"
+	elseif vers == "1.0.9"
+	{
+		vers = "1.1.2"
+		noticewin = "OFF"
+		toup = IARRAY
+	}
 	--
 	if narrator == 0 && repairglitch == 1
 	{

@@ -15,7 +15,7 @@ MenuRun
 {	
  	wd = GetWeekDay
  	ap = GetAP
- 	nowmin = Getnowmin
+ 	nowmin = Getnowmins
  	nowhour = Getnowhour
 	--
 	if tentruth == 1; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
@@ -66,7 +66,7 @@ MenuRun
 
 OnTest
 {
-	FUNCTIONEX("saori_test.dll","hi")
+	FUNCTIONEX("saori/SaoriTest.dll","clipcopy","copy")
 }
 
 Select.gift
@@ -905,7 +905,7 @@ Select.dosomething
 {
 	"\0\b4\_q%(cha)What do you need?\n\n"
 	--
-	"Update:\n%(acc)\q[Shell,OnUp,shell]\f[default] | %(acc)\q[Balloon,OnUp,bal]\f[default] | %(acc)\q[Ghost,OnUp,ghst]\f[default]\n\n[half]"
+	"Update Check:\n%(acc)\q[Shell,OnUp,shell]\f[default] | %(acc)\q[Balloon,OnUp,bal]\f[default] | %(acc)\q[Ghost,OnUp,ghst] | %(acc)\q[All,OnUp,all]\f[default]\n\n[half]"
 	--
 	"\![*]\q[Weather,weath]\n/
 	\![*]\q[To-Do list,todo]\n/
@@ -1628,8 +1628,10 @@ OnUp
 	case reference0
 	{
 		when "shell"; "\![Update,shell]\e"
-		when "bal"; "\![Update,balloon]\e"
-		when "ghst"; "\![Update,ghost+shell+balloon]\e"
+		when "bal"; "\![update,balloon]\e"
+		when "ghst"; "\![Update,ghost]\e"
+		when "all"; "\![Update,ghost+balloon+shell]\e"
+
 	}
 }
 
@@ -2015,14 +2017,13 @@ Select.oapp
 		--
 		for _i=0;_i<ARRAYSIZE(_apps);_i++
 		{
-			appcontent += "\q[" + TOUPPER(_apps[_i]) + ",OnOpenAPPP," + _apps[_i] + "," + _trueapp[_i] +"]\n"
+			appcontent += "\__q[OnOpenAPPP," + _apps[_i] + "," + _trueapp[_i] + "]" + TOUPPER(_apps[_i]) + "\__q\n"
 		}
 		
 	}
 	--
 	appcontent +="\n\f[bold,1]\b[4]Your projects\f[bold,0]:\n\n"
 	--
-
 	_proj = FENUM('projects','+')
 	if _proj == ""
 	{
@@ -2042,7 +2043,7 @@ Select.oapp
 		--
 		for _i=0;_i<ARRAYSIZE(_proj);_i++
 		{
-			appcontent += "\q[" + TOUPPER(_proj[_i]) + ",OnOpenPRJ," + _tureproj[_i] + ","+ _proj[_i] + "]\n"
+			appcontent += "\__q[OnOpenPRJ," + _tureproj[_i] + ","+ _proj[_i] + "]" + TOUPPER(_proj[_i]) + "\__q\n"
 		}
 		
 	}
@@ -2152,12 +2153,12 @@ OnOpenPRJ
 
 OnOpenAPPP
 {
-	appthing = reference0
-	appthing2 = reference1
+	_appthing = reference0
+	_appthing2 = reference1
 	--
 	if delapp == "ON"
 	{
-		FDEL("app/%(reference1)")
+		FDEL("app/%(_appthing2)")
 		--
 		"\c"
 	}
@@ -2167,7 +2168,7 @@ OnOpenAPPP
 	}
 	else
 	{
-		"\![open,file,app/%(reference0)]"
+		"\![open,file,app/%(_appthing2)]"
 	}
 	--
 	Select.oapp

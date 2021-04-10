@@ -52,6 +52,7 @@ MDtalk
 	if smart == "ON"
 	{
 		"%(didknow) %(facts)?"
+
 		{
 			_binary = binbin
 			_letterB = _binary[0] 
@@ -79,6 +80,7 @@ MDtalk
 	
 	if romantic == "ON"; "%(pickupline)"
 
+	if todopagenum != 0
 	{
 		_rnd = RAND(todopagenum-1)+1 //random page num
 		pagetaskstatus = REPLACE(taskstatus[_rnd],"+",",")
@@ -116,6 +118,10 @@ MDtalk
 					"You should try completing one of the tasks, maybe try completing '%(pagetasks[_randtask])' from '%(namepage[_rnd])'"
 				}
 			}
+			else
+			{
+				MDtalk
+			}
 		}
 	}
 	--
@@ -138,83 +144,86 @@ m201ztalk : nonoverlap
 	}
 	elseif meeting == 1
 	{
-		if ghostexcount > 0 && RAND(100) == 5; "\![raise,OnTalkWithGhosts]"
-
-		_FFOpen = FUNCTIONEX("findwin.dll","find",,"MozillaWindowClass")
-		_FFMin = FUNCTIONEX("findwin.dll","count",,"MozillaWindowClass")
-		_FFCap= FUNCTIONEX("findwin.dll","getcaption","MozillaWindowClass")
-		_DisOpen = FUNCTIONEX("findwin.dll","find",,"Chrome_WidgetWin_1")
-		_DisMin = FUNCTIONEX("findwin.dll","count",,"Chrome_WidgetWin_1")
-		_DisCap = FUNCTIONEX("findwin.dll","getcaption","Chrome_WidgetWin_1")
-		_DisPid = FUNCTIONEX("findwin.dll","getpid",,"Chrome_WidgetWin_1")
-		_DisName = FUNCTIONEX("process.dll","getname","%(DiscordPid)")
-		_NotepadPlusOpen = FUNCTIONEX("findwin.dll","find",,"Notepad++")
-		
-		if _NotepadPlusOpen == 1
+		if noticewin == "ON"
 		{
-			codeprogram = "Notepad ++"
-			--
-			if uprogrammist != 1
-			{ 
-				if repairglitch != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-				else; "%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-			}			
-		}
+			if ghostexcount > 0 && RAND(100) == 5; "\![raise,OnTalkWithGhosts]"
 
-		if _DisOpen == 1
-		{
-			if "Discord" _in_ _DisCap
+			_FFOpen = FUNCTIONEX("findwin.dll","find",,"MozillaWindowClass")
+			_FFMin = FUNCTIONEX("findwin.dll","count",,"MozillaWindowClass")
+			_FFCap= FUNCTIONEX("findwin.dll","getcaption","MozillaWindowClass")
+			_DisOpen = FUNCTIONEX("findwin.dll","find",,"Chrome_WidgetWin_1")
+			_DisMin = FUNCTIONEX("findwin.dll","count",,"Chrome_WidgetWin_1")
+			_DisCap = FUNCTIONEX("findwin.dll","getcaption","Chrome_WidgetWin_1")
+			_DisPid = FUNCTIONEX("findwin.dll","getpid",,"Chrome_WidgetWin_1")
+			_DisName = FUNCTIONEX("process.dll","getname","%(DiscordPid)")
+			_NotepadPlusOpen = FUNCTIONEX("findwin.dll","find",,"Notepad++")
+			
+			if _NotepadPlusOpen == 1
 			{
-				if _DisMin >= 1
-				{
-					_DisCap = REPLACE(_DiscordCap," - Discord","")
-					
-					if "@" _in_ _DisCap
-					{
-						_DiscordCap = REPLACE(_DiscordCap,"@","")
-
-						if _DisCap !_in_ discordpeps; discordpeps += _DisCap + "," // save people
-					}
-					elseif "#" _in_ _DisCap
-					{
-						if _DisCap !_in_ discordgroup; discordgroup += _DisCap + "," //save groups
-					}
-				}
-			}
-			elseif "Google Chrome" _in_ _DiscordCap || "chrome.exe" _in_ _DiscordName || "Brave" _in_ _DiscordCap || "brave.exe" _in_ _DiscordName
-			{
-				if _DiscordMin > 6
-				{
-					if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
-					else; "%(distingstart). . . that's a lot of tabs"					
-				}
-			}
-			elseif "Visual Studio Code"
-			{
-				codeprogram = "Visual Studio Code"
+				codeprogram = "Notepad ++"
 				--
 				if uprogrammist != 1
-				{
+				{ 
 					if repairglitch != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
 					else; "%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+				}			
+			}
+
+			if _DisOpen == 1
+			{
+				if "Discord" _in_ _DisCap
+				{
+					if _DisMin >= 1
+					{
+						_DisCap = REPLACE(_DiscordCap," - Discord","")
+						
+						if "@" _in_ _DisCap
+						{
+							_DiscordCap = REPLACE(_DiscordCap,"@","")
+
+							if _DisCap !_in_ discordpeps; discordpeps += _DisCap + "," // save people
+						}
+						elseif "#" _in_ _DisCap
+						{
+							if _DisCap !_in_ discordgroup; discordgroup += _DisCap + "," //save groups
+						}
+					}
+				}
+				elseif "Google Chrome" _in_ _DiscordCap || "chrome.exe" _in_ _DiscordName || "Brave" _in_ _DiscordCap || "brave.exe" _in_ _DiscordName
+				{
+					if _DiscordMin > 6
+					{
+						if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+						else; "%(distingstart). . . that's a lot of tabs"					
+					}
+				}
+				elseif "Visual Studio Code"
+				{
+					codeprogram = "Visual Studio Code"
+					--
+					if uprogrammist != 1
+					{
+						if repairglitch != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+						else; "%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+					}
 				}
 			}
-		}
 
-		if _FFOpen == 1
-		{
-			if "Aniwatch" _in_ _FFCap || "Crunchyroll" _in_ _FFCap 
+			if _FFOpen == 1
 			{
-				if repairglitch != 1; "H̴̪̀ǘ̵͚ḩ̷́,̸͎̈́ ̷̙͑w̵̑͜ȟ̴̲a̶̗̅t̷̟́ ̴̩͋i̷̧̎ś̸͕ ̴͕̈́'̶̙͒à̷̻n̵̝͆i̷̤̔m̷͚̂e̴̡͌'̸̳͐?̶͔̾"
-				else; "%(distingstart)Huh, what is 'anime'?"
-			}
-
-			if _FFMin >= 1
-			{		
-				if _FFMin > 6
+				if "Aniwatch" _in_ _FFCap || "Crunchyroll" _in_ _FFCap 
 				{
-					if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
-					else; "%(distingstart). . . that's a lot of tabs"
+					if repairglitch != 1; "H̴̪̀ǘ̵͚ḩ̷́,̸͎̈́ ̷̙͑w̵̑͜ȟ̴̲a̶̗̅t̷̟́ ̴̩͋i̷̧̎ś̸͕ ̴͕̈́'̶̙͒à̷̻n̵̝͆i̷̤̔m̷͚̂e̴̡͌'̸̳͐?̶͔̾"
+					else; "%(distingstart)Huh, what is 'anime'?"
+				}
+
+				if _FFMin >= 1
+				{		
+					if _FFMin > 6
+					{
+						if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+						else; "%(distingstart). . . that's a lot of tabs"
+					}
 				}
 			}
 		}

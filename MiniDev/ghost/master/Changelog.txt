@@ -34,3 +34,8 @@
 
 1.1.1
 - Recipes were broken, now they are not
+
+1.1.2
+- Fixed some dialogue bugs
+- You can now turn off MD noticing your open windows
+- Fixed the nickname
