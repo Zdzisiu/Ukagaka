@@ -202,6 +202,8 @@ OnWaterMenu
 	elseif waterbowl[petid] < 50; waters[petid] = "93"
 	else; waters[petid] = "92"
 	--
+	if waters[petid] == ""; waters[petid] = "90"
+	--
 	"\p[2]\s[%(waters[petid])]\_qThe bowl is %(waterbowl[petid])% full\n\n[half]"
 	--
 	if waterbowl[petid] != 100; "\![*]\q[Refill,refillwater]\n"
@@ -222,6 +224,8 @@ OnFoodMenu
 	//1% = 5 hunger
 	//Fave food = 5 friendship
 	if foodbowl[petid] == ""; foodbowl[petid]= 0
+	--
+	if foods[petid] == ""; foods[petid] = "91"
 	--
 	"\p[3]\s[%(foods[petid])]\_qThe bowl is %(foodbowl[petid])% full\n"
 	--

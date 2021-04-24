@@ -148,6 +148,8 @@ OnShellChanged
 OnClose
 {
 	"\0* The shadow has vanished\w8\w8"
+	--
+	"\-\e"
 }
 
 OnWindowStateMinimize
