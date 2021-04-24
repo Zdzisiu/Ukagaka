@@ -1,0 +1,174 @@
+﻿OnFirstBoot
+{
+ 	lastTalk = "" 
+	passmin = 0 
+	passsec = 0 
+ 	username         = "USER" 
+	stroke           = 0	
+ 	teachusername    = 0	
+	mikireflag       = 0	
+ 	aitalkinterval = 400 
+ 	birthdayprint = "????" 
+	talktime = "5 minutes" 
+	deleteshitai = "OFF" 
+	nowshell = "Shadow"
+	timeformatype = "STANDARD"
+	dateformatype = "dd/mm/yyyy"
+	winstate = "normal"
+	serialnum = RAND(1000)
+	_page = "\1\s[10]\0\s[0]\p[2]\s[90]\p[3]\s[91]"
+	--
+	OnPetStats
+	--
+	if reference0 == 0 
+ 	{
+		_page += "Welcome Customer!\n\n[half]Thank you for choosing A.R.I Pets as your virtual companion\x\cCurrently there is only one companion avalible: Shadow\n\n[half]Please Name your new companion\![open,inputbox,OnPetName,-1]\e"
+ 	}
+	else
+ 	{
+ 		_page += "Welcome Back!\n\n[half]Loaded your default companion: Shadow\e"
+ 	}
+	--
+	_page
+}
+
+OnPetStats
+{
+	//Hunger | Energy | Thirst
+	petstatmax[0] = "300,150,100"
+	petstats[0] = petstatmax[0]
+	foodnames[0] = "Glowing Stones,Light Bulbs,Glitter,Glow-Goo"
+	foodsur[0] = "94,95,96,97"
+	pet[0] = "Shadow"
+	_a = SPLIT(foodnames[0],",")
+	_as = ARRAYSIZE(_a)
+	_rand = RAND(_as)
+	speed = 400
+	favefood[0] = _a[_rand]
+	accentcolor = "#4b345c"
+	sleep[petid] = 0
+}
+
+OnReset_Yes
+{
+	petstats[petid] = petstatmax[petid]
+	petname[petid] = nowshell
+	_a = SPLIT(foodnames[petid],",")
+	_as = ARRAYSIZE(_a)
+	_rand = RAND(_as)
+	speed = 400
+	favefood[petid] = _a[_rand]
+	--
+	"\0\s[0]"
+}
+
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+}
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+}
+
+OnBoot
+{
+	lastTalk = "" 
+	passmin = 0
+	passsec = 0
+	sleep[petid] = 0
+	--
+	if state[petid] == "dead"
+	{
+ 		"\0\s[2]\1\s[10]" 
+	}
+	else
+	{
+		"\0\s[0]\1\s[10]"
+	}
+	--
+	"\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]"
+	--
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot 
+	--
+	"%(normalboottalk)" 
+}
+
+normalboottalk
+{
+	case nowshell
+	{
+		when "Shadow"
+		{
+			"\0* The shadow is silent"
+		}
+	}
+}
+
+OnShellChanged
+{
+	nowshell = reference0
+	--
+	case nowshell
+	{
+		when "Shadow"; petid = 0
+	}
+}
+
+OnClose
+{
+	"\0* The shadow has vanished\w8\w8"
+}
+
+OnWindowStateMinimize
+{
+	winstate = "minimized"
+}
+
+OnWindowStateRestore
+{
+	if sleep[petid] != 1
+	{
+		"\1\s[10]\0\s[0]\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]\e"
+	}
+	elseif state[petid] == "dead"
+	{
+		"\1\s[10]\0\s[2]\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]\e"
+	}
+	else
+	{
+		"\1\s[10]\0\s[1]\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]\e"
+	}
+	--
+	winstate = "normal"
+}

@@ -1,0 +1,43 @@
+OnCommunicate
+ {
+	if reference0 == "user" || reference0 == "User"
+ 	{
+
+ 		ReplyToUser
+	}
+ 	else
+	{	
+		ReplyToGhost
+ 	}
+}
+
+ReplyToUser
+{
+	TalkToUser
+}
+
+ReplyToGhost
+{
+ 	//res_reference0 = reference0 
+	if reference0 == "Minidev"
+	{
+		"Hello again %(TheDev)"
+		"Welcome back %(TheDev)"
+		"We meet yet again %(TheDev)"
+		"Nice to see you again %(TheDev)"
+	}
+	else
+	{
+		"\0Hello, %(reference0).\w8Hope you're doing well.\e"
+	
+		"Hey, %(reference0).\e"
+	}
+}
+
+TheDev
+{
+	"M-201z"
+	"201z"
+	"brother"
+	"201"
+}

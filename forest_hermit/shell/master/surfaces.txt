@@ -1,0 +1,104 @@
+descript
+{
+    version,1
+}
+
+surface0
+{
+    element0,overlay,surface0.png,0,0
+
+    animation0.interval,never
+    animation0.pattern0,overlay,1000,0,0,0
+    animation0.pattern0,stop,1,0,0,0
+    animation0.pattern0,overlay,1002,400,0,0
+    animation0.pattern1,overlay,1001,400,0,0
+    animation0.pattern2,overlay,1002,400,0,0
+    animation0.pattern3,overlay,1001,400,0,0
+    animation0.pattern4,overlay,1002,400,0,0
+    animation0.pattern5,overlay,1001,400,0,0
+    animation0.pattern6,overlay,1002,400,0,0
+    animation0.pattern7,overlay,1001,400,0,0
+
+    animation1.interval,always
+    animation1.pattern0,overlay,1000,0,0,0
+
+    //sad eyes
+    animation2.interval,never
+    animation2.pattern0,stop,3,0,0,0
+    animation2.pattern0,overlay,5000,0,0,0
+
+    //normal eyes
+    animation3.interval,always
+    animation3.pattern0,overlay,5001,0,0,0
+
+    //happy eyes
+    animation4.interval,never
+    animation4.pattern0,stop,3,0,0,0
+    animation4.pattern0,overlay,5002,0,0,0
+
+    //blush
+    animation5.interval,never
+    animation5.pattern0,overlay,5003,0,0,0
+
+    //"What?" eyes
+    animation6.interval,never
+    animation6.pattern0,stop,3,0,0,0
+    animation6.pattern0,overlay,5004,0,0,0
+
+    animation7.interval,never
+    animation7.pattern0,stop,3,0,0,0
+    animation7.pattern0,overlay,5005,0,0,0
+
+    animation8.interval,never
+    animation8.pattern0,overlay,5006,0,0,0
+}
+
+surface10
+{
+    element0,overlay,surface10.png,0,0
+}
+
+surface20 //shroom #1
+{
+    element0,overlay,surface9000.png,0,0
+}
+
+surface21 //4 clover
+{
+    element0,overlay,surface9001.png,0,0
+}
+
+surface22 //shroom #2
+{
+    element0,overlay,surface9002.png,0,0
+}
+
+surface23 //rock pile 4
+{
+    element0,overlay,surface9003.png,0,0
+}
+
+surface24 //rock pile 3
+{
+    element0,overlay,surface9004.png,0,0
+}
+
+surface25 //rock pile 2
+{
+    element0,overlay,surface9005.png,0,0
+}
+
+surface26 //rock pile 1
+{
+    element0,overlay,surface9006.png,0,0
+}
+
+surface27 //stick
+{
+    element0,overlay,surface9007.png,0,0
+}
+
+surface28 //flower
+{
+    element0,overlay,surface9008.png,0,0
+}

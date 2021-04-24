@@ -1,0 +1,472 @@
+﻿AiTalk
+{
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+}
+
+RandomTalk : nonoverlap
+{
+	if sleep != 1
+	{
+		"%(cha)"
+		--
+		{
+			"* Hermit is humming an unfamiliar melody\e"
+			"* Hermit is humming a foregin melody\e"
+		}
+
+		{
+			"* Hermit is looking through your folders"
+			--
+			"\e:chain=FileForagingStuff"
+			"\e:chain=FileForagingFileEx"
+
+			if "s the skeleton" _in_ TOLOWER("%(installedghostlist)"); "\e:chain=FileForagingIngridients"
+		}
+
+		{
+			"* Hermit is looking around your desktop with interest"
+			--
+			"\e"
+			"\e:chain=IconForagingDesktop"
+			if noticewindows == "ON"; "\e:chain=IconForagingWindow"
+			if ghostexcount != 0; "\e:chain=IconForagingSSP"
+		}
+		
+
+		if (timeslot == "earlymorning" || timeslot == "latenight" || timeslot == "midnight") && RAND(50) == 5;
+		{
+			"* You can hear soft snores"
+			"* Hermit fell asleep"
+			"* Hermit fell asleep standing, it's almost impressive"
+			--
+			"\e%(sleep=1)"
+		}
+
+		{
+			"\0\s[0]\i[4]* Hermit softly chrips\e"
+			"\0\s[0]\i[4]* Hermit happily chrips\e"
+		}
+
+		if RAND(50) == 3; "* You ask him how he keeps all his stuff in such a small bag\w7, he just shrugs\e"
+
+		//if RAND(500) == 3  && desktopbuddy != 1; "* Hermit is looking through your folders\e:chain=DesktopBuddy"
+
+		if desktopbuddy == 1
+		{
+			if  RAND(300) == 19; "* The %(buddy[buddyid]) looks at hermit\x\c He softly chrips picking it up and puts it back into the folder\e%(desktopbuddy=0)"
+
+			"%(OnWander('2'))"
+
+			"* The %(buddy[buddyid]) is looking through your trash\e"
+			"* The %(buddy[buddyid]) is digging through your files\e"
+			"* Hermit gives the %(buddy[buddyid]) a%(stuff)\e"
+
+			/*case buddyid
+			{
+				when 0 //raccoon
+				{
+					
+				}
+				when 1 //squirrel
+				{
+					
+				}
+				when 2 //fox
+				{
+					
+				}
+			}*/
+		}
+	}
+	else
+	{
+		"%(cha)"
+		--
+		"* Hermit is softly snoring\e"
+		"* Hermit is stirring in his sleep\e"
+		"* Hermit is dreaming about pretty rocks\e"
+
+		if desktopbuddy == 1
+		{
+			"%(OnWander('2'))"
+
+			{
+				"* The %(buddy[buddyid]) is"
+				--
+				"looking through"
+				"digging through"
+				"biting"
+				--
+				"your trash\e"
+				"your files\e"
+				"your folders\e"
+				"your desktop icons\e"
+				"your taskbar\e"
+				"your taskbar icons\e"
+			}
+
+			/*case buddyid
+			{
+				when 0 //raccoon
+				{
+					
+				}
+				when 1 //squirrel
+				{
+					
+				}
+				when 2 //fox
+				{
+					
+				}
+			}*/
+		}
+	}
+}
+
+IconForagingSSP
+{{CHAIN
+	"* He tries to grab %(ghost)'s icon from the task bar\x\c* It doesn't work and he let's out a disappointed chrip\e:chain=end"
+}}CHAIN
+
+IconForagingWindow
+{{CHAIN
+	"* He tries to grab %(window) icon from the task bar\x\c* It doesn't work and he let's out a disappointed chrip\e:chain=end"
+}}CHAIN
+
+IconForagingDesktop
+{{CHAIN
+	"* He tries to grab one off your desktop icons\x\c* It doesn't work and he let's out a disappointed chrip\e:chain=end"
+}}CHAIN
+
+DesktopBuddy
+{{CHAIN
+	buddyid = RAND(3)
+	_thing = buddy[buddyid]
+	"* He suddenly pulls out a \w8. \w8. \w8. %(_thing) from your folder!?\x\cThe %(_thing) looks totally unbothered and unsuprised by it and Hermit puts it on the ground and happily hums\x\c* You don't rememeber having any %(_thing)s in your folders\e:chain=end"
+}}CHAIN
+
+FileForagingStuff
+{{CHAIN
+	_thing = "%(stuff)"
+	"* He suddenly pulls out a%(_thing) from your folder and puts it in his bag\x\c* You are 99% sure there was no %(_thing) in that folder\e:chain=end"
+}}CHAIN
+
+FileForagingIngridients
+{{CHAIN
+	_thing = "%(ingridients)"
+	"* He suddenly pulls out %(_thing) from your folder and happilly puts it in his bag\x\c*You are 99% sure there was no %(_thing) in that folder, someone must have dropped it\e:chain=end"
+}}CHAIN
+
+FileForagingFileEx
+{{CHAIN
+	_thing = "%(filetype)"
+	"* He suddenly pulls out a %(_thing) file from your folder and happilly puts it in his bag\e:chain=end"
+}}CHAIN
+
+/*
+OnMinuteChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds. 
+*/
+
+OnMinuteChange
+{
+	timeslot = GetTimeSlot 
+	--
+	if RAND(20) == 2
+	{
+		OnGetStuff
+	}
+	--
+ 	if minute == 0 
+	{
+ 		if weathermenu == "ON" {
+            weatherquiet = 1
+            "\b[-1]\![execute,http-get,https://weather.com/weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
+        }
+	}
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+}
+
+OnGetStuff
+{
+	entnum++
+	_rand = RAND(9)
+	_sur = "2" + _rand
+	enity[entnum] = foragename[_rand]
+	etsur[entnum] = _sur
+	_offx = RAND(displaywidth)
+	--
+	"\p[%(entnum)]\![set,alignmenttodesktop,bottom]\![move,--X=%(_offx),--time=0,--base=primaryscreen]\s[%(_sur)]\e"
+}
+
+/*
+OnSecondChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds
+*/
+
+OnSecondChange
+{
+	if passsec == 60
+ 		{
+	 	passsec = 1
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+	if mikireflag == 1 && reference1 == 0
+		{
+			EndMikireTalk
+ 		}
+		mikireflag = reference1
+	if reference2 == 1
+	{
+
+	}
+}
+
+MikireTalk
+{
+	//"\0\s[0]Push Ctrl-Shift-F12 to bring me back."
+	"\0\s[0]* He tries to get your attention\w8, maybe you should push Ctrl-Shift-F12 and bring him back"
+}
+
+EndMikireTalk
+{
+	"\0\s[0]* He looks relived\e"
+}
+
+/*
+OnSurfaceRestore
+-----
+Reference0: The current surface of the body.
+Reference1: Current surface on the other side. 
+*/
+
+OnSurfaceRestore
+{
+	"\0\s[0]\1\s[10]"
+	--
+	OnForageRestore
+}
+
+OnForageRestore
+{
+	_sur = ""
+	--
+	for _i=2;_i<=entnum;_i++
+	{
+		_sur += "\p[" + _i + "]\s[ "+ etsur[_i] + "]"
+	}
+	--
+	_sur
+}
+
+/*
+OnKeyPress
+-----
+Reference0: The key entered. (Letter written on key top)
+Reference1: The key entered. (Win32 virtual key code)
+Reference2: *SSP only Counts the key pressed.
+Reference3: *SSP only Character window ID where the key event came.
+Reference4: *SSP only Modifier keys are listed separated by commas. Example: "ctrl,alt" 
+*/
+
+OnKeyPress
+{
+	if reference0 == "f1"
+	{
+		"\![open,readme]"
+	}
+	elseif reference0 == "t"
+	{
+		AiTalk
+	}
+	elseif reference0 == "w"
+	{
+		OnGetStuff
+	}
+}
+
+//Written by Zichqec https://zichqec.github.io/s-the-skeleton/index.html
+//This function will make the ghost wander randomly on the current screen. If set properly, they should never go off either edge of the screen, even if it is not your primary monitor. Please note that I only have two monitors to test this with, it might break with 3 or more!
+//I recommend making a hotkey for your test variable if you want to try this out, it's kinda fun tbh
+//Please note; there is a bug where if you boot a ghost on a secondary monitor, they will move to the primary monitor if you ask them to wander without dragging them onto a different monitor. I can't think of a way to fix this, but if you think of something please tell me.
+//To call this function, you can write %(OnWander('#')) in a line of dialogue, where # is the number of the ghost you want to move (0 for Sakura, 1 for Kero, 2 and up for extra chars). Alternatively, you can write OnWander("#") in code, the way you would write any other function.
+//Dont forget to adjust the settings at the top of OnWanderCalc! You can set up individual settings for different characters by adding if checks for wanderChar, where 0 is Sakura, 1 is Kero, etc.
+OnWander
+{
+	wanderChar = TOINT(_argv)
+	if wanderLeft[wanderChar] == NULL; wanderLeft[wanderChar] = 0 //If somehow these are undefined, define them so the ghost doesn't go to the moon
+	if wanderRight[wanderChar] == NULL; wanderRight[wanderChar] = 500
+	"\![get,property,OnWanderCalc,currentghost.scope(%(_argv)).rect]"
+}
+
+OnWanderCalc
+{
+	//Walk speed. The higher you make _walkRate, the slower the ghost will walk.
+	_walkRate = 200
+	
+	//Ghost width. You need to adjust this so the ghost does not walk off the side of the screen. Set it to the width of your ghost's images. If your images are not the same width, this might behave strangely
+	_walkWidth = 230
+	
+	//Minimum amount of pixels to move, so that the ghost doesn't move tiny, jarring amounts. Adjust as you like.
+	_walkMinimum = 200
+	
+	
+	//---Don't touch the rest of this, aside from the surfaces near the bottom!---
+	//{ If you're using notepad++, you can collapse this bracket so you don't have to see all that messy code
+	
+	
+	_XCoord = TOINT(reference0[0])
+	_char = wanderChar
+	_debug = "Started from %(_XCoord), left edge is %(wanderLeft[_char]), right edge is %(wanderRight[_char])\n"
+	
+	_debug += "Char is %(_char)\n"
+	_adjustedWidth = 0
+	if nowscale != ""
+	{
+		_adjustedWidth = _walkWidth * (nowscale * 0.01)
+		_debug += "adjusted width from %(_walkWidth) to %(_adjustedWidth)\n"
+	}
+	else
+	{
+		_adjustedWidth = _walkWidth
+	}
+	
+	_Left = TOINT(wanderLeft[_char])
+	_Right = TOINT(wanderRight[_char])
+	_Left -= wanderLeft[_char]
+	_Right -= wanderLeft[_char]
+	_debug += "wanderLeft[_char]: %(wanderLeft[_char])\n"
+	if _Right < 0
+	{
+		_Right *= -1
+		_debug += "_Right less than 0, inverted\n"
+	}
+	_RightRand = _Right
+	_RightRand -= _adjustedWidth
+	_RandX = RAND(_RightRand)
+	_RandX += TOINT(wanderLeft[_char])
+	_debug += "Moving to %(_RandX)\n"
+	
+	_adjust = "None"
+	_side = ""
+	if _RandX > _XCoord //If moving Right
+	{
+		_debug += "Moving right\n"
+		if _RandX - _XCoord < _walkMinimum //If it isn't moving at least the minimum distance to the right
+		{
+			_RandX = _XCoord + _walkMinimum
+			_adjust = "Right"
+			_debug += "Adjusted to the right\n"
+			
+			if _RandX > (wanderRight[_char] - _adjustedWidth) //If it's past the right edge
+			{
+				_debug += "Stopped on the right edge\n"
+				_RandX = wanderRight[_char] - _adjustedWidth
+			}
+		}
+	}
+	elseif _RandX < _XCoord //If moving left
+	{
+		_debug += "Moving left\n"
+		_RandXN = _RandX
+		_XCoordN = _XCoord
+		if wanderLeft[_char] < 0
+		{
+			_RandXN = (_RandX * -1) //Inverting the negative numbers so we can math properly
+			_XCoordN = (_XCoord * -1)
+			_debug += "Inverted _XCoord and _RandX\n"
+		}
+		
+		if _RandXN - _XCoordN < _walkMinimum //If it isn't moving at least the minimum distance to the left
+		{
+			_RandX = _XCoord - _walkMinimum
+			_adjust = "Left"
+			_debug += "Adjusted to the left, new destination %(_RandX)\n"
+			
+			if _RandX <= TOINT(wanderLeft[_char]) //If it's past the left edge
+			{
+				_debug += "Stopped on the left edge\n"
+				_RandX = wanderLeft[_char]
+			}
+		}
+	}
+	
+	if _RandX == _XCoord //If it fails to move at all
+	{
+		if _RandX == wanderLeft[_char] //If it's on the left edge
+		{
+			_debug += "Didn't move, stepped right\n"
+			_RandX += _walkMinimum
+		}
+		else //If it's on the right edge, or I guess if it happened to draw the exact same random coordinate as where it's standing
+		{
+			_RandX -= _walkMinimum
+			_debug += "Didn't move, stepped left\n"
+		}
+	}
+	_debug += "Stopped at %(_RandX)\n"
+	
+	_walkTime = (_XCoord - _RandX) //Subtract the X we're moving to from the X we're starting at.
+	if _walkTime < 0; {_walkTime *= -1} //If this ends up being a negative number, make it into a positive one.
+	_walkTime /= 100 //Divide it by 100 so we're dealing with a small number.
+	_walkTime *= _walkRate //Multiply it by whatever the dev wants the walk rate to be.
+	if _walkTime == 0; {_walkTime = _walkRate} //If the walk time ends up being 0, make it at least the base _walkRate.
+	
+	--
+	//}
+	
+	//These ifs handle which direction the character is moving, and which char is moving. You can rearrange them if you like! 
+	"\p[2]" //Catch all for moving extra chars. If you want to move an extra char, you'll want to copy the if checks from the sakura/kero into here
+	
+	--
+	"\![move,--X=%(_RandX),--time=%(_walkTime),--base=primaryscreen]" //This is the actual move command.
+	--
+	//This is whatever surface you want them to return to after they stop walking. If you want dialogue after they stop moving, it'll have to go here.
+	"\p[2]\s[0]\e" 
+	--
+	"\_q _RandX: %(_RandX),  _XCoord: %(_XCoord), Adjust: %(_adjust)  \n%(_debug)" //Debugging stuff that'll show up in the script log. You can comment it out or remove it, but the user will never see it anyways.
+}
+
+OnDisplayHandover //This sets the variables for if your ghost is moved between monitors. Gotta account for cases where people have different size monitors. I'd put this in etc.dic next to OnDisplayChange
+{
+	wanderLeft[reference1] = reference3[0] //Tracks the left boundary of the current monitor for each char
+	wanderRight[reference1] = reference3[2] //Tracks the right boundary of the current monitor for each char
+}

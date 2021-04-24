@@ -183,7 +183,14 @@ OnGhostCallComplete
 	{
 		if repairglitch != 1
 		{
-			if reference0 == "Gaster"
+			if reference0 == "one-seven-z"
+			{
+				"0̷̞̉1̷̻͘7̸͔̀z̶̘̽?̴̩̍"
+				"M̸͍͒-̴͔̈́0̷̖̾1̵̜̉7̸̢̏z̸͍̃?̴̩̍"
+				"0̶̗͝1̶̛̘̼͙͛͝7̷̤͑̔͘?̸̳̱̪͂"
+				if RAND(100) == 1; "b̸͇̾r̸̤̿o̷̙͘t̷̗̀h̷̏͜ḙ̸͐r̵̟̈?̴̩̍"
+			}
+			elseif reference0 == "Gaster"
 			{
 				"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
 			}
@@ -259,7 +266,14 @@ OnGhostCallComplete
 		{
 			"%(distingstart)"
 			--
-			if reference0 == "Gaster"
+			if reference0 == "one-seven-z"
+			{
+				"017z?"
+				"017?"
+				if RAND(100) == 1; "brother?"
+				"M-017z?"
+			}
+			elseif reference0 == "Gaster"
 			{
 				"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
 			}
@@ -441,7 +455,14 @@ OnOtherGhostBooted
 	{
 		if repairglitch != 1
 		{
-			if reference0 == "Gaster"
+			if reference0 == "one-seven-z"
+			{
+				"0̷̞̉1̷̻͘7̸͔̀z̶̘̽?̴̩̍"
+				"M̸͍͒-̴͔̈́0̷̖̾1̵̜̉7̸̢̏z̸͍̃?̴̩̍"
+				"0̶̗͝1̶̛̘̼͙͛͝7̷̤͑̔͘?̸̳̱̪͂"
+				if RAND(100) == 1; "b̸͇̾r̸̤̿o̷̙͘t̷̗̀h̷̏͜ḙ̸͐r̵̟̈?̴̩̍"
+			}
+			elseif reference0 == "Gaster"
 			{
 				"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
 			}
@@ -499,7 +520,14 @@ OnOtherGhostBooted
 		{
 			"%(distingstart)"
 			--
-			if reference0 == "Gaster"
+			if reference0 == "one-seven-z"
+			{
+				"017z?"
+				"017?"
+				if RAND(100) == 1; "brother?"
+				"M-017z?"
+			}
+			elseif reference0 == "Gaster"
 			{
 				"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
 			}

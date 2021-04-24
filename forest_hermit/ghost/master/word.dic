@@ -1,0 +1,241 @@
+﻿//**** Don't touch this ***************************************************************
+On_\person
+{
+ 	person
+}
+
+//Functions
+
+ARRAYADD //ARRAYADD(array)
+{
+	_return = 0
+	_a = SPLIT(_argv[0],",")
+	_size = ARRAYSIZE(_a)
+	--
+	for _i=0;_i<_size;_i++
+	{
+		_return += TOINT(_a[_i])
+	}
+	--
+	_return
+}
+
+ARSEARCH //ARSEARCH(key,array,1/0)
+{
+	_return = ""
+	_a = SPLIT(_argv[1],",")
+	_size = ARRAYSIZE(_a)
+	--
+	if _argv[0] _in_ _argv[1]
+	{
+		for _i=0,_x=0;_i<_size || _x != 1;_i++
+		{
+			if _argv[2] != ""
+			{
+				if TOLOWER(_a[_i]) == TOLOWER(_argv[0])
+				{
+					_x = 1
+					_return = _i
+				}
+			}
+			else
+			{
+				if _a[_i] == _argv[0]
+				{
+					_x = 1
+					_return = _i
+				}
+			}
+		}
+	}
+	else
+	{
+		_return = "-1"
+	}
+	--
+	_return
+	//"%(_size) : %(_a) : %(_return)"
+}
+
+OnZChnage
+{
+	LETTONAME(reference0,onezero(reference1))
+	--
+	TalkConfig
+}
+
+OnButtonChange
+{
+	LETTONAME(reference0,onnoff(reference1))
+	--
+	TalkConfig
+}
+
+stemp //stemp(int variable)
+{
+	if TOINT(_argv[0]) != 1; "s"
+}
+
+TOPROPER //TOPROPER(string)
+{
+    _word = _argv[0]
+    _letter = TOUPPER(SUBSTR(_word,0,1))
+    _word = SUBSTR(_word,1,STRLEN(_word)-1)
+    _letter + _word
+}
+
+onnoff //onnoff(variable)
+{
+	if _argv[0] == "ON"; "OFF"
+	else; "ON"
+}
+
+onezero //onezero(variable)
+{
+	if _argv[0] == 1 || _argv[0] == "1"; 0
+	else; 1
+}
+
+//Envelopes
+
+timeformat
+{
+	if timeformatype == "STANDARD"; "%(nowhour):%(Getnowmin) %(ap)"
+	elseif timeformatype == "MILITARY"; "%(hour):%(Getnowmin)"
+}
+
+dateformat
+{
+	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
+	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
+	elseif dateformatype == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
+}
+
+stuff
+{
+	{
+		" rock"
+		" stone"
+	}
+
+	" flower"
+	" mushroom"
+	" toadstool"
+	" stick"
+	"n acorn"
+	" cornflower"
+	" pinecone"
+	" dandelion"
+	" leaf"
+	" chestnut"
+	" walnut"
+	" bottlecap"
+	"n empty birds nest"
+	" animal fur"
+	" cocoon"
+	" piece of tree bark"
+	" piece of moss covered bark"
+	" sapling"
+	" fang"
+	" claw"
+	" horn"
+	" thorn bush"
+
+	{
+		" "
+		--
+		"boar"
+		"rabbit"
+		"wolf"
+		"mice"
+		"hare"
+		"crow"
+		"bird"
+		--
+		" skull"
+	}
+
+	"n egg"
+	" feather"
+	{
+		" pile of rocks"
+		" pile of stones"
+	}
+
+	" bunch of feathers"
+	" bunch of sticks"
+	" bunch of petals"
+}
+
+cha
+{
+	"\![set,balloontimeout,-1]\*"
+}
+
+ingridients
+{
+	"cilantro"
+	"basil"
+	"lemon pepper"
+	"cloves"
+	"chives"
+	"butter"
+	"salt"
+	"paprika"
+	"sugar"
+	"cinnamon"
+	"pepper"
+	"lemon"
+	"orange zest"
+	"lemon zest"
+	"cumin"
+	"mint"
+	"garlic"
+	"curry powder"
+	"chili powder"
+	"nutmeg"
+	"ginger"
+	"mustard"
+	"tumeric"
+	"thyme"
+	"rosemary"
+	"allspice"
+	"dill weed"
+	"horseradish"
+	"oregano"
+	"sesame seeds"
+	"peppermint"
+	"sage"
+	"vanilla"
+	"wasabi"
+	"lime"
+	"parsley"
+}
+
+filetype
+{
+	".txt"
+	".dic"
+	".png"
+	".jpg"
+	".jpeg"
+	".mp3"
+	".exe"
+	".bat"
+	".cfg"
+	".wav"
+	".pdf"
+	".dat"
+	".gif"
+	".tiff"
+	".dll"
+	".pna"
+	".ico"
+	".dau"
+	".zip"
+	".nar"
+	".html"
+	".psd"
+	".mp4"
+	".ttf"
+}

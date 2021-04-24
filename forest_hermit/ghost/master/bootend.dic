@@ -1,0 +1,135 @@
+﻿OnFirstBoot
+{
+ 	lastTalk = "" 
+	passmin = 0 
+	passsec = 0 
+ 	username         = "Forager" 
+	stroke           = 0	
+	mikireflag       = 0
+ 	aitalkinterval = 400 
+ 	birthdayprint = "????" 
+	talktime = "5 minutes" 
+	deleteshitai = "OFF"
+	nowshell = "master" 
+	--
+	OnResetVar
+	--
+	if reference0 == 0 
+ 	{
+		"\1\s[10]\0\s[0]* A wild Hermit has appeared!\x\c* He looks confused but doesn't seem to be bothered by the sudden change in surroundings\e"
+ 	}
+	else
+ 	{
+ 		"\1\s[10]\0\s[0]* The Hermit is happy to see you again\e"
+ 	}
+}
+
+OnResetVar
+{
+	entnum = 2
+	sleep = 0
+	noticewindows = "OFF"
+	timeformatype = "STANDARD"
+	dateformatype = "dd/mm/yyyy"
+	foragename = "Brown Mushroom,Four Leaf Clover,Toadstool,Rock Pile (4),Rock Pile (3),Rock Pile (2),Rock,Stick,Flower"
+	forage = "Brown Mushroom,Four Leaf Clover,Toadstool,Rock,Stick,Flower"
+	foragenum = (0,0,0,0,0,0)
+	buddy = "raccoon,squirrel,fox"
+	desktopbuddy = 0
+}
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+}
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+}
+
+OnBoot
+{
+	lastTalk = "" 
+	passmin = 0
+	passsec = 0
+	--
+ 	"\0\s[0]\1\s[10]\i[4]" 
+	--
+	OnForageRestore
+	--
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot 
+	--
+	"%(normalboottalk)" 
+}
+
+normalboottalk
+{
+	"* Hermit happily chrips at being back here"
+}
+
+OnClose
+{
+	timeslot = GetTimeSlot 
+	--
+	"\0\s[0]* Hermit waves you goodbye and returns to his forest humming a simple melody\w8\w8"
+	"\0\s[0]* Hermit waves you goodbye and returns to his forest chriping on the way\w8\w8"
+	--
+	"\-\e" 
+}
+
+OnWindowStateRestore
+{
+	"\0\s[0]"
+	--
+	OnForageRestore
+	--
+	"* Hermit looks confused at what happened\e"
+}
+
+OnGhostChanging
+{
+	"\0\s[0]* He waves you goodbye\w8\w8\e"
+}
+
+OnGhostChanged
+{
+	"\0\s[0]\1\s[10]" 
+	--
+	if reference0 == "Forest Hermit" 
+	{
+		"\0\s[0]* He looks a little confused\w8\w8\e"
+	}
+	else 
+	{
+		"%(normalboottalk)"
+	}
+}

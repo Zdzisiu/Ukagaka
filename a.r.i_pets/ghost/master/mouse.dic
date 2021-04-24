@@ -1,0 +1,98 @@
+﻿/*
+OnMouseMove
+-----
+Reference0: X coordinate of mouse cursor (local coordinate)
+Reference1: Y coordinate of mouse cursor (local coordinate)
+Reference2: The amount and direction of mouse wheel rotation.
+Reference3: 0 for main body, 1 for partner. In SSP/CROW, there are 2 or more.
+Reference4: The hit determination identifier.
+Reference5: * Always 0 for SSP.
+Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not supported) in multi-touch environment, mouse with input from mouse etc. 
+*/
+
+OnMouseMove
+{
+	if nowmode != "QUIZ"
+	{
+		if reference3 == 0 
+		{
+			MouseMoveSakura
+		}
+	}
+}
+
+MouseMoveSakura
+{
+	//if reference4 != "" 
+ 	//{
+ 		stroke++ 
+ 		if stroke >= 60 
+		{
+ 			stroke = 0 
+
+ 			"\0* %(petname[petid]) is purring\e"
+ 		}
+	//}
+ 	//else
+	//{
+		//stroke = 0
+ 	//}
+}
+
+/*
+OnMouseDoubleClick
+-----
+Reference0: X coordinate of mouse cursor (local coordinate)
+Reference1: Y coordinate of mouse cursor (local coordinate)
+Reference2: Always 0.
+Reference3: 0 for main body, 1 for partner. In SSP/CROW, there are 2 or more.
+Reference4: The hit determination identifier.
+Reference5: Left click is 0, right click is 1.
+Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not supported) in multi-touch environment, mouse with input from mouse etc. 
+*/
+
+OnMouseDoubleClick
+{
+ 	if reference3 == 0 
+	{
+		MouseDoubleClickSakura
+ 	}
+	elseif reference3 == 2 
+ 	{
+ 		OnWaterMenu
+	}
+	elseif reference3 == 3 
+ 	{
+ 		OnFoodMenu
+	}
+}
+
+MouseDoubleClickSakura
+ {
+ 	if reference4 == "Head" || reference4 == "Face" 
+	{
+		"\0\s[0]This is the hitting dialogue.\w8\1\s[15]lol\w8\0\s[9]\n\n[half]Shut up.\e"
+		"\0\s[0]This is another hitting dialogue.\e"
+		"\0\s[0]This is yet another bit of text for hitting.\e"
+		"\0\s[0]This is the fourth hitting dialogue.\e"
+ 	}
+	else
+ 	{
+ 		OpenSakuraMenu
+	}
+ }
+ 
+MouseDoubleClickKero
+ {
+ 	if reference4 == "Face" 
+	{
+		"\1\s[10]This is hitting dialogue.\w8\0\s[5]ha ha\w8\1\s[19]\n\n[half]Quiet.\e"
+		"\1\s[10]This is another hit dialogue.\e"
+		"\1\s[10]This is yet another hit dialogue.\e"
+		"\1\s[10]This is the fourth hitting dialogue.\e"
+ 	}
+	else 
+ 	{
+		OpenKeroMenu 
+	}
+ }

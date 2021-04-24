@@ -1,0 +1,775 @@
+OpenSakuraMenu
+{
+	wd = GetWeekDay
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	_bars = ""
+	--
+	case nowshell
+	{
+		when "Shadow"; petid = 0
+	}
+	--
+	_a = SPLIT(petstats[petid],",")
+	_am = SPLIT(petstatmax[petid],",")
+	_as = ARRAYSIZE(_a)
+	--
+	for _i=0;_i<_as;_i++
+	{
+		_a[_i] = TOINT(_a[_i])
+		_am[_i] = TOINT(_am[_i])
+	}
+	--
+	OnStateCheck
+	--
+	if sleep[petid] == 1
+	{
+		"\_q\0\s[1]\b2"
+	}
+	elseif state[petid] == "dead"
+	{
+		"\_q\0\s[2]\b2"
+	}
+	else
+	{
+		"\_q\0\s[0]\b2"
+	}
+	--
+	"* %(petname[petid]) is %(state[petid])\n\n" 
+	--
+	_bars[0] = "Hunger: |"
+	_bars[2] = "Thirst: |"
+	_bars[1] = "Energy: |"
+	--
+	_accent = ""
+	_barnum = "\f[color+" + REPLACE(accentcolor,".","+") + "]"
+	_accent = "\f[color+" + REPLACE(accentcolor,".","+") + "]"
+	--
+	for _i=1,_j=0;_j<3;_i++
+	{
+		if _a[_j] != 0
+		{
+			_az[_j] = _am[_j]/10
+			_barnum += "#"
+			--
+			if (_az[_j]*_i) >= _a[_j] && "default" !_in_ _barnum; _barnum += "\f[default]" 
+			--
+			if _i == 10
+			{
+				_barnum += "|"
+				_bars[_j] += "%(_barnum)" + ":" + _a[_j] + "/" + _am[_j] + "\n"
+				_j++
+				_barnum = "\f[color+" + REPLACE(accentcolor,".","+") + "]"
+				_i = 0
+			}
+		}
+		else
+		{
+			_bars[_j] += "##########|" + ":" + _a[_j] + "/" + _am[_j] + "\n"
+			_j++
+		}
+	}
+	--
+	REPLACE("%(_bars[0])\n%(_bars[2])\n%(_bars[1])","+",",")
+	//"%(_bars[0])\n%(_bars[2])\n%(_bars[1])"
+	//"Hunger: %(_a[0])/%(_am[0])\nThirst: %(_a[2])/%(_am[2])\nEnergy: %(_a[1])/%(_am[1])\n\n[half]"
+	--
+	if state[petid] != "dead"
+	{
+		"\n\n[half]\![*]\f[strike,1]Change Pet\f[strike,0]\n/
+		//\![*]\q[Change Animal,OnAnimal]\n/
+		//\![*]\q[Reset,OnPetStats]\n/
+		//\![*]\q[Play,OnGames]\n/
+		\![*]\q[Config Menu,configmenu]\n"
+	}
+	else
+	{
+		"\n\n[half]\f[bold,1]\![*]\q[Restart,OnReset_Yes]\f[bold,0]\n\n[half]/
+		\![*]\f[strike,1]Change Pet\f[strike,0]\n/
+		\![*]\q[Config Menu,configmenu]\n"
+	}
+	--
+	"\n[half]\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(timeformat), %(dateformat)" 
+	//%(REPLACE(_accent,'+',','))
+
+}
+
+//Sort out after jam
+OnAnimal
+{
+	_shellfile = "../../shell/"
+	_shells = FENUM(_shellfile,",")
+	_shells = REPLACE(_shells,"\","") //"{
+	_pets = IARRAY
+	_petstats = IARRAY
+	_petfood = IARRAY
+	_petfoodsur = IARRAY
+	--
+	_page = "\b4\_qAvalible Pets:\n\n"
+	--
+	foreach _shells ; _p
+	{
+		if !FOPEN(_filename = _shellfile + "\%(_p)\customshell.txt","r")
+			return
+		while (_line = FREAD(_filename)) != -1;
+		{
+			if "name: " _in_  _line
+			{ 
+				_pets ,= REPLACE(_line,"name: ","")
+				break;
+			}
+			--
+			if "stats: " _in_  _line
+			{ 
+				_petstats ,= REPLACE(_line,"stats: ","")
+				break;
+			}
+			--
+			if "food: " _in_  _line
+			{ 
+				_petfood ,= REPLACE(_line,"food: ","")
+				break;
+			}
+			--
+			if "foodsur: " _in_  _line
+			{ 
+				_petfoodsur ,= REPLACE(_line,"foodsur: ","")
+				break;
+			}
+		}
+	}
+	--
+	for _i=0;_i<ARRAYSIZE(_shells);_i++
+	{
+		if _pets[_i] != ""
+		{
+			if _pets[_i] _in_ "%(pet)"
+			{
+				_petids = ARSEARCH(_pets[_i],"%(pet)",1)
+				_page += "\![*]\q[" + _pets[_i] + ": " + petname[_petids] + ",OnChangePet," + _shells[_i-1] + "," + _pets[_i] + "]\n\n[half]"
+
+			}
+			else
+			{
+				_page += "\![*]\q[" + _pets[_i] + ",OnChangePet," + _shells[_i-1] + "," + _pets[_i] + "]\n\n[half]"
+			}
+		}
+	}
+	--
+	_page += "\![*]\q[Nevermind,Cancel]\e"
+	--
+	_page
+}
+
+OnChangePet
+{
+	_shellfile = "../../shell/"
+	_shells = FENUM(_shellfile,",")
+	_shells = REPLACE(_shells,"\","") //"{
+	--
+	_page = "\b4\_qAvalible Pets:\n\n"
+	--
+	foreach _shells ; _p
+	{
+		if !FOPEN(_filename = _shellfile + "\%(_p)\customshell.txt","r")
+			return
+		while (_line = FREAD(_filename)) != -1;
+		{
+			if CUTSPACE(_line[0]) == "stats"
+			{ 
+				shellsnames ,= CUTSPACE(_line[1])
+				break;
+			}
+		}
+	}
+	for _i=1;_i<ARRAYSIZE(_shells)+1;_i++
+	{
+		_page += "\![*]\q[" + shellsnames[_i] + ",OnChangePet," + _shells[_i-1] + "," + shellsnames[_i] + "]\n\n[half]"
+	}
+	--
+	_page += "\![*]\q[Nevermind,Cancel]\e"
+	--
+	_page
+}
+
+OnWaterMenu
+{
+	//1% = -2 thirst
+	if waterbowl[petid] == ""; waterbowl[petid]= 0
+	--
+	if waterbowl[petid] == 0; waters[petid] = "90"
+	elseif waterbowl[petid] < 50; waters[petid] = "93"
+	else; waters[petid] = "92"
+	--
+	"\p[2]\s[%(waters[petid])]\_qThe bowl is %(waterbowl[petid])% full\n\n[half]"
+	--
+	if waterbowl[petid] != 100; "\![*]\q[Refill,refillwater]\n"
+	--
+	 "\n[half]\![*]\q[Close,CLOSE]"
+}
+
+Select.refillwater
+{
+	waters[petid] = "92"
+	waterbowl[petid] = 100
+	--
+	"\p[2]Water bowl refilled"
+}
+
+OnFoodMenu
+{
+	//1% = 5 hunger
+	//Fave food = 5 friendship
+	if foodbowl[petid] == ""; foodbowl[petid]= 0
+	--
+	"\p[3]\s[%(foods[petid])]\_qThe bowl is %(foodbowl[petid])% full\n"
+	--
+	if food[petid] != ""; "Currently filled with %(food[petid])\n\n[half]"
+	elseif food[petid] == "" || foodbowl[petid] == 0; "Currently the bowl is empty\n\n[half]"
+	--
+	if food[petid] != "" && foodbowl[petid] != 100; "\![*]\q[Refill with %(food[petid]),refillwithfood]\n"
+	--
+	if food[petid] == "" || foodbowl[petid] == 0; "\![*]\q[Fill with . . .,fillwithfood]\n"
+	--
+	if foodbowl[petid] != 0; "\![*]\q[Empty,empty]\n"
+	--
+	"\n[half]\![*]\q[Close,CLOSE]\e"
+}
+
+Select.empty
+{
+	food[petid] = ""
+	foods[petid] = "91"
+	foodbowl[petid] = 0
+	--
+	OnFoodMenu
+}
+
+Select.fillwithfood
+{
+	_page = "\p[3]\b2Fill the bowl with . . .\n\n[half]"
+	--
+	_a = SPLIT(foodnames[0],",")
+	_s = SPLIT(foodsur[0],",")
+	_as = ARRAYSIZE(_a)
+	--
+	for _i=0;_i<_as;_i++
+	{
+		_page += "\![*]\q[" + _a[_i] + ",OnFillFood," + _a[_i] + "," + _s[_i] + "]\n"
+	}
+	--
+	_page += "\n[half]\![*]\q[Go back,OnFoodMenu] or \![*]\q[Close,CLOSE]"
+	--
+	_page
+}
+
+Select.refillwithfood
+{
+	foodbowl[petid] = 100
+	--
+	"\p[3]\s[%(foods[petid])]Bowl refilled with %(food[petid])\x"
+	--
+	OnFoodMenu
+}
+
+OnFillFood
+{
+	food[petid] = reference0
+	foods[petid] = reference1
+	foodbowl[petid] = 100
+	--
+	"\p[3]\s[%(foods[petid])]Bowl filled with %(food[petid])\x"
+	--
+	OnFoodMenu
+}
+
+Select.altalk
+{
+	AiTalk
+}
+
+OnLastTalk 
+{
+	"%(lastTalk)\e"
+}
+
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else
+	{"Sat"}
+}
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+	{
+		"AM"
+	}
+ 	else
+	{
+		"PM"
+	}
+}
+
+Getnowmin
+{
+	if minute >= 0 && minute <=9
+	{
+		"0%(minute)"
+	}
+	else
+	{
+		"%(minute)"
+	}
+}
+
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9
+	{
+		"0%(hour12)"
+	}
+	else
+	{
+		"%(hour12)"
+	}
+}
+
+Select.BACKTOMENU
+{
+	OpenSakuraMenu
+}
+Select.configmenu
+{
+	TalkConfig
+}
+
+TalkConfig
+{
+	_color = "\f[color," + REPLACE(accentcolor,'.',',') + "]"
+	--
+	if petname[petid] == ""
+	{
+		petname[petid] = "Unnamed" 
+	}
+	--
+	"\0\b[2]\_q" 
+	--
+	"\f[bold,1]Your name:\f[bold,0] \q[%(username),TEACHNAME]\n"
+	--
+	"\f[bold,1]Pet name:\f[bold,0] \q[%(petname[petid]),script:\![open,inputbox,OnPetName,-1\]]\n"
+	--
+	"\f[bold,1]Your pronouns:\f[bold,0] \q[%(heshe)/%(himher)/%(hisher),TEACHPRONOUN]\n"
+	--
+	"\f[bold,1]Your birthday:\f[bold,0] \q[%(birthdayprint),TEACHBDAY]\n"
+	--
+	"\f[bold,1]Talk Rate:\f[bold,0] - \q[every %(talktime),talkinter]\n"
+	--
+	"\f[bold,1]Time Format:\f[bold,0] \q[%(timeformatype),timetype]\n"
+	--
+	"\f[bold,1]Date Format:\f[bold,0] \q[%(dateformatype),datetype]\n"
+	--
+	"\f[bold,1]Accent Color:\f[bold,0] %(_color)\q[########,script:Choose the accent color: \![open,dialog,color,--id=OnCustomColor\]]\f[default]\n"
+	--
+	"\f[bold,1]\q[RESET PET,OnReset]\f[bold,0]\n"
+	--
+	"\![*]Enable Uninstall?: \q[%(deleteshitai),OnButtonChange,deleteshitai,%(deleteshitai)]\n\n[half]\n"
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+OnCustomColor
+{
+	accentcolor = REPLACE(reference2,",",".")
+	--
+	TalkConfig
+}
+
+OnReset
+{
+	"Are you sure you want to reset %(petname[petid]) and start with a new one? You can't go back\n\n[half]\q[Yes,OnReset_Yes] | \q[No,CANCEL]"
+}
+
+Select.datetype
+{
+	case dateformatype
+	{
+		when "dd/mm/yyyy"; dateformatype = "yyyy/mm/dd"
+		when "yyyy/mm/dd"; dateformatype = "mm/dd/yyyy"
+		when "mm/dd/yyyy"; dateformatype = "dd/mm/yyyy"
+	}
+	--
+	TalkConfig
+}
+
+Select.timetype
+{
+	case timeformatype
+	{
+		when "STANDARD"; timeformatype = "MILITARY"
+		when "MILITARY"; timeformatype = "STANDARD"
+	}
+	--
+	TalkConfig
+}
+
+Select.TEACHPRONOUN
+{
+	"\0What pronouns do you want?\w5\n\n[half]\_q/
+	\![*]\q[He-His-Him,choicemasc]\n/
+	\![*]\q[She-Her-Her,choicefem]\n/	
+	\![*]\q[They-Their-Them,choiceneither]\e"
+}
+
+Select.choicemasc
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	--
+	"\0The pronouns are now he him and his.\e"
+}
+
+Select.choicefem
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	--
+	"\0The pronouns are now she her and her.\e"
+}
+
+Select.choiceneither
+{
+	presuffix = "undefine"
+	himher = "them"
+	heshe = "they"
+	hisher = "their"
+	--
+	"\0The pronouns are now they them and their.\e"
+}
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+Select.TEACHBDAY
+{
+	dayslot = GetDaySlot 
+	--
+	"\0What month were you born? \w8Write the number.\![open,inputbox,OnUserBornMonth,-1]\e"
+}
+
+OnUserBornMonth
+{
+	_tempmonth = reference0 
+	--
+	if _tempmonth >= 1 && _tempmonth <= 12 
+	{
+	bornmonth = _tempmonth
+	bornmonthprint = Printmonth
+	"\0So you were born in %(bornmonthprint).\n\w8What day was it?\![open,inputbox,OnUserBornDay,-1]\e"
+	}
+	else 
+	{
+	"\0That's not a valid month. Try again.\![open,inputbox,OnUserBornMonth,-1]\e"
+	}
+}
+
+Printmonth
+{
+	if bornmonth == 1
+	{
+		"January"
+	}
+	elseif bornmonth == 2
+	{
+		"February"
+	}
+	elseif bornmonth == 3
+	{
+		"March"
+	}
+	elseif bornmonth == 4
+	{
+		"April"
+	}
+	elseif bornmonth == 5
+	{
+		"May"
+	}
+	elseif bornmonth == 6
+	{
+		"June"
+	}
+	elseif bornmonth == 7
+	{
+		"July"
+	}
+	elseif bornmonth == 8
+	{
+		"August"
+	}
+	elseif bornmonth == 9
+	{
+		"September"
+	}
+	elseif bornmonth == 10
+	{
+		"October"
+	}
+	elseif bornmonth == 11
+	{
+		"November"
+	}
+	else
+	{
+		"December"
+	}
+}
+
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{
+	"%(bornday)st"
+	}
+	elseif bornday == 2 || bornday == 22
+	{
+	"%(bornday)nd"
+	}
+	elseif bornday == 3 || bornday == 23
+	{
+	"%(bornday)rd"
+	}
+	else
+	{
+	"%(bornday)th"
+	}
+}	
+
+OnUserBornDay
+{
+	tempday = reference0 
+	if bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12 
+	{
+		if tempday >= 1 && tempday <= 31 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else 
+		{
+			"\0That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}
+	elseif bornmonth == 2 
+	{
+		if tempday >= 1 && tempday <= 29 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else
+		{
+			"\0That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}
+	else 
+	{
+		if tempday >= 1 && tempday <= 30 
+		{
+			bornday = tempday
+			borndayprint = Printday
+			userbirthday = "%(bornmonth)month %(bornday)day"
+			birthdayprint = "%(bornmonthprint) %(borndayprint)"
+			"%(birthchecked)"
+		}
+		else
+		{
+			"\0That's not a valid day. Try again.\![open,inputbox,OnUserBornDay,-1]\e"
+		}
+	}		
+}
+
+birthchecked
+{
+	"\0Your birthday is %(bornmonthprint) %(borndayprint). We'll remember.\e"
+}
+
+Select.talkinter
+{
+	"\0\b2The interval is currently set to %(talktime)./
+	\0\n\n[half]/
+	\![*]\q[Every 30 seconds,TALKMAX]\n/
+	\![*]\q[Every minute,TALKHIGH]\n/
+	\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+	\![*]\q[Every 5 minutes,TALKPOOR]\n/
+	\![*]\q[Don't speak,TALKNONE]\n\n[half]/
+	\![*]\q[Don't change,TalksTill]\e"
+}
+
+Select.TalksTill
+{
+	"\0No change to the talk rate.\e"
+}
+
+Select.TALKMAX
+{
+	talktime = "30 seconds" 
+	aitalkinterval = 45 
+	"\0Speak every 30 seconds.\e"
+}
+
+Select.TALKHIGH
+{
+	talktime = "minute"
+	aitalkinterval = 90
+	"\0Speak every minute.\e"
+}
+
+Select.TALKNORMAL
+{
+	talktime = "3 minutes"
+	aitalkinterval = 270
+	"\0Speak every three minutes.\e"
+}
+
+Select.TALKPOOR
+{
+	talktime = "5 minutes"
+	aitalkinterval = 400
+	"\1\s[10]Speak every five minutes.\e"
+}
+
+Select.TALKNONE
+{
+	talktime = "silence"
+	aitalkinterval = 0
+	"\0Silence\e"
+}
+
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+Select.CANCEL
+{
+	"\0\e"
+}
+
+Select.dosomething
+{
+	"\0\b2\n\n"
+	--
+	"\![*]\q[Open Calendar,CALENDAR]\n/
+	\![*]\q[Check Email,MailCheck]\n/
+	\![*]\q[Open SSP Preferences,sspconfig]\n/
+	\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
+	\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.CALENDAR
+{
+	"\0...\![open,calendar]\e"
+}
+
+Select.sspconfig
+{
+	"\0...\![open,configurationdialog]\e"
+}
+
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	
+	if _gomicheck == 0 
+	{
+		"\0... It's empty.\e"
+	}
+	elseif _gomicheck >= 1 
+	{
+		"\0...Done.\e"
+	}
+}
+
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+Select.HEADLINECANCEL
+{
+	"\0Finished with headlines.\e"
+}
+
+OnChoiceTimeout
+{
+	"\0The menu has timed out.\e"
+}
+
+OpenKeroMenu
+{
+	"\1\s[10]\b[2]"
+ 	--
+	"..."
+ 	--
+	"\n\n[half]/
+	\![*]\q[Nothing,keroCANCEL]\e"
+}
+
+Select.keroCANCEL
+{
+	"\1\s[10]...\e"
+}

@@ -858,7 +858,6 @@ pickupline
 	"I just got dumped, and I think that you could make me feel better."
 }
 
-
 techstuff
 {
 	"%(didknow) that the firefox logo isn't actually a fox?\w3 In reality it's a red panda\w3"
@@ -873,7 +872,6 @@ techstuff
 	"%(didknow) over 3.8 billion people use the internet today, which is 40% of the world’s population?"
 	"%(didknow) more than 570 new websites are created every minute?"
 }
-
 
 season
 {

@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,A.R.I Pets
+directory,a.r.i_pets
+
+balloon.directory,z_simple

@@ -1,0 +1,164 @@
+﻿On_username
+{
+	username
+}
+
+On_homeurl
+{
+	"https://zdzisiu.github.io/Ukagaka/forest_hermit"
+}
+
+On_recommendrootbutton.caption
+{
+	"Reference Site"
+}
+
+On_sakura.recommendsites
+{
+	"Ghost Template Walkthrough"
+	--
+	"%ASC(1)http://www.ashido.com/ukagaka/walkthrough.html%ASC(2)"
+}
+
+On_portalrootbutton.caption
+{
+	"Second Website Caption"
+}
+
+On_sakura.portalsites
+{
+
+}
+
+On_kero.recommendbuttoncaption
+{
+	"Top Menu Option Caption"
+}
+
+On_kero.recommendsites
+{
+
+}
+
+On_updatebutton.caption
+{
+	"Update Hermit"
+}
+
+On_dressuprootbutton.caption
+{
+	"Dress-Up"
+}
+
+On_headlinesenserootbutton.caption
+{
+	"Headlines + RSS Feeds"
+}
+
+On_readmebutton.caption
+{
+	"READ ME"
+	"readme.txt"
+	"Manual"
+}
+
+On_vanishbutton.caption
+{
+	"Uninstall"
+}
+
+On_shellrootbutton.caption
+{
+	"Change Cloak"
+}
+ 
+On_ghostrootbutton.caption
+{
+	"Change Ghost"
+}
+
+On_callghostrootbutton.caption
+ {
+	"Call Ghost"
+}
+
+On_quitbutton.caption
+ {
+	"Quit"
+}
+
+
+//----------------------------------Stop!------------------------------------
+
+//Don't mess with anything after this point! It's all stuff you don't need to worry about. Just save and move on to the next .dic file.
+
+
+
+
+
+ //---- 소멸 지시 버튼 표시 교체 -------------------------------------------------------
+On_vanishbutton.visible
+ {
+ 	if deleteshitai == "ON"
+ 	{
+	"1"
+	}
+	else
+	{
+	"0"
+	}
+}
+
+//---- 딳벍뭷궻뫜궻긕?긚긣뼹롦벦 -------------------------------------------------------
+On_otherghostname
+{
+	ghostexlist = ""
+	_i = 0
+	while _i >= 0 {
+		_ghostname = NAMETOVALUE("reference%_i")
+		if _ghostname != "" {
+			if _i > 0; ghostexlist += ","
+			ghostexlist += _ghostname[0]
+			_i++
+		}
+		else; _i = -1
+	}
+	ghostexcount = ARRAYSIZE(ghostexlist)
+}
+
+//---- SHIORI 듫쁀륃뺪 ------------------------------------------------------------------
+On_version
+{
+	GETSETTING(AYAINFO_VERSION)
+}
+
+On_craftman
+{
+	"umeici"
+}
+
+On_craftmanw
+{
+	"?럖"
+}
+
+On_name
+{
+	"AYA"
+}
+
+//---- Owned SSTP 뾭 uniqueid 롦벦 ------------------------------------------------------
+On_uniqueid
+{
+	uniqueid = reference0
+}
+
+//---- hwnd 롦벦 ------------------------------------------------------------------------
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}
+

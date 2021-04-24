@@ -1,0 +1,1226 @@
+﻿OnFileDrop2
+{
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+	case _fileext
+	{
+		when ".jpg", ".jpeg", ".bmp"
+		{
+			"%(_filename)%(_fileext) is an image file.\e"
+		}
+		when ".mid", ".wav", ".mp3", ".wma", ".au" 
+		{
+			"%(_filename)%(_fileext) is a music file.\e"
+		}
+		others
+		{
+			"\0\s[0]This is %(_filename)%(_fileext).\e"
+		}
+	}
+}
+
+OnInstallBegin
+{
+	"\0\s[0]Installing . . .\w8This zip or nar contains an install.txt file.\e"
+}
+
+OnInstallComplete
+ {
+	"\0"
+ 	--
+	if reference0 == "shell" 
+ 	{	
+		if reference1 == "Hypothetical Shell that doesn't actually exist" 
+		{
+		"\s[0]We have installed Hypothetical Shell.\w8Truncated for space.\e"
+
+		}
+		elseif reference1 == "Another totally real shell wow"
+		{
+		"\s[0]We have installed another totally real shell.\e"
+
+		}
+		else 
+		{
+		"\s[0]I have installed a new shell.\w8It's called  %(reference1).\e"
+		}
+ 	}
+	elseif reference0 == "ghost"
+ 	{
+		"\s[0]I have installed a new Ghost.\w8It's called %(reference1).\e"
+ 	}
+	elseif reference0 == "balloon"
+ 	{
+		"\s[0]I have installed a new balloon.\w8It's called %(reference1).\e"
+ 	}
+	elseif reference0 == "plugin"
+ 	{
+		"\s[0]I have installed a plug-in.\w8It's called %(reference1).\e"
+ 	}
+}
+
+OnInstallFailure
+{
+	"\0\s[0]The installation has failed.\n\n[half]\w5"
+	--
+	if reference0 == "unsupported"
+	{
+	"This file is unsupported.\e"
+	}	
+	elseif reference0 == "extraction"
+	{
+	"The file could not be extracted properly.\e"
+	}
+}
+
+OnInstallRefuse
+{
+	"\0\s[0]We can't install this. \w4It may be for %(reference0) instead.\e"
+}
+
+OnVanishSelecting
+{
+	"\0\s[0]The user is deciding whether or not to uninstall us.\w8If you're testing this, be careful about what you click here, huh?\e"
+}
+
+OnVanishSelected
+{
+	"\0\s[0]The user has decided to uninstall us.\w8Bye.\w9\w9\e"
+}
+
+OnVanishCancel
+{
+	"\0\s[0]The user has decided not to uninstall us after all.\e"
+}
+
+TalkVanishButtonHold
+{
+	"This dialogue displays when the user holds down the uninstall button.\e"
+}
+
+OnVanished
+{
+	"\0\s[0]%(reference0) has been uninstalled.\w8\0\s[0]Harsh.\e"
+}
+
+OnBIFFBegin
+{
+	"\0\s[0]This is the starting dialogue for checking email.\e"
+	
+	"This is another starting dialogue for checking email.\e"
+}
+
+OnBIFFComplete
+ {
+	if reference0 == 0
+ 	{
+ 		"\0\s[0]There is no new mail.\e"
+	}
+	elseif reference0 == 1
+ 	{
+ 		"\0\s[0]There is one new email.\e"
+	}
+	elseif reference0 > 1 && reference0 < 11
+	{
+		"\0\s[0]There are %(reference0) emails.\e"
+	}
+	elseif reference0 > 100
+	{
+		"\0\s[0]There are %(reference0) emails unread.\w8Woah.\e"
+	}
+ 	else
+	{
+		"\0\s[0]There are %(reference0) emails.\e"
+ 	}
+}
+
+OnBIFFFailure
+ {
+	if reference0 == "timeout"
+ 	{
+ 		"\0\s[0]The connection has timed out.\e"
+	}
+ 	elseif reference0 == "kick"
+	{
+		"\0\s[0]We can't access the account.\e"
+ 	}
+	elseif reference0 == "defect" 
+ 	{
+ 		"\0\s[0]The email account was not set up properly.\w8It can be reset at the POP menu.\![open,configurationdialog]\e"
+	}
+ 	else
+	{
+		"\0\s[0]We can't connect to the account.\w8The error returned is '%(reference[0])'.\e"
+		
+ 	}
+}
+
+OnUpdateBegin
+{
+	"\0\s[0]Starting the update process.\w8\e"
+	
+	"Another message for starting the update process.\w8\0\s[0]Hope you read the directions properly.\w8\e"
+}
+ 
+OnUpdateReady
+ {
+	"There are %(reference[0]) new files.\w8\e"
+	
+}
+
+OnUpdateComplete
+{
+	if reference0 == "none"
+ 	{
+ 		"There are no new files.\e"
+		
+		"This is another message about there being no new files to update with.\e"
+	}
+ 	else
+	{
+		"Update successful!\e"
+ 	}
+}
+
+OnUpdateFailure
+{
+	if reference0 == "timeout"
+ 	{
+ 		"The update connection has timed out.\e"
+	}
+ 	elseif reference0 == "md5 miss"
+	{
+		"The MD5 hash of the files don't match.\e"
+ 	}
+	else
+ 	{
+ 		"The update could not be completed.\w8\0\s[0]The error is '%(reference0)'.\e"
+	}
+}
+
+OnUpdate.OnDownloadBegin
+{
+ 	if "aitalk" _in_ reference0 
+ 	{
+ 		"\0\s[0]We are going to download more dialogue.\w8It's in the aitalk file.\e"
+ 	}
+ 	else
+ 	{
+	"This is dialogue for finding a new file.\e"
+	
+	"\0\s[0]This is another bit of dialogue for finding a new file.\e"
+	}
+}
+
+OnUpdate.OnMD5CompareBegin
+{
+	"Checking the MD5 value.\e"
+}
+
+OnUpdate.OnMD5CompareComplete
+{
+	"\0\s[0]MD5 check good.\e"
+}
+
+OnUpdate.OnMD5CompareFailure
+{
+	"\0\s[0]The MD5 values don't match.\w8\e"
+}
+
+OnHeadlinesenseBegin
+{
+	"\0\s[0]You've selected %(reference0).\e"
+}
+
+OnHeadlinesense.OnFind
+{
+ 	if reference2 == "First" || reference2 == "First and Last"
+	{
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	elseif reference2 == "Next"
+ 	{
+ 		"\0\b2\s[0]%(reference0):"
+	}
+ 	elseif reference2 == "Last"
+	{
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	--
+	"\n\n%reference3\n"
+ 	--
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+		
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	
+}
+
+Select.Headline_Cancel
+{
+	"\0\s[0]Headline viewing complete.\e"
+}
+ 
+OnHeadlinesenseComplete
+{
+	"\0\s[0]No update. %(reference0).\e"
+}
+
+OnHeadlinesenseFailure
+{
+	"\0\s[0]The feed can't updated.\w8Why not?\w8\0\s[0]\n\n[half]"
+ 	--
+	if reference0 == "can't download" 
+ 	{
+		"It can't be downloaded."
+ 	}
+	elseif reference0 == "can't analyze"
+ 	{
+		"It can't be analyzed."
+ 	}
+	else
+ 	{
+		"I don't know."
+ 	}
+	--
+ 	"\e" 
+}
+
+OnUpdatedataCreating
+{
+	"Creating the updates2.dau file.\e"
+}
+
+OnUpdatedataCreated
+{
+	"\0\s[0]Successfully created updates2.dau.\e"
+}
+
+OnNarCreating
+{
+	"\0\s[0]Creating the .nar file.\e"
+}
+
+OnNarCreated
+{
+	"\0\s[0]Successfully created '%(reference0)'.\e"
+}
+
+OnSNTPBegin
+{
+	"\0\s[0]We're going to check the time.\w9We are connecting to %(reference0).\e"
+}
+
+OnSNTPCompare
+{
+ 	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
+	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n/
+ 	\n"
+	--
+ 	if reference3 == 0
+	{
+ 		"\0\s[0]Your clock is accurate.\e"
+	}
+ 	else
+	{
+ 		"\0\s[0]Your clock doesn't match.\w6\nShould we fix it?\n\n[half]/
+		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
+ 		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+	}
+}
+
+OnSNTPEXECUTE
+{
+	"\0\s[0]The clock has been fixed.\6\e"
+}
+
+OnSNTPCANCEL
+{
+	"\0\s[0]The user decided not to change the clock.\e"
+}
+
+OnSNTPFailure
+{
+	"\0\s[0]The clock wasn't changed.\w8Something went wrong.\e"
+}
+
+OnDisplayChange
+{
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+}
+
+OnScreenSaverStart
+{
+	"\0\s[0]The screensaver is starting.\w7Wiggle your mouse!\e"
+	//Replace with what you want.
+}
+
+OnScreenSaverEnd
+{
+	"\0\s[0]The screensaver is gone.\e"
+	//Replace with what you want.
+}
+
+OnApplicationBoot
+{
+	"\0\s[0]%(reference0) just started.\e"
+}
+
+OnApplicationClose
+{
+	"\0\s[0]%(reference0) has closed.\e"
+}
+
+OnApplicationFileOpen
+{
+	"\0\s[0]Opening %(reference1).\e"
+}
+
+OnBatteryLow
+{
+	"The laptop's battery is low. \w8\0\s[0]There is %(reference0) power left.\e"
+	//reference0 here is the amount of battery power. Replace as you like.
+}
+
+OnBatteryCritical
+{
+	"\0\s[0]The laptop's battery is critically low.\e"
+}
+
+OnSysResourceLow
+{
+	"\0\s[0]The system resources are low.\e"
+}
+
+OnShellScaling
+{
+    nowscale = reference0
+    --
+	if reference0 >= 150 //this number is the percentage that you're scaling the ghost up to. In this case, it's 150%.
+	{
+		"\0\s[0]We are now 150% our original size.\w8Bigger.\e"
+	}
+	elseif reference0 == 100 //this is 100%
+	{
+		"We are normal sized.\e"
+	}
+	elseif reference0 == 50 //this is 50%. You can add any percentage that's listed under shell scaling if you want using more elseifs.
+	{
+		"\0\s[0]We are now 50% our original size.\w8Smaller.\e"
+	}
+}
+
+//Weather Checking -------------------------------------------------------
+//following functions can go in menu dic, or a seperate dic entirely
+//functions for scraping weather.com for weather data.
+//author: vita @yuyudev on twitter
+//referenced zarla's hunter and smoker ghost, and https://forum.rainmeter.net/viewtopic.php?t=34470
+//
+//please add the following variables to your bootend dic in the function OnFirstBoot
+//curlocation = ""
+//locationcode = ""
+//these two I also added to OnBoot
+//intalkconfig = 0
+//weatherquiet = 0
+
+//regex updating
+OnDownloadRegex {
+    "\0\s[0]Updating weather code...\w4\![execute,http-get,https://vtodd15.github.io/weatherregex.txt,--async=OnUpdateRegex,--timeout=200]"
+}
+OnUpdateRegex {
+    //clean out old regex
+    regex = IARRAY
+    _buff = ""
+    _file = "var\\weatherregex.txt"
+    FCHARSET(1)
+    _i = 0
+    if FOPEN(_file,'r') {  
+        for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {        
+            regex[_i] = _buff
+            _i++        
+        }    
+    }    
+    FCLOSE(_file);    
+    "Done!\x"    
+    --   
+    OnCheckWeather        
+}
+
+//starting the weather checking
+
+OnCheckWeather
+{
+    "\0\b[2]\_qWanna check the weather? No problem!\n\n\f[bold,1]Current Location:\f[bold,0] %(curlocation)\n\n"
+    --
+    //if first time opening there will be no location so user needs to set location b4 anything else. except moon phase
+    
+    if (locationcode == ""){
+    
+    "\![*]\q[Set Location,OnWeatherLocation]\n/
+    \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n\n[half]"
+    locationset=0
+    
+    } else {
+        locationset=1
+        "\![*]\q[Set Location,OnWeatherLocation]\n/
+        \![*]\q[Check Current Weather,OnDownloadCurWeather]\n/
+        \![*]\q[Check 10 Day Forecast,OnDownloadForecast]\n/
+        \![*]\q[Check Hourly Forecast,OnDownloadHourly]\n/
+        \![*]\q[Check Moon Phase,OnDownloadMoonPhase]\n"
+        --
+        if unit==""{
+            "\![*]\q[Switch to Metric Units,switchunits]\n\n[half]"
+        } else
+        {
+            "\![*]\q[Switch to American Units,switchunits]\n\n[half]"
+        }
+    }
+    --
+    "If the forecast isn't working, you might need to:\n/
+    \![*]\q[Update the weather code,OnDownloadRegex]\n\n[half]"
+    --
+    "Nevermind, back to...\n\n[half]"
+    --
+    "\![*]\q[Misc menu,OnMiscMenu]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\e"
+
+}
+
+Select.switchunits{
+    if unit == "" {
+        unit = "en-CA/"
+    } else
+    {
+        unit=""
+    }    
+    locationset=0     
+	"\![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--nodescript,--timeout=200]"
+}
+    
+OnWeatherLocation
+{
+
+    locationset=0
+    "\0First, do you want to use american or metric units?\n\n[half]"
+
+    --
+    "\![*]\q[American,OnAmericanUnits]\n/
+    \![*]\q[Metric,OnMetricUnits]\n\e"
+
+
+}
+
+OnAmericanUnits{
+
+    unit=""
+
+    "\0Alright. Please go to weather.com, search your location, and give me the URL. \![open,inputbox,OnLocCode,-1]"
+}
+
+OnMetricUnits{
+
+    unit="en-CA/"
+
+    "\0Alright. Please go to weather.com, search your location, and give me the URL. \![open,inputbox,OnLocCode,-1]"
+
+}
+
+
+OnLocCode
+{
+    _temp = SPLIT(reference0,'/')
+
+    locationcode = _temp[ARRAYSIZE(_temp)-1]
+    "\![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--nodescript,--timeout=200]"
+}
+
+OnDownloadCurWeather
+{
+"\0\s[0]Downloading weather... \![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200]"
+}
+
+OnCurWeatherFound
+{
+    
+    //initialize variables
+    _file = "var\\weather.html"
+    _buff=""
+    _regtemp = regex[0]
+    _regdegree = regex[1]
+    _regfeels = regex[2]
+    _reghumidity = regex[3]
+    _regwind = regex[4]
+    _regstate = regex[5]
+    _regloc = regex[6]
+    _regpollen = regex[7]
+    FCHARSET(1)
+    //array to hold current weather data
+    //[temp, degrees, feels like temp, humidity, wind, state (cloudy, rainy, etc), pollen alert (yes/no)]
+    currentweatherarray = ("","","","","","","")
+    
+    --
+    
+    if FOPEN(_file,'r') {
+
+        for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+            
+
+            //current temp
+            if RE_SEARCH ( _buff, _regtemp ) {
+                
+                currentweatherarray[0] = RE_GETSTR[1]
+                
+            }
+    
+            //degrees (F or C)
+            if RE_SEARCH ( _buff, _regdegree ) {
+                currentweatherarray[1] = RE_GETSTR[1]
+                
+            }
+            
+            //feels like temp
+            if RE_SEARCH ( _buff, _regfeels ) {
+                currentweatherarray[2] = RE_GETSTR[1]
+                
+            }
+            
+            //humidity
+            if RE_SEARCH ( _buff, _reghumidity ) {
+                currentweatherarray[3] = RE_GETSTR[1]
+                
+            }
+            
+            //wind
+            if RE_SEARCH ( _buff, _regwind) {
+                currentweatherarray[4] = RE_GETSTR[1]
+                
+            }
+            
+            
+            //state (cloudy, sunny, etc)
+            if RE_SEARCH ( _buff, _regstate ) {
+                
+                currentweatherarray[5] = RE_GETSTR[1]
+                
+            }
+            
+            //set location
+            if RE_SEARCH ( _buff, _regloc ) {
+                
+                curlocation = RE_GETSTR[1]
+                
+            }
+            
+            //search for pollen stuff
+            if RE_SEARCH ( _buff, _regpollen ) {
+                
+                currentweatherarray[6] = "Local Pollen Alert"
+                
+            }
+            
+        }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    if (intalkconfig) {
+    
+        intalkconfig = 0
+        TalkConfig
+        --
+        "\e"
+    
+    }
+    --
+    if !locationset{
+        
+        locationset = 1
+        OnCheckWeather
+        --
+        "\e"
+    
+    }
+    --
+    if weatherquiet {
+        weatherquiet = 0
+        --
+        "\e"
+    }
+    
+    --
+    "\0\_qRight now...\n\n[half]Temperature: %(currentweatherarray[0])%(currentweatherarray[1])\nFeels like: %(currentweatherarray[2])%(currentweatherarray[1])/
+    \nHumidity: %(currentweatherarray[3])%\nWind: %(currentweatherarray[4])\nWeather: %(currentweatherarray[5])"
+    --
+    if currentweatherarray[6] == "Local Pollen Alert" {
+    "\nThere's a local pollen alert!"
+    }
+    --
+    "\n\n[half]Back to...\n\n[half]"
+    --
+    "\![*]\q[Weather menu,OnCheckWeather]\n/
+    \![*]\q[Misc menu,OnMiscMenu]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\e"
+
+}
+
+OnDownloadForecast{
+
+    "\0\s[0]Downloading forecast... \![execute,http-get,https://weather.com/%(unit)weather/tenday/l/%(locationcode),--async=OnForecastFound,--file=forecast.html,--timeout=200]"
+
+}
+
+
+OnForecastFound
+{
+    
+    //file to be read
+    _file = "var\\forecast.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _regdate=regex[8]
+    _regdesc=regex[9]
+    _reghigh=regex[10]
+    _reglow=regex[11]
+    _regprecip=regex[12]
+    _regwind=regex[13]
+    _reghumidity=regex[14]
+    _regdaynight=regex[15]
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //strings for holding and parsing each bit of data
+    _singleday = (IARRAY, "")
+    _temp = ""
+    
+    //jank
+    _state = ""
+    _daynight = ""
+    
+    //2D array for forecast data
+    //15 days? each day has (date, description, high,low, precip %, wind, humidity)
+    forecastarray = (_singleday, _singleday)
+
+    
+    --
+    
+    if FOPEN(_file,'r') { 
+        for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+            
+
+            //date
+            //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+            if RE_GREP( _buff, _regdate ) {
+            
+                //clear out singleday string, use a temp string to hold the results of the regexpr search
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regdate) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                //add singleday contents to relevant row of data in forecast array
+                forecastarray[0] = forecastarray[0] + _singleday
+                
+            }
+            
+            //rinse and repeat for rest of data
+            //desc
+            if RE_GREP( _buff, _regdesc ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regdesc) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                forecastarray[1] = forecastarray[1] + _singleday
+                
+            }
+
+            //high temps
+            if RE_GREP( _buff, _reghigh ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _reghigh) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                forecastarray[2] = forecastarray[2] + _singleday
+                
+            }
+            
+            //low temps
+            if RE_GREP( _buff, _reglow ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _reglow) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                forecastarray[3] = forecastarray[3] + _singleday
+                
+            }
+            //precip
+            if RE_GREP( _buff, _regprecip ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regprecip) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                forecastarray[4] = forecastarray[4] + _singleday
+                
+            }
+    
+            //wind
+            if RE_GREP( _buff, _regwind ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regwind) {
+                        _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
+                    }
+                    
+                
+                }        
+                
+                forecastarray[5] = forecastarray[5] + _singleday
+                
+            }
+            
+            //this is gonna be the quirky section LOL
+            //humidity
+            if RE_GREP( _buff, _reghumidity ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _reghumidity) {
+                        
+                       if _state == "" { //state has not been set yet 
+                            if RE_GREP(_buff, _regdaynight){
+                                _daynight = RE_GETSTR[0]
+                            }
+                            
+                            if "Night" _in_ _daynight {
+                            //indicates that first humidity was in the night stage of today's forecast, so we don't want to skip the next humidity
+                                _state = "chrome"                                
+                            }
+                            else {
+                                _state = "chromeskip"
+                            }
+                            _singleday = NULL
+                        } elseif _state == "chrome" {
+                        
+                            _singleday = _singleday + RE_GETSTR[1] + ","
+                            _state = "chromeskip"
+                        
+                        } else { //_state = chromeskip
+                            _state = "chrome"
+                        }
+                        //otherwise do nothing, essentially skipping this one
+                        
+                    
+                        
+                    }
+                    
+                
+                }    
+                
+                forecastarray[6] = forecastarray[6] + _singleday
+                
+            }
+        }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0\b2\f[bold,1]10 Day Forecast\f[bold,0] \n\n[half]\_q/
+    
+    %(forecastarray[0][0]): %(forecastarray[1][0])\n/
+    H:%(forecastarray[2][0])°/L:%(forecastarray[3][0])°; Wind:%(forecastarray[5][0])\n/
+    %(forecastarray[4][0])% chance of precipitation\nHumidity:%(forecastarray[6][0])%\n\n[half]/
+    
+    %(forecastarray[0][1]): %(forecastarray[1][1])\n/
+    H:%(forecastarray[2][1])°/L:%(forecastarray[3][1])°; Wind:%(forecastarray[5][1])\n/
+    %(forecastarray[4][1])% chance of precipitation\nHumidity:%(forecastarray[6][1])%\n\n[half]/
+    
+    %(forecastarray[0][2]): %(forecastarray[1][2])\n/
+    H:%(forecastarray[2][2])°/L:%(forecastarray[3][2])°; Wind:%(forecastarray[5][2])\n/
+    %(forecastarray[4][2])% chance of precipitation \nHumidity:%(forecastarray[6][2])%\n\n[half]/
+    
+    %(forecastarray[0][3]): %(forecastarray[1][3])\n/
+    H:%(forecastarray[2][3])°/L:%(forecastarray[3][3])°; Wind:%(forecastarray[5][3])\n/
+    %(forecastarray[4][3])% chance of precipitation\nHumidity:%(forecastarray[6][3])%\n\n[half]/
+    
+    %(forecastarray[0][4]): %(forecastarray[1][4])\n/
+    H:%(forecastarray[2][4])°/L:%(forecastarray[3][4])°; Wind:%(forecastarray[5][4])\n/
+    %(forecastarray[4][4])% chance of precipitation\nHumidity:%(forecastarray[6][4])%\n\n[half]/
+    
+    %(forecastarray[0][5]): %(forecastarray[1][5])\n/
+    H:%(forecastarray[2][5])°/L:%(forecastarray[3][5])°; Wind:%(forecastarray[5][5])\n/
+    %(forecastarray[4][5])% chance of precipitation\nHumidity:%(forecastarray[6][5])%\n\n[half]/
+    
+    %(forecastarray[0][6]): %(forecastarray[1][6])\n/
+    H:%(forecastarray[2][6])°/L:%(forecastarray[3][6])°; Wind:%(forecastarray[5][6])\n/
+    %(forecastarray[4][6])% chance of precipitation\nHumidity:%(forecastarray[6][6])%\n\n[half]/
+    
+    %(forecastarray[0][7]): %(forecastarray[1][7])\n/
+    H:%(forecastarray[2][7])°/L:%(forecastarray[3][7])°; Wind:%(forecastarray[5][7])\n/
+    %(forecastarray[4][7])% chance of precipitation\nHumidity:%(forecastarray[6][7])%\n\n[half]/
+    
+    %(forecastarray[0][8]): %(forecastarray[1][8])\n/
+    H:%(forecastarray[2][8])°/L:%(forecastarray[3][8])°; Wind:%(forecastarray[5][8])\n/
+    %(forecastarray[4][8])% chance of precipitation\nHumidity:%(forecastarray[6][8])%\n\n[half]/
+
+    %(forecastarray[0][9]): %(forecastarray[1][9])\n/
+    H:%(forecastarray[2][9])°/L:%(forecastarray[3][9])°; Wind:%(forecastarray[5][9])\n/
+    %(forecastarray[4][9])% chance of precipitation\nHumidity:%(forecastarray[6][9])%"
+    
+    --
+    "\n\n[half]Back to...\n\n[half]"
+    --
+    "\![*]\q[Weather menu,OnCheckWeather]\n/
+    \![*]\q[Misc menu,OnMiscMenu]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+    
+
+}
+
+//
+
+OnDownloadHourly{
+    "\0\s[0]Downloading hourly forecast... \![execute,http-get,https://weather.com/%(unit)weather/hourbyhour/l/%(locationcode),--async=OnHourlyFound,--file=hourly.html,--timeout=200]"
+
+}
+
+//basically copied over from the 10 day forecast function, since the two pages share some of the same data
+OnHourlyFound
+{
+    
+    //file to be read
+    _file = "var\\hourly.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _reghour=regex[16]
+    _regdesc=regex[17]
+    _regtemp=regex[18]
+    _regfeels=regex[19]
+    _regprecip=regex[20]
+    _regwind=regex[21]
+    _reghumidity=regex[22]
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //strings for holding and parsing each bit of data
+    _singleday = (IARRAY, "")
+    _temp = ""
+    
+    //2D array for forecast data
+    //(hour, description, temp,feels like, precip %, wind, humidity)
+    hourlyarray = (_singleday, _singleday)
+    
+
+    
+    --
+    
+    if FOPEN(_file,'r') {
+       
+        for _buff = FREAD(_file); _buff != -1; _buff = FREAD(_file) {
+            
+
+            //hour
+            //re_grep is used instead of re_search because re_grep will get all appearances of the regexpr on a line
+            if RE_GREP( _buff, _reghour ) {
+            
+                //clear out singleday string, use a temp string to hold the results of the regexpr search
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                //strip out HTML bits using RE_SEARCH. comma is important to keep _singleday a pseudo-array
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _reghour) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                //add singleday contents to relevant row of data in forecast array
+                hourlyarray[0] = hourlyarray[0] + _singleday
+                
+            }
+            
+            //rinse and repeat for rest of data
+            //desc
+            if RE_GREP( _buff, _regdesc ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regdesc) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                hourlyarray[1] = hourlyarray[1] + _singleday
+                
+            }
+
+            //temp
+            if RE_GREP( _buff, _regtemp ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regtemp) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                hourlyarray[2] = hourlyarray[2] + _singleday
+                
+            }
+            
+            //feels like
+            if RE_GREP( _buff, _regfeels ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regfeels) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                hourlyarray[3] = hourlyarray[3] + _singleday
+                
+            }
+            //precip
+            if RE_GREP( _buff, _regprecip ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regprecip) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                hourlyarray[4] = hourlyarray[4] + _singleday
+                
+            }
+    
+            //wind
+            if RE_GREP( _buff, _regwind ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _regwind) {
+                        _singleday = _singleday + RE_GETSTR[1] + RE_GETSTR[2] + ","
+                    }
+                    
+                
+                }        
+                
+                hourlyarray[5] = hourlyarray[5] + _singleday
+                
+            }
+            
+            //humidity
+            if RE_GREP( _buff, _reghumidity ) {
+                
+                _singleday = NULL
+                _temp = RE_GETSTR
+                
+                for i = 0; i < ARRAYSIZE(_temp); i++ {
+                    
+                    if RE_SEARCH(_temp[i], _reghumidity) {
+                        _singleday = _singleday + RE_GETSTR[1] + ","
+                    }
+                    
+                
+                }        
+                
+                hourlyarray[6] = hourlyarray[6] + _singleday
+                
+            }
+        }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0\b2\f[bold,1]Hourly Forecast\f[bold,0] \n\n[half]\_q/
+    
+    %(hourlyarray[0][0]): %(hourlyarray[1][0])\n/
+    Temp:%(hourlyarray[2][0])°; Feels like:%(hourlyarray[3][0])°; \nWind:%(hourlyarray[5][0])\n/
+    %(hourlyarray[4][0])% chance of precipitation\nHumidity:%(hourlyarray[6][0])%\n\n[half]/
+    
+    %(hourlyarray[0][1]): %(hourlyarray[1][1])\n/
+    Temp:%(hourlyarray[2][1])°; Feels like:%(hourlyarray[3][1])°; \nWind:%(hourlyarray[5][1])\n/
+    %(hourlyarray[4][1])% chance of precipitation\nHumidity:%(hourlyarray[6][1])%\n\n[half]/
+    
+    %(hourlyarray[0][2]): %(hourlyarray[1][2])\n/
+    Temp:%(hourlyarray[2][2])°; Feels like:%(hourlyarray[3][2])°; \nWind:%(hourlyarray[5][2])\n/
+    %(hourlyarray[4][2])% chance of precipitation \nHumidity:%(hourlyarray[6][2])%\n\n[half]/
+    
+    %(hourlyarray[0][3]): %(hourlyarray[1][3])\n/
+    Temp:%(hourlyarray[2][3])°; Feels like:%(hourlyarray[3][3])°; \nWind:%(hourlyarray[5][3])\n/
+    %(hourlyarray[4][3])% chance of precipitation\nHumidity:%(hourlyarray[6][3])%\n\n[half]/
+    
+    %(hourlyarray[0][4]): %(hourlyarray[1][4])\n/
+    Temp:%(hourlyarray[2][4])°; Feels like:%(hourlyarray[3][4])°; \nWind:%(hourlyarray[5][4])\n/
+    %(hourlyarray[4][4])% chance of precipitation\nHumidity:%(hourlyarray[6][4])%\n\n[half]/
+    
+    %(hourlyarray[0][5]): %(hourlyarray[1][5])\n/
+    Temp:%(hourlyarray[2][5])°; Feels like::%(hourlyarray[3][5])°; \nWind:%(hourlyarray[5][5])\n/
+    %(hourlyarray[4][5])% chance of precipitation\nHumidity:%(hourlyarray[6][5])%\n\n[half]/
+    
+    %(hourlyarray[0][6]): %(hourlyarray[1][6])\n/
+    Temp:%(hourlyarray[2][6])°; Feels like:%(hourlyarray[3][6])°; \nWind:%(hourlyarray[5][6])\n/
+    %(hourlyarray[4][6])% chance of precipitation\nHumidity:%(hourlyarray[6][6])%\n\n[half]/
+    
+    %(hourlyarray[0][7]): %(hourlyarray[1][7])\n/
+    Temp:%(hourlyarray[2][7])°; Feels like:%(hourlyarray[3][7])°; \nWind:%(hourlyarray[5][7])\n/
+    %(hourlyarray[4][7])% chance of precipitation\nHumidity:%(hourlyarray[6][7])%\n\n[half]/
+    
+    %(hourlyarray[0][8]): %(hourlyarray[1][8])\n/
+    Temp:%(hourlyarray[2][8])°; Feels like:%(hourlyarray[3][8])°; \nWind:%(hourlyarray[5][8])\n/
+    %(hourlyarray[4][8])% chance of precipitation\nHumidity:%(hourlyarray[6][8])%\n\n[half]/
+
+    %(hourlyarray[0][9]): %(hourlyarray[1][9])\n/
+    Temp:%(hourlyarray[2][9])°; Feels like:%(hourlyarray[3][9])°; \nWind:%(hourlyarray[5][9])\n/
+    %(hourlyarray[4][9])% chance of precipitation\nHumidity:%(hourlyarray[6][9])%"
+    
+    --
+    "\n\n[half]Back to...\n\n[half]"
+    --
+    "\![*]\q[Weather menu,OnCheckWeather]\n/
+    \![*]\q[Misc menu,OnMiscMenu]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+    
+
+}
+
+OnDownloadMoonPhase
+{
+    "\0\s[0]Downloading moon phase... \![execute,http-get,https://www.moongiant.com/phase/today/,--async=OnMoonFound,--file=moon.html,--timeout=200]"
+
+}
+
+OnMoonFound{
+
+    //file to be read
+    _file = "var\\moon.html"
+    //line being read
+    _buff=""
+    //regular expressions to extract data
+    _regphase=',"Phase: <span>([\w|\s]*)<./span>'
+    _found = 0;
+    //using UTF-8 charset
+    FCHARSET(1)
+    
+    //string for holding phase
+    phase = ""
+    
+
+    
+    --
+    
+    if FOPEN(_file,'r') {
+        for _buff = FREAD(_file); _buff != -1 && !_found; _buff = FREAD(_file) {
+            
+
+            if RE_SEARCH ( _buff, _regphase ) {
+                
+                phase = RE_GETSTR[1]
+                _found = 1; //break loop since we dont need to continue parsing
+                
+            }
+        }
+    }
+    --
+    
+    FCLOSE(_file);
+    
+    "\0The moon is currently in its %(phase) phase."
+    
+    --
+    "\n\n[half]Back to...\n\n[half]"
+    --
+    "\![*]\q[Weather menu,OnCheckWeather]\n/
+    \![*]\q[Misc menu,OnMiscMenu]\n/
+    \![*]\q[Main menu,OnBACKTOMENU]\x\e"
+
+}
+

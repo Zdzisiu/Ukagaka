@@ -21,7 +21,7 @@ Char7.balloon.isleft,0
 Char8.center,1130
 Char17.balloon.isleft,1
 Char16.center,1310
-balloon0.offset,470.111
+balloon0.offset,526.-30
 scriptbox.left,1113
 balloon3.offset,-133.-95
 Char9.center,104
@@ -30,7 +30,7 @@ Char4.centery,903
 Char6.centery,997
 Char8.centery,927
 Char2.centery,1010
-balloon1.offset,286.-178
+balloon1.offset,357.-377
 Char7.center,1185
 Char9.balloon.isleft,0
 Char5.center,691

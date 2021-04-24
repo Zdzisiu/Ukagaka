@@ -1,22 +1,4 @@
-//Alright, install.txt for your balloon just gives it instructions for what to do if it's dropped on an existing ghost. It tells the program where and how to install it. As you can see, it's super short and very easy to fill out. In fact, there are only two things you need to touch.
-
-
 charset,UTF-8
-
-//charset is the character set your ghost will use. This should always be UTF-8, unless you know for some reason that you'll be using a different set like Shift-JIS.
-
-
 type,balloon
-
-//This tells it what type of file it is. In this case, it's a balloon.
-
-
-name,Dusty - Obsidian
-
-//This is the name for your Balloon as defined in your balloon's descript.txt. Fill this in with the right name.
-
-
-directory,dusty_obsidian
-
-//This is the directory your balloon will install to. Put the directory name of the folder you've been using for your balloon.
-//And that's it, done! Save and close and move on.
+name,Simple
+directory,simple

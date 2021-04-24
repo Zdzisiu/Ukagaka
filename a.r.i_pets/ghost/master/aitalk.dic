@@ -1,0 +1,487 @@
+﻿AiTalk
+{
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+}
+
+RandomTalk : nonoverlap
+{
+	_a = SPLIT(petstats[petid],",")
+	_am = SPLIT(petstatmax[petid],",")
+	_as = ARRAYSIZE(_a)
+	--
+	for _i=0;_i<_as;_i++
+	{
+		_a[_i] = TOINT(_a[_i])
+		_am[_i] = TOINT(_am[_i])
+	}
+	--
+	if sleep[petid] != 1 && tate[petid] != "dead"
+	{
+		/*if shapeshade != ""
+		{
+			"\0\i[1]"
+		}*/
+		//--
+		//if ghostexcount != 0; OnTransform
+
+		if _a[0] <= (_am[0]-5) && foodbowl[petid] != 0; "\![get,property,OnFood_start,currentghost.scope(0).x]"
+
+		if _a[2] <= (_am[2]-2) && waterbowl[petid] != 0; "\![get,property,OnWater_start,currentghost.scope(0).x]"
+
+		if _a[1] <= (_am[1]-25) && RAND(10) == 1; OnSleep
+	
+		"\![get,property,OnWander,currentghost.scope(0).x]"
+	}
+}
+
+OnSleep
+{
+	sleep[petid] = 1
+	--
+	"\0\i[0]\w8\s[1]"
+}
+
+OnTransform
+{
+	_rand = RAND(ghostexcount)+1
+	_ghosts = SPLIT(ghostexlist,",")
+
+	if _ghosts[_rand] == "Dusty"
+	{
+		if RAND(2) == 1
+		{
+			shapeshade = "Dusty"
+			"\0\s[20]"
+		}
+		else
+		{
+			shapeshade = "Obsidian"
+			"\0\s[21]"
+		}
+	}
+	else
+	{
+		OnAiTalk
+	}
+}
+
+OnFood_start
+{
+	curxpos[0] = reference0
+	"\![get,property,OnFood_two,currentghost.scope(3).x]"
+}
+
+OnWater_start
+{
+	curxpos[0] = reference0
+	"\![get,property,OnWater_two,currentghost.scope(2).x]"
+}
+
+OnWater_two
+{
+	_debug = ""
+	_anim = ""
+	_offset = 0
+	curxpos[1] = reference0
+	curxpos[0] = TOINT(curxpos[0])
+	curxpos[1] = TOINT(curxpos[1])
+	_m = 0
+	--
+	if curxpos[0] < curxpos[1]
+	{
+		_debug += "Direction: Left "
+		_anim = "\i[4]\i[5]"
+		_animend = "\i[6]"
+		_offset = curxpos[1] - curxpos[0]
+	}
+	else
+	{
+		_debug += "Direction: Right "
+		_anim = "\i[0]\i[1]"
+		_animend = "\i[3]"
+		_offset = curxpos[0] + curxpos[1]
+	}
+	--
+	for _i=0,_j=0;_m==0;_i++,_j+=100
+	{
+		if _offset < _j; _m = _i
+	}
+	--
+	_time = speed*_m
+	_debug += "Offset: " + _offset + " Time: " + _time
+	--
+	"\0%(_anim)\![move,--X=%(curxpos[1]),--time=%(_time),--base=primaryscreen]%(_animend)\w8\s[0]\e %(_debug)"
+	--
+	OnWater_end
+}
+
+OnFood_two
+{
+	_debug = ""
+	_anim = ""
+	_offset = 0
+	curxpos[1] = reference0
+	curxpos[0] = TOINT(curxpos[0])
+	curxpos[1] = TOINT(curxpos[1])
+	_m = 0
+	--
+	if curxpos[0] < curxpos[1]
+	{
+		_debug += "Direction: Left "
+		_anim = "\i[4]\i[5]"
+		_animend = "\i[6]"
+		_offset = curxpos[1] - curxpos[0]
+	}
+	else
+	{
+		_debug += "Direction: Right "
+		_anim = "\i[0]\i[1]"
+		_animend = "\i[3]"
+		_offset = curxpos[0] + curxpos[1]
+	}
+	--
+	for _i=0,_j=0;_m==0;_i++,_j+=100
+	{
+		if _offset < _j; _m = _i
+	}
+	--
+	_time = speed*_m
+	_debug += "Offset: " + _offset + " Time: " + _time
+	--
+	"\0%(_anim)\![move,--X=%(curxpos[1]),--time=%(_time),--base=primaryscreen]%(_animend)\w8\s[0]\e %(_debug)"
+	--
+	OnFood_Eat
+}
+
+OnFood_Eat
+{
+	_a = SPLIT(petstats[petid],",")
+	_am = SPLIT(petstatmax[petid],",")
+	_as = ARRAYSIZE(_a)
+	--
+	for _i=0;_i<_as;_i++
+	{
+		_a[_i] = TOINT(_a[_i])
+		_am[_i] = TOINT(_am[_i])
+	}
+	--
+	_temp = _am[0] - _a[0] 
+	_t = _temp / 5 
+	_end = foodbowl[petid] - _t
+	_add = 0
+	--
+	if _end < 0
+	{
+		for _i=_end;_end<0;_i++
+		{
+			_end++
+			_add++
+		}
+	}
+	--
+	foodbowl[petid] -= _t
+	foodbowl[petid] += _add
+	_a[0] += _temp
+	_a[0] += _add*5
+	--
+	petstats[petid] = _a[0] + "," + _a[1] + "," + _a[2]
+	--
+	if foodbowl[petid] == 0
+	{
+		foods[petid] = "91"
+		food[petid] = ""
+	}
+
+}
+
+OnWater_end
+{
+	_a = SPLIT(petstats[petid],",")
+	_am = SPLIT(petstatmax[petid],",")
+	_as = ARRAYSIZE(_a)
+	--
+	for _i=0;_i<_as;_i++
+	{
+		_a[_i] = TOINT(_a[_i])
+		_am[_i] = TOINT(_am[_i])
+	}
+	--
+	_temp = _am[2] - _a[2] 
+	_t = _temp / 2 
+	_end = waterbowl[petid] - _t
+	_add = 0
+	--
+	if _end < 0
+	{
+		for _i=_end;_end<0;_i++
+		{
+			_end++
+			_add++
+		}
+	}
+	--
+	waterbowl[petid] -= _t
+	waterbowl[petid] += _add
+	_a[2] += _temp
+	_a[2] += _add*2
+	--
+	petstats[petid] = _a[0] + "," + _a[1] + "," + _a[2]
+	--
+	if waterbowl[petid] == 0; waters[petid] = "90"
+	elseif waterbowl[petid] < 50; waters[petid] = "93"
+	else; waters[petid] = "92"
+}
+
+OnWander
+{
+	_curx = reference0
+	_offx = RAND(displaywidth-100)
+	_offset = ""
+	_anim = ""
+	_animend = ""
+	_debug = ""
+	_m = 0
+	--
+	if _offx < _curx
+	{
+		_debug += "Direction: Left "
+		_anim = "\i[4]\i[5]"
+		_animend = "\i[6]"
+		_offset = _curx - _offx
+	}
+	else
+	{
+		_debug += "Direction: Right "
+		_anim = "\i[0]\i[1]"
+		_animend = "\i[3]"
+		_offset = _curx + _offx
+	}
+	--
+	for _i=0,_j=0;_m==0;_i++,_j+=100
+	{
+		if _offset < _j; _m = _i
+	}
+	--
+	_time = speed*_m
+	_debug += "Offset: " + _offset + " Time: " + _time
+	--
+	"\0%(_anim)\![move,--X=%(_offx),--time=%(_time),--base=primaryscreen]%(_animend)\w8\s[0]\e %(_debug)"
+}
+
+/*
+OnMinuteChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds. 
+*/
+
+OnMinuteChange
+{
+	timeslot = GetTimeSlot 
+	--
+	if winstate != "minimized"; OnStats
+	--
+	OnStateCheck
+	--
+	if mikireflag == 1; MikireTalk
+}
+
+OnStats
+{
+	_a = SPLIT(petstats[petid],",")
+	_am = SPLIT(petstatmax[petid],",")
+	_h = 0
+	--
+	for _i=0;_i<3;_i++
+	{
+		_h[_i] = TOINT(_a[_i])
+		_am[_i] = TOINT(_am[_i])
+	}
+	--
+	_q = TOINT(_am[2])
+	--
+	if _h[0] > 0; _h[0]--
+	else; _h[0] = 0
+	--
+	if sleep[petid] != 1
+	{
+		if _h[1] > 0; _h[1]--
+		else; _h[1] = 0
+	}
+	else
+	{
+		if _h[1] < _am[1]; _h[1]+=2
+		else
+		{
+			_h[1] = _am[1]
+			--
+			OnWakeUp
+		}
+	}
+	--
+	if _h[2] > 0; _h[2]--
+	else; _h[2] = 0
+	--
+	petstats[petid] = _h[0] + "," + _h[1] + "," + _h[2]
+}
+
+OnWakeUp
+{
+	sleep[petid] = 0
+	"\0\s[1]\i[1]\s[0]"
+}
+
+OnStateCheck
+{
+	_a = SPLIT(petstats[petid],",")
+	_am = SPLIT(petstatmax[petid],",")
+	_as = ARRAYSIZE(_a)
+	--
+	for _i=0;_i<_as;_i++
+	{
+		_a[_i] = TOINT(_a[_i])
+		_am[_i] = TOINT(_am[_i])
+	}
+	--
+	if sleep[petid] != 1
+	{
+		if _a[0] == 0 || _a[1] == 0 || _a[2] == 0; state[petid] = "dead"
+		elseif _a[2] <= (_am[2]/3); state[petid] = "dehydrated"
+		elseif _a[0] <= (_am[0]/3); state[petid] = "starving"
+		elseif _a[1] <= (_am[1]/2); state[petid] = "exhausted"
+		elseif _a[0] <= (_am[0]/2); state[petid] = "hungry"
+		elseif _a[1] <= (_am[1]/2); state[petid] = "tired"
+		elseif _a[2] <= (_am[2]/2); state[petid] = "thirsty"
+		else; state[petid] = "happy"
+	}
+	else
+	{
+		state[petid] = "asleep"
+	}
+	--
+	if state[petid] == "dead"
+	{
+		"\0\s[2]"
+	}
+	--
+	//state[petid]
+}
+
+/*
+OnSecondChange
+-----
+Reference0: OS continuous startup time (hour)
+Reference1: 1 when out of stock, 0 otherwise.
+Reference2: 1 when overlapping, 0 otherwise.
+Reference3: 1 when talk can be played, 0 otherwise.
+Reference4: *SSP only (at OS level) Time left unattended. In seconds
+*/
+
+OnSecondChange
+{
+	if passsec == 60
+ 		{
+	 	passsec = 1
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+	if mikireflag == 1 && reference1 == 0
+		{
+			EndMikireTalk
+ 		}
+		mikireflag = reference1
+	if reference2 == 1
+	{
+
+	}
+}
+
+MikireTalk
+{
+	"\0* Push Ctrl-Shift-F12 to bring %(petname[petid]) back."
+}
+
+EndMikireTalk
+{
+	"\0\e"
+}
+
+/*
+OnSurfaceRestore
+-----
+Reference0: The current surface of the body.
+Reference1: Current surface on the other side. 
+*/
+
+OnSurfaceRestore
+{
+	if state[petid] == "dead"
+	{
+		"\1\s[10]\0\s[2]\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]\e"
+	}
+	elseif sleep[petid] != 1
+	{
+		"\1\s[10]\0\s[0]\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]\e"
+	}
+	elseif shapeshade != ""
+	{
+		"\1\s[10]\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]\e"
+	}
+	else
+	{
+		"\1\s[10]\0\s[1]\p[2]\s[%(waters[petid])]\p[3]\s[%(foods[petid])]\e"
+	}
+
+}
+
+/*
+OnKeyPress
+-----
+Reference0: The key entered. (Letter written on key top)
+Reference1: The key entered. (Win32 virtual key code)
+Reference2: *SSP only Counts the key pressed.
+Reference3: *SSP only Character window ID where the key event came.
+Reference4: *SSP only Modifier keys are listed separated by commas. Example: "ctrl,alt" 
+*/
+
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+		OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+		OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+		"\![open,readme]"
+	}
+}

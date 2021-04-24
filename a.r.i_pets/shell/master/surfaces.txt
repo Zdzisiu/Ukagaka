@@ -1,0 +1,148 @@
+descript
+{
+    version,1
+}
+
+surface0
+{
+    element0,overlay,surface0.png,0,0
+
+    animation0.interval,never
+    animation0.pattern0,base,1000,100,0,0
+    animation0.pattern1,base,1001,100,0,0
+    animation0.pattern2,base,1002,100,0,0
+    animation0.pattern3,base,1003,100,0,0
+
+    animation1.interval,never
+    animation1.pattern0,base,1004,100,0,0
+    animation1.pattern1,base,1005,100,0,0
+    animation1.pattern2,base,1005,100,0,0
+    animation1.pattern3,start,1,0,0
+
+    animation3.interval,never
+    animation3.pattern0,stop,1,0,0
+    animation3.pattern1,base,1003,100,0,0
+    animation3.pattern2,base,1002,100,0,0
+    animation3.pattern3,base,1001,100,0,0
+    animation3.pattern4,base,1000,100,0,0
+    animation3.pattern5,base,-1,100,0,0
+
+    animation4.interval,never
+    animation4.pattern0,base,1000,100,0,0
+    animation4.pattern1,base,1011,100,0,0
+    animation4.pattern2,base,1012,100,0,0
+    animation4.pattern3,base,1013,100,0,0
+
+    animation5.interval,never
+    animation5.pattern0,base,1014,100,0,0
+    animation5.pattern1,base,1015,100,0,0
+    animation5.pattern2,start,5,0,0
+
+    animation6.interval,never
+    animation6.pattern0,stop,1,0,0
+    animation6.pattern1,base,1013,100,0,0
+    animation6.pattern2,base,1012,100,0,0
+    animation6.pattern3,base,1011,100,0,0
+    animation6.pattern4,base,1000,100,0,0
+    animation6.pattern5,base,-1,100,0,0
+}
+
+surface1
+{
+    element0,overlay,surface1003.png,0,0
+
+    animation0.interval,always
+    animation0.pattern0,overlay,2000,500,0,0
+    animation0.pattern1,overlay,2001,500,0,0
+    animation0.pattern2,overlay,2002,500,0,0
+
+    animation1.interval,never
+    animation1.pattern0,stop,0,0,0
+    animation1.pattern1,base,1003,100,0,0
+    animation1.pattern2,base,1002,100,0,0
+    animation1.pattern3,base,1001,100,0,0
+    animation1.pattern4,base,1000,100,0,0
+    animation1.pattern4,base,0,100,0,0
+}
+
+surface2
+{
+    element0,overlay,surface1099.png,0,0
+}
+
+surface10
+{
+    element0,overlay,surface10.png,0,0
+}
+
+surface20
+{
+    element0,overlay,surface3000.png,0,0
+
+    animation0.interval,runonce
+    animation0.pattern0,base,0,300,0,0
+    animation0.pattern1,base,3001,300,0,0
+    animation0.pattern2,base,3000,300,0,0
+    animation0.pattern3,base,-1,100,0,0
+
+    animation1.interval,never
+    animation1.pattern0,base,3000,300,0,0
+    animation1.pattern1,base,3001,300,0,0
+    animation1.pattern2,base,0,500,0,0
+}
+
+surface21
+{
+    element0,overlay,surface3010.png,0,0
+
+    animation0.interval,runonce
+    animation0.pattern0,base,0,300,0,0
+    animation0.pattern1,base,3011,300,0,0
+    animation0.pattern2,base,3010,300,0,0
+    animation0.pattern3,base,-1,100,0,0
+
+    animation1.interval,never
+    animation1.pattern0,base,3010,300,0,0
+    animation1.pattern1,base,3011,300,0,0
+    animation1.pattern2,base,0,500,0,0
+}
+
+surface90
+{
+    element0,overlay,surface9000.png,0,0
+}
+
+surface91
+{
+    element0,overlay,surface9001.png,0,0
+}
+
+surface92
+{
+    element0,overlay,surface9002.png,0,0
+}
+
+surface93
+{
+    element0,overlay,surface9003.png,0,0
+}
+
+surface94
+{
+    element0,overlay,surface9004.png,0,0
+}
+
+surface95
+{
+    element0,overlay,surface9005.png,0,0
+}
+
+surface96
+{
+    element0,overlay,surface9006.png,0,0
+}
+
+surface97
+{
+    element0,overlay,surface9007.png,0,0
+}
