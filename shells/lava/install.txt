@@ -1,0 +1,4 @@
+Charset,UTF-8
+type,shell
+name,Lava in a Cup
+directory,lava

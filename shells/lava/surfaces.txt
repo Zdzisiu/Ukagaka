@@ -1,0 +1,17 @@
+descript
+{
+    version,1
+}
+
+surface0
+{
+    element0,overlay,surface0.png,0,0
+
+    animation0.interval,bind
+    animation0.pattern0,overlay,1000,00,0,0
+}
+
+surface10
+{
+    element0,overlay,surface10.png,0,0
+}
