@@ -1,0 +1,4 @@
+Charset,UTF-8
+type,shell
+name,Martini Gore
+directory,gore
