@@ -1,0 +1,50 @@
+descript
+{
+    version,1
+}
+
+surface0
+{
+    element0,overlay,surface0.png,0,0
+
+    animation0.interval,bind
+    animation0.pattern0,overlay,1000,00,0,0
+
+    animation1.interval,bind
+    animation1.pattern0,overlay,1001,00,0,0
+
+    animation2.interval,bind
+    animation2.pattern0,overlay,1002,00,0,0
+
+    animation3.interval,bind
+    animation3.pattern0,overlay,1003,00,0,0
+
+    animation4.interval,bind
+    animation4.pattern0,overlay,1004,00,0,0
+
+    animation5.interval,bind
+    animation5.pattern0,overlay,1005,00,0,0
+
+    animation10.interval,bind
+    animation10.pattern0,overlay,1010,00,0,0
+
+    animation11.interval,bind
+    animation11.pattern0,overlay,1011,00,0,0
+
+    animation12.interval,bind
+    animation12.pattern0,overlay,1012,00,0,0
+
+    animation13.interval,bind
+    animation13.pattern0,overlay,1013,00,0,0
+
+    animation14.interval,bind
+    animation14.pattern0,overlay,1014,00,0,0
+
+    animation15.interval,bind
+    animation15.pattern0,overlay,1015,00,0,0
+}
+
+surface10
+{
+    element0,overlay,surface10.png,0,0
+}
