@@ -33,42 +33,62 @@ OnFormattingNar
 
 Select.hemisph
 {
-	if hsphere == "Northern"; hsphere = "Southern"
-	else; hsphere = "Northern"
+	if info[0] == "Northern"; info[0] = "Southern"
+	else; info[0] = "Northern"
+	--
+	TalkConfig
+}
+
+OnCofigMenu
+{
+	other[0] = reference0
 	--
 	TalkConfig
 }
 
 TalkConfig
 {
-	"\0\b4\_q\![set,autoscroll,disable]\*" 
+	"\0\b6\_q\![set,autoscroll,disable]\*\f[bold,1]Setting:\f[bold,0] " 
 	--
-	"\f[bold,1]\__q[OnZChnage,uiclps,%(uiclps),set]----User Info----\__q\f[default]\n\n[half]"
+	if other[0] == ""; other[0] = "ui"
 	--
-	if uiclps == 1
+	if other[0] == "ui"; "%(acc)\q[User,OnCofigMenu,ui]\f[default] | "
+	else; "\q[User,OnCofigMenu,ui] | "
+	--
+	if other[0] == "md"; "%(acc)\q[MiniDev,OnCofigMenu,md]\f[default] | "
+	else; "\q[MiniDev,OnCofigMenu,md] | "
+	--
+	if other[0] == "qt"; "%(acc)\q[Quick tools,OnCofigMenu,qt]\f[default] | "
+	else; "\q[Quick tools,OnCofigMenu,qt] | "
+	--
+	if other[0] == "mn"; "%(acc)\q[Menu,OnCofigMenu,mn]\f[default] | "
+	else; "\q[Menu,OnCofigMenu,mn] | "
+	--
+	if other[0] == "ot"; "%(acc)\q[Other,OnCofigMenu,ot]\f[default]\n\n[half]"
+	else; "\q[Other,OnCofigMenu,ot]\n\n[half]"
+	--
+	if other[0] == "ui" //User
 	{
 		"\f[bold,1]Your Name:\f[default] %(acc)\q[%(username),TEACHNAME]\f[default]\n"
 		--
-		"\f[bold,1]Your Nickname:\f[default] %(acc)\q[%(nickname),nicknamechange]\f[default]\n"
+		"\f[bold,1]Your Nickname:\f[default] %(acc)\q[%(info[5\]),nicknamechange]\f[default]\n"
 		--
 		"\f[bold,1]Pronouns:\f[default] %(acc)\q[%(heshe)/%(himher)/%(hisher),TEACHPRONOUN]\f[default]\n"
 		--
 		"\f[bold,1]Birthday:\f[default] %(acc)\q[%(birthdayprint),TEACHBDAY]\f[default]\n"
 		--
-		"\f[bold,1]Hemisphere:\f[default] %(acc) \q[%(hsphere),hemisph]\f[default]\n\n[half]"
+		"\f[bold,1]Hemisphere:\f[default] %(acc) \q[%(info[0\]),hemisph]\f[default]\n\n[half]"
 	}
 	--
-	"\f[bold,1]\__q[OnZChnage,mdclps,%(mdclps),set]----MD Preferences----\__q\f[default]\n\n[half]"
-	--
-	if mdclps == 1
+	if other[0] == "md" // MiniDev
 	{
-		"\f[bold,1]Dev Name:\f[default] %(acc)\q[%(devname),script:\![open,inputbox,OnDevName,-1\]]\f[default]\n"
+		"\f[bold,1]Dev Name:\f[default] %(acc)\q[%(info[6]),script:\![open,inputbox,OnDevName,-1\]]\f[default]\n"
 		--
-		"\f[bold,1]Hour Notice:\f[default] %(acc)\q[%(hrnt),OnButtonChange,hrnt,%(hrnt)]\f[default]\n"
+		"\f[bold,1]Hour Notice:\f[default] %(acc)\q[%(button[26]),OnButtonChange,button[26\],%(button[26])]\f[default]\n"
 		--
-		"\f[bold,1]Notice other windows:\f[default] %(acc)\q[%(noticewin),OnButtonChange,noticewin,%(noticewin)]\f[default]\n"
+		"\f[bold,1]Notice other windows:\f[default] %(acc)\q[%(button[27]),OnButtonChange,button[27\],%(button[27])]\f[default]\n"
 		--
-		if repairglitch == 1 && tentruth == 1; "\f[bold,1]Disable %(devname) Talking:\f[bold,0] %(acc)\q[%(MDisable),OnButtonChange,MDisable,%(MDisable)]\f[default]\n"
+		if Flag("Glitch Fix") != 1 && counter[3] == 1; "\f[bold,1]Disable %(info[6]) Talking:\f[bold,0] %(acc)\q[%(button[2]),OnButtonChange,button[2\],%(button[2])]\f[default]\n"
 		--
 		"\f[bold,1]Talk Rate:\f[default] %(acc)\__q[talkinter]%(talktime)\__q\f[default]\n"
 		--
@@ -76,65 +96,59 @@ TalkConfig
 		--
 		"%(acc)\q[Change Accent Color,OnAccColor]\f[default]\n"
 		--
-		if repairglitch == 1 && tentruth == 1; "%(distingstart)\q[Change M-201z Formatting,format]\f[default]\n"
+		if Flag("Glitch Fix") != 1 && counter[3] == 1; "%(distingstart)\q[Change M-201z Formatting,format]\f[default]\n"
 		--
 		if narrator != 0; "%(distingnarr)\q[Change Narrator Formatting,OnFormattingNar,config]\f[default]\n\n[half]"
 	}
 	--
-	"\__q[OnZChnage,qbtnclps,%(qbtnclps),set]\f[bold,1]----Quick tools----\__q\n\n[half]\f[default]"
-	--
-	if qbtnclps == 1; "Quick tools: %(acc) \q[%(tooln),OnButtonChange,tooln,%(tooln)]\f[default]\n\n[half]"
-	--
-	if tooln == "ON" && qbtnclps == 1
+	if other[0] == "qt" //Quick Tools
 	{
-		"light/dark button: %(acc) \q[%(dlbtn),OnButtonChange,dlbtn,%(dlbtn)]\f[default]\n"
+		"Quick tools: %(acc) \q[%(button[0]),OnButtonChange,button[0\],%(button[0])]\f[default]\n\n[half]"
 		--
-		"Logs: %(acc) \q[%(logbtn),OnButtonChange,logbtn,%(logbtn)]\f[default]\n"
+		"light/dark button: %(acc) \q[%(button[1]),OnButtonChange,button[1\],%(button[1])]\f[default]\n"
 		--
-		"Weather: %(acc) \q[%(webtn),OnButtonChange,webtn,%(webtn)]\f[default]\n"
+		"Logs: %(acc) \q[%(button[3]),OnButtonChange,button[3\],%(button[3])]\f[default]\n"
 		--
-		"Settings: %(acc) \q[%(setbtn),OnButtonChange,setbtn,%(setbtn)]\f[default]\n"
+		"Weather: %(acc) \q[%(button[5]),OnButtonChange,button[5\],%(button[5])]\f[default]\n"
 		--
-		"Statistics: %(acc) \q[%(statbtn),OnButtonChange,statbtn,%(statbtn)]\f[default]\n"
+		"Settings: %(acc) \q[%(button[6]),OnButtonChange,button[6\],%(button[6])]\f[default]\n"
+		//--
+		//"Statistics: %(acc) \q[%(statbtn),OnButtonChange,statbtn,%(statbtn)]\f[default]\n"
 		--
-		"To-Do: %(acc) \q[%(todobtn),OnButtonChange,todobtn,%(todobtn)]\f[default]\n"
+		"To-Do: %(acc) \q[%(button[8]),OnButtonChange,button[8\],%(button[8])]\f[default]\n"
 		--
-		"Cuztomization: %(acc) \q[%(cusbtn),OnButtonChange,cusbtn,%(cusbtn)]\f[default]\n"
+		"Cuztomization: %(acc) \q[%(button[9]),OnButtonChange,button[9\],%(button[9])]\f[default]\n"
 		--
-		"Open App: %(acc) \q[%(appbtn),OnButtonChange,appbtn,%(appbtn)]\f[default]\n"
+		"Open App: %(acc) \q[%(button[10]),OnButtonChange,button[10\],%(button[10])]\f[default]\n"
 		--
-		"\n[half]Sticky tools: %(acc) \q[%(sticky),sticbtn,%(sticbtn)]\f[default]\n"	
-		--
-		"\![*]\q[Reset Tools Positions,OnMoveQTool]\n\n[half]"
+		"\n[half]Sticky tools: %(acc) \q[%(button[28]),OnButtonChange,button[28\],%(button[28])]\f[default]      (\q[Reset Position,OnMoveQTool])\n\n[half]"//\n"	
+		//--
+		//"\![*]\q[Reset Tools Positions,OnMoveQTool]\n\n[half]"
 	}
 	--
-	"\__q[OnZChnage,menclps,%(menclps),set]\f[bold,1]----Menu----\__q\n\n[half]\f[default]"
-	--
-	if menclps == 1
+	if other[0] == "mn" //Menu
 	{
-		"\f[bold,1]%(acc)\q[%(timeformatype),timetype]\f[default] TIME\n"
+		"\f[bold,1]%(acc)\q[%(info[3]),timetype]\f[default] TIME\n"
 		--
-		"\f[bold,1]DATE FORMAT:%(acc)\q[%(dateformatype),datetype]\f[default]\n\n[half]"
+		"\f[bold,1]DATE FORMAT: %(acc)\q[%(info[2]),datetype]\f[default]\n\n[half]"
 		--
 		if weathermenu != "ON"
 		{
-			"Weather: %(acc) \q[%(weathermenu),OnButtonChange,weathermenu,%(weathermenu)]\f[default]\n"
+			"Weather: %(acc) \q[%(button[19]),OnButtonChange,button[19\],%(button[19])]\f[default]\n"
 		}
 		else
 		{
-			"Weather %(acc) \q[%(weathermenu),OnButtonChange,weathermenu,%(weathermenu)]\f[default] ("
+			"Weather %(acc) \q[%(button[19]),OnButtonChange,button[19\],%(button[19])]\f[default] ("
 			--
 			"%(acc)\q[%(currentweatherarray[1]),startunit]\f[default])\n"
 		}
 		--
-		"Moon Phase: %(acc) \q[%(moonmenu),OnButtonChange,moonmenu,%(moonmenu)]\f[default]\n\n[half]"
+		"Moon Phase: %(acc) \q[%(button[20]),OnButtonChange,button[20\],%(button[20])]\f[default]\n\n[half]"
 	}
 	--
-	"\__q[OnZChnage,othclps,%(othclps),set]\f[bold,1]----Other----\__q\n\n[half]\f[default]"
-	--
-	if othclps == 1
+	if other[0] == "ot" //Other
 	{
-		"Auto update check: %(acc) \q[%(upchec),OnButtonChange,upchec,%(upchec)]\f[default]\n"
+		"Auto update check: %(acc) \q[%(button[21]),OnButtonChange,button[21\],%(button[21])]\f[default]\n"
 		--
 		"\f[default]Enable Uninstall?: %(acc) \q[%(deleteshitai),OnButtonChange,deleteshitai,%(deleteshitai)]\f[default]\n\n[half]"
 	}
@@ -146,19 +160,19 @@ TalkConfig
 
 Select.sticbtn
 {
-	case sticky
+	case button[28]
 	{
 		when "ON"
 		{
 			"\![reset,sticky-window]"
 			--
-			sticky = "OFF"
+			button[28] = "OFF"
 		}
 		when "OFF"
 		{
 			"\![set,sticky-window,1,0,3,4,5,6,7,8,9,10]"
 			--
-			sticky = "ON"
+			button[28] = "ON"
 		}
 	}
 	--
@@ -167,7 +181,7 @@ Select.sticbtn
 
 OnDevName
 {
-	devname = reference0
+	info[6] = reference0
 	--
 	TalkConfig
 }
@@ -190,11 +204,6 @@ Select.choicemasc
 	heshe = "he"
 	hisher = "his"
 	--
-	truepresuffix = presuffix
-	truehimher = himher
-	trueheshe = heshe
-	truehisher = hisher
-	--
 	"\0The pronouns are now he him and his.\e"
 }
 
@@ -204,11 +213,6 @@ Select.choicefem
 	himher = "her"
 	heshe = "she"
 	hisher = "her"
-	--
-	truepresuffix = presuffix
-	truehimher = himher
-	trueheshe = heshe
-	truehisher = hisher
 	--
 	"\0The pronouns are now she her and her.\e"
 }
@@ -220,17 +224,12 @@ Select.choiceneither
 	heshe = "they"
 	hisher = "their"
 	--
-	truepresuffix = presuffix
-	truehimher = himher
-	trueheshe = heshe
-	truehisher = hisher
-	--
 	"\0The pronouns are now they them and their.\e"
 }
 
 Select.choiceown
 {
-	"\0Okay then, write them as replacment of the ones I say\x\creplacement of 'he'\![open,inputbox,OnOwnPronone,-1]"
+	"\0Okay then, write them as replacement of the ones I say\x\creplacement of 'he'\![open,inputbox,OnOwnPronone,-1]"
 }
 
 OnOwnPronone
@@ -248,7 +247,9 @@ OnOwnProntwo
 OnOwnPronthree
 {
 	hisher = reference0
-	"\0%(hisher)\w8\w8 Your pronounces: %(heshe)/%(himher)/%(hisher)\e"
+	presuffix = "undefine"
+	--
+	"\0%(hisher)\w8\w8 Your pronouns: %(heshe)/%(himher)/%(hisher)\e"
 }
 
 Select.TEACHBDAY
@@ -299,13 +300,14 @@ Printday
 
 OnUserBornDay
 {
-	tempday = reference0
-	
+	_tempday = ""
+	_tempday = reference0
+	--
 	if bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12 //This is checking to see if it's one of the months with 31 days.
 	{
-		if tempday >= 1 && tempday <= 31 
+		if _tempday >= 1 && _tempday <= 31 
 		{
-			bornday = tempday
+			bornday = _tempday
 			borndayprint = Printday
 			userbirthday = "%(bornmonth)month %(bornday)day"
 			birthdayprint = "%(bornmonthprint) %(borndayprint)"
@@ -318,9 +320,9 @@ OnUserBornDay
 	}
 	elseif bornmonth == 2
 	{
-		if tempday >= 1 && tempday <= 29
+		if _tempday >= 1 && _tempday <= 29
 		{
-			bornday = tempday
+			bornday = _tempday
 			borndayprint = Printday
 			userbirthday = "%(bornmonth)month %(bornday)day"
 			birthdayprint = "%(bornmonthprint) %(borndayprint)"
@@ -333,9 +335,9 @@ OnUserBornDay
 	}
 	else 
 	{
-		if tempday >= 1 && tempday <= 30 
+		if _tempday >= 1 && _tempday <= 30 
 		{
-			bornday = tempday
+			bornday = _tempday
 			borndayprint = Printday
 			userbirthday = "%(bornmonth)month %(bornday)day"
 			birthdayprint = "%(bornmonthprint) %(borndayprint)"
@@ -350,10 +352,6 @@ OnUserBornDay
 
 birthchecked
 {
-	askzoidac = 0
-	zodiaccheck = 0
-	truebirth = userbirthday
-	--
 	if userbirthday == dayslot; "\0Your birthday\w6 is today?\w7Happy Birthday then%(users)!"
 	elseif userbirthday == "10month 31day"; "\0Your birthday is on halloween?\w6 does that mean twice as many candy and costume party?"
 	else; "\0Your birthday is %(bornmonthprint) %(borndayprint)? I will remember"
@@ -515,15 +513,15 @@ Select.traits
 {
 	"\_q\b2"
 	--
-    "\f[default]Nice: %(acc) \q[%(nice),OnButtonChange,nice,%(nice),trait]\f[default]\n"		
+    "\f[default]Nice: %(acc) \q[%(button[11]),OnButtonChange,button[11\],%(button[11]),trait]\f[default]\n"		
 	--
-	if stupid != "ON"; "\f[default]Intelligent: %(acc) \q[%(smart),OnButtonChange,smart,%(smart),trait]\f[default]\n"
-	elseif stupid == "ON"; "\f[default]\f[strike,1]Intelligent\f[strike,0]\f[default]\n"		
+	if button[15] != "ON"; "\f[default]Intelligent: %(acc) \q[%(button[12]),OnButtonChange,button[12\],%(button[12]),trait]\f[default]\n"
+	elseif button[15] == "ON"; "\f[default]\f[strike,1]Intelligent\f[strike,0]\f[default]\n"		
 	--
-	if smart != "ON"; "\f[default]Unintelligent: %(acc) \q[%(stupid),OnButtonChange,stupid,%(stupid),trait]\f[default]\n"
-	elseif smart == "ON"; "\f[default]\f[strike,1]Unintelligent\f[strike,0]\f[default]\n"		
+	if button[12] != "ON"; "\f[default]Unintelligent: %(acc) \q[%(button[15]),OnButtonChange,button[15\],%(button[15]),trait]\f[default]\n"
+	elseif button[12] == "ON"; "\f[default]\f[strike,1]Unintelligent\f[strike,0]\f[default]\n"		
 	--
-	"\f[default]Romantic: %(acc) \q[%(romantic),OnButtonChange,romantic,%(romantic),trait]\f[default]\n"	
+	"\f[default]Romantic: %(acc) \q[%(button[17]),OnButtonChange,button[17\],%(button[17]),trait]\f[default]\n"	
 	--
 	"\n[half]\![*]\q[trait info,script:\![open,file,ghost/master/Traits.txt\]]\n"
     --
@@ -537,7 +535,7 @@ Select.triinfo
 	"\![open,file,ghost/master/Traits.txt]"
 }
 
-OnRecomConfig
+/*OnRecomConfig
 {
 	"\b4\_qInclude | Exclude tags (anime/manga)\n\n[half]"
 	--
@@ -571,7 +569,7 @@ OnRecC
 	ecchi
 	romancet
 	action
-	*/
+	*\/
 	--
 	if GL == "OFF"; excludedtags += ",GL,Yuri"
 	--
@@ -588,7 +586,7 @@ OnRecC
 	if action == "OFF"; excludedtags += ",Action"
 	--
 	OnRecomConfig
-}
+}*/
 
 OnAccColor
 {
@@ -602,19 +600,6 @@ OnCustomAccColor
 	TalkConfig
 }
 
-Select.acces
-{
-
-}
-
-Select.degreeez
-{
-	if "C" _in_ currentweatherarray[1]; currentweatherarray[1] = REPLACE(currentweatherarray[1],"C","F")
-	else; currentweatherarray[1] = REPLACE(currentweatherarray[1],"F","C")
-	--
-	TalkConfig
-}
-
 Select.startunit
 {
 	unitchange = 1
@@ -624,11 +609,11 @@ Select.startunit
 
 Select.datetype
 {
-	case dateformatype
+	case info[2]
 	{
-		when "dd/mm/yyyy"; dateformatype = "yyyy/mm/dd"
-		when "yyyy/mm/dd"; dateformatype = "mm/dd/yyyy"
-		when "mm/dd/yyyy"; dateformatype = "dd/mm/yyyy"
+		when "dd/mm/yyyy"; info[2] = "yyyy/mm/dd"
+		when "yyyy/mm/dd"; info[2] = "mm/dd/yyyy"
+		others; info[2] = "dd/mm/yyyy"
 	}
 	--
 	TalkConfig
@@ -636,10 +621,10 @@ Select.datetype
 
 Select.timetype
 {
-	case timeformatype
+	case info[3]
 	{
-		when "STANDARD"; timeformatype = "MILITARY"
-		when "MILITARY"; timeformatype = "STANDARD"
+		when "STANDARD"; info[3] = "MILITARY"
+		others; info[3] = "STANDARD"
 	}
 	--
 	TalkConfig

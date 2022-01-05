@@ -77,10 +77,11 @@ Char76.center,175
 Char16.center,502
 Char36.center,889
 Char41.balloon.isleft,1
-balloon0.offset,-71.10
+balloon0.offset,-67.54
 scriptbox.left,1115
 Char22.balloon.isleft,1
 Char73.balloon.isleft,1
+balloon3.offset,288.0
 Char9.center,616
 Char54.center,849
 Char14.center,1235
@@ -143,7 +144,7 @@ Char21.centery,1010
 Char23.centery,1010
 Char25.centery,1010
 Char27.centery,1010
-Char.VirtualDesktop,424c281d-ef11-45f6-9183-d49333fc4c31
+Char.VirtualDesktop,04f988c5-ed93-4755-8eeb-c49ebdb45f39
 Char31.centery,1010
 Char33.centery,1010
 Char35.centery,1010

@@ -1,30 +1,30 @@
 ﻿logdisplay
 { 
-    logcont[logpage] = ""
+    logcont[counter[10]] = ""
     --
-    truth += 1
-    "\*\_q\b8\f[bold,1]LOG#%(logpage)\n/
-    \f[bold,1]Log creator:\f[bold,default] %(logname[logpage])\n/
-    \f[bold,1]Current Generation:\f[bold,default] %(loggen[logpage])\n"
+    counter[2] += 1
+    "\*\_q\b8\f[bold,1]LOG#%(counter[10])\n/
+    \f[bold,1]Log creator:\f[bold,default] %(logname[counter[10]])\n/
+    \f[bold,1]Current Generation:\f[bold,default] %(loggen[counter[10]])\n"
     --
-    //"\n%(logcont[logpage])\n\n[half]"
-    _file = "logs/Log#%(logpage).txt"
+    //"\n%(logcont[counter[10]])\n\n[half]"
+    _file = "logs/Log#%(counter[10]).txt"
     --
     if FOPEN(_file,'r') {
         for i=0;i<100;i++
         {
-            if FREAD(_file) != "-1";  logcont[logpage] += FREAD(_file)
+            if FREAD(_file) != "-1";  logcont[counter[10]] += FREAD(_file)
         }
     }
     FCLOSE(_file)
     --
-    "\n%(logcont[logpage])\n\n[half]"
+    "\n%(logcont[counter[10]])\n\n[half]"
     --
-    if logpage == 1; "\q[OPEN LOG,olog]\n"
+    if counter[10] == 1; "\q[OPEN LOG,olog]\n"
     --
-    if logpage != 1; " \q[<----,plog] "
+    if counter[10] != 1; " \q[<----,plog] "
     --
-    if logpage < 9 && FREAD( "logs/Log#%(logpage).txt") != "-1";  "\q[---->,nlog]\n"
+    if counter[10] < 9 && FREAD("logs/Log#%(counter[10]).txt") != "-1";  "\q[---->,nlog]\n"
     --
     "\q[UPDATE LOG,ulog]\n/
     \q[CLOSE LOGS,clog]\_q\e"
@@ -43,7 +43,7 @@ Select.cont
 
 OnContent
 {
-    logcont[logpage] = reference0
+    logcont[counter[10]] = reference0
     --
     "%(logdisplay)"
 }
@@ -55,7 +55,7 @@ Select.docu
 
 OnDateCreate
 {
-    logdate[logpage] = reference0
+    logdate[counter[10]] = reference0
     --
     "%(logdisplay)"
 }
@@ -67,7 +67,7 @@ Select.lcu
 
 OnLogNameCreate
 {
-    logname[logpage] = reference0
+    logname[counter[10]] = reference0
     --
     "%(logdisplay)"
 }
@@ -79,7 +79,7 @@ Select.gu
 
 OnGenLog
 {
-    loggen[logpage] = reference0
+    loggen[counter[10]] = reference0
     --
     "%(logdisplay)"
 }
@@ -91,28 +91,28 @@ Select.tmu
 
 OnModeLog
 {
-    logmod[logpage] = reference0
+    logmod[counter[10]] = reference0
     --
     "%(logdisplay)"
 }
 
 Select.nlog
 {
-    logpage += 1
+    counter[10] += 1
     --
     "%(logdisplay)"
 }
 
 Select.plog
 {
-    logpage -= 1
+    counter[10] -= 1
     --
     "%(logdisplay)"
 }
 
 Select.olog
 {
-    "\![open,file,ghost/master/logs/Log#%(logpage).txt]"
+    "\![open,file,ghost/master/logs/Log#%(counter[10]).txt]"
 }
 
 Select.clog
@@ -122,19 +122,18 @@ Select.clog
 
 Select.LOG
 {
-    
-    logusername = TOUPPER(username)
+    _logusername = TOUPPER(username)
     "SEARCHING FOR LOGS\w8\w8\w8\w8\w8\w8\c"
     --
     /*if devlogunolock == 1 && tentruth == 1
     {
         "CHOOSE USER\n\n"
         --
-        "\q[M-201z,displaydevlogs] --- \q[%(logusername),displayuserlogs]"
+        "\q[M-201z,displaydevlogs] --- \q[%(_logusername),userslogs]"
     }
     else
     {*/
-        //userlogpage = 1
+        //usercounter[10] = 1
         //--
         //"%(userslog)"
         OnLogSelect
@@ -144,7 +143,7 @@ Select.LOG
 
 Select.displaydevlogs
 {
-    devlogpage = 1
+    counter[9] = 1
     --
     "%(devlog)"
 }
@@ -152,14 +151,14 @@ Select.displaydevlogs
 devlog
 {
     
-    "\*\b8\f[bold,1]LOG#%(devlogpage)\n/
-    Date of creation:\f[bold,default] %(devlogdata[devlogpage])\n/
+    "\*\b8\f[bold,1]LOG#%(counter[9])\n/
+    Date of creation:\f[bold,default] %(devlogdata[counter[9]])\n/
     \f[bold,1]Log creator:\f[bold,default] M-201z\n/
-    \f[bold,1]Log:\f[bold,default] %(devlogcontent[devlogpage])\n\n"
+    \f[bold,1]Log:\f[bold,default] %(devlogcontent[counter[9]])\n\n"
     --
-    if devlogpage != 1; "\q[<----,dplog] "
+    if counter[9] != 1; "\q[<----,dplog] "
     --
-    if devlogpage < devlogcount;  " \q[---->,dnlog]"
+    if counter[9] < counter[0];  " \q[---->,dnlog]"
     --
     "\n\q[UPDATE LOG,udlog]\n/
     \n\q[CREATE LOG,crdlog]\n/
@@ -169,24 +168,24 @@ devlog
 
 clear
 {
-    for _i = 1; _i <= devlogcount; _i++
+    for _i = 1; _i <= counter[0]; _i++
     {
         devlogcontent[_i] = ""
     }
     --
-    devlogcount = 1
+    counter[0] = 1
 }
 
 Select.crdlog
 {
-    devlogcount += 1
-    devlogpage += 1
+    counter[0] += 1
+    counter[9] += 1
     "%(devlog)"
 }
 
 Select.dnlog
 {
-    devlogpage += 1
+    counter[9] += 1
     "%(devlog)"
 }
 
@@ -197,30 +196,30 @@ Select.udlog
 
 Select.dplog
 {
-    devlogpage -= 1
+    counter[9] -= 1
     "%(devlog)"
 }
 
 OnDevLogUpdate
 {
-    sayed = TOLOWER(reference0)
-    respondlog = reference0
-    logprofile = "\n\n[half]" + username + ": " + respondlog
-    devlogcontent[devlogpage] += logprofile
+    _sayed = TOLOWER(reference0)
+    _respondlog = reference0
+    _logprofile = "\n\n[half]" + username + ": " + _respondlog
+    devlogcontent[counter[9]] += _logprofile
     --
-    if devlogpage == 1
+    if counter[9] == 1
     {
         if firstresponse == 0
         {   
             firstresponse = 1
             --
-            if ("good" _in_ sayed || "fine" _in_ sayed) && (" not " !_in_ sayed || " no " !_in_ sayed || "n't" !_in_ sayed)
+            if ("good" _in_ _sayed || "fine" _in_ _sayed) && (" not " !_in_ _sayed || " no " !_in_ _sayed || "n't" !_in_ _sayed)
             { 
-                devlogcontent[1] += logprofile + "\n\n201: That's good \n201: Now you can create new logs here if you want"
+                devlogcontent[1] += _logprofile + "\n\n201: That's good \n201: Now you can create new logs here if you want"
             }
-            elseif (("good" _in_ sayed || "fine" _in_ sayed) && (" not " _in_ sayed || " no " _in_ sayed || "n't" _in_ sayed)) || "bad"_in_ sayed
+            elseif (("good" _in_ _sayed || "fine" _in_ _sayed) && (" not " _in_ _sayed || " no " _in_ _sayed || "n't" _in_ _sayed)) || "bad"_in_ _sayed
             {
-                devlogcontent[1] += logprofile + "\n\n201: That's not good\n201: I'm here if you need to vent\n201: Now you can create new logs here if you want"
+                devlogcontent[1] += _logprofile + "\n\n201: That's not good\n201: I'm here if you need to vent\n201: Now you can create new logs here if you want"
             }
             else
             {
@@ -240,7 +239,7 @@ OnDevLogUpdate
     devlog
 }
 
-Select.displayuserlogs
+Select.userslog
 {
     OnLogSelect
 }
@@ -250,13 +249,13 @@ OnLogSelect
     _page = ""
     _d = ""
 	--
-	if userlogs < 4; _page = "\b0\_q%(cha)Your Logs:\n\n[half]"
-	elseif userlogs < 10; _page = "\b2\_q%(cha)Your Logs:\n\n[half]"
-	elseif userlogs < 15; _page = "\b4\_q%(cha)Your Logs:\n\n[half]"
+	if counter[1] < 4; _page = "\b0\_q%(cha)Your Logs:\n\n[half]"
+	elseif counter[1] < 10; _page = "\b2\_q%(cha)Your Logs:\n\n[half]"
+	elseif counter[1] < 15; _page = "\b4\_q%(cha)Your Logs:\n\n[half]"
 	--
-	if userlogs != 0
+	if counter[1] != 0
 	{
-		for _i=1;_i<=userlogs;_i++
+		for _i=1;_i<=counter[1];_i++
 		{
 			if ulogname[_i] == ""; ulogname[_i] = "unnamed"
             --
@@ -300,7 +299,7 @@ OnLogSelect
 
 OnLogClick
 {
-    userlogpage = TOINT(reference0)
+    usercounter[10] = TOINT(reference0)
 	--
 	if relog == 1
 	{
@@ -322,13 +321,13 @@ OnLogClick
 
 OnUserslog
 {
-    "\_q\b8\f[bold,1]%(cha)LOG#%(userlogpage):\f[bold,default] %(ulogname[userlogpage])\n/
-    \f[bold,1]Date of creation:\f[bold,default] %(userlogdata[userlogpage])\n"
+    "\_q\b8\f[bold,1]%(cha)LOG#%(usercounter[10]):\f[bold,default] %(ulogname[usercounter[10]])\n/
+    \f[bold,1]Date of creation:\f[bold,default] %(userlogdata[usercounter[10]])\n"
     --
-    if logupdatedata[userlogpage] != ""; "\f[bold,1]Date of Update:\f[bold,default] %(logupdatedata[userlogpage])\n"
+    if logupdatedata[usercounter[10]] != ""; "\f[bold,1]Date of Update:\f[bold,default] %(logupdatedata[usercounter[10]])\n"
     --
     "\f[bold,1]Log creator:\f[bold,default] %(username)\n/
-    \f[bold,1]Log:\f[bold,default]\n\n[half] %(userlogcontent[userlogpage])\n\n"
+    \f[bold,1]Log:\f[bold,default]\n\n[half] %(userlogcontent[usercounter[10]])\n\n"
     --
     "\n\q[Close,clog] | \q[Go Back,OnLogSelect]"
     --
@@ -337,7 +336,7 @@ OnUserslog
 
 OnUserLogName
 {
-    ulogname[userlogpage] = reference0
+    ulogname[usercounter[10]] = reference0
     --
     OnLogSelect
 }
@@ -346,12 +345,12 @@ Select.delalllog
 {
     "\_qARE YOU SURE YOU WANT TO DELETE ALL LOGS?\n\n/
     \q[YES,yesdellog]\n/
-    \q[NO,displayuserlogs]"
+    \q[NO,displaycounter[1]]"
 }
 
 OnDelLog
 {
-    for _i=userlogpage;_i<=userlogs;_i++
+    for _i=usercounter[10];_i<=counter[1];_i++
     {
         userlogcontent[_i] = userlogcontent[_i+1]
         logupdatedata[_i] = logupdatedata[_i+1]
@@ -360,7 +359,7 @@ OnDelLog
         userlogdata[_i] = userlogdata[_i+1]
     }
     --
-    userlogs -= 1
+    counter[1] -= 1
     --
     OnLogSelect
 }
@@ -372,31 +371,31 @@ Select.crelog
 
 OnUserLogUpdate
 {
-    userlogcontent[userlogpage] = reference0
-    logupdatedata[userlogpage] = timeformat + " . " + dateformat
+    userlogcontent[usercounter[10]] = reference0
+    logupdatedata[usercounter[10]] = timeformat + " . " + dateformat
     --
     OnLogSelect
 }
 
 OnNewLogStart
-{   userlogs += 1
-    ulogname[userlogs] = reference0 
+{   counter[1] += 1
+    ulogname[counter[1]] = reference0 
     logupdatedata[_i] = ""
-    userlogdata[userlogs] = timeformat + " . " + dateformat
+    userlogdata[counter[1]] = timeformat + " . " + dateformat
     "\_qWrite your log\![open,inputbox,OnUserLog,-1]"
 }
 
 OnUserLog
 {
-    userlogpage = userlogs
-    userlogcontent[userlogs] = reference0
-    //if FOPEN('/log/log#%(userlogs)','w'); FWRITE('/log/log#%(userlogs)',reference0)
+    usercounter[10] = counter[1]
+    userlogcontent[counter[1]] = reference0
+    //if FOPEN('/log/log#%(counter[1])','w'); FWRITE('/log/log#%(counter[1])',reference0)
     OnUserslog
 }
 
 Select.yesdellog
 {
-    for _i=0;_i<=userlogs;_i++
+    for _i=0;_i<=counter[1];_i++
     {
         userlogcontent[_i] = ""
         logupdatedata[_i] = ""
@@ -404,35 +403,13 @@ Select.yesdellog
         ulogname[_i] = ""
         userlogdata[_i] = ""
     }
-    userlogs = 0
-    userlogpage = 1
+    counter[1] = 0
+    usercounter[10] = 1
     --
     "LOGS DELETED\x%(userslog)"
 }
 
-del
-{
-    i = 1
-}
-
-SaveLog
-{
-    if devlogcount > i
-    {
-        i += 1
-        FOPEN("M201zLogs.txt","w")
-        FWRITE("M201zLogs.txt",)
-        FCLOSE("M201zLogs.txt")
-        --
-        SaveLog
-    }
-    else
-    {
-        i = 1
-    }
-}
-
-ThingsLib
+/*ThingsLib
 {
     thing = IARRAY
     thingcount = 50 + userthing
@@ -693,4 +670,4 @@ ColorLib
     col[15] = "pink"
     col[16] = "magenta"
     col[17] = "cyan"
-}
+}*/

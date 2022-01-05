@@ -1,0 +1,86 @@
+﻿OpenSakuraMenu
+{
+	lastPrompt = ""
+	--
+	for _i=0;_i<6;_i++
+	{
+		//0: NSFW | 1: SFW
+		if button[_i] == ""; button[_i] = "ON"
+	}
+	--
+	if button[0] == "ON"; lastPrompt = "%(NSFW)"
+	if button[1] == "ON"; lastPrompt = "%(SFW)"
+	--
+	MenuRun
+}
+
+MenuRun
+{	
+	"\1\s[10]\![set,autoscroll,disable]\_q%(lastPrompt)\0\s[0]\b2\n" 
+	--
+	all : {
+		"\![*]\q[NSFW: %(button[0]),OnButtonChange,button[0\],%(button[0])]\n"
+		"\![*]\q[SFW: %(button[1]),OnButtonChange,button[1\],%(button[1])]\n"
+		"\![*]\q[Fluff: %(button[2]),OnButtonChange,button[2\],%(button[2])]\n"
+		"\![*]\q[Angst: %(button[3]),OnButtonChange,button[3\],%(button[3])]\n"
+		"\![*]\q[Simple: %(button[4]),OnButtonChange,button[4\],%(button[4])]\n"
+		"\![*]\q[Oneliners: %(button[5]),OnButtonChange,button[5\],%(button[5])]\n"
+		"\![*]\q[Prompts: %(button[6]),OnButtonChange,button[6\],%(button[6])]\n"
+		"-------------------------------------\n"
+		"\![*]\q[Person A: %(person[0]),script:\![open,inputbox,OnName,--reference=0\]]\n"
+		"\![*]\q[Person B: %(person[1]),script:\![open,inputbox,OnName,--reference=1\]]\n"
+		"\![*]\q[Person C: %(person[2]),script:\![open,inputbox,OnName,--reference=2\]]\n"
+		"\![*]\q[Person D: %(person[3]),script:\![open,inputbox,OnName,--reference=3\]]\n"
+		"-------------------------------------\n"
+		"\n[half]\![*]\q[Config Menu,configmenu]\n"
+	}
+	--
+ 	"\n[half]\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.BACKTOMENU
+{
+	MenuRun
+}
+Select.configmenu
+{
+	TalkConfig
+}
+
+OnName
+{
+	person[TOINT(reference2)] = TOPROPER(reference0)
+	--
+	MenuRun
+}
+
+TalkConfig
+{
+	"\0\b[2]\_q" 
+	--
+	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+Select.CANCEL
+{
+	"\0\s[0]\e"
+}

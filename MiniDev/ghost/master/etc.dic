@@ -24,9 +24,9 @@
 		}
 		when ".txt"
 		{
-			if (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55))  && meeting == 1
+			if (counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55))  && Flag("Meeting") == 1
 			{
-				if repairglitch != 1
+				if Flag("Glitch Fix") != 1
 				{
 					if "Log#" _in_ _filename
 					{
@@ -34,7 +34,7 @@
 						--
 						FCOPY(file,"logs")
 					}
-					elseif "txt" _in_ projecttypes
+					elseif "txt" _in_ info[1]
 					{
 						"I'm adding '%(_filename)' to your project directory\e"
 						--
@@ -53,7 +53,7 @@
 						--
 						FCOPY(file,"logs")
 					}
-					elseif "txt" _in_ projecttypes
+					elseif "txt" _in_ info[1]
 					{
 						"I'm adding '%(_filename)' to your project directory\e"
 						--
@@ -68,7 +68,7 @@
 			}
 			else
 			{
-				if "txt" _in_ projecttypes
+				if "txt" _in_ info[1]
 				{
 					"I'm adding '%(_filename)' to your project directory\e"
 					--
@@ -88,7 +88,7 @@
 		}
 		others
 		{
-			if REPLACE(_fileext,".","") _in_ projecttypes
+			if REPLACE(_fileext,".","") _in_ info[1]
 			{
 				"I'm adding '%(_filename)' to your project directory\e"
 				--
@@ -128,7 +128,7 @@ OnInstallBegin
 OnInstallComplete
  {
 	"\0" 
-	 --
+	--
     installed = reference1
 	--
 	if reference0 == "shell" 
@@ -139,9 +139,9 @@ OnInstallComplete
 	{
 		"\s[0]I've installed a new Ghost.\w8\0\s[0] It's called %(reference1).\n\n[half]Should I call them?\n\n[half]\q[Yes,callghost]\n\q[No,nocall]."
 		--
-		if meeting == 1 && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
+		if Flag("Meeting") == 1 && (counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
 		{
-			if repairglitch != 1; "O̴h̸,̷ ̵a̶ ̵n̵e̴w̸ ̸p̸r̴o̷g̸r̸a̸m̶?̶"
+			if Flag("Glitch Fix") != 1; "O̴h̸,̷ ̵a̶ ̵n̵e̴w̸ ̸p̸r̴o̷g̸r̸a̸m̶?̶"
 			else; "\1%(distingstart)Oh, a new program?"
 		}
 		--
@@ -260,7 +260,16 @@ OnUpdateComplete
 	}
 	else
 	{
-		OnToolCheck
+		if vers == "1.1.2" && info[4] == ""
+		{
+			info[4] = "1.1.3"
+			MiscFlags = IARRAY
+			statbtn = "OFF"
+			button[7] = "OFF"
+			OnEraseVars
+		}
+		--
+		OnUpdateVariables
 		--
 		"\0\s[0]Update successful! Do you want to see the changlog?\n\n[half]\q[Yes,changelog] | \q[No,chnglg]\e"
 	}
@@ -297,8 +306,6 @@ OnUpdateCheckComplete
 {
 	if reference0 != "none"
 	{
-		if reference3 !_in_ "%(toup)"; toup ,= reference3
-		--
 		"There is an update avalible"
 		--
 		"\n\![*]\q[Update software,up]\n\n[half]\![*]\q[Update later,lat]\e"
@@ -311,17 +318,7 @@ OnUpdateCheckComplete
 
 Select.up
 {
-	/*_usize = ARRAYSIZE(toup)
-	_up = ""
-	--
-	for _i = 0;_i<3;_i++
-	{
-		_up += toup[_i] + "+"
-		toup[_i] = ""
-	}
-	--
-	_up = ERASE(_up, -1 ,1 )*/
-	"\![update,ghost+balloon+shell]"
+	"\![updatebymyself]"
 }
 
 Select.lat
@@ -344,7 +341,6 @@ OnUpdate.OnMD5CompareComplete
 	"\0\s[0]\e"
 }
 
- 
 OnUpdate.OnMD5CompareFailure
 {
 	"\0\s[0]The MD5 values don't match.\w8\e"
@@ -390,7 +386,6 @@ OnHeadlinesense.OnFind
 	}
 	
 }
-
 
 Select.Headline_Cancel
 {
@@ -443,7 +438,6 @@ OnNarCreated
 	"\0\s[0]Successfully created '%(reference0)'.\e"
 }
 
- 
 OnSNTPBegin
 {
 	"\0\s[0]I'm going to check the time.\w9\0\s[0]I am connecting to %(reference0).\e"
@@ -544,9 +538,9 @@ OnDeviceArrival
 	_device = reference[0][0,","] + reference[0][1,","] + reference[0][2,","] + reference[0][4,","]
 	_device = TOLOWER(_device) 
 	
-	if ("wacom" _in_ "%(_device)" || "tablet" _in_ "%(_device)") && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55))
+	if ("wacom" _in_ "%(_device)" || "tablet" _in_ "%(_device)") && (counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55))
 	{
-		if repairglitch != 1; "H̷m̴?̷ ̴I̵s̵ ̵t̵h̴a̴t̷ ̴a̵ ̷d̸r̷a̵w̸i̵n̵g̵ ̴t̸a̸b̷l̸e̶t?\e"
+		if Flag("Glitch Fix") != 1; "H̷m̴?̷ ̴I̵s̵ ̵t̵h̴a̴t̷ ̴a̵ ̷d̸r̷a̵w̸i̵n̵g̵ ̴t̸a̸b̷l̸e̶t?\e"
 		else; "%(distingstart)Hm? Is that a drawing tablet?\e"
 	}
 }

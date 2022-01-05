@@ -1,0 +1,26 @@
+﻿charset, UTF-8
+charset.dic, UTF-8
+charset.output, UTF-8
+charset.file, UTF-8
+charset.save, UTF-8
+charset.extension, UTF-8
+messagetxt,system/messagetxt/english.txt
+
+include, system_config.txt		
+dic, string.dic			
+dic, aitalk.dic			
+dic, bootend.dic		
+dic, mouse.dic			
+dic, etc.dic			
+dic, menu.dic
+dic, word.dic
+dic, commu.dic
+dic, nameteach.dic
+dic, anchor.dic
+
+
+//---- Log Location -------------------------------------------------------------------------
+//Don't touch it.
+
+
+//log, ayame.log	

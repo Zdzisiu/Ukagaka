@@ -10,7 +10,7 @@
 
 OnZChnage
 {
-	LETTONAME(reference0,onezero(reference1))
+	EVAL("%(reference0) = %(CHR(34))%(onezero(reference1))%(CHR(34))")
 	--
 	if reference0 == "repage"; delepage = 0
 	elseif reference0 == "delepage"; repage = 0
@@ -45,16 +45,74 @@ OnZChnage
 
 OnButtonChange
 {
-	LETTONAME(reference0,onnoff(reference1))
+	EVAL("%(reference0) = %(CHR(34))%(onnoff(reference1))%(CHR(34))") //change variable to ON/OFF
 	--
-	if "btn" _in_ reference0 || reference0 == "tooln"; "%(lightdark)"
+	"%(lightdark)"
 	--
 	if reference2 == "trait"; Select.traits
 	elseif reference2 == "rec"; OnRecC
+	elseif reference2 == "colors"; OnRandom_Start
 	else; TalkConfig
 }
 
+onnoff //onnoff(variable)
+{
+	if _argv[0] == "ON"; "OFF"
+	else; "ON"
+}
+
 //========================FUNCTIONS========================
+
+//Written by Zichqec https://zichqec.github.io/s-the-skeleton/index.html
+
+//Usage: This is intended to take the place of single-use variables that only contain 0 or 1, used as flags for certain events and such. With these functions, you can store all those flags as a single array, meaning you can make as many flags as you want without having to really worry about save bloat. It can also make your code a bit more readable!
+
+//You'll want to put 'MiscFlags = IARRAY' into your OnFirstBoot. That'll set up an empty array for flags to be stored in.
+//When you want to check if a flag is set or not, you can do it like so:
+//if Flag("My Flag") == 0
+//or
+//if Flag("My Flag") == 1
+
+//Any flags that are NOT in the array are 0, and any flags that ARE in the array are 1. So, to set a flag to 1, you add it to the array like this:
+//if Flag("My Flag") == 0; MiscFlags ,= "My Flag"
+
+//You don't technically need the if check there, but it stops duplicate entries from being added. The ,= is also important; that adds a new element to an array. Don't use += for this!
+
+//If you want to set a flag back to 0, you can remove it like so:
+//RemoveFlag("My Flag")
+
+//Flag names can be just about anything you want! They're just stored as strings. For example, for S I have "Saw Gaster with googly eyes", and for Lulo I have things like "Unlocked MP3 player" and "Unlocked journal". If you want to see what flags are set, you can just put %(MiscFlags) into script input, so it's helpful to have names that describe the flag!
+
+Flag //Checks to see if a flag exists. Returns 1 if yes, returns 0 if no
+{
+	if ASEARCH(_argv[0],MiscFlags) != -1; 1
+	else; 0
+}
+
+RemoveFlag //Removes all instances of a flag in the array.
+{
+	_elements = ASEARCHEX(_argv[0],MiscFlags)
+	if ARRAYSIZE(_elements) > 0
+	{
+		for _i = ARRAYSIZE(_elements) - 1; _i >= 0; _i-- //Goes from the end of the list to the start, so the elements stay in the same positions while we erase
+		{
+			_current = _elements[_i]
+			MiscFlags[_current] = IARRAY
+		}
+	}
+}
+
+
+//Technical details:
+
+//ASEARCH is a YAYA command that searches an array for the value you specify. If it doesn't find the value, it returns -1. If it finds the value, it returns the position in the array.
+
+//ASEARCHEX is similar, but it finds all instances of the same value, and returns the positions as a new array.
+
+//So, it IS possible to skip a step here and write if ASEARCH("My Flag",MiscFlags) != -1, to see if a flag is set. But != -1 is a bit confusing at times! So the Flag function here returns 1 if the flag is set, and 0 if it is not, to simplify things.
+
+//With the RemoveFlag function, all it does is see how many instances of the value there are, then start erasing them from the end of the array working towards the start of the array, so that the array positions don't change as it erases. The reason I've done it this way is so that if someone accidentally adds the same flag to the array a bunch of times, all of them will be erased, so that the flag returns 0.
+
 
 countarray //countarray(array,string,delim)
 {
@@ -77,14 +135,8 @@ countarray //countarray(array,string,delim)
 
 max //max(array)
 {
-    _sorted = ASORT('double,descending',_argv)
-    _sorted[0]
-}
-
-onnoff //onnoff(variable)
-{
-	if _argv[0] == "ON"; "OFF"
-	else; "ON"
+    _sorted = ASORT('double,descending',_argv) //sort array descending
+    _sorted[0] //show the first element
 }
 
 onezero //onezero(variable)
@@ -95,21 +147,22 @@ onezero //onezero(variable)
 
 min //min(array)
 {
-    _sorted = ASORT('double,ascending',_argv)
-    _sorted[0]
+    _sorted = ASORT('double,ascending',_argv) //sort array ascending
+    _sorted[0] //show the first element
 }
 
 abs //abs(variable)
 {
-	if _argv[0] < 0; _argv[0]*=-1
+	if _argv[0] < 0; _argv[0]*=-1 //if the variable is less the 0, multiply by (-1)
 	--
-	_argv[0]
+	_argv[0] //return the argument
 }
 
-fmod //fmod()
+fmod //fmod(number,number)
 {
-	_num = _argv[0]
-	_den = TOREAL(_argv[1])
+	_num = _argv[0] //get the number
+	_den = TOREAL(_argv[1]) //change argument[1] to a real number
+	//The rest is just math
 	//fmod = numerator - t*denominator 
 	//where 't' is the truncated value of numerator/denominator. 
 	_t = _num/_den 
@@ -118,12 +171,13 @@ fmod //fmod()
 	//_fmod = _num - _temp
 	_fmod = _temp * _den
 	--
-	_fmod
+	_fmod //return the results
 	//_t + "=" + _num + "/" + _den + "\n" + _temp + "=" + _t + "*" + _den + "\n" + _fmod + "=" + _num + "-" + _temp
 }
 
 HSVtoRGB //HSVtoRGB(H,S,V)
 {
+	//change all arguments to real numbers
 	_H = TOREAL(_argv[0])
 	_S = TOREAL(_argv[1])
 	_V = TOREAL(_argv[2])
@@ -212,46 +266,46 @@ stemp //stemp(int variable)
 
 CENSOR //CENSOR(string)
 {
-	_word = REPLACE(_argv[0]," ",",")
-	_arlen = ARRAYSIZE(_word)
+	_word = REPLACE(_argv[0]," ",",") //replace spaces with commas
+	_arlen = ARRAYSIZE(_word) //check how many words are to censor
 	_censor = ""
 	_print = ""
 	--
-	for _i=0;_i<_arlen;_i++
+	for _i=0;_i<_arlen;_i++ //loop working till i is the size og _arleng
 	{
-		_buffer = SUBSTR(_word[_i],0,1)
-		_len = STRLEN(_word[_i])
+		_buffer = SUBSTR(_word[_i],0,1) //take the first letter
+		_len = STRLEN(_word[_i])//check how many letters there are
 		--
-		for _j=0;_j<_len;_j++
+		for _j=0;_j<_len;_j++ //loop to add one * for one letter of a word
 		{
-			_censor[_i] += "*"
+			_censor[_i] += "*" 
 		}
 		--
-		_censor[_i] = ERASE(_censor[_i],0,1)
-		_censor[_i] = INSERT(_censor[_i],0,_buffer)
+		_censor[_i] = ERASE(_censor[_i],0,1) //erase the first *
+		_censor[_i] = INSERT(_censor[_i],0,_buffer) //add the saved letter to the begining
 	}
 	--
-	for _i=0;_i<ARRAYSIZE(_censor);_i++
+	for _i=0;_i<ARRAYSIZE(_censor);_i++ //loop to add the words back together
 	{
 		_print += _censor[_i] + "  "
 	}
 	--
-	_print
+	_print //show the censored words
 }
 
 //-------------------ENVELOPES------------------------
 
 timeformat
 {
-	if timeformatype == "STANDARD"; "%(nowhour):%(Getnowmin) %(ap)"
-	elseif timeformatype == "MILITARY"; "%(hour):%(Getnowmin)"
+	if info[3] == "STANDARD"; "%(nowhour):%(Getnowmin) %(ap)"
+	elseif info[3] == "MILITARY"; "%(hour):%(Getnowmin)"
 }
 
 dateformat
 {
-	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
-	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
-	elseif dateformatype == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
+	if info[2] == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
+	elseif info[2] == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
+	elseif info[2] == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
 }
 
 cha //Don't time out the balloon
@@ -389,7 +443,6 @@ hihello
 	"Howdy"
 	"Welcome"
 	"Bonjour"
-	"Buenas noches"
 	"Buenos dias"
 	"Good day"
 	"Hey"
@@ -404,7 +457,11 @@ hihello
 
 	if timeslot == "lunch" || timeslot == "afternoon"; "Good afternoon"
 
-	if timeslot == "evening" || timeslot == "latenight" || timeslot == "midnight"; "Good evening"
+	if timeslot == "evening" || timeslot == "latenight" || timeslot == "midnight"
+	{
+		"Good evening"
+		"Buenas noches"
+	}
 }
 
 byebye
@@ -605,71 +662,71 @@ glmorse //glitched morse
 
 lightdark //quick tools
 {
-	if tooln == "OFF"
+	if button[0] == "OFF"
 	{
 		"\p[3]\s[-1]\p[4]\s[-1]\p[5]\s[-1]\p[6]\s[-1]\p[7]\s[-1]\p[8]\s[-1]\p[9]\s[-1]\p[10]\s[-1]"
 	}
 	else
 	{
-		if mode == 1 //lightmode
+		if button[29] == 1 //lightmode
 		{ 
-			if logbtn == "ON"; "\p[3]\s[7]"
+			if button[3] == "ON"; "\p[3]\s[7]"
 			else; "\p[3]\s[-1]"
 			--
-			if dlbtn == "ON" ;"\p[4]\s[12]"
+			if button[1] == "ON" ;"\p[4]\s[12]"
 			else; "\p[4]\s[-1]"
 			--
-			if webtn == "ON"; "\p[5]\s[19]"
+			if button[5] == "ON"; "\p[5]\s[19]"
 			else; "\p[5]\s[-1]"
 			--
-			if statbtn == "ON"; "\p[6]\s[21]"
+			if button[7] == "ON"; "\p[6]\s[21]"
 			else; "\p[6]\s[-1]"
 			--
-			if todobtn == "ON"; "\p[7]\s[18]"
+			if button[8] == "ON"; "\p[7]\s[18]"
 			else; "\p[7]\s[-1]"
 			--
-			if setbtn == "ON"; "\p[8]\s[20]"
+			if button[6] == "ON"; "\p[8]\s[20]"
 			else; "\p[8]\s[-1]"
 			--
-			if cusbtn == "ON"; "\p[9]\s[23]"
+			if button[9] == "ON"; "\p[9]\s[23]"
 			else; "\p[9]\s[-1]"
 			--
-			if appbtn == "ON"; "\p[10]\s[25]"
+			if button[10] == "ON"; "\p[10]\s[25]"
 			else; "\p[10]\s[-1]"
 		}
 		else //darkmode
 		{
-			if logbtn == "ON"; "\p[3]\s[3]"
+			if button[3] == "ON"; "\p[3]\s[3]"
 			else; "\p[3]\s[-1]"
 			--
-			if dlbtn == "ON"; "\p[4]\s[11]"
+			if button[1] == "ON"; "\p[4]\s[11]"
 			else; "\p[4]\s[-1]"
 			--
-			if webtn == "ON"; "\p[5]\s[14]"
+			if button[5] == "ON"; "\p[5]\s[14]"
 			else; "\p[5]\s[-1]"
 			--
-			if statbtn == "ON"; "\p[6]\s[16]"
+			if button[7] == "ON"; "\p[6]\s[16]"
 			else; "\p[6]\s[-1]"
 			--
-			if todobtn == "ON"; "\p[7]\s[13]"
+			if button[8] == "ON"; "\p[7]\s[13]"
 			else; "\p[7]\s[-1]"
 			--
-			if setbtn == "ON"; "\p[8]\s[15]"
+			if button[6] == "ON"; "\p[8]\s[15]"
 			else; "\p[8]\s[-1]"
 			--
-			if cusbtn == "ON"; "\p[9]\s[24]"
+			if button[9] == "ON"; "\p[9]\s[24]"
 			else; "\p[9]\s[-1]"
 			--
-			if appbtn == "ON"; "\p[10]\s[26]"
+			if button[10] == "ON"; "\p[10]\s[26]"
 			else; "\p[10]\s[-1]"
 		}
 	}
-	--
+	/*--
 	if musicp == 1
 	{
 		if mode != 1; "\p[15]\s[27]\p[16]\s[28]\p[17]\s[29]\p[18]\s[30]\p[19]\s[31]\p[20]\s[32]\p[21]\s[40]"
 		else; "\p[15]\s[33]\p[16]\s[34]\p[17]\s[35]\p[18]\s[36]\p[19]\s[37]\p[20]\s[38]\p[21]\s[39]"
-	}
+	}*/
 }
 
 didknow
@@ -875,7 +932,7 @@ techstuff
 
 season
 {
-	if hsphere == "Northern"
+	if info[0] == "Northern"
 	{
 		if month > 2 && month < 6; "Spring"
 		elseif month > 5 && month < 9; "Summer"

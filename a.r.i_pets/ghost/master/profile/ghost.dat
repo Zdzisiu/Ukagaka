@@ -1,16 +1,17 @@
 Charset,UTF-8
 __system_settings_version__,2
-balloon,C:\Users\ola20\Documents\GitHub\Ukagaka\balloons\Simple Pets\
+balloon,C:\Users\ola20\Documents\GitHub\Ukagaka\balloons\simple_pets\
 inputbox.left,831
-scriptbox.left,1009
+scriptbox.left,997
 Char3.center,1323
-Char.VirtualDesktop,424c281d-ef11-45f6-9183-d49333fc4c31
+Char.VirtualDesktop,981822ba-7b10-4d37-82e7-f0c4c9faf703
 Char2.center,1179
-Char0.center,1014
-scriptbox.top,619
-shell,shell\master\
+Char0.center,668
+scriptbox.top,635
+shell,shell\master - Copy\
 FirstBoot,booted
 Char1.center,1457
 shell.ischanged.2,1
 inputbox.top,578
+DeveloperPalette.visible,1
 __system_written_flag_do_not_remove__,written

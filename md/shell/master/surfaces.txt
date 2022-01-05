@@ -1,0 +1,7572 @@
+descript
+{
+    version,1
+}
+
+surface0-1
+{
+    collision0,61,53,179,69,Head
+    collision1,73,65,166,122,Face
+
+    element0,overlay,surface0.png,0,0
+
+    animation0.interval,bind
+    animation0.pattern0,overlay,9000,00,0,0
+
+    animation1.interval,bind
+    animation1.pattern0,overlay,9001,00,0,0
+
+    animation2.interval,bind
+    animation2.pattern0,overlay,9002,00,0,0
+
+    animation3.interval,bind
+    animation3.pattern0,overlay,9003,00,0,0
+
+    animation4.interval,bind
+    animation4.pattern0,overlay,9004,00,0,0
+
+    animation5.interval,bind
+    animation5.pattern0,overlay,9005,00,0,0
+
+    animation6.interval,bind
+    animation6.pattern0,overlay,9006,00,0,0
+
+    animation7.interval,bind
+    animation7.pattern0,overlay,9007,00,0,0
+
+    animation8.interval,bind
+    animation8.pattern0,overlay,9008,00,0,0
+
+    animation9.interval,bind
+    animation9.pattern0,overlay,9009,00,0,0
+
+    animation10.interval,bind
+    animation10.pattern0,overlay,9010,00,0,0
+
+    animation11.interval,bind
+    animation11.pattern0,overlay,9011,00,0,0
+
+    animation12.interval,bind
+    animation12.pattern0,overlay,9012,00,0,0
+
+    animation13.interval,bind
+    animation13.pattern0,overlay,9013,00,0,0
+
+    animation14.interval,bind
+    animation14.pattern0,overlay,9014,00,0,0
+
+    animation15.interval,bind
+    animation15.pattern0,overlay,9015,00,0,0
+
+    animation16.interval,bind
+    animation16.pattern0,overlay,9016,00,0,0
+
+    animation17.interval,bind
+    animation17.pattern0,overlay,9017,00,0,0
+
+    animation18.interval,bind
+    animation18.pattern0,overlay,9018,00,0,0
+
+    animation19.interval,bind
+    animation19.pattern0,overlay,9019,00,0,0
+
+    animation20.interval,bind
+    animation20.pattern0,overlay,9020,00,0,0
+
+    animation50.interval,bind
+    animation50.pattern0,overlay,1600,00,0,0
+
+    animation51.interval,bind
+    animation51.pattern0,overlay,1601,00,0,0
+
+    animation52.interval,bind
+    animation52.pattern0,overlay,1602,00,0,0
+
+    animation53.interval,bind
+    animation53.pattern0,overlay,1603,00,0,0
+
+    animation54.interval,bind
+    animation54.pattern0,overlay,1604,00,0,0
+
+    animation55.interval,bind
+    animation55.pattern0,overlay,1605,00,0,0
+
+    animation56.interval,bind
+    animation56.pattern0,overlay,1606,00,0,0
+
+    animation57.interval,bind
+    animation57.pattern0,overlay,1607,00,0,0
+
+    animation58.interval,bind
+    animation58.pattern0,overlay,1608,00,0,0
+
+    animation59.interval,bind
+    animation59.pattern0,overlay,1609,00,0,0
+
+    animation60.interval,bind
+    animation60.pattern0,overlay,1610,00,0,0
+
+    animation61.interval,bind
+    animation61.pattern0,overlay,1611,00,0,0
+
+    animation62.interval,bind
+    animation62.pattern0,overlay,1612,00,0,0
+
+    animation63.interval,bind
+    animation63.pattern0,overlay,1613,00,0,0
+
+    animation64.interval,bind
+    animation64.pattern0,overlay,1614,00,0,0
+
+    animation65.interval,bind
+    animation65.pattern0,overlay,1615,00,0,0
+
+    animation66.interval,bind
+    animation66.pattern0,overlay,1616,00,0,0
+
+    animation67.interval,bind
+    animation67.pattern0,overlay,1617,00,0,0
+
+    animation68.interval,bind
+    animation68.pattern0,overlay,1618,00,0,0
+
+    animation69.interval,bind
+    animation69.pattern0,overlay,1619,00,0,0
+
+    animation70.interval,bind
+    animation70.pattern0,overlay,1620,00,0,0
+
+    animation71.interval,bind
+    animation71.pattern0,overlay,1621,00,0,0
+
+    animation72.interval,bind
+    animation72.pattern0,overlay,1622,00,0,0
+
+    animation73.interval,bind
+    animation73.pattern0,overlay,1623,00,0,0
+
+    animation74.interval,bind
+    animation74.pattern0,overlay,1624,00,0,0
+
+    animation75.interval,bind
+    animation75.pattern0,overlay,1625,00,0,0
+
+    animation76.interval,bind
+    animation76.pattern0,overlay,1626,00,0,0
+
+    animation77.interval,bind
+    animation77.pattern0,overlay,1627,00,0,0
+
+    animation78.interval,bind
+    animation78.pattern0,overlay,1628,00,0,0
+
+    animation79.interval,bind
+    animation79.pattern0,overlay,1629,00,0,0
+
+    animation80.interval,bind
+    animation80.pattern0,overlay,1630,00,0,0
+
+    animation81.interval,bind
+    animation81.pattern0,overlay,1631,00,0,0
+
+    animation82.interval,bind
+    animation82.pattern0,overlay,1632,00,0,0
+
+    animation83.interval,bind
+    animation83.pattern0,overlay,1633,00,0,0
+
+    animation84.interval,bind
+    animation84.pattern0,overlay,1634,00,0,0
+
+    animation100.interval,bind
+    animation100.pattern0,overlay,2100,00,0,0
+
+    animation101.interval,bind
+    animation101.pattern0,overlay,2101,00,0,0
+
+    animation102.interval,bind
+    animation102.pattern0,overlay,2102,00,0,0
+
+    animation103.interval,bind
+    animation103.pattern0,overlay,2103,00,0,0
+
+    animation104.interval,bind
+    animation104.pattern0,overlay,2104,00,0,0
+
+    animation105.interval,bind
+    animation105.pattern0,overlay,2105,00,0,0
+
+    animation106.interval,bind
+    animation106.pattern0,overlay,2106,00,0,0
+
+    animation107.interval,bind
+    animation107.pattern0,overlay,2107,00,0,0
+
+    animation108.interval,bind
+    animation108.pattern0,overlay,2108,00,0,0
+
+    animation109.interval,bind
+    animation109.pattern0,overlay,2109,00,0,0
+
+    animation110.interval,bind
+    animation110.pattern0,overlay,2110,00,0,0
+
+    animation111.interval,bind
+    animation111.pattern0,overlay,2111,00,0,0
+
+    animation112.interval,bind
+    animation112.pattern0,overlay,2112,00,0,0
+
+    animation113.interval,bind
+    animation113.pattern0,overlay,2113,00,0,0
+
+    animation114.interval,bind
+    animation114.pattern0,overlay,2114,00,0,0
+
+    animation115.interval,bind
+    animation115.pattern0,overlay,2115,00,0,0
+
+    animation116.interval,bind
+    animation116.pattern0,overlay,2116,00,0,0
+
+    animation117.interval,bind
+    animation117.pattern0,overlay,2117,00,0,0
+
+    animation118.interval,bind
+    animation118.pattern0,overlay,2118,00,0,0
+
+    animation119.interval,bind
+    animation119.pattern0,overlay,2119,00,0,0
+
+    animation120.interval,bind
+    animation120.pattern0,overlay,2120,00,0,0
+
+    animation121.interval,bind
+    animation121.pattern0,overlay,2121,00,0,0
+
+    animation122.interval,bind
+    animation122.pattern0,overlay,2122,00,0,0
+
+    animation123.interval,bind
+    animation123.pattern0,overlay,2123,00,0,0
+
+    animation124.interval,bind
+    animation124.pattern0,overlay,2124,00,0,0
+
+    animation125.interval,bind
+    animation125.pattern0,overlay,2125,00,0,0
+
+    animation126.interval,bind
+    animation126.pattern0,overlay,2126,00,0,0
+
+    animation127.interval,bind
+    animation127.pattern0,overlay,2127,00,0,0
+
+    animation128.interval,bind
+    animation128.pattern0,overlay,2128,00,0,0
+
+    animation129.interval,bind
+    animation129.pattern0,overlay,2129,00,0,0
+
+    animation130.interval,bind
+    animation130.pattern0,overlay,2130,00,0,0
+
+    animation131.interval,bind
+    animation131.pattern0,overlay,2131,00,0,0
+
+    animation132.interval,bind
+    animation132.pattern0,overlay,2132,00,0,0
+
+    animation133.interval,bind
+    animation133.pattern0,overlay,2133,00,0,0
+
+    animation134.interval,bind
+    animation134.pattern0,overlay,2134,00,0,0
+
+    animation200.interval,bind
+    animation200.pattern0,overlay,2200,00,0,0
+
+    animation201.interval,bind
+    animation201.pattern0,overlay,2201,00,0,0
+
+    animation202.interval,bind
+    animation202.pattern0,overlay,2202,00,0,0
+
+    animation203.interval,bind
+    animation203.pattern0,overlay,2203,00,0,0
+
+    animation204.interval,bind
+    animation204.pattern0,overlay,2204,00,0,0
+
+    animation205.interval,bind
+    animation205.pattern0,overlay,2205,00,0,0
+
+    animation206.interval,bind
+    animation206.pattern0,overlay,2206,00,0,0
+
+    animation207.interval,bind
+    animation207.pattern0,overlay,2207,00,0,0
+
+    animation208.interval,bind
+    animation208.pattern0,overlay,2208,00,0,0
+
+    animation209.interval,bind
+    animation209.pattern0,overlay,2209,00,0,0
+
+    animation210.interval,bind
+    animation210.pattern0,overlay,2210,00,0,0
+
+    animation211.interval,bind
+    animation211.pattern0,overlay,2211,00,0,0
+
+    animation212.interval,bind
+    animation212.pattern0,overlay,2212,00,0,0
+
+    animation213.interval,bind
+    animation213.pattern0,overlay,2213,00,0,0
+
+    animation214.interval,bind
+    animation214.pattern0,overlay,2214,00,0,0
+
+    animation215.interval,bind
+    animation215.pattern0,overlay,2215,00,0,0
+
+    animation216.interval,bind
+    animation216.pattern0,overlay,2216,00,0,0
+
+    animation217.interval,bind
+    animation217.pattern0,overlay,2217,00,0,0
+
+    animation218.interval,bind
+    animation218.pattern0,overlay,2218,00,0,0
+
+    animation219.interval,bind
+    animation219.pattern0,overlay,2219,00,0,0
+
+    animation220.interval,bind
+    animation220.pattern0,overlay,2220,00,0,0
+
+    animation221.interval,bind
+    animation221.pattern0,overlay,2221,00,0,0
+
+    animation222.interval,bind
+    animation222.pattern0,overlay,2222,00,0,0
+
+    animation223.interval,bind
+    animation223.pattern0,overlay,2223,00,0,0
+
+    animation224.interval,bind
+    animation224.pattern0,overlay,2224,00,0,0
+
+    animation225.interval,bind
+    animation225.pattern0,overlay,2225,00,0,0
+
+    animation226.interval,bind
+    animation226.pattern0,overlay,2226,00,0,0
+
+    animation227.interval,bind
+    animation227.pattern0,overlay,2227,00,0,0
+
+    animation228.interval,bind
+    animation228.pattern0,overlay,2228,00,0,0
+
+    animation229.interval,bind
+    animation229.pattern0,overlay,2229,00,0,0
+
+    animation230.interval,bind
+    animation230.pattern0,overlay,2230,00,0,0
+
+    animation231.interval,bind
+    animation231.pattern0,overlay,2231,00,0,0
+
+    animation232.interval,bind
+    animation232.pattern0,overlay,2232,00,0,0
+
+    animation233.interval,bind
+    animation233.pattern0,overlay,2233,00,0,0
+
+    animation234.interval,bind
+    animation234.pattern0,overlay,2234,00,0,0
+
+    animation300.interval,bind
+    animation300.pattern0,overlay,4500,00,0,0
+
+    animation301.interval,bind
+    animation301.pattern0,overlay,4501,00,0,0
+
+    animation302.interval,bind
+    animation302.pattern0,overlay,4502,00,0,0
+
+    animation303.interval,bind
+    animation303.pattern0,overlay,4503,00,0,0
+
+    animation304.interval,bind
+    animation304.pattern0,overlay,4504,00,0,0
+
+    animation305.interval,bind
+    animation305.pattern0,overlay,4505,00,0,0
+
+    animation306.interval,bind
+    animation306.pattern0,overlay,4506,00,0,0
+
+    animation307.interval,bind
+    animation307.pattern0,overlay,4507,00,0,0
+
+    animation308.interval,bind
+    animation308.pattern0,overlay,4508,00,0,0
+
+    animation309.interval,bind
+    animation309.pattern0,overlay,4509,00,0,0
+
+    animation310.interval,bind
+    animation310.pattern0,overlay,4510,00,0,0
+
+    animation311.interval,bind
+    animation311.pattern0,overlay,4511,00,0,0
+
+    animation312.interval,bind
+    animation312.pattern0,overlay,4512,00,0,0
+
+    animation313.interval,bind
+    animation313.pattern0,overlay,4513,00,0,0
+
+    animation314.interval,bind
+    animation314.pattern0,overlay,4514,00,0,0
+
+    animation315.interval,bind
+    animation315.pattern0,overlay,4515,00,0,0
+
+    animation316.interval,bind
+    animation316.pattern0,overlay,4516,00,0,0
+
+    animation317.interval,bind
+    animation317.pattern0,overlay,4517,00,0,0
+
+    animation318.interval,bind
+    animation318.pattern0,overlay,4518,00,0,0
+
+    animation319.interval,bind
+    animation319.pattern0,overlay,4519,00,0,0
+
+    animation320.interval,bind
+    animation320.pattern0,overlay,4520,00,0,0
+
+    animation321.interval,bind
+    animation321.pattern0,overlay,4521,00,0,0
+
+    animation322.interval,bind
+    animation322.pattern0,overlay,4522,00,0,0
+
+    animation323.interval,bind
+    animation323.pattern0,overlay,4523,00,0,0
+
+    animation324.interval,bind
+    animation324.pattern0,overlay,4524,00,0,0
+
+    animation325.interval,bind
+    animation325.pattern0,overlay,4525,00,0,0
+
+    animation326.interval,bind
+    animation326.pattern0,overlay,4526,00,0,0
+
+    animation327.interval,bind
+    animation327.pattern0,overlay,4527,00,0,0
+
+    animation328.interval,bind
+    animation328.pattern0,overlay,4528,00,0,0
+
+    animation329.interval,bind
+    animation329.pattern0,overlay,4529,00,0,0
+
+    animation330.interval,bind
+    animation330.pattern0,overlay,4530,00,0,0
+
+    animation331.interval,bind
+    animation331.pattern0,overlay,4531,00,0,0
+
+    animation332.interval,bind
+    animation332.pattern0,overlay,4532,00,0,0
+
+    animation333.interval,bind
+    animation333.pattern0,overlay,4533,00,0,0
+
+    animation334.interval,bind
+    animation334.pattern0,overlay,4534,00,0,0
+                
+    animation350.interval,bind
+    animation350.pattern0,overlay,4600,00,0,0
+
+    animation351.interval,bind
+    animation351.pattern0,overlay,4601,00,0,0
+
+    animation352.interval,bind
+    animation352.pattern0,overlay,4602,00,0,0
+
+    animation353.interval,bind
+    animation353.pattern0,overlay,4603,00,0,0
+
+    animation354.interval,bind
+    animation354.pattern0,overlay,4604,00,0,0
+
+    animation355.interval,bind
+    animation355.pattern0,overlay,4605,00,0,0
+
+    animation356.interval,bind
+    animation356.pattern0,overlay,4606,00,0,0
+
+    animation357.interval,bind
+    animation357.pattern0,overlay,4607,00,0,0
+
+    animation358.interval,bind
+    animation358.pattern0,overlay,4608,00,0,0
+
+    animation359.interval,bind
+    animation359.pattern0,overlay,4609,00,0,0
+
+    animation360.interval,bind
+    animation360.pattern0,overlay,4610,00,0,0
+
+    animation361.interval,bind
+    animation361.pattern0,overlay,4611,00,0,0
+
+    animation362.interval,bind
+    animation362.pattern0,overlay,4612,00,0,0
+
+    animation363.interval,bind
+    animation363.pattern0,overlay,4613,00,0,0
+
+    animation364.interval,bind
+    animation364.pattern0,overlay,4614,00,0,0
+
+    animation365.interval,bind
+    animation365.pattern0,overlay,4615,00,0,0
+
+    animation366.interval,bind
+    animation366.pattern0,overlay,4616,00,0,0
+
+    animation367.interval,bind
+    animation367.pattern0,overlay,4617,00,0,0
+
+    animation368.interval,bind
+    animation368.pattern0,overlay,4618,00,0,0
+
+    animation369.interval,bind
+    animation369.pattern0,overlay,4619,00,0,0
+
+    animation370.interval,bind
+    animation370.pattern0,overlay,4620,00,0,0
+
+    animation371.interval,bind
+    animation371.pattern0,overlay,4621,00,0,0
+
+    animation372.interval,bind
+    animation372.pattern0,overlay,4622,00,0,0
+
+    animation373.interval,bind
+    animation373.pattern0,overlay,4623,00,0,0
+
+    animation374.interval,bind
+    animation374.pattern0,overlay,4624,00,0,0
+
+    animation375.interval,bind
+    animation375.pattern0,overlay,4625,00,0,0
+
+    animation376.interval,bind
+    animation376.pattern0,overlay,4626,00,0,0
+
+    animation377.interval,bind
+    animation377.pattern0,overlay,4627,00,0,0
+
+    animation378.interval,bind
+    animation378.pattern0,overlay,4628,00,0,0
+
+    animation379.interval,bind
+    animation379.pattern0,overlay,4629,00,0,0
+
+    animation380.interval,bind
+    animation380.pattern0,overlay,4630,00,0,0
+
+    animation381.interval,bind
+    animation381.pattern0,overlay,4631,00,0,0
+
+    animation382.interval,bind
+    animation382.pattern0,overlay,4632,00,0,0
+
+    animation383.interval,bind
+    animation383.pattern0,overlay,4633,00,0,0
+
+    animation384.interval,bind
+    animation384.pattern0,overlay,4634,00,0,0  
+
+    animation500.interval,bind
+    animation500.pattern0,overlay,1000,00,0,0
+
+    animation501.interval,bind
+    animation501.pattern0,overlay,1001,00,0,0
+
+    animation502.interval,bind
+    animation502.pattern0,overlay,1002,00,0,0
+
+    animation503.interval,bind
+    animation503.pattern0,overlay,1003,00,0,0
+
+    animation504.interval,bind
+    animation504.pattern0,overlay,1004,00,0,0
+
+    animation505.interval,bind
+    animation505.pattern0,overlay,1005,00,0,0
+
+    animation506.interval,bind
+    animation506.pattern0,overlay,1006,00,0,0
+
+    animation507.interval,bind
+    animation507.pattern0,overlay,1007,00,0,0
+
+    animation508.interval,bind
+    animation508.pattern0,overlay,1008,00,0,0
+
+    animation509.interval,bind
+    animation509.pattern0,overlay,1009,00,0,0
+
+    animation510.interval,bind
+    animation510.pattern0,overlay,1010,00,0,0
+
+    animation511.interval,bind
+    animation511.pattern0,overlay,1011,00,0,0
+
+    animation512.interval,bind
+    animation512.pattern0,overlay,1012,00,0,0
+
+    animation513.interval,bind
+    animation513.pattern0,overlay,1013,00,0,0
+
+    animation514.interval,bind
+    animation514.pattern0,overlay,1014,00,0,0
+
+    animation515.interval,bind
+    animation515.pattern0,overlay,1015,00,0,0
+
+    animation516.interval,bind
+    animation516.pattern0,overlay,1016,00,0,0
+
+    animation517.interval,bind
+    animation517.pattern0,overlay,1017,00,0,0
+
+    animation518.interval,bind
+    animation518.pattern0,overlay,1018,00,0,0
+
+    animation519.interval,bind
+    animation519.pattern0,overlay,1019,00,0,0
+
+    animation520.interval,bind
+    animation520.pattern0,overlay,1020,00,0,0
+
+    animation521.interval,bind
+    animation521.pattern0,overlay,1021,00,0,0
+
+    animation522.interval,bind
+    animation522.pattern0,overlay,1022,00,0,0
+
+    animation523.interval,bind
+    animation523.pattern0,overlay,1023,00,0,0
+
+    animation524.interval,bind
+    animation524.pattern0,overlay,1024,00,0,0
+
+    animation525.interval,bind
+    animation525.pattern0,overlay,1025,00,0,0
+
+    animation526.interval,bind
+    animation526.pattern0,overlay,1026,00,0,0
+
+    animation527.interval,bind
+    animation527.pattern0,overlay,1027,00,0,0
+
+    animation528.interval,bind
+    animation528.pattern0,overlay,1028,00,0,0
+
+    animation529.interval,bind
+    animation529.pattern0,overlay,1029,00,0,0
+
+    animation530.interval,bind
+    animation530.pattern0,overlay,1030,00,0,0
+
+    animation531.interval,bind
+    animation531.pattern0,overlay,1031,00,0,0
+
+    animation532.interval,bind
+    animation532.pattern0,overlay,1032,00,0,0
+
+    animation533.interval,bind
+    animation533.pattern0,overlay,1033,00,0,0
+
+    animation534.interval,bind
+    animation534.pattern0,overlay,1034,00,0,0
+
+    animation600.interval,bind
+    animation600.pattern0,overlay,1100,00,0,0
+
+    animation601.interval,bind
+    animation601.pattern0,overlay,1101,00,0,0
+
+    animation602.interval,bind
+    animation602.pattern0,overlay,1102,00,0,0
+
+    animation603.interval,bind
+    animation603.pattern0,overlay,1103,00,0,0
+
+    animation604.interval,bind
+    animation604.pattern0,overlay,1104,00,0,0
+
+    animation605.interval,bind
+    animation605.pattern0,overlay,1105,00,0,0
+
+    animation606.interval,bind
+    animation606.pattern0,overlay,1106,00,0,0
+
+    animation607.interval,bind
+    animation607.pattern0,overlay,1107,00,0,0
+
+    animation608.interval,bind
+    animation608.pattern0,overlay,1108,00,0,0
+
+    animation609.interval,bind
+    animation609.pattern0,overlay,1109,00,0,0
+
+    animation610.interval,bind
+    animation610.pattern0,overlay,1110,00,0,0
+
+    animation611.interval,bind
+    animation611.pattern0,overlay,1111,00,0,0
+
+    animation612.interval,bind
+    animation612.pattern0,overlay,1112,00,0,0
+
+    animation613.interval,bind
+    animation613.pattern0,overlay,1113,00,0,0
+
+    animation614.interval,bind
+    animation614.pattern0,overlay,1114,00,0,0
+
+    animation615.interval,bind
+    animation615.pattern0,overlay,1115,00,0,0
+
+    animation616.interval,bind
+    animation616.pattern0,overlay,1116,00,0,0
+
+    animation617.interval,bind
+    animation617.pattern0,overlay,1117,00,0,0
+
+    animation618.interval,bind
+    animation618.pattern0,overlay,1118,00,0,0
+
+    animation619.interval,bind
+    animation619.pattern0,overlay,1119,00,0,0
+
+    animation620.interval,bind
+    animation620.pattern0,overlay,1120,00,0,0
+
+    animation621.interval,bind
+    animation621.pattern0,overlay,1121,00,0,0
+
+    animation622.interval,bind
+    animation622.pattern0,overlay,1122,00,0,0
+
+    animation623.interval,bind
+    animation623.pattern0,overlay,1123,00,0,0
+
+    animation624.interval,bind
+    animation624.pattern0,overlay,1124,00,0,0
+
+    animation625.interval,bind
+    animation625.pattern0,overlay,1125,00,0,0
+
+    animation626.interval,bind
+    animation626.pattern0,overlay,1126,00,0,0
+
+    animation627.interval,bind
+    animation627.pattern0,overlay,1127,00,0,0
+
+    animation628.interval,bind
+    animation628.pattern0,overlay,1128,00,0,0
+
+    animation629.interval,bind
+    animation629.pattern0,overlay,1129,00,0,0
+
+    animation630.interval,bind
+    animation630.pattern0,overlay,1130,00,0,0
+
+    animation631.interval,bind
+    animation631.pattern0,overlay,1131,00,0,0
+
+    animation632.interval,bind
+    animation632.pattern0,overlay,1132,00,0,0
+
+    animation633.interval,bind
+    animation633.pattern0,overlay,1133,00,0,0
+
+    animation634.interval,bind
+    animation634.pattern0,overlay,1134,00,0,0
+
+    animation700.interval,bind
+    animation700.pattern0,overlay,1200,00,0,0
+
+    animation701.interval,bind
+    animation701.pattern0,overlay,1201,00,0,0
+
+    animation702.interval,bind
+    animation702.pattern0,overlay,1202,00,0,0
+
+    animation703.interval,bind
+    animation703.pattern0,overlay,1203,00,0,0
+
+    animation704.interval,bind
+    animation704.pattern0,overlay,1204,00,0,0
+
+    animation705.interval,bind
+    animation705.pattern0,overlay,1205,00,0,0
+
+    animation706.interval,bind
+    animation706.pattern0,overlay,1206,00,0,0
+
+    animation707.interval,bind
+    animation707.pattern0,overlay,1207,00,0,0
+
+    animation708.interval,bind
+    animation708.pattern0,overlay,1208,00,0,0
+
+    animation709.interval,bind
+    animation709.pattern0,overlay,1209,00,0,0
+
+    animation710.interval,bind
+    animation710.pattern0,overlay,1210,00,0,0
+
+    animation711.interval,bind
+    animation711.pattern0,overlay,1211,00,0,0
+
+    animation712.interval,bind
+    animation712.pattern0,overlay,1212,00,0,0
+
+    animation713.interval,bind
+    animation713.pattern0,overlay,1213,00,0,0
+
+    animation714.interval,bind
+    animation714.pattern0,overlay,1214,00,0,0
+
+    animation715.interval,bind
+    animation715.pattern0,overlay,1215,00,0,0
+
+    animation716.interval,bind
+    animation716.pattern0,overlay,1216,00,0,0
+
+    animation717.interval,bind
+    animation717.pattern0,overlay,1217,00,0,0
+
+    animation718.interval,bind
+    animation718.pattern0,overlay,1218,00,0,0
+
+    animation719.interval,bind
+    animation719.pattern0,overlay,1219,00,0,0
+
+    animation720.interval,bind
+    animation720.pattern0,overlay,1220,00,0,0
+
+    animation721.interval,bind
+    animation721.pattern0,overlay,1221,00,0,0
+
+    animation722.interval,bind
+    animation722.pattern0,overlay,1222,00,0,0
+
+    animation723.interval,bind
+    animation723.pattern0,overlay,1223,00,0,0
+
+    animation724.interval,bind
+    animation724.pattern0,overlay,1224,00,0,0
+
+    animation725.interval,bind
+    animation725.pattern0,overlay,1225,00,0,0
+
+    animation726.interval,bind
+    animation726.pattern0,overlay,1226,00,0,0
+
+    animation727.interval,bind
+    animation727.pattern0,overlay,1227,00,0,0
+
+    animation728.interval,bind
+    animation728.pattern0,overlay,1228,00,0,0
+
+    animation729.interval,bind
+    animation729.pattern0,overlay,1229,00,0,0
+
+    animation730.interval,bind
+    animation730.pattern0,overlay,1230,00,0,0
+
+    animation731.interval,bind
+    animation731.pattern0,overlay,1231,00,0,0
+
+    animation732.interval,bind
+    animation732.pattern0,overlay,1232,00,0,0
+
+    animation733.interval,bind
+    animation733.pattern0,overlay,1233,00,0,0
+
+    animation734.interval,bind
+    animation734.pattern0,overlay,1234,00,0,0
+
+        
+    animation800.interval,bind
+    animation800.pattern0,overlay,1300,00,0,0
+
+    animation801.interval,bind
+    animation801.pattern0,overlay,1301,00,0,0
+
+    animation802.interval,bind
+    animation802.pattern0,overlay,1302,00,0,0
+
+    animation803.interval,bind
+    animation803.pattern0,overlay,1303,00,0,0
+
+    animation804.interval,bind
+    animation804.pattern0,overlay,1304,00,0,0
+
+    animation805.interval,bind
+    animation805.pattern0,overlay,1305,00,0,0
+
+    animation806.interval,bind
+    animation806.pattern0,overlay,1306,00,0,0
+
+    animation807.interval,bind
+    animation807.pattern0,overlay,1307,00,0,0
+
+    animation808.interval,bind
+    animation808.pattern0,overlay,1308,00,0,0
+
+    animation809.interval,bind
+    animation809.pattern0,overlay,1309,00,0,0
+
+    animation810.interval,bind
+    animation810.pattern0,overlay,1310,00,0,0
+
+    animation811.interval,bind
+    animation811.pattern0,overlay,1311,00,0,0
+
+    animation812.interval,bind
+    animation812.pattern0,overlay,1312,00,0,0
+
+    animation813.interval,bind
+    animation813.pattern0,overlay,1313,00,0,0
+
+    animation814.interval,bind
+    animation814.pattern0,overlay,1314,00,0,0
+
+    animation815.interval,bind
+    animation815.pattern0,overlay,1315,00,0,0
+
+    animation816.interval,bind
+    animation816.pattern0,overlay,1316,00,0,0
+
+    animation817.interval,bind
+    animation817.pattern0,overlay,1317,00,0,0
+
+    animation818.interval,bind
+    animation818.pattern0,overlay,1318,00,0,0
+
+    animation819.interval,bind
+    animation819.pattern0,overlay,1319,00,0,0
+
+    animation820.interval,bind
+    animation820.pattern0,overlay,1320,00,0,0
+
+    animation821.interval,bind
+    animation821.pattern0,overlay,1321,00,0,0
+
+    animation822.interval,bind
+    animation822.pattern0,overlay,1322,00,0,0
+
+    animation823.interval,bind
+    animation823.pattern0,overlay,1323,00,0,0
+
+    animation824.interval,bind
+    animation824.pattern0,overlay,1324,00,0,0
+
+    animation825.interval,bind
+    animation825.pattern0,overlay,1325,00,0,0
+
+    animation826.interval,bind
+    animation826.pattern0,overlay,1326,00,0,0
+
+    animation827.interval,bind
+    animation827.pattern0,overlay,1327,00,0,0
+
+    animation828.interval,bind
+    animation828.pattern0,overlay,1328,00,0,0
+
+    animation829.interval,bind
+    animation829.pattern0,overlay,1329,00,0,0
+
+    animation830.interval,bind
+    animation830.pattern0,overlay,1330,00,0,0
+
+    animation831.interval,bind
+    animation831.pattern0,overlay,1331,00,0,0
+
+    animation832.interval,bind
+    animation832.pattern0,overlay,1332,00,0,0
+
+    animation833.interval,bind
+    animation833.pattern0,overlay,1333,00,0,0
+
+    animation834.interval,bind
+    animation834.pattern0,overlay,1334,00,0,0
+
+    animation900.interval,bind
+    animation900.pattern0,overlay,1400,00,0,0
+
+    animation901.interval,bind
+    animation901.pattern0,overlay,1401,00,0,0
+
+    animation902.interval,bind
+    animation902.pattern0,overlay,1402,00,0,0
+
+    animation903.interval,bind
+    animation903.pattern0,overlay,1403,00,0,0
+
+    animation904.interval,bind
+    animation904.pattern0,overlay,1404,00,0,0
+
+    animation905.interval,bind
+    animation905.pattern0,overlay,1405,00,0,0
+
+    animation906.interval,bind
+    animation906.pattern0,overlay,1406,00,0,0
+
+    animation907.interval,bind
+    animation907.pattern0,overlay,1407,00,0,0
+
+    animation908.interval,bind
+    animation908.pattern0,overlay,1408,00,0,0
+
+    animation909.interval,bind
+    animation909.pattern0,overlay,1409,00,0,0
+
+    animation910.interval,bind
+    animation910.pattern0,overlay,1410,00,0,0
+
+    animation911.interval,bind
+    animation911.pattern0,overlay,1411,00,0,0
+
+    animation912.interval,bind
+    animation912.pattern0,overlay,1412,00,0,0
+
+    animation913.interval,bind
+    animation913.pattern0,overlay,1413,00,0,0
+
+    animation914.interval,bind
+    animation914.pattern0,overlay,1414,00,0,0
+
+    animation915.interval,bind
+    animation915.pattern0,overlay,1415,00,0,0
+
+    animation916.interval,bind
+    animation916.pattern0,overlay,1416,00,0,0
+
+    animation917.interval,bind
+    animation917.pattern0,overlay,1417,00,0,0
+
+    animation918.interval,bind
+    animation918.pattern0,overlay,1418,00,0,0
+
+    animation919.interval,bind
+    animation919.pattern0,overlay,1419,00,0,0
+
+    animation920.interval,bind
+    animation920.pattern0,overlay,1420,00,0,0
+
+    animation921.interval,bind
+    animation921.pattern0,overlay,1421,00,0,0
+
+    animation922.interval,bind
+    animation922.pattern0,overlay,1422,00,0,0
+
+    animation923.interval,bind
+    animation923.pattern0,overlay,1423,00,0,0
+
+    animation924.interval,bind
+    animation924.pattern0,overlay,1424,00,0,0
+
+    animation925.interval,bind
+    animation925.pattern0,overlay,1425,00,0,0
+
+    animation926.interval,bind
+    animation926.pattern0,overlay,1426,00,0,0
+
+    animation927.interval,bind
+    animation927.pattern0,overlay,1427,00,0,0
+
+    animation928.interval,bind
+    animation928.pattern0,overlay,1428,00,0,0
+
+    animation929.interval,bind
+    animation929.pattern0,overlay,1429,00,0,0
+
+    animation930.interval,bind
+    animation930.pattern0,overlay,1430,00,0,0
+
+    animation931.interval,bind
+    animation931.pattern0,overlay,1431,00,0,0
+
+    animation932.interval,bind
+    animation932.pattern0,overlay,1432,00,0,0
+
+    animation933.interval,bind
+    animation933.pattern0,overlay,1433,00,0,0
+
+    animation934.interval,bind
+    animation934.pattern0,overlay,1434,00,0,0
+
+    animation1000.interval,bind
+    animation1000.pattern0,overlay,1500,00,0,0
+
+    animation1001.interval,bind
+    animation1001.pattern0,overlay,1501,00,0,0
+
+    animation1002.interval,bind
+    animation1002.pattern0,overlay,1502,00,0,0
+
+    animation1003.interval,bind
+    animation1003.pattern0,overlay,1503,00,0,0
+
+    animation1004.interval,bind
+    animation1004.pattern0,overlay,1504,00,0,0
+
+    animation1005.interval,bind
+    animation1005.pattern0,overlay,1505,00,0,0
+
+    animation1006.interval,bind
+    animation1006.pattern0,overlay,1506,00,0,0
+
+    animation1007.interval,bind
+    animation1007.pattern0,overlay,1507,00,0,0
+
+    animation1008.interval,bind
+    animation1008.pattern0,overlay,1508,00,0,0
+
+    animation1009.interval,bind
+    animation1009.pattern0,overlay,1509,00,0,0
+
+    animation1010.interval,bind
+    animation1010.pattern0,overlay,1510,00,0,0
+
+    animation1011.interval,bind
+    animation1011.pattern0,overlay,1511,00,0,0
+
+    animation1012.interval,bind
+    animation1012.pattern0,overlay,1512,00,0,0
+
+    animation1013.interval,bind
+    animation1013.pattern0,overlay,1513,00,0,0
+
+    animation1014.interval,bind
+    animation1014.pattern0,overlay,1514,00,0,0
+
+    animation1015.interval,bind
+    animation1015.pattern0,overlay,1515,00,0,0
+
+    animation1016.interval,bind
+    animation1016.pattern0,overlay,1516,00,0,0
+
+    animation1017.interval,bind
+    animation1017.pattern0,overlay,1517,00,0,0
+
+    animation1018.interval,bind
+    animation1018.pattern0,overlay,1518,00,0,0
+
+    animation1019.interval,bind
+    animation1019.pattern0,overlay,1519,00,0,0
+
+    animation1020.interval,bind
+    animation1020.pattern0,overlay,1520,00,0,0
+
+    animation1021.interval,bind
+    animation1021.pattern0,overlay,1521,00,0,0
+
+    animation1022.interval,bind
+    animation1022.pattern0,overlay,1522,00,0,0
+
+    animation1023.interval,bind
+    animation1023.pattern0,overlay,1523,00,0,0
+
+    animation1024.interval,bind
+    animation1024.pattern0,overlay,1524,00,0,0
+
+    animation1025.interval,bind
+    animation1025.pattern0,overlay,1525,00,0,0
+
+    animation1026.interval,bind
+    animation1026.pattern0,overlay,1526,00,0,0
+
+    animation1027.interval,bind
+    animation1027.pattern0,overlay,1527,00,0,0
+
+    animation1028.interval,bind
+    animation1028.pattern0,overlay,1528,00,0,0
+
+    animation1029.interval,bind
+    animation1029.pattern0,overlay,1529,00,0,0
+
+    animation1030.interval,bind
+    animation1030.pattern0,overlay,1530,00,0,0
+
+    animation1031.interval,bind
+    animation1031.pattern0,overlay,1531,00,0,0
+
+    animation1032.interval,bind
+    animation1032.pattern0,overlay,1532,00,0,0
+
+    animation1033.interval,bind
+    animation1033.pattern0,overlay,1533,00,0,0
+
+    animation1034.interval,bind
+    animation1034.pattern0,overlay,1534,00,0,0
+
+    animation1100.interval,bind
+    animation1100.pattern0,overlay,5000,00,0,0
+
+    animation1101.interval,bind
+    animation1101.pattern0,overlay,5001,00,0,0
+
+    animation1102.interval,bind
+    animation1102.pattern0,overlay,5002,00,0,0
+
+    animation1103.interval,bind
+    animation1103.pattern0,overlay,5003,00,0,0
+
+    animation1104.interval,bind
+    animation1104.pattern0,overlay,5004,00,0,0
+
+    animation1105.interval,bind
+    animation1105.pattern0,overlay,5005,00,0,0
+
+    animation1106.interval,bind
+    animation1106.pattern0,overlay,5006,00,0,0
+
+    animation1107.interval,bind
+    animation1107.pattern0,overlay,5007,00,0,0
+
+    animation1108.interval,bind
+    animation1108.pattern0,overlay,5008,00,0,0
+
+    animation1109.interval,bind
+    animation1109.pattern0,overlay,5009,00,0,0
+
+    animation1110.interval,bind
+    animation1110.pattern0,overlay,5010,00,0,0
+
+    animation1111.interval,bind
+    animation1111.pattern0,overlay,5011,00,0,0
+
+    animation1112.interval,bind
+    animation1112.pattern0,overlay,5012,00,0,0
+
+    animation1113.interval,bind
+    animation1113.pattern0,overlay,5013,00,0,0
+
+    animation1114.interval,bind
+    animation1114.pattern0,overlay,5014,00,0,0
+
+    animation1115.interval,bind
+    animation1115.pattern0,overlay,5015,00,0,0
+
+    animation1116.interval,bind
+    animation1116.pattern0,overlay,5016,00,0,0
+
+    animation1117.interval,bind
+    animation1117.pattern0,overlay,5017,00,0,0
+
+    animation1118.interval,bind
+    animation1118.pattern0,overlay,5018,00,0,0
+
+    animation1119.interval,bind
+    animation1119.pattern0,overlay,5019,00,0,0
+
+    animation1120.interval,bind
+    animation1120.pattern0,overlay,5020,00,0,0
+
+    animation1121.interval,bind
+    animation1121.pattern0,overlay,5021,00,0,0
+
+    animation1122.interval,bind
+    animation1122.pattern0,overlay,5022,00,0,0
+
+    animation1123.interval,bind
+    animation1123.pattern0,overlay,5023,00,0,0
+
+    animation1124.interval,bind
+    animation1124.pattern0,overlay,5024,00,0,0
+
+    animation1125.interval,bind
+    animation1125.pattern0,overlay,5025,00,0,0
+
+    animation1126.interval,bind
+    animation1126.pattern0,overlay,5026,00,0,0
+
+    animation1127.interval,bind
+    animation1127.pattern0,overlay,5027,00,0,0
+
+    animation1128.interval,bind
+    animation1128.pattern0,overlay,5028,00,0,0
+
+    animation1129.interval,bind
+    animation1129.pattern0,overlay,5029,00,0,0
+
+    animation1130.interval,bind
+    animation1130.pattern0,overlay,5030,00,0,0
+
+    animation1131.interval,bind
+    animation1131.pattern0,overlay,5031,00,0,0
+
+    animation1132.interval,bind
+    animation1132.pattern0,overlay,5032,00,0,0
+
+    animation1133.interval,bind
+    animation1133.pattern0,overlay,5033,00,0,0
+
+    animation1134.interval,bind
+    animation1134.pattern0,overlay,5034,00,0,0
+
+    animation1200.interval,bind
+    animation1200.pattern0,overlay,5100,00,0,0
+
+    animation1201.interval,bind
+    animation1201.pattern0,overlay,5101,00,0,0
+
+    animation1202.interval,bind
+    animation1202.pattern0,overlay,5102,00,0,0
+
+    animation1203.interval,bind
+    animation1203.pattern0,overlay,5103,00,0,0
+
+    animation1204.interval,bind
+    animation1204.pattern0,overlay,5104,00,0,0
+
+    animation1205.interval,bind
+    animation1205.pattern0,overlay,5105,00,0,0
+
+    animation1206.interval,bind
+    animation1206.pattern0,overlay,5106,00,0,0
+
+    animation1207.interval,bind
+    animation1207.pattern0,overlay,5107,00,0,0
+
+    animation1208.interval,bind
+    animation1208.pattern0,overlay,5108,00,0,0
+
+    animation1209.interval,bind
+    animation1209.pattern0,overlay,5109,00,0,0
+
+    animation1210.interval,bind
+    animation1210.pattern0,overlay,5110,00,0,0
+
+    animation1211.interval,bind
+    animation1211.pattern0,overlay,5111,00,0,0
+
+    animation1212.interval,bind
+    animation1212.pattern0,overlay,5112,00,0,0
+
+    animation1213.interval,bind
+    animation1213.pattern0,overlay,5113,00,0,0
+
+    animation1214.interval,bind
+    animation1214.pattern0,overlay,5114,00,0,0
+
+    animation1215.interval,bind
+    animation1215.pattern0,overlay,5115,00,0,0
+
+    animation1216.interval,bind
+    animation1216.pattern0,overlay,5116,00,0,0
+
+    animation1217.interval,bind
+    animation1217.pattern0,overlay,5117,00,0,0
+
+    animation1218.interval,bind
+    animation1218.pattern0,overlay,5118,00,0,0
+
+    animation1219.interval,bind
+    animation1219.pattern0,overlay,5119,00,0,0
+
+    animation1220.interval,bind
+    animation1220.pattern0,overlay,5120,00,0,0
+
+    animation1221.interval,bind
+    animation1221.pattern0,overlay,5121,00,0,0
+
+    animation1222.interval,bind
+    animation1222.pattern0,overlay,5122,00,0,0
+
+    animation1223.interval,bind
+    animation1223.pattern0,overlay,5123,00,0,0
+
+    animation1224.interval,bind
+    animation1224.pattern0,overlay,5124,00,0,0
+
+    animation1225.interval,bind
+    animation1225.pattern0,overlay,5125,00,0,0
+
+    animation1226.interval,bind
+    animation1226.pattern0,overlay,5126,00,0,0
+
+    animation1227.interval,bind
+    animation1227.pattern0,overlay,5127,00,0,0
+
+    animation1228.interval,bind
+    animation1228.pattern0,overlay,5128,00,0,0
+
+    animation1229.interval,bind
+    animation1229.pattern0,overlay,5129,00,0,0
+
+    animation1230.interval,bind
+    animation1230.pattern0,overlay,5130,00,0,0
+
+    animation1231.interval,bind
+    animation1231.pattern0,overlay,5131,00,0,0
+
+    animation1232.interval,bind
+    animation1232.pattern0,overlay,5132,00,0,0
+
+    animation1233.interval,bind
+    animation1233.pattern0,overlay,5133,00,0,0
+
+    animation1234.interval,bind
+    animation1234.pattern0,overlay,5134,00,0,0
+
+    animation1300.interval,bind
+    animation1300.pattern0,overlay,6000,00,0,0
+
+    animation1301.interval,bind
+    animation1301.pattern0,overlay,6001,00,0,0
+
+    animation1302.interval,bind
+    animation1302.pattern0,overlay,6002,00,0,0
+
+    animation1303.interval,bind
+    animation1303.pattern0,overlay,6003,00,0,0
+
+    animation1304.interval,bind
+    animation1304.pattern0,overlay,6004,00,0,0
+
+    animation1305.interval,bind
+    animation1305.pattern0,overlay,6005,00,0,0
+
+    animation1306.interval,bind
+    animation1306.pattern0,overlay,6006,00,0,0
+
+    animation1307.interval,bind
+    animation1307.pattern0,overlay,6007,00,0,0
+
+    animation1308.interval,bind
+    animation1308.pattern0,overlay,6008,00,0,0
+
+    animation1309.interval,bind
+    animation1309.pattern0,overlay,6009,00,0,0
+
+    animation1310.interval,bind
+    animation1310.pattern0,overlay,6010,00,0,0
+
+    animation1311.interval,bind
+    animation1311.pattern0,overlay,6011,00,0,0
+
+    animation1312.interval,bind
+    animation1312.pattern0,overlay,6012,00,0,0
+
+    animation1313.interval,bind
+    animation1313.pattern0,overlay,6013,00,0,0
+
+    animation1314.interval,bind
+    animation1314.pattern0,overlay,6014,00,0,0
+
+    animation1315.interval,bind
+    animation1315.pattern0,overlay,6015,00,0,0
+
+    animation1316.interval,bind
+    animation1316.pattern0,overlay,6016,00,0,0
+
+    animation1317.interval,bind
+    animation1317.pattern0,overlay,6017,00,0,0
+
+    animation1318.interval,bind
+    animation1318.pattern0,overlay,6018,00,0,0
+
+    animation1319.interval,bind
+    animation1319.pattern0,overlay,6019,00,0,0
+
+    animation1320.interval,bind
+    animation1320.pattern0,overlay,6020,00,0,0
+
+    animation1321.interval,bind
+    animation1321.pattern0,overlay,6021,00,0,0
+
+    animation1322.interval,bind
+    animation1322.pattern0,overlay,6022,00,0,0
+
+    animation1323.interval,bind
+    animation1323.pattern0,overlay,6023,00,0,0
+
+    animation1324.interval,bind
+    animation1324.pattern0,overlay,6024,00,0,0
+
+    animation1325.interval,bind
+    animation1325.pattern0,overlay,6025,00,0,0
+
+    animation1326.interval,bind
+    animation1326.pattern0,overlay,6026,00,0,0
+
+    animation1327.interval,bind
+    animation1327.pattern0,overlay,6027,00,0,0
+
+    animation1328.interval,bind
+    animation1328.pattern0,overlay,6028,00,0,0
+
+    animation1329.interval,bind
+    animation1329.pattern0,overlay,6029,00,0,0
+
+    animation1330.interval,bind
+    animation1330.pattern0,overlay,6030,00,0,0
+
+    animation1331.interval,bind
+    animation1331.pattern0,overlay,6031,00,0,0
+
+    animation1332.interval,bind
+    animation1332.pattern0,overlay,6032,00,0,0
+
+    animation1333.interval,bind
+    animation1333.pattern0,overlay,6033,00,0,0
+
+    animation1334.interval,bind
+    animation1334.pattern0,overlay,6034,00,0,0
+
+    animation1400.interval,bind
+    animation1400.pattern0,overlay,6100,00,0,0
+
+    animation1401.interval,bind
+    animation1401.pattern0,overlay,6101,00,0,0
+
+    animation1402.interval,bind
+    animation1402.pattern0,overlay,6102,00,0,0
+
+    animation1403.interval,bind
+    animation1403.pattern0,overlay,6103,00,0,0
+
+    animation1404.interval,bind
+    animation1404.pattern0,overlay,6104,00,0,0
+
+    animation1405.interval,bind
+    animation1405.pattern0,overlay,6105,00,0,0
+
+    animation1406.interval,bind
+    animation1406.pattern0,overlay,6106,00,0,0
+
+    animation1407.interval,bind
+    animation1407.pattern0,overlay,6107,00,0,0
+
+    animation1408.interval,bind
+    animation1408.pattern0,overlay,6108,00,0,0
+
+    animation1409.interval,bind
+    animation1409.pattern0,overlay,6109,00,0,0
+
+    animation1410.interval,bind
+    animation1410.pattern0,overlay,6110,00,0,0
+
+    animation1411.interval,bind
+    animation1411.pattern0,overlay,6111,00,0,0
+
+    animation1412.interval,bind
+    animation1412.pattern0,overlay,6112,00,0,0
+
+    animation1413.interval,bind
+    animation1413.pattern0,overlay,6113,00,0,0
+
+    animation1414.interval,bind
+    animation1414.pattern0,overlay,6114,00,0,0
+
+    animation1415.interval,bind
+    animation1415.pattern0,overlay,6115,00,0,0
+
+    animation1416.interval,bind
+    animation1416.pattern0,overlay,6116,00,0,0
+
+    animation1417.interval,bind
+    animation1417.pattern0,overlay,6117,00,0,0
+
+    animation1418.interval,bind
+    animation1418.pattern0,overlay,6118,00,0,0
+
+    animation1419.interval,bind
+    animation1419.pattern0,overlay,6119,00,0,0
+
+    animation1420.interval,bind
+    animation1420.pattern0,overlay,6120,00,0,0
+
+    animation1421.interval,bind
+    animation1421.pattern0,overlay,6121,00,0,0
+
+    animation1422.interval,bind
+    animation1422.pattern0,overlay,6122,00,0,0
+
+    animation1423.interval,bind
+    animation1423.pattern0,overlay,6123,00,0,0
+
+    animation1424.interval,bind
+    animation1424.pattern0,overlay,6124,00,0,0
+
+    animation1425.interval,bind
+    animation1425.pattern0,overlay,6125,00,0,0
+
+    animation1426.interval,bind
+    animation1426.pattern0,overlay,6126,00,0,0
+
+    animation1427.interval,bind
+    animation1427.pattern0,overlay,6127,00,0,0
+
+    animation1428.interval,bind
+    animation1428.pattern0,overlay,6128,00,0,0
+
+    animation1429.interval,bind
+    animation1429.pattern0,overlay,6129,00,0,0
+
+    animation1430.interval,bind
+    animation1430.pattern0,overlay,6130,00,0,0
+
+    animation1431.interval,bind
+    animation1431.pattern0,overlay,6131,00,0,0
+
+    animation1432.interval,bind
+    animation1432.pattern0,overlay,6132,00,0,0
+
+    animation1433.interval,bind
+    animation1433.pattern0,overlay,6133,00,0,0
+
+    animation1434.interval,bind
+    animation1434.pattern0,overlay,6134,00,0,0
+
+    animation1500.interval,bind
+    animation1500.pattern0,overlay,6200,00,0,0
+
+    animation1501.interval,bind
+    animation1501.pattern0,overlay,6201,00,0,0
+
+    animation1502.interval,bind
+    animation1502.pattern0,overlay,6202,00,0,0
+
+    animation1503.interval,bind
+    animation1503.pattern0,overlay,6203,00,0,0
+
+    animation1504.interval,bind
+    animation1504.pattern0,overlay,6204,00,0,0
+
+    animation1505.interval,bind
+    animation1505.pattern0,overlay,6205,00,0,0
+
+    animation1506.interval,bind
+    animation1506.pattern0,overlay,6206,00,0,0
+
+    animation1507.interval,bind
+    animation1507.pattern0,overlay,6207,00,0,0
+
+    animation1508.interval,bind
+    animation1508.pattern0,overlay,6208,00,0,0
+
+    animation1509.interval,bind
+    animation1509.pattern0,overlay,6209,00,0,0
+
+    animation1510.interval,bind
+    animation1510.pattern0,overlay,6210,00,0,0
+
+    animation1511.interval,bind
+    animation1511.pattern0,overlay,6211,00,0,0
+
+    animation1512.interval,bind
+    animation1512.pattern0,overlay,6212,00,0,0
+
+    animation1513.interval,bind
+    animation1513.pattern0,overlay,6213,00,0,0
+
+    animation1514.interval,bind
+    animation1514.pattern0,overlay,6214,00,0,0
+
+    animation1515.interval,bind
+    animation1515.pattern0,overlay,6215,00,0,0
+
+    animation1516.interval,bind
+    animation1516.pattern0,overlay,6216,00,0,0
+
+    animation1517.interval,bind
+    animation1517.pattern0,overlay,6217,00,0,0
+
+    animation1518.interval,bind
+    animation1518.pattern0,overlay,6218,00,0,0
+
+    animation1519.interval,bind
+    animation1519.pattern0,overlay,6219,00,0,0
+
+    animation1520.interval,bind
+    animation1520.pattern0,overlay,6220,00,0,0
+
+    animation1521.interval,bind
+    animation1521.pattern0,overlay,6221,00,0,0
+
+    animation1522.interval,bind
+    animation1522.pattern0,overlay,6222,00,0,0
+
+    animation1523.interval,bind
+    animation1523.pattern0,overlay,6223,00,0,0
+
+    animation1524.interval,bind
+    animation1524.pattern0,overlay,6224,00,0,0
+
+    animation1525.interval,bind
+    animation1525.pattern0,overlay,6225,00,0,0
+
+    animation1526.interval,bind
+    animation1526.pattern0,overlay,6226,00,0,0
+
+    animation1527.interval,bind
+    animation1527.pattern0,overlay,6227,00,0,0
+
+    animation1528.interval,bind
+    animation1528.pattern0,overlay,6228,00,0,0
+
+    animation1529.interval,bind
+    animation1529.pattern0,overlay,6229,00,0,0
+
+    animation1530.interval,bind
+    animation1530.pattern0,overlay,6230,00,0,0
+
+    animation1531.interval,bind
+    animation1531.pattern0,overlay,6231,00,0,0
+
+    animation1532.interval,bind
+    animation1532.pattern0,overlay,6232,00,0,0
+
+    animation1533.interval,bind
+    animation1533.pattern0,overlay,6233,00,0,0
+
+    animation1534.interval,bind
+    animation1534.pattern0,overlay,6234,00,0,0
+
+    animation1600.interval,bind
+    animation1600.pattern0,overlay,4100,00,0,0
+
+    animation1601.interval,bind
+    animation1601.pattern0,overlay,4101,00,0,0
+
+    animation1602.interval,bind
+    animation1602.pattern0,overlay,4102,00,0,0
+
+    animation1603.interval,bind
+    animation1603.pattern0,overlay,4103,00,0,0
+
+    animation1604.interval,bind
+    animation1604.pattern0,overlay,4104,00,0,0
+
+    animation1605.interval,bind
+    animation1605.pattern0,overlay,4105,00,0,0
+
+    animation1606.interval,bind
+    animation1606.pattern0,overlay,4106,00,0,0
+
+    animation1607.interval,bind
+    animation1607.pattern0,overlay,4107,00,0,0
+
+    animation1608.interval,bind
+    animation1608.pattern0,overlay,4108,00,0,0
+
+    animation1609.interval,bind
+    animation1609.pattern0,overlay,4109,00,0,0
+
+    animation1610.interval,bind
+    animation1610.pattern0,overlay,4110,00,0,0
+
+    animation1611.interval,bind
+    animation1611.pattern0,overlay,4111,00,0,0
+
+    animation1612.interval,bind
+    animation1612.pattern0,overlay,4112,00,0,0
+
+    animation1613.interval,bind
+    animation1613.pattern0,overlay,4113,00,0,0
+
+    animation1614.interval,bind
+    animation1614.pattern0,overlay,4114,00,0,0
+
+    animation1615.interval,bind
+    animation1615.pattern0,overlay,4115,00,0,0
+
+    animation1616.interval,bind
+    animation1616.pattern0,overlay,4116,00,0,0
+
+    animation1617.interval,bind
+    animation1617.pattern0,overlay,4117,00,0,0
+
+    animation1618.interval,bind
+    animation1618.pattern0,overlay,4118,00,0,0
+
+    animation1619.interval,bind
+    animation1619.pattern0,overlay,4119,00,0,0
+
+    animation1620.interval,bind
+    animation1620.pattern0,overlay,4120,00,0,0
+
+    animation1621.interval,bind
+    animation1621.pattern0,overlay,4121,00,0,0
+
+    animation1622.interval,bind
+    animation1622.pattern0,overlay,4122,00,0,0
+
+    animation1623.interval,bind
+    animation1623.pattern0,overlay,4123,00,0,0
+
+    animation1624.interval,bind
+    animation1624.pattern0,overlay,4124,00,0,0
+
+    animation1625.interval,bind
+    animation1625.pattern0,overlay,4125,00,0,0
+
+    animation1626.interval,bind
+    animation1626.pattern0,overlay,4126,00,0,0
+
+    animation1627.interval,bind
+    animation1627.pattern0,overlay,4127,00,0,0
+
+    animation1628.interval,bind
+    animation1628.pattern0,overlay,4128,00,0,0
+
+    animation1629.interval,bind
+    animation1629.pattern0,overlay,4129,00,0,0
+
+    animation1630.interval,bind
+    animation1630.pattern0,overlay,4130,00,0,0
+
+    animation1631.interval,bind
+    animation1631.pattern0,overlay,4131,00,0,0
+
+    animation1632.interval,bind
+    animation1632.pattern0,overlay,4132,00,0,0
+
+    animation1633.interval,bind
+    animation1633.pattern0,overlay,4133,00,0,0
+
+    animation1634.interval,bind
+    animation1634.pattern0,overlay,4134,00,0,0
+
+    animation1650.interval,bind
+    animation1650.pattern0,overlay,4200,00,0,0
+
+    animation1651.interval,bind
+    animation1651.pattern0,overlay,4201,00,0,0
+
+    animation1652.interval,bind
+    animation1652.pattern0,overlay,4202,00,0,0
+
+    animation1653.interval,bind
+    animation1653.pattern0,overlay,4203,00,0,0
+
+    animation1654.interval,bind
+    animation1654.pattern0,overlay,4204,00,0,0
+
+    animation1655.interval,bind
+    animation1655.pattern0,overlay,4205,00,0,0
+
+    animation1656.interval,bind
+    animation1656.pattern0,overlay,4206,00,0,0
+
+    animation1657.interval,bind
+    animation1657.pattern0,overlay,4207,00,0,0
+
+    animation1658.interval,bind
+    animation1658.pattern0,overlay,4208,00,0,0
+
+    animation1659.interval,bind
+    animation1659.pattern0,overlay,4209,00,0,0
+
+    animation1660.interval,bind
+    animation1660.pattern0,overlay,4210,00,0,0
+
+    animation1661.interval,bind
+    animation1661.pattern0,overlay,4211,00,0,0
+
+    animation1662.interval,bind
+    animation1662.pattern0,overlay,4212,00,0,0
+
+    animation1663.interval,bind
+    animation1663.pattern0,overlay,4213,00,0,0
+
+    animation1664.interval,bind
+    animation1664.pattern0,overlay,4214,00,0,0
+
+    animation1665.interval,bind
+    animation1665.pattern0,overlay,4215,00,0,0
+
+    animation1666.interval,bind
+    animation1666.pattern0,overlay,4216,00,0,0
+
+    animation1667.interval,bind
+    animation1667.pattern0,overlay,4217,00,0,0
+
+    animation1668.interval,bind
+    animation1668.pattern0,overlay,4218,00,0,0
+
+    animation1669.interval,bind
+    animation1669.pattern0,overlay,4219,00,0,0
+
+    animation1670.interval,bind
+    animation1670.pattern0,overlay,4220,00,0,0
+
+    animation1671.interval,bind
+    animation1671.pattern0,overlay,4221,00,0,0
+
+    animation1672.interval,bind
+    animation1672.pattern0,overlay,4222,00,0,0
+
+    animation1673.interval,bind
+    animation1673.pattern0,overlay,4223,00,0,0
+
+    animation1674.interval,bind
+    animation1674.pattern0,overlay,4224,00,0,0
+
+    animation1675.interval,bind
+    animation1675.pattern0,overlay,4225,00,0,0
+
+    animation1676.interval,bind
+    animation1676.pattern0,overlay,4226,00,0,0
+
+    animation1677.interval,bind
+    animation1677.pattern0,overlay,4227,00,0,0
+
+    animation1678.interval,bind
+    animation1678.pattern0,overlay,4228,00,0,0
+
+    animation1679.interval,bind
+    animation1679.pattern0,overlay,4229,00,0,0
+
+    animation1680.interval,bind
+    animation1680.pattern0,overlay,4230,00,0,0
+
+    animation1681.interval,bind
+    animation1681.pattern0,overlay,4231,00,0,0
+
+    animation1682.interval,bind
+    animation1682.pattern0,overlay,4232,00,0,0
+
+    animation1683.interval,bind
+    animation1683.pattern0,overlay,4233,00,0,0
+
+    animation1684.interval,bind
+    animation1684.pattern0,overlay,4234,00,0,0
+
+    animation1700.interval,bind
+    animation1700.pattern0,overlay,4300,00,0,0
+
+    animation1701.interval,bind
+    animation1701.pattern0,overlay,4301,00,0,0
+
+    animation1702.interval,bind
+    animation1702.pattern0,overlay,4302,00,0,0
+
+    animation1703.interval,bind
+    animation1703.pattern0,overlay,4303,00,0,0
+
+    animation1704.interval,bind
+    animation1704.pattern0,overlay,4304,00,0,0
+
+    animation1705.interval,bind
+    animation1705.pattern0,overlay,4305,00,0,0
+
+    animation1706.interval,bind
+    animation1706.pattern0,overlay,4306,00,0,0
+
+    animation1707.interval,bind
+    animation1707.pattern0,overlay,4307,00,0,0
+
+    animation1708.interval,bind
+    animation1708.pattern0,overlay,4308,00,0,0
+
+    animation1709.interval,bind
+    animation1709.pattern0,overlay,4309,00,0,0
+
+    animation1710.interval,bind
+    animation1710.pattern0,overlay,4310,00,0,0
+
+    animation1711.interval,bind
+    animation1711.pattern0,overlay,4311,00,0,0
+
+    animation1712.interval,bind
+    animation1712.pattern0,overlay,4312,00,0,0
+
+    animation1713.interval,bind
+    animation1713.pattern0,overlay,4313,00,0,0
+
+    animation1714.interval,bind
+    animation1714.pattern0,overlay,4314,00,0,0
+
+    animation1715.interval,bind
+    animation1715.pattern0,overlay,4315,00,0,0
+
+    animation1716.interval,bind
+    animation1716.pattern0,overlay,4316,00,0,0
+
+    animation1717.interval,bind
+    animation1717.pattern0,overlay,4317,00,0,0
+
+    animation1718.interval,bind
+    animation1718.pattern0,overlay,4318,00,0,0
+
+    animation1719.interval,bind
+    animation1719.pattern0,overlay,4319,00,0,0
+
+    animation1720.interval,bind
+    animation1720.pattern0,overlay,4320,00,0,0
+
+    animation1721.interval,bind
+    animation1721.pattern0,overlay,4321,00,0,0
+
+    animation1722.interval,bind
+    animation1722.pattern0,overlay,4322,00,0,0
+
+    animation1723.interval,bind
+    animation1723.pattern0,overlay,4323,00,0,0
+
+    animation1724.interval,bind
+    animation1724.pattern0,overlay,4324,00,0,0
+
+    animation1725.interval,bind
+    animation1725.pattern0,overlay,4325,00,0,0
+
+    animation1726.interval,bind
+    animation1726.pattern0,overlay,4326,00,0,0
+
+    animation1727.interval,bind
+    animation1727.pattern0,overlay,4327,00,0,0
+
+    animation1728.interval,bind
+    animation1728.pattern0,overlay,4328,00,0,0
+
+    animation1729.interval,bind
+    animation1729.pattern0,overlay,4329,00,0,0
+
+    animation1730.interval,bind
+    animation1730.pattern0,overlay,4330,00,0,0
+
+    animation1731.interval,bind
+    animation1731.pattern0,overlay,4331,00,0,0
+
+    animation1732.interval,bind
+    animation1732.pattern0,overlay,4332,00,0,0
+
+    animation1733.interval,bind
+    animation1733.pattern0,overlay,4333,00,0,0
+
+    animation1734.interval,bind
+    animation1734.pattern0,overlay,4334,00,0,0
+
+    animation1750.interval,bind
+    animation1750.pattern0,overlay,4400,00,0,0
+
+    animation1751.interval,bind
+    animation1751.pattern0,overlay,4401,00,0,0
+
+    animation1752.interval,bind
+    animation1752.pattern0,overlay,4402,00,0,0
+
+    animation1753.interval,bind
+    animation1753.pattern0,overlay,4403,00,0,0
+
+    animation1754.interval,bind
+    animation1754.pattern0,overlay,4404,00,0,0
+
+    animation1755.interval,bind
+    animation1755.pattern0,overlay,4405,00,0,0
+
+    animation1756.interval,bind
+    animation1756.pattern0,overlay,4406,00,0,0
+
+    animation1757.interval,bind
+    animation1757.pattern0,overlay,4407,00,0,0
+
+    animation1758.interval,bind
+    animation1758.pattern0,overlay,4408,00,0,0
+
+    animation1759.interval,bind
+    animation1759.pattern0,overlay,4409,00,0,0
+
+    animation1760.interval,bind
+    animation1760.pattern0,overlay,4410,00,0,0
+
+    animation1761.interval,bind
+    animation1761.pattern0,overlay,4411,00,0,0
+
+    animation1762.interval,bind
+    animation1762.pattern0,overlay,4412,00,0,0
+
+    animation1763.interval,bind
+    animation1763.pattern0,overlay,4413,00,0,0
+
+    animation1764.interval,bind
+    animation1764.pattern0,overlay,4414,00,0,0
+
+    animation1765.interval,bind
+    animation1765.pattern0,overlay,4415,00,0,0
+
+    animation1766.interval,bind
+    animation1766.pattern0,overlay,4416,00,0,0
+
+    animation1767.interval,bind
+    animation1767.pattern0,overlay,4417,00,0,0
+
+    animation1768.interval,bind
+    animation1768.pattern0,overlay,4418,00,0,0
+
+    animation1769.interval,bind
+    animation1769.pattern0,overlay,4419,00,0,0
+
+    animation1770.interval,bind
+    animation1770.pattern0,overlay,4420,00,0,0
+
+    animation1771.interval,bind
+    animation1771.pattern0,overlay,4421,00,0,0
+
+    animation1772.interval,bind
+    animation1772.pattern0,overlay,4422,00,0,0
+
+    animation1773.interval,bind
+    animation1773.pattern0,overlay,4423,00,0,0
+
+    animation1774.interval,bind
+    animation1774.pattern0,overlay,4424,00,0,0
+
+    animation1775.interval,bind
+    animation1775.pattern0,overlay,4425,00,0,0
+
+    animation1776.interval,bind
+    animation1776.pattern0,overlay,4426,00,0,0
+
+    animation1777.interval,bind
+    animation1777.pattern0,overlay,4427,00,0,0
+
+    animation1778.interval,bind
+    animation1778.pattern0,overlay,4428,00,0,0
+
+    animation1779.interval,bind
+    animation1779.pattern0,overlay,4429,00,0,0
+
+    animation1780.interval,bind
+    animation1780.pattern0,overlay,4430,00,0,0
+
+    animation1781.interval,bind
+    animation1781.pattern0,overlay,4431,00,0,0
+
+    animation1782.interval,bind
+    animation1782.pattern0,overlay,4432,00,0,0
+
+    animation1783.interval,bind
+    animation1783.pattern0,overlay,4433,00,0,0
+
+    animation1784.interval,bind
+    animation1784.pattern0,overlay,4434,00,0,0
+
+    animation1800.interval,bind
+    animation1800.pattern0,overlay,4000,00,0,0
+
+    animation1801.interval,bind
+    animation1801.pattern0,overlay,4001,00,0,0
+
+    animation1802.interval,bind
+    animation1802.pattern0,overlay,4002,00,0,0
+
+    animation1803.interval,bind
+    animation1803.pattern0,overlay,4003,00,0,0
+
+    animation1804.interval,bind
+    animation1804.pattern0,overlay,4004,00,0,0
+
+    animation1805.interval,bind
+    animation1805.pattern0,overlay,4005,00,0,0
+
+    animation1806.interval,bind
+    animation1806.pattern0,overlay,4006,00,0,0
+
+    animation1807.interval,bind
+    animation1807.pattern0,overlay,4007,00,0,0
+
+    animation1808.interval,bind
+    animation1808.pattern0,overlay,4008,00,0,0
+
+    animation1809.interval,bind
+    animation1809.pattern0,overlay,4009,00,0,0
+
+    animation1810.interval,bind
+    animation1810.pattern0,overlay,4010,00,0,0
+
+    animation1811.interval,bind
+    animation1811.pattern0,overlay,4011,00,0,0
+
+    animation1812.interval,bind
+    animation1812.pattern0,overlay,4012,00,0,0
+
+    animation1813.interval,bind
+    animation1813.pattern0,overlay,4013,00,0,0
+
+    animation1814.interval,bind
+    animation1814.pattern0,overlay,4014,00,0,0
+
+    animation1815.interval,bind
+    animation1815.pattern0,overlay,4015,00,0,0
+
+    animation1816.interval,bind
+    animation1816.pattern0,overlay,4016,00,0,0
+
+    animation1817.interval,bind
+    animation1817.pattern0,overlay,4017,00,0,0
+
+    animation1818.interval,bind
+    animation1818.pattern0,overlay,4018,00,0,0
+
+    animation1819.interval,bind
+    animation1819.pattern0,overlay,4019,00,0,0
+
+    animation1820.interval,bind
+    animation1820.pattern0,overlay,4020,00,0,0
+
+    animation1821.interval,bind
+    animation1821.pattern0,overlay,4021,00,0,0
+
+    animation1822.interval,bind
+    animation1822.pattern0,overlay,4022,00,0,0
+
+    animation1823.interval,bind
+    animation1823.pattern0,overlay,4023,00,0,0
+
+    animation1824.interval,bind
+    animation1824.pattern0,overlay,4024,00,0,0
+
+    animation1825.interval,bind
+    animation1825.pattern0,overlay,4025,00,0,0
+
+    animation1826.interval,bind
+    animation1826.pattern0,overlay,4026,00,0,0
+
+    animation1827.interval,bind
+    animation1827.pattern0,overlay,4027,00,0,0
+
+    animation1828.interval,bind
+    animation1828.pattern0,overlay,4028,00,0,0
+
+    animation1829.interval,bind
+    animation1829.pattern0,overlay,4029,00,0,0
+
+    animation1830.interval,bind
+    animation1830.pattern0,overlay,4030,00,0,0
+
+    animation1831.interval,bind
+    animation1831.pattern0,overlay,4031,00,0,0
+
+    animation1832.interval,bind
+    animation1832.pattern0,overlay,4032,00,0,0
+
+    animation1833.interval,bind
+    animation1833.pattern0,overlay,4033,00,0,0
+
+    animation1834.interval,bind
+    animation1834.pattern0,overlay,4034,00,0,0
+
+    animation2000.interval,bind
+    animation2000.pattern0,overlay,7000,00,0,0
+
+    animation2001.interval,bind
+    animation2001.pattern0,overlay,7001,00,0,0
+
+    animation2002.interval,bind
+    animation2002.pattern0,overlay,7002,00,0,0
+
+    animation2003.interval,bind
+    animation2003.pattern0,overlay,7003,00,0,0
+
+    animation2004.interval,bind
+    animation2004.pattern0,overlay,7004,00,0,0
+
+    animation2005.interval,bind
+    animation2005.pattern0,overlay,7005,00,0,0
+}
+
+surface0
+{
+    animation9000.interval,never
+    animation9000.pattern0,overlay,9910,60,0,50
+    animation9000.pattern1,overlay,9910,60,0,100
+    animation9000.pattern2,overlay,9910,60,0,150
+    animation9000.pattern3,overlay,-1,100,0,0
+}
+
+surface1
+{
+	collision2,63,32,125,56,Obsidian
+
+    animation9000.interval,always
+    animation9000.pattern0,overlay,9900,60,0,0
+
+    animation9001.interval,always
+    animation9001.pattern0,overlay,9902,150,0,0
+    animation9001.pattern1,overlay,9903,150,0,0
+    animation9001.pattern2,overlay,9904,150,0,0
+    animation9001.pattern3,overlay,9905,150,0,0
+    animation9001.pattern4,overlay,9906,150,0,0
+    animation9001.pattern5,overlay,9905,150,0,0
+    animation9001.pattern6,overlay,9904,150,0,0
+    animation9001.pattern7,overlay,9903,150,0,0
+    animation9001.pattern8,overlay,9902,150,0,0
+}
+
+//--------------------------------------------------------------
+//DARK
+surface2
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3000.png,0,0
+}
+
+surface3
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3001.png,0,0
+}
+
+surface4
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3002.png,0,0
+}
+
+surface5
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3003.png,0,0
+}
+surface6
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3010.png,0,0
+}
+
+surface7
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3011.png,0,0
+}
+
+surface8
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3012.png,0,0
+}
+
+surface9
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3013.png,0,0
+}
+
+surface11
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3004.png,0,0
+}
+
+surface12
+{
+    collision0,169,14,218,61,b
+
+    element0,overlay,surface3014.png,0,0
+}
+
+surface13
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3005.png,0,0
+}
+
+surface14
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3006.png,0,0
+}
+
+surface15
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3007.png,0,0
+}
+
+surface16
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3008.png,0,0
+}
+
+surface17
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3009.png,0,0
+}
+
+surface18
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3015.png,0,0
+}
+
+surface19
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3016.png,0,0
+}
+
+surface20
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3017.png,0,0
+}
+
+surface21
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3018.png,0,0
+}
+
+surface22
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3019.png,0,0
+}
+
+surface23
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3020.png,0,0
+}
+
+surface24
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3021.png,0,0
+}
+
+surface25
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3022.png,0,0
+}
+
+surface26
+{
+    collision0,169,14,218,61,a
+
+    element0,overlay,surface3023.png,0,0
+}
+
+char14.tooltips
+{
+    a, Open App
+}
+
+char3.tooltips
+{
+    a, Open Logs
+}
+
+char4.tooltips
+{
+    a, Light Mode
+    b, Dark Mode
+}
+
+char5.tooltips
+{
+    a, Weather
+}
+
+char6.tooltips
+{
+    a, Statistics
+}
+
+char7.tooltips
+{
+    a, To-Do list
+}
+
+char8.tooltips
+{
+    a, Settings
+}
+
+char9.tooltips
+{
+    a, Customize
+}
+
+char10.tooltips
+{
+    a, Open apps
+}
+
+char11.tooltips
+{
+    a, Stats
+}
+
+char12.tooltips
+{
+    a, Open To-Do list
+}
+
+char13.tooltips
+{
+    a, Customize
+}
+
+//--------------------
+surface4500
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4501
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4502
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4503
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4504
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4505
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4506
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4507
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4508
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4509
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4510
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4511
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4512
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4513
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4514
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4515
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4516
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4517
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4518
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4519
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4520
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4521
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4522
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4523
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4524
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4525
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4526
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4527
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4528
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4529
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4530
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4531
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4532
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4533
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+surface4534
+{
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1001.png,0,0
+}
+
+
+
+surface4600
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4601
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4602
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4603
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4604
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4605
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4606
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4607
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4608
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4609
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4610
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4611
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4612
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4613
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4614
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4615
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4616
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4617
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4618
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4619
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4620
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4621
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4622
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4623
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4624
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4625
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4626
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4627
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4628
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4629
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4630
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4631
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4632
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4633
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+surface4634
+{
+	element0,overlay,surface1002.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1003.png,0,0
+}
+
+
+
+//--------------------
+surface4400
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+}
+
+surface4401
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+}
+
+surface4402
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+}
+
+surface4403
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+}
+
+surface4404
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+}
+
+surface4405
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+}
+
+surface4406
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+}
+
+surface4407
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+}
+
+surface4408
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+}
+
+surface4409
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+}
+
+surface4410
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+}
+
+surface4411
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+}
+
+surface4412
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+}
+
+surface4413
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+}
+
+surface4414
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+}
+
+surface4415
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+}
+
+surface4416
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+}
+
+surface4417
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+}
+
+surface4418
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+}
+
+surface4419
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+}
+
+surface4420
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+}
+
+surface4421
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+}
+
+surface4422
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+}
+
+surface4423
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+}
+
+surface4424
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+}
+
+surface4425
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+}
+
+surface4426
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+}
+
+surface4427
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+}
+
+surface4428
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+}
+
+surface4429
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+}
+
+surface4430
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+}
+
+surface4431
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+}
+
+surface4432
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+}
+
+surface4433
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+}
+
+surface4434
+{
+	element0,overlay,surface1004.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+}
+
+surface4300
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+}
+
+surface4301
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+}
+
+surface4302
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+}
+
+surface4303
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+}
+
+surface4304
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+}
+
+surface4305
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+}
+
+surface4306
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+}
+
+surface4307
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+}
+
+surface4308
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+}
+
+surface4309
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+}
+
+surface4310
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+}
+
+surface4311
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+}
+
+surface4312
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+}
+
+surface4313
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+}
+
+surface4314
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+}
+
+surface4315
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+}
+
+surface4316
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+}
+
+surface4317
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+}
+
+surface4318
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+}
+
+surface4319
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+}
+
+surface4320
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+}
+
+surface4321
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+}
+
+surface4322
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+}
+
+surface4323
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+}
+
+surface4324
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+}
+
+surface4325
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+}
+
+surface4326
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+}
+
+surface4327
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+}
+
+surface4328
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+}
+
+surface4329
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+}
+
+surface4330
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+}
+
+surface4331
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+}
+
+surface4332
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+}
+
+surface4333
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+}
+
+surface4334
+{
+	element0,overlay,surface1005.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+}
+
+
+
+surface4200
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+}
+
+surface4201
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+}
+
+surface4202
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+}
+
+surface4203
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+}
+
+surface4204
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+}
+
+surface4205
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+}
+
+surface4206
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+}
+
+surface4207
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+}
+
+surface4208
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+}
+
+surface4209
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+}
+
+surface4210
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+}
+
+surface4211
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+}
+
+surface4212
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+}
+
+surface4213
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+}
+
+surface4214
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+}
+
+surface4215
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+}
+
+surface4216
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+}
+
+surface4217
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+}
+
+surface4218
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+}
+
+surface4219
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+}
+
+surface4220
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+}
+
+surface4221
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+}
+
+surface4222
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+}
+
+surface4223
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+}
+
+surface4224
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+}
+
+surface4225
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+}
+
+surface4226
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+}
+
+surface4227
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+}
+
+surface4228
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+}
+
+surface4229
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+}
+
+surface4230
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+}
+
+surface4231
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+}
+
+surface4232
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+}
+
+surface4233
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+}
+
+surface4234
+{
+	element0,overlay,surface1006.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+}
+
+
+
+surface4100
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+}
+
+surface4101
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+}
+
+surface4102
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+}
+
+surface4103
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+}
+
+surface4104
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+}
+
+surface4105
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+}
+
+surface4106
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+}
+
+surface4107
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+}
+
+surface4108
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+}
+
+surface4109
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+}
+
+surface4110
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+}
+
+surface4111
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+}
+
+surface4112
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+}
+
+surface4113
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+}
+
+surface4114
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+}
+
+surface4115
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+}
+
+surface4116
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+}
+
+surface4117
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+}
+
+surface4118
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+}
+
+surface4119
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+}
+
+surface4120
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+}
+
+surface4121
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+}
+
+surface4122
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+}
+
+surface4123
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+}
+
+surface4124
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+}
+
+surface4125
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+}
+
+surface4126
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+}
+
+surface4127
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+}
+
+surface4128
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+}
+
+surface4129
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+}
+
+surface4130
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+}
+
+surface4131
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+}
+
+surface4132
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+}
+
+surface4133
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+}
+
+surface4134
+{
+	element0,overlay,surface1007.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+}
+
+
+
+surface4000
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+}
+
+surface4001
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+}
+
+surface4002
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+}
+
+surface4003
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+}
+
+surface4004
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+}
+
+surface4005
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+}
+
+surface4006
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+}
+
+surface4007
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+}
+
+surface4008
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+}
+
+surface4009
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+}
+
+surface4010
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+}
+
+surface4011
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+}
+
+surface4012
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+}
+
+surface4013
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+}
+
+surface4014
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+}
+
+surface4015
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+}
+
+surface4016
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+}
+
+surface4017
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+}
+
+surface4018
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+}
+
+surface4019
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+}
+
+surface4020
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+}
+
+surface4021
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+}
+
+surface4022
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+}
+
+surface4023
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+}
+
+surface4024
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+}
+
+surface4025
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+}
+
+surface4026
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+}
+
+surface4027
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+}
+
+surface4028
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+}
+
+surface4029
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+}
+
+surface4030
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+}
+
+surface4031
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+}
+
+surface4032
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+}
+
+surface4033
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+}
+
+surface4034
+{
+	element0,overlay,surface1008.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+}
+
+
+
+//--------------------
+surface1600
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1601
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1602
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1603
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1604
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1605
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1606
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1607
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1608
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1609
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1610
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1611
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1612
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1613
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1614
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1615
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1616
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1617
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1618
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1619
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1620
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1621
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1622
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1623
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1624
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1625
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1626
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1627
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1628
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1629
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1630
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1631
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1632
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1633
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+surface1634
+{
+	element0,overlay,surface1009.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1010.png,0,0
+}
+
+
+
+surface2100
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2101
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2102
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2103
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2104
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2105
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2106
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2107
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2108
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2109
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2110
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2111
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2112
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2113
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2114
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2115
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2116
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2117
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2118
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2119
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2120
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2121
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2122
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2123
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2124
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2125
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2126
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2127
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2128
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2129
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2130
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2131
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2132
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2133
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+surface2134
+{
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1012.png,0,0
+}
+
+
+
+surface2200
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2201
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2202
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2203
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2204
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2205
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2206
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2207
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2208
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2209
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2210
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2211
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2212
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2213
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2214
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2215
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2216
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2217
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2218
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2219
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2220
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2221
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2222
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2223
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2224
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2225
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2226
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2227
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2228
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2229
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2230
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2231
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2232
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2233
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+surface2234
+{
+	element0,overlay,surface1013.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1014.png,0,0
+}
+
+
+
+//--------------------
+surface1000
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1001
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1002
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1003
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1004
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1005
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1006
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1007
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1008
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1009
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1010
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1011
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1012
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1013
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1014
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1015
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1016
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1017
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1018
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1019
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1020
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1021
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1022
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1023
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1024
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1025
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1026
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1027
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1028
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1029
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1030
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1031
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1032
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1033
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+surface1034
+{
+	element0,overlay,surface1015.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1016.png,0,0
+}
+
+
+
+surface1100
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1101
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1102
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1103
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1104
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1105
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1106
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1107
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1108
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1109
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1110
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1111
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1112
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1113
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1114
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1115
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1116
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1117
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1118
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1119
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1120
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1121
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1122
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1123
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1124
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1125
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1126
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1127
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1128
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1129
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1130
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1131
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1132
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1133
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+surface1134
+{
+	element0,overlay,surface1017.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1018.png,0,0
+}
+
+
+
+surface1200
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1201
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1202
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1203
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1204
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1205
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1206
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1207
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1208
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1209
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1210
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1211
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1212
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1213
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1214
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1215
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1216
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1217
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1218
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1219
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1220
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1221
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1222
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1223
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1224
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1225
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1226
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1227
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1228
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1229
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1230
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1231
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1232
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1233
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+surface1234
+{
+	element0,overlay,surface1019.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1020.png,0,0
+}
+
+
+
+surface1300
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1301
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1302
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1303
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1304
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1305
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1306
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1307
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1308
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1309
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1310
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1311
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1312
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1313
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1314
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1315
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1316
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1317
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1318
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1319
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1320
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1321
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1322
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1323
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1324
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1325
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1326
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1327
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1328
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1329
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1330
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1331
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1332
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1333
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+surface1334
+{
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1022.png,0,0
+}
+
+
+
+surface1400
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1401
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1402
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1403
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1404
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1405
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1406
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1407
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1408
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1409
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1410
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1411
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1412
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1413
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1414
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1415
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1416
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1417
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1418
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1419
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1420
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1421
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1422
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1423
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1424
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1425
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1426
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1427
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1428
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1429
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1430
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1431
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1432
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1433
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+surface1434
+{
+	element0,overlay,surface1023.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1024.png,0,0
+}
+
+
+
+surface1500
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1501
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1502
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1503
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1504
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1505
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1506
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1507
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1508
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1509
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1510
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1511
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1512
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1513
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1514
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1515
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1516
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1517
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1518
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1519
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1520
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1521
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1522
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1523
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1524
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1525
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1526
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1527
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1528
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1529
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1530
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1531
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1532
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1533
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+surface1534
+{
+	element0,overlay,surface1025.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1026.png,0,0
+}
+
+
+
+surface5000
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5001
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5002
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5003
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5004
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5005
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5006
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5007
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5008
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5009
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5010
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5011
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5012
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5013
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5014
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5015
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5016
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5017
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5018
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5019
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5020
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5021
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5022
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5023
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5024
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5025
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5026
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5027
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5028
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5029
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5030
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5031
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5032
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5033
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+surface5034
+{
+	element0,overlay,surface1027.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1028.png,0,0
+}
+
+
+
+surface5100
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5101
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5102
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5103
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5104
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5105
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5106
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5107
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5108
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5109
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5110
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5111
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5112
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5113
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5114
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5115
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5116
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5117
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5118
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5119
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5120
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5121
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5122
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5123
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5124
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5125
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5126
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5127
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5128
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5129
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5130
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5131
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5132
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5133
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+surface5134
+{
+	element0,overlay,surface1029.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1030.png,0,0
+}
+
+
+
+surface6000
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6001
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6002
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6003
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6004
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6005
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6006
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6007
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6008
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6009
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6010
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6011
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6012
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6013
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6014
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6015
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6016
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6017
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6018
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6019
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6020
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6021
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6022
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6023
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6024
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6025
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6026
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6027
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6028
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6029
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6030
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6031
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6032
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6033
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+surface6034
+{
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1032.png,0,0
+}
+
+
+
+surface6100
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6101
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6102
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6103
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6104
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6105
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6106
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6107
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6108
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6109
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6110
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6111
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6112
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6113
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6114
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6115
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6116
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6117
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6118
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6119
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6120
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6121
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6122
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6123
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6124
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6125
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6126
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6127
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6128
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6129
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6130
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6131
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6132
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6133
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+surface6134
+{
+	element0,overlay,surface1033.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1034.png,0,0
+}
+
+
+
+surface6200
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9000.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6201
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9001.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6202
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9002.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6203
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9003.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6204
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9004.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6205
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9005.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6206
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9006.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6207
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9007.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6208
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9008.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6209
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9009.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6210
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9010.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6211
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9011.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6212
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9012.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6213
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9013.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6214
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9014.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6215
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9015.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6216
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9016.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6217
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9017.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6218
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9018.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6219
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9019.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6220
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9020.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6221
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9021.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6222
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9022.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6223
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9023.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6224
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9024.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6225
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9025.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6226
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9026.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6227
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9027.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6228
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9028.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6229
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9029.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6230
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9030.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6231
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9031.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6232
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9032.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6233
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9033.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+surface6234
+{
+	element0,overlay,surface1035.png,0,0
+	element1,overlayfast,colors/surface9034.png,0,0
+	element2,overlay,surface1036.png,0,0
+}
+
+
+

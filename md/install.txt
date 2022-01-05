@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,MiniDev
+directory,mini_dev
+
+balloon.directory,Pixel

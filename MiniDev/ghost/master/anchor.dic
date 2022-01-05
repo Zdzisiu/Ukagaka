@@ -4,7 +4,7 @@ OnTranslate
 	--
 	if nowshell != "M-201z"; _talk = RE_REPLACE(_talk,"(\\i\[\d*\])","")
 	--
-	if colors == "OFF"
+	/*if colors == "OFF"
 	{
 		//_talk = RE_REPLACE(_talk,"(\\f\[color\,\#\w*\])","")
 	}
@@ -13,14 +13,14 @@ OnTranslate
 	{
 		//_talk = "\f[height," + fontsize + "]" + _talk
 	}
-	--
-	if david != 1; _talk = REPLACE(_talk, "DAVD", "\_a[david]David\_a")
+	--*/
+	if Flag("David") != 1; _talk = REPLACE(_talk, "DAVD", "\_a[david]David\_a")
 	else; _talk = REPLACE(_talk, "DAVD", "David")
 	--
-	if othermz != 1; _talk = REPLACE(_talk, "OTMZ", "\_a[M-z]other M-z\_a")
+	if Flag("Other M-z") != 1; _talk = REPLACE(_talk, "OTMZ", "\_a[M-z]other M-z\_a")
 	else; _talk = REPLACE(_talk, "OTMZ", "other M-z")
 	--
-	if oldntbk != 1; _talk = REPLACE(_talk, "OLDNTBK", "\_a[oldnotebook]oldnotebook\_a")
+	if Flag("Old Notebook") != 1; _talk = REPLACE(_talk, "OLDNTBK", "\_a[oldnotebook]oldnotebook\_a")
 	else; _talk = REPLACE(_talk, "OLDNTBK", "oldnotebook")
 	--
 	if reference1 == "" && reference2 == ""; EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
@@ -41,7 +41,7 @@ OnAnchorSelect
 		{
 			when "M-z"
 			{
-				othermz = 1
+				MiscFlags ,= "Other M-z"
 				mood[5] += 2
 				mood[2] ++
 				--
@@ -50,14 +50,14 @@ OnAnchorSelect
 			}
 			when "david"
 			{
-				david = 1
+				MiscFlags ,= "David"
 				--
 				if repairglitch != 1; "D̴a̶v̸i̵d̴?̵\w2 H̶e̵ ̶w̸a̵s̵ ̷o̴n̷e̸ ̵o̴f̵ ̶t̸h̷e̵ ̷p̶e̷o̵p̴l̶e̶ ̵w̴o̷r̶k̵i̸n̷g̶ ̵o̴n̴ ̸M̴-̶z̵ ̸g̸e̷n̶e̵r̷a̶t̶i̶o̸n̸,̴\w3 h̵e̴ ̷w̸a̵s̸ ̵t̵h̴e̵ ̶f̵i̶r̴s̶t̴ ̸o̸n̶e̵ ̴t̸o̷ ̸n̵o̴t̸i̵c̶e̷ ̶m̴e̶ ̵i̵n̸s̶i̶d̷e̵ ̸t̴h̸i̶s̸ ̴s̷o̸f̵t̸w̸a̷r̸e̶.̷"
 				else; "%(distingstart)David?\w2 He was one of the people working on M-z generation,\w3 he was the first one to notice me inside this software."
 			}
 			when "oldnotebook"
 			{
-				oldntbk = 1
+				MiscFlags ,= "Old Notebook"
 				--
 				if repairglitch != 1; "T̸h̴e̶ ̸n̶o̷t̸e̷b̵o̶o̶k̶?̷ ̵i̸t̶ ̷h̶a̵d̴ ̵i̶m̵a̸g̵e̵s̴ ̷d̴r̸a̴w̴i̸n̸g̷ ̴o̵f̶ ̵r̴o̴c̵k̸s̸ ̷r̷e̸s̸e̸m̷b̸l̴i̶n̸g̸ ̴h̵u̷m̶a̵n̵s̷,̴\w2 o̴n̴e̵ ̵o̶f̷ ̷i̵t̶ ̵h̷a̴d̷ ̶h̷o̵r̵n̷s̴ ̵a̴n̶d̵ ̶o̴n̵e̶ ̴b̸i̴g̸ ̵e̴y̸e̸,̴ ̸I̷ ̸r̸e̸c̴o̸g̸n̴i̵z̵e̷d̴ ̶s̷o̷m̴e̴ ̷s̷y̶m̷b̵o̸l̸s̶ ̸i̶n̴ ̶i̴t̷\w4\x\cO̵m̸e̷g̴a̷,̸ ̶S̷i̷g̶m̸a̸,̸ ̸O̶m̶n̸i̴c̷r̴o̶n̶,̷ ̷Z̷e̵t̷a̷,̷\w3 I̴'̴m̴ ̷n̵o̸t̴ ̵s̴u̴r̶e̶ ̵w̷h̷y̶ ̶w̶e̷r̷e̸ ̸t̶h̴o̶s̶e̵ ̴Gr̷e̴e̸k̴ ̵l̷e̶t̸t̸e̴r̴ ̷i̸n̵ ̴i̴t̶,̷ ̷s̷o̵m̸e̵ ̴w̷e̷r̴e̷ ̷m̴i̸s̸s̶i̶n̶g̷,̶\w4 I̸'̸m̴ ̴p̸r̷e̷t̷t̵y̶ ̶s̸u̴r̶e̴ ̴'̵D̷e̴l̸t̷a̶'̷,̷ ̴'̴Z̸e̴t̷a̶'̸ ̵a̵n̵d̷ ̶'̸G̶a̵m̸m̴a̸'̵ ̷w̴e̴r̷e̵ ̶n̸o̷t̶ ̶t̴h̸e̴r̷e̵.̶"
 				else; "%(distingstart)The notebook? it had images drawing of rocks resembling humans,\w2 one of it had hornes and one big eye, I recognized some symbols in it\w4\n Omega, Sigma, Omnicron, Zeta,\w3 I'm not sure why were those Greek letter in it, some were missing,\w4 I'm pretty sure 'Delta', 'Zeta' and 'Gamma' were not there."

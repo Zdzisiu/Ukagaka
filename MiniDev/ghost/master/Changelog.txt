@@ -39,3 +39,7 @@
 - Fixed some dialogue bugs
 - You can now turn off MD noticing your open windows
 - Fixed the nickname
+
+1.1.3
+- Variable Rework!
+- Config Menu Rework!

@@ -1,0 +1,12 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "*.dic": "cpp",
+        "xstring": "cpp",
+        "*.txt": "cpp",
+        "ios": "cpp",
+        "xiosbase": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="http://static.ct8.pl/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Strona zablokowana" />
+    <title>CT8.pl - Darmowy hosting WWW - 403 Strona zablokowana</title>
+
+    <meta name="robots" content="all" />
+    <style type="text/css">
+
+    body {
+        background: #2B6DC5;
+        font-size: 12px;
+        color: #333;
+        font-family: Arial, verdana, tahoma;
+        padding: 0;
+        margin: 0;
+    }
+
+
+#main {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 40px #00275A;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+    margin-top: 65px;
+}
+
+
+#mainwrapper {
+    display: table;
+    margin: 0 auto;
+    width: 950px;
+}
+
+    h1 {
+        color: #4EB4D2;
+        text-shadow: 1px 1px 3px #999;
+        font-weight: normal;
+        font-size: 35px;
+    }
+
+    p.small {
+        color: #888;
+    }
+
+    a {
+        text-decoration: none;
+        color: #4EB4D2;
+    }
+
+h2 {
+    color: #EE6628;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #EE6628;
+    font-size: 44px;
+    text-shadow: 1px 1px 2px #A7A7A7;
+}
+
+
+h3 {
+    color: #3678C7;
+    font-size: 25px;
+    text-shadow: 1px 1px 2px #D4D4D4;
+    margin-top: 0px;
+}
+
+div.ads img {
+    margin: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px dotted #BFBFBF;
+}
+
+span.grey {
+    color: #D9D9D9;
+}
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="mainwrapper">
+            <h2>Błąd 403</h2>
+            <h3>Strona zablokowana</h3>
+            <p>Podana strona została zablokowana ze względu na złamanie <a href="https://www.ct8.pl/tos">regulaminu</a> ct8.pl.<br />Jeśli jesteś właścicielem tej witryny, <a href="https://www.ct8.pl/contact">skontaktuj się z administracją</a>.</p>
+
+            <p class="small">W razie wątpliwości bądź pytań prosimy o <a href="https://www.ct8.pl/contact" title="ct8.pl - kontakt">kontakt.</a></p>
+            <br />
+            <hr />
+            <div class="ads">
+            <a title="MyDevil.net - Doskonały hosting dla biznesu" href="https://www.mydevil.net"><img src="https://www.mydevil.net/static/assets/logo.png" alt="MyDevil.net - Doskonały hosting dla biznesu" /></a>
+            </div>
+            <span class="grey">serwer: s1.ct8.pl</span>
+        </div>
+    </div>
+</body>
+</html>

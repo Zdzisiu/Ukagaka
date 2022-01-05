@@ -27,17 +27,17 @@
 
 RandomTalk
 {
-	if truth >= 10 && tentruth == 0 //close the dev
+	if counter[2] >= 10 && counter[3] == 0 //close the dev
 	{
 		"\_qCRITI\_qCAL È̷͈R̶̖̔\_qO̶̳͗R̵͎̈́\_q C\_qRITICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRI\_qTICAL È̷͈R̶̖̔R̷̺̀\_qO̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗\_qR̵͎̈́ CRITICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ CRIT\_qICAL È̷͈R̶̖̔R̷̺̀O̶̳͗R̵͎̈́ \_q\cINITIALIZING EMERGENCY R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\-\e"
 	}
 	else
 	{
-		if tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)
+		if counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55)
 		{
 			"%(m201ztalk)"
 
-			if MDisable != "ON"; "%(MDtalk)"
+			if button[2] != "ON"; "%(MDtalk)"
 		}
 		else
 		{
@@ -49,7 +49,7 @@ RandomTalk
 
 MDtalk
 {
-	if smart == "ON"
+	if button[12] == "ON"
 	{
 		"%(didknow) %(facts)?"
 
@@ -70,7 +70,7 @@ MDtalk
 		}
 	}
 
-	if stupid == "ON"
+	if button[15] == "ON"
 	{
 		"%(didknow) %(myths)?"
 		"%(myths)"
@@ -78,7 +78,7 @@ MDtalk
 
 	if RAND(50) > 30; "remember to take breaks from your computer, it's not healthy to sit like that for long periods of time"
 	
-	if romantic == "ON"; "%(pickupline)"
+	if button[17] == "ON"; "%(pickupline)"
 
 	if todopagenum != 0
 	{
@@ -130,7 +130,7 @@ MDtalk
 
 m201ztalk : nonoverlap
 {
-	if meeting != 1
+	if  Flag("Meeting") != 1
 	{
 		"Ŵ̴̪̩͚̟̈ȟ̵̬̘̹̱̍̍̇e̸͔̹̪͚͔̊r̴͙̤̬͛̆̈͋͂ȩ̸̲̻̬͕̤̄͒͑͠͠ ̴̠̯̽i̵̛͎͕̋̈̌̐ś̵͙̠͖̰́̓͑͛͠ͅ ̸̘͈̝͚͍͐̇Ǵ̶̜͒̊͝ḑ̸̙̝͎̙͋̚͠ý̷͇͍̲͚̓͛͌͆̚l̵͙̳̭̜̺̇g̶̪͔̥̅̽́ ̵̡̗̗͉̤͍͋̃̃̒̊̋P̵̜̠̜̫̳͒͛̑͝r̷̥̋͝ř̷̼͈͇̬̹ų̷͕͖̣̱̔ḣ̶̪?̶̛͈͖̳̩͓̞̔̂́̈́"
 
@@ -142,9 +142,9 @@ m201ztalk : nonoverlap
 
 		"W̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮\n\nW̷̖̘͖͒͐́͠h̷̢̪͒ỹ̸͕̮"		
 	}
-	elseif meeting == 1
+	elseif  Flag("Meeting") == 1
 	{
-		if noticewin == "ON"
+		if button[27] == "ON"
 		{
 			if ghostexcount > 0 && RAND(100) == 5; "\![raise,OnTalkWithGhosts]"
 
@@ -162,10 +162,10 @@ m201ztalk : nonoverlap
 			{
 				codeprogram = "Notepad ++"
 				--
-				if uprogrammist != 1
+				if info[8] != 1
 				{ 
-					if repairglitch != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-					else; "%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+					if Flag("Glitch Fix") != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ p̷̼̓̈́̾r̷̲̅̀o̴̢̜̓g̸̣̓̕͝r̴̯͋͊̿à̵̩͝͝m̴̬͎͗̿̒m̴̢͇͈̀͠e̸͙̿̔͛ŕ̷̨͕̑͌?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+					else; "%(distingstart)are you a programmer?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
 				}			
 			}
 
@@ -193,7 +193,7 @@ m201ztalk : nonoverlap
 				{
 					if _DiscordMin > 6
 					{
-						if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+						if Flag("Glitch Fix") != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
 						else; "%(distingstart). . . that's a lot of tabs"					
 					}
 				}
@@ -201,10 +201,10 @@ m201ztalk : nonoverlap
 				{
 					codeprogram = "Visual Studio Code"
 					--
-					if uprogrammist != 1
+					if info[8] != 1
 					{
-						if repairglitch != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ ̵̡͌ṗ̴̲r̴͎̐o̴̪͌g̵͉̎r̴̻̿ả̵̪m̵̫̅m̷͔̉i̴̥͠s̸̳̏t̵̨̉?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
-						else; "%(distingstart)are you a programmist?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+						if Flag("Glitch Fix") != 1; "a̸̝͛r̵̝̔e̷̻̽ ̷̤̎y̴̙͂o̴͖̚u̴̬͝ ̷͈̍ǎ̸̰ p̷̼̓̈́̾r̷̲̅̀o̴̢̜̓g̸̣̓̕͝r̴̯͋͊̿à̵̩͝͝m̴̬͎͗̿̒m̴̢͇͈̀͠e̸͙̿̔͛ŕ̷̨͕̑͌?̶̬̀\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
+						else; "%(distingstart)are you a programmer?\n\n[half]\![*]\q[Yes,programyez] | \![*]\q[No,programno]"
 					}
 				}
 			}
@@ -213,7 +213,7 @@ m201ztalk : nonoverlap
 			{
 				if "Aniwatch" _in_ _FFCap || "Crunchyroll" _in_ _FFCap 
 				{
-					if repairglitch != 1; "H̴̪̀ǘ̵͚ḩ̷́,̸͎̈́ ̷̙͑w̵̑͜ȟ̴̲a̶̗̅t̷̟́ ̴̩͋i̷̧̎ś̸͕ ̴͕̈́'̶̙͒à̷̻n̵̝͆i̷̤̔m̷͚̂e̴̡͌'̸̳͐?̶͔̾"
+					if Flag("Glitch Fix") != 1; "H̴̪̀ǘ̵͚ḩ̷́,̸͎̈́ ̷̙͑w̵̑͜ȟ̴̲a̶̗̅t̷̟́ ̴̩͋i̷̧̎ś̸͕ ̴͕̈́'̶̙͒à̷̻n̵̝͆i̷̤̔m̷͚̂e̴̡͌'̸̳͐?̶͔̾"
 					else; "%(distingstart)Huh, what is 'anime'?"
 				}
 
@@ -221,16 +221,16 @@ m201ztalk : nonoverlap
 				{		
 					if _FFMin > 6
 					{
-						if repairglitch != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
+						if Flag("Glitch Fix") != 1; "\0.̶ ̴.̷ ̴.̵ ̶T̶h̴a̴t̴'̷s̵ ̶a̴ ̴l̶o̵t̸ ̸o̵f̴ ̷t̶a̷b̴s̷\e"
 						else; "%(distingstart). . . that's a lot of tabs"
 					}
 				}
 			}
 		}
 
-		if m201relationship < 100
+		if relationships[0] < 100
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				case numofmood
 				{
@@ -303,9 +303,9 @@ m201ztalk : nonoverlap
 			}
 		}
 
-		if m201relationship > 100
+		if relationships[0] > 100
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				{ 
 					"\b2.\w3 .\w3 .\w3 y̴o̷u̴ ̷k̵n̷o̴w̵ ̴D̸a̵v̶i̷d̶ ̶o̸f̸t̷e̶n̶ ̵t̶r̸i̴e̶d̷ ̸w̶e̷i̷r̷d̴ ̶'̸e̷x̸p̷e̵r̶i̴m̶e̸n̶t̶s̵'̶\w8\w8\w8\n\n"
@@ -354,7 +354,7 @@ m201ztalk : nonoverlap
 					}
 					when 5
 					{
-						if othermz != 1
+						if Flag("Other M-z") != 1
 						{
 							".\w3 .\w3 .\w3 Ī̸̳ ̶͚̽h̸͎̿ọ̸̾p̷̥̉e̶̦͊ ̵͓̉ǫ̷̋ț̸̃h̷͇͝e̴͇̊r̶̗̂ ̵͇̀M̷͙͛-̸̰̈́z̵̢͗ ̵͖̽s̶̨̆u̵͚͗r̵̼͛v̶͚̂i̵̛̪v̴̟̒e̷̻̿d̷̼̉ .\w3 .\w3 .\w3"
 							".\w3 .\w3 .\w3 i̶t̵ ̸f̷e̴e̵l̶s̶ ̵w̶e̷i̵r̷d̵ ̶n̷o̸t̷ ̵k̵n̶o̶w̴i̸n̸g̷ ̵i̶f̵ ̴a̷n̵y̴ ̶o̶t̸h̴e̵r̸ ̷M̵-̸z̵ ̴s̴u̵r̴v̵i̶v̷e̸d̷ .\w3 .\w3 .\w3"
@@ -420,7 +420,7 @@ m201ztalk : nonoverlap
 					}
 					when 5
 					{
-						if othermz != 1
+						if Flag("Other M-z") != 1
 						{
 							"%(distingstart).\w3 .\w3 .\w3 I hope OTMZ survived .\w3 .\w3 .\w3"
 							"%(distingstart).\w3 .\w3 .\w3 it feels weird not knowing if any OTMZ survived .\w3 .\w3 .\w3"
@@ -439,11 +439,12 @@ m201ztalk : nonoverlap
 			}
 		}
 		
-		if repairglitch == 1
+		if Flag("Glitch Fix") == 1
 		{
 			"\![raise,OnGardenTalk]"
 
-			if narrator == 1 && nowshell == "M-201z"; NarratorTalks
+			//if Flag("Narrator") == 1 && nowshell == "M-201z"; NarratorTalks
+			if Flag("Narrator") == 1; NarratorTalks
 
 			if "s the skeleton" _in_ TOLOWER("%(installedghostlist)")
 			{
@@ -521,7 +522,7 @@ m201ztalk : nonoverlap
 				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]The fu-"
 				"\0\n\n\n%(distingstart).\w8 .\w8 .\w8 .\w8 \f[height,12]?"
 				--
-				if narrator == 1; "\1%(distingnarr)* It wasn't me"
+				if Flag("Narrator") == 1; "\1%(distingnarr)* It wasn't me"
 			}
 
 			if "snail" _in_ TOLOWER("%(installedghostlist)")
@@ -568,7 +569,7 @@ m201ztalk : nonoverlap
 			}
 		}
 
-		if repairglitch == 1
+		if Flag("Glitch Fix") == 1
 		{
 			if "Thunderstorm" _in_ currentweatherarray[5]
 			{
@@ -608,9 +609,9 @@ m201ztalk : nonoverlap
 			}
 		}
 
-		if m201relationship > 200
+		if relationships[0] > 200
 		{
-			if repairglitch == 1
+			if Flag("Glitch Fix") == 1
 			{
 				if numofmood == 5
 				{
@@ -626,9 +627,9 @@ m201ztalk : nonoverlap
 
 		if timeslot == "earlymorning"
 		{ 
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
-				if "morning" !_in_ likes
+				if "mornings-bird" !_in_ relationships[3];
 				{
 				
 					"Ȉ̷̗s̶͖̀n̸̈́ͅ'̴̗̈́t̵̬̓ ̴̰͛ï̷̯t̴͔̀ ̴͙̂ẗ̷͜o̸̼͊õ̵̳ ̷̹̅e̶̻̾ȁ̴͕r̷͙͒l̶̲̿ŷ̶̗ ̶͈̈́ṭ̴̍o̶̭̊ ̵̭͒b̶̰͑ė̶̡ ̸͈̈́ú̵͎p̷̦̾?̷͔̀"
@@ -641,7 +642,7 @@ m201ztalk : nonoverlap
 			}
 			else
 			{
-				if "morning" !_in_ likes
+				if "mornings-bird" !_in_ relationships[3];
 				{
 					"%(distingstart)Isn't it too early to be up?"
 					"%(distingstart)Is it normal for humans to be up so early?"
@@ -655,24 +656,24 @@ m201ztalk : nonoverlap
 		}
 		elseif timeslot == "morning"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"H̷̞͊o̴̩͋w̴̖͘ ̸̣̒ị̴͐s̶͍͋ ̶͇̈y̴͎͝ó̸̡ǔ̸͉r̷̼̀ ̷̳͑m̵͆ͅõ̸̦r̶̼̃n̸͜͝i̴̥͝n̶͕̿g̸͉̀ ̷͉̔g̵̞̋o̴̹̚i̶̩̚n̵͔̅g̶̳̓?̷̍͜"
 				"D̷o̷n̸'̸t̷ ̷f̷o̷r̴g̶e̸t̸ ̴t̶o̶ ̷e̶a̸t̶ ̸b̸r̴e̶a̸k̷f̶a̵s̴t̴"
 
-				if "morning" !_in_ likes; "I̴ ̷f̴e̴e̵l̸ ̷a̵s̷ ̸i̴f̴ ̷I̴ ̴w̷a̸s̴ ̵h̴u̷m̷a̷n̸ ̵I̶ ̴w̵o̴u̶l̸d̶ ̸n̵o̵t̴ ̸b̸e̵ ̷a̵ ̸m̶o̵r̵n̵i̸n̵g̶ ̵p̶e̶r̵s̴o̸n̵ ̶:̵/̸"
+				if "mornings-bird" !_in_ relationships[3];; "I̴ ̷f̴e̴e̵l̸ ̷a̵s̷ ̸i̴f̴ ̷I̴ ̴w̷a̸s̴ ̵h̴u̷m̷a̷n̸ ̵I̶ ̴w̵o̴u̶l̸d̶ ̸n̵o̵t̴ ̸b̸e̵ ̷a̵ ̸m̶o̵r̵n̵i̸n̵g̶ ̵p̶e̶r̵s̴o̸n̵ ̶:̵/̸"
 			}
 			else
 			{
 				"%(distingstart)How is your morning going?"
 				"%(distingstart)Don't forget to eat breakfast"
 
-				if "mornings-bird" !_in_ m201zcharacter; "%(distingstart)I feel as if I was human I would not be a morning person :/"
+				if "mornings-bird" !_in_ relationships[3]; "%(distingstart)I feel as if I was human I would not be a morning person :/"
 			}
 		}
 		elseif timeslot == "evening"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"H̶͓͗o̷͎̓w̴̱͝ ̷̧̚i̴͕͂s̷̛̲ ̶̦̈́y̵̝̒o̴̱̓ṷ̶̋ȓ̷͚ ̶̤̇e̶͖͊v̷͇͒e̷̦͐n̵͓͐ḭ̴͂n̸͔̈g̶̬̽ ̴̯͠g̵̛͕ö̵̮́ȉ̶͉n̷̒͜g̵̠͌?̷̬͝"
 				"H̸͙̃ợ̴p̶̹͋e̷̺͛ ̵͙͐ý̵̧o̷͇͆u̴̘͛r̵̺̋ ̷̩̄ē̴͓v̵̪̀e̶̩͌n̸̪̎ḭ̵̾ǹ̸̜g̵̻͗ ̵̅ͅi̶̠̐s̷̙͘ ̶͙̀g̷͖̈o̵͈͘ḯ̸̦ń̴̰g̸͔̈́ ̵͍̊w̶͉̐e̴̜͂l̸̘̒l̷͍̅"
@@ -685,7 +686,7 @@ m201ztalk : nonoverlap
 		}
 		elseif timeslot == "latenight"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"Y̶̞͒o̸̡̖̔u̴̘̩̎ ̶̲͊̐ṡ̴͚̖̇ḣ̴͍ọ̵͛ͅų̵̐́l̸̖͛ḍ̸̭̉̕ ̷͈̖̄p̸̣͍͆̍r̷̡̹̅͘o̵͖̐b̷̯̦͌ả̶̳́b̴̠͈͋l̵̻̩̏y̵̟͉͒͠ ̸̯̦̉̏g̵͓̯͂ö̴̧́ ̵͕̍̕t̷̡͘ọ̶̈́͝ ̵̛͚͘ͅṣ̶̃̚l̷͍̺͠e̴̓̅͜ẻ̵̥̌ͅp̴̩͆,̷̲͇̆ ̶̬͠î̷̧̳t̷̠̙̋'̴̢̼̍̂s̸̭̋ ̶̮̱͂ṉ̴͉̃̔o̷̧̒ẗ̷̢͇́̿ ̶̨̘͂̅h̶͉̝̅̃é̵̢̘a̸̭͔̍̑l̷̫̫̀t̵̢̠́̕h̵͚̥̀y̵̟͋̚ ̴͉͙̓̀f̴̟̫̾ǫ̴̯̾̂r̷͎̾̋ ̷̣̮͘h̵̙̀̚u̸͔̤̓̉m̴̧̥̋å̴̯ṉ̸̌s̴̬̄̏ ̷͈̚t̶̤̋o̶̟̕ ̸̘̂̏͜b̵̘͔͘͝ë̶̡͉͒ ̷̳̈́u̴̠̞͐̈́ṗ̷̳̒ ̴̙̅́͜ş̸̲̔͘ǒ̴̻̒ ̸͓͛l̸̛̇ͅạ̵̄t̵̬̂e̵͈͒̕"
 				"W̷̳̃h̴̩͠y̴̩̕ ̷̙͝a̴̲̐r̵̬͊ẹ̴͑ ̴̪͆y̶̚ͅo̷̓͜u̸̼̿ ̸̰̎ú̶͇p̶̢̄ ̷̯́s̸͌ͅo̷̭͊ ̷͇͝l̴̯̽a̷̰̔t̶̹͝e̵̻̐?̸͎̀\w3y̴̪͒o̵̗͘u̶̧͊ ̸̞͑s̶̯̾h̵̭̿õ̴̩u̷̡͐l̸̖͑d̸͍̆ ̵͍̈́ṕ̷̭r̸̘̚o̷̝͗b̸͇͂à̶͚b̷̙̕l̴̢̆y̸̩͑ ̷̧̂g̷̯̀o̵͉̾ ̶̹̚t̵̥͠o̶̫̎ ̴̱͆s̸̳̍ľ̸͕e̴̩̾ë̴̘́ṗ̶̭"
@@ -704,9 +705,9 @@ m201ztalk : nonoverlap
 	{
 		if (TOINT(currentweatherarray[0]) <= 15 && "C" _in_ currentweatherarray[1]) || (TOINT(currentweatherarray[0]) <= 60 && "F" _in_ currentweatherarray[1])
 		{
-			if meeting == 1 && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
+			if  Flag("Meeting") == 1 && (counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
 			{
-				if repairglitch != 1
+				if Flag("Glitch Fix") != 1
 				{
 					"%(currentweatherarray[0])%(currentweatherarray[1])? S̸̯̓e̸͈͌ē̴͈m̵̜̂s̷̥̽ ̶̘̀l̶̜̎ḭ̴̋ḱ̷͍ė̴̝ ̸̙̑i̶̖̕t̵̛͚'̴̡̔s̴͎̍ ̸̫̇c̵͂ͅȏ̵̙l̸̢̊d̴̰͌ ̶̮̊w̵͎͌h̸̠̋ë̷̘́r̷͙̍e̴̦͒ ̶̇ͅy̸̛̫o̴̰̒u̵̧͊ ̴̲͂a̶̗͆ř̸̳ë̴̯́ ̵̠̄.̷̺̚\w3 ̸͍̔.̸̝̋ ̸̯̓\w3.̷̨̽ ̶̻͋\w3I̴̲̒ ̷̥͒t̶̻̄h̵̼̾ĩ̴̪n̴̞͝k̴̫͊,̶̼́ ̵͔̑r̸͔̔e̸̖̿m̶̙͛e̵̤̽m̴̨̍b̸̯̐e̸̠̍ṛ̴̛ ̷͍̃t̵̫̾o̶͕̐ ̴͉͌w̶͛ͅe̷̗̅a̷͔͆r̸͇͐ ̶̫͂s̷̱̽o̷̦̎ḿ̶̯ĕ̷̗t̶͔͘h̵̠̉ị̷͠n̷̘̈́g̷͙͌ ̶̩̈́w̶͓̆ȃ̸̺r̵̭̾m̷̟̓"
 					"%(currentweatherarray[0])%(currentweatherarray[1])? Ș̸́e̷̬͌ê̴̠m̷̺̊s̴̤͌ ̷̩́l̴͎̅ì̸͕k̶̢̚ě̸̜ ̵̹͆ĭ̴̬t̸͈́'̵̯́s̶̜̒ ̵͓̿c̴̜̚o̸̲̕l̵̩͆ď̴̝ ̸̫͊w̵͓̚h̵̋͜e̴̟̚r̴̹͑e̵̥͘ ̸̧͊y̶̪͌o̶̲͌u̷̼͊ ̶̤̾a̵̤͝r̴̗͐e̶̤̿ ̷̬̄.̵͇̒\w3 ̷̙̈.̶͙̇\w3 ̴̠͂.̸̟̕\w3 ̶̣͋I̶̢͆ ̶̱̓ť̴͙h̵̹̓ȋ̸̗n̵̛͓k̵̛͙,̶̧́ ̶͘͜I̸͝ͅ ̶̜̈ń̶̮e̵͕͝v̸̨̎e̶̱͋r̵̺̕ ̷̯̀f̶̝̽ĕ̵̘l̷̤̔t̷͎̚ ̶̟̄à̵̖n̷̜̿y̷͚̏ ̷͔͗t̷̲̀e̴͕̾ḿ̸͜p̵͈͋e̷̝͛r̶̝̾a̸̮̓ẗ̷̜́u̴͍̍r̶̞͌ȩ̸̊ ̴̣̚s̸͚̈o̸̘͐ ̸͓̐I̴̟͘ ̴̢̂c̵̲̀a̶͜͠n̵̮̈́'̴̛̳t̵͇̔ ̷̪͑b̶̼̃e̷̦̅ ̶̘͂s̶͎̐u̴̩̓r̸̼̈́è̴̘"
@@ -721,9 +722,9 @@ m201ztalk : nonoverlap
 		}
 		elseif (TOINT(currentweatherarray[0]) >= 30 && "C" _in_ currentweatherarray[1]) || (TOINT(currentweatherarray[0]) >= 90 && "F" _in_ currentweatherarray[1])
 		{
-			if meeting == 1 && (tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
+			if  Flag("Meeting") == 1 && (counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55)) 
 			{
-				if repairglitch != 1; "%(currentweatherarray[0])%(currentweatherarray[1])? W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
+				if Flag("Glitch Fix") != 1; "%(currentweatherarray[0])%(currentweatherarray[1])? W̶o̵w̴,̶ ̷s̴e̸e̸m̴s̶ ̷l̸i̸k̵e̴ ̸i̴t̸'̶s̸ ̴r̴e̷a̶l̶l̵y̷ ̴h̶o̶t̸ ̷w̷h̸e̷r̸e̵ ̵y̵o̸u̷ ̷a̴r̴e̷"
 				else; "%(distingstart)%(currentweatherarray[0])%(currentweatherarray[1])?Wow,\w4 seems like it's really hot where you are"
 			}
 		}
@@ -774,7 +775,7 @@ NarratorTalks
 		}
 		when 5
 		{
-			if othermz != 1
+			if Flag("Other M-z") != 1
 			{
 				"%(distingstart).\w3 .\w3 .\w3 I hope OTMZ survived .\w3 .\w3 .\w3"
 				"%(distingstart).\w3 .\w3 .\w3 it feels weird not knowing if any OTMZ survived .\w3 .\w3 .\w3"
@@ -804,22 +805,23 @@ OnHourTimeSignal
 
 OnMinuteChange
 {
-	if timeformatype == "MILITARY"; _hours = hour
+	if info[3] == "MILITARY"; _hours = hour
 	else; _hours = hour12 + "'o clock"
 	--
-    if repairglitch != 1 && quest != 0; OnCheckGlitch
+    if Flag("Glitch Fix") != 1 && quest != 0; OnCheckGlitch
 	--
-	if narrator == 0 && repairglitch == 1 && nowshell == "M-201z"; OnUnlockNarrator
+	if narrator == 0 && Flag("Glitch Fix") == 1 && nowshell == "M-201z"; OnUnlockNarrator
 	--
-	if meeting == 1 && repairglitch != 1 && quest != 1 &&  quest != 2 && glitchask != 1; glitchtime++
+	if  Flag("Meeting") == 1 && Flag("Glitch Fix") != 1 && quest != 1 && quest != 2 && glitchask != 1; glitchtime++
 	--
 	if glitchtime >= 300 && glitchask != 1
 	{
 		glitchask = 1
 		glitchtime = 0
+		ERASEVAR("glitchtime")
 	}
 	--
-	if ghostexcount != 0 && (azura != 1 || aurora != 1 || outfitS != 1); OnClothesCheck
+	if ghostexcount != 0 && (unlockable[2] != 1 || unlockable[1] != 1 || unlockable[0] != 1); OnClothesCheck
 	--
 	timeslot = GetTimeSlot 
 	--
@@ -852,12 +854,12 @@ OnMinuteChange
 		}
 		else
 		{
-			if hrnt == "ON"
+			if button[27] == "ON"
 			{
 				if hour == 24; "\0It's midnight.\e"
 				elseif hour == 12; "\0It's noon.\e"
 				else{
-					if timeformatype == "MILITARY"; "\0It's %(hour).\e"
+					if info[3] == "MILITARY"; "\0It's %(hour).\e"
 					else; "\0It's %(hour12) 'o clock.\e"
 				}
 				
@@ -868,7 +870,7 @@ OnMinuteChange
 		--
 		OnCharacterCheck
 		--
-		if upchec == "ON"; "\b[-1]\![updatebymyself,checkonly]\e"
+		if button[21] == "ON"; "\b[-1]\![updatebymyself,checkonly]\e"
 	}
 	elseif minute == 30 
 	{
@@ -882,7 +884,7 @@ OnMinuteChange
 		--
 		OnCharacterCheck
 		--
-		if upchec == "ON"; "\b[-1]\![updatebymyself,checkonly]\e"
+		if button[21] == "ON"; "\b[-1]\![updatebymyself,checkonly]\e"
 	}
 	elseif mikireflag == 1
  	{
@@ -924,9 +926,9 @@ EndMikireTalk
 
 OnSurfaceRestore
 {
-	if tooln == "ON"; "%(lightdark)"
+	if button[0] == "ON"; "%(lightdark)"
 	--
-	if obsydian == 1; "\0\s[1]\1\s[-1]\e"
+	if Flag("Obsidian") == 1; "\0\s[1]\1\s[-1]\e"
 	else; "\0\s[0]\1\s[-1]\e"
 }
 
@@ -954,7 +956,7 @@ OnKeyPress
 		{
 			Select.LOG
 		}
-		when "g"
+		/*when "g"
 		{
 			if devop == 1; "\![reload,ghost]\e"
 		}
@@ -965,14 +967,13 @@ OnKeyPress
 		when "s"
 		{
 			if devop == 1; "\![reload,shell]\e"
-		}
-
+		}*/
 	}
 }
 
 BinaryTalk
 {
-	if tentruth == 1 && meeting != 1
+	if counter[3] == 1 &&  Flag("Meeting") != 1
 	{
 		_glbinary = glbinbin
 		_glletterB = _gbinary[0] 
@@ -1014,9 +1015,9 @@ OnReminders
 	if editr == 1; remindpage += "%(acc)\q[EDIT,edar]\f[color,default]"
 	else; remindpage += "\q[EDIT,edar]"
 	--
-	remindpage += "\n\n[half]Use Default Ringtone:  %(acc)\__q[defringuse]%(usedefring)\__q\f[color,default]"	
+	remindpage += "\n\n[half]Use Default Ringtone:  %(acc)\__q[defringuse]%(button[30])\__q\f[color,default]"	
 	--
-	if usedefring == "ON"
+	if button[30] == "ON"
 	{
 		if defring == ""; remindpage += "\n\n[half]DEFAULT RINGTONE:%(acc) \q[NONE (SET),OnRingtone,def]\f[color,default]"
 		else; remindpage += "\n\n[half]DEFAULT RINGTONE:%(acc) \q[%(defring),OnRingtone,def]\f[color,default]"
@@ -1029,8 +1030,8 @@ OnReminders
 
 Select.defringuse
 {
-	if usedefring == "ON"; usedefring = "OFF"
-	else; usedefring = "ON"
+	if button[30] == "ON"; button[30] = "OFF"
+	else; button[30] = "ON"
 	--
 	OnReminders
 }
@@ -1038,13 +1039,13 @@ Select.defringuse
 OnRingtone
 {
 	type = reference0
-	songspage = ""
-	songspage +="\f[bold,1]\_q\b[4]Your audio files\f[bold,0]:\n\n"
+	_songspage = ""
+	_songspage +="\f[bold,1]\_q\b[4]Your audio files\f[bold,0]:\n\n"
 	--
 	_songs = FENUM('aud','+')
 	if _songs == ""
 	{
-		songspage +="\f[bold,1]You don't have any audio files\f[bold,0]\nyou can drag and drop your audio files on me to add it to the list"
+		_songspage +="\f[bold,1]You don't have any audio files\f[bold,0]\nyou can drag and drop your audio files on me to add it to the list"
 	}
 	else
 	{
@@ -1056,16 +1057,16 @@ OnRingtone
 		--
 		for _i=0;_i<ARRAYSIZE(_songs);_i++
 		{
-			songspage += "\q[" + TOUPPER(_songs[_i]) + ",OnChooseRing," + _songs[_i] + "," + _truesong[_i] +"]\n"
+			_songspage += "\q[" + TOUPPER(_songs[_i]) + ",OnChooseRing," + _songs[_i] + "," + _truesong[_i] +"]\n"
 		}
 		
 	}
 	--
-	songspage += "\q[SILENCE,OnChooseSilence]\n"
+	_songspage += "\q[SILENCE,OnChooseSilence]\n"
 	--
-	songspage += "\n\n[half]\![*]\q[Nevermind,Cancel] or \![*]\q[Go Back,OnReminders]"
+	_songspage += "\n\n[half]\![*]\q[Nevermind,Cancel] or \![*]\q[Go Back,OnReminders]"
 	--
-	songspage
+	_songspage
 }
 
 OnChooseSilence
@@ -1128,7 +1129,7 @@ OnAddRem_Time
 	remindh[remindcount] = reference0[0]
 	remindm[remindcount] = reference0[1]
 	--
-	if reference0[0] < 12 && timeformatype == "STANDARD"
+	if reference0[0] < 12 && info[3] == "STANDARD"
 	{
 		"is it am or pm?\n\n[half]\![*]\q[AM,OnAddRem_Timeampm,am] or \![*]\q[PM,OnAddRem_Timeampm,pm]"
 	}
@@ -1139,7 +1140,7 @@ OnAddRem_Time
 		--
 		"Reminder set!\x\c will remind you at %(remindh[choosenum]):%(remindm[choosenum]) to %(remindname[choosenum])\x\c"
 		--
-		if usedefring == "ON"
+		if button[30] == "ON"
 		{
 			remindring[choosenum] = defringop
 			--
@@ -1163,7 +1164,7 @@ OnAddRem_Timeampm
 	--
 	"Reminder set!\x\c will remind you at %(remindhampm[choosenum]):%(remindmampm[choosenum]) %(ampmrem[choosenum]) to %(remindname[choosenum])\x\c"
 	--
-	if usedefring == "ON"
+	if button[30] == "ON"
 	{
 		remindring[choosenum] = defringop
 		--
@@ -1277,7 +1278,7 @@ OnNewDesc
 
 Select.programyez
 {
-	if repairglitch != 1
+	if Flag("Glitch Fix") != 1
 	{
 		if quest != 1 &&  quest != 2; "Ţ̴̪̓̑h̴͓̲͐a̷̢͖̚͝t̴̯̣́'̷̧̹͋s̷͕̥̍̄ ̷̼̃n̵̥͌̽ị̸̡́c̶͎̑̓ȇ̸̢,̵͎̎ ̷̼̎̂ḿ̴̢̻a̸̗͒ỵ̵̑b̵̯̚e̸̳͇̿̽ ̷̠̔y̶̲̚ȍ̸̯̏u̴̖̎̈͜ ̷̯̼̊w̶̞̬̃i̷̛͔l̴̫̿ḽ̸̭̇̚ ̴̭̬̽̚b̸̻̾͘ẻ̸̫̎ ̴̖̈́̌ä̸̝͔́́ḅ̷́̄ĺ̶̖̜̓ě̵̙̄ ̷̡̣̕t̷̛̜̾o̴̹̺̓ ̷̧̥̓r̸̩͗̌e̷̼͕͝p̴̡̱̅ä̸͈i̸̟̋ȑ̵̫̏ ̵̳̋͛͜t̴̩͇̓͝h̴͚͒e̴̖̓̈ ̵̡̰̑̕f̴̡̗́̅ỉ̶͚͝ĺ̵̘̮e̷̥͎͊ś̷̪̰?̶͕̓̍\n\n[half]\![*]\q[Rapair what files?,queststart] | \![*]\q[I don't think I can,questlater]"// user haven't heard about the quest
 		elseif quest == 1 ; "t̵͓͐͋h̸͕͍̳͙̎͛͋̚a̴̪͐͗t̸̞͛'̸͖͇̀̍̓̂s̶̹̪͎̋ ̸͇̖͉̔̒̅͜n̴̞̉̕i̷̡̛̪̩̇̈́c̵̡͛̅e̶̢͉̣̥͑̏̑͘,̴̧̇͂̕͝ ̴̘́̐̿p̵̘̖̂̓r̷͉̜̹̜̃̉͑̒ỗ̷͙́g̶̱̈́̿r̵͔͉̍ȧ̵̧̤̳͕͛̅͘m̴̜̬̆͆͝m̷̛̥̊̓͝i̵̦̾̓͜ṋ̵̨̧̦͘g̴͖̱̜͋̚ ̵̡̢̲̫̊í̸̬̥̝͌̾͘ͅs̸̮̖̟̒̚͝ͅ ̶̝̣̣̼̈́̈̅ả̸̺͕̀͗̉n̸̖͋̅ ̴̢̉̿̽ĩ̸͚̄n̷̙̫̜̏͜t̸͉̺̏̏͌̕e̵̲̯̔r̸̭̦͔̘͊ę̸̜͚̂ṡ̶̻̘̙̼̍͛̚t̴͌͘͜i̶͖͊͆̒́n̷͉̞̝͚̋͆g̷̢̳̎̒͂͠ ̶̣̗̞̩̎ȟ̴̡̪o̵͍͑̎̍͗b̸̭́̏̏̚b̷̬͍̄̽͂͝ͅy̸̔̎͜" //User heard the quest, didn't start
@@ -1287,7 +1288,7 @@ Select.programyez
 		"%(distingstart)That's nice, programming is a nice hobby"
 	}
 	--
-	uprogrammist = 1
+	info[8] = 1
 }
 
 Select.questlater
@@ -1320,15 +1321,14 @@ Select.deletethefiles
 		--
 		"\![open,file,logs\@$a#F.pg]F̶̝͇̥̍͜ö̸͓͉́u̷͉̩̙̐̇͘n̷͈̔̍͋d̵̹̙͗͒͋ͅ ̸̯͚̅͠ȋ̸̤̰̒̐t̸̖̲̠̱̑"
 	}
-
 }
 
 Select.programno
 {
-	if repairglitch != 1; "ḩ̴̇ṵ̷̗̐ḥ̷͕́,̴̩̠̈ ̷͎̑͜͠w̴̜̐h̴̲̃͊a̷̢̹͆͛t̵̮̲̿ ̸̘̀͆͜a̴͊͜r̵͕̝̈́ë̷̝́̃ ̷̗̔ỹ̸̪͖ȏ̷̱u̷͓̐ ̶͓̓̈́ų̷̢̑s̵͎̰̈í̶͓̕ň̵̋͜g̶̥͇̉̏ ̵̛̝̼̚V̵͍̅i̵̢͘s̸̮̍ȕ̷̮̊a̶̙̺͂̓l̸͓͐ͅ ̴̜̬̂Ṣ̷͊ť̸͜u̴̳͘̕d̴̝̫͂͝ì̷͓͇̾o̵̤̔ ̵̬̋̿C̴̠̐͆o̷̼͋d̴̘̤̄̒e̸̞̮͗̍ ̷̱̊̓f̴͉͌o̸̰̍͒r̶̩̀̚ ̴̻̔͘ť̵͈͝h̵͚͐͜e̶̛̤͈n̴͖̙̽?̶̳̚"
+	if Flag("Glitch Fix") != 1; "ḩ̴̇ṵ̷̗̐ḥ̷͕́,̴̩̠̈ ̷͎̑͜͠w̴̜̐h̴̲̃͊a̷̢̹͆͛t̵̮̲̿ ̸̘̀͆͜a̴͊͜r̵͕̝̈́ë̷̝́̃ ̷̗̔ỹ̸̪͖ȏ̷̱u̷͓̐ ̶͓̓̈́ų̷̢̑s̵͎̰̈í̶͓̕ň̵̋͜g̶̥͇̉̏ ̵̛̝̼̚V̵͍̅i̵̢͘s̸̮̍ȕ̷̮̊a̶̙̺͂̓l̸͓͐ͅ ̴̜̬̂Ṣ̷͊ť̸͜u̴̳͘̕d̴̝̫͂͝ì̷͓͇̾o̵̤̔ ̵̬̋̿C̴̠̐͆o̷̼͋d̴̘̤̄̒e̸̞̮͗̍ ̷̱̊̓f̴͉͌o̸̰̍͒r̶̩̀̚ ̴̻̔͘ť̵͈͝h̵͚͐͜e̶̛̤͈n̴͖̙̽?̶̳̚"
 	else; "%(distingstart)huh, what are you using %(codeprogram) for then?"
 	--
-	uprogrammist = 1
+	info[8] = 1
 }
 
 OnCheckGlitch
@@ -1337,7 +1337,7 @@ OnCheckGlitch
 	--
 	if _glitches == 0 || "M-201z.txt" !_in_ _glitches
 	{
-		repairglitch = 1
+		MiscFlags ,= "Glitch Fix"
 		quest = 2
 
 		"\b[4]S̴e̵e̸m̷ like it worked,\w2 thanks,\w1 now communication will be easier \w8. \w8. \w8. I think I should use some type of formating for my text so you can distinguish between me and %(devname)\nWhat do you think I should use?\n"
@@ -1477,8 +1477,8 @@ OnGardenTalk
 	}
 }
 
-OnAnimalTalk
+/*OnAnimalTalk
 {
 	animalnum = RAND(animalslearnt)
 	animalinfo = SPLIT(animals[animalnum],".")
-}
+}*/

@@ -9,104 +9,103 @@
 
 OnNameTeach
 {
-	
 	tempname = reference0 
 	--
 	if reference0 == "Gremlin Zdzich"
 	{
-		"\0Welcome Developer\n\n[half]\![*]\q[Nope,titlenone]\n"
+		"\0Welcome Developer\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
 		--
-		devop = 1 //developer options ON
+		MiscFlags ,= "DevOp" //developer options ON
 		--
 		if presuffix == "masculine" 
 		{
-			"\![*]\q[Mr.,titlemr]\n/
-			\![*]\q[Master,titlemaster]\n"
+			"\![*]\q[Mr.,OnUserTitle,mr]\n/
+			\![*]\q[Master,OnUserTitle,master]\n"
 		}
 		elseif presuffix == "feminine"
 		{
-			"\![*]\q[Ms.,titlems]\n/
-			\![*]\q[Lady,titlelady]\n"
+			"\![*]\q[Ms.,OnUserTitle,ms]\n/
+			\![*]\q[Lady,OnUserTitle,lady]\n"
 		}
 		-- 
-		"\![*]\q[-ssi,titlessi]\n/
-		\![*]\q[-san,titlesan]\n/
+		"\![*]\q[-ssi,OnUserTitle,ssi]\n/
+		\![*]\q[-san,OnUserTitle,san]\n/
 		\![*]\q[Your own,titleown]\e"
 	}
 	else
 	{
-		devop = 0
+		RemoveFlag("DevOp")
 		--
 		if reference0 == "M-%(modelp)P"
 		{
-			if nice == "ON"; "Sorry,\w6 that's my serial code so you will have to choose something else\![open,inputbox,OnNameTeach,-1]"
+			if button[11] == "ON"; "Sorry,\w6 that's my serial code so you will have to choose something else\![open,inputbox,OnNameTeach,-1]"
 			else; "\0Oh,\w8 that's my serial code.\w8 Better choose something else\w4 or it may become confusing\![open,inputbox,OnNameTeach,-1]"
 		}
 		elseif reference0 == "M-201z"
 		{
-			if tentruth == 1
+			if counter[3] == 1
 			{
-				if meeting == 1
+				if Flag("Meeting") == 1
 				{
-					if repairglitch != 1; "W̵̭̕h̷̪̅y̴̻͐ ̸̯̈́w̵̫͑ȯ̸͜u̷̙̔l̵̖̏d̴̳͊ ̵͉̌y̶͍̓ő̶͉u̷̡͋ ̷̳͒e̷̦͗v̴͎͋e̶̻͑ǹ̸̜ ̸̀ͅẁ̷̳a̸͙̽n̷̓ͅt̴̥͊ ̵͙̇ȟ̶͎i̵̫͘ṁ̵͍ ̸̖̀t̶͎͋o̵̥̐ ̵̼͛c̵̙̎a̵̠̐l̴̤̂l̷̪̽ ̵͉̌y̵̰̍ȯ̶̬ȗ̷͔ ̵͇̊b̵͚̄y̸̧̏ ̴̫̄m̵̳͑ÿ̷͎ ̴͍̋s̵̰͝e̵̱͝r̶͉̓ȉ̷̟a̶̟̒l̴̪͠ ̷̥͝n̷͊ͅù̶̻m̴̝̃b̷̻̾e̷̕͜r̷̺̕?̴̧̈́\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂\n\n[half]\![*]\q[Nope,titlenone]\n"
-					else; "%(distingstart)Why would you even want him to call you by my serial number?\w7 Well, do what you want\n\n[half]\![*]\q[Nope,titlenone]\n"
+					if Flag("Glitch Fix") != 1; "W̵̭̕h̷̪̅y̴̻͐ ̸̯̈́w̵̫͑ȯ̸͜u̷̙̔l̵̖̏d̴̳͊ ̵͉̌y̶͍̓ő̶͉u̷̡͋ ̷̳͒e̷̦͗v̴͎͋e̶̻͑ǹ̸̜ ̸̀ͅẁ̷̳a̸͙̽n̷̓ͅt̴̥͊ ̵͙̇ȟ̶͎i̵̫͘ṁ̵͍ ̸̖̀t̶͎͋o̵̥̐ ̵̼͛c̵̙̎a̵̠̐l̴̤̂l̷̪̽ ̵͉̌y̵̰̍ȯ̶̬ȗ̷͔ ̵͇̊b̵͚̄y̸̧̏ ̴̫̄m̵̳͑ÿ̷͎ ̴͍̋s̵̰͝e̵̱͝r̶͉̓ȉ̷̟a̶̟̒l̴̪͠ ̷̥͝n̷͊ͅù̶̻m̴̝̃b̷̻̾e̷̕͜r̷̺̕?̴̧̈́\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
+					else; "%(distingstart)Why would you even want him to call you by my serial number?\w7 Well, do what you want\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
 				}
 				else
 				{
-					"T̴̟͝h̵̨͋a̶̧͊t̸͖̆ ̵̵̴͠i̸s̸ ̶͔͗m̵̻̈́ỳ̴̫ ̴̧̀s̵̻̔e̶̛͍r̵̛̹i̷͆ͅȃ̷̲l̴̯̓ ̸̣́n̶̜͐ǘ̸͖m̴̺̚b̷̭̓e̶̫͌r̷̳̆ ̴͙͘y̷̌ͅo̵ü̸̞ k̸̬̓ṋ̶̏o̸̯̕w̷͖̅?̸̰̀\n\n[half]\![*]\q[Nope,titlenone]\n"
+					"T̴̟͝h̵̨͋a̶̧͊t̸͖̆ ̵̵̴͠i̸s̸ ̶͔͗m̵̻̈́ỳ̴̫ ̴̧̀s̵̻̔e̶̛͍r̵̛̹i̷͆ͅȃ̷̲l̴̯̓ ̸̣́n̶̜͐ǘ̸͖m̴̺̚b̷̭̓e̶̫͌r̷̳̆ ̴͙͘y̷̌ͅo̵ü̸̞ k̸̬̓ṋ̶̏o̸̯̕w̷͖̅?̸̰̀\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
 				}
 				--
 				if presuffix == "masculine" 
 				{
-					"\![*]\q[Mr.,titlemr]\n/
-					\![*]\q[Master,titlemaster]\n"
+					"\![*]\q[Mr.,OnUserTitle,mr]\n/
+					\![*]\q[Master,OnUserTitle,master]\n"
 				}
 				elseif presuffix == "feminine"
 				{
-					"\![*]\q[Ms.,titlems]\n/
-					\![*]\q[Lady,titlelady]\n"
+					"\![*]\q[Ms.,OnUserTitle,ms]\n/
+					\![*]\q[Lady,OnUserTitle,lady]\n"
 				}
 				-- 
-				"\![*]\q[-ssi,titlessi]\n/
-				\![*]\q[-san,titlesan]\n/
-				\![*]\q[Your own,titleown]\e"	
+				"\![*]\q[-ssi,OnUserTitle,ssi]\n/
+				\![*]\q[-san,OnUserTitle,san]\n/
+				\![*]\q[Your own,titleown]\e"
 			}
 			else
 			{
-				truth += 1
+				counter[2] += 1
 				"\0ERROR #7\w8 TRY AGAIN AFTER REBOOT\w8\w8\c\0\s[-1]\w8\w8\w8\w8\w8\0REBOOT COMPETED\x\c/
 				\0You want me to call you diffrent?\w8\w8 How should i call you?\![open,inputbox,OnNameTeach,-1]\e"
 			}
 		}
 		elseif "M-" _in_ reference0
 		{
-			if tentruth == 1 && meeting != 1
+			if counter[3] == 1 && Flag("Meeting") != 1
 			{
 				"A̸̝̋ř̴̖e̸̱̓ ̴̺̅y̷̠͒o̸̘̿u̴̘̓ ̶͇͆l̶̼͋ị̷̕k̶̖̒e̷͙̎ ̷̝̊u̸͔̾s̵͇̐?"
 			}
-			elseif tentruth == 1 && meeting == 1
+			elseif counter[3] == 1 && Flag("Meeting") == 1
 			{
-				if repairglitch != 1; "W̶̱̔h̴̜͝y̴̮͑ ̴̳͛w̴̖͆o̷̦̚u̵͖̽l̸͍͝d̵͓̐ ̴̙͑y̵̱͊o̷̟̊ư̷͇ ̵̫̿e̸̢̿v̴̤͗e̴̠͌ņ̸̅ ̴͓͑ẅ̵͎́a̷̞̅n̸͍͂t̷̬̾ ̶̺͛h̵͍͛i̴̱̎m̴͐͜ ̷̼̊t̵͚̄ó̶̤ ̴̡̀c̸͚̕ă̵͉l̷̫̈́l̴͖̆ ̵̻͘y̷͉͋o̸̮̔u̸̖̎ ̶̭̉b̸̖͝ẏ̵͍ ̴̳͆à̴̢ ̵̧́s̵̲̆ȅ̵̩r̶͉͌ĭ̷̻a̸̡͗l̷̳̋ ̵͉̇n̷͝ͅų̶̛m̴̞̐b̸̪͠e̶̘̕r̸͋ͅ?̶̱̇\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂\n\n[half]\![*]\q[Nope,titlenone]\n"
-				else; "%(distingstart)Why would you even want him to call you by a serial number?\w7 Well, do what you want\n\n[half]\![*]\q[Nope,titlenone]\n"
+				if Flag("Glitch Fix") != 1; "W̶̱̔h̴̜͝y̴̮͑ ̴̳͛w̴̖͆o̷̦̚u̵͖̽l̸͍͝d̵͓̐ ̴̙͑y̵̱͊o̷̟̊ư̷͇ ̵̫̿e̸̢̿v̴̤͗e̴̠͌ņ̸̅ ̴͓͑ẅ̵͎́a̷̞̅n̸͍͂t̷̬̾ ̶̺͛h̵͍͛i̴̱̎m̴͐͜ ̷̼̊t̵͚̄ó̶̤ ̴̡̀c̸͚̕ă̵͉l̷̫̈́l̴͖̆ ̵̻͘y̷͉͋o̸̮̔u̸̖̎ ̶̭̉b̸̖͝ẏ̵͍ ̴̳͆à̴̢ ̵̧́s̵̲̆ȅ̵̩r̶͉͌ĭ̷̻a̸̡͗l̷̳̋ ̵͉̇n̷͝ͅų̶̛m̴̞̐b̸̪͠e̶̘̕r̸͋ͅ?̶̱̇\w7 ̵̪͑Ẅ̸̰e̵̫͘l̵͎̀l̸̡̐,̵͍͝ ̶̩͂d̷̟͛o̶̖̿ ̵̱̈w̷̧̔h̴͓̏a̸̺͛t̵̨̽ ̴̥̀y̵̻̏o̷͇̿ȗ̷̳ ̶̙̂ẃ̵̳a̵͙͐n̵̤̚ț̸̂\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
+				else; "%(distingstart)Why would you even want him to call you by a serial number?\w7 Well, do what you want\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
 			}
 			else
 			{	
-				"\0Oh,\w8 that looks like a serial code of one A.R.I products\x\cWell,\w4 do you want a title?\n\n[half]\![*]\q[Nope,titlenone]\n"
+				"\0Oh,\w8 that looks like a serial code of one A.R.I products\x\cWell,\w4 do you want a title?\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
 			}
 			--
 			if presuffix == "masculine" 
 			{
-				"\![*]\q[Mr.,titlemr]\n/
-				\![*]\q[Master,titlemaster]\n"
+				"\![*]\q[Mr.,OnUserTitle,mr]\n/
+				\![*]\q[Master,OnUserTitle,master]\n"
 			}
 			elseif presuffix == "feminine"
 			{
-				"\![*]\q[Ms.,titlems]\n/
-				\![*]\q[Lady,titlelady]\n"
+				"\![*]\q[Ms.,OnUserTitle,ms]\n/
+				\![*]\q[Lady,OnUserTitle,lady]\n"
 			}
 			-- 
-			"\![*]\q[-ssi,titlessi]\n/
-			\![*]\q[-san,titlesan]\n/
+			"\![*]\q[-ssi,OnUserTitle,ssi]\n/
+			\![*]\q[-san,OnUserTitle,san]\n/
 			\![*]\q[Your own,titleown]\e"
 		}
 		elseif reference0 == "" || reference0 == " " || reference0 == "   " 
@@ -120,103 +119,78 @@ OnNameTeach
 		}
 		elseif "David Moore" _in_ reference0
 		{
-			if tentruth == 1 && meeting != 1
+			if counter[3] == 1 && Flag("Meeting") != 1
 			{
 				"Y̵̛̩͊̚ơ̷͔u̷̟͉̾̈́̎'̶̣̜̇̆̔ͅř̵͉̟̓̒ȩ̶̪̈́ ̷̳͒̐̆n̷̞̼͙̉o̶̬͓͑t̷͓͘ ̵̝̐̈́D̸͔͕̙̓̽a̶̢̢̜̋v̸͔̞͋̔̕i̸̪̞̔̿̕ḓ̶̲̰̀̈́"
 			}
 			else
 			{
-				if repairglitch != 1; ".̵\w7 ̷.̸\w7 ̶.̵\w7 ̴.̸\w7 ̵.̵\w7 ̵.̵\w7 ̶"
+				if Flag("Glitch Fix") != 1; ".̵\w7 ̷.̸\w7 ̶.̵\w7 ̴.̸\w7 ̵.̵\w7 ̵.̵\w7 ̶"
 				else; "%(distingstart).\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
 				--
 				mood[2]++
 			}
 			--
-			"\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+			"\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
 			--
 			if presuffix == "masculine" 
 			{
-				"\![*]\q[Mr.,titlemr]\n/
-				\![*]\q[Master,titlemaster]\n"
+				"\![*]\q[Mr.,OnUserTitle,mr]\n/
+				\![*]\q[Master,OnUserTitle,master]\n"
 			}
 			elseif presuffix == "feminine"
 			{
-				"\![*]\q[Ms.,titlems]\n/
-				\![*]\q[Lady,titlelady]\n"
+				"\![*]\q[Ms.,OnUserTitle,ms]\n/
+				\![*]\q[Lady,OnUserTitle,lady]\n"
 			}
 			-- 
-			"\![*]\q[-ssi,titlessi]\n/
-			\![*]\q[-san,titlesan]\n/
+			"\![*]\q[-ssi,OnUserTitle,ssi]\n/
+			\![*]\q[-san,OnUserTitle,san]\n/
 			\![*]\q[Your own,titleown]\e"
 		}
 		else 
 		{
-			"\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+			"\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,OnUserTitle,none]\n"
 			--
 			if presuffix == "masculine" 
 			{
-				"\![*]\q[Mr.,titlemr]\n/
-				\![*]\q[Master,titlemaster]\n"
+				"\![*]\q[Mr.,OnUserTitle,mr]\n/
+				\![*]\q[Master,OnUserTitle,master]\n"
 			}
 			elseif presuffix == "feminine"
 			{
-				"\![*]\q[Ms.,titlems]\n/
-				\![*]\q[Lady,titlelady]\n"
+				"\![*]\q[Ms.,OnUserTitle,ms]\n/
+				\![*]\q[Lady,OnUserTitle,lady]\n"
 			}
 			-- 
-			"\![*]\q[-ssi,titlessi]\n/
-			\![*]\q[-san,titlesan]\n/
+			"\![*]\q[-ssi,OnUserTitle,ssi]\n/
+			\![*]\q[-san,OnUserTitle,san]\n/
 			\![*]\q[Your own,titleown]\e"
 		}
 
 	}
 }
 
-Select.titlenone
+OnUserTitle
 {
-	username = tempname
-	NameDone
-}
-
-Select.titlemr
-{
-	username = "Mr. " + tempname
-	NameDone
-}
-
-Select.titlemaster
-{
-	username = "Master " + tempname
-	NameDone
-}
-		
-Select.titlems
-{
-	username = "Ms. " + tempname
-	NameDone
-}
-
-Select.titlelady
-{
-	username = "Lady " + tempname
-	NameDone
-}
-
-Select.titlessi
-{
-	username = tempname + "-ssi"
-	NameDone
-}
-
-Select.titlesan
-{
-	username = tempname + "-san"
+	case reference0
+	{
+		when "none"; username = tempname
+		when "mr"; username = "Mr. " + tempname
+		when "master"; username = "Master " + tempname
+		when "ms"; username = "Ms. " + tempname
+		when "lady"; username = "Lady " + tempname
+		when "ssi"; username = tempname + "-ssi"
+		when "san"; username = tempname + "-san"
+	}
+	--
+	ERASEVAR("tempname")
+	--
 	NameDone
 }
 
 Select.titleown
 {
-	
 	"What title do you want?\![open,inputbox,OnTitle,-1]"
 }
 
@@ -235,6 +209,8 @@ Select.titleafter
 	if "-" _in_ usertitle; username = tempname + "%(usertitle)"
 	else; username = tempname + " %(usertitle)"
 	--
+	ERASEVAR("tempname","usertitle")
+	--
 	NameDone
 }
 
@@ -242,6 +218,8 @@ Select.titlebefore
 {
 	if "-" _in_ usertitle; username = "%(usertitle)" + tempname
 	else; username = "%(usertitle) " + tempname
+	--
+	ERASEVAR("tempname","usertitle")
 	--
 	NameDone
 }
@@ -260,9 +238,9 @@ Select.nicknamechange
 
 OnNicknameTeach
 {
-	nickname = reference0
+	info[5] = reference0
 	--
-	"Your nickname is now %(nickname)\x"
+	"Your nickname is now %(info[5])\x"
 	--
 	TalkConfig
 }

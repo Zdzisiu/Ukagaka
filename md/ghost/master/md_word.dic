@@ -1,0 +1,90 @@
+﻿//**** Don't touch this ***************************************************************
+On_\person
+{
+ 	person
+}
+
+OWO 
+{
+	_word = SPLIT(_argv[0]," ") //get the sentence and split it into words
+	//Initialize the variables
+	_debug = ""
+	_owo = IARRAY
+	_chr = IARRAY
+	_strlng = 0
+	_vow = ("o","a","e","i") //vowels
+	--
+	if RAND(10) == 1; _owo ,= "%(pre_owo)" //if random number == 1 add something from the envelope
+	--
+	for _i=0;_i<ARRAYSIZE(_word);_i++
+	{
+		_word[_i] = RE_REPLACE(_word[_i],"(r|l)","w") //replace all 'r' and 'l' with 'w'
+		_word[_i] = RE_REPLACE(_word[_i],"(R|L)","W") //replace all 'R' and 'L' with 'W'
+		--
+		for _j=0;_j<4;_j++ //loop to get all vowels
+		{
+			_word[_i] = REPLACE(_word[_i],"n"+_vow[_j],"ny"+_vow[_j]) //replace all 'no'|'ne'|'ni'|'na' with 'nyo'|'nye'|'nyi'|'nya'
+			_word[_i] = REPLACE(_word[_i],"N"+_vow[_j],"Ny"+_vow[_j]) //replace 'No'|'Ne'|'Ni'|'Na' with 'Nyo'|'Nye'|'Nyi'|'Nya'
+		}
+		--
+		_chr = CHARSPLIT(_word[_i]) //split the word into single characters in an array
+		_strlng = STRLEN(_word[_i]) //get the lenght of the word
+		--
+		if RAND(10) == 1; _owo ,= _chr[0] + "-" + _word[_i]  //if random number == 1 add a 'stutter' (repeat the first letter with an -)
+		else; _owo ,= _word[_i]   //else just add the word to _owo array
+		--
+		if _chr[_strlng-1] == "y" //if the last letter == 'y' repeat the word but the first letter is 'w'
+		{
+			_chr[0] = "w" //make the first letter w
+			_owo ,= REPLACE("%(_chr)",",","") //add to _owo envelope as one word
+		}
+		--
+		_debug += "%(_chr)" + " : " +  _chr[_strlng-1] + " | "
+	}
+	--
+	if RAND(10) == 3; _owo ,= "%(suf_owo)" //if random number == 1 add something from the envelope
+	--
+	REPLACE("%(_owo)",","," ") //return the sentence
+	//_debug
+}
+
+pre_owo : nonoverlap
+{
+	"OwO"
+	"UwU"
+	"hehe"
+	"*nuzzles*"
+	"*giggles*"
+}
+
+suf_owo : nonoverlap
+{
+	":3"
+	">:3"
+	"xox"
+	">3<"
+	"UwU"
+	"OwO"
+	"hehe"
+	"ɾ⚈▿⚈ɹ"
+	"(・ω・)"
+	"(ᗒᗨᗕ)"
+	"(*≧▽≦)"
+	"( ﾟ∀ ﾟ)"
+	"( ・ ̫・)"
+
+}
+
+//USE:
+//CHARSPLIT('word') will return 'w,o,r,d'
+CHARSPLIT
+{
+    _char = IARRAY //declare an array
+    _strlen = STRLEN(_argv[0]) //get how many letters the word has
+    for _i=0;_i<_strlen;_i++
+    {
+        _char[_i] = SUBSTR(_argv[0],_i,1)//get the [_i] letter from the word and save it into an array
+	}
+    --
+    _char //display the array
+}

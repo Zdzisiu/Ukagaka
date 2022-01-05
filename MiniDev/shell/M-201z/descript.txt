@@ -8,7 +8,7 @@ charset,UTF-8
 type,shell
 name,M-201z
 craftman,Zdzisiu
-homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/M-z/
+homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/M-201z/
 
 sakura.balloon.offsetx,0
 sakura.balloon.offsety,0

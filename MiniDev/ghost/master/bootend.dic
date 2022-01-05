@@ -9,28 +9,26 @@
  	teachusername    = 0 	
 	mikireflag       = 0 
 	completed = 0
-	apps = 0 //Apps tutorial 
-	tooln = "OFF" //q-tools on
-	weathermenu = "OFF" //weather on menu
-	moonmenu = "OFF" //moonphase on menu
+	//apps = 0 //Apps tutorial 
+	button[0] = "OFF" //q-tools on
+	button[19] = "OFF" //weather on menu
+	button[20] = "OFF" //moonphase on menu
 	curlocation = "" 
 	locationcode = "" 
-	hoodoo = 0 //skin hoodoo
-	gian = 0 //skin gian
-	kagamari = 0 //skin kagamari
-	sticky = "OFF" //stick q-tools to MD
+	//hoodoo = 0 //skin hoodoo
+	//gian = 0 //skin gian
+	//kagamari = 0 //skin kagamari
+	button[28] = "OFF" //stick q-tools to MD
  	aitalkinterval = 400 
  	birthdayprint = "????" 
 	talktime = "5 minutes" 
-	animalslearnt = 0
+	//animalslearnt = 0
 	deleteshitai = "OFF" 
-	m201relationship = 0 
+	relationships[0] = 0 
 	nowshell = "Original Dev" 
-	devname = "MiniDev" //MD name
-	mode = 2 //dark mode/ligt mode
-	modelp = RAND(1000) //MD Model
-	--
-	FirstBootArrays // log arrays
+	info[6] = "MiniDev" //MD name
+	button[29] = 2 //dark mode/ligt mode
+	info[7] = RAND(1000) //MD Model
 	--
 	FirstBootVariables // story variables
 	--
@@ -38,13 +36,11 @@
 	--
 	OnCommTrue //Communication true
 	--
-	OnToolCheck //Check tools for blank variables
-	--
 	OnMoveQTool 
 	--
 	if reference0 == 0 
  	{
-		"\1\s[10]\0\s[0]\![open,file,ghost/master/credits-readme.txt]\cHello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
+		"\1\s[10]\0\s[0]\![open,file,ghost/master/credits-readme.txt]\![enter,passivemode]\cHello there beta tester!\x\c My code is M-%(modelp)P\w6 but you can call me %(devname)!\x\cI'm your desktop helper provided by A.R.I — Assistant Robots International\x\cYou can customize my look, traits and change my name in the config menu\x\cI can tell you weather forecast and moon phase,\w8 you can save notes inside my logs and make to-do list.\w\cI also can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\![leave,passivemode]\n\n[half]/
 		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
 		\![*]\q[They/Them/Their,choicefirsttheythem]\n/
@@ -52,16 +48,113 @@
  	}
 	else
  	{
- 		{
- 			"\![open,file,ghost/master/credits-readme.txt]\0\s[0]\0\s[0]Hello again %(users)!\e"
-		}
+ 		"\![open,file,ghost/master/credits-readme.txt]\0\s[0]\0\s[0]Hello again!\e"
  	}
+}
+
+OnEraseVar
+{
+	_temp = ""
+	_temp = explained
+	explained = IARRAY
+	explained = SPLIT(_temp," ")
+	--
+	_temp = ""
+	_temp = questionsasked
+	questionsasked = IARRAY
+	questionsasked = SPLIT(_temp," ")
+	--
+	counter[0] = devlogcount
+	counter[1] = userlogs
+	counter[2] = truth
+	counter[3] = tentruth
+	counter[4] = remindcount
+	counter[5] = mornings
+	counter[6] = midnight
+	counter[7] = todopagenum
+	counter[8] = pagenum
+	counter[9] = devlogpage
+	counter[10] = logpage
+	counter[11] = numcheck
+	counter[12] = userlosses
+	counter[13] = userwins
+	counter[14] = cheerups
+	counter[15] = draws
+	counter[16] = games
+	counter[17] = afternoon
+	counter[18] = ghostmet
+	--
+	ERASEVAR("devlogcount","userlogs","truth","tentruth","mornings","midnight","todopagenum","pagenum","devlogpage","logpage","userlosses","userwins","cheerups","draws","games","afternoon","ghostmet")
+	--
+	for _i=0;_i<31;_i++
+	{
+		button[_i] = "OFF"
+	}
+	--
+	button[29] = 1
+	--
+	ERASEVAR("tooln","dlbtn","MDisable","logbtn","trabtn","webtn","setbtn","statbtn","todobtn","cusbtn","appbtn","nice","smart","optimistic","pessimistic","stupid","funny","romantic","usedefring","weathermenu","moonmenu","upchec","pastel","bright","plain","dark","hrnt","noticewin","sticky","mode")
+	--
+	relationships[0] = relationships[0]
+	relationships[1] = explained
+	relationships[2] = questionsasked
+	relationships[3] = m201zcharacter
+	relationships[4] = usercharacter
+	--
+	ERASEVAR("relationships[0]","explained","questionsasked","m201zcharacter","usercharacter")
+	--
+	info[0] = hsphere
+	info[1] = projecttypes
+	info[2] = dateformatype
+	info[3] = timeformatype
+	info[4] = vers
+	info[5] = nickname
+	info[6] = devname
+	info[7] = modelp
+	--
+	ERASEVAR("hsphere","projecttypes","dateformatype","timeformatype","vers","nickname","devname","modelp")
+	--
+	other[0] = "ui"
+	other[1] = colorty
+	other[2] = ctype
+	other[3] = cnum
+	--
+	ERASEVAR("uiclps","clrclps","mdclps","qbtnclps","menclps","othclps","colorty","ctype","cnum")
+	--
+	unlockable[0] = outfitS
+	unlockable[1] = aurora
+	unlockable[2] = azura
+	--
+	ERASEVAR("outfitS","aurora","azura","outfitaurora","outfitazura")
+	--
+	if truthboot == 1; MiscFlag ,= "Truth Boot"
+	--
+	if meeting == 1; MiscFlag ,= "Meeting"
+	--
+	if narrator == 1; MiscFlag ,= "Narrator"
+	--
+	if token == 1; MiscFlag ,= "Token"
+	--
+	if glitchconvo == 1; MiscFlag ,= "Glitch Convo-Azura"
+	--
+	if oldntbk == 1; MiscFlag ,= "Old Notebook"
+	--
+	if othermz == 1; MiscFlag ,= "Other M-z"
+	--
+	if david == 1; MiscFlag ,= "David"
+	--
+	ERASEVAR("templogdate","templogname","temploggen","templogmod","somecomt","hoodoo","gian","kagamari","truthboot","meeting","narrator","token","david","othermz","oldntbk","glitchconvo","calcbtn","lesbtn","Test","rude","curses","insults","outgoing","loner","djokes","pocket","toup","action","romancet","ecchi","drama","horror","BL","GL","websrch","stps","ingrs","dltrec","urecnum","srecnum","sirecnum","apps","devop","cdtypetemp","animalslearnt","animals","arr","other")
+	--
+	MiscFlag ,= "New Variables"
+	--
+	"Variables Updated"
+
 }
 
 OnTenTruth //story boot
 {
-	tentruth = 1
-
+	counter[3] = 1
+	--
 	"\1\s[10]\0\s[0]Hello there beta tester!\x\c My code is M̸̡̂-̸̜̀2̵͚̿0̶͚̊1̵̨́ẕ̶̈́\w6 but you can call me M̵͖̠̜͙͖͚͍̳͎͕̳̦̿̉̓̓̐́̇̚͜ͅiniD̷͎̜̥̮͔̓̂̈͗̐͋̐̂̕͝͝ev̷̧͕̹͉̪͍͕͚̭̒͐̌̄͐̔̉̌̈͒̚̕͜ͅ\x\cI'm your desktop helper provided by A̶̬͓̗͖͇̻̲̥̬͖͕̙̦͗̿ͅ.̷̞̼̬͇̰̪̫̍̉͆́͌̒̓͝R̴͉̎̐.̸̨̘̳̣̲̰̟̜̤̰̫́̎̋̓̌͋̇̓̀͒͜ͅỊ̵̄—̶̖̒ ̸͙̇À̸̹s̶̢̎s̶̭͐i̵̳͆s̷̲͒t̴͎̍ą̴͝n̵̜͛ẗ̵͜ ̷̘̑R̸̭͌ǫ̴͘b̸̻͠o̶̮̅t̷͚̽ṡ̷̘ ̷͖̌I̵̻͌n̴̥͠t̸͎̔ȩ̶͛r̷̥̽n̶̰͛ă̸̻t̵̼̏i̴̼̓o̵̙͊n̴̰̔a̵͈̋l̶̕ͅ\x\cYou can customize my look, traits, likes and dislikes, and change m̵̮̒y̶̟͘ ̸̳̀n̷̬̍a̷̓ͅm̴̲͂ẻ̸͚ in the config menu\x\cI can tell you weather forecast and moon phase,\w8 translate b̸̝̔i̵̟̐n̷͔̈ā̴̙r̴͉̈́y̸̮̔ and M̴̧̿õ̶̝r̵̲̒s̶̛͖ę̵̿\x\cYou can save notes inside my l̸͓͛o̸̗͠g̶̮͘s̸̗͑ and make to-do lists.\w\cI also have a calculator and can show you usage graphs of balloons and ghosts\x\cNow\w7 how should I refer to you, user?\n\n[half]/
 	\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 	\![*]\q[She/Her/Hers,choicefirstsheher]\n/
@@ -81,14 +174,16 @@ OnMood
 		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "; mood[_i] = 0
 	}
 	--
+	_ranmood = 0
+	--
 	for _i=0;_i<moodsize*2;_i++
 	{
-		ranmood = RAND(moodsize)
+		_ranmood = RAND(moodsize)
 		--
-		mood[ranmood] += RAND(10)
+		mood[_ranmood] += RAND(10)
 	}
 	--
-	if m201relationship < 100; mood[0] = 0
+	if relationships[0] < 100; mood[0] = 0
 	--
 	OnMoodCheck
 }
@@ -101,11 +196,13 @@ OnMoodShuffle
 		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "; mood[_i] = 0
 	}
 	--
+	_ranmood = 0
+	--
 	for _i=0;_i<moodsize*2;_i++
 	{
-		ranmood = RAND(moodsize)
+		_ranmood = RAND(moodsize)
 		--
-		mood[ranmood] += RAND(10)
+		mood[_ranmood] += RAND(10)
 	}
 	--
 	OnMoodCheck
@@ -114,6 +211,7 @@ OnMoodShuffle
 OnMoodCheck //evaluating the dominating mood
 {
 	moodstring = "" //clear the string
+	_ramod = 0
 	--
 	arr[0] = mood[0] //get the value of the first mood
 	--
@@ -126,9 +224,9 @@ OnMoodCheck //evaluating the dominating mood
 		}
 		elseif arr[0] == TOINT(mood[_j]) //if two moods have the same value, take one randomly
 		{
-			ramod = RAND(2)
+			_ramod = RAND(2)
 			--
-			if ramod == 1
+			if _ramod == 1
 			{
 				arr[0] = mood[_j]
 				numofmood = _j
@@ -194,14 +292,13 @@ Select.choicefirsttheythem
 	NameInput
 }
 
-
 NameInput
 {
 	introduction = 0 
 	--
-	if tentruth == 1 //story boot
+	if counter[3] == 1 //story boot
 	{
-		truthboot = 1
+		MiscFlags ,= "Truth Boot"
 		"\0\s[0]I w̴̨̡̢̲̪̝̗̾̉͌̀̉͑͋̕ͅḯ̵̢͎̱̟͖͈͚̋͛́͘l̷̢̛̩͓̻̰͂́͑̾ľ̵̢̢̙͕̗͕̼̺͗̄̒̈͛͋͆́̐͠͝ remember that!\w8\0\s[0] And your ń̷̖̝̭̹̺̄̈̑́̏͝͝a̴̢͚̥̼͐͑m̸̼̼̮͖̯͎̯̖̑̾̏̒̒̀̊̆̕͝e̴̲̻̯̤̪̰̫͓̞̯͙̲̭̿̀́̀̀̎̈́̕ͅ is?\![open,inputbox,OnNameTeach,-1]\e"
 	}
 	else
@@ -231,12 +328,12 @@ OnBoot
 	lastTalk = "" 
 	passmin = 0
 	passsec = 0
-	numcheck = 0
-	userlosses = 0
-	userwins = 0
-	cheerups = 0
-	draws = 0
-	games = 0
+	counter[11] = 0
+	counter[12] = 0
+	counter[13] = 0
+	counter[14] = 0
+	counter[15] = 0
+	counter[16] = 0
 	intalkconfig = 0 
 	weatherquiet = 0 
 	exponentiation = 0 
@@ -253,21 +350,21 @@ OnBoot
 	--
 	OnCommTrue
 	--
-	OnToolCheck
-	--
 	OnArraysCheck
 	--
 	OnCharacterCheck
 	--
-	if token == 0; "\![execute,http-get,http://ukg.ct8.pl/token.txt,--async=OnTokenCheck,--file=token.txt,--timeout=200]"
+	if Flag("Token") != 1; "\![execute,http-get,http://ukg.ct8.pl/token.txt,--async=OnTokenCheck,--file=token.txt,--timeout=200]"
 	--
-	if truth >= 10 && truthboot == 0
+	if Flag("New Variables") != 1; OnEraseVar
+	--
+	if counter[2] >= 10 && Flag("Truth Boot") != 1
 	{
 		OnTenTruth
 	}
-	elseif tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)
+	elseif counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55)
 	{
-		if dayslot == userbirthday ; "\0Happy B̶͉̕ï̴͓r̵̞̕t̷̠̀h̸́ͅd̵̀͜ǎ̸͕y̷̪͋ %(username)\e" 			
+		if dayslot == userbirthday ; "\0Happy B̶͉̕ï̴͓r̵̞̕t̷̠̀h̸́ͅd̵̀͜ǎ̸͕y̷̪͋ %(username)\e"
 		elseif dayslot == "6month 6day"; "\0Today is June 6th.\e"
 		elseif dayslot == "7month 4day"; "\0It's the fourth of July.\e"		
 		else; "%(normalboottalk)" 
@@ -283,11 +380,9 @@ OnBoot
 
 OnCharacterCheck
 {
-	if mornings > 75 && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter; m201zcharacter += "mornings-bird "
+	if counter[5] > 75 && "mornings-bird" !_in_ relationships[3] && "late-night-owl" !_in_ relationships[3] && "afternoon-cat" !_in_ relationships[3]; relationships[3] += "mornings-bird "
 	--
-	if midnight > 75 && "late-night-owl" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "afternoon-cat" !_in_ m201zcharacter; m201zcharacter += "late-night-owl "
-	--
-	if midnight > 75 && "afternoon-cat" !_in_ m201zcharacter && "mornings-bird" !_in_ m201zcharacter && "late-night-owl" !_in_ m201zcharacter; m201zcharacter += "afternoon-cat "
+	if counter[6] > 75 && "late-night-owl" !_in_ relationships[3] && "mornings-bird" !_in_ relationships[3] && "afternoon-cat" !_in_ relationships[3]; relationships[3] += "late-night-owl "
 }
 
 normalboottalk
@@ -299,66 +394,66 @@ normalboottalk
 	}
 	else 
 	{*/
-	if tentruth == 1 && meeting == 1
+	if counter[3] == 1 && Flag("Meeting") == 1
 	{
 		if timeslot == "morning" || timeslot == "earlymorning"
 		{
-			if "mornings-bird" !_in_ m201zcharacter; mornings++
+			if "mornings-bird" !_in_ relationships[3]; counter[5]++
 			--
-			if "late-night-owl" _in_ m201zcharacter
+			if "late-night-owl" _in_ relationships[3]
 			{
 				mood[2]++
 				--
-				if repairglitch != 1; "H̸o̷w̷ ̶c̴a̷n̶ ̶y̷o̵u̶ ̸e̶v̴e̵n̵ ̴l̶i̷v̶e̵ ̵t̴h̴i̵s̴ ̵e̸a̷r̷l̸y̷"
+				if Flag("Glitch Fix") != 1; "H̸o̷w̷ ̶c̴a̷n̶ ̶y̷o̵u̶ ̸e̶v̴e̵n̵ ̴l̶i̷v̶e̵ ̵t̴h̴i̵s̴ ̵e̸a̷r̷l̸y̷"
 				else; "%(distingstart)How can you even live this early"
 			}
 			--
-			if "mornings-bird" _in_ m201zcharacter
+			if "mornings-bird" _in_ relationships[3]
 			{
-				if repairglitch != 1; "O̵h̶,̷ ̵y̸o̷u̴'̷r̶e̴ ̵u̴p̷ ̵e̴a̸r̵l̴y̶,̶ ̸g̴o̵o̶d̵ ̸m̶o̶r̴n̶i̸n̵g̸ ^^"
+				if Flag("Glitch Fix") != 1; "O̵h̶,̷ ̵y̸o̷u̴'̷r̶e̴ ̵u̴p̷ ̵e̴a̸r̵l̴y̶,̶ ̸g̴o̵o̶d̵ ̸m̶o̶r̴n̶i̸n̵g̸ ^^"
 				else; "%(distingstart)Oh, you're up early, good morning"
 			}
 		}
 		elseif timeslot == "midnight" || timeslot == "latenight"
 		{
-			if "mornings-bird" _in_ m201zcharacter
+			if "mornings-bird" _in_ relationships[3]
 			{
 				mood[2]++
 				--
-				if repairglitch != 1; "Y̷o̶u̷ ̴s̸h̸o̸u̵l̴d̶ ̷g̴o̶ ̶t̸o̵ ̷s̷l̷e̶e̶p̶ ̴i̴n̸s̸t̴e̵a̷d̴ ̷o̸f̵ ̷u̴s̶i̷n̶g̴ ̸a̴ ̶c̷o̷m̸p̵u̶t̸e̵r̵"
+				if Flag("Glitch Fix") != 1; "Y̷o̶u̷ ̴s̸h̸o̸u̵l̴d̶ ̷g̴o̶ ̶t̸o̵ ̷s̷l̷e̶e̶p̶ ̴i̴n̸s̸t̴e̵a̷d̴ ̷o̸f̵ ̷u̴s̶i̷n̶g̴ ̸a̴ ̶c̷o̷m̸p̵u̶t̸e̵r̵"
 				else; "%(distingstart)You should go to sleep instead of using a computer"
 			}
 			--
-			if "late-night-owl" !_in_ m201zcharacter; midnight++
+			if "late-night-owl" !_in_ relationships[3]; counter[6]++
 			--
-			if "late-night-owl" _in_ m201zcharacter
+			if "late-night-owl" _in_ relationships[3]
 			{
-				if repairglitch != 1; "W̵o̸w̵,̸ ̴y̷o̸u̸'̵r̸e̸ ̸u̶p̷ ̵l̶a̸t̴e̴\w6 \f[height,7]w̴e̴l̸l̶ ̴n̴o̵t̸ ̷t̴h̴a̴t̶ ̸I̸ ̴m̵i̸n̶d̸"
+				if Flag("Glitch Fix") != 1; "W̵o̸w̵,̸ ̴y̷o̸u̸'̵r̸e̸ ̸u̶p̷ ̵l̶a̸t̴e̴\w6 \f[height,7]w̴e̴l̸l̶ ̴n̴o̵t̸ ̷t̴h̴a̴t̶ ̸I̸ ̴m̵i̸n̶d̸"
 				else; "%(distingstart)Wow, you're up late\w6 \f[height,7]well not that I mind"
 			}
 		}
 		else
 		{
-			if "afternoon-cat" !_in_ m201zcharacter
+			if "afternoon-cat" !_in_ relationships[3]
 			{
-				afternoon++
+				counter[17]++
 			}
 			else
 			{
-				if repairglitch != 1; "P̴e̴r̶f̶e̷c̶t̶ ̶t̶i̵m̴e̶ ̵t̴o̸ ̶b̴e̵ ̵p̷r̵o̶d̸u̶c̵t̴i̴v̴e̶ ̶h̶u̴h̵?̶"
+				if Flag("Glitch Fix") != 1; "P̴e̴r̶f̶e̷c̶t̶ ̶t̶i̵m̴e̶ ̵t̴o̸ ̶b̴e̵ ̵p̷r̵o̶d̸u̶c̵t̴i̴v̴e̶ ̶h̶u̴h̵?̶"
 				else; "%(distingstart)Perfect time to be productive huh?"
 			}
 		}
 	}
 	--
-	if sticky == "ON"
+	if button[28] == "ON"
 	{
 		"\![set,sticky-window,1,0,3,4,5,6,7,8,9,10,11,12,13,14]"
 	}
 	--
 	"\0\s[0]%(hihello)%(users)\x\c"
 	--
-	if weathermenu == "ON" || moonmenu == "ON"
+	if button[19] == "ON" || button[20] == "ON"
 	{
 		if locationcode != ""
 		{
@@ -373,7 +468,7 @@ normalboottalk
 			OnWeatherLocation
 		}
 	}
-	elseif upchec == "ON"
+	elseif button[21] == "ON"
 	{
 		"Searching for software updates....\![updatebymyself,checkonly]\e"
 	}	
@@ -385,11 +480,11 @@ OnClose
 	--
 	if passmin >= 5	
 	{
-		if obsydian == 1
+		if Flag("Obsidian") == 1
     	{
 			if reference0 == "Dusty"
 			{
-				obsydian = 0
+				RemoveFlag("Obsidian")
 				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)\-\e"
 			}
 		}
@@ -400,11 +495,11 @@ OnClose
  	}	
  	else 
  	{
-		if obsydian == 1
+		if Flag("Obsidian") == 1
     	{
 			if reference0 == "Dusty"
 			{
-				obsydian = 0
+				RemoveFlag("Obsidian")
 				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(users)\-\e"
 			}
 		}
@@ -417,11 +512,11 @@ OnClose
 
 OnWindowStateMinimize
 {
-	if obsydian == 1
+	if Flag("Obsidian") == 1
 	{
 		if reference0 == "Dusty"
 		{
-			obsydian = 0
+			RemoveFlag("Obsidian")
 			"\0\s[0]\i[9000]%(byebye) kitty\e"
 		}
 	}
@@ -429,10 +524,10 @@ OnWindowStateMinimize
 
 OnWindowStateRestore
 {
-	if obsydian == 1; "\1\s[-1]\0\s[1]back to work"
+	if Flag("Obsidian") == 1; "\1\s[-1]\0\s[1]back to work"
 	else; "\1\s[-1]\0\s[0]back to work"
 	--
-	if tooln == "ON"; "%(lightdark)"
+	if button[0] == "ON"; "%(lightdark)"
 	--
 	"\e"
 }
@@ -445,11 +540,11 @@ OnGhostChanging
 	}
  	else 
 	{
-		if obsydian == 1
+		if Flag("Obsidian") == 1
     	{
 			if reference0 == "Dusty"
 			{
-				obsydian = 0
+				RemoveFlag("Obsidian")
 				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(reference0)\e"
 			}
 		}
@@ -470,11 +565,11 @@ OnGhostChanged
 	}
 	else 
 	{
-		if obsydian == 1
+		if Flag("Obsidian") == 1
     	{
 			if reference0 == "Dusty"
 			{
-				obsydian = 0
+				RemoveFlag("Obsidian")
 				"\0\s[0]\i[9000]%(byebye) kitty, %(byebye) %(reference0)\e"
 			}
 		}
@@ -504,207 +599,68 @@ OnArraysCheck //set arrays for logs
 {
 	if logdate == ""
 	{
-		templogdate = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
-		logdate = SPLIT(templogdate,",")
+		_templogdate = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
+		logdate = SPLIT(_templogdate,",")
 	}
 	--
 	if logname == ""
 	{
-		templogname = "NO DATA,Gdylg Prruh,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
-		logname = SPLIT(templogname,",")
+		_templogname = "NO DATA,Gdylg Prruh,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
+		logname = SPLIT(_templogname,",")
 	}
 	--
 	if loggen == ""
 	{
-		temploggen = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
-		loggen = SPLIT(temploggen,",")
+		_temploggen = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
+		loggen = SPLIT(_temploggen,",")
 	}
 	--
 	if logmod == ""
 	{
-		templogmod = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR" 
-		logmod = SPLIT(templogmod,",")
+		_templogmod = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR" 
+		logmod = SPLIT(_templogmod,",")
 	}
 	--
-	if somecomt == ""
+	if logcont == ""
 	{
-		somecomt = "NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA"
-		logcont = SPLIT(somecomt,",")
+		_somecomt = "NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA"
+		logcont = SPLIT(_somecomt,",")
 	}
-
-}
-
-FirstBootArrays //set arrays for logs
-{
-	templogdate = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
-	logdate = SPLIT(templogdate,",")
-	--
-    templogname = "NO DATA,Gdylg Prruh,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
-	logname = SPLIT(templogname,",")
-	--
-    temploggen = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
-	loggen = SPLIT(temploggen,",")
-	--
-    templogmod = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR" 
-	logmod = SPLIT(templogmod,",")
-	--
-	somecomt = "NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA"
-	logcont = SPLIT(somecomt,",")
-	--
-	devlogcontent[1] = "201: Look what i can do :D\w8\n201: You can update log to respond to me\w8\n201: It's like a chat!\w8\n201: So,\w5 how are you?\n"
 }
 
 FirstBootVariables 
 {
-	truth = 0
-	tentruth = 0
-	truthboot = 0
-	userlogs = 0
-	meeting = 0
-	devlogcount	= 1
-	AI = "OFF"
-	tooln = "OFF"
-	dlbtn = "OFF"
-	calcbtn = "OFF"
-	logbtn = "OFF"
-	lesbtn = "OFF"
-	webtn = "OFF"
-	setbtn = "OFF"
-	statbtn = "OFF"
-	trabtn = "OFF"
-	todobtn = "OFF"
-	cusbtn = "OFF"
-	appbtn = "OFF"
-	nice = "OFF"
-	smart  = "OFF"
-	optimistic  = "OFF"
-	pessimistic = "OFF"
-	stupid = "OFF"
-	funny = "OFF"
-	romantic = "OFF"
-}
-
-//\![raise,OnToolCheck]
-OnToolCheck //adding stuff after updates
-{
-	if vers == ""
+	_templogdate = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
+	logdate = SPLIT(_templogdate,",")
+	--
+    _templogname = "NO DATA,Gdylg Prruh,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
+	logname = SPLIT(_templogname,",")
+	--
+    _temploggen = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR"  
+	loggen = SPLIT(_temploggen,",")
+	--
+    _templogmod = "NO DATA,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR,ERROR" 
+	logmod = SPLIT(_templogmod,",")
+	--
+	_somecomt = "NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA,NO DATA"
+	logcont = SPLIT(_somecomt,",")
+	--
+	devlogcontent[1] = "201: Look what I can do :D\w8\n201: You can update log to respond to me\w8\n201: It's like a chat!\w8\n201: So,\w5 how are you?\n"
+	--
+	MiscFlags = IARRAY
+	counter = IARRAY
+	button = IARRAY
+	info = IARRAY
+	other = IARRAY
+	--
+	counter[0] = 1 
+	counter[1] = 0 
+	counter[2] = 0 
+	counter[3] = 0 
+	--
+	for _i = 0;_i<29;_i++
 	{
-		vers = "1.0.3"
-		--
-		quest = 0
-		//Name,color
-		colormeanings = "red.respect+desire+courage+true love+passion,yellow.happiness+joy+friendship+unrequited love,pink.love+happiness,orange.excitment+enthusiasm,white.purity+innocence+sympathy+truth,blue.peace+tranqility+relaxation,purple.success+royality+admiration,lavender.grace+elegance+youth,green.rebith+renewal+good fortune+youthfulness"
-		plants = "rose.red+orange+white+pink+yellow+green+blue+purple+bicolor+black.spring+summer+fall.full sun.none.roses,tulip.cream+white+yellow+orange+pink+red+purple+violet+black.spring.full sun+part sun.none.tulips,orchid.blue+magenta+purple+red+pink+white+yellow+orange+green+orange.varies.part sun.none.orchids,aster.blue+pink+purple+red+white.summer+fall.full sun+part sun.attracts butterflies.asters,dahlia.multicolor+orange+pink+purple+red+white+yellow.summer+fall.full sun.none.dahlias,sunflower.yellow+orange+red.summer.full sun.attracts birds and butterflies.sunflowers,astilbe.pink+red+white.spring+summer.part sun+shade.attracts butterflies.astilbes"
-		//Name,type,fluff or nah
-		animals = ""
-		animalslearnt = 0
-		questionsasked  = ""
-		m201zcharacter = ""
-		usercharacter = ""
-		--
-		if BL == ""; BL = "ON"
-		--
-		if GL == ""; GL = "ON"
-		--
-		if ecchi == ""; ecchi = "ON"
-		--
-		if romancet == ""; romancet = "ON"
-		--
-		if action == ""; action = "ON"
-		--
-		if drama == ""; drama = "ON"
-		--
-		if horror == ""; horror = "ON"
-		--
-		if m201relationship == ""; m201relationship = 0
-		--
-		for _i=0;_i<=taskamount;_i++
-		{
-			if "\f[" _in_ todos[_i]; todostatus[_i] = 1
-			else; todostatus[_i] = 0
-		}
-		--
-		if hsphere == ""; hsphere = "Northern"
-		--
-		if usedefring == ""; usedefring = "OFF"
-		--
-		if remindcount == ""; remindcount = 0
-		--
-		if weathermenu == ""; weathermenu = "OFF"
-		--
-		if moonmenu == ""; moonmenu = "OFF"
-		--
-		if tooln == ""; tooln = "OFF"
-		--
-		if dlbtn == ""; dlbtn = "OFF"
-		--
-		calcbtn = "OFF"
-		--
-		if logbtn == ""; logbtn = "OFF"
-		--
-		if lesbtn == ""; lesbtn = "OFF"
-		--
-		if webtn == ""; webtn = "OFF"
-		--
-		if setbtn == ""; setbtn = "OFF"
-		--
-		if statbtn == ""; statbtn = "OFF"
-		--
-		if trabtn == ""; trabtn = "OFF"
-		--
-		if todobtn == ""; todobtn = "OFF"
-		--
-		if cusbtn == ""; cusbtn = "OFF"
-		--
-		if appbtn == ""; appbtn = "OFF"
-		--
-		if sticky == ""; sticky = "OFF"
-		--
-		if nice == ""; nice = "OFF"
-		--
-		if rude == ""; rude = "OFF"
-		--
-		if curses == ""; curses = "OFF"
-		--
-		if insults == ""; insults = "OFF"
-		--
-		if stupid == ""; stupid = "OFF"
-		--
-		if smart == ""; smart = "OFF"
-		--
-		if romantic == ""; romantic = "OFF"
-		--
-		if outgoing == ""; outgoing = "OFF"
-		--
-		if loner == ""; loner = "OFF"
-		--
-		if optimistic == ""; optimistic = "OFF"
-		--
-		if pessimistic == ""; pessimistic = "OFF"
-		--
-		if djokes == ""; djokes = "OFF"
-		--
-		if pessimistic == ""; pessimistic = "OFF"
-		--
-		if pocket == ""; pocket = "OFF"
-		--
-		if projecttypes == ""; projecttypes = "sai sai2 mdp kra blend"
-		--
-		if upchec == ""; upchec = "OFF"
-		--
-		if dateformatype == ""; dateformatype = "dd/mm/yyyy"
-		--
-		if timeformatype == ""; timeformatype = "STANDARD"
-		--
-		if mornings == ""; mornings = 0
-		--
-		if midnight == ""; midnight = 0
-		--
-		OnUpdateVariables
-	}
-	else
-	{
-		OnUpdateVariables
+		button[_i] = "OFF"
 	}
 }
 
@@ -715,7 +671,7 @@ Select.move
 
 OnMoveQTool
 {
-	if sticky == "ON"
+	if button[28] == "ON"
 	{
 		"\![reset,sticky-window]"
 		--
@@ -731,11 +687,11 @@ OnMoveQTool
 
 OnOtherGhostChanged
 {
-    if obsydian == 1
+    if Flag("Obsidian") == 1
     {
         if reference0 == "Dusty"
         {
-            obsydian = 0
+            RemoveFlag("Obsidian")
             "\0\s[0]\i[9000]%(byebye) kitty\e"
         }
     }
@@ -743,11 +699,11 @@ OnOtherGhostChanged
 
 OnOtherGhostClosed
 {
-    if obsydian == 1
+    if Flag("Obsidian") == 1
     {
         if reference0 == "Dusty"
         {
-            obsydian = 0
+            RemoveFlag("Obsidian")
             "\0\s[0]\i[9000]%(byebye) kitty\e"
         }
     }
@@ -758,76 +714,78 @@ OnOtherGhostClosed
 //\![raise,OnUpdateVariables]
 OnUpdateVariables
 {
-	if vers == "1.0.3"
+	"\e"
+	--
+	if info[4] == ""
 	{
-		vers = "1.0.4"
+		info[4] = "1.0.3"
+		--
+		if relationships[0] == ""; relationships[0] = 0
+		--
+		if taskamount = ""; taskamount = 0
+		--
+		for _i=0;_i<=taskamount;_i++
+		{
+			if "\f[" _in_ todos[_i]; todostatus[_i] = 1
+			else; todostatus[_i] = 0
+		}
+		--
+		if info[0] == ""; info[0] = "Northern"
+		--
+		for _i = 0;_i<29;_i++
+		{
+			if button[_i] == ""; button[_i] = "OFF"
+		}
+		--
+		for _i = 0;_i<11;_i++
+		{
+			if counter[_i] == ""; counter[_i] = 0
+		}
+		--
+		if info[1] == ""; info[1] = "sai sai2 mdp kra blend"
+		--
+		if info[2] == ""; info[2] = "dd/mm/yyyy"
+		--
+		if info[3] == ""; info[3] = "STANDARD"
+		--
+		if info[3] == ""; info[3] = "STANDARD"
+	}
+	--
+	if info[4] == "1.0.3"
+	{
+		info[4] = "1.0.6"
 		namepage[0] = namepage
 		taskamount[0] = taskamount
 		pagetaskstatus[0] = REPLACE(todostatus,",","+")
 		tasks[0] = REPLACE(todos,",","+")
 		todopagenum = 0
-		pagenum = 0
-		pastel = "ON"
-		plain = "ON"
-		bright = "ON"
-		dark = "ON"
+		counter[8] = 0
+		button[22] = "ON"
+		button[23] = "ON"
+		button[24] = "ON"
+		button[25] = "ON"
 		explained = " "
-		--
-		OnUpdateVariables
 	}
-	elseif vers == "1.0.4"
+	if info[4] == "1.0.6"
 	{
-		vers = "1.0.5"
-		explained = " "
-		pastel = "ON"
-		plain = "ON"
-		bright = "ON"
-		dark = "ON"
-		--
-		OnUpdateVariables
-	}
-	elseif vers == "1.0.5"
-	{
-		vers = "1.0.6"
-		pastel = "ON"
-		plain = "ON"
-		bright = "ON"
-		dark = "ON"
-		--
-		OnUpdateVariables
-	}
-	elseif vers == "1.0.6"
-	{
-		//playlists = 0
-		//plistname = ""
-		vers = "1.0.7"
-		MDisable == "OFF"
-		narrator = 0
+		info[4] = "1.0.7"
+		button[2] == "OFF"
 		distingnarr = ""
 		nardistingtype = "default"
-		--
-		OnUpdateVariables
 	}
-	elseif vers == "1.0.7"
+	--
+	if info[4] == "1.0.7"
 	{
-		vers = "1.0.8"
+		info[4] = "1.0.8"
 		acc = "\f[color,#4cfc98]"
-		hrnt = "ON"
-		--
-		OnUpdateVariables
+		button[26] = "ON"
 	}
-	elseif vers == "1.0.8"
+	--
+	if info[4] == "1.0.8"
 	{
-		vers = "1.0.9"
+		info[4] = "1.0.9"
 		ghostmet = IARRAY
 		nickname = "user" + RAND(10000)
-		token = 0
-		uiclps = 1
-		clrclps = 1
-		mdclps = 1
-		qbtnclps = 1
-		menclps = 1
-		othclps = 1
 		--
 		if meetobsidian == 1; ghostmet ,= "Dusty"
 		--
@@ -839,16 +797,18 @@ OnUpdateVariables
 		--
 		if meetingomega == 1; ghostmet ,= "Omega"
 		--
-		if token == 0; "\![execute,http-get,http://ukg.ct8.pl/token.txt,--async=OnTokenCheck,--file=token.txt,--timeout=200]"
-	}
-	elseif vers == "1.0.9"
-	{
-		vers = "1.1.2"
-		noticewin = "OFF"
-		toup = IARRAY
+		ERASEVAR("meetingomega","metazura","meetplant","meetobsidian")
+		--
+		if Flag("Token") != 1; "\![execute,http-get,http://ukg.ct8.pl/token.txt,--async=OnTokenCheck,--file=token.txt,--timeout=200]"
 	}
 	--
-	if narrator == 0 && repairglitch == 1
+	if info[4] == "1.0.9"
+	{
+		info[4] = "1.1.2"
+		button[27] = "OFF"
+	}
+	--
+	if Flag("Narrator") != 1 && Flag("Glitch Fix") == 1
 	{
 		OnUnlockNarrator
 	}
@@ -899,7 +859,7 @@ OnTokenCheck
 		_z = FDEL(_file)
 		--
 		//"done"
-		token = 1
+		MiscFlags ,= "Token"
 	}
 }
 
@@ -907,7 +867,7 @@ OnUnlockNarrator
 {
 	"\0%(distingstart)Huh,\w5 There is a weird new file?\w5\n\n[half]Did it come with %(devname)'s latest update?\x\c%(distingstart)Was there something about it in the update note?\w8\n\n[half]Wait a second I will check what it is .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\x\c%(distingstart)\![open,file,narrator.txt]A narrator?\w6 why would an M-%(modelp)p need something like that?\x\c\1%(distingnarr)* You tell him you don't know\0%(distingstart)What\x\c\1* He seems confused\0%(distingstart)What is even happening\x\c\1%(distingnarr)* Please choose formatting for your narrator\0%(distingstart)Wait\w4 what is going on\x\c"
 	--
-	narrator = 1
+	MiscFlags ,= "Narrator"
 	--
 	OnFormattingNar
 }

@@ -1,0 +1,841 @@
+﻿//Pastel Dev
+
+seriko.use_self_alpha, 10
+sakura.seriko.alignmenttodesktop,bottom
+sakura.menu,hidden
+
+charset,UTF-8
+type,shell
+name,Original Dev
+craftman,Zdzisiu
+
+sakura.balloon.offsetx,0
+sakura.balloon.offsety,0
+kero.balloon.offsetx,0
+kero.balloon.offsety,0
+sakura.balloon.alignment,none
+kero.balloon.alignment,none
+
+shiori.logo.filename,resources\niseshiori.png
+shiori.logo.x,16
+shiori.logo.y,256
+
+menu.background.font.color.r,255
+menu.background.font.color.g,255
+menu.background.font.color.b,255
+
+menu.foreground.font.color.r,180
+menu.foreground.font.color.g,180
+menu.foreground.font.color.b,180
+
+menu.disable.font.color.r,222
+menu.disable.font.color.g,222
+menu.disable.font.color.b,222
+
+menu.separator.color.r,240
+menu.separator.color.g,240
+menu.separator.color.b,240
+
+menu.background.alignment,righttop
+menu.foreground.alignment,righttop
+menu.sidebar.alignment,bottom
+
+menu.background.bitmap.filename,menu_background.png
+menu.foreground.bitmap.filename,menu_foreground.png
+menu.sidebar.bitmap.filename,menu_sidebar.png
+
+//p = plain || d = dark || pl = pastel || b = bright
+
+sakura.bindgroup0.name,skin,light #1
+sakura.bindgroup6.name,skin,light #2
+sakura.bindgroup8.name,skin,light #3
+sakura.bindgroup11.name,skin,dark on light
+sakura.bindgroup2.name,skin,white
+sakura.bindgroup1.name,skin,dark #1
+sakura.bindgroup14.name,skin,dark #2
+sakura.bindgroup15.name,skin,dark #3
+sakura.bindgroup16.name,skin,dark #4
+sakura.bindgroup17.name,skin,dark #5
+sakura.bindgroup10.name,skin,light on dark
+sakura.bindgroup13.name,skin,black
+sakura.bindgroup3.name,skin,light green
+sakura.bindgroup4.name,skin,light blue
+sakura.bindgroup5.name,skin,light orange
+sakura.bindgroup7.name,skin,pink
+sakura.bindgroup9.name,skin,purple
+sakura.bindgroup12.name,skin,fish
+sakura.bindgroup19.name,skin,flower
+sakura.bindgroup20.name,skin,doll
+sakura.bindgroup18.name,skin,crystal
+
+
+sakura.bindgroup300.name,monitor,p yellow
+sakura.bindgroup301.name,monitor,p orange
+sakura.bindgroup302.name,monitor,p red
+sakura.bindgroup303.name,monitor,p pink
+sakura.bindgroup304.name,monitor,p purple
+sakura.bindgroup305.name,monitor,p dark blue
+sakura.bindgroup306.name,monitor,p blue
+sakura.bindgroup307.name,monitor,p green
+sakura.bindgroup308.name,monitor,p black
+sakura.bindgroup309.name,monitor,p gray
+sakura.bindgroup310.name,monitor,p white
+sakura.bindgroup311.name,monitor,pl yellow
+sakura.bindgroup312.name,monitor,pl orange
+sakura.bindgroup313.name,monitor,pl red
+sakura.bindgroup314.name,monitor,pl pink
+sakura.bindgroup315.name,monitor,pl purple
+sakura.bindgroup316.name,monitor,pl dark blue
+sakura.bindgroup317.name,monitor,pl blue
+sakura.bindgroup318.name,monitor,pl green
+sakura.bindgroup319.name,monitor,d yellow
+sakura.bindgroup320.name,monitor,d orange
+sakura.bindgroup321.name,monitor,d red
+sakura.bindgroup322.name,monitor,d pink
+sakura.bindgroup323.name,monitor,d purple
+sakura.bindgroup324.name,monitor,d dark blue
+sakura.bindgroup325.name,monitor,d blue
+sakura.bindgroup326.name,monitor,d green
+sakura.bindgroup327.name,monitor,b yellow
+sakura.bindgroup328.name,monitor,b orange
+sakura.bindgroup329.name,monitor,b red
+sakura.bindgroup330.name,monitor,b pink
+sakura.bindgroup331.name,monitor,b purple
+sakura.bindgroup332.name,monitor,b dark blue
+sakura.bindgroup333.name,monitor,b blue
+sakura.bindgroup334.name,monitor,b green
+
+sakura.bindgroup350.name,screen,p yellow
+sakura.bindgroup351.name,screen,p orange
+sakura.bindgroup352.name,screen,p red
+sakura.bindgroup353.name,screen,p pink
+sakura.bindgroup354.name,screen,p purple
+sakura.bindgroup355.name,screen,p dark blue
+sakura.bindgroup356.name,screen,p blue
+sakura.bindgroup357.name,screen,p green
+sakura.bindgroup358.name,screen,p black
+sakura.bindgroup359.name,screen,p gray
+sakura.bindgroup360.name,screen,p white
+sakura.bindgroup361.name,screen,pl yellow
+sakura.bindgroup362.name,screen,pl orange
+sakura.bindgroup363.name,screen,pl red
+sakura.bindgroup364.name,screen,pl pink
+sakura.bindgroup365.name,screen,pl purple
+sakura.bindgroup366.name,screen,pl dark blue
+sakura.bindgroup367.name,screen,pl blue
+sakura.bindgroup368.name,screen,pl green
+sakura.bindgroup369.name,screen,d yellow
+sakura.bindgroup370.name,screen,d orange
+sakura.bindgroup371.name,screen,d red
+sakura.bindgroup372.name,screen,d pink
+sakura.bindgroup373.name,screen,d purple
+sakura.bindgroup374.name,screen,d dark blue
+sakura.bindgroup375.name,screen,d blue
+sakura.bindgroup376.name,screen,d green
+sakura.bindgroup377.name,screen,b yellow
+sakura.bindgroup378.name,screen,b orange
+sakura.bindgroup379.name,screen,b red
+sakura.bindgroup380.name,screen,b pink
+sakura.bindgroup381.name,screen,b purple
+sakura.bindgroup382.name,screen,b dark blue
+sakura.bindgroup383.name,screen,b blue
+sakura.bindgroup384.name,screen,b green
+
+//expr | 1 = x 
+sakura.bindgroup1800.name,expr,p1 yellow
+sakura.bindgroup1801.name,expr,p1 orange
+sakura.bindgroup1802.name,expr,p1 red
+sakura.bindgroup1803.name,expr,p1 pink
+sakura.bindgroup1804.name,expr,p1 purple
+sakura.bindgroup1805.name,expr,p1 dark blue
+sakura.bindgroup1806.name,expr,p1 blue
+sakura.bindgroup1807.name,expr,p1 green
+sakura.bindgroup1808.name,expr,p1 black
+sakura.bindgroup1809.name,expr,p1 gray
+sakura.bindgroup1810.name,expr,p1 white
+sakura.bindgroup1811.name,expr,pl1 yellow
+sakura.bindgroup1812.name,expr,pl1 orange
+sakura.bindgroup1813.name,expr,pl1 red
+sakura.bindgroup1814.name,expr,pl1 pink
+sakura.bindgroup1815.name,expr,pl1 purple
+sakura.bindgroup1816.name,expr,pl1 dark blue
+sakura.bindgroup1817.name,expr,pl1 blue
+sakura.bindgroup1818.name,expr,pl1 green
+sakura.bindgroup1819.name,expr,d1 yellow
+sakura.bindgroup1820.name,expr,d1 orange
+sakura.bindgroup1821.name,expr,d1 red
+sakura.bindgroup1822.name,expr,d1 pink
+sakura.bindgroup1823.name,expr,d1 purple
+sakura.bindgroup1824.name,expr,d1 dark blue
+sakura.bindgroup1825.name,expr,d1 blue
+sakura.bindgroup1826.name,expr,d1 green
+sakura.bindgroup1827.name,expr,b1 yellow
+sakura.bindgroup1828.name,expr,b1 orange
+sakura.bindgroup1829.name,expr,b1 red
+sakura.bindgroup1830.name,expr,b1 pink
+sakura.bindgroup1831.name,expr,b1 purple
+sakura.bindgroup1832.name,expr,b1 dark blue
+sakura.bindgroup1833.name,expr,b1 blue
+sakura.bindgroup1834.name,expr,b1 green
+//2 = x x 
+sakura.bindgroup1600.name,expr,p2 yellow
+sakura.bindgroup1601.name,expr,p2 orange
+sakura.bindgroup1602.name,expr,p2 red
+sakura.bindgroup1603.name,expr,p2 pink
+sakura.bindgroup1604.name,expr,p2 purple
+sakura.bindgroup1605.name,expr,p2 dark blue
+sakura.bindgroup1606.name,expr,p2 blue
+sakura.bindgroup1607.name,expr,p2 green
+sakura.bindgroup1608.name,expr,p2 black
+sakura.bindgroup1609.name,expr,p2 gray
+sakura.bindgroup1610.name,expr,p2 white
+sakura.bindgroup1611.name,expr,pl2 yellow
+sakura.bindgroup1612.name,expr,pl2 orange
+sakura.bindgroup1613.name,expr,pl2 red
+sakura.bindgroup1614.name,expr,pl2 pink
+sakura.bindgroup1615.name,expr,pl2 purple
+sakura.bindgroup1616.name,expr,pl2 dark blue
+sakura.bindgroup1617.name,expr,pl2 blue
+sakura.bindgroup1618.name,expr,pl2 green
+sakura.bindgroup1619.name,expr,d2 yellow
+sakura.bindgroup1620.name,expr,d2 orange
+sakura.bindgroup1621.name,expr,d2 red
+sakura.bindgroup1622.name,expr,d2 pink
+sakura.bindgroup1623.name,expr,d2 purple
+sakura.bindgroup1624.name,expr,d2 dark blue
+sakura.bindgroup1625.name,expr,d2 blue
+sakura.bindgroup1626.name,expr,d2 green
+sakura.bindgroup1627.name,expr,b2 yellow
+sakura.bindgroup1628.name,expr,b2 orange
+sakura.bindgroup1629.name,expr,b2 red
+sakura.bindgroup1630.name,expr,b2 pink
+sakura.bindgroup1631.name,expr,b2 purple
+sakura.bindgroup1632.name,expr,b2 dark blue
+sakura.bindgroup1633.name,expr,b2 blue
+sakura.bindgroup1634.name,expr,b2 green
+//3 = o o 
+sakura.bindgroup1650.name,expr,p3 yellow
+sakura.bindgroup1651.name,expr,p3 orange
+sakura.bindgroup1652.name,expr,p3 red
+sakura.bindgroup1653.name,expr,p3 pink
+sakura.bindgroup1654.name,expr,p3 purple
+sakura.bindgroup1655.name,expr,p3 dark blue
+sakura.bindgroup1656.name,expr,p3 blue
+sakura.bindgroup1657.name,expr,p3 green
+sakura.bindgroup1658.name,expr,p3 black
+sakura.bindgroup1659.name,expr,p3 gray
+sakura.bindgroup1660.name,expr,p3 white
+sakura.bindgroup1661.name,expr,pl3 yellow
+sakura.bindgroup1662.name,expr,pl3 orange
+sakura.bindgroup1663.name,expr,pl3 red
+sakura.bindgroup1664.name,expr,pl3 pink
+sakura.bindgroup1665.name,expr,pl3 purple
+sakura.bindgroup1666.name,expr,pl3 dark blue
+sakura.bindgroup1667.name,expr,pl3 blue
+sakura.bindgroup1668.name,expr,pl3 green
+sakura.bindgroup1669.name,expr,d3 yellow
+sakura.bindgroup1670.name,expr,d3 orange
+sakura.bindgroup1671.name,expr,d3 red
+sakura.bindgroup1672.name,expr,d3 pink
+sakura.bindgroup1673.name,expr,d3 purple
+sakura.bindgroup1674.name,expr,d3 dark blue
+sakura.bindgroup1675.name,expr,d3 blue
+sakura.bindgroup1676.name,expr,d3 green
+sakura.bindgroup1677.name,expr,b3 yellow
+sakura.bindgroup1678.name,expr,b3 orange
+sakura.bindgroup1679.name,expr,b3 red
+sakura.bindgroup1680.name,expr,b3 pink
+sakura.bindgroup1681.name,expr,b3 purple
+sakura.bindgroup1682.name,expr,b3 dark blue
+sakura.bindgroup1683.name,expr,b3 blue
+sakura.bindgroup1684.name,expr,b3 green
+
+sakura.bindgroup1658.default,1
+//4 = uwu
+sakura.bindgroup1700.name,expr,p4 yellow
+sakura.bindgroup1701.name,expr,p4 orange
+sakura.bindgroup1702.name,expr,p4 red
+sakura.bindgroup1703.name,expr,p4 pink
+sakura.bindgroup1704.name,expr,p4 purple
+sakura.bindgroup1705.name,expr,p4 dark blue
+sakura.bindgroup1706.name,expr,p4 blue
+sakura.bindgroup1707.name,expr,p4 green
+sakura.bindgroup1708.name,expr,p4 black
+sakura.bindgroup1709.name,expr,p4 gray
+sakura.bindgroup1710.name,expr,p4 white
+sakura.bindgroup1711.name,expr,pl4 yellow
+sakura.bindgroup1712.name,expr,pl4 orange
+sakura.bindgroup1713.name,expr,pl4 red
+sakura.bindgroup1714.name,expr,pl4 pink
+sakura.bindgroup1715.name,expr,pl4 purple
+sakura.bindgroup1716.name,expr,pl4 dark blue
+sakura.bindgroup1717.name,expr,pl4 blue
+sakura.bindgroup1718.name,expr,pl4 green
+sakura.bindgroup1719.name,expr,d4 yellow
+sakura.bindgroup1720.name,expr,d4 orange
+sakura.bindgroup1721.name,expr,d4 red
+sakura.bindgroup1722.name,expr,d4 pink
+sakura.bindgroup1723.name,expr,d4 purple
+sakura.bindgroup1724.name,expr,d4 dark blue
+sakura.bindgroup1725.name,expr,d4 blue
+sakura.bindgroup1726.name,expr,d4 green
+sakura.bindgroup1727.name,expr,b4 yellow
+sakura.bindgroup1728.name,expr,b4 orange
+sakura.bindgroup1729.name,expr,b4 red
+sakura.bindgroup1730.name,expr,b4 pink
+sakura.bindgroup1731.name,expr,b4 purple
+sakura.bindgroup1732.name,expr,b4 dark blue
+sakura.bindgroup1733.name,expr,b4 blue
+sakura.bindgroup1734.name,expr,b4 green
+//5 = owo
+sakura.bindgroup1750.name,expr,p5 yellow
+sakura.bindgroup1751.name,expr,p5 orange
+sakura.bindgroup1752.name,expr,p5 red
+sakura.bindgroup1753.name,expr,p5 pink
+sakura.bindgroup1754.name,expr,p5 purple
+sakura.bindgroup1755.name,expr,p5 dark blue
+sakura.bindgroup1756.name,expr,p5 blue
+sakura.bindgroup1757.name,expr,p5 green
+sakura.bindgroup1758.name,expr,p5 black
+sakura.bindgroup1759.name,expr,p5 gray
+sakura.bindgroup1760.name,expr,p5 white
+sakura.bindgroup1761.name,expr,pl5 yellow
+sakura.bindgroup1762.name,expr,pl5 orange
+sakura.bindgroup1763.name,expr,pl5 red
+sakura.bindgroup1764.name,expr,pl5 pink
+sakura.bindgroup1765.name,expr,pl5 purple
+sakura.bindgroup1766.name,expr,pl5 dark blue
+sakura.bindgroup1767.name,expr,pl5 blue
+sakura.bindgroup1768.name,expr,pl5 green
+sakura.bindgroup1769.name,expr,d5 yellow
+sakura.bindgroup1770.name,expr,d5 orange
+sakura.bindgroup1771.name,expr,d5 red
+sakura.bindgroup1772.name,expr,d5 pink
+sakura.bindgroup1773.name,expr,d5 purple
+sakura.bindgroup1774.name,expr,d5 dark blue
+sakura.bindgroup1775.name,expr,d5 blue
+sakura.bindgroup1776.name,expr,d5 green
+sakura.bindgroup1777.name,expr,b5 yellow
+sakura.bindgroup1778.name,expr,b5 orange
+sakura.bindgroup1779.name,expr,b5 red
+sakura.bindgroup1780.name,expr,b5 pink
+sakura.bindgroup1781.name,expr,b5 purple
+sakura.bindgroup1782.name,expr,b5 dark blue
+sakura.bindgroup1783.name,expr,b5 blue
+sakura.bindgroup1784.name,expr,b5 green
+
+sakura.bindgroup50.name,shoes,p yellow
+sakura.bindgroup51.name,shoes,p orange
+sakura.bindgroup52.name,shoes,p red
+sakura.bindgroup53.name,shoes,p pink
+sakura.bindgroup54.name,shoes,p purple
+sakura.bindgroup55.name,shoes,p dark blue
+sakura.bindgroup56.name,shoes,p blue
+sakura.bindgroup57.name,shoes,p green
+sakura.bindgroup58.name,shoes,p black
+sakura.bindgroup59.name,shoes,p gray
+sakura.bindgroup60.name,shoes,p white
+sakura.bindgroup61.name,shoes,pl yellow
+sakura.bindgroup62.name,shoes,pl orange
+sakura.bindgroup63.name,shoes,pl red
+sakura.bindgroup64.name,shoes,pl pink
+sakura.bindgroup65.name,shoes,pl purple
+sakura.bindgroup66.name,shoes,pl dark blue
+sakura.bindgroup67.name,shoes,pl blue
+sakura.bindgroup68.name,shoes,pl green
+sakura.bindgroup69.name,shoes,d yellow
+sakura.bindgroup70.name,shoes,d orange
+sakura.bindgroup71.name,shoes,d red
+sakura.bindgroup72.name,shoes,d pink
+sakura.bindgroup73.name,shoes,d purple
+sakura.bindgroup74.name,shoes,d dark blue
+sakura.bindgroup75.name,shoes,d blue
+sakura.bindgroup76.name,shoes,d green
+sakura.bindgroup77.name,shoes,b yellow
+sakura.bindgroup78.name,shoes,b orange
+sakura.bindgroup79.name,shoes,b red
+sakura.bindgroup80.name,shoes,b pink
+sakura.bindgroup81.name,shoes,b purple
+sakura.bindgroup82.name,shoes,b dark blue
+sakura.bindgroup83.name,shoes,b blue
+sakura.bindgroup84.name,shoes,b green
+
+sakura.bindgroup100.name,pants,p1 yellow
+sakura.bindgroup101.name,pants,p1 orange
+sakura.bindgroup102.name,pants,p1 red
+sakura.bindgroup103.name,pants,p1 pink
+sakura.bindgroup104.name,pants,p1 purple
+sakura.bindgroup105.name,pants,p1 dark blue
+sakura.bindgroup106.name,pants,p1 blue
+sakura.bindgroup107.name,pants,p1 green
+sakura.bindgroup108.name,pants,p1 black
+sakura.bindgroup109.name,pants,p1 gray
+sakura.bindgroup110.name,pants,p1 white
+sakura.bindgroup111.name,pants,pl1 yellow
+sakura.bindgroup112.name,pants,pl1 orange
+sakura.bindgroup113.name,pants,pl1 red
+sakura.bindgroup114.name,pants,pl1 pink
+sakura.bindgroup115.name,pants,pl1 purple
+sakura.bindgroup116.name,pants,pl1 dark blue
+sakura.bindgroup117.name,pants,pl1 blue
+sakura.bindgroup118.name,pants,pl1 green
+sakura.bindgroup119.name,pants,d1 yellow
+sakura.bindgroup120.name,pants,d1 orange
+sakura.bindgroup121.name,pants,d1 red
+sakura.bindgroup122.name,pants,d1 pink
+sakura.bindgroup123.name,pants,d1 purple
+sakura.bindgroup124.name,pants,d1 dark blue
+sakura.bindgroup125.name,pants,d1 blue
+sakura.bindgroup126.name,pants,d1 green
+sakura.bindgroup127.name,pants,b1 yellow
+sakura.bindgroup128.name,pants,b1 orange
+sakura.bindgroup129.name,pants,b1 red
+sakura.bindgroup130.name,pants,b1 pink
+sakura.bindgroup131.name,pants,b1 purple
+sakura.bindgroup132.name,pants,b1 dark blue
+sakura.bindgroup133.name,pants,b1 blue
+sakura.bindgroup134.name,pants,b1 green
+
+sakura.bindgroup110.default,1
+
+sakura.bindgroup200.name,pants,p2 yellow
+sakura.bindgroup201.name,pants,p2 orange
+sakura.bindgroup202.name,pants,p2 red
+sakura.bindgroup203.name,pants,p2 pink
+sakura.bindgroup204.name,pants,p2 purple
+sakura.bindgroup205.name,pants,p2 dark blue
+sakura.bindgroup206.name,pants,p2 blue
+sakura.bindgroup207.name,pants,p2 green
+sakura.bindgroup208.name,pants,p2 black
+sakura.bindgroup209.name,pants,p2 gray
+sakura.bindgroup210.name,pants,p2 white
+sakura.bindgroup211.name,pants,pl2 yellow
+sakura.bindgroup212.name,pants,pl2 orange
+sakura.bindgroup213.name,pants,pl2 red
+sakura.bindgroup214.name,pants,pl2 pink
+sakura.bindgroup215.name,pants,pl2 purple
+sakura.bindgroup216.name,pants,pl2 dark blue
+sakura.bindgroup217.name,pants,pl2 blue
+sakura.bindgroup218.name,pants,pl2 green
+sakura.bindgroup219.name,pants,d2 yellow
+sakura.bindgroup220.name,pants,d2 orange
+sakura.bindgroup221.name,pants,d2 red
+sakura.bindgroup222.name,pants,d2 pink
+sakura.bindgroup223.name,pants,d2 purple
+sakura.bindgroup224.name,pants,d2 dark blue
+sakura.bindgroup225.name,pants,d2 blue
+sakura.bindgroup226.name,pants,d2 green
+sakura.bindgroup227.name,pants,b2 yellow
+sakura.bindgroup228.name,pants,b2 orange
+sakura.bindgroup229.name,pants,b2 red
+sakura.bindgroup230.name,pants,b2 pink
+sakura.bindgroup231.name,pants,b2 purple
+sakura.bindgroup232.name,pants,b2 dark blue
+sakura.bindgroup233.name,pants,b2 blue
+sakura.bindgroup234.name,pants,b2 green
+
+//plain
+sakura.bindgroup500.name,shirt,p1 yellow
+sakura.bindgroup501.name,shirt,p1 orange
+sakura.bindgroup502.name,shirt,p1 red
+sakura.bindgroup503.name,shirt,p1 pink
+sakura.bindgroup504.name,shirt,p1 purple
+sakura.bindgroup505.name,shirt,p1 dark blue
+sakura.bindgroup506.name,shirt,p1 blue
+sakura.bindgroup507.name,shirt,p1 green
+sakura.bindgroup508.name,shirt,p1 black
+sakura.bindgroup509.name,shirt,p1 gray
+sakura.bindgroup510.name,shirt,p1 white
+sakura.bindgroup511.name,shirt,pl1 yellow
+sakura.bindgroup512.name,shirt,pl1 orange
+sakura.bindgroup513.name,shirt,pl1 red
+sakura.bindgroup514.name,shirt,pl1 pink
+sakura.bindgroup515.name,shirt,pl1 purple
+sakura.bindgroup516.name,shirt,pl1 dark blue
+sakura.bindgroup517.name,shirt,pl1 blue
+sakura.bindgroup518.name,shirt,pl1 green
+sakura.bindgroup519.name,shirt,d1 yellow
+sakura.bindgroup520.name,shirt,d1 orange
+sakura.bindgroup521.name,shirt,d1 red
+sakura.bindgroup522.name,shirt,d1 pink
+sakura.bindgroup523.name,shirt,d1 purple
+sakura.bindgroup524.name,shirt,d1 dark blue
+sakura.bindgroup525.name,shirt,d1 blue
+sakura.bindgroup526.name,shirt,d1 green
+sakura.bindgroup527.name,shirt,b1 yellow
+sakura.bindgroup528.name,shirt,b1 orange
+sakura.bindgroup529.name,shirt,b1 red
+sakura.bindgroup530.name,shirt,b1 pink
+sakura.bindgroup531.name,shirt,b1 purple
+sakura.bindgroup532.name,shirt,b1 dark blue
+sakura.bindgroup533.name,shirt,b1 blue
+sakura.bindgroup534.name,shirt,b1 green
+
+sakura.bindgroup510.default,1
+
+sakura.bindgroup600.name,shirt,p2 yellow
+sakura.bindgroup601.name,shirt,p2 orange
+sakura.bindgroup602.name,shirt,p2 red
+sakura.bindgroup603.name,shirt,p2 pink
+sakura.bindgroup604.name,shirt,p2 purple
+sakura.bindgroup605.name,shirt,p2 dark blue
+sakura.bindgroup606.name,shirt,p2 blue
+sakura.bindgroup607.name,shirt,p2 green
+sakura.bindgroup608.name,shirt,p2 black
+sakura.bindgroup609.name,shirt,p2 gray
+sakura.bindgroup610.name,shirt,p2 white
+sakura.bindgroup611.name,shirt,pl2 yellow
+sakura.bindgroup612.name,shirt,pl2 orange
+sakura.bindgroup613.name,shirt,pl2 red
+sakura.bindgroup614.name,shirt,pl2 pink
+sakura.bindgroup615.name,shirt,pl2 purple
+sakura.bindgroup616.name,shirt,pl2 dark blue
+sakura.bindgroup617.name,shirt,pl2 blue
+sakura.bindgroup618.name,shirt,pl2 green
+sakura.bindgroup619.name,shirt,d2 yellow
+sakura.bindgroup620.name,shirt,d2 orange
+sakura.bindgroup621.name,shirt,d2 red
+sakura.bindgroup622.name,shirt,d2 pink
+sakura.bindgroup623.name,shirt,d2 purple
+sakura.bindgroup624.name,shirt,d2 dark blue
+sakura.bindgroup625.name,shirt,d2 blue
+sakura.bindgroup626.name,shirt,d2 green
+sakura.bindgroup627.name,shirt,b2 yellow
+sakura.bindgroup628.name,shirt,b2 orange
+sakura.bindgroup629.name,shirt,b2 red
+sakura.bindgroup630.name,shirt,b2 pink
+sakura.bindgroup631.name,shirt,b2 purple
+sakura.bindgroup632.name,shirt,b2 dark blue
+sakura.bindgroup633.name,shirt,b2 blue
+sakura.bindgroup634.name,shirt,b2 green
+
+sakura.bindgroup700.name,shirt,p3 yellow
+sakura.bindgroup701.name,shirt,p3 orange
+sakura.bindgroup702.name,shirt,p3 red
+sakura.bindgroup703.name,shirt,p3 pink
+sakura.bindgroup704.name,shirt,p3 purple
+sakura.bindgroup705.name,shirt,p3 dark blue
+sakura.bindgroup706.name,shirt,p3 blue
+sakura.bindgroup707.name,shirt,p3 green
+sakura.bindgroup708.name,shirt,p3 black
+sakura.bindgroup709.name,shirt,p3 gray
+sakura.bindgroup710.name,shirt,p3 white
+sakura.bindgroup711.name,shirt,pl3 yellow
+sakura.bindgroup712.name,shirt,pl3 orange
+sakura.bindgroup713.name,shirt,pl3 red
+sakura.bindgroup714.name,shirt,pl3 pink
+sakura.bindgroup715.name,shirt,pl3 purple
+sakura.bindgroup716.name,shirt,pl3 dark blue
+sakura.bindgroup717.name,shirt,pl3 blue
+sakura.bindgroup718.name,shirt,pl3 green
+sakura.bindgroup719.name,shirt,d3 yellow
+sakura.bindgroup720.name,shirt,d3 orange
+sakura.bindgroup721.name,shirt,d3 red
+sakura.bindgroup722.name,shirt,d3 pink
+sakura.bindgroup723.name,shirt,d3 purple
+sakura.bindgroup724.name,shirt,d3 dark blue
+sakura.bindgroup725.name,shirt,d3 blue
+sakura.bindgroup726.name,shirt,d3 green
+sakura.bindgroup727.name,shirt,b3 yellow
+sakura.bindgroup728.name,shirt,b3 orange
+sakura.bindgroup729.name,shirt,b3 red
+sakura.bindgroup730.name,shirt,b3 pink
+sakura.bindgroup731.name,shirt,b3 purple
+sakura.bindgroup732.name,shirt,b3 dark blue
+sakura.bindgroup733.name,shirt,b3 blue
+sakura.bindgroup734.name,shirt,b3 green
+
+sakura.bindgroup800.name,shirt,p4 yellow
+sakura.bindgroup801.name,shirt,p4 orange
+sakura.bindgroup802.name,shirt,p4 red
+sakura.bindgroup803.name,shirt,p4 pink
+sakura.bindgroup804.name,shirt,p4 purple
+sakura.bindgroup805.name,shirt,p4 dark blue
+sakura.bindgroup806.name,shirt,p4 blue
+sakura.bindgroup807.name,shirt,p4 green
+sakura.bindgroup808.name,shirt,p4 black
+sakura.bindgroup809.name,shirt,p4 gray
+sakura.bindgroup810.name,shirt,p4 white
+sakura.bindgroup811.name,shirt,pl4 yellow
+sakura.bindgroup812.name,shirt,pl4 orange
+sakura.bindgroup813.name,shirt,pl4 red
+sakura.bindgroup814.name,shirt,pl4 pink
+sakura.bindgroup815.name,shirt,pl4 purple
+sakura.bindgroup816.name,shirt,pl4 dark blue
+sakura.bindgroup817.name,shirt,pl4 blue
+sakura.bindgroup818.name,shirt,pl4 green
+sakura.bindgroup819.name,shirt,d4 yellow
+sakura.bindgroup820.name,shirt,d4 orange
+sakura.bindgroup821.name,shirt,d4 red
+sakura.bindgroup822.name,shirt,d4 pink
+sakura.bindgroup823.name,shirt,d4 purple
+sakura.bindgroup824.name,shirt,d4 dark blue
+sakura.bindgroup825.name,shirt,d4 blue
+sakura.bindgroup826.name,shirt,d4 green
+sakura.bindgroup827.name,shirt,b4 yellow
+sakura.bindgroup828.name,shirt,b4 orange
+sakura.bindgroup829.name,shirt,b4 red
+sakura.bindgroup830.name,shirt,b4 pink
+sakura.bindgroup831.name,shirt,b4 purple
+sakura.bindgroup832.name,shirt,b4 dark blue
+sakura.bindgroup833.name,shirt,b4 blue
+sakura.bindgroup834.name,shirt,b4 green
+
+sakura.bindgroup900.name,shirt,p5 yellow
+sakura.bindgroup901.name,shirt,p5 orange
+sakura.bindgroup902.name,shirt,p5 red
+sakura.bindgroup903.name,shirt,p5 pink
+sakura.bindgroup904.name,shirt,p5 purple
+sakura.bindgroup905.name,shirt,p5 dark blue
+sakura.bindgroup906.name,shirt,p5 blue
+sakura.bindgroup907.name,shirt,p5 green
+sakura.bindgroup908.name,shirt,p5 black
+sakura.bindgroup909.name,shirt,p5 gray
+sakura.bindgroup910.name,shirt,p5 white
+sakura.bindgroup911.name,shirt,pl5 yellow
+sakura.bindgroup912.name,shirt,pl5 orange
+sakura.bindgroup913.name,shirt,pl5 red
+sakura.bindgroup914.name,shirt,pl5 pink
+sakura.bindgroup915.name,shirt,pl5 purple
+sakura.bindgroup916.name,shirt,pl5 dark blue
+sakura.bindgroup917.name,shirt,pl5 blue
+sakura.bindgroup918.name,shirt,pl5 green
+sakura.bindgroup919.name,shirt,d5 yellow
+sakura.bindgroup920.name,shirt,d5 orange
+sakura.bindgroup921.name,shirt,d5 red
+sakura.bindgroup922.name,shirt,d5 pink
+sakura.bindgroup923.name,shirt,d5 purple
+sakura.bindgroup924.name,shirt,d5 dark blue
+sakura.bindgroup925.name,shirt,d5 blue
+sakura.bindgroup926.name,shirt,d5 green
+sakura.bindgroup927.name,shirt,b5 yellow
+sakura.bindgroup928.name,shirt,b5 orange
+sakura.bindgroup929.name,shirt,b5 red
+sakura.bindgroup930.name,shirt,b5 pink
+sakura.bindgroup931.name,shirt,b5 purple
+sakura.bindgroup932.name,shirt,b5 dark blue
+sakura.bindgroup933.name,shirt,b5 blue
+sakura.bindgroup934.name,shirt,b5 green
+
+sakura.bindgroup1000.name,shirt,p6 yellow
+sakura.bindgroup1001.name,shirt,p6 orange
+sakura.bindgroup1002.name,shirt,p6 red
+sakura.bindgroup1003.name,shirt,p6 pink
+sakura.bindgroup1004.name,shirt,p6 purple
+sakura.bindgroup1005.name,shirt,p6 dark blue
+sakura.bindgroup1006.name,shirt,p6 blue
+sakura.bindgroup1007.name,shirt,p6 green
+sakura.bindgroup1008.name,shirt,p6 black
+sakura.bindgroup1009.name,shirt,p6 gray
+sakura.bindgroup1010.name,shirt,p6 white
+sakura.bindgroup1011.name,shirt,pl6 yellow
+sakura.bindgroup1012.name,shirt,pl6 orange
+sakura.bindgroup1013.name,shirt,pl6 red
+sakura.bindgroup1014.name,shirt,pl6 pink
+sakura.bindgroup1015.name,shirt,pl6 purple
+sakura.bindgroup1016.name,shirt,pl6 dark blue
+sakura.bindgroup1017.name,shirt,pl6 blue
+sakura.bindgroup1018.name,shirt,pl6 green
+sakura.bindgroup1019.name,shirt,d6 yellow
+sakura.bindgroup1020.name,shirt,d6 orange
+sakura.bindgroup1021.name,shirt,d6 red
+sakura.bindgroup1022.name,shirt,d6 pink
+sakura.bindgroup1023.name,shirt,d6 purple
+sakura.bindgroup1024.name,shirt,d6 dark blue
+sakura.bindgroup1025.name,shirt,d6 blue
+sakura.bindgroup1026.name,shirt,d6 green
+sakura.bindgroup1027.name,shirt,b6 yellow
+sakura.bindgroup1028.name,shirt,b6 orange
+sakura.bindgroup1029.name,shirt,b6 red
+sakura.bindgroup1030.name,shirt,b6 pink
+sakura.bindgroup1031.name,shirt,b6 purple
+sakura.bindgroup1032.name,shirt,b6 dark blue
+sakura.bindgroup1033.name,shirt,b6 blue
+sakura.bindgroup1034.name,shirt,b6 green
+
+sakura.bindgroup1100.name,dress,p1 yellow
+sakura.bindgroup1101.name,dress,p1 orange
+sakura.bindgroup1102.name,dress,p1 red
+sakura.bindgroup1103.name,dress,p1 pink
+sakura.bindgroup1104.name,dress,p1 purple
+sakura.bindgroup1105.name,dress,p1 dark blue
+sakura.bindgroup1106.name,dress,p1 blue
+sakura.bindgroup1107.name,dress,p1 green
+sakura.bindgroup1108.name,dress,p1 black
+sakura.bindgroup1109.name,dress,p1 gray
+sakura.bindgroup1110.name,dress,p1 white
+sakura.bindgroup1111.name,dress,pl1 yellow
+sakura.bindgroup1112.name,dress,pl1 orange
+sakura.bindgroup1113.name,dress,pl1 red
+sakura.bindgroup1114.name,dress,pl1 pink
+sakura.bindgroup1115.name,dress,pl1 purple
+sakura.bindgroup1116.name,dress,pl1 dark blue
+sakura.bindgroup1117.name,dress,pl1 blue
+sakura.bindgroup1118.name,dress,pl1 green
+sakura.bindgroup1119.name,dress,d1 yellow
+sakura.bindgroup1120.name,dress,d1 orange
+sakura.bindgroup1121.name,dress,d1 red
+sakura.bindgroup1122.name,dress,d1 pink
+sakura.bindgroup1123.name,dress,d1 purple
+sakura.bindgroup1124.name,dress,d1 dark blue
+sakura.bindgroup1125.name,dress,d1 blue
+sakura.bindgroup1126.name,dress,d1 green
+sakura.bindgroup1127.name,dress,b1 yellow
+sakura.bindgroup1128.name,dress,b1 orange
+sakura.bindgroup1129.name,dress,b1 red
+sakura.bindgroup1130.name,dress,b1 pink
+sakura.bindgroup1131.name,dress,b1 purple
+sakura.bindgroup1132.name,dress,b1 dark blue
+sakura.bindgroup1133.name,dress,b1 blue
+sakura.bindgroup1134.name,dress,b1 green
+
+sakura.bindgroup1200.name,dress,p2 yellow
+sakura.bindgroup1201.name,dress,p2 orange
+sakura.bindgroup1202.name,dress,p2 red
+sakura.bindgroup1203.name,dress,p2 pink
+sakura.bindgroup1204.name,dress,p2 purple
+sakura.bindgroup1205.name,dress,p2 dark blue
+sakura.bindgroup1206.name,dress,p2 blue
+sakura.bindgroup1207.name,dress,p2 green
+sakura.bindgroup1208.name,dress,p2 black
+sakura.bindgroup1209.name,dress,p2 gray
+sakura.bindgroup1210.name,dress,p2 white
+sakura.bindgroup1211.name,dress,pl2 yellow
+sakura.bindgroup1212.name,dress,pl2 orange
+sakura.bindgroup1213.name,dress,pl2 red
+sakura.bindgroup1214.name,dress,pl2 pink
+sakura.bindgroup1215.name,dress,pl2 purple
+sakura.bindgroup1216.name,dress,pl2 dark blue
+sakura.bindgroup1217.name,dress,pl2 blue
+sakura.bindgroup1218.name,dress,pl2 green
+sakura.bindgroup1219.name,dress,d2 yellow
+sakura.bindgroup1220.name,dress,d2 orange
+sakura.bindgroup1221.name,dress,d2 red
+sakura.bindgroup1222.name,dress,d2 pink
+sakura.bindgroup1223.name,dress,d2 purple
+sakura.bindgroup1224.name,dress,d2 dark blue
+sakura.bindgroup1225.name,dress,d2 blue
+sakura.bindgroup1226.name,dress,d2 green
+sakura.bindgroup1227.name,dress,b2 yellow
+sakura.bindgroup1228.name,dress,b2 orange
+sakura.bindgroup1229.name,dress,b2 red
+sakura.bindgroup1230.name,dress,b2 pink
+sakura.bindgroup1231.name,dress,b2 purple
+sakura.bindgroup1232.name,dress,b2 dark blue
+sakura.bindgroup1233.name,dress,b2 blue
+sakura.bindgroup1234.name,dress,b2 green
+
+sakura.bindgroup1300.name,hoodie,p1 yellow
+sakura.bindgroup1301.name,hoodie,p1 orange
+sakura.bindgroup1302.name,hoodie,p1 red
+sakura.bindgroup1303.name,hoodie,p1 pink
+sakura.bindgroup1304.name,hoodie,p1 purple
+sakura.bindgroup1305.name,hoodie,p1 dark blue
+sakura.bindgroup1306.name,hoodie,p1 blue
+sakura.bindgroup1307.name,hoodie,p1 green
+sakura.bindgroup1308.name,hoodie,p1 black
+sakura.bindgroup1309.name,hoodie,p1 gray
+sakura.bindgroup1310.name,hoodie,p1 white
+sakura.bindgroup1311.name,hoodie,pl1 yellow
+sakura.bindgroup1312.name,hoodie,pl1 orange
+sakura.bindgroup1313.name,hoodie,pl1 red
+sakura.bindgroup1314.name,hoodie,pl1 pink
+sakura.bindgroup1315.name,hoodie,pl1 purple
+sakura.bindgroup1316.name,hoodie,pl1 dark blue
+sakura.bindgroup1317.name,hoodie,pl1 blue
+sakura.bindgroup1318.name,hoodie,pl1 green
+sakura.bindgroup1319.name,hoodie,d1 yellow
+sakura.bindgroup1320.name,hoodie,d1 orange
+sakura.bindgroup1321.name,hoodie,d1 red
+sakura.bindgroup1322.name,hoodie,d1 pink
+sakura.bindgroup1323.name,hoodie,d1 purple
+sakura.bindgroup1324.name,hoodie,d1 dark blue
+sakura.bindgroup1325.name,hoodie,d1 blue
+sakura.bindgroup1326.name,hoodie,d1 green
+sakura.bindgroup1327.name,hoodie,b1 yellow
+sakura.bindgroup1328.name,hoodie,b1 orange
+sakura.bindgroup1329.name,hoodie,b1 red
+sakura.bindgroup1330.name,hoodie,b1 pink
+sakura.bindgroup1331.name,hoodie,b1 purple
+sakura.bindgroup1332.name,hoodie,b1 dark blue
+sakura.bindgroup1333.name,hoodie,b1 blue
+sakura.bindgroup1334.name,hoodie,b1 green
+
+sakura.bindgroup1400.name,hoodie,p2 yellow
+sakura.bindgroup1401.name,hoodie,p2 orange
+sakura.bindgroup1402.name,hoodie,p2 red
+sakura.bindgroup1403.name,hoodie,p2 pink
+sakura.bindgroup1404.name,hoodie,p2 purple
+sakura.bindgroup1405.name,hoodie,p2 dark blue
+sakura.bindgroup1406.name,hoodie,p2 blue
+sakura.bindgroup1407.name,hoodie,p2 green
+sakura.bindgroup1408.name,hoodie,p2 black
+sakura.bindgroup1409.name,hoodie,p2 gray
+sakura.bindgroup1410.name,hoodie,p2 white
+sakura.bindgroup1411.name,hoodie,pl2 yellow
+sakura.bindgroup1412.name,hoodie,pl2 orange
+sakura.bindgroup1413.name,hoodie,pl2 red
+sakura.bindgroup1414.name,hoodie,pl2 pink
+sakura.bindgroup1415.name,hoodie,pl2 purple
+sakura.bindgroup1416.name,hoodie,pl2 dark blue
+sakura.bindgroup1417.name,hoodie,pl2 blue
+sakura.bindgroup1418.name,hoodie,pl2 green
+sakura.bindgroup1419.name,hoodie,d2 yellow
+sakura.bindgroup1420.name,hoodie,d2 orange
+sakura.bindgroup1421.name,hoodie,d2 red
+sakura.bindgroup1422.name,hoodie,d2 pink
+sakura.bindgroup1423.name,hoodie,d2 purple
+sakura.bindgroup1424.name,hoodie,d2 dark blue
+sakura.bindgroup1425.name,hoodie,d2 blue
+sakura.bindgroup1426.name,hoodie,d2 green
+sakura.bindgroup1427.name,hoodie,b2 yellow
+sakura.bindgroup1428.name,hoodie,b2 orange
+sakura.bindgroup1429.name,hoodie,b2 red
+sakura.bindgroup1430.name,hoodie,b2 pink
+sakura.bindgroup1431.name,hoodie,b2 purple
+sakura.bindgroup1432.name,hoodie,b2 dark blue
+sakura.bindgroup1433.name,hoodie,b2 blue
+sakura.bindgroup1434.name,hoodie,b2 green
+
+sakura.bindgroup1500.name,sweater,p yellow
+sakura.bindgroup1501.name,sweater,p orange
+sakura.bindgroup1502.name,sweater,p red
+sakura.bindgroup1503.name,sweater,p pink
+sakura.bindgroup1504.name,sweater,p purple
+sakura.bindgroup1505.name,sweater,p dark blue
+sakura.bindgroup1506.name,sweater,p blue
+sakura.bindgroup1507.name,sweater,p green
+sakura.bindgroup1508.name,sweater,p black
+sakura.bindgroup1509.name,sweater,p gray
+sakura.bindgroup1510.name,sweater,p white
+sakura.bindgroup1511.name,sweater,pl yellow
+sakura.bindgroup1512.name,sweater,pl orange
+sakura.bindgroup1513.name,sweater,pl red
+sakura.bindgroup1514.name,sweater,pl pink
+sakura.bindgroup1515.name,sweater,pl purple
+sakura.bindgroup1516.name,sweater,pl dark blue
+sakura.bindgroup1517.name,sweater,pl blue
+sakura.bindgroup1518.name,sweater,pl green
+sakura.bindgroup1519.name,sweater,d yellow
+sakura.bindgroup1520.name,sweater,d orange
+sakura.bindgroup1521.name,sweater,d red
+sakura.bindgroup1522.name,sweater,d pink
+sakura.bindgroup1523.name,sweater,d purple
+sakura.bindgroup1524.name,sweater,d dark blue
+sakura.bindgroup1525.name,sweater,d blue
+sakura.bindgroup1526.name,sweater,d green
+sakura.bindgroup1527.name,sweater,b yellow
+sakura.bindgroup1528.name,sweater,b orange
+sakura.bindgroup1529.name,sweater,b red
+sakura.bindgroup1530.name,sweater,b pink
+sakura.bindgroup1531.name,sweater,b purple
+sakura.bindgroup1532.name,sweater,b dark blue
+sakura.bindgroup1533.name,sweater,b blue
+sakura.bindgroup1534.name,sweater,b green
+
+sakura.bindgroup2000.name,outfit,s
+sakura.bindgroup2001.name,outfit,stelluna
+sakura.bindgroup2002.name,outfit,wilson
+sakura.bindgroup2003.name,outfit,aurora
+sakura.bindgroup2004.name,outfit,dusty
+sakura.bindgroup2005.name,outfit,azura

@@ -21,7 +21,7 @@ dic, nameteach.dic
 dic, anchor.dic
 dic, translations.dic
 dic, log.dic
-dic, AI.dic
+//dic, AI.dic
 dic, clothes.dic
 dic, config.dic
 

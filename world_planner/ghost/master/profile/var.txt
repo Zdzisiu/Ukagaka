@@ -5,5 +5,5 @@ homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/world_planner/
 surfacecount,5
 update_result,OK(0)
 firstboot,652203843
-commitmemorysize,91075
-lastboot,669415853
+commitmemorysize,91411
+lastboot,690649413

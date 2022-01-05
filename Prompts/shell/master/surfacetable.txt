@@ -1,0 +1,13 @@
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+group,
+{
+scope,0
+}
+
+group,
+{
+scope,1
+}

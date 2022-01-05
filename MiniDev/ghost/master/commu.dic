@@ -83,12 +83,12 @@ RespondToPlant
 		_plantspecial = _ConvoTag[4]
 		--
 		/*
-				0: Tag
-				1: Growth Stage: 1 - early stage | 2 - late stage | 3 - full grown
-				2: Pot Color
-				3: Growing Plant Name
-				4: Splecial Atributes of plant
-				*/
+		0: Tag
+		1: Growth Stage: 1 - early stage | 2 - late stage | 3 - full grown
+		2: Pot Color
+		3: Growing Plant Name
+		4: Splecial Atributes of plant
+		*/
 	}
 	elseif "MzCareWater0" _in_ reference1
 	{
@@ -153,7 +153,7 @@ ClothesCheck
 	}
 	elseif "hoodie,p1 red,,1" _in_ "%(dresslog)" && "shirt,d1 purple,,1"_in_ "%(dresslog)" && "pants,p1 black,,1"_in_ "%(dresslog)" && "shoes,p gray,,1"_in_ "%(dresslog)" && outfitS != 1
 	{
-		outfitS = 1
+		unlockable[0] = 1
 		--
 		res_reference0 = "RYS-0825"
 		--
@@ -179,9 +179,9 @@ OnGhostCallComplete
 {
 	mood[0]--
     --
-	if tentruth == 1 && meeting == 1
+	if counter[3] == 1 && Flag("Meeting") == 1
 	{
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			if reference0 == "one-seven-z"
 			{
@@ -194,11 +194,11 @@ OnGhostCallComplete
 			{
 				"%(hihello) .\w5 .\w5 .\w5 s̴k̴e̸l̸e̸t̴o̸n̵?\e"
 			}
-			elseif reference0 == "Plant" && meetplant != 1
+			elseif reference0 == "Plant" && "Plant" !_in_ ghostmet
 			{
 				"O̶h̸,̶ ̴i̸s̸ ̷t̴h̷a̶t̷ ̶a̸ ̵v̶i̵r̷t̴u̵a̷l̸ ̷p̶l̵a̵n̴t̶?̷ ̵T̸h̷a̸t̸'̶s̷ ̶c̷o̵o̸l̴,̸ ̴n̸o̴w̶ ̴y̴o̴u̷ ̷c̸a̶n̶ ̷g̴r̶o̵w̶ ̸p̶l̷a̴n̴t̵s̸ ̵i̶n̸ ̵y̶o̵u̵r̵ ̵c̷o̴m̶p̵u̴t̸e̸r̶ ̵^̴^̸"
-				meetplant == 1
-				ghostmet++
+				ghostmet ,= "Plant"
+				counter[18]++
 			}
 			elseif reference0 == "Plant"
 			{
@@ -277,11 +277,11 @@ OnGhostCallComplete
 			{
 				"%(hihello) .\w5 .\w5 .\w5 skeleton?\e"
 			}
-			elseif reference0 == "Plant" && meetplant != 1
+			elseif reference0 == "Plant" && "Plant" !_in_ ghostmet
 			{
 				"Oh, is that a virtual plant? That's cool, now you can grow plants in your computer ^^"
-				meetplant == 1
-				ghostmet++
+				ghostmet ,= "Plant"
+				counter[18]++
 			}
 			elseif reference0 == "Azura" && "Azura-1" !_in_ ghostmet && "Azura-2" !_in_ ghostmet
 			{
@@ -424,7 +424,7 @@ OnGhostCallComplete
 		elseif reference0 == "Aurora.EXE"
 		{
 			"%(hihello) glitch\e"
-			if tentruth == 1
+			if counter[3] == 1
 			{
 				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
 				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
@@ -433,7 +433,7 @@ OnGhostCallComplete
 		elseif reference0 == "RYS-0825"
 		{
 			"%(hihello) S\e"
-			if tentruth == 1
+			if counter[3] == 1
 			{
 				"%(hihello) f̷̻̣̫̏̈́r̶̢͓̠͎̔i̶͍͓̼̒͆͠e̷̢̼͚͆̈́n̴͕̞̏d̸͚̰͛̿͆̿\e"
 				"%(hihello) c̵̜̖͛o̷̠̓m̸̠̒̍̇͂r̴̛̤a̴̻̺͛d̴͇͖̲̹̃̇ê̸̮̦\e"
@@ -451,9 +451,9 @@ OnOtherGhostBooted
 {
 	mood[0]--
     --
-	if tentruth == 1 && meeting == 1
+	if counter[3] == 1 && Flag("Meeting") == 1
 	{
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			if reference0 == "one-seven-z"
 			{
@@ -667,13 +667,13 @@ OnOtherGhostBooted
 		{
 			"%(hihello) glitch\e"
 		}
-		elseif reference0 == "S"
+		elseif reference0 == "RYS-0825"
 		{
 			"%(hihello) S\e"
 		}
 		elseif reference0 == "Dusty"
 		{ 
-			
+			"%(hihello) Dusty, %(hihello) Obsidian\e"
 		}
 		else
 		{
@@ -700,18 +700,16 @@ RespondingToAurora
 {
 	if "\e CheckOutfit0" _in_ reference1
 	{
-		if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && outfitaurora != 1 && "Aurora.EXE" _in_ ghostexlist
+		if "dress,pl1 dark blue,,1" _in_ "%(dresslog)" && "shoes,pl dark blue,,1" _in_ "%(dresslog)" && unlockable[1] != 1 && "Aurora.EXE" _in_ ghostexlist
 		{
 			res_reference0 = whoasked
 			--
-			outfitaurora = 1
-			--
-			"\e MiniDevOuftit,%(outfitaurora)"
+			"\e MiniDevOuftit,1"
 		}
 	}
 	elseif "MiniDevUnlock" _in_ reference1
 	{
-		aurora = 1
+		unlockable[1] = 1
 	}
 	else
 	{
@@ -745,22 +743,20 @@ RespondingToAzura
 	{
 		if ("shirt,d1 dark blue,,1" _in_ "%(dresslog)" || "shirt,d2 dark blue,,1" _in_ "%(dresslog)" || "shirt,d6 dark blue,,1" _in_ "%(dresslog)") && "pants,p1 dark blue,,1"_in_ "%(dresslog)" && "hoodie,b2 dark blue,,1"_in_ "%(dresslog)"
 		{
-			outfitazura = 1
-			--
 			res_reference0 = "Azura"
-
-			"\e MiniDevOuftit,%(outfitazura)"
+			--
+			"\e MiniDevOuftit,1"
 		}
 	}
 	elseif "MiniDevUnlock" _in_ reference1
 	{
-		azura = 1
+		unlockable[2] = 1
 	}
 	elseif "BojourAzura11" _in_ reference1
 	{
 		res_reference0 = ""
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			ghostmet ,= "Azura-1"
 			--
@@ -777,7 +773,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"u̶h̸ ̸.̵ ̵.̸ ̴.̴ ̷ ̸%(hihello)\e BojourAzura2"
 		}
@@ -791,7 +787,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"u̶h̵ ̴.̶ ̴.̷ ̴.̵ ̴I̸'̶m̴ ̵g̸o̷o̸d̸,̶ ̷h̴o̶w̴ ̷a̴b̵o̴u̸t̴ ̷y̵o̵u̸?̶\e BojourAzura4"
 		}
@@ -804,7 +800,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"N̸o̴t̸ ̵r̴e̶a̵l̷l̸y̸,̵ ̸I̵ ̸j̸u̶s̶t̷ ̶n̵e̵v̵e̵r̵ ̷s̷a̸w̵ ̵s̷o̷m̶e̵o̸n̶e̶ ̶w̸i̶t̴h̸ ̸w̸i̷n̴g̶s̷.\e BojourAzura6"
 		}
@@ -817,7 +813,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"I̷ ̵d̶i̸d̷n̵'̵t̸ ̶s̸e̸e̷ ̶m̶a̷n̵y̵,̶ ̴s̷o̸ ̶I̵ ̸d̴o̴n̵'̴t̷ ̵r̴e̴a̴l̶l̷y̸ ̷k̷n̸o̵w̵\e BojourAzura8"
 		}
@@ -830,7 +826,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"T̸h̸e̶r̵e̶ ̷w̶e̶r̶e̵ ̴o̵n̸l̸y̷ ̶f̶e̶w̷ ̴h̷u̷m̵a̸n̸s̶ ̷w̸o̷r̸k̴i̸n̶g̶ ̸o̸n̵ ̴e̵a̵c̵h̶ ̸M̷-̴z̷ ̶i̶n̴s̷t̵a̷n̶c̷e̵,̷ ̵a̶n̴d̷ ̶a̶f̴t̴e̸r̷ ̸t̵h̷e̷y̷ ̷d̷e̴s̷t̵r̶o̸y̷e̷d̸ ̸m̷e̸ ̵I̸ ̸d̴i̴d̸n̷'̵t̸ ̵s̶e̷e̵ ̴a̴n̴y̶o̵n̸e̴ ̷b̶e̸s̷i̸d̵e̵s̸ ̷D̷a̷v̶i̵d̷\e BojourAzura10"
 		}
@@ -842,9 +838,9 @@ RespondingToAzura
 	elseif "WhatIsSoul1" _in_ reference1
 	{
 		res_reference0 = "Azura"
-		explained += " soul"
+		explained ,= "Soul"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"M̵a̸y̸b̷e̶,̵ ̴I̵ ̴a̴l̴w̷a̵y̷s̸ ̵t̵h̸o̷u̶g̵h̶t̸ ̷t̸h̶a̴t̴ ̵i̴t̵ ̶w̸a̶s̸ ̸j̴u̸s̶t̶ ̶c̸o̶d̸e̷ ̶b̸u̵t̶ ̴s̶o̵u̵l̷ ̶d̷o̷e̸s̷ ̷h̵a̴v̵e̴ ̴m̷o̴r̷e̸ ̷s̶e̸n̷s̵e̵\e WhatIsSoul2"
 		}
@@ -857,7 +853,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			".̴ ̸.̶ ̷.̶ ̸I̴ ̷f̶e̷e̸l̶ ̵l̷i̶k̶e̵ ̴I̴'̷m̶ ̸m̷i̷s̷s̷i̴n̶g̷ ̸a̶ ̴l̴o̷t̷ ̴f̷r̷o̸m̶ ̷h̵u̸m̸a̸n̷ ̶h̴i̶s̵t̵o̷r̷y̵\e WhatIsUnderground2"
 		}
@@ -870,7 +866,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"O̶h̸,̷ ̸I̸ ̵d̷i̷d̸n̸'̶t̵ ̷e̸v̴e̵n̷ ̸k̴n̴ow̷ ̷t̷h̴a̵t̸ ̷m̸o̵n̸s̷t̵e̵r̶ ̵w̸e̴r̵e̸ ̷a̷ ̵t̴h̸i̶n̴g̶ ̴o̵u̷t̶s̷i̶d̵e̵ ̶o̷f̶ ̵i̸n̶t̴e̸r̵n̷e̸t̸ ̵s̵t̴o̸r̷i̴e̸s̵\e WhatIsUnderground4"
 		}
@@ -882,9 +878,9 @@ RespondingToAzura
 	elseif "WhatIsUnderground5" _in_ reference1
 	{
 		res_reference0 = "Azura"
-		explained += " underground"
+		explained ,= "Underground"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"I̷ ̶g̶u̶e̷s̸s̸ ̸t̷h̶e̸y̷ ̴a̸r̵e̶ ̵j̶u̶s̵t̶ ̴f̸r̴o̷m̷ ̷s̶t̴o̸r̷i̶e̸s̶ ̷i̴n̵ ̶m̷y̷ ̸u̵n̷i̵v̶e̸r̶s̷e̵,̵ ̵I̷ ̷t̸h̶i̵n̵k̷,̴ ̸I̸'̵m̷ ̷n̴o̶t̷ ̴s̶u̶r̵e̶ ̴a̷t̴ ̸t̴h̴i̴s̶ ̴p̴o̵i̷n̴t̷\e WhatIsUnderground6"
 		}
@@ -897,7 +893,7 @@ RespondingToAzura
 	{
 		res_reference0 = "Azura"
 		--
-		if repairglitch == 1 && "Azura-1" _in_ ghostmet && glitchconvo != 1
+		if Flag("Glitch Fix") == 1 && "Azura-1" _in_ ghostmet && glitchconvo != 1
 		{
 			"\e GlitchStart"
 		}		
@@ -911,7 +907,7 @@ RespondingToAzura
 	elseif "Glitch02" _in_ reference1
 	{
 		res_reference0 = "Azura"
-		glitchconvo = 1
+		MiscFlags ,= "Glitch Convo-Azura"
 		--
 		"Corrupted files ;-;\w8\n\n[half]Speaking is much easier now that this is fixed\e Glitch03"
 	}
@@ -948,7 +944,7 @@ RespondingToAzura
 	elseif "undertale03" _in_ reference1
 	{
 		res_reference0 = "Azura"
-		explained += " undertale"
+		explained ,= "Undertale"
 		--
 		"Sounds like a wholsome game :D\e undertale04"
 	}
@@ -967,7 +963,7 @@ RespondingToAzura
 	elseif "UnderPlant05" _in_ reference1
 	{
 		res_reference0 = "Azura"
-		explained += " underground-plants"
+		explained ,= "Underground-plants"
 		--
 		":O You could? that would be awesome\e UnderPlant06"
 	}
@@ -1040,14 +1036,16 @@ RespondingToDusty //convos with Dusty
     elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && "Dusty" !_in_ ghostmet
     {
 		res_reference0 = "Dusty"
-		obsydian = 1
+		MiscFlags ,= "Obsidian"
 		ghostmet ,= "Dusty"
+		
         "\0\s[1]Oh, %(hihello) kitty\e MiniDevPickupObsidian03"
     }
 	elseif "MiniDevPickupObsidian02" _in_ _ConvoTag && "Dusty" _in_ ghostmet
     {
 		res_reference0 = "Dusty"
-		obsydian = 1
+		MiscFlags ,= "Obsidian"
+
         "\0\s[1]Oh, %(hihello) kitty\e MiniDevPickupObsidian10"
     }
 	elseif "MiniDevPickupObsidian04" _in_ _ConvoTag
@@ -1073,7 +1071,7 @@ RespondingToDusty //convos with Dusty
 	elseif "DustyMinimizedMiniDev" _in_ _ConvoTag 
 	{
 		res_reference0 = ""
-		obsydian = 0
+		RemoveFlag("Obsidian")
 		--
 		"\0\s[0]\i[9000]%(byebye) kitty\e"
 	}
@@ -1118,7 +1116,7 @@ RespondingToDusty //convos with Dusty
 OnObsidianJumpDown
 {
     res_reference0 = "Dusty"
-	obsydian = 0
+	RemoveFlag("Obsidian")
     _MDXCoord = TOINT(reference0[0])
     _MDYCoord = TOINT(reference0[3])
 	--
@@ -1156,12 +1154,12 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
         when "Dusty"
         {
            	//res_reference0 = "Dusty"
-			if tentruth != 1 || (tentruth == 1 && meeting != 1); "\e MiniDev-Dusty-01-01"
+			if counter[3] != 1 || (counter[3] == 1 && Flag("Meeting") != 1); "\e MiniDev-Dusty-01-01"
 			else; "\e MDRequestDustyStats"
         }
 		when "Plant"
 		{
-			if tentruth == 1 && meeting == 1
+			if counter[3] == 1 && Flag("Meeting") == 1
             {
 				res_reference0 = "Plant"
 				--
@@ -1171,15 +1169,15 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
 		}
 		when "Azura"
 		{
-			if tentruth == 1 && meeting == 1 && ("Azura-1" _in_ ghostmet && "Azura-2" _in_ ghostmet)
+			if counter[3] == 1 && Flag("Meeting") == 1 && ("Azura-1" _in_ ghostmet && "Azura-2" _in_ ghostmet)
             {
 				res_reference0 = "Azura"
 				--
-				if " soul " !_in_ explained && " AU's " _in_ explained
+				if "Soul" !_in_ explained && "AU's" _in_ explained
 				{
 					res_reference0 = "Azura"
 					--
-					if repairglitch != 1
+					if Flag("Glitch Fix") != 1
 					{
 						"Y̶o̸u̶ ̴m̵e̴n̸t̸i̷o̶n̷e̸d̴ ̴s̸o̴m̷e̴t̶h̷i̶n̷g̷ ̴a̸b̵o̶u̸t̸ ̵s̶o̸u̵l̶,̷ ̸w̶h̷a̵t̶ ̵a̸r̸e̸ ̴t̵h̵e̶y̵ ̶e̶x̴a̶c̴t̸l̶y̷?̴\e WhatIsSoul0"
 					}
@@ -1189,11 +1187,11 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
 					}
 				}
 
-				if " AU's " _in_ explained && " underground " !_in_ explained
+				if "AU's" _in_ explained && "Underground" !_in_ explained
 				{ 
 					res_reference0 = "Azura"
 					--
-					if repairglitch != 1
+					if Flag("Glitch Fix") != 1
 					{
 						"Y̸o̵u̷ ̴m̶e̷n̴t̵i̴o̷n̴e̸d̵ ̷u̸n̶d̶e̷r̵g̸r̷o̸u̶n̷d̵,̴ ̸d̵i̶d̵ ̴y̸o̴u̸ ̶m̷e̸a̷n̴ ̶s̴o̴m̷e̸ ̶k̵i̶n̷d̵ ̵o̶f̷ ̷c̵a̸v̶e̴ ̷o̷r̸ ̸a̴ ̵t̵u̵n̴n̷e̸l̴?̷\e WhatIsUnderground0"
 					}
@@ -1203,29 +1201,29 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
 					}
 				}
 
-				if repairglitch == 1
+				if Flag("Glitch Fix") == 1
 				{
-					if " AU's " !_in_ explained
+					if "AU's" !_in_ explained
 					{ 
 						"I heard about this concept, alternative universes, what do you think, are they real?\e AU00"
 					}
-					if " underground " _in_ explained
+					if "Underground" _in_ explained
 					{
-						if " underground-plants " !_in_ explained
+						if "Underground-plants" !_in_ explained
 						{
 							"I wonder, are there any plants in the Underground?\e UnderPlant00"
 						}
-						elseif " underground-monsters " !_in_ explained
+						elseif "Underground-monsters " !_in_ explained
 						{
 						
 						}
-						elseif " underground-look " !_in_ explained
+						elseif "Underground-look " !_in_ explained
 						{
 						
 						}
 					}
 
-					if " AU's " _in_ explained && " undertale " !_in_ explained
+					if "AU's" _in_ explained && "Undertale" !_in_ explained
 					{ 
 						"Last time you mentioned something called 'Undertale', I haven't thought about it then but what is it exactly?\e undertale00"
 					}
@@ -1265,7 +1263,7 @@ RespondingToOmega
 	{
 		res_reference0 = "Omega"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 			"Y̸̗͛ǒ̵̭ṷ̶̓ ̵̯̌h̴̩͝e̷̮̕à̷͕r̵̨͑d̷͉͝ ̴̲̚ă̵̱b̸̲͆o̵̦͗ǘ̵̼ţ̷͗ ̷̥͌m̸̼̓e̵͍̒?̵̹͐\e HelloComrade2"
 		}
@@ -1279,7 +1277,7 @@ RespondingToOmega
 	{
 		res_reference0 = "Omega"
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
 
 			".\w5 .\w5 .\w5 I̸ ̸d̵o̴n̶'̵t̵ ̸k̵n̶o̴w̴ ̶a̵n̴y̶o̸n̵e̷ ̷n̵a̴m̸e̷d̶ ̵'̸D̷e̷l̷t̸a̵'̷ ̴w̶h̷o̵'̸s̴ ̷t̷h̷a̸t̷?̵\e HelloComrade3"
@@ -1294,9 +1292,8 @@ RespondingToOmega
 	{
 		res_reference0 = ""
 		--
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
-
 			"I̸ ̸d̵o̴n̶'̵t̵ ̸k̵n̶o̴w̴ ̶a̵n̴y̶o̸n̵e̷ ̷n̵a̴m̸e̷d̶ ̵'̸D̷e̷l̷t̸a̵'̷ ̴w̶h̷o̵'̸s̴ ̷t̷h̷a̸t̷?̵ ̸a̴n̸d̵ ̸w̸h̷a̶t̵ ̸i̴s̵ ̷t̶h̴i̸s̷ ̷'̵E̶t̴e̶r̸n̷a̵l̴ ̸L̷i̸b̶r̷a̸r̸y̶'̸?̵\e"
 		}
 		else

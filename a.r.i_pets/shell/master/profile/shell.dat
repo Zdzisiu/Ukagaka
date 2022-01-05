@@ -1,9 +1,9 @@
 Charset,UTF-8
 __system_settings_version__,2
-balloon,C:\Users\ola20\Documents\GitHub\Ukagaka\balloons\Simple Pets\
+balloon,C:\Users\ola20\Documents\GitHub\Ukagaka\balloons\simple_pets\
 Char1.balloon.isleft,1
 inputbox.left,831
-balloon0.offset,-21.-94
+balloon0.offset,467.-80
 scriptbox.left,1009
 balloon3.offset,253.3
 Char0.centery,1010
@@ -12,9 +12,9 @@ balloon1.offset,201.5
 Char0.balloon.isleft,1
 Char3.center,1323
 Char3.balloon.isleft,1
-Char.VirtualDesktop,424c281d-ef11-45f6-9183-d49333fc4c31
+Char.VirtualDesktop,c1dc8bbf-a7e8-46bd-bd15-c542149118ca
 Char2.center,1179
-Char0.center,1014
+Char0.center,986
 scriptbox.top,619
 Char1.centery,1010
 Char3.centery,1010

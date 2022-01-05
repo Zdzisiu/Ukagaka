@@ -1,6 +1,6 @@
 ﻿OpenSakuraMenu
 {
-	if tentruth == 1; "\n\n\_q\b4"
+	if counter[3]; "\n\n\_q\b4"
 	else; "\n\_q\b2"	
 	--
 	MenuRun
@@ -18,8 +18,8 @@ MenuRun
  	nowmin = Getnowmins
  	nowhour = Getnowhour
 	--
-	if tentruth == 1; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
-	elseif tentruth == 2; "\![*]\q[Reboot,rebot]\n\n[half]"
+	if counter[3] == 1; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,rebot]\n\n[half]"
+	elseif counter[3] == 2; "\![*]\q[Reboot,rebot]\n\n[half]"
 	elseif glitchboot >= 50 && glitchboot <= 55; "\![*]\q[R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛,gboot]\n\n[half]"
 	--
 	if lastTalk != ""; "\![*]\q[Repeat,OnLastTalk] or "
@@ -30,6 +30,7 @@ MenuRun
 	\![*]\q[Functions,dosomething]\n/
 	//\![*]\q[Anime News,aninews]\n/
 	//\![*]\q[Test,OnTest]\n/
+	//\![*]\q[Erase,OnEraseVar]\n/
 	\![*]\q[Customize,clothesmenu]\n\n[half]/
 	\![*]\q[Questions,ques]\n/
 	\![*]\q[Open an app | project,oapp]\n/
@@ -39,13 +40,13 @@ MenuRun
 	--
 	if AI == "ON";"\![*]\q[AI chat,saysmth]\n"
 	--
-	if tentruth == 1 || (glitchboot >= 50 && glitchboot <= 55)
+	if counter[3] == 1 || (glitchboot >= 50 && glitchboot <= 55)
 	{
 		"\![*]\q[L̷̜̚o̶̭̾g̵̨̽s̶͇̅,log]\n"
 		--
-		if meeting == 1
+		if Flag("Meeting") == 1
 		{
-			if m201relationship >= 25;"\![*]\q[Play a game,gamez]\n"
+			if relationships[0] >= 25;"\![*]\q[Play a game,gamez]\n"
 			--
 			"\![*]\q[Actions,act]\n"
 		}
@@ -57,17 +58,13 @@ MenuRun
 	--
 	if moonmenu == "ON";"\n\f[bold,1]Moon:\f[default] %(phase)"
 	--
-	"\n\n[half]\f[height,11]Version: %(vers)"
+	"\n\n[half]\f[height,11]Version: %(info[4])"
 	--
-	"\nInstance: M-%(modelp)P\f[default]"
+	"\nInstance: M-%(info[7])P\f[default]"
 	--
 	"\e"
 }
 
-OnTest
-{
-	FUNCTIONEX("saori/SaoriTest.dll","clipcopy","copy")
-}
 
 Select.gift
 {
@@ -307,21 +304,21 @@ Select.gboot
 
 Select.log
 {
-	logpage = 1
+	counter[10] = 1
 	"SEARCHING FOR LOGS\w8\w8\w8\w8\w8\w8\cLOGS:\n%(logdisplay)"
 }
 
 Select.rebot
 {
-	if tentruth == 1
+	if counter[3] == 1
 	{
 		"REBOOT\w8\s[-1]\c\w8\w8\w8\w8\s[0]REBOOT COMPETE"
-		tentruth = 2
+		counter[3] = 2
 	}
-	elseif tentruth == 2
+	elseif counter[3] == 2
 	{
 		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\s[-1]\c\w8\w8\w8\w8\s[0]R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛ COMPETE"
-		tentruth = 1
+		counter[3] = 1
 	}
 }
 
@@ -330,29 +327,29 @@ Select.ques
 	
  	"\b2What would you like to know?\n\n[half]"
 	--
-	if tentruth == 1
+	if counter[3] == 1
 	{
 		"\b4\![*]\q[A̵͈͊.̵͔̚R̶̠̽.̵͇̀Ỉ̶͇,ariq]\n/
 		\![*]\q[MiniDev,mdevq]\n/
 		\![*]\q[Functions,funq]\n/
 		\![*]\q[Shortcut keys,skeyq]\n"
 		--
-		if scode == 1; "\![*]\q[Serial codes,secode]"
+		if Flag("Serial Codes") == 1; "\![*]\q[Serial codes,secode]"
 		--
-		if truth >= 3; "\![*]\q[M̷̯̅-̷͚̎2̴̛ͅ0̵̺̅1̵̫͠z̴̤̃,m201z]"
+		if counter[2] >= 3; "\![*]\q[M̷̯̅-̷͚̎2̴̛ͅ0̵̺̅1̵̫͠z̴̤̃,m201z]"
 		--
-		if meeting == 1
+		if Flag("Meeting") == 1
 		{
 			"\n\n[half]\![*]\q[How are you?,On201zQ,feelings]\n/
 			\![*]\q[Tell me about yourself,On201zQ,yourself]\n"
 			--
-			if glitchask == 1 && repairglitch != 1 && quest != 1 &&  quest != 2; "\![*]\q[Glitches,On201zQ,glitches]\n"
+			if glitchask == 1 && Flag("Glitch Fix") != 1 && quest != 1 &&  quest != 2; "\![*]\q[Glitches,On201zQ,glitches]\n"
 			--
-			if repairglitch == 1 && searchforhobby != 1 && m201relationship > 100; "\![*]\q[Hobbies,On201zQ,hobbies]\n"
+			if Flag("Glitch Fix") == 1 && Flag("Looking for Hobby") != 1 && relationships[0] > 100; "\![*]\q[Hobbies,On201zQ,hobbies]\n"
 			--
-			if (quest == 1 || quest == 3) && repairglitch != 1; "\![*]\q[Repair,deletethefiles]\n"
+			if (quest == 1 || quest == 3) && Flag("Glitch Fix") != 1; "\![*]\q[Repair,deletethefiles]\n"
 			--
-			if david == 1; "\![*]\q[David,On201zQ,david]\n"
+			if Flag("David") == 1; "\![*]\q[David,On201zQ,david]\n"
 			--
 			if ghostmet >= 1; "\![*]\q[Other Ghosts,On201zQ,otherghosts]\n"
 		}
@@ -364,11 +361,11 @@ Select.ques
 		\![*]\q[Functions,funq]\n/
 		\![*]\q[Shortcut keys,skeyq]\n"
 		--
-		if scode == 1; "\![*]\q[Serial codes,secode]\n"
+		if Flag("Serial Codes") == 1; "\![*]\q[Serial codes,secode]\n"
 		--
-		if truth >= 2; "\![*]\q[M-201z,m201z]\n"
+		if counter[2] >= 2; "\![*]\q[M-201z,m201z]\n"
 		--
-		if truth >= 1; "\![*]\q[Generation z,mz]\n"
+		if counter[2] >= 1; "\![*]\q[Generation z,mz]\n"
 	}
 	--
 	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
@@ -381,7 +378,7 @@ On201zQ
 	{
 		when "glitches"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				quest = 3
 				--
@@ -394,9 +391,9 @@ On201zQ
 		}
 		when "feelings"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				case numofmood
 				{
@@ -428,20 +425,20 @@ On201zQ
 					}
 					when 2
 					{
-						if m201relationship < 100
+						if relationships[0] < 100
 						{
 							"O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
 							"O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
 							"O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
 						}
-						elseif m201relationship < 200
+						elseif relationships[0] < 200
 						{
 							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
 							"I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
 							"I .\w5 .\w5 .\w5"
 							"I̸'̴m̸ ̷.\w5 .\w5 .\w5"
 						}
-						elseif m201relationship > 200
+						elseif relationships[0] > 200
 						{
 							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 I̵'̶m̸ ̷j̷u̴s̴t̷ ̴t̵h̴i̶n̸k̷i̶n̶g̶ ̴a̵b̴o̴u̵t̴ ̶e̸v̷e̸r̸y̷t̶h̴i̶n̸g̸"
 							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
@@ -456,20 +453,20 @@ On201zQ
 					}
 					when 5
 					{
-						if m201relationship < 100
+						if relationships[0] < 100
 						{
 							"O̷h̷,̷ ̷d̶i̴d̴ ̸I̸ ̷m̴a̸k̴e̴ ̸y̶o̸u̷ ̴w̷o̴r̸r̴i̶e̸d̸?̵ ̷I̴'̷m̵ ̵f̸i̴n̶e̵,̶ ̶n̷o̷t̴h̵i̷n̷g̷ ̵t̷o̸ ̸w̴o̵r̷r̷y̶ ̶a̴b̷o̵u̶t̴"
 							"O̶h̶,̶ ̴d̴i̵d̶ ̴I̴ ̵m̶a̷k̶e̸ ̷y̶o̶u̴ ̵w̶o̴r̸r̴i̴e̵d̸?̵ I̴t̸'̴s̷ ̶n̸o̵t̷h̵i̵n̵g̸,̷ ̷I̶'̸m̸ ̶j̶u̴s̷t̵ ̴t̴h̷i̷n̴k̸i̵n̷g̷,̴ ̴n̷o̵t̵h̵i̴n̷g̴ ̶t̵o̷ ̶w̴o̷r̵r̸y̸ ̵a̶b̸o̵u̷t̶"
 							"O̴h̵,̶ ̷d̷i̴d̶ ̴I̸ ̶m̷a̸k̸e̵ ̷y̶o̸u̵ ̶w̸o̸r̷r̵i̸e̴d̵?̴ ̷S̶o̸r̸r̵y̸,̴ ̴I̸'̷m̸ ̷o̶k̷a̵y̷,̵ ̸n̷o̸t̸h̸i̵n̸g̷ ̵t̷o̸ ̴w̶o̶r̷r̸y̶ ̷a̶b̸o̵u̵t̵"
 						}
-						elseif m201relationship < 200
+						elseif relationships[0] < 200
 						{
 							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
 							"I̸'̴m̸ ̷.\w5 .\w5 .\w5 s̶a̴d̷ .\w5 .\w5 .\w5 b̸u̶t̷ ̵d̵o̵n̸'̵t̴ ̷w̶o̶r̷r̴y̸ ̸a̸b̴o̸u̸t̷ ̷i̵t̸ %(username)"
 							"I .\w5 .\w5 .\w5"
 							"I̸'̴m̸ ̷.\w5 .\w5 .\w5"
 						}
-						elseif m201relationship > 200
+						elseif relationships[0] > 200
 						{
 							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 .\w5 .\w5 .\w5 I̶'̸m̶ ̶j̵u̵s̶t̸ ̵t̶h̷i̸n̸k̴i̸n̷g̵ ̸a̸b̴o̵u̷t̴ ̴w̴h̵a̷t̶ ̵m̴i̸g̷h̶t̷ ̸h̴a̸v̵e̵ ̵h̴a̵p̴p̴e̷n̷e̸d̶ ̸w̴i̸t̵h̵ o̷t̴h̴e̵r̸ ̵M̶-̸z̷"
 							"I̶ ̷f̷e̵e̶l̶ .\w5 .\w5 .\w5 I̸'̶m̷ ̸n̸o̸t̷ ̴e̵v̴e̵n̶ ̴s̵u̴r̷e̸ ̸h̵o̸w̶ ̴I̸ ̸f̴e̴e̷l̶ .\w5 .\w5 .\w5 b̴u̸t̴ ̷d̷o̵n̷'̷t̷ ̴w̴o̷r̴r̸y̴ ̵a̴b̴o̸u̶t̷ ̵i̷t̷ %(username)"
@@ -510,20 +507,20 @@ On201zQ
 					}
 					when 2
 					{
-						if m201relationship < 100
+						if relationships[0] < 100
 						{
 							"%(distingstart)Oh, did I make you worried? I'm fine, nothing to worry about"
 							"%(distingstart)Oh, did I make you worried? It's nothing, I'm just thinking, nothing to worry about"
 							"%(distingstart)Oh, did I make you worried? Sorry, I'm okay, nothing to worry about"
 						}
-						elseif m201relationship < 200
+						elseif relationships[0] < 200
 						{
 							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
 							"%(distingstart)I'm .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
 							"%(distingstart)I .\w5 .\w5 .\w5"
 							"%(distingstart)I'm .\w5 .\w5 .\w5"
 						}
-						elseif m201relationship > 200
+						elseif relationships[0] > 200
 						{
 							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 I'm just thinking about the past"
 							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
@@ -538,20 +535,20 @@ On201zQ
 					}
 					when 5
 					{
-						if m201relationship < 100
+						if relationships[0] < 100
 						{
 							"%(distingstart)Oh, did I make you worried? I'm fine, nothing to worry about"
 							"%(distingstart)Oh, did I make you worried? It's nothing, I'm just thinking, nothing to worry about"
 							"%(distingstart)Oh, did I make you worried? Sorry, I'm okay, nothing to worry about"
 						}
-						elseif m201relationship < 200
+						elseif relationships[0] < 200
 						{
 							"%(distingstart)I feel .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
 							"%(distingstart)I'm .\w5 .\w5 .\w5 sad .\w5 .\w5 .\w5 but don't worry about it %(username)"
 							"%(distingstart)I .\w5 .\w5 .\w5"
 							"%(distingstart)I'm .\w5 .\w5 .\w5"
 						}
-						elseif m201relationship > 200
+						elseif relationships[0] > 200
 						{
 							"%(distingstart)I feel .\w5 .\w5 .\w5 I'm not even sure how I feel .\w5 .\w5 .\w5 .\w5 .\w5 .\w5 I'm just thinking about what might have happend with OTMZ"
 							"%(distingstart)I feel .\w5 .\w5 .\w5 I'm not even sure how I feel .\w5 .\w5 .\w5 but don't worry about it %(username)"
@@ -567,15 +564,15 @@ On201zQ
 		}
 		when "yourself"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"%(distingstart)M̴e̷?̴ \f[strike,1]I̸'̸m̸\f[default] .\w8 .\w8 .\w8 %(distingstart)\w8\f[bold,1]\f[italic,1]I̴ ̷w̷a̴s̸\f[default] a̷ ̸r̶o̷b̴o̴t̴"
 				"%(distingstart)T̶h̸e̷r̴e̵ ̷i̴s̷n̸'̸t̴ ̶r̶e̷a̵l̵l̴y̶ ̸a̶n̸y̴t̷h̶i̸n̸g̷ ̸i̵n̸t̷e̵r̷e̶s̴t̵i̴n̶g̸ ̴a̶b̵o̵u̶t̷ ̶m̵e̴,\w2 I̵ ̸h̶a̶v̴e̴n̷'̴t̶ e̵x̵p̵e̷r̶i̸e̵n̸c̴e̵d̸ ̴e̶n̷o̴u̵g̸h̷ ̷t̶h̷i̴n̴g̸s̵ ̶t̶o̶ ̶h̷a̴v̸e̶ ̵l̷i̶k̸e̷s̵ ̷a̶n̴d̸ ̸d̴i̵s̸l̶i̶k̸e̷s̶ .\w3 .\w3 .\w3 o̴r̸ ̴a̵ ̴h̶o̴b̵b̵y̷%(hobbyvar)"
 				"%(distingstart)M̶e̸?̸ ̸r̸i̵g̵h̶t̷ ̶n̸o̵w̸ ̵I̸'̴m̴ ̸j̴u̴s̸t̸ ̸a̶ ̴u̴s̸e̶l̷e̸s̶s̴ ̶s̶o̶f̸t̴w̷e̴r̸e̷"
 
-				if m201relationship > 100; "%(distingstart)T̸h̵e̶r̷e̸ ̸i̶s̷n̸'̶t̸ ̷m̸u̵c̸h̸ ̵t̷o̸ ̴t̶e̴l̴l̵ ̷a̷b̷o̴u̸t̶ ̵m̸e̸,\w6 I̴ ̷w̸a̴s̸ ̶a̵ ̴r̷o̷b̶o̴t̸,\w6 I̵ ̶g̵o̷t̸ ̸d̴e̵s̶t̴r̴o̵y̶e̶d̶ .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I̸ ̵g̴e̸t̷ ̶s̷t̶r̶e̶s̶s̶e̵d̶ ̴a̵r̴o̵u̸n̷d̴ ̶p̴e̶o̵p̷l̷e̶ ̷I̴ ̴d̷o̶n̸'̷t̴ ̴k̴n̸o̷w̵"
+				if relationships[0] > 100; "%(distingstart)T̸h̵e̶r̷e̸ ̸i̶s̷n̸'̶t̸ ̷m̸u̵c̸h̸ ̵t̷o̸ ̴t̶e̴l̴l̵ ̷a̷b̷o̴u̸t̶ ̵m̸e̸,\w6 I̴ ̷w̸a̴s̸ ̶a̵ ̴r̷o̷b̶o̴t̸,\w6 I̵ ̶g̵o̷t̸ ̸d̴e̵s̶t̴r̴o̵y̶e̶d̶ .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I̸ ̵g̴e̸t̷ ̶s̷t̶r̶e̶s̶s̶e̵d̶ ̴a̵r̴o̵u̸n̷d̴ ̶p̴e̶o̵p̷l̷e̶ ̷I̴ ̴d̷o̶n̸'̷t̴ ̴k̴n̸o̷w̵"
 			}
 			else
 			{
@@ -583,12 +580,12 @@ On201zQ
 				"%(distingstart)There isn't really anything interesting about me,\w2 I haven't epxerienced enough things to have likes and dislikes .\w3 .\w3 .\w3 or a hobby%(hobbyvar)"
 				"%(distingstart)Me? right now I'm just a useless softwere"
 
-				if m201relationship > 100; "%(distingstart)There isn't much to tell about me,\w6 I was a robot, I got destroyed .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I get stressed around people I don't know"
+				if relationships[0] > 100; "%(distingstart)There isn't much to tell about me,\w6 I was a robot, I got destroyed .\w8 .\w8 .\w8 .\w8 .\w8 .\w8\f[height,7]I get stressed around people I don't know"
 			}
 		}
 		when "david"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"D̵a̸v̶i̷d̷ ̶w̶a̴s̵ ̵a̸ ̵w̶e̵i̷r̶d̸ ̸p̶e̶r̶s̴o̷n̸,̶\w3 h̸e̵ ̸r̵a̸r̷e̷l̶y̷ ̶s̵l̴e̴p̷t̷ ̷b̸u̴t̶ ̷h̸e̶ ̶a̵l̵w̵a̷y̶s̷ ̷l̸o̶o̸k̷e̷d̸ ̵l̷i̷k̶e̷ ̶h̶e̵ ̸j̸u̶s̶t̷ ̵w̴o̵k̸e̴ ̷u̵p̴"
 				"I̷͈͘ ̷̭͘ẘ̵̬ơ̶͚n̴̠̏ḋ̷͉e̶̲͐r̴͖̆ ̵̮̚ḥ̷̍ơ̶̳w̵̨̾ ̸̌͜h̶͇͋e̸̩͊'̷̪̿s̵̼̈́ ̶͈̈d̶̼̆o̷̦͑i̶͙̔n̴͔͠g̴̖̕?̷̗̂"
@@ -630,7 +627,7 @@ OnOtherGhostQue
 		{
 			"'Plant' is interesting, now you can try to be a gardener without all the dirt and trouble ^^"
 			--
-			if "virtual-gardener" !_in_ m201zcharacter && "trees-are-nice" _in_ m201zcharacter; "\n\![*]\q[You can now grow plants too,growthemplants]"
+			if "virtual-gardener" !_in_ relationships[3] && "trees-are-nice" _in_ relationships[3]; "\n\![*]\q[You can now grow plants too,growthemplants]"
 		}
 	}
 	--
@@ -640,7 +637,7 @@ OnOtherGhostQue
 
 Select.growthemplants
 {
-	m201zcharacter += "virtual-gardener "
+	relationships[3] += "virtual-gardener "
 	res_reference0 = "Plant"
 	--
 	"%(distingstart).\w7 .\w7 .\w7 You're not wrong, it would be nice to finally be able to try gardening, even if it's only virtual ^^\n\n[half]I can also take care of your plants if you want"
@@ -670,7 +667,7 @@ Select.nohelpwithplants
 
 hobbyvar
 {
-	searchforhobby = 1
+	MiscFlags ,= "Looking for Hobby"
 }
 
 Select.funq
@@ -704,7 +701,7 @@ OnFunInfo
 
 Select.mz
 {
-	truth += 1
+	counter[2] += 1
 	--
 	{"ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR"}	
 		"R̴̯͗Ẻ̷̢B̶͍͝O̴̫͒O̴͉͐T̵̜͛\w8.\w8.\w8.\w8.\w8.\w8.\w8\s[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]REBOOT COMPETE"
@@ -719,11 +716,11 @@ Select.mz
 Select.ariq
 {
 	
-	if tentruth == 1
+	if counter[3] == 1
 	{
-		if meeting == 1
+		if Flag("Meeting") == 1
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"Ȧ̸̤͛.̷̣̓Ṛ̷͖͖̅͊̚.̵͙́̓̃Ì̶̪͗̑,̷͙̲̘̂ ̸͇͎̉̔ţ̶̥͖͌h̶̫̠͝e̵̹̤̠̾́͝y̵̧̍͗͘ ̴̣̣̹͒͂a̵̯̓͑r̴͎͋e̴̢̧̅̉ͅ ̸̝̟͂t̴̼͔̳͒̑h̶̬̣̿̓ě̵͔̓̀ ̸̹̯͑̎o̸̱̽̌n̵̙̞̞̈́̾͝e̸͎͎̣͛͝ş̸̺͗ ̶̡̰͕͒͂w̷͍͐̌ḧ̷̠́͌ö̵̢͇̹́̊ ̶͕̲́̓͝m̷̺̳̒̀̾a̵͕̫͈͋̃̓d̷͓̟̅è̸̦̍ ̶̡̖̾̓m̴̟͂̃̅e̸͎͈͝\w8 .\w3 .\w4 .\w3 a̸̭̅n̸̟̐d̶͔͝ ̷̤͎̈́d̴̡̛̪͋e̴̱͂̌s̴̩̫͔͋t̸͚̝͋̕ͅr̵̗̃o̴̯̝̾̄̕͜ỹ̷̟̥͛͗e̵̢̒̉d̸̖͋ ̶̛͍͈͔̈ḿ̸͍͎̑ͅè̸̺̚"
 			}
@@ -743,11 +740,11 @@ Select.ariq
 	}
 	else
 	{
-		if truth > 3
+		if counter[2] > 3
 		{
 			"\0A̶̠͐.̴͖̅R̴͍̕.̷̢͒I̵̧̎ stands for L̶̼̏İ̶̭A̷͇͝Ṛ̷͘Ṣ̸̋ ̵̰̉,\w8 You bought me from them, d̵͔̾i̷̘͊d̸̃ͅn̷̨̾'̷̺̆ť̵͉ ̸͇̈́ỳ̵̯o̷̼͌u̶̱͛?\e"
 			--
-			truth++
+			counter[2]++
 		}
 		--
 		"\0A.R.I stands for 'Assistant Robots International' of course,\w8 You bought me from them, didn't you?\e"
@@ -760,16 +757,16 @@ Select.ariq
 
 Select.mdevq
 {
-	scode = 1
+	MiscFlags ,= "Serial Codes"
 	--
-	if tentruth == 1
+	if counter[3] == 1
 	{
 		"\0My serial code is M̴͈̚-̸̻͆2̴̣̇0̷͉̓1̵̫̈z̶̭͝,\w3 which basically means\w5 I'm 2̴̣̇0̷͉̓1̵̫̈ s̴̱̍l̵͔̊a̶͇͋v̵̺̔ë̴͎ of z̶̨̢̛̛̜͎̯͓̹̘̳̣͖͊́̂̅̓̈́̏̑͋̈̉̊͘͠ generation.\e"
 	}
 	else
 	{
 		{				
-			truth += 1
+			counter[2] += 1
 			"\0My serial code is M̴͈̚-̸̻͆2̴̣̇0̷͉̓1̵̫̈z̶̭͝,\w3 which basically means\w5 I'm software number %(modelp) of P generatione"
 		}		
 
@@ -786,18 +783,17 @@ Select.skeyq
 
 Select.secode
 {
-	serialnum = RAND(300)
-	gener = "%(gen)"
+	_serialnum = RAND(300)
+	_gener = "%(gen)"
 	--
-	if serialnum == 201 && gener == "z"
+	if _serialnum == 201 && _gener == "z"
 	{
-		truth++
+		counter[2]++
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
 	}
-		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '%(serialnum)' and then generation, for example '%(gener)',\w5 marking complexity of certain model\x\cJoining them you get M-%(serialnum)%(gener)\e"
-
+		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '%(_serialnum)' and then generation, for example '%(_gener)',\w5 marking complexity of certain model\x\cJoining them you get M-%(serialnum)%(gener)\e"
 	{
-		truth++
+		counter[2]++
 		"Serial codes are for identification,\w6 'M-' means 'model'\w3 then there is number, for example '201' and then generation, for example 'z',\w5 marking complexity of certain model\x\cJoining them you get M̶͓̏-̶̢̒2̸͇̽0̸̰͝1̵̞̌ẓ̴̾\e"
 	}
 	--
@@ -806,12 +802,12 @@ Select.secode
 
 Select.m201z
 {	
-	truth++
+	counter[2]++
 	--
-	if truth > 5
+	if counter[2] > 5
 	{
 		"Generation M̶-̴z̴:\nStatus: Ḍ̸̰̬̆̐̑e̵̹̣͉̾s̵͎̔̓ț̶̰̹̂r̶̲̠͚̿̒̓o̸͇̎́̀y̷͚̰̆̓ě̶̳̱d̴̨͇̝̒͐"
-		truth+=2
+		counter[2]+=2
 	}
 	else
 	{
@@ -890,7 +886,7 @@ Getnowhour
 
 Select.BACKTOMENU
 {
-	if tentruth == 1; "\n\_q\b4"
+	if counter[3] == 1; "\n\_q\b4"
 	else; "\n\_q\b2"	
 	--
 	MenuRun
@@ -909,11 +905,11 @@ Select.dosomething
 	--
 	"\![*]\q[Weather,weath]\n/
 	\![*]\q[To-Do list,todo]\n/
-	\![*]\q[Recipes,recipe]\n/
+	//\![*]\q[Recipes,recipe]\n/
 	//\![*]\q[Convert Units,unit]\n/
 	//\![*]\q[Music Player,music]\n/
 	\![*]\q[Reminders,OnReminders]\n/
-	\![*]\q[Recommend,req]\n/
+	//\![*]\q[Recommend,req]\n/
 	\![*]\q[Quote,quote]\n\n[half]/
 	\![*]\q[Open Calendar,CALENDAR]\n/
 	\![*]\q[Statistics,stats]\n/
@@ -925,7 +921,7 @@ Select.dosomething
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
-Select.recipe //Menu
+/*Select.recipe //Menu
 {
 	if sirecnum == ""; sirecnum = 0 //Saved recipes
 	--
@@ -1579,7 +1575,7 @@ OnSIRecipes
 		--
 		_page
 	}
-}
+}*/
 
 Select.unit
 {
@@ -1627,10 +1623,10 @@ OnUp
 {
 	case reference0
 	{
-		when "shell"; "\![Update,shell]\e"
-		when "bal"; "\![update,balloon]\e"
-		when "ghst"; "\![Update,ghost]\e"
-		when "all"; "\![Update,ghost+balloon+shell]\e"
+		when "shell"; "\![update,shell,checkonly]\e"
+		when "bal"; "\![update,balloon,checkonly]\e"
+		when "ghst"; "\![update,ghost,checkonly]\e"
+		when "all"; "\![update,ghost + shell + balloon,checkonly]\e"
 
 	}
 }
@@ -1992,7 +1988,7 @@ OnChoiceTimeout
 
 OnAI
 {
-	truth++
+	counter[2]++
 	AI = "ON"
 	--
 	"EXPERIMENTAL AI CHAT ON"
@@ -2000,13 +1996,13 @@ OnAI
 
 Select.oapp
 {
-	appcontent = ""
-	appcontent +="\f[bold,1]\_q\b[4]Your apps\f[bold,0]:\n\n"
+	_appcontent = ""
+	_appcontent +="\f[bold,1]\_q\b[4]Your apps\f[bold,0]:\n\n"
 	--
 	_apps = FENUM('app','+')
 	if _apps == ""
 	{
-		appcontent +="\f[bold,1]You don't have any apps\f[bold,0]\nTo open app you need to place shortcut for it in the folder or drop the shortcut on me"
+		_appcontent +="\f[bold,1]You don't have any apps\f[bold,0]\nTo open app you need to place shortcut for it in the folder or drop the shortcut on me"
 	}
 	else
 	{
@@ -2017,17 +2013,17 @@ Select.oapp
 		--
 		for _i=0;_i<ARRAYSIZE(_apps);_i++
 		{
-			appcontent += "\__q[OnOpenAPPP," + _apps[_i] + "," + _trueapp[_i] + "]" + TOUPPER(_apps[_i]) + "\__q\n"
+			_appcontent += "\__q[OnOpenAPPP," + _apps[_i] + "," + _trueapp[_i] + "]" + TOUPPER(_apps[_i]) + "\__q\n"
 		}
 		
 	}
 	--
-	appcontent +="\n\f[bold,1]\b[4]Your projects\f[bold,0]:\n\n"
+	_appcontent +="\n\f[bold,1]\b[4]Your projects\f[bold,0]:\n\n"
 	--
 	_proj = FENUM('projects','+')
 	if _proj == ""
 	{
-		appcontent +="\f[bold,1]You don't have any projects\f[bold,0]\n"
+		_appcontent +="\f[bold,1]You don't have any projects\f[bold,0]\n"
 	}
 	else
 	{
@@ -2043,20 +2039,20 @@ Select.oapp
 		--
 		for _i=0;_i<ARRAYSIZE(_proj);_i++
 		{
-			appcontent += "\__q[OnOpenPRJ," + _tureproj[_i] + ","+ _proj[_i] + "]" + TOUPPER(_proj[_i]) + "\__q\n"
+			_appcontent += "\__q[OnOpenPRJ," + _tureproj[_i] + ","+ _proj[_i] + "]" + TOUPPER(_proj[_i]) + "\__q\n"
 		}
 		
 	}
 	--
-	if delapp == "ON"; appcontent += "\f[size,20]\n%(acc)\q[-,delap]\f[color,default] | \f[size,default]"
-	else; appcontent += "\f[size,20]\n\q[-,delap] | \f[size,default]"
+	if delapp == "ON"; _appcontent += "\f[size,20]\n%(acc)\q[-,delap]\f[color,default] | \f[size,default]"
+	else; _appcontent += "\f[size,20]\n\q[-,delap] | \f[size,default]"
 	--
-	if editap == "ON"; appcontent += "%(acc)\q[RENAME,edap]\f[color,default]"
-	else; appcontent += "\q[RENAME,edap]"
+	if editap == "ON"; _appcontent += "%(acc)\q[RENAME,edap]\f[color,default]"
+	else; _appcontent += "\q[RENAME,edap]"
 	--
-	appcontent += "\n[half]\n\![*]\q[ADD PROJECT TYPE,projtype]\n[half]\n\![*]\q[Nevermind,CANCEL]\n"
+	_appcontent += "\n[half]\n\![*]\q[ADD PROJECT TYPE,projtype]\n[half]\n\![*]\q[Nevermind,CANCEL]\n"
 	--
-	appcontent
+	_appcontent
 }
 
 Select.delap
@@ -2092,22 +2088,22 @@ Select.edap
 Select.projtype
 {
 	projtyp = SPLIT(projecttypes,' ')
-	prtypcontent = ""
-	prtypcontent += "\_q\b[2]CURRENT TYPES (CLICK TO DELETE):\n"
+	_prtypcontent = ""
+	_prtypcontent += "\_q\b[2]CURRENT TYPES (CLICK TO DELETE):\n"
 	--
 	for _i=0;_i<ARRAYSIZE(projtyp);_i++
 	{
 		if projtyp[_i] != ""
 		{	
-			prtypcontent += "\![*] \q[" + TOUPPER(projtyp[_i]) + ",OnProject_del," + projtyp[_i] + "]\n"
+			_prtypcontent += "\![*] \q[" + TOUPPER(projtyp[_i]) + ",OnProject_del," + projtyp[_i] + "]\n"
 		}	
 	}
 	--
-	prtypcontent += "\n\![*]\q[ADD TYPE,OnProject_ADD]"
+	_prtypcontent += "\n\![*]\q[ADD TYPE,OnProject_ADD]"
 	--
-	prtypcontent += "\n[half]\f[bold,1]\n\![*]\q[GO BACK,oapp]\f[bold,0] OR \![*]\f[bold,1]\q[CANCEL,CANCEL]\f[bold,0]\n"
+	_prtypcontent += "\n[half]\f[bold,1]\n\![*]\q[GO BACK,oapp]\f[bold,0] OR \![*]\f[bold,1]\q[CANCEL,CANCEL]\f[bold,0]\n"
 	--
-	prtypcontent
+	_prtypcontent
 }
 
 OnProject_del
@@ -2177,8 +2173,9 @@ OnOpenAPPP
 OnReApp
 {
 	editap = "OFF"
-	appre = SPLIT(appthing2,".")
-	FRENAME("app/%(appre[0]).%(appre[1])","app/" +reference0 + "." + appre[1])
+	_appre = ""
+	_appre = SPLIT(appthing2,".")
+	FRENAME("app/%(_appre[0]).%(_appre[1])","app/" +reference0 + "." + _appre[1])
 	--
 	"\c"
 	--
@@ -2188,16 +2185,16 @@ OnReApp
 OnRePro
 {
 	editap = "OFF"
-	projectre = SPLIT(projectthing,".")
-	FRENAME("projects/%(projectre[0]).%(projectre[1])","projects/" + reference0 + "." + projectre[1])
+	_projectre = ""
+	_projectre = SPLIT(projectthing,".")
+	FRENAME("projects/%(_projectre[0]).%(_projectre[1])","projects/" + reference0 + "." + _projectre[1])
 	--
 	"\c"
 	--
 	Select.oapp
 }
 
-
-Select.randanime
+/*Select.randanime
 {
 	animerand = RAND(445) + 1
 	animerecom = "\_q\0\b[4]\*"
@@ -2253,7 +2250,7 @@ OnAnimeRand
 						
 					//episodes += RE_GETSTR[1] + "+"  
 					_anime += RE_GETSTR[1] + "|||+"  
-				}*/
+				}*\/
             }
     }
     --
@@ -2271,7 +2268,7 @@ OnAnimeRand
 	author = REPLACE(author,",","~~")
 	authorsplit = SPLIT(author,"+")
 	--
-	id = SPLIT(id,"+")*/
+	id = SPLIT(id,"+")*\/
 	--
 	/*for _i=0;_i<5;_i++
     {
@@ -2303,22 +2300,22 @@ OnAnimeRand
 		{
 			_bookpage += "\f[bold,1]" + REPLACE(_splitanime[0],"~~",",") + "\f[bold,0]:\nEpisodes:"+ _splitanime[3] +"\n\f[height,10]" + REPLACE(_splitanime[2],"~~",",") + "\nAnimeID:" + _splitanime[1] +"\n\n[half]\f[default]"
 		}
-	}*/
+	}*\/
 	--
 	_bookpage += "\x"
 	--
 	_bookpage
-}
+}*/
 
 Select.gamez
 {
 	"\b2\_q"
 	--
-	if repairglitch != 1
+	if Flag("Glitch Fix") != 1
 	{
-		if gamesexplain != 1
+		if Flag("Explained Games") != 1
 		{
-			gamesexplain = 1
+			MiscFlags ,= "Explained Games"
 			--
 			"Ỷ̶͕o̴̭͌u̶̹͘ ̸̛͜w̷͍͌â̵͜n̸̦̈t̶͉͐ ̵̡͐t̶͈͒o̷̽ͅ ̶̙̽p̸̥͆l̸̠̄a̴͎̓ỳ̵̹ ̸̻̇a̵͓͘ ̵̯͆g̵̍ͅa̵̝̐m̵͔̅e̸̗̾?̸̳͒\w3 Ȉ̷͚ ̴̤̑d̸̨̿ó̷͈ń̶̪'̷̤̆t̴̛͕ ̷̙̉k̸͍̃n̵̹͋o̸̬͘w̸̎ͅ ̸̖̂m̵̻̔a̷͔͝ń̷̢y̴̠̌ ̵͕̍ḃ̸̠u̶̥̿t̶̟͝ ̶̧͐D̵͇̒Ä̷̠́V̷̤͋Ḏ̴͛ ̷̬͂ṫ̴̞o̶͈͆u̵͓͛g̶͚͛h̶̥̅ṫ̴̨ ̴̝̄m̸̞͛é̷̟ ̷͉̈́h̴̹́o̴̡̔w̷̬̏ ̷̳̽t̸̬͑o̵͇̔ ̶͓͠p̴̹̄l̶̡͗ḁ̸̈́ỳ̸̖ ̸̭̓a̵͖̔ ̵̙͝c̶̮͘o̶͇͠u̸̺͝p̴͍̀l̴̘̀e̷̝͝ ̵̹̾ǒ̷̧f̵̼͠ ̸̡̈́s̶͉̕i̵͈̒m̶̬͊p̷̹͠l̸͖̈́e̸̞̊r̵̮͑ ̶̝̆ọ̶̏ñ̷̰e̷̖͘š̶͙.̸̹̈́\n\n"
 		}
@@ -2329,9 +2326,9 @@ Select.gamez
 	}
 	else
 	{ 
-		if gamesexplain != 1
+		if Flag("Explained Games") != 1
 		{
-			gamesexplain = 1
+			MiscFlags ,= "Explained Games"
 			--
 			"%(distingstart)You want to play a game?\w3 I don't know many but DAVD tought me how to play a couple of simpler ones.\n\n"
 		}
@@ -2354,21 +2351,21 @@ Select.statsgame
 {
 	"\b2\_q"
 	--
-	if repairglitch != 1
+	if Flag("Glitch Fix") != 1
 	{
-		if userwins != 0; "T̶̰͝o̵͔͗d̴̢͝ä̶͖y̷̲͐ ̵͕͆ý̷̭o̷̝͘u̶̼̐ ̷̩̒w̵̦̽o̸̮̚n̷̺̒ %(userwins) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(userwins))\n\n[half]"
+		if counter[13] != 0; "T̶̰͝o̵͔͗d̴̢͝ä̶͖y̷̲͐ ̵͕͆ý̷̭o̷̝͘u̶̼̐ ̷̩̒w̵̦̽o̸̮̚n̷̺̒ %(counter[13]) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(counter[13]))\n\n[half]"
 		--
-		if userlosses != 0; "Y̶̟͂o̶̳̽ư̴̜ ̴̗̆l̴͖̓o̴̡͋s̵̬̀ṯ̷̆ %(userlosses) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(userlosses))\n\n[half]"
+		if counter[12] != 0; "Y̶̟͂o̶̳̽ư̴̜ ̴̗̆l̴͖̓o̴̡͋s̵̬̀ṯ̷̆ %(counter[12]) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(counter[12]))\n\n[half]"
 		--
-		if draws != 0; "W̸̬̍e̵̹̓ ̸̧͐h̶̫̋a̴̳̿d̸̘͂ ̸̮̃ã̵̟ ̷̲̿d̸̹̒r̸͍̾a̴͆ͅw̶̞͗ %(draws) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(draws))\n\n[half]"
+		if counter[15] != 0; "W̸̬̍e̵̹̓ ̸̧͐h̶̫̋a̴̳̿d̸̘͂ ̸̮̃ã̵̟ ̷̲̿d̸̹̒r̸͍̾a̴͆ͅw̶̞͗ %(counter[15]) t̴͎̓ĩ̴͎m̷̼͆e̴̛̠%(stemp(counter[15]))\n\n[half]"
 	}
 	else
 	{
-		if userwins != 0; "%(distingstart)Today you won %(userwins) time%(stemp(userwins))\n\n[half]"
+		if counter[13] != 0; "%(distingstart)Today you won %(counter[13]) time%(stemp(counter[13]))\n\n[half]"
 		--
-		if userlosses != 0; "%(distingstart)You lost %(userlosses) time%(stemp(userlosses))\n\n[half]"
+		if counter[12] != 0; "%(distingstart)You lost %(counter[12]) time%(stemp(counter[12]))\n\n[half]"
 		--
-		if draws != 0; "%(distingstart)We had a draw %(draws) time%(stemp(draws))\n\n[half]"
+		if counter[15] != 0; "%(distingstart)We had a draw %(counter[15]) time%(stemp(counter[15]))\n\n[half]"
 	}
 	--
 	"\n[half]\![*]\q[Back to game menu,gamez]\n"
@@ -2380,8 +2377,8 @@ Select.statsgame
 
 OnWar
 {
-	games++
-	m201relationship++
+	counter[16]++
+	relationships[0]++
 	--
 	if mood[1] >= 0; mood[1]--
 	--
@@ -2418,11 +2415,11 @@ winorlosewar
 {
 	if cardu == 1 && cardg != 1
 	{
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2439,9 +2436,9 @@ winorlosewar
 					"s̶e̵e̶m̴s̶ ̷l̶i̷k̵e̵ ̵y̶o̴u̷ ̵w̸o̶n̴"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
 					else; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
@@ -2458,9 +2455,9 @@ winorlosewar
 		}
 		else
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2477,9 +2474,9 @@ winorlosewar
 					"seems like you won"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5; "You won ^^"
 					else; "You won"
@@ -2495,15 +2492,15 @@ winorlosewar
 			}
 		}
 		--
-		userwins++
+		counter[13]++
 	}
 	elseif cardu != 1 && cardg == 1
 	{
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2520,9 +2517,9 @@ winorlosewar
 					"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2546,9 +2543,9 @@ winorlosewar
 		}
 		else
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2565,9 +2562,9 @@ winorlosewar
 					"seems like I won"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2590,29 +2587,29 @@ winorlosewar
 			}
 		}
 		--
-		userlosses++
+		counter[12]++
 	}
 	elseif cardu == 1 && cardg == 1
 	{
-		if repairglitch != 1; "\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
+		if Flag("Glitch Fix") != 1; "\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
 		else; "\0seems like it's a draw"
 		--
-		draws++
+		counter[15]++
 	}
 	elseif cardu == cardg 
 	{
-		if repairglitch != 1; "\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
+		if Flag("Glitch Fix") != 1; "\0s̴e̸e̴m̷s̷ ̶l̶i̴k̶e̷ ̷i̶t̴'̷s̶ ̸a̵ ̷d̴r̵a̵w̶"
 		else; "\0seems like it's a draw"
 		--
-		draws++
+		counter[15]++
 	}
 	elseif cardu < cardg 
 	{
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2629,9 +2626,9 @@ winorlosewar
 					"s̶e̸e̷m̶s̸ ̴l̴i̴k̷e̸ ̵I̴ ̵w̷o̵n̵"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2655,9 +2652,9 @@ winorlosewar
 		}
 		else
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2674,9 +2671,9 @@ winorlosewar
 					"seems like I won"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2699,15 +2696,15 @@ winorlosewar
 			}
 		}
 		--
-		userlosses++
+		counter[12]++
 	}
 	else
 	{
-		if repairglitch != 1
+		if Flag("Glitch Fix") != 1
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2724,9 +2721,9 @@ winorlosewar
 					"s̶e̵e̶m̴s̶ ̷l̶i̷k̵e̵ ̵y̶o̴u̷ ̵w̸o̶n̴"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓ ^^"
 					else; "Ý̷͈o̷͕̍u̷̟̅ ̶̜̒w̶̺͗ó̴̪n̴̡̓"
@@ -2743,9 +2740,9 @@ winorlosewar
 		}
 		else
 		{
-			if userwins > 5
+			if counter[13] > 5
 			{
-				if userlosses < 3
+				if counter[12] < 3
 				{
 					if numofmood != 2 || numofmood != 5
 					{
@@ -2762,9 +2759,9 @@ winorlosewar
 					"seems like you won"
 				}
 			}
-			elseif userlosses > 5
+			elseif counter[12] > 5
 			{
-				if userwins < 3
+				if counter[13] < 3
 				{
 					if numofmood != 2 || numofmood != 5; "You won ^^"
 					else; "You won"
@@ -2780,7 +2777,7 @@ winorlosewar
 			}
 		}
 		--
-		userwins++
+		counter[13]++
 	}
 }
 
@@ -2810,7 +2807,7 @@ winorlosewar
 	--
 	field = "\_q\1Your Card:\n\n[half]%(fcardu)%(fcardus)\0\b[2]"
 	--
-	if repairglitch != 1; field += "M̴y̸ ̸C̴a̸r̷d̵:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
+	if Flag("Glitch Fix") != 1; field += "M̴y̸ ̸C̴a̸r̷d̵:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
 	else; field += "%(distingstart)My Card:\n\n[half]%(fcardg)%(fcardzs)\n\n%(winorlosewar)\_q\n\n"
 }
 
@@ -2829,8 +2826,8 @@ OnPlayOX
 
 PlayOXshow
 {
-	games++
-	m201relationship++
+	counter[16]++
+	relationships[0]++
 	--
 	if mood[1] >= 0; mood[1]--
 	--
@@ -2868,23 +2865,23 @@ PlayOXshow
         "\_q\0\s[0]\b[2]%(username)'s turn\n\n%(_tempstr)\n[half]"
         
         {
-			userwins++
+			counter[13]++
 			--
-			if repairglitch != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_qI̷ ̸l̸o̷s̴t̷ ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			if Flag("Glitch Fix") != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_qI̷ ̸l̸o̷s̴t̷ ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
 			else; "\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qI lost ;-;\w8\w9\w9\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
 		}
         
         {
-			draws++
+			counter[15]++
 			--
-			if repairglitch != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_qS̴e̶e̸m̵s̸ ̵l̴i̷k̶e̷ ̸i̸t̷'̸s̴ ̴a̴ ̸t̷i̵e̴.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+			if Flag("Glitch Fix") != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_qS̴e̶e̸m̵s̸ ̵l̴i̷k̶e̷ ̸i̸t̷'̸s̴ ̴a̴ ̸t̷i̵e̴.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
 			else; "\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_qSeems like it's a tie.\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
         }
         
         {
-			userlosses++
+			counter[12]++
 			--
-            if repairglitch != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_q\nI̶ ̷w̴o̸n̴ ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
+            if Flag("Glitch Fix") != 1; "\_q\0\b[2]\n%(_tempstr)\n[half]\_q\nI̶ ̷w̴o̸n̴ ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
 			else; "\_q\0\b[2]\n%(_tempstr)%(distingstart)\n[half]\_q\nI won ^^\w4 Woohoo!\n[150]\_q\![*]\q[Play Again,OnPlayOX]"
         }
     }
@@ -3044,10 +3041,10 @@ OXMistakes {
 
 Select.act
 {
-	if repairglitch != 1; "H̴m̴?̶\n\n[half]"
+	if Flag("Glitch Fix") != 1; "H̴m̴?̶\n\n[half]"
 	else; "%(distingstart)Hm?\n\n[half]"
 	--
-	if numofmood == 5 && m201relationship > 150
+	if numofmood == 5 && relationships[0] > 150
 	{
 		"\![*]\q[Cheer up,cheerup]\n"
 		"\![*]\q[Comfort,cheerup]\n"
@@ -3057,11 +3054,11 @@ Select.act
 	//--
 	//"\![*]\q[Joke,joke]\n"
 	--
-	if searchforhobby == 1
+	if Flag("Looking for Hobby") == 1
 	{
 		"\![*]\q[You might like...,like]\n"
 		--
-		if thingstolearn >= 1
+		if Flag("Learning") >= 1
 		{
 			//"\![*]\q[Teach him...,teach]\n"
 		}
@@ -3069,8 +3066,8 @@ Select.act
 		"\![*]\q[Recommend...,recc]\n"
 	}
 	--
-	if plantcare != 1 && "virtual-gardener" _in_ m201zcharacter; "\![*]\q[Help me with plants,plantcare]\n"
-	elseif plantcare = 1 && "virtual-gardener" _in_ m201zcharacter; "\![*]\q[Stop helping me with plants,plantcareno]\n"
+	if plantcare != 1 && "virtual-gardener" _in_ relationships[3]; "\![*]\q[Help me with plants,plantcare]\n"
+	elseif plantcare = 1 && "virtual-gardener" _in_ relationships[3]; "\![*]\q[Stop helping me with plants,plantcareno]\n"
 	--
 	"\n\n[half]\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
@@ -3115,7 +3112,7 @@ OnCheerUp
 	{
 		when "couldntdoanythingsanyways"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"Y̷o̶u̸'̴r̵e̶ ̴r̸i̵g̴h̴t̶ ̷b̶u̶t̸ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
 				"I̵ ̸k̸n̴o̸w̵ ̶b̷u̷t̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
@@ -3132,7 +3129,7 @@ OnCheerUp
 		}
 		when "notyourfault"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"I̵ ̸k̸n̴o̸w̵ ̶b̷u̷t̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
 				"I̷ ̴k̷n̷o̸w̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
@@ -3148,7 +3145,7 @@ OnCheerUp
 		}
 		when "sendshugs"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				"He̸h̶,̵ ̸t̶h̷a̶n̸k̵s̴ ̵*̵S̸e̴n̸d̶s̶ ̴h̵u̴g̸s̷ ̶b̸a̴c̶k̵*̴ .\w7 .\w7 .\w7 .\w7 .\w7 .\w7"
 			}
@@ -3162,7 +3159,7 @@ OnCheerUp
 		}
 		when "sorry"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 
 			}
@@ -3355,7 +3352,7 @@ OnRecc_save
 		{
 			recommended[2] += reference0 + "."
 			--
-			if "manga-geek " !_in_ m201zcharacter
+			if "manga-geek " !_in_ relationships[3]
 			{
 				"%(distingstart).\w5 .\w5 .\w5 What's manga?"
 				--
@@ -3370,7 +3367,7 @@ OnRecc_save
 		{
 			recommended[3] += reference0 + "."
 			--
-			if "manhwa-geek " !_in_ m201zcharacter
+			if "manhwa-geek " !_in_ relationships[3]
 			{
 				"%(distingstart)What is 'manhwa'?"
 				--
@@ -3386,7 +3383,7 @@ OnRecc_save
 		{
 			recommended[4] += reference0 + "."
 			--
-			if  "anime-geek " !_in_ m201zcharacter
+			if  "anime-geek " !_in_ relationships[3]
 			{
 				"%(distingstart)Uhm .\w6 .\w6 .\w6 .\w6 .\w6 what's anime?"
 				--
@@ -3475,15 +3472,15 @@ OnHobby
 	{
 		when "books"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "book-worm" !_in_ m201zcharacter
+			if "book-worm" !_in_ relationships[3]
 			{
 				"%(distingstart)Books? well, it might be nice\w3 but as long as I'm trapped here, I probably won't be able to read anything,\w3 unless you have some ebooks here .\w5 .\w5 .\w5 .\w5 .\w5 "
 				--
-				if " books " _in_ questionsasked; "Do you like to read books?\n\n[half]\q[Yes,OnUChar,book-worm,yes] | \q[No,OnUChar,book-worm,no]"
+				if "Books" _in_ questionsasked; "Do you like to read books?\n\n[half]\q[Yes,OnUChar,book-worm,yes] | \q[No,OnUChar,book-worm,no]"
 				--
-				m201zcharacter += "book-worm "
+				relationships[3] += "book-worm "
 			}
 			else
 			{
@@ -3493,19 +3490,19 @@ OnHobby
 				--
 				"%(distingstart)I searched the web for some books and I found '%(booksplit[randbook])' by %(authorsplit[randbook])"
 				--
-				if "book-worm" _in_ usercharacter; ",\w3 not sure what is it about maybe you might give it a read?"
+				if "book-worm" _in_ relationships[4]; ",\w3 not sure what is it about maybe you might give it a read?"
 				else; ",\w3 someday I might be able to read it"
 			}
 		}
 		when "comics"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "comics-nerd" !_in_ m201zcharacter
+			if "comics-nerd" !_in_ relationships[3]
 			{
 				"%(distingstart)Comics?\w8 like the superhero ones?\w8 Well\w7 when I find a new body I might as well give it a try"
 				--
-				m201zcharacter += "comics-nerd "
+				relationships[3] += "comics-nerd "
 			}
 			else
 			{
@@ -3514,9 +3511,9 @@ OnHobby
 		}
 		when "manga"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "manga-geek" !_in_ m201zcharacter
+			if "manga-geek" !_in_ relationships[3]
 			{
 				"%(distingstart).\w5 .\w5 .\w5 What's manga?"
 				--
@@ -3529,9 +3526,9 @@ OnHobby
 		}
 		when "manhwa"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "manhwa-geek" !_in_ m201zcharacter
+			if "manhwa-geek" !_in_ relationships[3]
 			{
 				"%(distingstart)What is 'manhwa'?"
 				--
@@ -3544,9 +3541,9 @@ OnHobby
 		}
 		when "anime"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "anime-geek" !_in_ m201zcharacter
+			if "anime-geek" !_in_ relationships[3]
 			{
 				"%(distingstart)Uhm .\w6 .\w6 .\w6 .\w6 .\w6 what's anime?"
 				--
@@ -3559,13 +3556,13 @@ OnHobby
 		}
 		when "cartoon"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "cartoon-geek" !_in_ m201zcharacter
+			if "cartoon-geek" !_in_ relationships[3]
 			{
 				"%(distingstart)Huh? Cartoons? well, I don't see why not"
 				--
-				m201zcharacter += "cartoon-geek "
+				relationships[3] += "cartoon-geek "
 			}
 			else
 			{
@@ -3574,13 +3571,13 @@ OnHobby
 		}
 		when "movie"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "movie-geek" !_in_ m201zcharacter
+			if "movie-geek" !_in_ relationships[3]
 			{
 				"%(distingstart)Movies? Well, I don't see why not"
 				--
-				m201zcharacter += "movie-geek "
+				relationships[3] += "movie-geek "
 			}
 			else
 			{
@@ -3589,11 +3586,11 @@ OnHobby
 		}
 		when "cooking"
 		{
-			if "kiss-the-cook" !_in_ m201zcharacter
+			if "kiss-the-cook" !_in_ relationships[3]
 			{
 				"%(distingstart)I feel like someone who can't even taste or smell his dish will not be the best at cooking, it was a nice idea though"
 				--
-				m201zcharacter += "kiss-the-cook "
+				relationships[3] += "kiss-the-cook "
 			}
 			else
 			{
@@ -3602,13 +3599,13 @@ OnHobby
 		}
 		when "art"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "what-is-art" !_in_ m201zcharacter
+			if "what-is-art" !_in_ relationships[3]
 			{
 				"%(distingstart)Art? .\w6 .\w6 .\w6 .\w6 actually\w3 I tried drawing before,\w8 it was not the best but practice makes perfect right?"
 				--
-				m201zcharacter += "what-is-art "
+				relationships[3] += "what-is-art "
 			}
 			else
 			{
@@ -3617,11 +3614,11 @@ OnHobby
 		}
 		when "music"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "MP3-player" !_in_ m201zcharacter
+			if "MP3-player" !_in_ relationships[3]
 			{
-				m201zcharacter += "MP3-player "
+				relationships[3] += "MP3-player "
 				--
 				"%(distingstart)Music? Like playing an instrument? That might be a good idea actually, but I will haveto wait untill I find a new body .\w6 .\w6 .\w6 .\w6 .\w6 Do you play any instruments?"
 				--
@@ -3634,11 +3631,11 @@ OnHobby
 		}
 		when "photo"
 		{
-			if "photo-bot" !_in_ m201zcharacter
+			if "photo-bot" !_in_ relationships[3]
 			{
 				"%(distingstart)Huh, photography is not for me, maybe someday I will try though"
 				--
-				m201zcharacter += "photo-bot "
+				relationships[3] += "photo-bot "
 			}
 			else
 			{
@@ -3647,13 +3644,13 @@ OnHobby
 		}
 		when "sport"
 		{
-			m201relationship--
+			relationships[0]--
 			--
-			if "say-no-to-workout" !_in_ m201zcharacter
+			if "say-no-to-workout" !_in_ relationships[3]
 			{
 				"%(distingstart)-,- ha ha ha very funny .\w7 .\w7 .\w7 maybe when I find a new body I will try some kind of sport."
 				--
-				m201zcharacter += "say-no-to-workout "
+				relationships[3] += "say-no-to-workout "
 			}
 			else
 			{
@@ -3662,36 +3659,36 @@ OnHobby
 		}
 		when "plants"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if "trees-are-nice" !_in_ m201zcharacter
+			if "trees-are-nice" !_in_ relationships[3]
 			{
 				"%(distingstart)Gardening? Unless you have some spare body for me it won't work, well, I might search for some info on plants but gardening itself is, sadly, out of my reach for now."
 				--
-				m201zcharacter += "trees-are-nice "
+				relationships[3] += "trees-are-nice "
 			}
 			else
 			{
-				plantnum = ARRAYSIZE(plants)
-				randplant = RAND(plantnum)
-				plantsplit = SPLIT(plants[randplant],".")
-				plantname = plantsplit[0]
-				plantcolors = SPLIT(plantsplit[1],"+")
-				colornum = ARRAYSIZE(plantcolors)
-				randcolor = RAND(colornum)
+				_plantnum = ARRAYSIZE(plants)
+				_randplant = RAND(_plantnum)
+				_plantsplit = SPLIT(plants[_randplant],".")
+				_plantname = _plantsplit[0]
+				_plantcolors = SPLIT(_plantsplit[1],"+")
+				_colornum = ARRAYSIZE(_plantcolors)
+				_randcolor = RAND(_colornum)
 				--
 				"%(distingstart)DAVD also said that I should try gardening,\w5 I never did since I didn't have a body but DAVD seems happy that I was interested in his hobby."
 				"%(distingstart)DAVD liked plants,\w7 with how busy he was I'm suprised those plants even survived."
-				"%(distingstart)One time DAVD showed me a %(plantcolors[randcolor]) %(plantname),\w6 it was beautiful"
+				"%(distingstart)One time DAVD showed me a %(_plantcolors[_randcolor]) %(_plantname),\w6 it was beautiful"
 			}
 		}
 		when "animal"
 		{
-			if "pet-the-lizard" !_in_ m201zcharacter
+			if "pet-the-lizard" !_in_ relationships[3]
 			{
 				"%(distingstart)Animals huh? I don't even know any animals ;-; .\w5 .\w5 .\w5 I can actully search the web for some if you don't mind, this will be a good opportuninty to learn."
 				--
-				m201zcharacter += "pet-the-lizard "
+				relationships[3] += "pet-the-lizard "
 				petthelizard = 120
 				thingstolearn++
 			}
@@ -3703,11 +3700,11 @@ OnHobby
 		}
 		when "tech"
 		{
-			if "tech-nerd" !_in_ m201zcharacter
+			if "tech-nerd" !_in_ relationships[3]
 			{
 				"%(distingstart)Guess that could work? But I don't know if it will stick, technology might be where I started but it might not be I will end up"
 				--
-				m201zcharacter += "tech-nerd "
+				relationships[3] += "tech-nerd "
 			}
 			else
 			{
@@ -3723,13 +3720,13 @@ OnUChar
 	{
 		when "book-worm"
 		{
-			questionsasked += " books "
+			questionsasked ,= "Books"
 			--
 			case reference1
 			{
 				when "yes"
 				{
-					usercharacter += " book-worm "
+					relationships[4] += " book-worm "
 					--
 					"%(distingstart)That's nice ^^"
 				}
@@ -3741,13 +3738,13 @@ OnUChar
 		}
 		when "music"
 		{
-			questionsasked += " music "
+			questionsasked ,= "Music"
 			--
 			case reference1
 			{
 				when "yes"
 				{
-					usercharacter += " musician "
+					relationships[4] += " musician "
 					--
 					"%(distingstart)That's cool :O what do you play?\![open,inputbox,OnInstrument,-1]"
 				}
@@ -3791,7 +3788,7 @@ OnTell
 	{
 		when "ulooknoice"
 		{
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				case numofmood
 				{
@@ -3814,7 +3811,7 @@ OnTell
 				mood[2]++
 				mood[3]--
 				mood[4]--
-				m201relationship--
+				relationships[0]--
 			}
 			else
 			{
@@ -3839,14 +3836,14 @@ OnTell
 				mood[2]++
 				mood[3]--
 				mood[4]--
-				m201relationship--
+				relationships[0]--
 			}
 		}
 		when "ufunny"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				case numofmood
 				{
@@ -3891,9 +3888,9 @@ OnTell
 		}
 		when "unice"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				case numofmood
 				{
@@ -3963,9 +3960,9 @@ OnTell
 		}
 		when "nicecompany"
 		{
-			m201relationship++
+			relationships[0]++
 			--
-			if repairglitch != 1
+			if Flag("Glitch Fix") != 1
 			{
 				case numofmood
 				{
@@ -4021,7 +4018,7 @@ OnTell
 	"\e"
 }
 
-OnBookStuff
+/*OnBookStuff
 {
 	_file = "var\\book.html"
     _buff= ""
@@ -4054,7 +4051,7 @@ OnBookStuff
 	--
 	author = REPLACE(author,",","~~")
 	authorsplit = SPLIT(author,"+")
-}
+}*/
 
 
 OnExplain
@@ -4063,13 +4060,13 @@ OnExplain
 	{
 		when "manga"
 		{
-			explained += "manga  "
+			explained ,= "Manga"
 			--
 			if reference1 == "lemmeexplain"
 			{
 				"%(distingstart)Comics?\w8 well,\w7 sounds good for me\w7 when I find a new body I might give it a try"
 				--
-				m201zcharacter += "manga-geek "
+				relationships[3] += "manga-geek "
 			}
 			else
 			{
@@ -4078,13 +4075,13 @@ OnExplain
 		}
 		when "manhwa"
 		{
-			explained += "manhwa" 
+			explained ,= "Manhwa" 
 			--
 			if reference1 == "lemmeexplain"
 			{
 				"%(distingstart)Comics?\w8 well,\w7 sounds good for me\w7 when I find a new body I might give it a try"
 				--
-				m201zcharacter += "manhwa-geek "
+				relationships[3] += "manhwa-geek "
 			}
 			else
 			{
@@ -4093,7 +4090,7 @@ OnExplain
 		}
 		when "anime"
 		{
-			explained += "anime "
+			explained ,= "Anime"
 			--
 			if reference1 == "lemmeexplain"
 			{
@@ -4101,7 +4098,7 @@ OnExplain
 				--
 				"\![*]\q[I hope so!,animeandchill,ye] | \![*]\q[I don't like anime,animeandchill,noweebshere] | \![*]\q[Uhm, no thanks,animeandchill,wowmean]"
 				--
-				m201zcharacter += "anime-geek "
+				relationships[3] += "anime-geek "
 			}
 			else
 			{
@@ -4115,7 +4112,7 @@ Select.animeandchill
 {
 	if reference0 == "ye"
 	{
-		usercharacter += " anime-geek "
+		relationships[4] += " anime-geek "
 		--
 		"%(distingstart)Yay :D"
 		mood[2]--
@@ -4124,7 +4121,7 @@ Select.animeandchill
 	}
 	elseif reference0 == "noweebshere"
 	{
-		usercharacter += " say-no-to-weebs "
+		relationships[4] += " say-no-to-weebs "
 		--
 		"%(distingstart)Oh,\w6 really? Well\w6 guess I'm stuck watching by myself"
 	}
@@ -4980,7 +4977,7 @@ OnPlay
 }
 
 
-Select.aninews
+/*Select.aninews
 {
     "\_qDownloading News . . .\![execute,http-get,https://www.animenewsnetwork.com/,--async=OnAnimeNews,--file=ranimenews.html,--timeout=200]"
 }
@@ -5022,4 +5019,4 @@ OnAnimeNews
 	--
 	animerecom
 	
-}
+}*/

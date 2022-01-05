@@ -2,7 +2,7 @@ charset,UTF-8
 
 seriko.alignmenttodesktop,free
 
-name,MiniDev
+name,MiniDev_old
 type,ghost
 
 sakura.name,MiniDev
