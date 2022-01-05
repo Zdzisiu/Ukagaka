@@ -45,25 +45,26 @@
 
 //\s[0]\![raise,OnMood]%(moodpage)
 OnMood
-{	//		        0       1      2      3    4     5      6    7
-	moodlib = "thoughtful,happy,relaxed,bored,sad,annoyed,angry,tired"
-	//reset mood
-	mood = 0
-	moodsize = ARRAYSIZE(moodlib)
+{	//		     0     1    2     3      4     5   
+	moodlib = "happy,bored,sad,annoyed,angry,tired"
+	mood = 0 //reset mood
+	_moodsize = ARRAYSIZE(moodlib)
+	_ranmood = 0
+	_randmoodvar = 0
 	--
-	for _i=0;_i<moodsize;_i++
+	for _i=0;_i<_moodsize;_i++
 	{
 		if mood[_i] == "" || mood[_i] != 0 || mood[_i] != " "; mood[_i] = 0
 	}
 	--
-	moodnumss = RAND(moodsize)
+	_moodnumss = RAND(_moodsize)
 	--
-	for _i=0;_i<moodnumss+3;_i++
+	for _i=0;_i<_moodnumss+3;_i++
 	{
-		ranmood = RAND(moodsize)
-		randmoodvar = RAND(10)
+		_ranmood = RAND(_moodsize)
+		_randmoodvar = RAND(10)
 		--
-		mood[ranmood] += TOINT(randmoodvar)
+		mood[_ranmood] += TOINT(_randmoodvar)
 	}
 	--
 	OnMoodCheck
@@ -72,35 +73,38 @@ OnMood
 OnMoodCheck
 {
 	moodstring = ""
+	_moodsize = ARRAYSIZE(moodlib) //get how many moods are in moodlib
+    _arr = IARRAY
+	_ramod = 0
 	--
-	arr[0] = mood[0]
+	_arr[0] = mood[0]
 	--
-	for _j=0;_j<moodsize;_j++
+	for _j=0;_j<_moodsize;_j++
 	{
-		if arr[0] < TOINT(mood[_j])
+		if _arr[0] < TOINT(mood[_j])
 		{
-			arr[0] = mood[_j]
-			numofmood = _j
+			_arr[0] = mood[_j]
+			_numofmood = _j
 		}
-		elseif arr[0] == TOINT(mood[_j])
+		elseif _arr[0] == TOINT(mood[_j])
 		{
-			ramod = RAND(2)
+			_ramod = RAND(2)
 			--
-			if ramod == 1
+			if _ramod == 1
 			{
-				arr[0] = mood[_j]
-				numofmood = _j
+				_arr[0] = mood[_j]
+				_numofmood = _j
 			}
 		}
 		
 	}
 	--
-	moodstring = moodlib[numofmood]
-	currmood = numofmood
+	moodstring = moodlib[_numofmood]
+	currmood = _numofmood
 	--
 	moodpage = "\_q\b4Mood for today: %(moodstring)\n\n[half]"
 	--
-	for _i=0;_i<ARRAYSIZE(moodlib);_i++
+	for _i=0;_i<_moodsize;_i++
 	{
 		moodpage += moodlib[_i] + ": " + mood[_i] + "\n"
 	}
@@ -183,6 +187,8 @@ OnBootVariables
 
 OnVariables
 {
+	toggle = IARRAY
+	other = IARRAY
 	maxage = 100
 	deadyn = "ON"
 	minage = 16
@@ -306,12 +312,8 @@ GetTimeSlot
 
 timeofdayown
 {
-	if hour >= 5 && hour <= 8; "morning"
-	elseif hour >= 9 && hour <= 11; "morning"
-	elseif hour >= 12 && hour <= 14; "afternoon"
-	elseif hour >= 15 && hour <= 17; "afternoon"
-	elseif hour >= 18 && hour <= 20; "evening"
-	elseif hour >= 21 && hour <= 24; "evening"
+	if hour >= 5 && hour <= 11; "morning"
+	elseif hour >= 12 && hour <= 17; "afternoon"
 	else; "evening"
 }
 
@@ -348,7 +350,7 @@ OnClose
 
 OnWindowStateRestore
 {
-	"\0\s[0]\1\s[10]" 
+	"\0\s[0]\1\s[10]Welcome back\e" 
 }
 
 OnGhostChanged

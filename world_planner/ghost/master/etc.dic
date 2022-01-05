@@ -202,7 +202,7 @@ Select.callghost
 
 Select.nocall
 {
-	"...\e"
+	"\e"
 }
 
 OnInstallFailure
@@ -211,11 +211,11 @@ OnInstallFailure
 	--
 	if reference0 == "unsupported"
 	{
-	"This file is unsupported.\e"
+		"This file is unsupported.\e"
 	}	
 	elseif reference0 == "extraction"
 	{
-	"The file could not be extracted properly.\e"
+		"The file could not be extracted properly.\e"
 	}
 }
 
@@ -236,7 +236,7 @@ OnVanishSelected
 
 OnVanishCancel
 {
-	"\0Seems like I'm staing here\e"
+	"\0Seems like I'm staying here\e"
 }
 
 OnVanished
@@ -535,7 +535,7 @@ OnShellScaling
 {
 	if reference0 >= 150 //this number is the percentage that you're scaling the ghost up to. In this case, it's 150%.
 	{
-		"\0I'm now 150% my original size.\w8Bigger.\e"
+		"\0I'm now 150% my original size.\e"
 	}
 	elseif reference0 == 100 //this is 100%
 	{
@@ -543,6 +543,6 @@ OnShellScaling
 	}
 	elseif reference0 == 50 //this is 50%. You can add any percentage that's listed under shell scaling if you want using more elseifs.
 	{
-		"\0I'm now 50% my original size.\w8Smaller.\e"
+		"\0I'm now 50% my original size.\e"
 	}
 }

@@ -18,10 +18,6 @@ OnMouseMove
 		{
 			MouseMoveSakura
 		}
-		else 
-		{
-			MouseMoveKero
-		}
 	}
 }
 
@@ -35,35 +31,9 @@ MouseMoveSakura
  			stroke = 0 
 			if reference4 == "Head" 
  			{
-				"\0...\e"
- 			}
- 			elseif reference4 == "Face" 
- 			{
- 				"\0...\e"
- 			}
- 		}
-	}
- 	else
-	{
-		stroke = 0
- 	}
-}
-
-MouseMoveKero
-{
-	if reference4 != ""
- 	{
- 		stroke++
- 		if stroke >= 40
-		{
-			stroke = 0
-			if reference4 == "Head" 
- 			{
-				"\0...\e"
- 			}
- 			elseif reference4 == "Face" 
- 			{
- 				"\0...\e"
+				"\0Watch out for the horns.\e"
+				"\0Don't hurt yourself on the horns.\e"
+				"\0Be careful, those horns are quite sharp.\e"
  			}
  		}
 	}
@@ -98,25 +68,6 @@ OnMouseDoubleClick
 }
 
 MouseDoubleClickSakura
- {
- 	if reference4 == "Head" || reference4 == "Face" 
-	{
-		"\0...\e"
- 	}
-	else
- 	{
- 		OpenSakuraMenu
-	}
- }
- 
-MouseDoubleClickKero
- {
- 	if reference4 == "Face" 
-	{
-		"\1\s[10]...\e"
- 	}
-	else 
- 	{
-		OpenKeroMenu 
-	}
- }
+{
+ 	OpenSakuraMenu
+}

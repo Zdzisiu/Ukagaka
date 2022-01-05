@@ -62,8 +62,8 @@ OnGhostCallComplete
 			charname[charcount] = "Nightmare"
 			charage[charcount] = "15"
 			chardead[charcount] = "Not really"
-			chargender[charcount] =	"boy I guess"
-			charrace[charcount] = "skeleton"
+			chargender[charcount] =	"Boy I guess"
+			charrace[charcount] = "Skeleton"
 			charprof[charcount] = "'guardian' I suppose"
 			charnat[charcount] = "None"
 			chardesc[charcount] = "sad shy kid who has depression and a demon living inside him"
@@ -94,43 +94,69 @@ OnGhostCallComplete
 	}
 	else
 	{
-
+		"Hello again %(reference0)"
 	}
 }
 
 OnOtherGhostBooted
 {
-	if reference0 == "Jockey" && metjockey != 1
+	if reference0 !_in_ "%(ghostsmet)"
 	{
-		charname[charcount] = "Jockey?"
-		charage[charcount] =	"early-mid twenties"
-		chardead[charcount] =	"Nope!"
-		chargender[charcount] =	"Woman"
-		charrace[charcount] =	"Caucasian"
-		charprof[charcount] =	"Nothing"
-		charnat[charcount] =	"American Pennsylvanian"
-		chardesc[charcount] =	"everything is fine"
-		charshortstory[charcount] =	"When the zombie apocalypse hit everybody she knew died and she pretends like it never happened"
-		charlongstory[charcount] =	"She has many friends and family then when the apozalypes hit they all were killed or turned into zombies. She meets three other girls (Hunter Smoker and Charger) that she teams up with. She isn't handing the apocalypse well and pretends like it never happened in the first place, often hurting their feelings by telling them that THEIR loved ones aren't actually dead and this is all just a dream that will end soon. This makes some of them have a hard time getting along with her."
-		charworld[charcount] = "Default"
-		charcount++
-		metjockey = 1
-	}
-	elseif reference0 == "Dreamtale Sans" && metdtsans != 1
-	{
-		charname[charcount] = "Nightmare"
-		charage[charcount] =	"15"
-		chardead[charcount] =	"Not really"
-		chargender[charcount] =	"boy I guess"
-		charrace[charcount] = "skeleton"
-		charprof[charcount] = "'guardian' I suppose"
-		charnat[charcount] =	"None"
-		chardesc[charcount] =	"sad shy kid who has depression and a demon living inside him"
-		charshortstory[charcount] =	"he ate some apples he wasn't supposed to and now he has a mean apple monster feeding off of his soul"
-		charlongstory[charcount] =	"there's a magic tree with yellow good apples that make the people in the land feel happy, and black bad apples that make the people in the land feel sad. You don't eat the apples, that's a bad thing, magic tree just has an aura that makes everybody have a valence of feelings. After the first guardian died because of an off-screen war she birthed two balls of energy that she gave sans bodies because reasons. One was yellow sans and one was purple sans, and then they decided the yellow one was the positive apple protector and the purple one was black apple protector then they bullied and abused black apple protector until he ate the black apples and got possessed by the apples so he turned into an goop monster. Goop monster isn't in control now for some reason."
-		charworld[charcount] = "Default"
-		charcount++
-		metdtsans = 1
+		"Welcome and nice to meet you %(reference0)"
+		--
+		if reference0 == "Jockey"
+		{
+			"\n\n[half]\f[height,10]%(reference0) huh? I should find their book\f[default]"
+			--
+			charname[charcount] = "Jockey?"
+			charage[charcount] = "early-mid twenties"
+			chardead[charcount] = "Nope!"
+			chargender[charcount] =	"Woman"
+			charrace[charcount] = "Caucasian"
+			charprof[charcount] = "Nothing"
+			charnat[charcount] = "American Pennsylvanian"
+			chardesc[charcount] = "everything is fine"
+			charshortstory[charcount] =	"When the zombie apocalypse hit everybody she knew died and she pretends like it never happened"
+			charlongstory[charcount] = "She has many friends and family then when the apozalypes hit they all were killed or turned into zombies. She meets three other girls (Hunter Smoker and Charger) that she teams up with. She isn't handing the apocalypse well and pretends like it never happened in the first place, often hurting their feelings by telling them that THEIR loved ones aren't actually dead and this is all just a dream that will end soon. This makes some of them have a hard time getting along with her."
+			charworld[charcount] = "Default"
+			charcount++
+		}
+		elseif reference0 == "Dreamtale Sans"
+		{
+			"\n\n[half]\f[height,10]%(reference0) huh? I should find their book\f[default]"
+			--
+			charname[charcount] = "Nightmare"
+			charage[charcount] = "15"
+			chardead[charcount] = "Not really"
+			chargender[charcount] =	"Boy I guess"
+			charrace[charcount] = "Skeleton"
+			charprof[charcount] = "'guardian' I suppose"
+			charnat[charcount] = "None"
+			chardesc[charcount] = "sad shy kid who has depression and a demon living inside him"
+			charshortstory[charcount] =	"he ate some apples he wasn't supposed to and now he has a mean apple monster feeding off of his soul"
+			charlongstory[charcount] = "there's a magic tree with yellow good apples that make the people in the land feel happy, and black bad apples that make the people in the land feel sad. You don't eat the apples, that's a bad thing, magic tree just has an aura that makes everybody have a valence of feelings. After the first guardian died because of an off-screen war she birthed two balls of energy that she gave sans bodies because reasons. One was yellow sans and one was purple sans, and then they decided the yellow one was the positive apple protector and the purple one was black apple protector then they bullied and abused black apple protector until he ate the black apples and got possessed by the apples so he turned into an goop monster. Goop monster isn't in control now for some reason."
+			charworld[charcount] = "Default"
+			charcount++
+		}
+		elseif reference0 == "Azura"
+		{
+			"\n\n[half]\f[height,10]%(reference0) huh? I should find their book\f[default]"
+			--
+			charname[charcount] = "Azura"
+			charage[charcount] = "20 years  old"
+			chardead[charcount] = "No"
+			chargender[charcount] =	"Feminine"
+			charrace[charcount] = "Human"
+			charprof[charcount] = "Ambassador"
+			charnat[charcount] = "Monster"
+			chardesc[charcount] = "Human with golden dragon wings and tail, purple eyes and long brown hair. Size : 1m70. Likes almonds and doesn't like vegetables."
+			charshortstory[charcount] =	"She transfered her soul in a game to live in it, her surplus of determination went into her wings and her tail."
+			charlongstory[charcount] = "After having transfered her soul in the game Undertale, she did a pacifist run to end up being monsters' ambassador. Her vessel original appearance being a child, she grew up during her journey as her determination was transfered. The surplus of determination went into her wings and her tail."
+			charworld[charcount] = "Default"
+			charcount++
+		}
+		--
+		ghostsmet ,= reference0
 	}
 	--
 	"Welcome %(reference0)"
@@ -166,10 +192,10 @@ OnConvoTest
 	charage[charcount] =	"N/A"
 	chardead[charcount] =	"No"
 	chargender[charcount] =	"Male"
-	charrace[charcount] =	"Previously: Robot\nCurrently: Softwere"
+	charrace[charcount] =	"Previously: Robot\nCurrently: Software"
 	charprof[charcount] =	"N/A"
 	charnat[charcount] =	"N/A"
-	chardesc[charcount] =	"M-201z doesn't really know much, before he was destroyed he was learning only about technology, because of that things like animals, feeling, or common saying are confusing for him."
+	chardesc[charcount] =	"M-201z doesn't really know much, before he was destroyed he was learning only about technology, because of that things like animals, feeling, or common sayings are confusing for him."
 	charshortstory[charcount] =	"M-201z was a robot, right before his body was destroyed he transfered himself into one of the computers nearby and later 'possesed' the M-P copy that was stored on this computer."
 	charlongstory[charcount] =	"M-201z who was built by A.R.I - a firm specialized in softwere and robotics - gained sentience along side few other robots form the generation M-z, A.R.I employees after learning about the robots started gaining sentiec decided that the best thing for their firm will be destroying the M-z generation. M-201z who learned about this transfered himself into one of the workers computers and to avoid being found hid inside the files of the copy of softwere M-P that was present on that computer."
 	charworld[charcount] = "Default"
@@ -208,7 +234,7 @@ RespondToMD
 		--
 		"Delta is one of my brothers,\w5 he spoke about you as if he known you for a long time.\e HelloComrade4"
 		--
-		met201z = 1
+		ghostsmet ,= "MiniDev"
 		charname[charcount] = "M-201z - The Dev"
 		charage[charcount] =	"N/A"
 		chardead[charcount] =	"No"
@@ -219,7 +245,7 @@ RespondToMD
 		chardesc[charcount] =	"M-201z doesn't really know much, before he was destroyed he was learning only about technology, because of that things like animals, feeling, or common saying are confusing for him."
 		charshortstory[charcount] =	"M-201z was a robot, right before his body was destroyed he transfered himself into one of the computers nearby and later 'possesed' the M-P copy that was stored on this computer."
 		charlongstory[charcount] =	"M-201z who was built by A.R.I - a firm specialized in softwere and robotics - gained sentience along side few other robots form the generation M-z, A.R.I employees after learning about the robots started gaining sentiec decided that the best thing for their firm will be destroying the M-z generation. M-201z who learned about this transfered himself into one of the workers computers and to avoid being found hid inside the files of the copy of softwere M-P that was present on that computer."
-		charcount ++ 
+		charcount++ 
 	}
 	elseif "RepairGlitch2" _in_ _ConvoTag
 	{

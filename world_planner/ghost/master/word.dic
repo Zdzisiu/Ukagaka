@@ -4,25 +4,68 @@ On_\person
  	person
 }
 
+//Written by Zichqec https://zichqec.github.io/s-the-skeleton/
+
+//To call the function, you can either call the function in your code like this:
+//Capitalize(SomeEnvelope) or Capitalize("some text")
+//Or in dialogue like this:
+//"%(Capitalize(SomeEnvelope))" or "%(Capitalize('some text'))"
+
+TOPROPER
+{
+    _buffer = SUBSTR(_argv[0],0,1) //Storing the first character in _buffer
+    _argv[0] = ERASE(_argv[0],0,1) //Erasing the first character from _argv[0]
+    _argv[0] = INSERT(_argv[0],0,TOUPPER(_buffer)) //Making the character in _buffer uppercase and inserting it back into _argv[0]
+    _argv[0] //Returns the capitalized word
+}
+
+ARRAYSEARCH //ARRAYSEARCH(key,array,1/0)
+{
+	_return = ""
+	_a = SPLIT(_argv[1],",") // Split the simple array
+	_size = ARRAYSIZE(_a) //get the arrays size
+	--
+	if _argv[2] == "0" || _argv[2] == "" //if case insensitive
+	{
+		if TOLOWER(_argv[0]) _in_ TOLOWER(_argv[1]) //if the key exists in an array
+		{
+			for _i = 0, _x = 0; _x != 1 && _i < _size; _i++
+			{
+				if TOLOWER(_a[_i]) == TOLOWER(_argv[0]) //if the checked array element matches the key
+				{
+					_x = 1
+					_return = _i
+				}
+			}
+		}
+		else; _return = "-1" //if the key doesn't exists in an array
+	}
+	else //if case sensitive
+	{
+		if _argv[0] _in_ _argv[1] //if the key exists in an array
+		{
+			for _i = 0, _x = 0; _x != 1 && _i < _size; _i++
+			{
+				if _a[_i] == _argv[0] //if the checked array element matches the key
+				{
+					_x = 1
+					_return = _i
+				}
+			}
+		}
+		else; _return = "-1"
+	}
+	--
+	if _return == ""; _return = "-1" //if return is empty set to -1
+	--
+	_return
+
+	//Debug: "%(_size) : %(_a) : %(_return)"
+}
+
 OnZChnage
 {
-	LETTONAME(reference0,onezero(reference1))
-	--
-	if reference0 == "removechar"
-	{ 
-		movechar = 0
-		editchar = 0
-	}
-	elseif reference0 == "editchar"
-	{ 
-		removechar = 0
-		uplog = 0
-	}
-	elseif reference0 == "movechar"
-	{ 
-		editchar = 0
-		removechar = 0
-	}
+	EVAL("%(reference0) = %(CHR(34))%(onezero(reference1))%(CHR(34))")
 	--
 	if reference2 == "char"; OnCharacterList
 }
@@ -42,6 +85,7 @@ namerand
 {
 	charnamesmale
 	charnamesfemale
+	charnamesunisex
 	randsylabs
 }
 
@@ -634,7 +678,7 @@ randsylabs
 					}
 				}
 				--
-				if letterprev == alphabettemp[letter+_x]
+				if _letterprev == alphabettemp[letter+_x]
 				{
 					if RAND(2) == 1
 					{
@@ -660,7 +704,7 @@ randsylabs
 					}
 				}
 				--
-				if letterprev == alphabettemp[letter-_x]
+				if _letterprev == alphabettemp[letter-_x]
 				{
 					if RAND(2) == 1
 					{
@@ -690,7 +734,7 @@ randsylabs
 		--
 		if ruletwo == "ON"
 		{
-			if alphabettemp[letter] == letterprev
+			if alphabettemp[letter] == _letterprev
 			{
 				letter += 1
 			}
@@ -704,17 +748,17 @@ randsylabs
 			}
 		}
 		--
-		if letterprev == "'" && alphabettemp[letter] == "-"
+		if _letterprev == "'" && alphabettemp[letter] == "-"
 		{
 			letter = RAND(15)
 		}
-		elseif letterprev == "-" && alphabettemp[letter] == "'"
+		elseif _letterprev == "-" && alphabettemp[letter] == "'"
 		{
 			letter = RAND(15)
 		}
 		--
 		word += alphabettemp[letter]
-		letterprev = alphabettemp[letter]
+		_letterprev = alphabettemp[letter]
 	}
 	--
 	word = ERASE(word,0,1)
@@ -2732,6 +2776,158 @@ charnamesfemale
 	"Maliah"
 }
 
+charnamesunisex
+{
+	"Harper"
+	"Avery"
+	"Skylar"
+	"Hunter"
+	"Cameron"
+	"Quinn"
+	"Peyton"
+	"Vivian"
+	"Taylor"
+	"Emery"
+	"Eden"
+	"Emerson"
+	"London"
+	"Charlie"
+	"Finley"
+	"Reese"
+	"Elliot"
+	"Payton"
+	"Elliott"
+	"Marley"
+	"Rowan"
+	"Parker"
+	"Sawyer"
+	"Riley"
+	"Dallas"
+	"River"
+	"Amari"
+	"Blake"
+	"Sage"
+	"Ellis"
+	"Angel"
+	"Dylan"
+	"Jordan"
+	"Phoenix"
+	"Rory"
+	"Skyler"
+	"Ari"
+	"Kamryn"
+	"Lennox"
+	"Remington"
+	"Tatum"
+	"Lennon"
+	"Remy"
+	"Milan"
+	"Oakley"
+	"Ariel"
+	"Chandler"
+	"Armani"
+	"Genesis"
+	"Kennedy"
+	"Nova"
+	"London"
+	"Morgan"
+	"Jude"
+	"Trinity"
+	"Teagan"
+	"Harley"
+	"Parker"
+	"Sloane"
+	"Kendall"
+	"Rylan"
+	"Lyric"
+	"Harlow"
+	"Lennon"
+	"Jaime"
+	"Justice"
+	"Kalani"
+	"Ayaan"
+	"Karsyn"
+	"Sincere"
+	"Liberty"
+	"Rayan"
+	"Memphis"
+	"Kyree"
+	"Shiloh"
+	"Brennan"
+	"Jasiah"
+	"Reece"
+	"Chris"
+	"Adley"
+	"Jalen"
+	"Sutton"
+	"Bo"
+	"Collins"
+	"Sloan"
+	"Finnley"
+	"Kamari"
+	"Devon"
+	"Wynter"
+	"Kingsley"
+	"Jessie"
+	"Boston"
+	"Tristen"
+	"Rohan"
+	"Lee"
+	"Terry"
+	"Layne"
+	"Stevie"
+	"Kristian"
+	"Briar"
+	"Blaine"
+	"Lochlan"
+	"Zaire"
+	"Kye"
+	"Fox"
+	"Karter"
+	"Landry"
+	"Azariah"
+	"Elisha"
+	"Toby"
+	"Darian"
+	"Sky"
+	"Jordy"
+	"Jermaine"
+	"Denver"
+	"Trace"
+	"Bentlee"
+	"Frankie"
+	"Rene"
+	"Aydin"
+	"Maison"
+	"Kace"
+	"Rudy"
+	"Keagan"
+	"Darrell"
+	"Ronnie"
+	"Will"
+	"Santana"
+	"Ayan"
+	"Channing"
+	"Dilan"
+	"Camdyn"
+	"Bexley"
+	"Kaya"
+	"Bridger"
+	"Legacy"
+	"Emmet"
+	"Kenya"
+	"Zahir"
+	"Khari"
+	"Ellison"
+	"Ira"
+	"Egypt"
+	"Tegan"
+	"Marlowe"
+	"Sunny"
+	"Dominique"
+	"Camron"
+}
+
 isdead
 {
 	"Yes"
@@ -4082,7 +4278,6 @@ grouping
 	"pairs"
 }
 
-
 randitemdesc
 {
 	"%(itemsaname[itemcount]) is a %(weapons) and "
@@ -4245,4 +4440,243 @@ randitemability
 	"Teleportation"
 	"Divination"
 	"Mind Reading"
+}
+
+// ----------------------- FUNCTIONS ------------------------------
+
+/* Written by Zichqec https://zichqec.github.io/s-the-skeleton/
+
+	Usage: This is intended to take the place of single-use variables that only contain 0 or 1, used as flags for certain events and such. With these functions, you can store all those flags as a single array, meaning you can make as many flags as you want without having to really worry about save bloat. It can also make your code a bit more readable!
+
+	You'll want to put 'MiscFlags = IARRAY' into your OnFirstBoot. That'll set up an empty array for flags to be stored in.
+	When you want to check if a flag is set or not, you can do it like so:
+	if Flag("My Flag") == 0
+	or
+	if Flag("My Flag") == 1
+
+	Any flags that are NOT in the array are 0, and any flags that ARE in the array are 1. So, to set a flag to 1, you add it to the array like this:
+	if Flag("My Flag") == 0; MiscFlags ,= "My Flag"
+
+	You don't technically need the if check there, but it stops duplicate entries from being added. The ,= is also important; that adds a new element to an array. Don't use += for this!
+
+	If you want to set a flag back to 0, you can remove it like so:
+	RemoveFlag("My Flag")
+
+	Flag names can be just about anything you want! They're just stored as strings. For example, for S I have "Saw Gaster with googly eyes", and for Lulo I have things like "Unlocked MP3 player" and "Unlocked journal". If you want to see what flags are set, you can just put %(MiscFlags) into script input, so it's helpful to have names that describe the flag!
+*/
+Flag //Checks to see if a flag exists. Returns 1 if yes, returns 0 if no
+{
+	if ASEARCH(_argv[0],MiscFlags) != -1; 1
+	else; 0
+}
+
+RemoveFlag //Removes all instances of a flag in the array.
+{
+	_elements = ASEARCHEX(_argv[0],MiscFlags)
+	if ARRAYSIZE(_elements) > 0
+	{
+		for _i = ARRAYSIZE(_elements) - 1; _i >= 0; _i-- //Goes from the end of the list to the start, so the elements stay in the same positions while we erase
+		{
+			_current = _elements[_i]
+			MiscFlags[_current] = IARRAY
+		}
+	}
+}
+
+/* Technical details:
+
+	ASEARCH is a YAYA command that searches an array for the value you specify. If it doesn't find the value, it returns -1. If it finds the value, it returns the position in the array.
+
+	ASEARCHEX is similar, but it finds all instances of the same value, and returns the positions as a new array.
+
+	So, it IS possible to skip a step here and write if ASEARCH("My Flag",MiscFlags) != -1, to see if a flag is set. But != -1 is a bit confusing at times! So the Flag function here returns 1 if the flag is set, and 0 if it is not, to simplify things.
+
+	With the RemoveFlag function, all it does is see how many instances of the value there are, then start erasing them from the end of the array working towards the start of the array, so that the array positions don't change as it erases. The reason I've done it this way is so that if someone accidentally adds the same flag to the array a bunch of times, all of them will be erased, so that the flag returns 0.
+*/
+/* FakeWord Arguments
+    This function generates a random "word" which is just a string of letters with some rules
+
+    Arguments:
+    0: Min: Minimum amount of letters/sylabs
+    1: Max: Max amount of letters sylabs
+    2: alphabet/sylabs/both/custom: Which set to use (sylabs also includes vowels by themselves)
+    3: nonletter use 1/0 (')
+    4: Rule 1: Only one ' 1/0 
+    5: Rule 2: Don't repeat letters next to eachother 1/0 
+    6: Rule 3: Phonetic conditions 1/0 
+    7: if Rule 3 on: phonetic difference [1-10] (more than 10 can be used but I don't recommend it)
+	8: How many words to generate
+	9: Debug display
+
+	What are phonetic conditions?
+	Phonetic conditions basically check if two letters besides eachother are too close to each other in the character set and chooses a different, further letter
+	Don't think to much about it, just generate 5 words with one phonetic difference and see if it fits your needs, if you don't like how the words look, change the phonetic difference, basically just test around
+
+    Default values (if left an argument is left empty):
+    FakeWord(2,10,'alphabet',0,0,0,0)
+
+    IMPORTANT:
+    If you use sylabs rememeber that one sylab is counted like one character:
+    FakeWord(4,5,'sylabs',1,1,1,1,1) - max would be actually 10 characters
+    FakeWord(4,15,'sylabs',1,1,1,1,1) - max would be actually 30 characters
+
+*/
+FakeWord //FakeWord(min,max,alphabet/sylabs/both/custom,nonletters 1/0,rule 1: 1/0,rule 2: 1/0,rule 3: 1/0,how many words?,d)
+{
+	_print = IARRAY
+	_alphabet = "a b c d e f g h i j k l m n o p r s t u w x y z" // basic alphabet
+	//sylabs = letters from alphabets + vowel and vowels by themselves
+	_sylabs = "ba ca da fa ga ha ja ka la ma na pa ra sa ta va wa qa xa ya za be ce de fe ge he je ke le me ne pe re se te ve we qe xe ye ze bi ci di fi gi hi ji ki li mi ni pi ri si ti vi wi qi xi yi zi bo co do fo go ho jo ko lo mo no po ro so to vo wo qo xo yo zo bu cu du fu gu hu ju ku lu mu nu pu ru su tu vu wu qu xu yu zu a e i j o u"
+	//custom: you only want certain letters/sylabs/whatever but don't want to change default alphabet and sylabs? use custom, separate everything with a space
+	_custom = CHARSPLIT("wowthatisaword")
+	_word = ""
+	_nonLetters = "'"
+	_temp = ""
+	_num = 0
+	_newLetter = ""
+	_lettersOnly = IARRAY
+	_alphabetTemp = IARRAY
+	_letterprev = ""
+	_use = IARRAY
+	_phNum = 0
+	--
+	_min = TOINT(_argv[0])
+	_max = TOINT(_argv[1])
+	--
+	if _min == 0; _min = 2
+	--
+	if _max == 0; _max = 10
+	elseif _max < _min; _max = _min + 1
+	--
+	if _argv[2] == "alphabet"; _temp = _alphabet
+	elseif _argv[2] == "sylabs"; _temp = _sylabs
+	elseif _argv[2] == "both"; _temp = _alphabet + " " + _sylabs
+	elseif _argv[2] == "custom"; _temp = REPLACE("%(_custom)",","," ")
+	else; _temp = _alphabet
+	--
+	if TOINT(_argv[7]) == 0 || TOINT(_argv[7]) == ""; _phNum = RAND(10)+1
+	else; _phNum = TOINT(_argv[7])
+	--
+	_lettersOnly = SPLIT(_temp," ")
+	--
+	if _argv[3] == "1" || _argv[3] == 1; _temp += " " + _nonLetters
+	--
+	_alphabetTemp = SPLIT(_temp," ")
+	--
+	if TOINT(_argv[8]) <= 0; _argv[8] = 1
+	--
+	for _a = 1; _a <= TOINT(_argv[8]); _a++
+	{
+		_word = ""
+		_letters = RAND(ARRAYSIZE(_alphabetTemp))//how many letters/sylabs are there in the array?
+		--
+		_num = RAND(_max)+1
+		--
+		if _num < _min; _num = _min
+		--
+		for _j = 0; _j < _num; _j++
+		{
+			if _argv[6] == "1" || _argv[6] == 1 || (_j != 0 && _j != _num)
+			{
+				for _x = 0; _x <= _phNum; _x++
+				{
+					_newLetter = RAND(ARRAYSIZE(_alphabetTemp))
+					--
+					if _newLetter == _letters
+					{
+						if RAND(2) == 1
+						{
+							if _alphabetTemp[_letters - _newLetter] == ""; _letters = RAND(ARRAYSIZE(_alphabetTemp))
+							else; _letters += _x - _newLetter
+						}
+						else
+						{
+							if _alphabetTemp[_letters + _newLetter] == ""; _letters = RAND(ARRAYSIZE(_alphabetTemp))
+							else; _letters += _x + _newLetter
+						}
+					}
+					elseif _letterprev == _alphabetTemp[_letters + _x]
+					{
+						if RAND(2) == 1
+						{
+							if _alphabetTemp[_letters - _newLetter] == ""; _letters = RAND(ARRAYSIZE(_alphabetTemp))
+							else; _letters += _x - _newLetter
+						}
+						else
+						{
+							if _alphabetTemp[_letters+_newLetter] == ""; _letters = RAND(ARRAYSIZE(_alphabetTemp))
+							else; _letters += _x + _newLetter
+						}
+					}
+					elseif _letterprev == _alphabetTemp[_letters - _x]
+					{
+						if RAND(2) == 1
+						{
+							if _alphabetTemp[_letters-_newLetter] == ""; _letters = RAND(ARRAYSIZE(_alphabetTemp))
+							else; _letters += _x-_newLetter
+						}
+						else
+						{
+							if _alphabetTemp[_letters+_newLetter] == ""; _letters = RAND(ARRAYSIZE(_alphabetTemp))
+							else; _letters += _x+_newLetter
+						}
+					}
+				}
+			}
+			--
+			if _argv[5] == "1" || _argv[5] == 1
+			{
+				for _i = 0; _alphabetTemp[_letters] == _letterprev; _i++
+				{
+					if _alphabetTemp[_letters] == _letterprev; _letters = RAND(ARRAYSIZE(_alphabetTemp))
+					else; break
+				}
+			}
+			--
+			if _argv[4] == "1" || _argv[4] == 1
+			{
+				if "'" _in_ _word && "'" _in_ _alphabetTemp[_letters]
+				{
+					_letters = RAND(ARRAYSIZE(_lettersOnly))
+					_word = REPLACE(_word,"'",_lettersOnly[_letters])
+				}
+			}
+			--
+			if _letterprev == "'" && _alphabetTemp[_letters] == "'"
+			{
+				_letters = RAND(ARRAYSIZE(_lettersOnly))
+				_word += _lettersOnly[_letters]
+				_letterprev = _lettersOnly[_letters]
+			}
+			else
+			{
+				_word += _alphabetTemp[_letters]
+				_letterprev = _alphabetTemp[_letters]
+			}
+		}
+		--
+		_buffer = SUBSTR(_word,0,1)
+		_word = ERASE(_word,0,1)
+		_word = INSERT(_word,0,TOUPPER(_buffer))
+		--
+		_print ,= _word
+	}
+	--
+	if _argv[9] == "d"; REPLACE("%(_print)",",","\n")
+	else; _print
+	--
+	//\b2\_q\c%(FakeWord(2,6,'custom',0,1,1,1,0,10,'d'))
+	if _argv[9] == "d"; "\n\n[half]Min: %(_min) | Max: %(_max) | PD: %(_phNum)"
+}
+
+CHARSPLIT
+{
+	_char = IARRAY
+	_strlen = STRLEN(_argv[0])
+	for _i=0;_i<_strlen;_i++
+	{
+		_char[_i] = SUBSTR(_argv[0],_i,1)
+	}
+	--
+	_char
 }

@@ -25,7 +25,7 @@
 
 RandomTalk : nonoverlap
 {
-	case currmood
+	/*case currmood
 	{
 		when 0 //thoughtfull
 		{
@@ -600,17 +600,35 @@ RandomTalk : nonoverlap
 			}
 		}
 
-	}
+	}*/
 	
 	"I hope %(guardians) isn't causing any trouble while I'm here"
 	".\w5 .\w5 .\w5 When I get back I will have a lot of work"
 	".\w5 .\w5 .\w5 I have to finally clean my desk when I get back"
 	"I wonder how is %(guardians) doing?"
+	".\w5 .\w5 .\w5 I can feel DLT causing trouble"
+
+	{
+		"* You can hear him mumbling . . .\n\n[half]\f[size,12]%(TOPROPER(TOLOWER(langMumb)))"
+		--
+		"?"
+		"."
+		"!?"
+		"!"
+		--
+		"\f[size,default]"
+	}
 	
 	if ghostexcount > 0 //Put this in randomtalk somewhere
 	{
 		"\![raise,OnTalkWithGhosts]"
 	}
+}
+
+langMumb
+{
+	_alp = ("alphabet","sylabs","both")
+	REPLACE(FakeWord(2,6,_alp[RAND(3)],RAND(1),RAND(1),RAND(1),RAND(1),RAND(10),RAND(10)),","," ")
 }
 
 /*
@@ -629,15 +647,19 @@ guardians
 	"DLT"
 	"ZTA"
 	"OMNCRN"
+	"GMM"
 }
 
 OnMinuteChange
 {
 	timeslot = GetTimeSlot 
+	--
 	moodminute += 1
+	--
 	if moodminute == 30
 	{
 		OnMoodCheck
+		moodminute = 0
 	}
 	--
  	if minute == 0 
@@ -704,7 +726,20 @@ Reference4: *SSP only Modifier keys are listed separated by commas. Example: "ct
 
 OnKeyPress
 {
-	if reference0 == "t"
+	if (reference0 == "z" && lastpressed == "return") || (reference0 == "return" && lastpressed == "z")
+    {
+        "\nenter z"
+    }
+    else
+    {
+        //Debug: 
+        //"%(reference0) %(reference1) %(reference2) %(reference3) %(reference4) %(lastpressed)"
+    }
+    --
+    lastpressed = reference0
+	--
+	lastpressed = reference0
+	/*if reference0 == "t"
 	{
 		OnAiTalk
 	}
@@ -727,5 +762,5 @@ OnKeyPress
 	elseif reference0 == "f1"
 	{
 		"\![open,readme]"
-	}
+	}*/
 }

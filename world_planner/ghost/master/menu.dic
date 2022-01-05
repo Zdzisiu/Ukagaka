@@ -1,42 +1,61 @@
 ﻿OpenSakuraMenu
 {
-	"\_q\b4\i[1]%(ch)What do you need?"
+	"\_q\c\b2\i[1]%(ch)"
+	--
+	"What do you need?"
+	"How can I help you?"
+	"Is there something you need?"
+	"Yes?"
 	--
 	MenuRun
 }
 
 MenuRun
 {	type = ""
+	numpage = 1
  	wd = GetWeekDay
  	ap = GetAP
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
-	"\n\n[half]" 
+	"\b2\n\n[half]" 
 	--
-	if lastTalk != "";  "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n"
+	if other[0] == ""; other[0] = "main"
 	--
- 	"\![*]\q[Say something,altalk]\n\n[half]"
-	--
-	if curworld != ""; "\f[bold,1]Current World: %(curworld)\f[bold,0]\n\n[half]"
-	--
-	if curworld != ""; "\![*]\q[Change World,worldchange]\n\n[half]"
-	else; "\![*]\q[Choose World,worldchange]\n\n[half]"
-	--
-	if curworld != ""
+	if other[0] == "main"
 	{
-		"\![*]\q[Generators,generators]\n/
-		\![*]\q[World Planning,worldplan]\n\n[half]"
+		"\f[bold,1]Menu:\f[bold,0] \q[Main,OnMainMenu,plan]\n\n[half]"
+		--
+		if lastTalk != "";  "\![*]\q[Repeat Last Dialogue,OnLastTalk]\n"
+		--
+ 		"\![*]\q[Say something,altalk]\n\n[half]"
+		--
+		"\![*]\q[Ask,askomega]\n\n[half]"
+		--
+		"\![*]\q[Config Menu,configmenu]\n/
+		\![*]\q[Functions,dosomething]"
+	}
+	else
+	{
+		"\f[bold,1]Menu:\f[bold,0] \q[Planning,OnMainMenu,main]\n\n[half]"
+		--
+		if curworld != ""; "\f[bold,1]Current World: \f[bold,0]\__q[worldchange]%(curworld)\__q\f[bold,0]\n\n[half]"
+		else; "\f[bold,1]Current World: \f[bold,0]\__q[worldchange][Choose World]\__q\f[bold,0]\n\n[half]"
+		--
+		if curworld != ""; "\![*]\q[World Planning,worldplan]\n\n[half]"
+		--
+		//\![*]\q[Language,langstuff]\n
+		"\![*]\q[Images,imglib]"
 	}
 	--
-	//\![*]\q[Language,langstuff]\n
-	"\![*]\q[Images,imglib]\n"
+ 	"\n\n[half]\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(timeformat), %(dateformat)\e"
+}
+
+OnMainMenu
+{
+	other[0] = reference0
 	--
-	"\![*]\q[Ask,askomega]\n\n[half]"
-	--
-	"\![*]\q[Config Menu,configmenu]\n/
-	\![*]\q[Functions,dosomething]\n\n[half]/
- 	\![*]\q[Nevermind,CANCEL]\n\n[half]%(wd) %(timeformat), %(dateformat)\e"
+	OpenSakuraMenu
 }
 
 Select.worldchange
@@ -151,7 +170,7 @@ OnAskOmega
 		}
 		when "mood"
 		{
-			case currmood
+			/*case currmood
 			{
 				when 0 //thoughtfull
 				{
@@ -441,6 +460,33 @@ OnAskOmega
 						"%(ch)"
 					}
 				}
+			}*/
+			case currmood
+			{
+				when 0
+				{
+					"%(ch)I'm quite well, today has been calm so I got to enjoy my day without unnecessary problems"
+				}
+				when 1
+				{
+					"%(ch)I'm quite well, today has been calm so I got to enjoy my day without unnecessary problems"
+				}
+				when 2
+				{
+					"%(ch)I'm quite well, today has been calm so I got to enjoy my day without unnecessary problems"
+				}
+				when 3
+				{
+					"%(ch)I'm quite well, today has been calm so I got to enjoy my day without unnecessary problems"
+				}
+				when 4
+				{
+					"%(ch)I'm quite well, today has been calm so I got to enjoy my day without unnecessary problems"
+				}
+				when 5
+				{
+					"%(ch)I'm quite well, today has been calm so I got to enjoy my day without unnecessary problems"
+				}
 			}
 		}
 		when "map"
@@ -463,6 +509,7 @@ OnAskOmega
 		{
 			"%(ch)I'm a librarian."
 			"%(ch)I'm a guardian."
+			"%(ch)I'm a guardian choosen by the good of knowledge."
 		}
 		when "age"
 		{
@@ -930,74 +977,26 @@ OnUserBornMonth
 
 Printmonth
 {
-	if bornmonth == 1
-	{
-		"January"
-	}
-	elseif bornmonth == 2
-	{
-		"February"
-	}
-	elseif bornmonth == 3
-	{
-		"March"
-	}
-	elseif bornmonth == 4
-	{
-		"April"
-	}
-	elseif bornmonth == 5
-	{
-		"May"
-	}
-	elseif bornmonth == 6
-	{
-		"June"
-	}
-	elseif bornmonth == 7
-	{
-		"July"
-	}
-	elseif bornmonth == 8
-	{
-		"August"
-	}
-	elseif bornmonth == 9
-	{
-		"September"
-	}
-	elseif bornmonth == 10
-	{
-		"October"
-	}
-	elseif bornmonth == 11
-	{
-		"November"
-	}
-	else
-	{
-		"December"
-	}
+	if bornmonth == 1; "January"
+	elseif bornmonth == 2; "February"
+	elseif bornmonth == 3; "March"
+	elseif bornmonth == 4; "April"
+	elseif bornmonth == 5; "May"
+	elseif bornmonth == 6; "June"
+	elseif bornmonth == 7; "July"
+	elseif bornmonth == 8; "August"
+	elseif bornmonth == 9; "September"
+	elseif bornmonth == 10; "October"
+	elseif bornmonth == 11; "November"
+	else; "December"
 }
 
 Printday
 {
-	if bornday == 1 || bornday == 21 || bornday == 31
-	{
-	"%(bornday)st"
-	}
-	elseif bornday == 2 || bornday == 22
-	{
-	"%(bornday)nd"
-	}
-	elseif bornday == 3 || bornday == 23
-	{
-	"%(bornday)rd"
-	}
-	else
-	{
-	"%(bornday)th"
-	}
+	if bornday == 1 || bornday == 21 || bornday == 31; "%(bornday)st"
+	elseif bornday == 2 || bornday == 22; "%(bornday)nd"
+	elseif bornday == 3 || bornday == 23; "%(bornday)rd"
+	else; "%(bornday)th"
 }	
 
 OnUserBornDay
@@ -1052,14 +1051,8 @@ OnUserBornDay
 
 birthchecked
 {
-	if userbirthday == dayslot 
-	{
-		"So your birthday is today, happy birthday then %(username).\e"
-	}
-	else 
-	{
-		"Your birthday is %(bornmonthprint) %(borndayprint). I will remember.\e"
-	}
+	if userbirthday == dayslot ; "So your birthday is today, happy birthday then %(username).\e"
+	else; "Your birthday is %(bornmonthprint) %(borndayprint). I will write that down.\e"
 }
 
 Select.talkinter
@@ -1203,7 +1196,7 @@ Select.CANCEL
 
 Select.dosomething
 {
-	"\b2%(ch)...\n\n"
+	"\b2%(ch)What can I do for you?\n\n"
 	--
 	"\![*]\q[Open Calendar,CALENDAR]\n/
 	\![*]\q[Check Email,MailCheck]\n/
@@ -1228,11 +1221,11 @@ Select.ChoiceGarbagecan
 	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	
 	if _gomicheck == 0 
 	{
-		"... It's empty.\e"
+		"I don't think this is part of my duties,\w5 but sure.\e"
 	}
 	elseif _gomicheck >= 1 
 	{
-		"\![raise,OnGarbagecanEmpty]...Done.\e"
+		"I don't think this is part of my duties,\w5 but sure. \w8\w8\w4\0\s[-1]\![raise,OnGarbagecanEmpty]\0\s[0]Done.\e"
 	}
 }
 
@@ -1828,55 +1821,36 @@ OnTranslatetwo
 //===================================CHARACTER STUFF=================================================
 OnCharacterList
 {
-	_charlist = "\_q\b2%(ch)"
+	_charlist = ""
+	--
+	"\_q\b4%(ch)"
 	--
 	if charcount != 0
 	{
 		_charlist += "\f[bold,1]Your Characters:\f[bold,0]\n\n[half]"
 		--
-		for _i=0;_i<charcount;_i++
+		for _i = 1*numpage-1, _j = 0 ; _i < charcount && _j <= 20; _i++
 		{
 			if charworld[_i]  == curworld
 			{
 				_charlist += "\![*]\q[" + charname[_i] + ",OnCharcterClick," + _i +"]\n"
+				
 			}
 		}
 	}
-	else
-	{
-		_charlist += "You don't have any characters yet\n\n[half]"
-	}
+	else; _charlist += "You don't have any characters yet\n\n[half]"
 	--
 	_charlist += "\f[size,11]\n\q[Add,OnAddCharacter] | "
 	--
-	if removechar == 1
-	{
-		_charlist += "\f[color,230, 39, 25]\q[Remove,OnZChnage,removechar,%(removechar),char]\f[color,default] | "
-	}
-	else
-	{
-		_charlist += "\q[Remove,OnZChnage,removechar,%(removechar),char] | "
-	}
+	if toggle[0] == 1; _charlist += "\f[color,230, 39, 25]\q[Remove,OnZChnage,toggle[0\],%(toggle[0]),char]\f[color,default] | "
+	else; _charlist += "\q[Remove,OnZChnage,toggle[0\],%(toggle[0]),char] | "
 	--
-	if movechar == 1
-	{
-		_charlist += "\f[color,230, 39, 25]\q[Move,OnZChnage,movechar,%(movechar),char]\f[color,default] | "
-	}
-	else
-	{
-		_charlist += "\q[Move,OnZChnage,movechar,%(movechar),char] | "
-	}
+	if toggle[1] == 1; _charlist += "\f[color,230, 39, 25]\q[Move,OnZChnage,toggle[1\],%(toggle[1]),char]\f[color,default] | "
+	else; _charlist += "\q[Move,OnZChnage,toggle[1\],%(toggle[1]),char] | "
 	--
-	if editchar == 1
-	{
-		_charlist += "\f[color,230, 39, 25]\q[Edit,OnZChnage,editchar,%(editchar),char]\f[color,default]"
-	}
-	else
-	{
-		_charlist += "\q[Edit,OnZChnage,editchar,%(editchar),char]"
-	}
+	_charlist += "\q[Generate,OnGenConfigRand,generator,character]"
 	--
-	_charlist += "\f[size,default]\n\n[half]\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	_charlist += "\f[size,default]\n\![*]\q[End,CANCEL] or \![*]\q[Go back,worldplan]\e"
 	_charlist
 }
 
@@ -1884,7 +1858,7 @@ OnCharcterClick
 {
 	choosennum = reference0
 	--
-	if removechar == 1
+	if toggle[0] == 1
 	{
 		for _i=choosennum;_i<charcount;_i++
 		{
@@ -1899,26 +1873,22 @@ OnCharcterClick
 			charshortstory[_i] = charshortstory[_i+1]
 			charlongstory[_i] = charlongstory[_i+1]
 		}
+		--
 		charcount -= 1
 		OnCharacterList
 	}
-	elseif editchar == 1
+	if toggle[1] == 1
 	{
-		"\_q\b2%(ch)What do you want to edit?\n\n"
+		_page = "\b2\_qYour Worlds:\n\n[half]"
 		--
-		"\![*]\q[Name,OnEdit,name]\n/
-		\![*]\q[Age,OnEdit,age]\n/
-		\![*]\q[Dead?,OnEdit,dead]\n/
-		\![*]\q[Gender,OnEdit,gender]\n/
-		\![*]\q[Race,OnEdit,race]\n/
-		\![*]\q[Profesion,OnEdit,prof]\n/
-		\![*]\q[Nationality,OnEdit,nationality]\n/
-		\![*]\q[Description,OnEdit,desc]\n/
-		\![*]\q[Shortend Story,OnEdit,shortstory]\n/
-		\![*]\q[Long Story,OnEdit,longstory]\n"
+		for _i=0;_i<worldcount;_i++
+		{
+			_page += "\![*]\q[" + world[_i] + ",OnWorldSet," + _i + "]\n"
+		}
 		--
-		"\n[half]\![*]\q[Go Back,OnCharacterList]\n/
-		\![*]\q[Nevermind,CANCEL]\e"
+		_page += "\f[default]\n\n[half]\![*]\q[Nevermind,CANCEL]"
+		--
+		_page
 	}
 	else
 	{
@@ -1928,6 +1898,10 @@ OnCharcterClick
 	}
 }
 
+OnWorldSet
+{
+	
+}
 OnEdit
 {
 	case reference0

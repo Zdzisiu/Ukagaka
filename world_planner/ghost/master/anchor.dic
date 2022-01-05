@@ -18,41 +18,12 @@ Reference3: *SSP only Reference of the above event separated by 1 byte value. Mi
 OnTranslate
 {
 	_talk = reference0
-	if sigma != 1
-	{
-		_talk = REPLACE(_talk, "SGM", "\_a[sigma]Sigma\_a")
-	}
-	else
-	{
-		_talk = REPLACE(_talk, "SGM", "Sigma")
-	}
 	--
-	if delta != 1
-	{
-		_talk = REPLACE(_talk, "DLT", "\_a[delta]Delta\_a")
-	}
-	else
-	{
-		_talk = REPLACE(_talk, "DLT", "Delta")
-	}
-	--
-	if zeta != 1
-	{
-		_talk = REPLACE(_talk, "ZTA", "\_a[zeta]Zeta\_a")
-	}
-	else
-	{
-		_talk = REPLACE(_talk, "ZTA", "Zeta")
-	}
-	--
-	if omnicron != 1
-	{
-		_talk = REPLACE(_talk, "OMNCRN", "\_a[omnicron]Omnicron\_a")
-	}
-	else
-	{
-		_talk = REPLACE(_talk, "OMNCRN", "Omnicron")
-	}
+	_talk = REPLACE(_talk, "SGM", "\_a[sigma]Sigma\_a")
+	_talk = REPLACE(_talk, "DLT", "\_a[delta]Delta\_a")
+	_talk = REPLACE(_talk, "ZTA", "\_a[zeta]Zeta\_a")
+	_talk = REPLACE(_talk, "OMNCRN", "\_a[omnicron]Omnicron\_a")
+	_talk = REPLACE(_talk, "GMM", "\_a[gamma]Gamma\_a")
 	--
 	if reference1 == "" && reference2 == "" { 
 		EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
@@ -89,8 +60,8 @@ OnAnchorSelect
 				charcount ++ 
 				--
 				placename[placecount] = "Bottomless Lake"
-				placedesc[placecount] =  "Bottomles Lake is a body of water beside the Demon Forest, anything and anyone that falls inside is erased from the past, present, because of that one knows if anyone ever fell inside the lake"
-				placehistory[placecount] = "The lake was made from the Past's tears after her sister Future gone missing"
+				placedesc[placecount] =  "Bottomles Lake is a body of water beside the Demon Forest, anything and anyone that falls inside is erased from the past, present, and the future because of that one knows if anyone ever fell inside the lake"
+				placehistory[placecount] = "The lake was made from the Past's tears after her sister Future went missing"
 				placecount++
 			}
 			when "delta" 
@@ -137,7 +108,7 @@ OnAnchorSelect
 			}
 			when "omnicron" 
 			{
-				"Omnicron is one of my sibling, they are quite shy so not many Galmarians are aware of their existance, they guard the Demon Forest\e"
+				"Omnicron is one of my siblings, they are quite shy so not many Galmarians are aware of their existance, they guard the Demon Forest\e"
 				--
 				charname[charcount] = "Omnicron"
 				charage[charcount] =	"Unknown"
@@ -147,13 +118,34 @@ OnAnchorSelect
 				charprof[charcount] =	"Guardian of the Demon Forest/Forest Ranger"
 				charnat[charcount] =	"Galmarian"
 				chardesc[charcount] =	"Omnicron is the guardian of the Demon Forest, they are the white and blue Guardian, they are quite shy and like plants"
+				charshortstory[charcount] =	"Omnicron was previously a human working living beside a forest, after their death gods reincarnated them into the Guardian of the Demon Forest"
+				charlongstory[charcount] =	"Omnicron who was previously a human doesn't remember their true name, it was hidden after their death, they still have their memories but names and faces have been hidden by gods to make sure Omnicron won't go searching after their lost life. Currently They live in a cottage in the Demon Forest making sure no one goes inside it."
+				charcount ++ 
+				--
+				placename[placecount] = "Demon Forest"
+				placedesc[placecount] =  "Demon Forest is a forest in which there is a gate to the Demon Palace"
+				placehistory[placecount] = "Demon Forest was just a normal forest until Demon King opened there a gate to the Demon Palace, after that some settlments begun to arise. The gods made the white and blue Guaridan to hel keep peace"
+				placecount++
+			}
+			when "gamma" 
+			{
+				"Gamma is one of my brothers, he is . . . an interesting character, it's hard to tell what he's thinking and when he is serious or not.\e"
+				--
+				charname[charcount] = "Gamma"
+				charage[charcount] =	"Unknown"
+				chardead[charcount] =	"Yes"
+				chargender[charcount] =	"Male"
+				charrace[charcount] =	"Guardian"
+				charprof[charcount] =	"Guardian of the Ever-consuming Void/Security Guard"
+				charnat[charcount] =	"Galmarian"
+				chardesc[charcount] =	"Omnicron is the guardian of the Demon Forest, they are the white and blue Guardian, they are quite shy and like plants"
 				charshortstory[charcount] =	"omnicron was previously a human working living beside a forest, after their death gods reincarnated them into the Guardian of the Demon Forest"
 				charlongstory[charcount] =	"Omega who was previously a human doesn't remember their true name, it was hidden after their death, they still have their memories but names and faces have been hidden by gods to make sure Omnicron won't go searching after their lost life. Currently They live in a cottage in the Demon Forest making sure no one goes inside it."
 				charcount ++ 
 				--
-				placename[placecount] = "Demon Forest"
-				placedesc[placecount] =  "Demon Forest is a forest in which there is a gate to the Demon Place"
-				placehistory[placecount] = "Demon Forest was just a normal forest until Demon King opened there a gate to the Demon Palace"
+				placename[placecount] = "Ever-consuming Void"
+				placedesc[placecount] =  "Ever-consuming Void like the names suggest is a semi-sentient void that consumes everything it can"
+				placehistory[placecount] = "It's unclear when the Ever-consuming Void appeard first, it was first discovered after it consumed an old artifact belonging to the Goddess of Art and Maddness"
 				placecount++
 			}
 		}

@@ -2,7 +2,7 @@
 {
 	if reference0 == "TEACHNAME" 
 	{
-		"\0What should I call you?\![open,inputbox,OnNameTeach,-1]\e"
+		"\0You wish for me to call you different, what should I call you?\![open,inputbox,OnNameTeach,-1]\e"
 	}
 	else
 	{
@@ -13,10 +13,18 @@
 OnNameTeach
 {
 	tempname = reference0 
+
+	_namesAuthors = IARRAY
+	_namesAuthors = ("J. K. Rowling","William Shakespeare","Agatha Christie","Charles Dickens","Dr. Seuss","Stephen King","J. R. R. Tolkien","Ernest Hemingway","Oscar Wilde","H. P. Lovecraft")
+
+	_namesGreekAlphabet = IARRAY
+	_namesGreekAlphabet = ("Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omnicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi")
+	--
+	"\b2"
 	--
 	if reference0 == "" || reference0 == " " || reference0 == "   " 
 	{
-		"\0I will still call you %(username) then\e"
+		"\0I shall keep calling you %(username) then\e"
 	}
 	elseif TOLOWER(reference0) == "omega"
 	{
@@ -24,7 +32,12 @@ OnNameTeach
 	}
 	else 
 	{
-		"\b2\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
+		if ARRAYSEARCH(TOLOWER(reference0),TOLOWER("%(_namesGreekAlphabet)")) != "-1"
+		{
+			"\0Huh, guess Galmarian gods are not the only ones naming people after greek letters\n\n[half]"
+		}
+		--
+		"\0Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
 		--
 		if presuffix == "masculine" 
 		{
@@ -50,7 +63,6 @@ Select.titleown
 
 OnTitle
 {
-	
 	usertitle = reference0
 	"Should it be befor or after your name?\n"
 	--
@@ -60,27 +72,15 @@ OnTitle
 
 Select.titleafter
 {
-	if "-" _in_ usertitle
-	{
-		username = tempname + "%(usertitle)"
-	}
-	else
-	{
-		username = tempname + " %(usertitle)"
-	}
+	if "-" _in_ usertitle; username = tempname + "%(usertitle)"
+	else; username = tempname + " %(usertitle)"
 	NameDone
 }
 
 Select.titlebefore
 {
-	if "-" _in_ usertitle
-	{
-		username = "%(usertitle)" + tempname
-	}
-	else
-	{
-		username = "%(usertitle) " + tempname
-	}
+	if "-" _in_ usertitle; username = "%(usertitle)" + tempname
+	else; username = "%(usertitle) " + tempname
 	NameDone
 }
 
@@ -128,5 +128,5 @@ Select.titlesan
 
 NameDone
 {
-	"\0I will call you %(username) from now on.\e"
+	"\0I will call you %(username) from now on\e"
 }
