@@ -36,3 +36,6 @@ world_planner/ghost/master/profile/var.txt
 world_planner/ghost/master/profile/ghost.dat
 *.sai2
 *.sai2
+*.dat
+*.bak
+*.cfg
