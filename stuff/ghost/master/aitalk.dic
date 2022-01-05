@@ -25,6 +25,7 @@
 
 RandomTalk : nonoverlap
 {
+	
 }
 
 /*
@@ -81,7 +82,7 @@ OnSecondChange
 
 MikireTalk
 {
-	"\0\s[0]Push Ctrl-Shift-F12 to bring me back."
+	"\0\s[0]* Some things are outside your screen, you can push Ctrl-Shift-F12 to bring them back"
 }
 
 EndMikireTalk
@@ -98,7 +99,18 @@ Reference1: Current surface on the other side.
 
 OnSurfaceRestore
 {
-	"\0\s[0]\1\s[10]\e"
+	_print = "\0\s[0]\1\s[10]"
+	active = CopyCatKill(active)
+	_arraysize = ARRAYSIZE(active)
+	--
+	for _i = 1;_i <= _arraysize;_i ++
+	{ 
+		_split = SPLIT(active[_i],".")
+		--
+		_print += "\p[%(_split[0])]\s[%(_split[1])]"
+	}
+	--
+	_print
 }
 
 /*

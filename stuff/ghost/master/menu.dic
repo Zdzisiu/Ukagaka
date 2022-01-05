@@ -1,36 +1,94 @@
-﻿OpenSakuraMenu
+﻿OpenSakuraMenu 
 {	
  	wd = GetWeekDay
  	ap = GetAP
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
-	"\0\_q\b2" 
+	OnNameSet
 	--
-	"\n\![*]\q[Config,configmenu]\n\n\n[half]"
+	"\0\_q\b2"  
 	--
-	"\![*]\q[BBQ Set,OnAdd,2,2,1,menu]\n\n[half]/
-	\![*]\q[Table,OnAdd,1,3,3,menu]\n\n[half]/
-	\![*]\q[Lights,OnAdd,1,4,4,menu]\n\n[half]/
-	\![*]\q[Bean Bag,OnAdd,1,6,6,menu]\n\n[half]/
-	\![*]\q[Tree,OnAdd,1,7,7,menu]\n\n[half]"
+	{
+		"* It's a list of your "
+		"* A list of your "
+		"* Your "
+		--
+		"things"
+		"stuff"
+		--
+		", you have many thing"
+		""
+	}
 	--
-	if vvoid == 1; "\![*]\q[Void,OnAdd,1,5,5,menu]\n\n[half]"
+	"\n\n[half]\![*]\q[Config,configmenu]\n\n[half]"
 	--
-	if plushies > 0; "\n\![*]\q[Plaushies,OnPlushies]\n\n[half]"
+	"\q[Debug,OnMainCollapse,debug] | \q[Basics,OnMainCollapse,basic]\n\n[half]"
 	--
-	//"\n\![*]\q[Test,OnLineCheck]\n\n[half]"
+	//"\![*]\q[Name,OnAdd,num,p,s]\n"
+	if collapse[0] == "basic"
+	{
+		all : {
+			"\![*]\q[Table,OnAdd,1,2,1]\n"
+			"\![*]\q[Sofa,OnAdd,1,3,2]\n"
+			"\![*]\q[Lamp #1,OnAdd,1,4,3]\n"
+			"\![*]\q[Lamp #2,OnAdd,1,5,4]\n"
+			"\![*]\q[Bookshelf,OnAdd,1,6,5]\n"
+			"\![*]\q[Shelf,OnAdd,1,7,6]\n"
+			"\![*]\q[Painting,OnAdd,1,8,7]\n"
+		}
+	}
+	elseif collapse[0] == "debug"
+	{
+		all : {
+			"\![*]\q[Test,OnLineCheck]\n"
+			"\![*]\q[Values,OnDefValues]\n"
+		}
+	}
 	--
- 	"\n\![*]\q[Close,CANCEL]\e"
+	//if plushies > 0; "\n\![*]\q[Plaushies,OnPlushies]\n\n[half]"
+	--
+ 	"\n\n[half]\![*]\q[Close,CANCEL]\e"
+}
+
+OnMainCollapse
+{
+	if reference0 != collapse[0]; collapse[0] = reference0
+	else; collapse[0] = ""
+	--
+	OpenSakuraMenu
+}
+
+OnChoiceHover 
+{
+	case reference1 
+	{
+		when "OnAdd" 
+		{
+			if reference4 != "-1" 
+			{
+				_print = "" //empty print
+				_snum = reference4 // surface number
+				_print += "\1\s[%(_snum)]" //show thing
+				--
+				_print + OpenSakuraMenu //show items
+			}
+		}
+	}
+}
+
+OnChoiceTimeout 
+{
+	"\1\s[-1]\e"
 }
 
 //b2: 20
 //b0: 8
-OnLineCheck
+OnLineCheck 
 {
 	_print = "\b4\_q"
 	--
-	for _i=0;_i<9;_i++
+	for _i=0;_i<9;_i++ 
 	{
 		_print += _i + "\n"
 	}
@@ -38,7 +96,7 @@ OnLineCheck
 	_print
 }
 
-OnPlushies
+OnPlushies 
 {
 	"\0\_q"
 	--
@@ -57,128 +115,357 @@ OnPlushies
 
 OnAdd
 {
-	_print = ""
-	_num = TOINT(reference0)
-	_pnum = TOINT(reference1)
-	_snum = TOINT(reference2)
+	_print = "" //empty print
+	_num = TOINT(reference0) // number of things to add (if not set < 1)
+	_pnum = TOINT(reference1) // \p[&] number
+	_snum = TOINT(reference2) // surface number
 	--
-	for _i=0 ; _i<_num ; _i++, _pnum++,_snum++
+	for _i = 0 ; _i < _num ; _i++, _pnum++, _snum++ //add all the stuff
 	{
-		_print += "\p[%(_pnum)]\s[%(_snum)]"
+		_print += "\p[%(_pnum)]\s[%(_snum)]" //show thing
 		--
-		if _snum != -1; active += " " + _pnum + "." + _snum + " "
-		else; active = RE_REPLACE(active," %(_pnum).(\d*) ","")
-		
+		if _snum != -1; active ,= _pnum + "." + _snum //if surface != -1 add to "active" array
+		else; active[RE_ASEARCH(_pnum + '.(\d*)',active)+1] = IARRAY //On hide delete from "active" variable
 	}
 	--
-	_print
+	active = CopyCatKill(active)
 	--
-	if reference3 == "menu"; OpenSakuraMenu
-	elseif reference3 == "plush"; OnPlushies
+	_print //show items
+	--
+	"\1\s[-1]\e"
+	--
+	if reference3 == "menu"; OpenSakuraMenu //Go back to menu
+	elseif reference3 == "plush"; OnPlushies //if adding plusies go back to plushies menu
 	
 }
 
-OpenStuffMenu
+OpenStuffMenu 
 {
 	"\p[%(choice)]\_q"
 	--
-	varpage = 0
-	category = ""
-	dressupson[choice] = ""
+	varpage = 0 //variation page = 0
+	category = "" // variation category = ""
+	//dressupson[choice] = ""
 	--
-	OnDescription
+	OnDressCheck
 	--
-	"\n\n\n[half]\![*]\q[Hide,OnAdd,1,%(choice),-1]\n\n[half]"
+	OnDescription //Show flavor text
+	--
+	"\n\n\n[half]\![*]\q[Hide,OnAdd,1,%(choice),-1]\n"
+	--
+	"\![*]\q[Inspect,OnInspect,%(choice)]\n"
 	--
 	if dresscount != 0; "\![*]\q[Variations,OnVariations]\n\n[half]"
 	--
  	"\n\![*]\q[Close,CANCEL]\e"
 }
 
-OnDescription
+OnDescription : nonoverlap
 {
-	case choice
+	case choice 
 	{
-		when 5
+		when 2 
 		{
-			"* Why is this even here?"
-			"* The Void hums quietly . . .\n\n[half]Why is it even here?"
-			"* The Void hums quietly"
+			"* It's a table made from something that resembles wood"
+			"* A table, very helpful when you want to eat something"
+			"* A table-like structure made from a wood-like material"
+			"* A table"
+			"* A table?"
+			"* A wooden table"
+			"* A wooden table?"
+			"* it's just a table"
+			"* I think it's just a table?"
+			"* I'm not sure if it's a normal table"
+			"* A weird table"
+			"* I'm 90% sure it's a table"
+			"* It's a flat surface on 4 legs"
+			"* Don't trust the table"
+			"* You can place things on it"
+			"* It's a thing for sure"
+			"* it sure is a thing"
 		}
-		when 100,101,102,103,104
+		when 3 
 		{
-			"* The plush may not be the pretties but he tried"
+			"* It's a sofa"
+			"* I think it's a sofa"
+			"* A sofa"
+			"* Check between the cushions"
+			"* Probably a sofa"
+			"* Most likely a sofa"
+			"* It's a couch"
+			"* I think it's a couch"
+			"* A couch"
+			"* Probably a couch"
+			"* Most likely a couch"
+			"* It's a thing for sure"
+			"* it sure is a thing"
 		}
-		when 4
+		when 4,5 
 		{
-			"* Those are just %(name[choice])"
+			"* A lamp"
+			"* Brighter than my future"
+			"* It's a lamp"
+			"* I think it's a lamp"
+			"* Probably a lamp"
+			"* Most likely a lamp"
+			"* Metal lamp with a wooden stand"
+			"* Metal lamp with a wooden(?) stand"
+			"* It's a thing for sure"
+			"* it sure is a thing"
+
+		}
+		when 6 
+		{
+			"* Don't touch the books with eyes please"
+			"* Some books bite, be careful"
+			"* A bookshelf"
+			"* Stores books"
+			"* Books"
+			"* Books are dangerous"
+			"* 3/10 books have teeth"
+			"* Watch out for the teeth"
+			"* Don't trust the blue books >:("
+			"* Knowledge is power"
+			"* Don't touch the necronomicon please"
+			{
+				"* Don't use "
+				--
+				"ketchup"
+				"milk"
+				"mustard"
+				"mayo"
+				"mayonnaise"
+				"your cat"
+				"your dog"
+				"soup"
+				"unidentifiable liquids"
+				if RAND(100) == 50 {
+					"blood"
+					"eyeballs"
+					"intestants"
+					"severed limbs"
+					--
+					{
+						" "
+						--
+						"of your "
+						--
+						"friends"
+						"family"
+						"enemies"
+					}
+
+					""
+				}
+				--
+				" as a bookmark, please"
+			}
+
+			"* It's a thing for sure"
+			"* it sure is a thing"
+		}
+		when 7 
+		{
+			"* A shelf"
+			"* There is no elf on that shelf"
+			"* Probably a shelf"
+			"* You can put things on it"
+			"* Most likely a shelf"
+			"* It's a shelf"
+			"* I think it's a shelf"
+			"* Shelf"
+			"* It's a thing for sure"
+			"* it sure is a thing"
+			"* I think it's a wooden shelf"
+			"* I think it's a wooden shelf?"
+		}
+		when 8 
+		{
+			"* A painting"
+			"* Probably a painting"
+			"* Most likely a painting"
+			"* I think it's a painting"
+			"* It's a painting"
+			"* The frame is made from wood"
+			"* The frame is made from wood(?)"
+			"* It's a thing for sure"
+			"* it sure is a thing"
 		}
 		others
 		{
-			"* It's just a %(name[choice])"
+			"* It's a thing for sure"
+			"* it sure is a thing"
 		}
 	}
 }
 
+OnInspect
+{
+	_print = ""
+	"\b2\p[%(choice)]"
+	--
+	case choice
+	 _pool : {
+		when 2 
+		{
+			{
+				"* You run your hand over the table\x[noclear]\n\n[half]"
+				--
+				{
+					"* it feels "
+					--
+					"slimy"
+					"wet"
+					"spongy"
+					"like wood"
+					"like metal"
+					"like plastic"
+				}
+
+				"* it has a weird texture"
+				"* It's smooth"
+			}
+
+			"* You put your hand on the table\x[noclear]\n\n[half]* It's sinks into it as if the table was made from honey"
+		}
+		when 3 
+		{
+			{
+				"* You stick your hand in between the cushions\x[noclear]\n\n[half]"
+				--
+				{
+					"* You can feel something round and metal\x[noclear]\n\n[half]* You pull it out, it turns out to be "
+					--
+					{
+						"a medium coin with "
+						--
+						"sharks"
+						"stingrays"
+						--
+						" on it\x[noclear]\n\n[half]* On the other side 'ZOO Wrocław - Poland' is written"
+					}
+					"a small coin in a weird currency"
+					"a small round coin with a square taken out in a middle"
+					"a small coin with the satatue of liberty lady on both sides, one is melted"
+					--
+					"\x[noclear]\n\n[half]* I think you just robbed someone\e"
+				}
+				"* Something grabs your hand and shakes it\x[noclear]\n\n[half]* Seems like you just made a friend"
+				"* You can can feel something slimy\x[noclear]\n\n[half]* You take your hand out"
+			}
+
+			{
+				"* You look under the couch\x[noclear]\n\n[half]"
+				--
+				"* The darkness looks back at you"
+				"* Somethings stares back"
+				"* On the other side there is \w5. \w5. \w5. you(?)"
+				"* You can see only darkness"
+				if friends[3] != ""
+				{
+					"* %(TOPROPER(friends[3])) is still there"
+				}
+				else
+				{
+					"* You found a friend!\x[noclear]\n\n[half]* You ask for their name but they stay silent\x[noclear]\n\n[half]* 'The Monster from under the couch' is a little to long so maybe you should call them something else\![open,inputbox,OnFriendName,--reference=3]"
+				}
+			}
+		}
+		when 4,5 
+		{
+			"* You pick up the lamp and look at the bottom of it\x[noclear]\n\n[half]* There is some small writing\x[noclear]\n\n[half]* It says 'Made in Poland'"
+			"* You stare intensly at the ''wood''\x[noclear]\n\n[half]* \w6. \w6. \w6.\x[noclear]\n\n[half]* I think it's pattern just moved"
+		}
+		when 6 
+		{
+			"* You take one of the books\x[noclear]\n\n[half]"
+			"* You look intensly at the bookshelf\x[noclear]\n\n[half]* \w5. \w5. \w5.\x[noclear]\n\n[half]* Nothing happened"
+		}
+		when 7 
+		{
+			"* You poke it\x[noclear]\n\n[half]* \w5. \w5. \w5.\x[noclear]\n\n[half]* Nothing happened"
+			"* You poke it\x[noclear]\n\n[half]* \w5. \w5. \w5.\x[noclear]\n\n[half]* Your finger sunk in\x[noclear]\n\n[half]* Weird"
+		}
+		when 8 
+		{
+			{
+				"* You stare intently at the painting\x[noclear]\n\n[half]"
+				--
+				"* \w5. \w5. \w5.\x[noclear]\n\n[half]* Nothing happened"
+				"* \w5. \w5. \w5.\x[noclear]\n\n[half]* I think it just moved"
+				
+			}
+		}
+		others
+		{
+			"* You poke it\x[noclear]\n\n[half]* \w5. \w5. \w5.\x[noclear]\n\n[half]* Nothing happened"
+		}
+	}
+}
+
+OnFriendName
+{
+	friends[TOINT(reference2)] = TOPROPER(reference0)
+	--
+	"* %(friends[TOINT(reference2)]), a very nice name for a very nice friend"
+}
+
 OnVariations
 {
-	_print = "\b2\_qVariations\n\n[half]"
-	_dresssize = ARRAYSIZE(dresslog)
-	_categories = ""
-	_page = varpage * 13
-	_nextpage = 1
+	_print = "\b2\_q" //Starting print
+	_dresssize = ARRAYSIZE(dresslog) //how big is the dress log
+	_categories = "" //clear categories
+	_page = varpage * 18 //page size
 	--
-	for _i=0,_line=0;_i<_dresssize;_i++
-	{
-		dresscheck = SPLIT(dresslog[_i],",")
+	for _i = 0, _line = 0 ; _i < _dresssize ; _i++ {
+		dresscheck = SPLIT(dresslog[_i],",") //split dresslog
 		--
-		if TOINT(dresscheck[0]) == choice && dresscheck[1] !_in_ _categories
+		if TOINT(dresscheck[0]) == choice && dresscheck[1] !_in_ _categories //if the category name is not in _categories and the \p[&] number is correct
 		{
-			if  dresscheck[1] == category; _print += "\f[bold,1]\q[" + TOPROPER(dresscheck[1]) + ",OnCategory," + dresscheck[1] +"]\f[default] | "
-			else;_print += "\q[" + TOPROPER(dresscheck[1]) + ",OnCategory," + dresscheck[1] +"] | "
+			if  dresscheck[1] == category; _print += "\f[bold,1]\q[" + TOPROPER(dresscheck[1]) + ",OnCategory," + dresscheck[1] +"]\f[default] | " //if current category, print bold
+			else; _print += "\q[" + TOPROPER(dresscheck[1]) + ",OnCategory," + dresscheck[1] +"] | "
 			--
 			_categories += dresscheck[1] + " "
 		}
 	}
 	--
-	_print = ERASE(_print,-2,4)
+	_print = ERASE(_print,-2,4) // erase the last " | "
 	--
-	_print += "\n\n[half]-------------------------------------\n\n[half]"
+	_print += "\n\n[half]-------------------------------------\n\n[half]" //print separator
 	--
-	for _i=_page,_line=0;_i<_dresssize;_i++
+	for _i = _page , _line = 0 ; _i < _dresssize ; _i++ 
 	{
-		dresscheck = SPLIT(dresslog[_i],",")
+		dresscheck = SPLIT(dresslog[_i],",") //split dresslog
 		--
-		if TOINT(dresscheck[0]) == choice && dresscheck[1] == category
-		{
-			if dresscheck[4] == "1"
-			{ 
-				_print += "\![*]"
+		if TOINT(dresscheck[0]) == choice && dresscheck[1] == category { //if current category and correct \p[&] number
+			if dresscheck[4] == "1" //if currently enabled 
+			{
+				_print += "\![*]" //Print marker
 				--
-				dressupson[choice] += dresscheck[2] + "." + dresscheck[1] + "+"
+				dressupson[choice] += dresscheck[2] + "." + dresscheck[1] + "+" //save dessups
 			}
 			--
-			_print += "\q[" + TOPROPER(dresscheck[2]) + ",OnDress," + dresscheck[2] + "]\n"
+			_print += "\q[" + TOPROPER(dresscheck[2]) + ",OnDress," + dresscheck[2] + "]\n" //print dressup option
 			--
 			_line ++
 		}
 		//_print += _i + "]\n"
 		--
-		if _line == 13; break
+		if _line == 18; break //if 13 options break loop
 	}
 	--
 	_print += "\n[half]"
 	--
 	if varpage != 0; _print += "\q[Prev Page,OnNextPage,prev]    "
 	--
-	if _line == 13;_print += "\q[Next Page,OnNextPage,next]" 
+	if _line == 18; _print += "\q[Next Page,OnNextPage,next]" 
 	--
-	_print += "\n\n\![*]\q[Cancel,CANCEL]\e"
+	_print += "\n\n[half]\![*]\q[Cancel,CANCEL]\e"
 	--
 	_print
 }
 
-OnNextPage
+OnNextPage 
 {
 	if reference0 == "next"; varpage++
 	else; varpage--
@@ -186,99 +473,116 @@ OnNextPage
 	OnVariations
 }
 
-OnCategory
+OnCategory 
 {
 	category = reference0
 	--
 	OnVariations
 }
 
-OnDress
+OnDress 
 {
 	"\p[%(choice)]\![bind,%(category),%(reference0)]"
 }
 
-OnDressCheck
+OnDressCheck 
 {
-	dresscount = 0
+	dresscount = 0 //zero the dresscount
 	--
-	for _i=0;_i<ARRAYSIZE(dresslog);_i++
+	for _i=0;_i<ARRAYSIZE(dresslog);_i++ 
 	{
-		_dresscheck = SPLIT(dresslog[_i],",")
+		_dresscheck = SPLIT(dresslog[_i],",") //split dresslog
 		--
-		if TOINT(_dresscheck[0]) == choice; dresscount ++
+		if TOINT(_dresscheck[0]) == choice; dresscount++ //if \p[&] is correct add 1 to dresscount
 	}
 }
 
-OnNotifyDressupInfo
+OnNotifyDressupInfo 
 {
 	dresslog = reference
 	--
 	OnVariations
 }
 
-GetWeekDay
-{
-	if weekday == 0; "Sun"
-	elseif weekday == 1; "Mon"
-	elseif weekday == 2; "Tue"
-	elseif weekday == 3; "Wed"
-	elseif weekday == 4; "Thu"
-	elseif weekday == 5; "Fri"
-	else; "Sat"
-}
-
-GetAP
-{
- 	if hour >= 0 && hour <= 11; "AM"
- 	else; "PM"
-}
-
-Getnowmin
-{
-	if minute >= 0 && minute <=9; "0%(minute)"
-	else; "%(minute)"
-}
-
-Getnowhour
-{
-	if hour12 >= 0 && hour12 <=9; "0%(hour12)"
-	else; "%(hour12)"
-}
-
-Select.BACKTOMENU
+Select.BACKTOMENU 
 {
 	MenuRun
 }
 
-Select.configmenu
+Select.configmenu 
 {
-	TalkConfig
+	all : {
+		"\0\_q" 
+		"\![*]\q[Friends,friendMenu]\n"
+		"\![*]\q[Secrets,secretMenu]\n\n[half]"
+		"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+		"\![*]\q[Back to the menu,BACKTOMENU]\e"
+	}
 }
 
-TalkConfig
+Select.friendMenu
 {
-	"\0\_q" 
-	--	
-	"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+	_print = "\_q\f[align,center]Your Friends\n\f[align,left]"
+	_j = 0
 	--
-	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+	for _i=0;_i<9;_i++
+	{
+		if friendsDef[_i] == ""
+		{
+
+		}
+		elseif friends[_i] != ""
+		{
+			_print += "\q[" + friends[_i] + ",script:\![open,inputbox,OnFriendName,--reference=" + _i + "\]]  "
+			_j++
+		}
+		else
+		{
+			_print += CENSOR(friendsDef[_i],'?',0) + "  "
+			_j++
+		}
+		--
+		if _j%3 == 0 && _j != 0; _print += "\n"
+	}
+	--
+	_print
 }
 
+Select.secretMenu
+{
+	_print = "\_q\f[align,center]Secrets\n\f[align,left]"
+	_j = 0
+	_unlocked = SPLIT(secrets[1],",")
+	_secret = SPLIT(secrets[0],",")
+	--
+	for _i=0;_i<ARRAYSIZE(_secret);_i++
+	{
+		if _unlocked[_i] == "1"
+		{
+			_print += "\q[" + _secret[_i] + ",script:\![open,inputbox,OnFriendName,--reference=" + _i + "\]]\n"
+		}
+		else
+		{
+			_print += CENSOR(_secret[_i],'?',0) + "\n"
+		}
+	}
+	--
+	_print
+}
 
-Select.deleteon
+Select.deleteon 
 {
 	deleteshitai = "ON"
-	TalkConfig
+	Select.configmenu
 }
 
-Select.deleteoff
+Select.deleteoff 
 {
 	deleteshitai = "OFF"
-	TalkConfig
+	Select.configmenu
 }
 
-Select.CANCEL
+Select.CANCEL 
 {
-	"\e"
+	"\1\s[-1]\e"
 }

@@ -1,19 +1,26 @@
 ﻿OnInstallBegin
 {
-	"\0\s[0]Installing . . .\w8This zip or nar contains an install.txt file.\e"
+	"\0\s[0]*You unpack the package . . . \w8Between "
+	--
+	"shredded cardboard"
+	"air pillows"
+	"bubble wrap"
+	"packing peanuts"
+	--
+	" you can see an install.txt file.\e"
 }
 
 OnInstallComplete
- {
+{
 	"\0\s[0]* You got a new %(reference0). \w8It's called  %(reference1).\e"
 }
 
 OnInstallFailure
 {
-	"\0\s[0]The installation has failed.\n\n[half]\w5"
+	"\0\s[0]* You run into some problem while unpacking the package.\n\n[half]\w5It seems that "
 	--
-	if reference0 == "unsupported"; "This file is unsupported.\e"
-	elseif reference0 == "extraction"; "The file could not be extracted properly.\e"
+	if reference0 == "unsupported"; "this package is unsupported.\e"
+	elseif reference0 == "extraction"; "the package could not be extracted properly.\e"
 }
 
 OnInstallRefuse
@@ -23,12 +30,12 @@ OnInstallRefuse
 
 OnUpdateBegin
 {
-	"\0\s[0]* Looking for new furniture\w8\e"
+	"\0\s[0]* You look outside your door for a package\w8\e"
 }
  
 OnUpdateReady
- {
-	"* There are %(TOINT(reference[0])+1) file updates.\w8\e"
+{
+	"* There are %(TOINT(reference[0])+1) things outside.\w8\e"
 	
 }
 
@@ -36,11 +43,11 @@ OnUpdateComplete
 {
 	if reference0 == "none"
  	{
- 		"* There is nothing new.\e"
+ 		"* There is no package outside.\e"
 	}
  	else
 	{
-		"Update successful!\e"
+		"Package recived!\e"
  	}
 }
 
@@ -62,16 +69,14 @@ OnUpdateFailure
 
 OnUpdate.OnDownloadBegin
 {
- 	if "aitalk" _in_ reference0 
- 	{
- 		"\0\s[0]We are going to download more dialogue.\w8It's in the aitalk file.\e"
- 	}
- 	else
- 	{
-	"This is dialogue for finding a new file.\e"
-	
-	"\0\s[0]This is another bit of dialogue for finding a new file.\e"
-	}
+	"\0\s[0]* You take out the %(reference0) from between "
+	--
+	"shredded cardboard"
+	"air pillows"
+	"bubble wrap"
+	"packing peanuts"
+	--
+	" it looks brand new\e"
 }
 
 OnUpdate.OnMD5CompareBegin
@@ -114,4 +119,53 @@ OnDisplayChange
 	displaybpp    = reference0
  	displaywidth  = reference1
 	displayheight = reference2
+}
+
+//--------------------ANCHOR-------------
+/*
+OnTranslate
+----
+Reference0:Original script.
+Reference1:
+	*Communicate for communicating only SSP.
+    Sstp-send for SSTP SEND.
+    Owned for SSTP.
+    Remote for non-local SSTP.
+    If you do not want to translate, notranslate.
+    In case of script from plugin, in case
+    of event reaction from plugin-script plugin,
+    corresponding plugin-event will be returned separated by commas. *If there is no match, it will be a missing number.
+Reference2: *SSP only Event ID that this script occurred. Missing number if event is not the cause.
+Reference3: *SSP only Reference of the above event separated by 1 byte value. Missing number if event is not the cause. 
+*/
+
+OnTranslate
+{
+	_talk = reference0
+	_talk = REPLACE(_talk, "Anchor 1", "\_a[anchor1]Anchor 1\_a")
+	--
+	if reference1 == "" && reference2 == "" { 
+		EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
+	}
+	else { 
+		TOSTR(_talk)
+	}
+}
+
+OnAnchorSelect
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0 
+	{
+	"\j[%(reference0)]\e" 
+	}
+	else 
+	{
+	case reference0
+		{
+			when "anchor1" 
+			{
+				"\0\s[0]This dialogue is for when Anchor 1 is clicked.\e"
+			}
+		}
+	}
 }

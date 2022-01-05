@@ -14,7 +14,6 @@ dic, etc.dic
 dic, menu.dic
 dic, word.dic
 dic, commu.dic
-dic, anchor.dic
 
 //---- Log Location -------------------------------------------------------------------------
 //Don't touch it.

@@ -1,7 +1,7 @@
 ﻿OnFirstBoot
 {
  	lastTalk = "" 
-	passmin = 0 
+	passmin = 0  
 	passsec = 0 
  	username         = "USER" 
 	stroke           = 0	
@@ -13,54 +13,33 @@
 	deleteshitai = "OFF" 
 	nowshell = "master" 
 	interactions = IARRAY
-	active = "0.0"
+	active = IARRAY
+	friends = IARRAY
+	active[0] = "0.0" //\p[&].\s[&]
+	--
+	OnDefValues
+	--
 	if reference0 == 0 
  	{
-		"\1\s[10]\0\s[0]...\e"
+		"\1\s[10]\0\s[0]* Enjoy your stuff!\e"
  	}
 	else
  	{
- 		{
- 		"\1\s[10]\0\s[0]...\e"
-		}
+ 		"\1\s[10]\0\s[0]* Enjoy your stuff!\e"
  	}
 }
 
-GetTimeSlot
+//friendsDef = ("Edgar","Kaziu","Grzegorz","Jola","Wojciech","Mariola")
+OnDefValues
 {
-	if hour >= 5 && hour <= 8
-	{
-		"earlymorning"
-	}
-	elseif hour >= 9 && hour <= 11
-	{
-		"morning"
-	}
-	elseif hour >= 12 && hour <= 14
-	{
-		"lunch"
-	}
-	elseif hour >= 15 && hour <= 17
-	{
-		"afternoon"
-	}
-	elseif hour >= 18 && hour <= 20
-	{
-		"evening"
-	}
-	elseif hour >= 21 && hour <= 24
-	{
-		"latenight"
-	}
-	else
-	{
-		"midnight"
-	}
-}
+	friendsDef = IARRAY
+	friendsDef[3] = "Edgar"
+	friendsDef[6] = "Kaziu"
+	
 
-GetDaySlot
-{
-	"%(month)month %(day)day"
+	secrets = IARRAY
+	secrets[0] = "" //names
+	secrets[1] = "" //unlocked?
 }
 
 OnBoot
@@ -76,81 +55,72 @@ OnBoot
 	--
 	_print = "\0\s[0]"
 	--
-	_activesplit = SPLIT(active," ")
-	_arraysize = ARRAYSIZE(_activesplit)
+	_arraysize = ARRAYSIZE(active)
 	--
 	for _i = 1;_i <= _arraysize;_i ++
 	{ 
-		_split = SPLIT(_activesplit[_i],".")
+		_split = SPLIT(active[_i],".")
 		--
 		_print += "\p[%(_split[0])]\s[%(_split[1])]"
 	}
 	--
-	_print
-}
-
-OnNameSet
-{
-	name[0] = "List of your items"	
-	name[1] = ""
-	name[2] = "Grill"
-	name[3] = "Table"
-	name[4] = "Lights"
-	name[5] = "Void"
-	name[6] = "Bean Bag"
-	name[7] = "Tree"
-	name[8] = ""
-	name[9] = ""
-	name[10] = ""
-	name[100] = "Dr. W.D Gaster Plushie"
-	name[101] = "S the Skeleton Plushie"
-	name[102] = "Ghost Plushie"
-	name[103] = "Dusty and Obsidian Plushie"
-	name[104] = "Azura Plushie"
+	"%(_print)* "
+	--
+	"All the stuff is back"
+	"Your desktop is a mess again"
+	"Your desktop is cluttered again"
+	"Stuff fills your desktop"
+	--
+	"\e"
 }
 
 OnClose
 {
 	timeslot = GetTimeSlot 
 	--
-	if passmin >= 5	
-	{
-		"\0\s[0]...\w8\w8"
-	}
-	else 
-	{
-		"\0\s[0]...\w8\w8"
-	}
+	"\0\s[0]* "
 	--
-	"\-\e" 
+	"The stuff vanishes"
+	"All the stuff vanishes"
+	"All your things vanish"
+	"There are no things anymore"
+	"There is no stuff anymore"
+	--
+	"\w8\w8\-\e" 
 }
 
 OnWindowStateRestore
 {
 	_print = "\0\s[0]"
 	--
-	_activesplit = SPLIT(active," ")
-	_arraysize = ARRAYSIZE(_activesplit)
+	_arraysize = ARRAYSIZE(active)
 	--
 	for _i = 1;_i <= _arraysize;_i ++
 	{ 
-		_split = SPLIT(_activesplit[_i],".")
+		_split = SPLIT(active[_i],".")
 		--
-		_print += "\p[%(_split[0])]\s[%(_split[1])]"
+		_print += "\p["+_split[0]+"]\s["+_split[1]+"]"
 	}
 	--
-	_print
+	"%(_print)* "
+	--
+	"All the stuff is back"
+	"Your desktop is a mess again"
+	"Your desktop is cluttered again"
+	"Stuff fills your desktop"
+	--
+	"\e"
 }
 
 OnGhostChanging
- {
-	if reference0 == "Clear" 
+{
+	if reference0 == "Stuff" 
 	{
-		"\0\s[0]...\w8\w8\e"
+		"\0\s[0]* Stuff becomes Stuff once more\w8\w8\e"
 	}
  	else 
 	{
-		"\0\s[0]...\e"
+		"\0\s[0]* Guess %(reference0) won't enjoy all the stuff\e"
 	}
 }
 
@@ -158,12 +128,12 @@ OnGhostChanged
 {
 	"\0\s[0]\1\s[10]" 
 	--
-	if reference0 == "Clear" 
+	if reference0 == "Stuff" 
 	{
-		"\0\s[0]...\e"
+		"* It's a lot of stuff\e"
 	}
 	else 
 	{
-		"...\e"
+		"* Guess %(reference0) won't enjoy all the stuff\e"
 	}
 }

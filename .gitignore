@@ -34,3 +34,5 @@ world_planner/ghost/master/yaya_variable.cfg
 world_planner/ghost/master/profile/ghost.dat.bak
 world_planner/ghost/master/profile/var.txt
 world_planner/ghost/master/profile/ghost.dat
+*.sai2
+*.sai2

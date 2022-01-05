@@ -1,13 +1,108 @@
 ﻿//**** Don't touch this ***************************************************************
-On_\person
+On_\person 
 {
  	person
 }
 
-TOPROPER
+TOPROPER 
 {
     _word = _argv[0]
     _letter = TOUPPER(SUBSTR(_word,0,1))
     _word = SUBSTR(_word,1,STRLEN(_word)-1)
     _letter + _word
+}
+
+/* 
+|CopyCatKill| is a function to delete duplicates from an array
+
+ USAGE:
+    CopyCatKill(array)
+ 
+ Examples:
+    CopyCatKill(1,2,2,6,3,7,8,6) would return '1,2,6,3,7,8'
+    CopyCatKill("1,2,2,6,3,7,8,6") would return '1,2,6,3,7,8'
+    CopyCatKill("cat","dog","parrot","dog","moth") would return "cat,dog,parrot,moth"
+    CopyCatKill("cat,dog,parrot,dog,moth") would return "cat,dog,parrot,moth"
+
+    animals = "cat,dog,parrot,dog,moth"
+    CopyCatKill(animals) would return 'cat,dog,parrot,moth'
+
+ !! Function is case sensitive !!
+ To make the function case insensitive REPLACE:
+    if _argv[_i] == _argv[_j]; _argv[_j] = ""
+ WITH:
+    if TOLOWER(_argv[_i]) == TOLOWER(_argv[_j]); _argv[_j] = ""
+ */
+
+CopyCatKill //CopyCatKill(array)
+{ 
+    _printArr = IARRAY //make an empty array
+    _arrSize = ARRAYSIZE(_argv) //get size
+    if _arrSize == 1 
+    {
+        _argv = SPLIT(_argv,",")
+        _arrSize = ARRAYSIZE(_argv)
+    }
+    --
+    for _i = 0;_i < _arrSize; _i++ //Loop to get every element of the array
+    {
+        for _j = _i+1; _j < _arrSize; _j++  //Loop to check agains every other element of the array
+        {
+            if _argv[_i] == _argv[_j]; _argv[_j] = "" //if the elements are the same, replace with empty string
+        }
+        --
+        if _argv[_i] != ""; _printArr ,= _argv[_i] //if the elemet is not an empty string, add to the empty array
+    }
+    --
+    _printArr //return the array
+}
+
+DelEmptyArr //DelEmptyArr(array)
+{ 
+    _printArr = IARRAY //make an empty array
+    _arrSize = ARRAYSIZE(_argv) //get size
+    if _arrSize == 1 
+    {
+        _argv = SPLIT(_argv,",")
+        _arrSize = ARRAYSIZE(_argv)
+    }
+    --
+    for _i = 0;_i < _arrSize; _i++  //Loop to get every element of the array
+    {
+        if _argv[_i] != ""; _printArr ,= _argv[_i] //if the elemet is not an empty string, add to the empty array
+    }
+    --
+    _printArr //return the array
+}
+
+CENSOR //CENSOR(string,replacement,show first letter?: 0/1)
+{
+    _word = REPLACE(_argv[0]," ",",") //replace spaces with commas
+    _arlen = ARRAYSIZE(_word) //check how many words are to censor
+    _censor = ""
+    _print = ""
+    --
+    for _i=0;_i<_arlen;_i++ //loop working till i is the size og _arleng
+    {
+        _buffer = SUBSTR(_word[_i],0,1) //take the first letter
+        _len = STRLEN(_word[_i])//check how many letters there are
+        --
+        for _j=0;_j<_len;_j++ //loop to add one * for one letter of a word
+        {
+            _censor[_i] += _argv[1] 
+        }
+        --
+        if _argv[2] != "0" || _argv[2] != 0
+        {
+            _censor[_i] = ERASE(_censor[_i],0,1) //erase the first *
+            _censor[_i] = INSERT(_censor[_i],0,_buffer) //add the saved letter to the begining
+        }
+    }
+    --
+    for _i=0;_i<ARRAYSIZE(_censor);_i++ //loop to add the words back together
+    {
+        _print += _censor[_i] + "  "
+    }
+    --
+    _print //show the censored words
 }

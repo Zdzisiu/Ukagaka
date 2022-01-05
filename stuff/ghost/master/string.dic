@@ -42,12 +42,12 @@ On_kero.recommendsites
 
 On_updatebutton.caption
 {
-	"Update Menu Caption"
+	"Check for new packages"
 }
 
 On_dressuprootbutton.caption
 {
-	"Dress-Up Caption"
+	"Variations"
 }
 
 On_headlinesenserootbutton.caption
@@ -145,7 +145,7 @@ On_craftmanw
 On_name
 {
 	"AYA"
-}
+} 
 
 //---- Owned SSTP 뾭 uniqueid 롦벦 ------------------------------------------------------
 On_uniqueid

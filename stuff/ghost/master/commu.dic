@@ -4,7 +4,7 @@ OnCommunicate
  	{
 
  		ReplyToUser
-	}
+	} 
  	else
 	{	
 		ReplyToGhost
@@ -22,6 +22,10 @@ ReplyToGhost
 	{
 		InteractWithStuff
 	}
+	elseif "GetStuff" _in_ reference1
+	{
+		GetStuff
+	}
 }
 
 InteractWithStuff
@@ -31,29 +35,48 @@ InteractWithStuff
 	-- 
 	_thing = _ConvoTag[1]
 	--
-	if _ConvoTag[2] == "dis"
+	if _ConvoTag[2] == "dis" // if tag == dissapear
 	{
 		"\p[%(_thing)]\s[-1]"
 	}
 	--
-	if "StartInteract" _in_ _ConvoTag
+	if "StartInteract" _in_ _ConvoTag //start interaction
 	{
 		interactions ,= (_ConvoTag[3] + "." + _ConvoTag[1])
 	}
-	elseif "EndInteract" _in_ _ConvoTag
+	elseif "EndInteract" _in_ _ConvoTag //end interaction
 	{
-		_key = _ConvoTag[3]+'.(\d*)'
-		_num = RE_ASEARCH(_key,interactions)
-		_intr = SPLIT(interactions[_num],".")
+		_key = _ConvoTag[3]+'.(\d*)' //set regex key
+		_num = RE_ASEARCH(_key,interactions) //search for interaction
+		_intr = SPLIT(interactions[_num],".") //split interaction
 		--
-		for _i = _num; _i < ARRAYSIZE(interactions);_i++
+		for _i = _num; _i < ARRAYSIZE(interactions);_i++ 
 		{
-			interactions[_i] = interactions[_i+1]
+			interactions[_i] = interactions[_i+1]//remove interaction
 		}
 		--
 		//"%(_num) %(_intr) %(_ConvoTag[3])\e"
 		"\p[%(_intr[1])]\s[%(_intr[1])]\e"
 	}
+}
+
+GetStuff
+{
+	res_reference0 = reference0
+	--
+	_print = "\e StuffInStuff"
+	--
+	_activesplit = SPLIT(active," ")
+	_arraysize = ARRAYSIZE(_activesplit)
+	--
+	for _i = 1;_i <= _arraysize;_i ++
+	{ 
+		_split = SPLIT(_activesplit[_i],".")
+		--
+		_print += "," + thing[_split[0]] + "." + dressupson[_split[0]]
+	}
+	--
+	_print
 }
 
 OnOtherOverlap
@@ -78,7 +101,7 @@ OnOtherOverlap
 		--
 		res_reference0 = _tagres
 		--
-		"\e OverlapStuff,%(_tags[2]),%(dressupson[_tags[2]])"
+		"\e OverlapStuff,%(_tags[2]),%(dressupson[_tags[2]])" //you're overlaping with stuff, you can interact
 	}
 	//res_reference0 = reference0 
 }

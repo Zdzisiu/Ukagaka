@@ -42,48 +42,149 @@ menu.background.bitmap.filename,menu_background.png
 menu.foreground.bitmap.filename,menu_foreground.png
 menu.sidebar.bitmap.filename,menu_sidebar.png
 
-char4.menu,auto
-char4.bindgroup0.name,base,yellow
-char4.bindgroup10.name,colors,yellow
+//---------------Table-------------------
 
-char4.bindgroup1.name,base,purple
-char4.bindgroup11.name,colors,purple
+char2.bindgroup0.name,Color,White
+char2.bindgroup1.name,Color,Grey
+char2.bindgroup2.name,Color,Black
+char2.bindgroup3.name,Color,Dark Brown
+char2.bindgroup4.name,Color,Light Brown
 
-char4.bindgroup2.name,base,red
-char4.bindgroup12.name,colors,red
+char2.bindgroup50.name,Table Cloth,Yellow
+char2.bindgroup51.name,Table Cloth,Green
+char2.bindgroup52.name,Table Cloth,Mint
+char2.bindgroup53.name,Table Cloth,Teal
+char2.bindgroup54.name,Table Cloth,Blue
+char2.bindgroup55.name,Table Cloth,Violet
+char2.bindgroup56.name,Table Cloth,Purple
+char2.bindgroup57.name,Table Cloth,Pink
+char2.bindgroup58.name,Table Cloth,Red
+char2.bindgroup59.name,Table Cloth,Orange
+char2.bindgroup60.name,Table Cloth,Black
+char2.bindgroup61.name,Table Cloth,White
+char2.bindgroup62.name,Table Cloth,Grey
 
-char4.bindgroup3.name,base,green
-char4.bindgroup13.name,colors,green
+//---------------Sofa-------------------
 
-char4.bindgroup4.name,base,pink
-char4.bindgroup14.name,colors,pink
+char3.bindgroup0.name,Color,Yellow
+char3.bindgroup1.name,Color,Green
+char3.bindgroup2.name,Color,Mint
+char3.bindgroup3.name,Color,Teal
+char3.bindgroup4.name,Color,Blue
+char3.bindgroup5.name,Color,Purple
+char3.bindgroup6.name,Color,Pink
+char3.bindgroup7.name,Color,Red
+char3.bindgroup8.name,Color,Orange
+char3.bindgroup9.name,Color,Brown
+char3.bindgroup10.name,Color,White
+char3.bindgroup11.name,Color,Grey
+char3.bindgroup12.name,Color,Black
 
-char4.bindgroup5.name,base,orange
-char4.bindgroup15.name,colors,orange
+char3.bindgroup20.name,Pillows (left),Yellow
+char3.bindgroup21.name,Pillows (left),Green
+char3.bindgroup22.name,Pillows (left),Mint
+char3.bindgroup23.name,Pillows (left),Teal
+char3.bindgroup24.name,Pillows (left),Blue
+char3.bindgroup25.name,Pillows (left),Purple
+char3.bindgroup26.name,Pillows (left),Pink
+char3.bindgroup27.name,Pillows (left),Red
+char3.bindgroup28.name,Pillows (left),Orange
+char3.bindgroup29.name,Pillows (left),White
+char3.bindgroup30.name,Pillows (left),Grey
+char3.bindgroup31.name,Pillows (left),Black
 
-char4.bindgroup6.name,base,blue
-char4.bindgroup16.name,colors,blue
+char3.bindgroup40.name,Pillows (right),Yellow
+char3.bindgroup41.name,Pillows (right),Green
+char3.bindgroup42.name,Pillows (right),Mint
+char3.bindgroup43.name,Pillows (right),Teal
+char3.bindgroup44.name,Pillows (right),Blue
+char3.bindgroup45.name,Pillows (right),Purple
+char3.bindgroup46.name,Pillows (right),Pink
+char3.bindgroup47.name,Pillows (right),Red
+char3.bindgroup48.name,Pillows (right),Orange
+char3.bindgroup49.name,Pillows (right),White
+char3.bindgroup50.name,Pillows (right),Grey
+char3.bindgroup51.name,Pillows (right),Black
 
-char4.bindgroup7.name,base,cyan
-char4.bindgroup17.name,colors,cyan
+//---------------Lamp #1-------------------
 
-char6.bindgroup0.name,color,cyan
-char6.bindgroup1.name,color,green
-char6.bindgroup2.name,color,yellow
-char6.bindgroup3.name,color,red
-char6.bindgroup4.name,color,pink
-char6.bindgroup5.name,color,purple
-char6.bindgroup6.name,color,orange
-char6.bindgroup7.name,color,grey
-char6.bindgroup8.name,color,black
-char6.bindgroup9.name,color,Blue
+char4.bindgroup0.name,Lamp,Black
+char4.bindgroup1.name,Lamp,Gray
+char4.bindgroup2.name,Lamp,White
+
+char4.bindgroup13.name,Stand,White
+char4.bindgroup10.name,Stand,Gray
+char4.bindgroup14.name,Stand,Black
+char4.bindgroup12.name,Stand,Dark Brown
+char4.bindgroup11.name,Stand,Light Brown
+
+char4.bindgroup20.name,Color,Yellow
+char4.bindgroup21.name,Color,Orange
+char4.bindgroup22.name,Color,Red
+char4.bindgroup23.name,Color,Fuschia
+char4.bindgroup24.name,Color,Pink
+char4.bindgroup25.name,Color,Purple
+char4.bindgroup26.name,Color,Blue
+char4.bindgroup27.name,Color,Teal
+char4.bindgroup28.name,Color,Mint
+char4.bindgroup29.name,Color,Green
+char4.bindgroup30.name,Color,Lime
+char4.bindgroup31.name,Color,Off
+
+//---------------Lamp #2-------------------
+
+char5.bindgroup0.name,Lamp,Black
+char5.bindgroup1.name,Lamp,Gray
+char5.bindgroup2.name,Lamp,White
+
+char5.bindgroup13.name,Stand,White
+char5.bindgroup10.name,Stand,Gray
+char5.bindgroup14.name,Stand,Black
+char5.bindgroup12.name,Stand,Dark Brown
+char5.bindgroup11.name,Stand,Light Brown
+
+char5.bindgroup20.name,Color,Yellow
+char5.bindgroup21.name,Color,Orange
+char5.bindgroup22.name,Color,Red
+char5.bindgroup23.name,Color,Fuschia
+char5.bindgroup24.name,Color,Pink
+char5.bindgroup25.name,Color,Purple
+char5.bindgroup26.name,Color,Blue
+char5.bindgroup27.name,Color,Teal
+char5.bindgroup28.name,Color,Mint
+char5.bindgroup29.name,Color,Green
+char5.bindgroup30.name,Color,Lime
+char5.bindgroup31.name,Color,Off
+
+//---------------Bookshelf-------------------
+
+char6.bindgroup0.name,Color,White
+char6.bindgroup1.name,Color,Grey
+char6.bindgroup2.name,Color,Black
+char6.bindgroup3.name,Color,Dark Brown
+char6.bindgroup4.name,Color,Light Brown
+
+//---------------Shelf-------------------
+
+char7.bindgroup0.name,Color,White
+char7.bindgroup1.name,Color,Grey
+char7.bindgroup2.name,Color,Black
+char7.bindgroup3.name,Color,Dark Brown
+char7.bindgroup4.name,Color,Light Brown
+
+//---------------Painting-------------------
+
+char8.bindgroup0.name,Color,White
+char8.bindgroup1.name,Color,Grey
+char8.bindgroup2.name,Color,Black
+char8.bindgroup3.name,Color,Dark Brown
+char8.bindgroup4.name,Color,Light Brown
+
+char8.bindgroup10.name,Painting,Cosmos #1
+char8.bindgroup11.name,Painting,Cosmos #2
+char8.bindgroup12.name,Painting,Cosmos #3
+char8.bindgroup13.name,Painting,Cosmos #4
+char8.bindgroup14.name,Painting,Forest
+char8.bindgroup15.name,Painting,Rose
 
 
-char7.bindgroup0.name,color,green
-char7.bindgroup1.name,color,purple
-char7.bindgroup2.name,color,cyan
-char7.bindgroup3.name,color,yellow
-char7.bindgroup4.name,color,blue
-char7.bindgroup5.name,color,pink
-char7.bindgroup6.name,color,light pink
-char7.bindgroup7.name,color,dark green
