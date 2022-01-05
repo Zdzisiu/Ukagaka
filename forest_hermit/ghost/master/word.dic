@@ -9,15 +9,15 @@ On_\person
 ARRAYADD //ARRAYADD(array)
 {
 	_return = 0
-	_a = SPLIT(_argv[0],",")
-	_size = ARRAYSIZE(_a)
+	_a = SPLIT(_argv[0],",") //split array
+	_size = ARRAYSIZE(_a) //get the arrays size
 	--
 	for _i=0;_i<_size;_i++
 	{
-		_return += TOINT(_a[_i])
+		_return += TOINT(_a[_i]) //add the numbers
 	}
 	--
-	_return
+	_return //return the result
 }
 
 ARSEARCH //ARSEARCH(key,array,1/0)

@@ -198,7 +198,7 @@ OnMinuteChange
 {
 	timeslot = GetTimeSlot 
 	--
-	if RAND(20) == 2
+	if RAND(20) == 2 && winstate != "minimized"
 	{
 		OnGetStuff
 	}

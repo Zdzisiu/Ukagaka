@@ -110,10 +110,19 @@ OnWindowStateRestore
 {
 	"\0\s[0]"
 	--
+	winstate = "normal"
+	--
 	OnForageRestore
 	--
 	"* Hermit looks confused at what happened\e"
 }
+
+
+OnWindowStateMinimize
+{
+	winstate = "minimized"
+}
+
 
 OnGhostChanging
 {
