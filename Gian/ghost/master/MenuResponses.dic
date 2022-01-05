@@ -2,7 +2,7 @@
 {
 	
 	{
-		"\0My family?\w8 there isn't much i can tell you\w4 \i[10]I .\w8 .\w8 .\w8 don't remember them much.\n\n"
+		"\0My family?\w8 there isn't much I can tell you\w4 \i[10]I .\w8 .\w8 .\w8 don't remember them much.\n\n"
 		--
 		"\1\![*]\q[What do you mean?,contfamily1]\n/
 		\![*]\q[(you decide not to push),contfamily2]\n\n[half]/
@@ -31,24 +31,25 @@ Select.contfamily3
 
 Select.gian : nonoverlap
 {
-	if UserAge != ""; "\1You ask Gian about his age\x\c\0I'm 21, how about you?\![open,sliderinput,OnAge,-1,18,10,99]\n\n"
+	if userinfo[1] != ""; "\1You ask Gian about his age\x\c\0I'm 21, how about you?\![open,sliderinput,OnAge,-1,18,10,99]\n\n"
 
-	"\1You ask %(himgian) about his hobbies\x\c\0I like to read books\w8, also Dr Arktur got me into anime and cartoons\f[height,10]I don't watch it as much as he does though.\x\c What's your hobby?\![open,inputbox,OnHobby,-1]\n\n"	
+	if userinfo[0] == ""; "\1You ask %(himgian) about his hobbies\x\c\0I like to read books\w8, also Dr Arktur got me into anime and cartoons\f[height,10]I don't watch it as much as he does though.\x\c What's your hobby?\![open,inputbox,OnHobby,-1]\n\n"	
+	
 	"\1You ask %(himgian) about his birthday\x\c\0I don't know exact date but we calebrate it 19th of July\w8 the day Nathan found me.\n\n"
+	
 	"\1You ask %(himgian) about his relationships\x\c\0\i[12]I .\w8 .\w8 .\w8\i[11]\i[12] Uhhh .\w8 .\w8 .\w8 .\w8\x\cI\w8\w8 wasn't in any.\n\n"
-	"\1You ask %(himgian) about his relationships\x\c\0\i[12]I .\w8 .\w8 .\w8\i[11]\i[12] Uhhh .\w8 .\w8 .\w8 .\w8\x\cI\w8\w8 wasn't in any.\n\n"
+		
 	"\1You ask %(himgian) if he prefers when it's hot or cold)\Cold\n\n"
 }
 
 OnHobby
 {
-	if reference0 !_in_ UserHobby; UserHobby += " " + reference0
+	_UserHobby = TOLOWER(reference0)
 	--
-	UserHobby = TOLOWER(reference0)
-	--
-	if "draw" _in_ UserHobby
+	if "draw" _in_ _UserHobby
 	{
-		drawing = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "drawing "
+		--
 		"\0you like to draw?\w5 that's nice,\x\c"
 		--
 		"Dr Alex"
@@ -57,82 +58,108 @@ OnHobby
 		--
 		"  likes to draw too,\w8 maybe you would get along?\e"
 	}
-	elseif "paint" _in_ UserHobby
+	elseif "paint" _in_ _UserHobby
 	{
-		painter = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "painting "
+		--
 		"\0Painting huh?\w4 That's nice and creative hobby.\e"
 	}
-	elseif "anime" _in_ UserHobby
+	elseif "anime" _in_ _UserHobby
 	{
-		anime = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "anime "
+		--
 		"\0\i[8]You would get along with a lot of people in the lab.\e"
 	}
-	elseif "gaming" _in_ UserHobby
+	elseif "gaming" _in_ _UserHobby
 	{
-		gaming = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "gaming "
+		--
 		"\0Playing games is a fun way to spend time.\e"
 	}
-	elseif "read" _in_ UserHobby || "book" _in_ UserHobby
+	elseif "read" _in_ _UserHobby || "book" _in_ _UserHobby
 	{
-		reading = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "reading "
 		--
-		if commonthings >= 1; "\0Another thing in common, it seems, maybe we can swap books someday?\e"
+		if relationship[6] >= 1; "\0Another thing in common, it seems, maybe we can swap books someday?\e"
 		else; "\0I'm happy that we have something in common, maybe we can swap books someday?\e"
 		--
-		commonthings += 1
+		relationship[6] += 1
 	}
-	elseif "writing" _in_ UserHobby || "write" _in_ UserHobby
+	elseif "writing" _in_ _UserHobby || "write" _in_ _UserHobby
 	{
-		write = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "writing "
+		--
 		"\0What do you write,\w4 poems or maybe books\w6\f[height,10] or fanfiction\f[height,100%]?\![open,inputbox,OnWriting,-1]\e" 
 	}
-	elseif "knit" _in_ UserHobby
+	elseif "knit" _in_ _UserHobby
 	{
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "knitting "
+		--
 		scientist += 1
-		knit = 1
 		"\0Wow,\w5 I've never met anyone who can knit.\w8\w8\f[height,10]so many scientists and no one can do this\f[height,100%]\w8\w8. That's a cool hobby\e"	
 	}
-	elseif "sew" _in_ UserHobby 
+	elseif "sew" _in_ _UserHobby 
 	{
-		sew = 1
-		"\0Sewing is hard,\w3 but an useful hobby,\w3 isn't it?\w6 I can sew a little but that's mostly because no one else in lab can do this, so i had to learn, \f[height,10]now I am the one to do repairs when they they tear something.\f[height,100%]\e"
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "sewing "
+		--
+		"\0Sewing is hard,\w3 but an useful hobby,\w3 isn't it?\w6 I can sew a little but that's mostly because no one else in lab can do this, so I had to learn, \f[height,10]now I am the one to do repairs when they they tear something.\f[height,100%]\e"
 	}
-	elseif "cosplay" _in_ UserHobby
+	elseif "cosplay" _in_ _UserHobby
 	{
-		cosplay = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "cosplay "
+		--
 		"\0Dr Arktur\f[height,10] and most others\f[height,100%] would be really excited to talk to you.\e"
 	}
-	elseif "photo" _in_ UserHobby
+	elseif "photo" _in_ _UserHobby
 	{
-		photography = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "photography "
+		--
 		"\0Photography is cool,\w5 have you taken some good photos recently?\e"
 	}
-	elseif "cook" _in_ UserHobby || "bake"  _in_ UserHobby
+	elseif "cook" _in_ _UserHobby
 	{
-		cook = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "cooking "
+		--
 		"\0That's a nice and helpfull hobby\e"
 	}
-	elseif "sport" _in_ UserHobby || "athlet" _in_ UserHobby || "gym" _in_ UserHobby || "basketball" _in_ UserHobby || "volleyball" _in_ UserHobby
+	elseif "bake"  _in_ _UserHobby
 	{
-		sport = 1
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "baking "
+		--
+		"\0That's a nice and helpfull hobby\e"
+	}
+	elseif "martial arts"  _in_ _UserHobby
+	{
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "martial arts "
+		--
+		"\0OOH!\w8 That's neat!\e"
+	}
+	elseif "sport" _in_ _UserHobby || "athlet" _in_ _UserHobby || "gym" _in_ _UserHobby || "basketball" _in_ _UserHobby || "volleyball" _in_ _UserHobby
+	{
+		if reference0 !_in_ userinfo[0]; userinfo[0] += "sport "
+		--
 		"\0Sport is cool\e"
 	}
 	else
 	{
+		if reference0 !_in_ userinfo[0]; userinfo[0] += reference0 + " "
+		--
 		"\0That's a nice hobby\n\n"
+		"\0That's neat\n\n"
+		"\0That's cool\n\n"
 		"\0That's an interesting hobby\n\n"
 	}
 }
 
 OnWriting
 {
-	writ = TOLOWER(reference0)
-	if "poem" _in_ writ
+	_writ = TOLOWER(reference0)
+	--
+	if "poem" _in_ _writ
 	{
-		poet = 1
 		"\0That's cool,\w5 poems are can be great way to express feelings"
 	}
-	elseif "fanfiction" _in_ writ || "ff" _in_ writ
+	elseif "fanfiction" _in_ _writ || "ff" _in_ _writ
 	{
 		"\0You would probably get along with"
 		--
@@ -142,9 +169,9 @@ OnWriting
 		--
 		" \f[height,10]and a lot others\f[height,100%]"
 	}
-	elseif "books" _in_ writ
+	elseif "books" _in_ _writ
 	{
-		if reading == 1; "\0Writers that also are readers are the best \f[height,10]\i[13]some just slap some random sentences and call it a story\f[height,100%]"
+		if "reading" _in_ userinfo[0]; "\0Writers that also are readers are the best \f[height,10]\i[13]some just slap some random sentences and call it a story\f[height,100%]"
 		else; "\0Enjoyable hobby, isn't it?"
 	}
 	else
@@ -156,30 +183,15 @@ OnWriting
 
 OnAge
 {
-	UserAge = reference0
-	if UserAge >= 21
-	{
-		"\0Oh,\w6 you're older then me.\e"
-	}
-	elseif UserAge == 21
-	{
-		commonthings += 1
-		"\0We are the same age then.\e"
-	}
-	elseif UserAge <= 14 && UserAge >= 12
-	{
-		"\0%(UserAge)? Then you're still in middle school, right?\e"
-	}
-	elseif UserAge <= 18 && UserAge >= 14
-	{
-		"\0%(UserAge)? Then you're in high school, am I right?\e"
-	}
-	else 
-	{
-		"\0Oh, so you're younger then me?\e"
-	}
+	userinfo[1] = TOINT(reference0)
 	--
-	if UserAge < 19; love = 0
+	if userinfo[1] >= 21; "\0Oh,\w6 you're older then me.\e"
+	elseif userinfo[1] == 21; "\0We are the same age then.\e"
+	elseif userinfo[1] <= 14 && userinfo[1] >= 12; "\0%(userinfo[1])? Then you're still in middle school, right?\e"
+	elseif userinfo[1] <= 18 && userinfo[1] >= 14; "\0%(userinfo[1])? Then you're in high school, am I right?\e"
+	else; "\0Oh, so you're younger then me?\e"
+	--
+	if userinfo[1] < 19; love = 0
 }
 
 Select.friends 
@@ -225,139 +237,121 @@ Select.leastfavorites
 }
 OnColor
 { 
-	if reference0 !_in_ FavoriteColor; FavoriteColor += " " + reference0
+	if reference0 !_in_ userfavorite[0]; userfavorite[0] += " " + reference0
 	--
-   	FavoriteColor = TOLOWER(reference0)
+   	userfavorite[0] = TOLOWER(reference0)
    	--
-   	if "white" _in_ FavoriteColor
+   	if "white" _in_ userfavorite[0]
     {
-		if commonthings >= 0; "\0You like white too?\w3 then we heve another thing in common.\e"
+		if relationship[6] >= 0; "\0You like white too?\w3 then we heve another thing in common.\e"
 		else; "\0You like white too?\w3 then we heve something in common.\e"
 		--
-		commonthings += 1
+		relationship[6] += 1
 	}
-   elseif "purple" _in_ FavoriteColor
+   elseif "purple" _in_ userfavorite[0]
 	{
-		FavoriteColor = "purple"
 	   "\0It's Dr Jelonka's favorite color,\w2 it represents imagination and crativity .\w8 .\w8 .\w8 maybe that's why it't her favorite?\e"
     }
-   elseif "pink" _in_ FavoriteColor
+   elseif "pink" _in_ userfavorite[0]
 	{
-		FavoriteColor = "pink"
 	   "\0Pink,\w5 color of unconditional love,\w8\w8it's not really my thing\e"
     }
-   elseif "yellow" _in_ FavoriteColor
+   elseif "yellow" _in_ userfavorite[0]
 	{
-		FavoriteColor = "yellow"
 	   "\0Color of sunflowers,\w8 optimistic and cheerfull.\w5 It also represents intelect.\e"
     }
-   elseif "blue" _in_ FavoriteColor
+   elseif "blue" _in_ userfavorite[0]
 	{
-		FavoriteColor = "blue"
 	   "\0Color of trust, loyality and peace,\w4 Dr. Jelonka realy likes this color.\w5\w5 I wonder what's she's doing right now\e"
     }
-   elseif "red"  _in_ FavoriteAnimal
+   elseif "red"  _in_ userfavorite[0]
 	{
-		FavoriteColor = "red"
 	   "\0Realy nice color,\w5 passionate and active.\e"
     }
-   elseif "brown" _in_ FavoriteColor
+   elseif "brown" _in_ userfavorite[0]
 	{
-		FavoriteColor = "brown"
 	   "\0Dr Lydia once said that she hates that color\w8 she didnt say why thoug.\e"
     }
-   elseif "black" _in_ FavoriteColor
+   elseif "black" _in_ userfavorite[0]
 	{
-		FavoriteColor =  "black"
 	   "\0Like night sky, color of secrets and myteries.\e"
     }
-   elseif "orange" _in_ FavoriteColor
+   elseif "orange" _in_ userfavorite[0]
 	{
-		FavoriteColor = "orange"
 	   "\0Orange is such a nice color.\w6 Means comunnication and positivity.\e"
     }
-   elseif "violet" _in_ FavoriteColor
+   elseif "violet" _in_ userfavorite[0]
 	{
-		FavoriteColor = "violet"
 	   "\0Color of spirituality and imagination.\w5 I like it too.\e"
     }
-   elseif "indygo" _in_ FavoriteColor
+   elseif "indygo" _in_ userfavorite[0]
 	{
-		FavoriteColor = "indygo"
 	   "\0Idealistic color,\w4 represents intuition.\e"
     }
-   elseif "gray" _in_ FavoriteColor
+   elseif "gray" _in_ userfavorite[0]
 	{
-		FavoriteColor = "gray"
 	   "\0Unemotional and neutral,\w7 but still nice.\e"
     }
-   elseif "magenta" _in_ FavoriteColor
+   elseif "magenta" _in_ userfavorite[0]
 	{
-		FavoriteColor = "magenta"
 	   "\0Magenta,\w8  color of harmony and balance.\e"
     }
-   elseif "green" _in_ FavoriteColor
+   elseif "green" _in_ userfavorite[0]
 	{
-		FavoriteColor = "green"
 	   "\0It's Dr. Alex and Dr Lydia favorite color too,\w5 it represents balance and growth.\e"
     }
     else
 	{
-		"\0That's a nice color.\e"
+		"\0That's neat\e"
 	}
 }
 
 OnAnimal
 {
-   	if reference0 !_in_ FavoriteAnimal; FavoriteAnimal += " " + reference0
-	--
-  	 FavoriteAnimal = TOLOWER(reference0)
+  	_FavoriteAnimal = TOLOWER(reference0)
+	userfavorite[1] = _FavoriteAnimal
    	--
-   	if "cat" _in_ FavoriteAnimal
+   	if "cat" _in_ _FavoriteAnimal
 	{
-		FavoriteAnimal = "cat"
 		"\0Such a scary crature,\w2 I don't understand why dr Jelonka likes them so much\x\cagresive packs of claws and teeth.\w5 At least most of them is small.\e"
 	}
-	elseif "eagle" _in_ FavoriteAnimal || "howk" _in_ FavoriteAnimal
+	elseif "eagle" _in_ _FavoriteAnimal || "howk" _in_ _FavoriteAnimal
 	{
 		"\0Birds are scary,\w5 big claws and unpredictable behavior.\e"
 	}
-	elseif "tiger" _in_ FavoriteAnimal || "lion" _in_ FavoriteAnimal || "panthera" _in_ FavoriteAnimal || "cheetah" _in_ FavoriteAnimal || "leopard" _in_ FavoriteAnimal || "puma" _in_ FavoriteAnimal || "jaguar" _in_ FavoriteAnimal
+	elseif "tiger" _in_ _FavoriteAnimal || "lion" _in_ _FavoriteAnimal || "panthera" _in_ _FavoriteAnimal || "cheetah" _in_ _FavoriteAnimal || "leopard" _in_ _FavoriteAnimal || "puma" _in_ _FavoriteAnimal || "jaguar" _in_ _FavoriteAnimal
 	{
 		"\0Big cats are horrifing\w5, I never want to meet one.\e"
 	}
-	elseif "sheep" _in_ FavoriteAnimal || "alpaca" _in_ FavoriteAnimal
+	elseif "sheep" _in_ _FavoriteAnimal || "alpaca" _in_ _FavoriteAnimal
 	{
-		if commonthings >=1; "\0Another thing in common, it seems.\e"
+		if relationship[6] >=1; "\0Another thing in common, it seems.\e"
 		else; "\0I'm happy that we have something in common.\e"
 		--
-		commonthings +=1
-		
+		relationship[6] +=1
 	}
-	elseif "wolf" _in_ FavoriteAnimal || "wovles"  _in_ FavoriteAnimal
+	elseif "wolf" _in_ _FavoriteAnimal || "wovles"  _in_ _FavoriteAnimal
 	{
-		FavoriteAnimal = "wolf"
 		"\0Dr Alex loves wolves. She says that they are amazing, for me they are quite scary.\e"
 	}
-	elseif "owl" _in_ FavoriteAnimal
+	elseif "owl" _in_ _FavoriteAnimal
 	{
-		FavoriteAnimal = "owl"
 		"\0Birds are terrifying, big claws and unpredictable behavior, but Dr Alex likes owls for some reason.\e"
 	}
-    elseif "snake" _in_ FavoriteAnimal
+    elseif "snake" _in_ _FavoriteAnimal
     {
-		FavoriteAnimal = "snake"
-		"\0Snakes are dangerous, but thay don't look so scary. Dr Alex likes them,\w5 she says they are cute \e"
+		"\0Snakes are dangerous, but thay don't look so scary. Dr Alex likes them,\w5 she says they are cute.\e"
 	}
 	else
 	{
-		"\0%(FavoriteAnimal)?\w8\w8 That's cool.\e"
+		"\0%(_FavoriteAnimal)?\w8\w8 That's cool.\e"
 	}
 }
 
 OnBook
 {
-	UserBook = reference0
+	userfavorite[2] = reference0
+	--
 	"\0Interesting.\e"
 }
 
@@ -406,39 +400,10 @@ Select.candy
 	"\0candy.\n\n"
 }
 
-Select.letterlove  
-{
-	if affectionvariable <=25 //negative response to letter
-	{
-		"\0Love letter NEGATIVE.\n\n"
-		"\0Love letter NEGATIVE.\n\n"
-		"\0Love letter NEGATIVE.\n\n"
-	}
-	elseif affectionvariable <= 50 //neutral response to letter 
-	{
-		"\0Uhh .\w7 .\w7  .\w7  .\w7\x\c\1He seems ucomfortable and doesn't respond\e"
-		"\0Love letter NEUTRAL.\n\n"
-		"\0Love letter NEUTRAL.\n\n"
-	}
-	elseif affectionvariable <= 75 //friendly response to letter
-	{
-		affectionvariable += 1
-		"\0Love letter FRIENDLY.\n\n"
-		"\0Love letter FRIENDLY.\n\n"
-		"\0Love letter FRIENDLY.\n\n"
-	}
-	elseif lovevariable >= 75 //Love response
-	{
-		lovevariable += 1
-		"\0Love letter.\n\n"
-		"\0Love letter.\n\n"
-		"\0Love letter.\n\n"
-	}
-}
-
 Select.plush1  //Alpaca
 {
-	affectionvariable += 2
+	relationship[2] += 2
+	--
     "\0Plush 1.\n\n"
     "\0Plush 1.\n\n"
 	"\0Plush 1.\n\n"
@@ -451,7 +416,8 @@ Select.plush1  //Alpaca
 
 Select.plush2  //Cat
 {
-	affectionvariable -= 1
+	relationship[2] -= 1
+	--
 	"\0Plush 2.\n\n"
 	"\0Plush 2.\n\n"
 	"\0Plush 2.\n\n"
@@ -465,7 +431,8 @@ Select.plush2  //Cat
 
 Select.plush3  //Bird
 {
-	affectionvariable -= 1
+	relationship[2] -= 1
+	--
 	"\0Plush 3.\n\n"
 	"\0Plush 3.\n\n"
 	"\0Plush 3.\n\n"
@@ -478,7 +445,8 @@ Select.plush3  //Bird
 }
 Select.plush4  //Sheep
 {
-	affectionvariable += 2
+	relationship[2] += 2
+	--
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -491,7 +459,6 @@ Select.plush4  //Sheep
 
 Select.lydia
 {
-	drlydia += 1
 	"\1You ask Gian who's Dr. Lydia\x\c\0 Huh,\w5 Dr Lydia? She's one of scientists in lab, she is\w6 .\w6 .\w6 .\w6 unpredictable.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -500,9 +467,9 @@ Select.lydia
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.alex
 {
-	dralex += 1
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -511,9 +478,9 @@ Select.alex
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.labolatory
 {
-	lab += 1
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -522,9 +489,9 @@ Select.labolatory
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.zane
 {
-	drzane += 1
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -533,9 +500,9 @@ Select.zane
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.arktur
 {
-	drarktur += 1
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -544,9 +511,9 @@ Select.arktur
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.jelonka
 {
-	drjelonka += 1
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -555,9 +522,9 @@ Select.jelonka
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.labhuman
 {
-	scientist += 1
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -566,9 +533,11 @@ Select.labhuman
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.poem
 {
-	affectionvariable += 1
+	relationship[2] += 1
+	--
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -580,7 +549,8 @@ Select.poem
 
 Select.doll
 {
-	affectionvariable += 1
+	relationship[2] += 1
+	--
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -589,9 +559,11 @@ Select.doll
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 }
+
 Select.drawing
 {
-	affectionvariable += 1
+	relationship[2] += 1
+	--
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -603,7 +575,8 @@ Select.drawing
 
 Select.painting
 {
-	affectionvariable += 1
+	relationship[2] += 1
+	--
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
@@ -615,7 +588,8 @@ Select.painting
 
 Select.complinment
 {
-	affectionvariable += 1
+	relationship[2] += 1
+	--
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"
 	"\0Plush 4.\n\n"

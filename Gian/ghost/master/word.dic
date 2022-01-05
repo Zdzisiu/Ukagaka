@@ -3,85 +3,197 @@
  	person
 }
 
+//========================FUNCTIONS SELECT========================
+
+OnZChnage
+{
+	LETTONAME(reference0,onezero(reference1))
+	--
+	TalkConfig
+}
+
+OnButtonChange
+{
+	LETTONAME(reference0,onnoff(reference1))
+	--
+	TalkConfig
+}
+
+//========================FUNCTIONS========================
+
+//Written by Zichqec https://zichqec.github.io/s-the-skeleton/index.html
+
+//Usage: This is intended to take the place of single-use variables that only contain 0 or 1, used as flags for certain events and such. With these functions, you can store all those flags as a single array, meaning you can make as many flags as you want without having to really worry about save bloat. It can also make your code a bit more readable!
+
+//You'll want to put 'MiscFlags = IARRAY' into your OnFirstBoot. That'll set up an empty array for flags to be stored in.
+//When you want to check if a flag is set or not, you can do it like so:
+//if Flag("My Flag") == 0
+//or
+//if Flag("My Flag") == 1
+
+//Any flags that are NOT in the array are 0, and any flags that ARE in the array are 1. So, to set a flag to 1, you add it to the array like this:
+//if Flag("My Flag") == 0; MiscFlags ,= "My Flag"
+
+//You don't technically need the if check there, but it stops duplicate entries from being added. The ,= is also important; that adds a new element to an array. Don't use += for this!
+
+//If you want to set a flag back to 0, you can remove it like so:
+//RemoveFlag("My Flag")
+
+//Flag names can be just about anything you want! They're just stored as strings. For example, for S I have "Saw Gaster with googly eyes", and for Lulo I have things like "Unlocked MP3 player" and "Unlocked journal". If you want to see what flags are set, you can just put %(MiscFlags) into script input, so it's helpful to have names that describe the flag!
+
+Flag //Checks to see if a flag exists. Returns 1 if yes, returns 0 if no
+{
+	if ASEARCH(_argv[0],MiscFlags) != -1; 1
+	else; 0
+}
+
+RemoveFlag //Removes all instances of a flag in the array.
+{
+	_elements = ASEARCHEX(_argv[0],MiscFlags)
+	if ARRAYSIZE(_elements) > 0
+	{
+		for _i = ARRAYSIZE(_elements) - 1; _i >= 0; _i-- //Goes from the end of the list to the start, so the elements stay in the same positions while we erase
+		{
+			_current = _elements[_i]
+			MiscFlags[_current] = IARRAY
+		}
+	}
+}
+
+//Written by Zichqec https://zichqec.github.io/s-the-skeleton/index.html
+TOPROPER
+{
+    _word = _argv[0]
+    _letter = TOUPPER(SUBSTR(_word,0,1))
+    _word = SUBSTR(_word,1,STRLEN(_word)-1)
+    _letter + _word
+}
+
+stemp
+{
+	if TOINT(_argv[0]) != 1; "s"
+}
+
+onnoff //onnoff(variable)
+{
+	if _argv[0] == "ON"; "OFF"
+	else; "ON"
+}
+
+onezero //onezero(variable)
+{
+	if _argv[0] == 1 || _argv[0] == "1"; 0
+	else; 1
+}
+
+CENSOR //CENSOR(string)
+{
+	_word = REPLACE(_argv[0]," ",",")
+	_arlen = ARRAYSIZE(_word)
+	_censor = ""
+	_print = ""
+	--
+	for _i=0;_i<_arlen;_i++
+	{
+		_buffer = SUBSTR(_word[_i],0,1)
+		_len = STRLEN(_word[_i])
+		--
+		for _j=0;_j<_len;_j++
+		{
+			_censor[_i] += "*"
+		}
+		--
+		_censor[_i] = ERASE(_censor[_i],0,1)
+		_censor[_i] = INSERT(_censor[_i],0,_buffer)
+	}
+	--
+	for _i=0;_i<ARRAYSIZE(_censor);_i++
+	{
+		_print += _censor[_i] + "  "
+	}
+	--
+	_print
+}
+
+//-------------------ENVELOPES------------------------
+
 shirtsweekday
 {
 	"\s[0]"
 	--
-	/*case sleep
+	/*
+	if Flag("Sleep") == 0
 	{
-		when 0
+		case shirttd
 		{
-			case shirttd
+			when 0
 			{
-				when 0
-				{
-					"\s[0]"
-				}
-				when 1
-				{
-					"\s[1]"
-				}
-				when 2
-				{
-					"\s[2]"
-				}
-				when 3
-				{
-					"\s[3]"
-				}
-				when 4
-				{
-					"\s[4]"
-				}
-				when 5
-				{
-					"\s[5]"
-				}
-				when 6
-				{
-					"\s[0]"
-				}
+				"\s[0]"
 			}
-
+			when 1
+			{
+				"\s[1]"
+			}
+			when 2
+			{
+				"\s[2]"
+			}
+			when 3
+			{
+				"\s[3]"
+			}
+			when 4
+			{
+				"\s[4]"
+			}
+			when 5
+			{
+				"\s[5]"
+			}
+			when 6
+			{
+				"\s[0]"
+			}
 		}
-		when 1
+
+	}
+	else
+	{
+		case shirttd
 		{
-			case shirttd
+			when 0
 			{
-				when 0
-				{
-					"\s[11]"
-				}
-				when 1
-				{
-					"\s[12]"
-				}
-				when 2
-				{
-					"\s[13]"
-				}
-				when 3
-				{
-					"\s[14]"
-				}
-				when 4
-				{	
-					"\s[15]"
-				}
-				when 5
-				{
-					"\s[16]"
-				}
-				when 6
-				{
-					"\s[11]"
-				}
+				"\s[11]"
 			}
-
+			when 1
+			{
+				"\s[12]"
+			}
+			when 2
+			{
+				"\s[13]"
+			}
+			when 3
+			{
+				"\s[14]"
+			}
+			when 4
+			{	
+				"\s[15]"
+			}
+			when 5
+			{
+				"\s[16]"
+			}
+			when 6
+			{
+				"\s[11]"
+			}
 		}
-	}*/
+	}
+	*/
 	--
-	if blanketon == 1
+	if Flag("Blanket On") == 1
 	{
 		"\i[11]"
 	}
@@ -96,8 +208,8 @@ bdaydial
 {
 	if userbirthday == "12month 25day"
 	{
-		"\0%(shirtsweekday)Happy Christmas and happy birthday %(username)\x\c does that mean that i can call you Jesus?"
-		"\0%(shirtsweekday)Happy Christmas and happy birthday %(username)\x\c does that mean that i can call you savior?"
+		"\0%(shirtsweekday)Happy Christmas and happy birthday %(username)\x\c does that mean that I can call you Jesus?"
+		"\0%(shirtsweekday)Happy Christmas and happy birthday %(username)\x\c does that mean that I can call you savior?"
 	}
 	elseif userbirthday == "10month 29day"
 	{
@@ -121,7 +233,7 @@ bdaydial
 
 orchidsss
 {
-	if orchid > 1; "orchid"
+	if bagstuff[4] > 1; "orchid"
 	else; "orchideas"
 }
 
@@ -141,6 +253,19 @@ season
 		elseif month > 8 && month < 12; "Spring"
 		else; "Summer"
 	}
+}
+
+timeformat
+{
+	if timeformatype == "STANDARD"; "%(nowhour):%(nowmin) %(ap)"
+	elseif timeformatype == "MILITARY"; "%(hour):%(nowmin)"
+}
+
+dateformat
+{
+	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
+	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
+	elseif dateformatype == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
 }
 
 himgian
@@ -173,17 +298,4 @@ sheepnoises
 	"Bah"
 	"Baah"
 	"Baaah"
-}
-
-TOPROPER
-{
-    _word = _argv[0]
-    _letter = TOUPPER(SUBSTR(_word,0,1))
-    _word = SUBSTR(_word,1,STRLEN(_word)-1)
-    _letter + _word
-}
-
-stemp
-{
-	if TOINT(_argv[0]) != 1; "s"
 }

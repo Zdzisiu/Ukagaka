@@ -2,7 +2,7 @@
 {
 	if reference0 == "TEACHNAME"
 	{
-		"\0%(shirtsweekday)You wan't to change your name?\w8 how should i call you then\![open,inputbox,OnNameTeach,-1]\e"
+		"\0%(shirtsweekday)You wan't to change your name?\w8 how should I call you then\![open,inputbox,OnNameTeach,-1]\e"
 	}
 	else
 	{
@@ -106,5 +106,7 @@ Select.titlesan
 
 NameDone
 {
+	ERASEVAR("tempname")
+	--
 	"\0%(shirtsweekday)I will call you %(username) then.\e"
 }

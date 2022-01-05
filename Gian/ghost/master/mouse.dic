@@ -40,21 +40,22 @@ MouseMoveSakura
  			stroke = 0 
 			if reference4 == "Head" 
  			{
-                petcountvariable += 1
-				petcountminute += 1
+                relationship[4] += 1
+				counter[2] += 1
 				--
-				/*if positiverel > negativerel && negativerel < 25 && positiverel < 25 //base/polite relationship
+				/*if relationship[0] > relationship[1] && relationship[1] < 25 && relationship[0] < 25 //base/polite relationship
 				{
-					if petcountminute > 10
+					if counter[2] > 10
 					{
+						RemoveFlag("Pet Warning")
 						mood[8] += 1
 						--
 						"\0%(shirtsweekday)I've got enough\w8\w8\w8\-\e"
 					}
-					elseif petcountminute > 5  && warningpet != 1
+					elseif counter[2] > 5  && Flag("Pet Warning") == 0
 					{
-						"\0%(shirtsweekday)if you don't stop,\w5 i will leave\e"
-						warningpet = 1
+						"\0%(shirtsweekday)if you don't stop,\w5 I will leave\e"
+						MiscFlags ,= "Pet Warning"
 						--
 						mood[7] += 1
 					}
@@ -65,71 +66,71 @@ MouseMoveSakura
 					"\0%(shirtsweekday)Sorry but I'm not really comfortable with strangers touching me\e"
 
 				}
-				elseif positiverel < negativerel && negativerel < 25 && positiverel < 25 //base/unfriendly relationship
+				elseif relationship[0] < relationship[1] && relationship[1] < 25 && relationship[0] < 25 //base/unfriendly relationship
 				{ //angry boi
 					"\0%(shirtsweekday)Don't touch me\e"
 					"\0%(shirtsweekday)Stop touching me\e"
 
-					if petcountminute > 5
+					if counter[2] > 5
 					{
 						mood[8] += 2
 						--
 						"\0%(shirtsweekday)Don't\w8 touch\w8 me\w8\w8\w8\-\e"
 					}
 				}
-				elseif negativerel < 50 && positiverel > 100 && positiverel < 175 //base/friendly relationship
+				elseif relationship[1] < 50 && relationship[0] > 100 && relationship[0] < 175 //base/friendly relationship
 				{
 					"\0%(shirtsweekday)Could you stop petting me?\e"
 					"\0%(shirtsweekday)Eh?\e"
 					"\0%(shirtsweekday)Huh?\e"
 
-					if petcountminute > 5
+					if counter[2] > 5
 					{
 						"\0%(shirtsweekday)You seem to be very affectionate"
 					}
 
 				}
-				elseif negativerel < 50 && positiverel > 175 //base/friendly relationship
+				elseif relationship[1] < 50 && relationship[0] > 175 //base/friendly relationship
 				{
-					positiverel += 1
+					relationship[0] += 1
 
 					"\0%(shirtsweekday)?\e"
 					"\0%(shirtsweekday)Eh?\e"
 
-					if petcountminute > 5
+					if counter[2] > 5
 					{
 						"\0%(shirtsweekday)You are very affectionate,\w3 huh?"
 					}
 				}
-				elseif negativerel > 50 && positiverel < 50 //base/hostile relationship
+				elseif relationship[1] > 50 && relationship[0] < 50 //base/hostile relationship
 				{
 					
 				}
-				elseif negativerel > 50 && positiverel < 50 //base/hate relationship
+				elseif relationship[1] > 50 && relationship[0] < 50 //base/hate relationship
 				{
 					
 				}
-				elseif lovevariable >= 1 && lovevariable < 15 && love == 1  && negativerel < 15 && positiverel > 200 && hitcountvariable <= 1//base/flirty relationship
+				elseif relationship[3] >= 1 && relationship[3] < 15 && Flag("Love") == 1  && relationship[1] < 15 && relationship[0] > 200 && relationship[5] <= 1//base/flirty relationship
 				{
 					
 				}
-				elseif lovevariable > 1 && lovevariable < 15 && love == 1  && negativerel < 25 && positiverel > 200 && hitcountvariable <= 1//base/flirty relationship
+				elseif relationship[3] > 1 && relationship[3] < 15 && Flag("Love") == 1  && relationship[1] < 25 && relationship[0] > 200 && relationship[5] <= 1//base/flirty relationship
 				{
 					
 				}
-				elseif lovevariable > 15 && love == 1  && negativerel < 25 && positiverel > 200 //base/love relationship
+				elseif relationship[3] > 15 && Flag("Love") == 1  && relationship[1] < 25 && relationship[0] > 200 //base/love relationship
 				{
 					
 				}
-				elseif positiverel == 0 && negativerel == 0
+				elseif relationship[0] == 0 && relationship[1] == 0
 				{
-					if petcountminute > 10
+					if counter[2] > 10
 					{
 						"\0%(shirtsweekday)I've got enough\w8\w8\w8\-\e"
 					}
-					elseif petcountminute > 5 
+					elseif counter[2] > 5 
 					{
-						"\0%(shirtsweekday)if you don't stop,\w5 i will leave\e"
+						"\0%(shirtsweekday)if you don't stop,\w5 I will leave\e"
 					}
 					--
 					"\0%(shirtsweekday)Eh?\w5 Sorry but can you stop?\e"
@@ -138,25 +139,26 @@ MouseMoveSakura
 					"\0%(shirtsweekday)Sorry but I'm not really comfortable with strangers touching me\e"
 
 				}*/
-				if lovevariable < 25
+				if relationship[3] < 25
 				{
-					if positiverel < 50 //polite 
+					if relationship[0] < 50 //polite 
 					{
-						if petcountminute > 10
+						if counter[2] > 10
 						{
-							mood[8] += 2
+							RemoveFlag("Pet Warning")
+							mood[8] += 1
 							--
 							"\0%(shirtsweekday)I've got enough\w8\w8\w8\-\e"
 						}
-						elseif petcountminute > 5  && warningpet != 1
+						elseif counter[2] > 5  && Flag("Pet Warning") == 0
 						{
 							"\0%(shirtsweekday)if you don't stop,\w5 I will leave\e"
-							warningpet = 1
+							MiscFlags ,= "Pet Warning"
 							--
 							mood[7] += 1
 						}
 						--
-						if petcountminute > 5; mood[7] += 1
+						if counter[2] > 5; mood[7] += 1
 						--
 						"\0%(shirtsweekday)Eh?\w5 Sorry but can you stop?\e"
 						"\0%(shirtsweekday)I'm sorry but can you stop?\e"
@@ -164,13 +166,13 @@ MouseMoveSakura
 						"\0%(shirtsweekday)Sorry but I'm not really comfortable with strangers touching me\e"
 
 					}
-					elseif positiverel < 100 //friendly
+					elseif relationship[0] < 100 //friendly
 					{
 						"\0%(shirtsweekday)Could you stop petting me?\e"
 						"\0%(shirtsweekday)Eh?\e"
 						"\0%(shirtsweekday)Huh?\e"
 
-						if petcountminute > 5
+						if counter[2] > 5
 						{
 							"\0%(shirtsweekday)You seem to very like petting, huh" //resigned
 							--
@@ -178,49 +180,49 @@ MouseMoveSakura
 						}
 
 					}
-					elseif positiverel < 150 //friends
+					elseif relationship[0] < 150 //friends
 					{
-						positiverel += 1
+						relationship[0] += 1
 
 						"\0%(shirtsweekday)?\e"
 						"\0%(shirtsweekday)Eh?\e"
 
-						if petcountminute > 5; "\0%(shirtsweekday)You seem to very like petting, huh"
+						if counter[2] > 5; "\0%(shirtsweekday)You seem to very like petting, huh"
 					}
-					elseif positiverel < 200 //Good friends
+					elseif relationship[0] < 200 //Good friends
 					{
-						positiverel += 1
+						relationship[0] += 1
 
 						"\0%(shirtsweekday)?\e"
 						"\0%(shirtsweekday)Eh?\e"
 
-						if petcountminute > 5; "\0%(shirtsweekday)You are very affectionate,\w3 huh?"
+						if counter[2] > 5; "\0%(shirtsweekday)You are very affectionate,\w3 huh?"
 					}
-					elseif positiverel < 300
+					elseif relationship[0] < 300
 					{
-						positiverel += 1
+						relationship[0] += 1
 
 						"\0%(shirtsweekday)?\e"
 						"\0%(shirtsweekday)Eh?\e"
 
-						if petcountminute > 5; "\0%(shirtsweekday)You are very affectionate,\w3 huh?"
+						if counter[2] > 5; "\0%(shirtsweekday)You are very affectionate,\w3 huh?"
 					}
-					elseif positiverel > 300
+					elseif relationship[0] > 300
 					{
-						positiverel += 1
+						relationship[0] += 1
 
 						"\0%(shirtsweekday)?\e"
 						"\0%(shirtsweekday)Eh?\e"
 
-						if petcountminute > 5; "\0%(shirtsweekday)You are very affectionate,\w3 huh?"
+						if counter[2] > 5; "\0%(shirtsweekday)You are very affectionate,\w3 huh?"
 					}
 				}
 				else
 				{
-					if lovevariable > 100; mood[2] += 1
-					elseif lovevariable < 75; mood[6] += 1
-					elseif lovevariable < 50; mood[6] += 1
-					elseif lovevariable > 25; mood[1] += 1
+					if relationship[3] > 100; mood[2] += 1
+					elseif relationship[3] < 75; mood[6] += 1
+					elseif relationship[3] < 50; mood[6] += 1
+					elseif relationship[3] > 25; mood[1] += 1
 				}
 			 }
  		}
@@ -236,7 +238,7 @@ OnMouseDoubleClick
 {
  	if reference3 == 0; MouseDoubleClickSakura
 	elseif reference3 == 1; MouseDoubleClickKero
-	elseif reference3 == 6; OpenSheepMenu
+	elseif reference3 == 6; OnOpenSheepMenu(-1)
 	elseif reference3 == 7; OpenCrowMenu
 }
 
@@ -245,57 +247,55 @@ MouseDoubleClickSakura
  {
  	if reference4 == "Head" || reference4 == "Face" 
 	{
-		//punchcountvariable ++
-		//--
-		/*if reference4 == "Head" 
- 			{
-                petcountvariable += 1
+		if reference4 == "Head" 
+		{
+			relationship[5] += 1
+			--
+			if relationship[0] > relationship[1] && relationship[1] < 25 && relationship[0] < 25 //base/polite relationship
+			{
+				relationship[1] += 5
 				--
-				if positiverel > negativerel && negativerel < 25 && positiverel < 25 //base/polite relationship
-				{
-					negativerel += 5
-					--
-					"\0%(shirtsweekday).\w8 .\w8 .\w8\e"
-					//bloody nose?
-				}
-				elseif positiverel < negativerel && negativerel < 25 && positiverel < 25 //base/unfriendly relationship
-				{
-					negativerel += 5
-					--
-					"\0%(shirtsweekday).\w8 .\w8 .\w8\e"
-				}
-				elseif negativerel < 50 && positiverel > 175 //base/friendly relationship
-				{
-					negativerel += 10
-					trust -= 1
-					--
-					"\0%(shirtsweekday).\w8 .\w8 .\w8\e"
-				}
-				elseif negativerel > 50 && positiverel < 50 //base/hostile relationship
-				{
-					"\1He grabs your hand\0D\w8O\w8N\w8'\w8T\e" //angry boi
-					"\1He grabs your hand\0\e" //angry boi
-				}
-				elseif negativerel > 50 && positiverel < 50 //base/hate relationship
-				{
-					"\1He grabs your hand\0D\w8O\w8N\w8'\w8T\e" //angry boi
-					"\1He grabs your hand\0\e" //angry boi
-				}
-				elseif lovevariable >= 1 && lovevariable < 15 && love == 1  && negativerel < 15 && positiverel > 200 && hitcountvariable <= 1//base/flirty relationship
-				{
-					love = 0
-					trustlove = 0
-					--
-					"\1Why would you do that?\e"
-				}
-				elseif lovevariable > 15 && love == 1  && negativerel < 25 && positiverel > 200 //base/love relationship
-				{
-					love = 0
-					trustlove = 0
-					--
-					"\1Why would you do that?\e"
-				}
- 			}*/
+				"\0%(shirtsweekday).\w8 .\w8 .\w8\e"
+				//bloody nose?
+			}
+			elseif relationship[0] < relationship[1] && relationship[1] < 25 && relationship[0] < 25 //base/unfriendly relationship
+			{
+				relationship[1] += 5
+				--
+				"\0%(shirtsweekday).\w8 .\w8 .\w8\e"
+			}
+			elseif relationship[1] < 50 && relationship[0] > 175 //base/friendly relationship
+			{
+				relationship[1] += 10
+				relationship[7] -= 1
+				--
+				"\0%(shirtsweekday).\w8 .\w8 .\w8\e"
+			}
+			elseif relationship[1] > 50 && relationship[0] < 50 //base/hostile relationship
+			{
+				"\1He grabs your hand\0D\w8O\w8N\w8'\w8T\e" //angry boi
+				"\1He grabs your hand\0\e" //angry boi
+			}
+			elseif relationship[1] > 50 && relationship[0] < 50 //base/hate relationship
+			{
+				"\1He grabs your hand\0D\w8O\w8N\w8'\w8T\e" //angry boi
+				"\1He grabs your hand\0\e" //angry boi
+			}
+			elseif relationship[3] >= 1 && relationship[3] < 15 && Flag("Love") == 1  && relationship[1] < 15 && relationship[0] > 200 && relationship[5] <= 1//base/flirty relationship
+			{
+				RemoveFlag("Love")
+				MiscFlags ,= "Lost Trust"
+				--
+				"\1Why would you do that?\e"
+			}
+			elseif relationship[3] > 15 && Flag("Love") == 1  && relationship[1] < 25 && relationship[0] > 200 //base/love relationship
+			{
+				RemoveFlag("Love")
+				MiscFlags ,= "Lost Trust"
+				--
+				"\1Why would you do that?\e"
+			}
+		}
  	}
 	else
 	{
@@ -309,7 +309,7 @@ OnMouseDragStart
 {
 	if reference4 == "Tail" 
  	{
-		tailpull ++
+		counter[1]++
 		--
 		"\0%(shirtsweekday)Uh\w8 .\w7 .\w7 .\w7 can you not do this?\e"
 		--
@@ -328,20 +328,20 @@ OnMouseClick
 	{
 		if reference4 == "phone"
 		{
-			if phone != 1; "\1you don't have a phone yet"
+			if bagstuff[20] != 1; "\1you don't have a phone yet"
 		}
 		elseif reference4 == "blanket"
 		{			
 			//"\p[5]"
-			if blanket != 1
+			if bagstuff[5] != 1
 			{
 				"\1You don't have a blanket"
 			}
 			else
 			{
-				if blanketmode == 1 //hidden
+				if Flag("Blanket Out") == 0 //hidden
 				{
-					blanketmode = 2
+					MiscFlags ,= "Blanket Out"
 					--
 					"\p[5]\s[21]"
 				}
@@ -354,7 +354,7 @@ OnMouseClick
 		}
 		elseif reference4 == "stats"
 		{
-			Select.stats
+			//Select.stats
 		}
 	}
 	elseif reference3 == 4
@@ -362,138 +362,38 @@ OnMouseClick
 		"\p[4]\s[-1]"
 		--
 		SearchStuff
-		--
-		/*if RAND(5) == 1
-		{
-			coinadd = RAND(3)
-			--
-			if coinadd == 0
-			{
-				coinadd = 1
-			}
-			--
-			coins += coinadd
-			--
-			stuff=coinadd
-			"\1You found %(coinadd) coin%(mnoga)"
-			--
-			stuff=coins
-			"\1, you now have %(coins) coin%(mnoga)"
-		}
-		elseif RAND(10) == 1
-		{
-			cloveradd += RAND(2)
-			--
-			if cloveradd == 0
-			{
-				cloveradd = 1
-			}
-			--
-			clover += cloveradd
-			--
-			stuff=cloveradd
-			"\1You found %(cloveradd) clover%(mnoga)"
-			--
-			stuff=clover
-			"\1, you now have %(clover) clover%(mnoga)"
-		}
-		elseif RAND(10) == 1
-		{
-			cloveradd += RAND(2)
-			--
-			if cloveradd == 0
-			{
-				cloveradd = 1
-			}
-			--
-			clover += cloveradd
-			--
-			stuff=cloveradd
-			"\1You found %(cloveradd) clover%(mnoga)"
-			--
-			stuff=clover
-			"\1, you now have %(clover) clover%(mnoga)"
-		}
-		elseif season == 2
-		{
-			if RAND(20) == 1
-			{
-				apples += 1
-				stuff = apples
-				--
-				"\1You found an apple, you now have %(apples) apple%(mnoga)"
-			}
-		}
-		else
-		{
-			"\1You didn't find anything"
-		}*/
 	}
 }
 
 SearchStuff
 {
-	thingfound = RAND(100)
+	_thingfound = RAND(100)
+	_findnames = ("Clover","Shiny Stone","Ring","Coin","Apple")
+	_findnum = (0,10,11,"",1)
 	--
-	case thingfound
+	if _thingfound <= 75 && _thingfound >= 40
 	{
-		when 1,5,8,6,10,70,34,60,25,39,48
+		if season == 2; _rand = RAND(5)
+		else; _rand = RAND(4)
+		--
+		if _rand == 3
 		{
-			coinadd = RAND(3)+1
+			_add = RAND(4) + 1
+			coins += _add
 			--
-			if coinadd == 0; coinadd = 1
-			--
-			coins += coinadd
-			--
-			stuff=coinadd
-			--
-			"\1You found %(coinadd) coin%(mnoga)"
-			--
-			stuff=coins
-			--
-			"\1, you now have %(coins) coin%(mnoga)"
+			"\1You found %(_add) coin%(stemp(_add))!\w8 You now have %(coins) coin%(stemp(coins))"
 		}
-		when 2,6,9,7,11,71
+		else
 		{
-			cloveradd += RAND(2)
+			_num = _findnum[_rand]
+			bagstuff[_num] += 1
 			--
-			if cloveradd == 0; cloveradd = 1
-			--
-			clover += cloveradd
-			--
-			stuff=cloveradd
-			"\1You found %(cloveradd) clover%(mnoga)"
-			--
-			stuff=clover
-			"\1, you now have %(clover) clover%(mnoga)"
-		}
-		when 21,55,23
-		{
-			if season == 2
-			{
-				apples += 1
-				stuff = apples
-				--
-				"\1You found an apple, you now have %(apples) apple%(mnoga)"
-			}
-		}
-		when 35,24,99
-		{
-			shinystone += 1
-			stuff = shinystone
-			--
-			"\1You found a shiny stone, you now have %(shinystone) shiny stone%(mnoga)"
-		}
-		when 91,47,31,46
-		{
-			ring += 1
-			stuff = ring
-			--
-			"\1You found a ring, you now have %(ring) ring%(mnoga)"
-		}
-		other
-		{
-			"\1You didn't find anything"
+			"\1You found a %(_findnames[_rand])!\w8 You now have %(bagstuff[_num]) %(_findnames[_rand])%(stemp(bagstuff[_num]))"
 		}
 	}
+	else
+	{
+		"\1You didn't find anything"
+	}
+
 }

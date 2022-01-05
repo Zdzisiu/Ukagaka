@@ -1,13 +1,8 @@
 ﻿Select.jorunal
 {
-	page = "\1(You open his jorunal on random page)\x\c"
+	_page = "\1(You open his jorunal on random page)\x\c"
 	--
-	_jmonth = RAND(TOINT(month))
-	--
-	if _jmonth == 0
-	{
-		_jmonth = 1
-	}
+	_jmonth = RAND(month) + 1
 	--
 	if _jmonth != TOINT(month)
 	{
@@ -15,44 +10,45 @@
 		{
 			when 2
 			{
-				jday = RAND(29) + 1
+				_jday = RAND(29) + 1
 			}
 			when 1,3,5,7,8,10,12
 			{
-				jday = RAND(31) + 1
+				_jday = RAND(31) + 1
 			}
 			when 4,6,9,11
 			{
-				jday = RAND(30) + 1
+				_jday = RAND(30) + 1
 			}
 
 		}
 	}
 	else
 	{
-		jday = RAND(day) + 1
+		_jday = RAND(day) + 1
 	}
 	--
-	if jday < 10
+	if _jday < 10
 	{
-		jday = "0" + jday
+		_jday = "0" + jday
 	}
 	--
 	if _jmonth < 10 
 	{
 		_jmonth = "0" + _jmonth
 	}
-	jodate = jday + "." + _jmonth + "." + year
 	--
-	//"\cRandom date: %(jodate)"
+	_jodate = _jday + "." + _jmonth + "." + year
 	--
-	page += "%(jodate):\n\n[half]"
+	//"\cRandom date: %(_jodate)"
 	--
-	page += "%(start). %(middle)\n\n[half]"
+	_page += "%(_jodate):\n\n[half]"
 	--
-	page
+	_page += "%(start). %(middle)\n\n[half]"
+	--
+	_page
 	//--
-	//page += "Book of the day:\n\n[half] %(booktitles)"
+	//_page += "Book of the day:\n\n[half] %(booktitles)"
 	/*"\*\b4\f[bold,1]%(jopagedate[jopagenum])\n\n[half]/
 	%(jopagecont[jopagenum])\n\n[half]"
     --
@@ -891,9 +887,8 @@ fishes
 	"Clown barb"
 }
 
-
- OnWar
- {
+OnWar
+{
 	cardu = RAND(14)
 	cardg = RAND(14)
 	--
@@ -938,82 +933,83 @@ fishes
 	--
 	field
 	--
+	ERASEVAR("field","cardu","cardg")
+	--
 	"\e"
  }
 
- OnShowCard
- {
+OnShowCard
+{
 	 if cardu == 13
 	 {
-		 fcardu = "K"
+		 _fcardu = "K"
 	 }
 	 elseif cardu == 12
 	 {
-		 fcardu = "Q"
+		 _fcardu = "Q"
 	 }
 	 elseif cardu == 11
 	 {
-		 fcardu = "J"
+		 _fcardu = "J"
 	 }
 	elseif cardu == 1
 	 {
-		 fcardu = "A"
+		 _fcardu = "A"
 	 }
 	 else
 	 {
-		 fcardu = cardu
+		 _fcardu = cardu
 	 }
 	 --
 	 if cardg == 13
 	 {
-		fcardg = "K"
+		_fcardg = "K"
 	 }
 	 elseif cardg == 12
 	 {
-		 fcardg = "Q"
+		 _fcardg = "Q"
 	 }
 	 elseif cardg == 11
 	 {
-		 fcardg = "J"
+		 _fcardg = "J"
 	 }
 	 elseif cardg == 1
 	 {
-		 fcardg = "A"
+		 _fcardg = "A"
 	 }
 	 else
 	 {
-		 fcardg = cardg
+		 _fcardg = cardg
 	 }
 	 --
-	 field = "\_q\1Your Card:\n\n[half]#%(fcardu)##\n####\n####\n##%(fcardu)#\p[3]\b[2]Gians Card:\n\n[half]#%(fcardg)##\n####\n####\n##%(fcardg)#\_q"
+	 field = "\_q\1Your Card:\n\n[half]#%(_fcardu)##\n####\n####\n##%(_fcardu)#\p[3]\b[2]Gians Card:\n\n[half]#%(_fcardg)##\n####\n####\n##%(_fcardg)#\_q"
  }
 
- OnGenerate
- {
-	 generator = ""
-	 --
-	 
+OnGenerate
+{
+	_generator = "\_q"
+	_synum = 0
+	_word = ""
+	--
 	for _j = 0; _j < 5;_j++
 	{
-		for _i = 0;_i < synum;_i++
+		for _i = 0;_i < _synum;_i++
 		{
-			word += sylabs
+			_word += sylabs
 		}
 		--
-		generator += "\n" + word
-		synum = RAND(7) + 2
-	 	word = ""
+		_generator += "\n" + word
+		_synum = RAND(7) + 2
+	 	_word = ""
 	 }
 	 --
-	 "\_q"
-	 --
-	 generator
+	 _generator
  }
 
 
- sylabs
- {
-//syl = "ba,ca,da,fa,ga,ha,ja,ka,la,ma,na,pa,ra,sa,ta,va,wa,qa,xa,ya,za,be,ce,de,fe,ge,he,je,ke,le,me,ne,pe,re,se,te,ve,we,qe,xe,ye,ze,bi,ci,di,fi,gi,hi,ji,ki,li,mi,ni,pi,ri,si,ti,vi,wi,qi,xi,yi,zi,bo,co,do,fo,go,ho,jo,ko,lo,mo,no,po,ro,so,to,vo,wo,qo,xo,yo,zo,bu,cu,du,fu,gu,hu,ju,ku,lu,mu,nu,pu,ru,su,tu,vu,wu,qu,xu,yu,zu,a,e,i,j,o,u,',-"
+sylabs
+{
+	//syl = "ba,ca,da,fa,ga,ha,ja,ka,la,ma,na,pa,ra,sa,ta,va,wa,qa,xa,ya,za,be,ce,de,fe,ge,he,je,ke,le,me,ne,pe,re,se,te,ve,we,qe,xe,ye,ze,bi,ci,di,fi,gi,hi,ji,ki,li,mi,ni,pi,ri,si,ti,vi,wi,qi,xi,yi,zi,bo,co,do,fo,go,ho,jo,ko,lo,mo,no,po,ro,so,to,vo,wo,qo,xo,yo,zo,bu,cu,du,fu,gu,hu,ju,ku,lu,mu,nu,pu,ru,su,tu,vu,wu,qu,xu,yu,zu,a,e,i,j,o,u,',-"
 	"ba"
 	"ca"
 	"da"
@@ -1135,7 +1131,7 @@ fishes
 //one cat two cats
 //There was one cat, no other cats bothered that cat, yet the cat wasn't lonely! He was still happy. Are you like that cat?  
 
-OnTestAx
+/*OnTestAx
 {
 	langeng = "cat ,cats "
 	langax = "mazi ,make "
@@ -1159,7 +1155,7 @@ numberssss
 
 OnAxverianTran
 {
-	afttran = ""
+	_afttran = ""
 	--
 	_betranex = TOLOWER(reference0)
 	--
@@ -1171,26 +1167,26 @@ OnAxverianTran
 	--
 	_betranex = REPLACE(_betranex,"?"," ? ")
 	--
-	betran = SPLIT(_betranex," ")
+	_betran = SPLIT(_betranex," ")
 	//langax = SPLIT(langax,",")
 	//langeng = SPLIT(langax,",")
 	--
 	//show = ARRAYSIZE(betran)
 	//--
 	//show
-	for _i=0;_i<ARRAYSIZE(betran);_i++
+	for _i=0;_i<ARRAYSIZE(_betran);_i++
 	{
-		if betran[_i] != "!" || betran[_i] != "?" || betran[_i] != "-" || betran[_i] != "+"
+		if _betran[_i] != "!" || _betran[_i] != "?" || _betran[_i] != "-" || _betran[_i] != "+"
 		{
 			synumsss = RAND(5)
 			--
-			wtf = betran[_i] + " "
+			_wtf = _betran[_i] + " "
 			--
 			sizeax = ARRAYSIZE(langeng) - 1
 			--
 			for x=0;x!=1;z=0
 			{
-				if betran[_i] _in_ langeng
+				if _betran[_i] _in_ langeng
 				{
 					for _j=0;_j<ARRAYSIZE(langeng);_j++
 					{
@@ -1228,7 +1224,7 @@ OnAxverianTran
 							word = REPLACE(word," ","")
 							--
 							x=1
-							afttran += word + " "
+							_afttran += word + " "
 						}
 					}
 				}
@@ -1249,7 +1245,7 @@ OnAxverianTran
 					}
 					--
 					langeng += "," + betran[_i] + " "
-					afttran += word + " "
+					_afttran += word + " "
 					langax += "," + word + " "
 					word = ""
 					x=1
@@ -1258,14 +1254,14 @@ OnAxverianTran
 		}
 		else
 		{
-			afttran += betran[_i] + " "
+			_afttran += betran[_i] + " "
 		}
 	}
 	--
-	afttran = REPLACE(afttran," - ",".")
-	afttran = REPLACE(afttran," + ",",")
+	_afttran = REPLACE(afttran," - ",".")
+	_afttran = REPLACE(afttran," + ",",")
 	--
-	"\_q\1\s[-1]\*English:\n\n[half]%(reference0)\n\nAxverian:\n\n[half]%(afttran)\n\nCURRENT LIBRARY:\n ENG:\n%(langeng)\n AX:\n%(langax)\x\![open,input,OnAxverianTran,-1]"
+	"\_q\1\s[-1]\*English:\n\n[half]%(reference0)\n\nAxverian:\n\n[half]%(_afttran)\n\nCURRENT LIBRARY:\n ENG:\n%(langeng)\n AX:\n%(langax)\x\![open,input,OnAxverianTran,-1]"
 
 }
 
@@ -1300,4 +1296,4 @@ OnAxverianTranlibr
 		word = ""
 		x=1
 	}
-}
+}*/

@@ -1,20 +1,10 @@
 ﻿OnFirstBoot
 {
-
  	lastTalk = "" 
 	passmin = 0 
 	passsec = 0 
- 	username         = "USER" 
-	stroke           = 0	
- 	teachusername    = 0	
-	mikireflag       = 0
-	fboot = 1
- 	aitalkinterval = 400 
- 	birthdayprint = "????" 
-	talktime = "5 minutes"
-	deleteshitai = "OFF"
-	nowshell = "default_shell"
-	UserAge = 18
+	MiscFlags = IARRAY
+	MiscFlags ,= "First Boot"
 	--
 	OnFirstVariables
 	--
@@ -24,24 +14,44 @@
 	--
 	if reference0 == 0 //Don't touch this line.
  	{
-		"\![enter,passivemode]\1\s[10]\0Huh?!\w8.\w8.\w8.\w8.\w8.\w8.\w8 Where am I?\x\cit seem like I’m\w8.\w8.\w8.\w8.\w8 inside a computer?\w8\w3 Weird.\x\w8\cOh,\w8 hello,\w6 you are the user\w7, i assume?\x\w8\cMy name is Gian,\w7 umm\w7.\w7.\w7.\w7.how should i reffer to you?\n/
+		username         = "USER" 
+		stroke           = 0	
+		teachusername    = 0	
+		mikireflag       = 0
+		aitalkinterval = 400 
+		birthdayprint = "????" 
+		talktime = "5 minutes"
+		deleteshitai = "OFF"
+		nowshell = "default_shell"
+		--
+		"\![enter,passivemode]\1\s[10]\0Huh?!\w8.\w8.\w8.\w8.\w8.\w8.\w8 Where am I?\x\cit seem like I’m\w8.\w8.\w8.\w8.\w8 inside a computer?\w8\w3 Weird.\x\w8\cOh,\w8 hello,\w6 you are the user\w7, I assume?\x\w8\cMy name is Gian,\w7 umm\w7.\w7.\w7.\w7.how should I reffer to you?\n/
 		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
 		\![*]\q[They/Them/Their,choicefirsttheythem]\e"
  	}
 	else
  	{
-		if reset != 1
+		if Flag("Reset") == 0
 		{
+			username         = "USER" 
+			stroke           = 0	
+			teachusername    = 0	
+			mikireflag       = 0
+			aitalkinterval = 400 
+			birthdayprint = "????" 
+			talktime = "5 minutes"
+			deleteshitai = "OFF"
+			nowshell = "default_shell"
+			--
 			"\0[0]Huh?\w8 Here again?\e"
 		}	
 		else
 		{
-			reset = 0
+			RemoveFlag("Reset")
 			shirttd = 0
 			BackpackC = 0
 			--
-			"\![enter,passivemode]\1\s[10]\0%(shirtsweekday)Huh?!\w8.\w8.\w8.\w8.\w8.\w8.\w8 Where am I?\x\cit seem like I’m\w8.\w8.\w8.\w8.\w8 inside a computer?\w8\w3 Weird.\x\w8\cOh,\w8 hello,\w6 you are the user\w7, i assume?\x\w8\cMy name is Gian,\w7 umm\w7.\w7.\w7.\w7.how should i reffer to you?\n/
+			"\![enter,passivemode]\1\s[10]\0%(shirtsweekday)Huh?!\w8.\w8.\w8.\w8.\w8.\w8.\w8 Where am I?\x\cit seem like I’m\w8.\w8.\w8.\w8.\w8 inside a computer?\w8\w3 Weird.\x\w8\cOh,\w8 hello,\w6 you are the user\w7, I assume?\x\w8\cMy name is Gian,\w7 umm\w7.\w7.\w7.\w7.how should I reffer to you?\n/
 			\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 			\![*]\q[She/Her/Hers,choicefirstsheher]\n/
 			\![*]\q[They/Them/Their,choicefirsttheythem]\e"
@@ -80,7 +90,7 @@ Select.choicefirsttheythem
 
 NameInput
 {
-	"\0Good too know\![leave,passivemode]\w8And your name is?\![open,inputbox,OnNameTeach,-1]\e"
+	"\0Good too know!\![leave,passivemode]\w8 And your name is?\![open,inputbox,OnNameTeach,-1]\e"
 }
 
 GetTimeSlot
@@ -107,10 +117,9 @@ OnBoot
 	lastTalk = "" 
 	passmin = 0
 	passsec = 0
+	shirt = RAND(8)
 	--
 	"\1\s[10]\0%(shirtsweekday)"
-	--
-	OnVaraiables
 	--
 	dayslot = GetDaySlot
 	timeslot = GetTimeSlot 
@@ -119,29 +128,28 @@ OnBoot
 	--
 	OnSetSeason
 	--
-	if dayslot == userbirthday 
+	OnErase
+	--
+	if dayslot == userbirthday
 	{
-		UserAge += 1
-		if UserAge > 17
-		{
-			love = 1
-		}
+		MiscFlags ,= "B-Day"
 		--
 		"%(bdaydial)"
 	}
 	elseif dayslot == "2month 14day"
 	{
+		MiscFlags ,= "Valentines"
+		--
 		"\1\s[10]\0%(shirtsweekday)Happy Valentines %(username)."	
-		"\1\s[10]\0%(shirtsweekday)Happy Valentines %(username)."		
 	}
 	elseif dayslot == "10month 29day"
 	{
-		"\1\s[10]\0%(shirtsweekday)Today is Dr Alex's birthday .\w8 .\w8 .\w8\w8\e"		
-	}
+		"\1\s[10]\0%(shirtsweekday)Today is Dr Alex's birthday .\w8 .\w8 .\w8\w8\e"	
+	}	
 	else
 	{
 		"%(normalboottal)" 
-	}	
+	}
 }
 
 normalboottal
@@ -161,16 +169,6 @@ normalboottal
 			"\1\s[10]\0%(shirtsweekday)you are an early bird,\w4 aren't you?\e"
 			"\1\s[10]\0%(shirtsweekday)Isn't it to early for this?\e"
 		}
-		elseif timeslot == "latenight"
-		{
-			"\1\s[10]\0%(shirtsweekday)It’s really early.8are you sure, you got enough sleep?.\e"
-			"\1\s[10]\0%(shirtsweekday)ou are an early bird,4 aren't you?.\e"
-			"\1\s[10]\0%(shirtsweekday)This is the third early morning boot dialogue.8Between the hours of five and eight.\e"
-		}
-		elseif timeslot == "midnight"
-		{
-
-		}
 		elseif timeslot == "morning"
 		{
 			//"\1\s[10]\0%(shirtsweekday)Good Morning %(username), have you slept good?\n\n\![*]\q[Yes,goodsleep]\n\n[half]\![*]\q[No,badsleep]\n\e"
@@ -189,6 +187,12 @@ normalboottal
 		{
  			"\1\s[10]\0%(shirtsweekday)This is an evening boot dialogue.Between the hours of 18 and 20.\e"
 		}
+		elseif timeslot == "latenight"
+		{
+			"\1\s[10]\0%(shirtsweekday)It’s really early.8are you sure, you got enough sleep?.\e"
+			"\1\s[10]\0%(shirtsweekday)ou are an early bird,4 aren't you?.\e"
+			"\1\s[10]\0%(shirtsweekday)This is the third early morning boot dialogue.8Between the hours of five and eight.\e"
+		}
 		else
 		{
 			"\1\s[10]\0%(shirtsweekday)This is a late night boot dialogue.Between 21 and 24.\e"
@@ -198,20 +202,31 @@ normalboottal
 	}
 }
 
+OnErase
+{
+	RemoveFlag("Valentines")
+	RemoveFlag("B-Day")
+	RemoveFlag("Garbage")
+	ERASEVAR("ufield","gfield","gianfield","userfield","fcardsgtype","fcardsutype","fcardsg","fcardsu","cardsgtype","cardsg","cardsutype","cardsu","makaotype","items","desc","amount","sizeax","fcardg","fcardu","field","cardg","cardu","names","bagpage","page","stuff","dots","sleeppage","numofsleep","sleepstring","randsleepvar","ransleep","sleepsize","rememberdream","sleeplib","moodpage","moodlib","ramod","numofmood","moodsize","mood","arr","blanketmode","petcountminute","timeforsleep","moodstring","moodnumss","randmoodvar","moodnum","jday","jodate","teachusername")
+}
+
 OnClose
- {
-	if fboot==1; fboot=0
+{
+	if Flag("First Boot") == 1; RemoveFlag("First Boot")
 	--
 	timeslot = GetTimeSlot 
 	--
 	if passmin >= 5
 	{
-		"Bye then"
+		"\0See you later\w8\w8"
+		"\0See you later %(username)\w8\w8"
+		"\0Bye %(username)\w8\w8"
 	}
 	else 
 	{
 		"\0Oh,\w8 That was quick,\w3 see you later then.\w8\w8"
-		"\0Oh,\w8 That was quick,\w3 see you later then %(username).\w8\w8"
+		"\0Just a quick check up huh? See you later then.\w8\w8"
+		"\0Well, that was quick, it was nice seeing you, bye\w8\w8"
 		"\0Oh,\w8 That was quick,\w3 see you later then %(username).\w8\w8"
 	}
 	--
@@ -222,99 +237,92 @@ OnWindowStateRestore
 {
 	"\1\s[10]\0%(shirtsweekday)"
 	--
-	if sheep == 1; "\p[6]\s[58]"
+	if Flag("Sheep") == 1; "\p[6]\s[58]"
 }
 
  
 OnGhostChanging
 {
-	if reference0 == "Gian" ; "\1\s[10]\0%(shirtsweekday)This dialogue is for us reloading ourselves.\w8\w8\e"
- 	else; "\0This dialogue means we are switching to %(reference0).\w8Bye.\w8\w8\e"
+	if reference0 == "Gian" ; "\1\s[10]\0%(shirtsweekday)Seems pointless but alright.\w8\w8\e"
+ 	else; "\0Say 'Hi' to %(reference0) for me, \w8bye.\w8\w8\e"
 }
 
 OnGhostChanged
 {
 	"\0" 
 	--
-	if reference0 == "Gian"; "\1\s[10]\0%(shirtsweekday)We have reloaded ourselves.\0\w8\sSure have.\e"
-	else; "\0Goodbye, %(reference0).\w8Someone switched from you to us.\e"
-}
-
-OnVaraiables
-{
-	thanks 	= 0
-	catplush = 0
-	alpacaplush = 0 
-	sheepplush = 0
-	birdplush = 0
-	candy = 0
-	plants = 0
-	loveletters = 0
-	hletter = 0
-	sweaters = 0
-	dolls = 0
-	poems = 0
-	drawings = 0
-	paintings = 0
-	garbage = 0
-	sleep 	= 0
-	blanketon = 0
-	--
-	shirt = RAND(8)
-	shirttd = RAND(6)
+	if reference0 == "Gian"; "\1\s[10]\0%(shirtsweekday)Well, I'm back\e"
+	else; "\0Goodbye, %(reference0).\w8\e"
 }
 
 OnFirstVariables
 {
-	drzane	         = 0
-    drjelonka        = 0
-    drarktur         = 0
-    drlydia			 = 0
-	dralex 			 = 0
-	lab		 	 	 = 0	
-	scientist		 = 0
-	suicide 		 = 0
-	depression		 = 0
-	hotline 		 = 0
-	commonthings	 = 0
-	lovevariable	 = 0
-	flowty			 = 0
-    petcountvariable = 0
-    punchcountvariable = 0 
-	affectionvariable = 0
-	FavoriteColor 	 = ""
-	UserHobby	 	 = ""
-	FavoriteAnimal 	 = ""
-	drawing			 = 0
-	painter 		 = 0
-	sleep 			 = 0
-	anime			 = 0
-	gaming			 = 0
-	reading 		 = 0
-	puzzles 		 = 0
-	write			 = 0
-	knit			 = 0
-	sew 			 = 0
-	cosplay			 = 0
-	photography		 = 0
-	love 			 = 1
-	positiverel		 = 0
-	negativerel		 = 0
-	orchid			 = 0
-	rose			 = 0
-	tulip			 = 0
+	/* gifts: How many of each thing did the user gift Gian
+	0: Cat Plush
+	1: Sheep Plush
+	2: Bird Plush
+	3: Alpaca Plush
+	4: Candy
+	5: Potted Plants
+	6: Sweaters
+	7: Mugs
+	8: Scarfs
+	*/
+	gifts = IARRAY
+	--
+	/* relationship: Relationship Variables
+	0: Positive Var
+	1: Negative Var
+	2: PosVar - NegVar = Affection Variables
+	3: Romance Variable
+	4: Pet Count
+	5: Punch Count
+	6: Things in common
+	*/
+	relationship = IARRAY
+	--
+	/* userinfo: Information Gian gethered about the user
+	0: Hobbies
+	1: Age
+	2: Nicknames
+	3: Fears
+	4: Dreams
+	5: Family
+	6: Pets
+	*/
+	userinfo = IARRAY
+	--
+	/* userfavorite: Information Gian gethered about the users favorite things
+	0: Color
+	1: Animal
+	2: Book
+	3: Song
+	4: Band/Singer
+	5: Movie
+	6: Food
+	7: Flower
+	*/
+	userfavorite = IARRAY
+	--
+	/* timecount: Time counters
+	0: Sleep
+	1: Sheep Open
+	2: Crow Open 
+	*/
+	timecount = IARRAY
+	--
+	/* counter: Counters
+	0: Cancel in a minute
+	1: Tail Pull
+	2: Pet in a minute
+	*/
+	counter = IARRAY
 }
 
-AxLib
-{
-	langeng = "cat ,love ,dog , "
-	langax = "mazi ,isaxa , "
-}
 
 //\![raise,OnBootMood]
 OnBootMood
 {
-
 	moodlib = "inspired,happy,relaxed,sleepy,bored,sad,flushed,annoyed,angry,scared,exited,tired"
 	//reset mood
 	mood = 0
@@ -327,18 +335,18 @@ OnBootMood
 	--
 	if timeslot == "latenight" || timeslot == "midnight" || timeslot == "earlymorning"
 	{
-		if positiverel < 150 && negativerel < 25
+		if relationship[0] < 150 && relationship[1] < 25
 		{
 			mood[7] += 5
 			mood[3] += 8
 		}
-		elseif positiverel > 150 && negativerel < 25 
+		elseif relationship[0] > 150 && relationship[1] < 25 
 		{
 			mood[7] += 2
 			mood[3] += 8
 			mood[2] += 4
 		}
-		elseif positiverel < negativerel
+		elseif relationship[0] < relationship[1]
 		{
 			mood[7] += 7
 			mood[3] += 8
@@ -348,18 +356,18 @@ OnBootMood
 	--
 	if dayslot == "7month 19day"
 	{
-		if positiverel < 150 && negativerel < 25
+		if relationship[0] < 150 && relationship[1] < 25
 		{
 			mood[1] += 5
 			mood[10] += 8
 		}
-		elseif positiverel > 150 && negativerel < 25 
+		elseif relationship[0] > 150 && relationship[1] < 25 
 		{
 			mood[1] += 2
 			mood[10] += 8
 			mood[2] += 4
 		}
-		elseif positiverel < negativerel
+		elseif relationship[0] < relationship[1]
 		{
 			mood[1] -= 4
 			mood[10] -= 8
@@ -368,25 +376,39 @@ OnBootMood
 		}
 	}
 	--
-	if dayslot == "2month 14day" && lovevariable > 50 && love == 1 && positiverel > negativerel
+	if dayslot == "2month 14day" && relationship[3] > 50 && Flag("Love") == 1 && relationship[0] > relationship[1]
 	{
 		mood[6] += 5
 		mood[10] += 3
 		mood[1] += 4
 	}
 	--
-	for _i=0;_i<moodsize*2;_i++
+	for _i=0,_ranmood=0;_i<moodsize*2;_i++
 	{
-		ranmood = RAND(moodsize)
+		_ranmood = RAND(moodsize)
 		--
-		mood[ranmood] += RAND(10)
+		mood[_ranmood] += RAND(10)
 	}
 	--
 	OnMoodCheck
 }
 
-OnGhostCalling
+OnGhostCallComplete
 {
 	if "cat" _in_ TOLOWER(reference2); "uh\w4h\w4h\w4h\w4h"
-	else; "Hello %(reference2)"
+	else
+	{
+		"\0Hello %(reference2)"
+		"\0Hello!"
+	}
+}
+
+OnOtherGhostBooted
+{
+	if "cat" _in_ TOLOWER(reference2); "uh\w4h\w4h\w4h\w4h"
+	else
+	{
+		"\0Hello %(reference2)"
+		"\0Hello!"
+	}
 }

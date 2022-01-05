@@ -273,97 +273,69 @@ Select.TEACHNAME
 
 Select.CANCEL
 {
-	cancelmin++
+	counter[0]++
 	--
 	"\1You decide to not do anything\e"
 }
 
 TalkConfig
 {
+	SetOnOffConf
+	--
 	"\1\b[2]\_q"
 	--
-	"\f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
+	"\f[bold,1]Your name:\f[default] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
 	--
-	"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
+	"\f[bold,1]Your pronouns:\f[default] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
 	--
-	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n\n"
+	"\f[bold,1]Your birthday:\f[default] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n\n\n[half]"
 	--
-	"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	"\f[bold,1]Talk Rate:\f[default] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n"
 	--	
-	"\![*]Enable Uninstall?\f[bold,1] \n\q[%(deleteshitai),deleteon]\f[bold,0]\n\n[half]\n"
+	"\f[default]Enable Uninstall?: \f[color,#71ebc8]\q[%(deleteshitai),OnButtonChange,deleteshitai,%(deleteshitai)]\f[default]\n\n[half]"
 	--
-	"\f[color,default]\f[bold,0]Weather \f[color,#e62719] \q[%(weathermenu),weatheron]\f[color,default]\n"
+	if weathermenu != "ON"
+	{
+		"Weather: \f[color,#71ebc8]\q[%(weathermenu),OnButtonChange,weathermenu,%(weathermenu)]\f[default]\n"
+	}
+	else
+	{
+		"Weather: \f[color,#71ebc8]\q[%(weathermenu),OnButtonChange,weathermenu,%(weathermenu)]\f[default] ("
+		--
+		"\f[color,#71ebc8]\q[%(currentweatherarray[1]),startunit]\f[default])\n"
+	}
 	--
-	if locationcode == ""; "Location for weather check: \![*]\q[Set Location,OnWeatherLocation]\n"
-	else; "Location for weather check: \![*]\q[%(curlocation),OnWeatherLocation]\n"
+	"Moon Phase: \f[color,#71ebc8]\q[%(moonmenu),OnButtonChange,moonmenu,%(moonmenu)]\f[default]\n\n[half]"	
 	--
-	"\f[bold,1]\f[color,#71ebc8]\q[%(timeformatype),timetype]\f[color,default] TIME\f[bold,0]\n"
+	if locationcode == ""; "Weather Location: \f[color,#71ebc8]\f[bold,1]\![*]\q[Set Location,OnWeatherLocation]\f[default]\n"
+	else; "Weather Location: \f[color,#71ebc8]\f[bold,1]\![*]\q[%(curlocation),OnWeatherLocation]\f[default]\n"
 	--
-	"\f[bold,1]DATE FORMAT: \f[color,#71ebc8]\q[%(dateformatype),datetype]\f[color,default]\f[bold,0]\n\n[half]"
+	"\f[bold,1]Time Format: \f[color,#71ebc8]\q[%(timeformatype),timetype]\f[default]\n"
 	--
-	"\f[color,default]\f[bold,0]Moon Phase: \f[color,#71ebc8] \q[%(moonmenu),moonon]\f[color,default]\n"
+	"\f[bold,1]Date Format: \f[color,#71ebc8]\q[%(dateformatype),datetype]\f[default]\n\n[half]"
 	--
-	if moonmenu == "ON"; "\f[color,default]\f[bold,0]Hemisphere: \f[color,#71ebc8] \q[%(hsphere),hemisph]\f[color,default]\n"
+	"\f[default]Moon Phase: \f[color,#71ebc8] \q[%(moonmenu),moonon]\f[default]\n"
+	--
+	if moonmenu == "ON"; "\f[default]Hemisphere: \f[color,#71ebc8] \q[%(hsphere),hemisph]\f[default]\n"
     --
-	"\f[color,default]\f[bold,0]Auto update check: \f[color,#71ebc8] \q[%(upchec),upcheck]\f[color,default]\n"
+	"Auto update check: \f[color,#71ebc8] \q[%(upchec),OnButtonChange,upchec,%(upchec)]\f[default]\n"
     --
-	"\![*]\f[bold,1]\q[Reset,resetuser]\f[bold,0]\n\n"
+	"\![*]\f[bold,1]\q[Reset,resetuser]\f[default]\n\n"
 	--	
 	"\![*]\q[Back to the menu,BACKTOMENU]\e"
 }
 
-OnCelc //F to C conversion
+Select.hemisph
 {
-	celc = (currentweatherarray[0] - 32)
-	celc = celc * (5.0/9.0)
-	firstnumcelc = TOINT(celc)
-	toroundup = ERASE(celc,0,2)
-	--
-	if (firstnumcelc[0] < 10 && firstnumcelc[0] > 0) || (firstnumcelc[0] > -10 && firstnumcelc[0] < 0)
-	{
-		celc = ERASE(celc,4,10)
-		runpnum = 1
-	}
-	else
-	{
-		celc = ERASE(celc,5,10)
-		runpnum = 2
-	}
-	--
-	if toroundup < 50; celc = ERASE(celc,runpnum,10)
-	else; celc = TOINT(ERASE(celc,runpnum,10)) + 1
-	//--
-	//"C: %(celc) F: %(currentweatherarray[0])"
-}
-
-timeformat
-{
-	if timeformatype == "STANDARD"; "%(nowhour):%(nowmin) %(ap)"
-	elseif timeformatype == "MILITARY"; "%(hour):%(nowmin)"
-}
-
-dateformat
-{
-	if dateformatype == "dd/mm/yyyy"; "%(day)/%(month)/%(year)"
-	elseif dateformatype == "yyyy/mm/dd"; "%(year)/%(month)/%(day)"
-	elseif dateformatype == "mm/dd/yyyy"; "%(month)/%(day)/%(year)"
+	if hsphere == "Northern"; hsphere = "Eastern"
+	else; hsphere = "Northern"
 }
 
 Select.resetuser
 {
-	reset = 1
-	--
-	OnVaraiables
+	MiscFlags ,= "Reset"
 	--
 	OnFirstBoot
-}
-
-Select.degreeez
-{
-	if "C" _in_ currentweatherarray[1]; currentweatherarray[1] = REPLACE(currentweatherarray[1],"C","F")
-	else; currentweatherarray[1] = REPLACE(currentweatherarray[1],"F","C")
-	--
-	TalkConfig
 }
 
 Select.datetype
@@ -387,33 +359,16 @@ Select.timetype
 	}
 	--
 	TalkConfig
-
 }
 
-Select.upcheck
+SetOnOffConf
 {
-	case upchec
-	{
-		when "ON"; upchec = "OFF"
-		when "OFF"; upchec = "ON"
-	}
+	if upchec == ""; upchec = "OFF"
 	--
-	TalkConfig
-}
-
-Select.moonon
-{
-	if moonmenu = "OFF"; moonmenu = "ON"
-	else; moonmenu = "OFF"
-    --
-	TalkConfig
-}
-
-
-Select.weatheron
-{
-	if weathermenu == "OFF"; weathermenu = "ON"
-	else; weathermenu = "OFF"
-    --
-	TalkConfig
+	if hsphere == ""; hsphere = "Northern"
+	--
+	if moonmenu == ""; moonmenu = "OFF"
+	--
+	if weathermenu == ""; weathermenu = "OFF"
+	--
 }

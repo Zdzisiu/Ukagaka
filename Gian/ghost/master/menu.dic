@@ -1,9 +1,9 @@
 ﻿
 OpenSakuraMenu
 {
-	if sleep != 1
+	if Flag("Sleep") == 0
 	{
-		if cancelmin == 5
+		if counter[0] == 5
 		{
 			"\0\i[7]\b1Do you actally want something or are you just poking me for fun?" //angry boi
 		}
@@ -40,7 +40,7 @@ Select.dontwake
 
 Select.wakup
 {
-	sleep = 0
+	RemoveFlag("Sleep")
 	--
 	"\1You woke him up\0%(shirtsweekday)Oh, sorry seems like I fell asleep\n"
 	--
@@ -72,16 +72,12 @@ MenuRun
 	\![*]\q[Play a game,games]\n/
 	\![*]\q[Give him something,givesomething]\n/
 	\![*]\q[Actions,act]\n\n[half]/
-	//\![*]\q[SayTest,saysmth]\n\n[half]/
-	//\![*]\q[Test Code,OnAxverian]\n\n[half]/
 	\![*]\q[Ask for a favor,dosomething]\n/
-	\![*]\q[Dev Config,devconfig]\n\n[half]/
-	\![*]\q[Nevermind,CANCEL]\n\n"
+	\n[half]\![*]\q[Nevermind,CANCEL]\n\n"
 	--
 	if weathermenu == "ON"; "\n\n[half]%(currentweatherarray[0])%(currentweatherarray[1]), %(currentweatherarray[5]) — %(season)\n"
 	--
 	"Coins: %(coins)\n%(wd) %(timeformat), %(dateformat)\e"
-	
 }
 
 Select.games
@@ -151,31 +147,31 @@ Select.asksomething
  	"\0Hmm?\1\b2you ask him about:\n\n"
 	"\0huh?\w8 What do you want to know?\1\b2you ask him about:\n\n"
     --
-	if lab == 1; "\![*]\q[Laboratory,laboratory]\n"
+	if Flag("Lab") == 1; "\![*]\q[Laboratory,laboratory]\n"
 	--
-	if dralex == 1; "\![*]\q[Dr Alex,alex]\n"
+	if Flag("Dr Alex") == 1; "\![*]\q[Dr Alex,alex]\n"
 	--
-	if drjelonka == 1; "\![*]\q[Dr Jelonka,jelonka]\n"
+	if Flag("Dr Jelonka") == 1; "\![*]\q[Dr Jelonka,jelonka]\n"
 	--
-	if drzane == 1; "\![*]\q[Dr Zane,zane\n"
+	if Flag("Dr Zane") == 1; "\![*]\q[Dr Zane,zane\n"
 	--
-	if drarktur == 1; "\![*]\q[Dr Arktur,arktur]\n"
+	if Flag("Dr Arktur") == 1; "\![*]\q[Dr Arktur,arktur]\n"
 	--
-	if drlydia == 1; "\![*]\q[Dr Lydia,lydia]\n"
+	if Flag("Dr Lydia") == 1; "\![*]\q[Dr Lydia,lydia]\n"
 	--
-	if scientist == 1; "\![*]\q[Scientists,labhuman]\n"
+	if Flag("Scientists") == 1; "\![*]\q[Scientists,labhuman]\n"
 	--
-	if positiverel > 25
+	if relationship[0] > 25
 	{
 		"\![*]\q[His favories,favorites]\n/
 		\![*]\q[His least favories,leastfavorites]\n"
 	}
 	--
-	if positiverel > 100; "\![*]\q[His skills,skills]\n"
+	if relationship[0] > 100; "\![*]\q[His skills,skills]\n"
 	--
-	if positiverel > 125; "\![*]\q[His friends,friends]\n"
+	if relationship[0] > 125; "\![*]\q[His friends,friends]\n"
 	--
-	if positiverel > 150; "\![*]\q[His family,familia]\n"
+	if relationship[0] > 150; "\![*]\q[His family,familia]\n"
 	--
     "\![*]\q[Himself,gian]\n\n[half]/
 	\![*]\q[Back to main menu,BACKTOMENU]\n/
@@ -198,14 +194,6 @@ Select.givesomething
 {
 	"\1\b2what do you want to give him?\n\n"
     --
-	if drawing == 1; "\![*]\q[Drawing,drawing]\n"
-	--
-	if painter == 1; "\![*]\q[Painting,painting]\n"
-	--
-	if poet == 1 ; "\![*]\q[Poem,poem]\n"
-	--
-	if sew == 1; "\![*]\q[Hand sewn plushie,doll]\n"
-	--
 	"\![*]\q[Plush,plush]\n/
 	\![*]\q[Candy,candy]\n/
 	\![*]\q[Potted plant,potplant]\n/
@@ -217,7 +205,7 @@ Select.givesomething
 
 Select.act
 {
-	"\0\b2(what do you want to do?)\n\n"
+	"\1\b2(what do you want to do?)\n\n"
     --
 	"\![*]\q[Prise him,prise]\n\n[half]/
 	//\![*]\q[Mock him,mock]\n\n[half]/
@@ -230,14 +218,14 @@ Select.act
 }
 Select.dosomething
 {
-	"\0\b2(You ask him to:).\n\n"
+	"\1\b2(You ask him to:).\n\n"
 	--
 	"\![*]\q[Open Calendar,CALENDAR]\n\n[half]/
-	\![*]\q[Weather,OnCheckWeather]\n/
+	\![*]\q[Check the Weather,OnCheckWeather]\n/
 	\![*]\q[Check Email,MailCheck]\n/
 	\![*]\q[Open SSP Preferences,sspconfig]\n/
 	\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
-	\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+	\![*]\q[Show System Information,ChoiceSystemInformation]\n\n/
 	\![*]\q[Back to main menu,BACKTOMENU]\e"
 }
 
@@ -263,11 +251,11 @@ Select.ChoiceGarbagecan
 	}
 	elseif _gomicheck >= 1 
 	{
-		garbage +=1
+		MiscFlags ,= "Garbage"
 		--
 		shirttd = RAND(6)
 		--
-		"\1He seams offended\0\nReally? Emptying garbage can?0\n[half]\1he does it, but doesn't seems happy about it[raise,OnGarbagecanEmpty]\x\cNow i need to change\s[-1]\w8\w8\w8\w8\w8\0%(shirtsweekday)\e"		
+		"\1He seams offended\0\nReally? Emptying garbage can?\0\n[half]\1he does it, but doesn't seems happy about it[raise,OnGarbagecanEmpty]\x\cNow I need to change\s[-1]\w8\w8\w8\w8\w8\0%(shirtsweekday)\e"		
 	}
 }
 
@@ -297,14 +285,10 @@ Select.MailCheck
 	"\![biff]\e"
 }
 
-
-
 Select.HEADLINECANCEL
 {
 	"\0Finished with headlines.\e"
 }
-
-	
 
 OnChoiceTimeout
 {
@@ -313,65 +297,30 @@ OnChoiceTimeout
 
 OpenKeroMenu
 {
-	"\1\s[20]What do you want to do?\n\n"
-	--
-	"\![*]\q[Check inventory,OnBag,0,menu]\n/
-	\![*]\q[Memory,memo]\n/
-	\![*]\q[Check stats,stats]\n/
-	//\![*]\q[Music Player,musicplay]\n\n[half]/
-	\n[half]\![*]\q[Nevermind,cancel]\e"
+	"\![raise,OnBag,0,menu]\e"
 }
 
 Select.memo
 {
 	if username != ""; "Name: %(username)\n"
 	--
-	if UserAge != ""; "Age: %(UserAge)\n"
+	if userinfo[1] != ""; "Age: %(userinfo[1])\n"
 	--
-	if UserNation != ""; "Nationality: %(UserNation)\n"
+	if userinfo[7] != ""; "Nationality: %(userinfo[7])\n"
 	--
-	if UserHobby != ""; "Hobbies: %(UserHobby)\n"
+	if userinfo[0] != ""; "Hobbies: %(userinfo[0])\n"
 	--
-	if FavoriteAnimal != ""; "Favorite Animals: %(FavoriteAnimal)\n"
+	if userfavorite[1] != ""; "Favorite Animals: %(userfavorite[1])\n"
 	--
-	if FavoriteColor != ""; "Favorite colors: %(FavoriteColor)\n"
+	if userfavorite[0] != ""; "Favorite colors: %(userfavorite[0])\n"
 	--
 	"\n\![*]\q[Nevermind,cancel]\e"
-}
-
-Select.stats
-{
-	"\1\b2You petted Gian %(petcountvariable) time%(stemp(petcountvariable))\n/
-	You punched Gian %(punchcountvariable) time%(stemp(punchcountvariable))\n/
-	You and Gian have %(commonthings) thing%(stemp(commonthings)) in common\n/
-	Today you give him:\n/
-	%(sweaters) sweater%(stemp(sweaters))\n/
-	%(plants) potted plant%(stemp(plants))\n"
-	--
-	if drawing == 1; "%(candy) candy\n"
-	else; "%(candy) candies\n"
-	--
-	"%(catplush) cat plushie%(stemp(catplush))\n/
-	%(alpacaplush) alpaca plushie%(stemp(alpacaplush))\n/
-	%(sheepplush) sheep plushie%(stemp(sheepplush))\n/
-	%(birdplush) bird plushie%(stemp(birdplush))\n"
-	--
-	if drawing >= 1; "%(drawings) drawing%(stemp(drawing))\n"
-	--
-	if painter >= 1; "%(paintings) painting%(stemp(paintings))\n"
-	--
-	if poet >= 1; "%(poems) poem%(stemp(poems))\n"
-	--
-	if  sew >= 1; "%(dolls) handsewn doll%(stemp(dolls))\n/"
-	--
-	"\![*]\q[Nevermind,cancel]\e"
-
 }
 
 OnBag
 {
 	//name,amount,description
-	if reference0 == "-1" || reference0 == "1"; bagpage += TOINT(reference0)
+	if reference0 == "-1" || reference0 == "1"; bagpage += TOINT(_argv[0])
 	--
 	_num = TOINT(_argv[0])
 	--
@@ -380,10 +329,10 @@ OnBag
 	_emp = 0
 	_hitems = 0
 	_names = "clover,apple,tulip,rose,orchid,blanket,sweater,hat,scarf,shiny stone,ring"
-	_size = ARRAYSIZE(names)
+	_size = ARRAYSIZE(_names)
 	_am = bagpage * 8
-	_amount = clover + "," + apples + "," + tulip + "," + rose + "," + orchid + ","+ blanket + ","+ sweater + ","+ hat + ","+ scarf + ","+ shinystone + ","+ ring  
-	_desc = "Normal clover%(stemp(clover)),Normal apple%(stemp(apples))+ very healthy,Tulip%(stemp(tulip))+ if you have enough maybe you can make a bouquet or a flower crown?,Rose%(stemp(rose))+ if you have enough maybe you can make a bouquet?,%(orchidsss)+ if you have enough maybe you can make a bouquet?,Very warm+ very cozy,Very warm+ very cozy,Keep your ears warm,Keep warm,Very shiny+ very pretty,Pretty and shiny+ as all things should be"
+	_amount = bagstuff[0] + "," + bagstuff[1] + "," + bagstuff[2] + "," + bagstuff[3] + "," + bagstuff[4] + "," + bagstuff[5] + ","+ bagstuff[6] + ","+ bagstuff[7] + ","+ bagstuff[8] + ","+ bagstuff[10] + "," + bagstuff[11]  
+	_desc = "Normal clover%(stemp(bagstuff[0])),Normal apple%(stemp(bagstuff[1]))+ very healthy,Tulip%(stemp(bagstuff[2]))+ if you have enough maybe you can make a bouquet or a flower crown?,Rose%(stemp(bagstuff[3]))+ if you have enough maybe you can make a bouquet?,%(orchidsss)+ if you have enough maybe you can make a bouquet?,Very warm+ very cozy,Very warm+ very cozy,Keep your ears warm,Keep warm,Very shiny+ very pretty,Pretty and shiny+ as all things should be"
 	_items = (_names,_amount,_desc)
 	--
 	for _i = 0;_i < _size;_i ++
@@ -393,7 +342,7 @@ OnBag
 	--
 	if _emp == 0
 	{
-		"\1Your bag is empty"
+		"\1Your bag is empty\e"
 	}
 	else
 	{
@@ -451,25 +400,26 @@ OnChoiceHover
 	case reference1
 	{
 		when "OnItem"; OnBag(reference2)
+		when "OnBuy"; OnOpenSheepMenu(reference2)
 	}
 }
 
-OpenSheepMenu
+OnOpenSheepMenu
 {
-	if opensheep != 1
+	if Flag("SheepShop") == 0
 	{
-		if sheeptrudaction != 1
+		if Flag("Sheeptrudaction") == 0
 		{
-			"\1The sheep looks at you, it seems like it want's something to eat, maybe you should give it some apples or clovers?\n"
+			"\1The sheep looks at you, it seems like it want's something to eat, maybe you should give it some apples or clovers?\n\n[half]"
 			--
-			sheeptrudaction =  1
+			MiscFlags ,=  "Sheeptrudaction"
 		}
 		--
-		if clover < 5 && apples < 2
+		if bagstuff[0] < 5 && bagstuff[1] < 2
 		{
 			"\1You don't have enough food to give to the sheep"
 		}
-		elseif clover >= 5 || apples >= 2s
+		elseif bagstuff[0] >= 5 || bagstuff[1] >= 2
 		{
 			"\1Do you want to give the food to the sheep?\n\n[half]"
 			--
@@ -477,18 +427,19 @@ OpenSheepMenu
 			\![*]\q[No,nofood]"
 		}
 		--
-		"\![*]\q[Navermind,cancelll]\e"
+		"\n\n[half]\![*]\q[Navermind,cancelll]\e"
 	}
 	else
 	{
-		_names = ""
+		_names = "blanket,hat,scarf,sweater"
 		_am = shoppage * 8
-		_price = "" 
-		_desc = ""
-		_size = ARRAYSIZE(names)
-		_items = (_names,_amount,_desc,_prices)
+		_price = "20,10,7,7" 
+		_desc = "Warm and cozy blanket for cold weather+Cover your ears from cold+Be cool. wear fluffy scarf+Fluffy. big and cozy as all sweaters should be"
+		_size = ARRAYSIZE(_names)
 		--
-		OnShop("sheep",_items,_size)
+
+		--
+		OnShop("sheep",_names,_desc,_price,_size,_argv[0])
 	}
 	
 }
@@ -498,29 +449,26 @@ OnShop
 	//name,amount,description
 	if reference0 == "-1" || reference0 == "1"; shoppage += TOINT(reference0)
 	--
-	_num = TOINT(_argv[0])
+	_num = TOINT(_argv[5])
 	--
-	_items = _argv[0]
-	//_prices = _items
+	_names = _argv[1]
+	_desc = SPLIT(_argv[2],"+")
+	_price = _argv[3]
+	_size = _argv[4]
 	_hitems = 0
 	_am = shoppage * 8
 	--
-	_print = "\1\b6%(cha)%(sheepnoises)"
+	_print = "\1\b6\_q%(cha)%(sheepnoises)\n\n[half]"
 	--
 	for _i = _am;_i < _size;_i ++
 	{
-		if _items[1][_i] > 0
-		{
-			_stuff = TOINT(_items[1][_i])
-			--
-			_hitems += 1
-			--
-			if _i == _num && _argv[0] != "sheep"; _print += "\f[color,#71ebc8]"
-			--
-			_print += "\![*]\q[" + TOPROPER(_items[0][_i]) + "%(mnoga) [ "  + _items[1][_i] + " \],OnItem," + _i + "]\n"
-			--
-			if _i == _num; _print += "\f[default]"
-		}
+		_hitems += 1
+		--
+		if _i == _num; _print += "\f[color,#71ebc8]"
+		--
+		_print += "\![*]\__q[OnBuy," + _i + "]" + TOPROPER(_names[_i]) + " ["  + _price[_i] + "]\__q\n"
+		--
+		if _i == _num; _print += "\f[default]"
 	}
 	--
 	_print += "\n[half]"
@@ -531,16 +479,14 @@ OnShop
 	--
 	_print += "\![*]\q[Nevermind,cancel]"
 	--
-	if _argv[0] != "" && _argv[0] != "sheep"
+	if _argv[0] != ""
 	{
-		stuff = TOINT(_items[1][_num])
-		--
 		for _i = 0;_i < 12 - _hitems;_i ++
 		{ 
 			_print += "\n"
 		}
 		--
-		_print += "\n[half]" + REPLACE(TOPROPER(_items[2][_num]),"+",",")
+		_print += "\n[half]" + REPLACE(TOPROPER(_desc[_num]),".",",")
 	}
 	--
 	_print
@@ -556,7 +502,7 @@ OnBuy
 			{
 				coins -= 20
 				--
-				blanket = 1
+				bagstuff[5] = 1
 				--
 				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
 			}
@@ -572,7 +518,7 @@ OnBuy
 			{
 				coins -= 10
 				--
-				sweater += 1
+				bagstuff[6] += 1
 				--
 				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
 			}
@@ -588,7 +534,7 @@ OnBuy
 			{
 				coins -= 7
 				--
-				hat += 1
+				bagstuff[7] += 1
 				--
 				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
 			}
@@ -603,7 +549,7 @@ OnBuy
 			{
 				coins -= 7
 				--
-				scarf += 1
+				bagstuff[8] += 1
 				--
 				"\1The sheep doesn't wait for you to say what color so you want and throws a random %(reference0) at you\x\c\1Well,\w6 at least you got a %(reference0)"
 			}
@@ -616,7 +562,7 @@ OnBuy
 	--
 	"\x\c"
 	--
-	OpenSheepMenu
+	OnOpenSheepMenu
 
 }
 
@@ -628,8 +574,8 @@ OnOpenShop
 		{
 			"\1The sheep looks happy"
 			--
-			opensheep = 1
-			OpenSheepMenu
+			MiscFlags ,= "SheepShop"
+			OnOpenSheepMenu
 		}
 		when "crow"
 		{
@@ -641,15 +587,15 @@ OnOpenShop
 			{
 				"\1Crow took the %(reference1) and hid it inside the hole, he seems happy"
 				--
-				opencrow = 1
+				MiscFlags ,= "CrowShop"
 				--
 				if reference1 == "shiny stone"
 				{
-					shinystone -= 1
+					bagstuff[10] -= 1
 				}
 				elseif reference1 == "ring"
 				{
-					ring -= 1
+					bagstuff[11] -= 1
 				}
 				--
 				OpenCrowMenu
@@ -669,51 +615,51 @@ OnCoinsCrow
 	{
 		"\1Crow took the coins and hid them inside the hole, he seems happy\x\c"
 		--
-		opencrow = 1
-		coins -= reference0
+		MiscFlags ,= "CrowShop"
+		coins -= TOINT(reference0)
 		OpenCrowMenu
 	}
 }
 
 OpenCrowMenu
 {
-	if opencrow != 1
+	if Flag("CrowShop") == 0
 	{
-		if crowtrudaction != 1
+		if Flag("Crowtrudaction") == 0
 		{
 			"\1The crow looks at you, maybe you should give him something shiny?\x\c"
 			--
-			crowtrudaction =  1
+			MiscFlags ,= "Crowtrudaction"
 		}
 		--
-		if coin < 1 && ring < 1 && shinystone < 1
+		if coin < 1 && bagstuff[11] < 1 && bagstuff[10] < 1
 		{
 			"\1You don't have anything that crow would like"
 		}
-		elseif coin >= 1 || ring >= 1 || shinystone >= 1
+		elseif coin >= 1 || bagstuff[11] >= 1 || bagstuff[10] >= 1
 		{
 			"\1What do you want to give the crow?\n\n[half]"
 			--
 			if coin >= 1; "\![*]\q[Coins,OnOpenShop,crow,coin]\n"
 			--
-			if shinystone >= 1; "\![*]\q[Shiny stone,OnOpenShop,crow,shiny stone]\n"
+			if bagstuff[10] >= 1; "\![*]\q[Shiny stone,OnOpenShop,crow,shiny stone]\n"
 			--
-			if ring >= 1; "\![*]\q[Ring,OnOpenShop,crow,ring]\n"
+			if bagstuff[11] >= 1; "\![*]\q[Ring,OnOpenShop,crow,ring]\n"
 		}
 	}
 	else
 	{
-		if  ring < 1 && shinystone < 1
+		if  bagstuff[11] < 1 && bagstuff[10] < 1
 		{
 			"\1You don't have anything that crow would like\n\n[half]"
 		}
-		elseif ring >= 1 || shinystone >= 1
+		elseif bagstuff[11] >= 1 || bagstuff[10] >= 1
 		{
 			"\1What do you want to sell to the crow?\n\n[half]"
 			--
-			if shinystone >= 1; "\![*]\q[Shiny stone,OnSell,stone]: 20 coins\n"
+			if bagstuff[10] >= 1; "\![*]\q[Shiny stone,OnSell,stone]: 20 coins\n"
 			--
-			if ring >= 1; "\![*]\q[Ring,OnSell,ring]: 10 coins\n"
+			if bagstuff[11] >= 1; "\![*]\q[Ring,OnSell,ring]: 10 coins\n"
 		}
 	}
 	--
@@ -727,12 +673,12 @@ OnSell
 	{
 		when "ring"
 		{
-			ring -= 1
+			bagstuff[11] -= 1
 			coins += 10
 		}
 		when "stone"
 		{
-			shinystone -= 1
+			bagstuff[10] -= 1
 			coins += 20
 		}
 	}

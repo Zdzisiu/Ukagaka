@@ -22,14 +22,12 @@
 
 RandomTalk : nonoverlap
 {
-	if sleep != 1
+	if Flag("Sleep") == 0
 	{
-		
-		"\0\i[4]\1You hear soft humming\n\n" //Make "music" animation
-
-		"\1He seems to be thinking about something\e" 
-		
-		"\0\i[4]\1Gian is humming calm song\n\n"
+		{
+			"\0\i[4]\1You hear soft humming\e"
+			"\0\i[4]\1Gian is humming calm song\e"
+		}
 		
 		if ghostexcount > 0
 		{
@@ -44,9 +42,9 @@ RandomTalk : nonoverlap
 			{    
 				when "Wilson"
 				{
-					"\1You notice that Gian is looking at Wilson,\w3 mumbling\w6\0\f[height,10]I think I saw him somewhere,\w8 but where?\f[height,100%]\e"
+					"\1You notice that Gian is looking at Wilson,\w3 mumbling\w6\0\f[height,10]I think I saw him somewhere before,\w8 but where?\f[height,100%]\e"
 				}
-				when "Sans","Gaster","Papyrus","S"
+				when "Sans","Gaster","Papyrus","S","Dusty"
 				{
 					"\1You notice that Gian is looking at %(_checkname),\w3 mumbling\w6\0\f[height,10]Is that a skeleton?\f[height,100%]\1\w8\n\n[half]You decided not to comment\e"
 				}
@@ -57,9 +55,9 @@ RandomTalk : nonoverlap
 			}
 		}
 
-		if blanketon == 1
+		if Flag("Blanket On") == 1
 		{
-			blanketon = 0
+			RemoveFlag("Blanket On")
 			--
 			"\1Gian took off the blanket\p[5]\s[21]\0Thanks for it but it's getting too warm for me"
 		}
@@ -80,8 +78,8 @@ RandomTalk : nonoverlap
 
 	if moodstring == "sleepy" || moodstring == "bored"
 	{
-		sleep = 1
-		sleepmin = 0
+		MiscFlags ,= "Sleep"
+		timecount[0] = 0
 		--
 		"\0\s[1]\i[4]\__w[animation,4]\i[5]%(shirtsweekday)"
 		--
@@ -93,14 +91,14 @@ RandomTalk : nonoverlap
 
 	if RAND(50) == 5
 	{
-		sheep = 1
+		MiscFlags ,= "Sheep"
 		--
 		"\p[6]\s[58]\e"
 	}
 
 	if RAND(50) == 6
 	{	
-		crow = 1
+		MiscFlags ,= "Crow"
 		--
 		"\p[7]\s[59]\e"
 	}
@@ -113,21 +111,22 @@ Select.musictalk
 }
 
 OnMinuteChange
- {
+{
 	timeslot = GetTimeSlot
-	affectionvariable = positiverel - negativerel
-	cancelmin = 0
+	relationship[2] = relationship[0] - relationship[1]
+	counter[0] = 0
 	petcountminute = 0
 	--
 	OnMoodCheck
 	--
-	if sleep == 1
+	if Flag("Sleep") == 1
 	{
-		sleepmin += 1
+		timecount[0] += 1
 		--
-		if sleepmin == timeforsleep
+		if timecount[0] == timeforsleep
 		{
-			sleep = 0
+			RemoveFlag("Sleep")
+			timecount[0] = 0
 			--
 			WakingUp
 		}
@@ -139,27 +138,27 @@ OnMinuteChange
 		"\b[-1]\![execute,http-get,https://weather.com/%(unit)weather/today/l/%(locationcode),--async=OnCurWeatherFound,--file=weather.html,--timeout=200,--nodescript]"
 	}
 	--
-	if sheep == 1
+	if Flag("Sheep") == 1
 	{
-		sheepopen += 1
+		timecount[1] += 1
 		--
-		if sheepopen == 10
+		if timecount[1] == 10
 		{
-			sheep = 0
-			sheepopen = 0
+			RemoveFlag("Sheep")
+			timecount[1] = 0
 			--
 			"\p[6]\s[-1]\1The sheep is gone"
 		}
 	}
 	--
-	if crow == 1
+	if Flag("Crow") == 1
 	{
-		crowopen += 1
+		timecount[2] += 1
 		--
-		if crowopen == 10
+		if timecount[2] == 10
 		{
-			crow = 0
-			crowopen = 0
+			RemoveFlag("Crow")
+			timecount[2] = 0
 			--
 			"\p[6]\s[-1]\1The crow is gone"
 		}
@@ -169,9 +168,7 @@ OnMinuteChange
 	{
 		if hour == 0
 		{
- 			"\0%(username) it's so late!\w8 Better go to sleep\e"
- 			"\0Aren't you scared to sit behind screen so late?\e"
- 			"\0Isn't it to late?\e"
+ 			"\0Isn't it to late to sit behind a screen?\e"
 		}
 	}
 	//Don't touch this part.
@@ -183,13 +180,13 @@ OnMinuteChange
 
  WakingUp
  {
-	if blanketon != 1
+	if Flag("Blanket On") == 0
 	{
 		"\0\s[0]%(shirtsweekday)\1Gian woke up"
 	}
 	else
 	{
-		blanketon = 0
+		RemoveFlag("Blanket On")
 		--
 		"\1He woke up\p[5]\s[21]\0\s[0]%(shirtsweekday)Thanks for the blanket"
 	}
@@ -229,51 +226,51 @@ OnOverlap
 		{
 			if "5-" _in_ reference0 || "-5" _in_ reference0 //blanket
 			{
-				if sleep == 1
+				if Flag("Sleep") == 1
 				{
-					/*if positiverel > 150 && negativerel < 35
+					/*if relationship[0] > 150 && relationship[1] < 35
 					{
-						blanketon = 1
+						MiscFlags ,= "Blanket On"
 						--
 						"\p[5]\s[-1]\1You put the blanket around his shoulders\x\c\1He looks cozy"
 					}
-					elseif positiverel < 150 && negativerel < 35
+					elseif relationship[0] < 150 && relationship[1] < 35
 					{
-						blanketon = 1
+						MiscFlags ,= "Blanket On"
 						--
 						"\p[5]\s[-1]\0\i[11]\1You put the blanket around his shoulders\x\c\1He shifts in his sleep"
 					}
-					elseif negativerel > 35  && positiverel < 50 && punchcountvariable < 15
+					elseif relationship[1] > 35  && relationship[0] < 50 && relationship[5] < 15
 					{
 						"\1You put the blanket around his shoulders\x\c\1He shifts in his sleep and blankets falls\x\c\p[5]\s[-1]\1You put the blanket back in your backpack"
 					}
-					elseif negativerel > 35  && positiverel < 50 && punchcountvariable > 15
+					elseif relationship[1] > 35  && relationship[0] < 50 && relationship[5] > 15
 					{
 						"\1You put the blanket around his shoulders\x\c\1He shivers and the blanket falls\x\c\p[5]\s[-1]\1You put the blanket back in your backpack"
 					}*/
 
-					if positiverel > 150
+					if relationship[0] > 150
 					{
-						blanketon = 1
+						MiscFlags ,= "Blanket On"
 						--
 						"\p[5]\s[-1]\1You put the blanket around his shoulders\x\c\1He looks cozy"
 					}
-					elseif positiverel < 150
+					elseif relationship[0] < 150
 					{
-						blanketon = 1
+						MiscFlags ,= "Blanket On"
 						--
 						"\p[5]\s[-1]\0\i[11]\1You put the blanket around his shoulders\x\c\1He shifts in his sleep"
 					}
 				}
 				else
 				{
-					if positiverel > 150 && negativerel < 35
+					if relationship[0] > 150 && relationship[1] < 35
 					{
-						blanketon = 1
+						MiscFlags ,= "Blanket On"
 						--
 						"\p[5]\s[-1]\0\i[14]\1You put the blanket around his shoulders\0Thanks!" //suprise, happines
 					}
-					elseif positiverel < 150 && negativerel < 35
+					elseif relationship[0] < 150 && relationship[1] < 35
 					{
 						"\1You try put the blanket around his shoulders\0No thanks" //suprise, embarrassment
 					}
@@ -285,7 +282,8 @@ OnOverlap
 		{
 			if "5-" _in_ reference0 || "-5" _in_ reference0 //blanket
 			{
-				blanketmode = 1
+				RemoveFlag("Blanket Out")
+				--
 				"\p[5]\s[-1]\1You put the blanket back in your backpack"
 			}
 		}
@@ -302,7 +300,7 @@ MikireTalk
  
 EndMikireTalk
 {
-	"\1Gian looks unsure of what happened\e"
+	"\0That was \w8. \w8. \w8. weird\e"
 }
 
 
@@ -319,7 +317,9 @@ OnSurfaceRestore
 {
 	"\0%(shirtsweekday)\1\s[10]"
 	--
-	if sheep == 1; "\p[6]\s[58]"
+	if Flag("Sheep") == 1; "\p[6]\s[58]"
+	--
+	if Flag("Crow") == 1; "\p[6]\s[58]"
 }
 		
 	
@@ -349,7 +349,6 @@ OnKeyPress
 		"'%(_eng)' is '%(_axv)' in Axvarian"
 	}
 }
-
 
 OnMoodCheck
 {

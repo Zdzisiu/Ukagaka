@@ -23,11 +23,9 @@ dic, word.dic
 dic, commu.dic
 dic, nameteach.dic
 dic, anchor.dic
-dic, Config.dic
-dic, DevConfig.dic
-dic, MenuResponses.dic
+dic, config.dic
+dic, menuresponses.dic
 dic, somecode.dic
-dic, AI.dic
 
 
 //---- Log Location -------------------------------------------------------------------------
