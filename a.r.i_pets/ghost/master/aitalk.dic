@@ -35,14 +35,8 @@ RandomTalk : nonoverlap
 		_am[_i] = TOINT(_am[_i])
 	}
 	--
-	if sleep[petid] != 1 && tate[petid] != "dead"
+	if sleep[petid] != 1 && state[petid] != "dead"
 	{
-		/*if shapeshade != ""
-		{
-			"\0\i[1]"
-		}*/
-		//--
-		//if ghostexcount != 0; OnTransform
 
 		if _a[0] <= (_am[0]-5) && foodbowl[petid] != 0; "\![get,property,OnFood_start,currentghost.scope(0).x]"
 
@@ -51,6 +45,8 @@ RandomTalk : nonoverlap
 		if _a[1] <= (_am[1]-25) && RAND(10) == 1; OnSleep
 	
 		"\![get,property,OnWander,currentghost.scope(0).x]"
+
+		if ISFUNC("OnCustom_RandomTalk"); OnCustom_RandomTalk
 	}
 }
 

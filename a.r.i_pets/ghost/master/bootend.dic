@@ -62,7 +62,6 @@ OnReset_Yes
 	"\0\s[0]"
 }
 
-
 GetTimeSlot
 {
 	if hour >= 5 && hour <= 8
@@ -142,6 +141,9 @@ OnShellChanged
 	case nowshell
 	{
 		when "Shadow"; petid = 0
+		other{
+			//if ASEARCH(nowshell,pet) == -1; pet[]
+		}
 	}
 }
 
@@ -173,4 +175,36 @@ OnWindowStateRestore
 	}
 	--
 	winstate = "normal"
+}
+
+
+//Code by Zi :D
+//https://zichqec.github.io/s-the-skeleton/
+
+OnGetCustomShellDialogue
+{
+	lastTalk = ""
+	_f = FENUM(SHIORI3FW.ShellPath)
+	_files = SPLIT(_f,",")
+	_pathW = "pets_shelldialogue.dic"
+	if ASEARCH("dialogue.dic",_files) != -1
+	{
+		_pathR = "%(SHIORI3FW.ShellPath)dialogue.dic"
+		_oR = FOPEN(_pathR,"r")
+		_oW = FOPEN(_pathW,"w")
+		--
+		_warning = "//###############################################################This is the code the ghost has copied into its own files, don't edit this one or your changes will be overwritten!###############################################################"
+		_f = FWRITE(_pathW,_warning)
+		for _buff = FREAD(_pathR); _buff != -1; _buff = FREAD(_pathR)
+		{
+			if _buff == "" || _buff == "	"; _f = FWRITE(_pathW,_warning)
+			else; _f = FWRITE(_pathW,_buff)
+		}
+		_f = FWRITE(_pathW,_warning)
+		--
+		_f = FCLOSE(_pathR)
+		_f = FCLOSE(_pathW)
+	}
+	--
+	"\![reload,shiori]"
 }

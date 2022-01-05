@@ -4,7 +4,7 @@ name,Jorunal
 craftman,Zdzis
 craftmanw,Zdzis
 craftmanurl,
-homeurl,https://zdzisiu.github.io/Ukagaka/ballons/jorunal/"
+homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/ballons/jorunal/"
 
 use_self_alpha, 1
 

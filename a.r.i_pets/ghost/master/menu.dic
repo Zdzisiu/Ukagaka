@@ -1,4 +1,4 @@
-OpenSakuraMenu
+﻿OpenSakuraMenu
 {
 	wd = GetWeekDay
  	ap = GetAP
@@ -71,14 +71,21 @@ OpenSakuraMenu
 		}
 	}
 	--
-	REPLACE("%(_bars[0])\n%(_bars[2])\n%(_bars[1])","+",",")
+	REPLACE("%(_bars[0])\n%(_bars[2])\n%(_bars[1])","+",",") + "\n\n[half]"
 	//"%(_bars[0])\n%(_bars[2])\n%(_bars[1])"
 	//"Hunger: %(_a[0])/%(_am[0])\nThirst: %(_a[2])/%(_am[2])\nEnergy: %(_a[1])/%(_am[1])\n\n[half]"
 	--
 	if state[petid] != "dead"
 	{
-		"\n\n[half]\![*]\f[strike,1]Change Pet\f[strike,0]\n/
-		//\![*]\q[Change Animal,OnAnimal]\n/
+		if ISFUNC("OnCustom_Menu"); OnCustom_Menu
+		--
+		_shellfile = "../../shell/"
+		_shells = FENUM(_shellfile,",")
+		--
+		//"/
+		if ARRAYSIZE(_shells) > 1; "\![*]\q[Change Animal,OnAnimalChnage_Start]\n"
+		--
+		"/
 		//\![*]\q[Reset,OnPetStats]\n/
 		//\![*]\q[Play,OnGames]\n/
 		\![*]\q[Config Menu,configmenu]\n"
@@ -95,6 +102,24 @@ OpenSakuraMenu
 
 }
 
+OnAnimalChnage_Start
+{
+	_shellfile = "../../shell/"
+	_shells = FENUM(_shellfile,",")
+	_shells = REPLACE(_shells,"\","") //"{
+	--
+	_page = "\b4\_qAvalible Pets:\n\n"
+	--
+	for _i=0;_i<ARRAYSIZE(_shells) && _i<100;_i++
+	{
+		_page += "\![*]\q[" + _shells[_i] + ",OnChangePet]\n\n[half]"
+	}
+	--
+	_page += "\![*]\q[Nevermind,Cancel]\e"
+	--
+	_page
+}
+
 //Sort out after jam
 OnAnimal
 {
@@ -108,7 +133,7 @@ OnAnimal
 	--
 	_page = "\b4\_qAvalible Pets:\n\n"
 	--
-	foreach _shells ; _p
+	for _i=0;_i<ARRAYSIZE(_shells) && _i<100;_i++
 	{
 		if !FOPEN(_filename = _shellfile + "\%(_p)\customshell.txt","r")
 			return
@@ -140,7 +165,7 @@ OnAnimal
 		}
 	}
 	--
-	for _i=0;_i<ARRAYSIZE(_shells);_i++
+	for _i=0;_i<ARRAYSIZE(_shells) && _i<100;_i++
 	{
 		if _pets[_i] != ""
 		{
@@ -164,33 +189,7 @@ OnAnimal
 
 OnChangePet
 {
-	_shellfile = "../../shell/"
-	_shells = FENUM(_shellfile,",")
-	_shells = REPLACE(_shells,"\","") //"{
-	--
-	_page = "\b4\_qAvalible Pets:\n\n"
-	--
-	foreach _shells ; _p
-	{
-		if !FOPEN(_filename = _shellfile + "\%(_p)\customshell.txt","r")
-			return
-		while (_line = FREAD(_filename)) != -1;
-		{
-			if CUTSPACE(_line[0]) == "stats"
-			{ 
-				shellsnames ,= CUTSPACE(_line[1])
-				break;
-			}
-		}
-	}
-	for _i=1;_i<ARRAYSIZE(_shells)+1;_i++
-	{
-		_page += "\![*]\q[" + shellsnames[_i] + ",OnChangePet," + _shells[_i-1] + "," + shellsnames[_i] + "]\n\n[half]"
-	}
-	--
-	_page += "\![*]\q[Nevermind,Cancel]\e"
-	--
-	_page
+	"a"
 }
 
 OnWaterMenu

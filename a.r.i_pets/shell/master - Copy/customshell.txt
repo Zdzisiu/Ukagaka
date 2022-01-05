@@ -1,0 +1,5 @@
+name: Shad
+stats: 200,150,100
+food: Glowing Stones,Light Bulbs,Glitter,Glow-Goo
+foodsur: 94,95,96,97
+
