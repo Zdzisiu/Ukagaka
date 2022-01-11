@@ -106,3 +106,18 @@ CENSOR //CENSOR(string,replacement,show first letter?: 0/1)
     --
     _print //show the censored words
 }
+
+OnButtonChange
+{
+	EVAL("%(reference0) = %(CHR(34))%(onnoff(reference1))%(CHR(34))") //change variable to ON/OFF
+	--
+	"%(lightdark)"
+	--
+	Select.configmenu
+}
+
+onnoff //onnoff(variable)
+{
+	if _argv[0] == "ON"; "OFF"
+	else; "ON"
+}
