@@ -1,0 +1,85 @@
+﻿seriko.alignmenttodesktop,free
+seriko.use_self_alpha, 1
+
+charset,UTF-8
+type,shell
+name,A bottle of souls
+craftman,Zdzisiu
+craftmanurl,-
+homeurl,https://raw.githubusercontent.com/Zdzisiu/Ukagaka/master/shells/souls
+
+sakura.balloon.offsetx,0
+sakura.balloon.offsety,0
+kero.balloon.offsetx,0
+kero.balloon.offsety,0
+sakura.balloon.alignment,none
+kero.balloon.alignment,none
+
+shiori.logo.filename,resources\niseshiori.png
+shiori.logo.x,16
+shiori.logo.y,256
+//209, 153, 69
+menu.background.font.color.r,209
+menu.background.font.color.g,153
+menu.background.font.color.b,69
+
+menu.foreground.font.color.r,255
+menu.foreground.font.color.g,255
+menu.foreground.font.color.b,255
+
+menu.disable.font.color.r,120
+menu.disable.font.color.g,120
+menu.disable.font.color.b,120
+
+menu.separator.color.r,150
+menu.separator.color.g,150
+menu.separator.color.b,150
+
+menu.background.alignment,righttop
+menu.foreground.alignment,righttop
+menu.sidebar.alignment,bottom
+
+menu.background.bitmap.filename,menu_background.png
+menu.foreground.bitmap.filename,menu_foreground.png
+menu.sidebar.bitmap.filename,menu_sidebar.png
+
+sakura.bindgroup0.name,color,green
+sakura.bindgroup1.name,color,blue
+sakura.bindgroup2.name,color,purple
+sakura.bindgroup3.name,color,pink
+sakura.bindgroup4.name,color,orange
+sakura.bindgroup5.name,color,red
+sakura.bindgroup6.name,color,galaxy #1
+sakura.bindgroup7.name,color,sparkling white
+sakura.bindgroup8.name,color,galaxy #2
+sakura.bindgroup9.name,color,black
+sakura.bindgroup100.name,color,galaxy #1 with souls
+sakura.bindgroup101.name,color,pastel sky blue
+sakura.bindgroup102.name,color,pastel green
+sakura.bindgroup103.name,color,pastel light green
+sakura.bindgroup104.name,color,pastel blue
+sakura.bindgroup105.name,color,pastel purple
+sakura.bindgroup106.name,color,pastel pink
+sakura.bindgroup107.name,color,pastel red
+sakura.bindgroup108.name,color,pastel orange
+sakura.bindgroup109.name,color,pastel yellow
+sakura.bindgroup110.name,color,rainbow
+sakura.bindgroup111.name,color,eye in blue
+sakura.bindgroup112.name,color,gold
+sakura.bindgroup113.name,color,color mix #1
+sakura.bindgroup114.name,color,color mix #2
+
+sakura.bindgroup5.default,1 
+sakura.bindgroup1000.default,1
+sakura.bindgroup2000.default,1 
+
+sakura.bindgroup1000.name,cap,orange
+sakura.bindgroup1001.name,cap,sky blue
+sakura.bindgroup1002.name,cap,yellow
+sakura.bindgroup1003.name,cap,green
+sakura.bindgroup1004.name,cap,blue
+sakura.bindgroup1005.name,cap,purple
+sakura.bindgroup1006.name,cap,red
+sakura.bindgroup1007.name,cap,pink
+
+sakura.bindgroup2000.name,accessory,hummingbird skull

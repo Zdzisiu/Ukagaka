@@ -1,0 +1,119 @@
+descript
+{
+version,1
+}
+
+surface0
+{
+element0,overlay,surface0.png,0,0
+
+    animation0.interval,bind
+    animation0.pattern0,replace,1000,00,0,0
+
+    animation1.interval,bind
+    animation1.pattern0,replace,1001,00,0,0
+
+    animation2.interval,bind
+    animation2.pattern0,replace,1002,00,0,0
+
+    animation3.interval,bind
+    animation3.pattern0,replace,1003,00,0,0
+
+    animation4.interval,bind
+    animation4.pattern0,replace,1004,00,0,0
+
+    animation5.interval,bind
+    animation5.pattern0,replace,1005,00,0,0
+
+    animation6.interval,bind
+    animation6.pattern0,replace,1006,00,0,0
+
+    animation7.interval,bind
+    animation7.pattern0,replace,1007,00,0,0
+
+    animation8.interval,bind
+    animation8.pattern0,replace,1008,00,0,0
+
+    animation9.interval,bind
+    animation9.pattern0,replace,1009,00,0,0
+    
+    animation100.interval,bind
+    animation100.pattern0,replace,1100,00,0,0
+
+    animation101.interval,bind
+    animation101.pattern0,replace,1101,00,0,0
+
+    animation102.interval,bind
+    animation102.pattern0,replace,1102,00,0,0
+
+    animation103.interval,bind
+    animation103.pattern0,replace,1103,00,0,0
+
+    animation104.interval,bind
+    animation104.pattern0,replace,1104,00,0,0
+
+    animation105.interval,bind
+    animation105.pattern0,replace,1105,00,0,0
+
+    animation106.interval,bind
+    animation106.pattern0,replace,1106,00,0,0
+
+    animation107.interval,bind
+    animation107.pattern0,replace,1107,00,0,0
+
+    animation108.interval,bind
+    animation108.pattern0,replace,1108,00,0,0
+
+    animation109.interval,bind
+    animation109.pattern0,replace,1109,00,0,0
+
+    animation110.interval,bind
+    animation110.pattern0,replace,1110,00,0,0
+
+    animation111.interval,bind
+    animation111.pattern0,replace,1111,00,0,0
+
+    animation112.interval,bind
+    animation112.pattern0,replace,1112,00,0,0
+
+    animation113.interval,bind
+    animation113.pattern0,replace,1113,00,0,0
+
+    animation114.interval,bind
+    animation114.pattern0,replace,1114,00,0,0
+
+
+    animation1000.interval,bind
+    animation1000.pattern0,overlay,1010,00,0,0
+
+    animation1001.interval,bind
+    animation1001.pattern0,overlay,1011,00,0,0
+
+    animation1002.interval,bind
+    animation1002.pattern0,overlay,1012,00,0,0
+
+    animation1003.interval,bind
+    animation1003.pattern0,overlay,1013,00,0,0
+
+    animation1004.interval,bind
+    animation1004.pattern0,overlay,1014,00,0,0
+
+    animation1005.interval,bind
+    animation1005.pattern0,overlay,1015,00,0,0
+
+    animation1006.interval,bind
+    animation1006.pattern0,overlay,1016,00,0,0
+
+    animation1007.interval,bind
+    animation1007.pattern0,overlay,1017,00,0,0
+
+    animation2000.interval,bind
+    animation2000.pattern0,overlay,1020,00,0,0
+
+
+}
+
+surface10
+{
+element0,overlay,surface10.png,0,0
+}
