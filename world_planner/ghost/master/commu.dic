@@ -185,6 +185,13 @@ OnTalkWithGhosts //This should go in Commu, but it doesn't have to
         }
     }
 }
+
+OnBlob {
+	res_reference0 = "Squish"
+	--
+	"\e Poke,Left"
+}
+
 //\![raise,OnConvoTest]
 OnConvoTest
 {

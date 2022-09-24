@@ -1,5 +1,10 @@
 Charset,UTF-8
 install,651199522
-update_result,NG(404)
+homeurl_found,1
+homeurl,https://zdzisiu.github.io/Ukagaka/antistress/
+surfacecount,29
+update_result,OK(0)
 firstboot,656784404
-lastboot,717326750
+update_time,717327778
+commitmemorysize,240441
+lastboot,717331052

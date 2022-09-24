@@ -18,8 +18,16 @@ ReplyToUser
 
 ReplyToGhost
 {
- 	res_reference0 = reference0 
+	if "Poke" _in_ reference1
 	{
-	
+		_speech = SPLIT(reference1,"\e")[0]
+		_ConvoTag = SPLIT(reference1,"\e")[1]
+		--
+		if _ConvoTag[1] == "Left"; "%(leftPoke)"
+		elseif _ConvoTag[1] == "Right"; "%(rightPoke)"
+		elseif _ConvoTag[1] == "Top"; "%(topPoke)"
+		elseif _ConvoTag[1] == "Middle"; "%(middlePoke)"
+		else; "%(RandomPoke)"
 	}
 }
+

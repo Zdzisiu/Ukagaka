@@ -1,0 +1,2 @@
+Charset,UTF-8
+update_result,NG(404)

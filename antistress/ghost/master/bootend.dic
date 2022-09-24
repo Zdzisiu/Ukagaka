@@ -8,18 +8,20 @@
  	teachusername    = 0	
 	mikireflag       = 0	
  	aitalkinterval = 400 
+	poke = 0
+	daypoke = 0
  	birthdayprint = "????" 
 	talktime = "5 minutes" 
 	deleteshitai = "OFF" 
 	nowshell = "master" 
 	if reference0 == 0 
  	{
-		"\1\s[10]\0\s[0]...\e"
+		"\1\s[10]\0\s[0]Blip\e"
  	}
 	else
  	{
  		{
- 		"\1\s[10]\0\s[0]...\e"
+ 		"\1\s[10]\0\s[0]Blop\e"
 		}
  	}
 }
@@ -66,6 +68,7 @@ OnBoot
 	lastTalk = "" 
 	passmin = 0
 	passsec = 0
+	daypoke = 0
  	"\0\s[0]\1\s[10]" 
 	--
 	dayslot = GetDaySlot
@@ -76,23 +79,20 @@ OnBoot
 
 normalboottalk
 {
-	"..."
+	"Blip"
+	"Blop"
+	"Blup"
 }
 
 OnClose
 {
 	timeslot = GetTimeSlot 
 	--
-	if passmin >= 5	
-	{
-		"\0\s[0]...\w8\w8"
-	}
-	else 
-	{
-		"\0\s[0]...\w8\w8"
-	}
+	"Blip"
+	"Blop"
+	"Blup"
 	--
-	"\-\e" 
+	"\w8\w8\-\e" 
 }
 
 OnWindowStateRestore
@@ -101,27 +101,11 @@ OnWindowStateRestore
 }
 
 OnGhostChanging
- {
-	if reference0 == "Clear" 
-	{
-		"\0\s[0]...\w8\w8\e"
-	}
- 	else 
-	{
-		"\0\s[0]...\e"
-	}
+{
+	"\0\s[0]What a betrayaly, and for what? %(reference0) whose not even a blob?\w8\w8\e"
 }
 
 OnGhostChanged
 {
-	"\0\s[0]\1\s[10]" 
-	--
-	if reference0 == "Clear" 
-	{
-		"\0\s[0]...\e"
-	}
-	else 
-	{
-		"...\e"
-	}
+	"\0\s[0]\1\s[10]You made a good choice, there is no need for non-blobs here" 
 }

@@ -1,7 +1,11 @@
 ﻿OpenSakuraMenu
 {
-	"\0\s[0]\b2..."
+	"\0\s[0]\b2"
 	--
+	"Blup"
+	"Blip"
+	"Blop"
+    --
 	MenuRun
 }
 
@@ -12,11 +16,13 @@ MenuRun
  	nowmin = Getnowmin
  	nowhour = Getnowhour
 	--
+	all : {
 	"\n\n\_q\b2" 
-	--
+	"Pokes in this session: \f[bold,1]%(daypoke)\f[bold,default]\n"
+	"Total Pokes: \f[bold,1]%(poke)\f[bold,default]\n\n[half]"
 	"\![*]\q[Config Menu,configmenu]\n"
-	--
  	"\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	}
 }
 
 Select.altalk
@@ -94,6 +100,8 @@ Select.configmenu
 
 TalkConfig
 {
+	if username == "USER"; username = "Squish"
+	--
 	"\0\b[2]\_q" 
 	--
 	"\f[bold,1]Squish name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
@@ -266,7 +274,7 @@ OnUserBornDay
 
 birthchecked
 {
-	"\0\s[0]Your birthday is %(bornmonthprint) %(borndayprint). We'll remember.\e"
+	"\0\s[0]Your birthday is %(bornmonthprint) %(borndayprint). Blob will remember.\e"
 }
 
 Select.TEACHNAME
@@ -276,12 +284,12 @@ Select.TEACHNAME
 
 Select.CANCEL
 {
-	"\0\s[0]...\e"
+	"\0\s[0]\e"
 }
 
 OnChoiceTimeout
 {
-	"\0\s[0]The menu has timed out.\e"
+	"\0\s[0]Blob lost focus, you were to boring\e"
 }
 
 OpenKeroMenu
