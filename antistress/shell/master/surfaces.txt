@@ -1,0 +1,311 @@
+descript
+{
+version,1
+}
+
+surface0
+{
+element0,overlay,surface0.png,0,0
+
+collision0,40,141,117,171,top
+collision1,31,143,60,229,left
+collision2,101,146,135,229,right
+collision3,61,172,101,220,middle
+
+animation0.interval,always
+animation0.pattern0,overlay,5000,0,0,0
+animation0.pattern1,overlay,5000,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5001,0,0,0
+animation1.pattern1,overlay,5001,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1001,0,0,0
+animation2.pattern1,overlay,1001,1,0,0
+
+}
+
+surface9000
+{
+//poke wiggle to left
+element0,overlay,surface1010.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5010,0,0,0
+animation0.pattern1,overlay,5010,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5011,0,0,0
+animation1.pattern1,overlay,5011,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1012,0,0,0
+animation2.pattern1,overlay,1012,1,0,0
+
+}
+
+surface9001
+{
+//poke wiggle to left
+element0,overlay,surface1020.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5020,0,0,0
+animation0.pattern1,overlay,5020,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5021,0,0,0
+animation1.pattern1,overlay,5021,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1022,0,0,0
+animation2.pattern1,overlay,1022,1,0,0
+
+}
+
+surface9003
+{
+//poke wiggle to left
+element0,overlay,surface1030.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5030,0,0,0
+animation0.pattern1,overlay,5030,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5031,0,0,0
+animation1.pattern1,overlay,5031,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1032,0,0,0
+animation2.pattern1,overlay,1032,1,0,0
+
+}
+
+surface9002
+{
+//poke wiggle to left
+element0,overlay,surface1040.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5040,0,0,0
+animation0.pattern1,overlay,5040,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5041,0,0,0
+animation1.pattern1,overlay,5041,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1042,0,0,0
+animation2.pattern1,overlay,1042,1,0,0
+
+}
+
+surface9004
+{
+//poke wiggle to left
+element0,overlay,surface1050.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5050,0,0,0
+animation0.pattern1,overlay,5050,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5051,0,0,0
+animation1.pattern1,overlay,5051,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1052,0,0,0
+animation2.pattern1,overlay,1052,1,0,0
+
+}
+
+surface9005
+{
+//poke wiggle to left
+element0,overlay,surface1060.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5060,0,0,0
+animation0.pattern1,overlay,5060,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5061,0,0,0
+animation1.pattern1,overlay,5061,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1062,0,0,0
+animation2.pattern1,overlay,1062,1,0,0
+
+}
+
+surface9006
+{
+//poke wiggle to left
+element0,overlay,surface1070.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5070,0,0,0
+animation0.pattern1,overlay,5070,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5071,0,0,0
+animation1.pattern1,overlay,5071,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1072,0,0,0
+animation2.pattern1,overlay,1072,1,0,0
+
+}
+
+surface9007
+{
+//poke wiggle to left
+element0,overlay,surface1080.png,0,0
+
+animation0.interval,always
+animation0.pattern0,overlay,5080,0,0,0
+animation0.pattern1,overlay,5080,1,0,0
+
+animation1.interval,always
+animation1.pattern0,overlay,5081,0,0,0
+animation1.pattern1,overlay,5081,1,0,0
+
+animation2.interval,always
+animation2.pattern0,overlay,1082,0,0,0
+animation2.pattern1,overlay,1082,1,0,0
+
+}
+
+
+surface5000
+{
+    //base
+	element0,overlay,surface0.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5001
+{
+    //shade
+	element0,overlay,surface1000.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5010
+{
+    //base
+	element0,overlay,surface1010.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5011
+{
+    //shade
+	element0,overlay,surface1011.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5020
+{
+    //base
+	element0,overlay,surface1020.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5021
+{
+    //shade
+	element0,overlay,surface1021.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5030
+{
+    //base
+	element0,overlay,surface1030.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5031
+{
+    //shade
+	element0,overlay,surface1031.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5040
+{
+    //base
+	element0,overlay,surface1040.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5041
+{
+    //shade
+	element0,overlay,surface1041.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5050
+{
+    //base
+	element0,overlay,surface1050.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5051
+{
+    //shade
+	element0,overlay,surface1051.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5060
+{
+    //base
+	element0,overlay,surface1060.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5061
+{
+    //shade
+	element0,overlay,surface1061.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5070
+{
+    //base
+	element0,overlay,surface1070.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5071
+{
+    //shade
+	element0,overlay,surface1071.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface5080
+{
+    //base
+	element0,overlay,surface1080.png,0,0
+	element1,overlayfast,base.png,0,0
+}
+
+surface5081
+{
+    //shade
+	element0,overlay,surface1081.png,0,0
+	element1,overlayfast,shadow.png,0,0
+}
+
+surface10
+{
+element0,overlay,surface10.png,0,0
+}

@@ -1,0 +1,5 @@
+Charset,UTF-8
+install,651199522
+update_result,NG(404)
+firstboot,656784404
+lastboot,717326750

@@ -1,0 +1,17 @@
+﻿charset,UTF-8
+name,Anti Stress Blob
+type,ghost
+
+sakura.name,Squish
+kero.name,Squash
+
+craftman,Zdzisiu
+craftmanw,Zdzisiu
+craftmanurl,-
+
+//Don't touch it.
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll
+
+icon,icon.ico

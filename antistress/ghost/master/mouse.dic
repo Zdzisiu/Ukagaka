@@ -1,0 +1,135 @@
+﻿/*
+OnMouseMove
+-----
+Reference0: X coordinate of mouse cursor (local coordinate)
+Reference1: Y coordinate of mouse cursor (local coordinate)
+Reference2: The amount and direction of mouse wheel rotation.
+Reference3: 0 for main body, 1 for partner. In SSP/CROW, there are 2 or more.
+Reference4: The hit determination identifier.
+Reference5: * Always 0 for SSP.
+Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not supported) in multi-touch environment, mouse with input from mouse etc. 
+*/
+
+OnMouseMove
+{
+	if nowmode != "QUIZ"
+	{
+		if reference3 == 0 
+		{
+			MouseMoveSakura
+		}
+		else 
+		{
+			MouseMoveKero
+		}
+	}
+}
+
+MouseMoveSakura
+{
+	if reference4 != "" 
+ 	{
+ 		stroke++ 
+ 		if stroke >= 40 
+		{
+ 			stroke = 0 
+			//wiggle"\"
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+MouseMoveKero
+{
+	if reference4 != ""
+ 	{
+ 		stroke++
+ 		if stroke >= 40
+		{
+			stroke = 0
+			if reference4 == "Head" 
+ 			{
+				"\0\s[0]...\e"
+ 			}
+ 			elseif reference4 == "Face" 
+ 			{
+ 				"\0\s[0]...\e"
+ 			}
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+/*
+OnMouseDoubleClick
+-----
+Reference0: X coordinate of mouse cursor (local coordinate)
+Reference1: Y coordinate of mouse cursor (local coordinate)
+Reference2: Always 0.
+Reference3: 0 for main body, 1 for partner. In SSP/CROW, there are 2 or more.
+Reference4: The hit determination identifier.
+Reference5: Left click is 0, right click is 1.
+Reference6: *SSP only windows7 or later, touch with touch panel (*touch pad not supported) in multi-touch environment, mouse with input from mouse etc. 
+*/
+
+OnMouseClick
+{
+	_w = "\w2"
+	--
+	if reference5 == 0
+ 	{
+		if reference4 == "right"
+		{
+			"\0\s[0]%(_w)\s[9000]%(_w)\s[9001]%(_w)\s[9000]%(_w)\s[0]"
+		}
+		elseif reference4 == "left"
+		{
+			"\0\s[0]%(_w)\s[9002]%(_w)\s[9003]%(_w)\s[9002]%(_w)\s[0]"
+		}
+		elseif reference4 == "top"
+		{
+			_w = "\w2"
+			"\0\s[0]%(_w)\s[9005]%(_w)\s[9004]%(_w)\s[9005]%(_w)\s[0]"
+		}
+		elseif reference4 == "middle"
+		{
+			"\0\s[0]%(_w)\s[9006]%(_w)\s[9007]%(_w)\s[9006]%(_w)\s[0]"
+		}
+	}
+}
+
+OnMouseDragStart 
+{
+	_w = "\w2"
+	--
+	if reference5 == 0
+ 	{
+		if reference4 == "right"
+		{
+			//"\0\s[0]%(_w)\s[9000]%(_w)\s[9001]%(_w)\s[9000]%(_w)\s[0]"
+		}
+		elseif reference4 == "right"
+		{
+			//"\0\s[0]%(_w)\s[9000]%(_w)\s[9001]%(_w)\s[9000]%(_w)\s[0]"
+		}
+		elseif reference4 == "top"
+		{
+			//"\0\s[0]%(_w)\s[9000]%(_w)\s[9001]%(_w)\s[9000]%(_w)\s[0]"
+		}
+		elseif reference4 == "middle"
+		{
+			//"\0\s[0]%(_w)\s[9000]%(_w)\s[9001]%(_w)\s[9000]%(_w)\s[0]"
+		}
+	}
+}
+
+OnMouseDragEnd
+{
+	//boing
+}

@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,Anti Stress Blob
+directory,antistress
+
+balloon.directory,simple
