@@ -208,12 +208,12 @@ OnUpdate.OnDownloadBegin
 
 OnUpdate.OnMD5CompareBegin
 {
-	"Checking the MD5 value.\e"
+	"\e"
 }
 
 OnUpdate.OnMD5CompareComplete
 {
-	"\0\s[0]MD5 check good.\e"
+	"\0\s[0]\e"
 }
 
 OnUpdate.OnMD5CompareFailure
