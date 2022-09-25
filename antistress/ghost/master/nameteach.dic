@@ -41,5 +41,8 @@ OnNameTeach
 		"Color\e"
 	}elseif _temp == "zdzisiu" || _temp == "teacup" || _temp == "internet teacup" || _temp == "zdzis"{
 		"Don't squash the developer please\![open,inputbox,OnNameTeach,-1]\e"
+	}else{
+		username = reference0
+		"The Blobs is now %(username)"
 	}
 }

@@ -1,0 +1,2 @@
+shell/master/shadow.png
+shell/master/base.png

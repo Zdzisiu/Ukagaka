@@ -3,8 +3,8 @@ install,651199522
 homeurl_found,1
 homeurl,https://zdzisiu.github.io/Ukagaka/antistress/
 surfacecount,29
-update_result,OK(14)
+update_result,OK(1)
 firstboot,656784404
-update_time,717331569
+update_time,717331925
 commitmemorysize,240441
 lastboot,717331052
