@@ -1,0 +1,1154 @@
+descript
+{
+	version,1
+	//Display animations from number front to back (1,2,3...)
+	animation-sort,ascend 
+}
+
+surface0
+{
+	element0,replace,surface0.png,0,0
+}
+
+surface10
+{
+	element0,replace,surface10.png,0,0
+}
+
+surface9900
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2300,0,0,0
+	animation100.pattern0,overlay,2300,100,0,1
+	animation100.pattern0,overlay,2300,100,0,2
+	animation100.pattern0,overlay,2300,100,0,3
+	animation100.pattern0,overlay,2300,100,0,2
+	animation100.pattern0,overlay,2300,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2100,0,0,0
+	animation200.pattern0,overlay,2100,100,0,2
+	animation200.pattern0,overlay,2100,100,0,4
+	animation200.pattern0,overlay,2100,100,0,6
+	animation200.pattern0,overlay,2100,100,0,9
+	animation200.pattern0,overlay,2100,100,0,6
+	animation200.pattern0,overlay,2100,100,0,4
+	animation200.pattern0,overlay,2100,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2200,0,0,0
+	animation300.pattern0,overlay,2200,100,0,1
+	animation300.pattern0,overlay,2200,100,0,2
+	animation300.pattern0,overlay,2200,100,0,3
+	animation300.pattern0,overlay,2200,100,0,4
+	animation300.pattern0,overlay,2200,100,0,3
+	animation300.pattern0,overlay,2200,100,0,2
+	animation300.pattern0,overlay,2200,100,0,1
+}
+
+surface9901
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2301,0,0,0
+	animation100.pattern0,overlay,2301,100,0,1
+	animation100.pattern0,overlay,2301,100,0,2
+	animation100.pattern0,overlay,2301,100,0,3
+	animation100.pattern0,overlay,2301,100,0,2
+	animation100.pattern0,overlay,2301,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2101,0,0,0
+	animation200.pattern0,overlay,2101,100,0,2
+	animation200.pattern0,overlay,2101,100,0,4
+	animation200.pattern0,overlay,2101,100,0,6
+	animation200.pattern0,overlay,2101,100,0,9
+	animation200.pattern0,overlay,2101,100,0,6
+	animation200.pattern0,overlay,2101,100,0,4
+	animation200.pattern0,overlay,2101,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2201,0,0,0
+	animation300.pattern0,overlay,2201,100,0,1
+	animation300.pattern0,overlay,2201,100,0,2
+	animation300.pattern0,overlay,2201,100,0,3
+	animation300.pattern0,overlay,2201,100,0,4
+	animation300.pattern0,overlay,2201,100,0,3
+	animation300.pattern0,overlay,2201,100,0,2
+	animation300.pattern0,overlay,2201,100,0,1
+}
+
+surface9902
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2302,0,0,0
+	animation100.pattern0,overlay,2302,100,0,1
+	animation100.pattern0,overlay,2302,100,0,2
+	animation100.pattern0,overlay,2302,100,0,3
+	animation100.pattern0,overlay,2302,100,0,2
+	animation100.pattern0,overlay,2302,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2102,0,0,0
+	animation200.pattern0,overlay,2102,100,0,2
+	animation200.pattern0,overlay,2102,100,0,4
+	animation200.pattern0,overlay,2102,100,0,6
+	animation200.pattern0,overlay,2102,100,0,9
+	animation200.pattern0,overlay,2102,100,0,6
+	animation200.pattern0,overlay,2102,100,0,4
+	animation200.pattern0,overlay,2102,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2202,0,0,0
+	animation300.pattern0,overlay,2202,100,0,1
+	animation300.pattern0,overlay,2202,100,0,2
+	animation300.pattern0,overlay,2202,100,0,3
+	animation300.pattern0,overlay,2202,100,0,4
+	animation300.pattern0,overlay,2202,100,0,3
+	animation300.pattern0,overlay,2202,100,0,2
+	animation300.pattern0,overlay,2202,100,0,1
+}
+
+surface9903
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2303,0,0,0
+	animation100.pattern0,overlay,2303,100,0,1
+	animation100.pattern0,overlay,2303,100,0,2
+	animation100.pattern0,overlay,2303,100,0,3
+	animation100.pattern0,overlay,2303,100,0,2
+	animation100.pattern0,overlay,2303,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2103,0,0,0
+	animation200.pattern0,overlay,2103,100,0,2
+	animation200.pattern0,overlay,2103,100,0,4
+	animation200.pattern0,overlay,2103,100,0,6
+	animation200.pattern0,overlay,2103,100,0,9
+	animation200.pattern0,overlay,2103,100,0,6
+	animation200.pattern0,overlay,2103,100,0,4
+	animation200.pattern0,overlay,2103,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2203,0,0,0
+	animation300.pattern0,overlay,2203,100,0,1
+	animation300.pattern0,overlay,2203,100,0,2
+	animation300.pattern0,overlay,2203,100,0,3
+	animation300.pattern0,overlay,2203,100,0,4
+	animation300.pattern0,overlay,2203,100,0,3
+	animation300.pattern0,overlay,2203,100,0,2
+	animation300.pattern0,overlay,2203,100,0,1
+}
+
+surface9904
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2304,0,0,0
+	animation100.pattern0,overlay,2304,100,0,1
+	animation100.pattern0,overlay,2304,100,0,2
+	animation100.pattern0,overlay,2304,100,0,3
+	animation100.pattern0,overlay,2304,100,0,2
+	animation100.pattern0,overlay,2304,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2104,0,0,0
+	animation200.pattern0,overlay,2104,100,0,2
+	animation200.pattern0,overlay,2104,100,0,4
+	animation200.pattern0,overlay,2104,100,0,6
+	animation200.pattern0,overlay,2104,100,0,9
+	animation200.pattern0,overlay,2104,100,0,6
+	animation200.pattern0,overlay,2104,100,0,4
+	animation200.pattern0,overlay,2104,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2204,0,0,0
+	animation300.pattern0,overlay,2204,100,0,1
+	animation300.pattern0,overlay,2204,100,0,2
+	animation300.pattern0,overlay,2204,100,0,3
+	animation300.pattern0,overlay,2204,100,0,4
+	animation300.pattern0,overlay,2204,100,0,3
+	animation300.pattern0,overlay,2204,100,0,2
+	animation300.pattern0,overlay,2204,100,0,1
+}
+
+surface9905
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2305,0,0,0
+	animation100.pattern0,overlay,2305,100,0,1
+	animation100.pattern0,overlay,2305,100,0,2
+	animation100.pattern0,overlay,2305,100,0,3
+	animation100.pattern0,overlay,2305,100,0,2
+	animation100.pattern0,overlay,2305,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2105,0,0,0
+	animation200.pattern0,overlay,2105,100,0,2
+	animation200.pattern0,overlay,2105,100,0,4
+	animation200.pattern0,overlay,2105,100,0,6
+	animation200.pattern0,overlay,2105,100,0,9
+	animation200.pattern0,overlay,2105,100,0,6
+	animation200.pattern0,overlay,2105,100,0,4
+	animation200.pattern0,overlay,2105,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2205,0,0,0
+	animation300.pattern0,overlay,2205,100,0,1
+	animation300.pattern0,overlay,2205,100,0,2
+	animation300.pattern0,overlay,2205,100,0,3
+	animation300.pattern0,overlay,2205,100,0,4
+	animation300.pattern0,overlay,2205,100,0,3
+	animation300.pattern0,overlay,2205,100,0,2
+	animation300.pattern0,overlay,2205,100,0,1
+}
+
+surface9906
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2306,0,0,0
+	animation100.pattern0,overlay,2306,100,0,1
+	animation100.pattern0,overlay,2306,100,0,2
+	animation100.pattern0,overlay,2306,100,0,3
+	animation100.pattern0,overlay,2306,100,0,2
+	animation100.pattern0,overlay,2306,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2106,0,0,0
+	animation200.pattern0,overlay,2106,100,0,2
+	animation200.pattern0,overlay,2106,100,0,4
+	animation200.pattern0,overlay,2106,100,0,6
+	animation200.pattern0,overlay,2106,100,0,9
+	animation200.pattern0,overlay,2106,100,0,6
+	animation200.pattern0,overlay,2106,100,0,4
+	animation200.pattern0,overlay,2106,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2206,0,0,0
+	animation300.pattern0,overlay,2206,100,0,1
+	animation300.pattern0,overlay,2206,100,0,2
+	animation300.pattern0,overlay,2206,100,0,3
+	animation300.pattern0,overlay,2206,100,0,4
+	animation300.pattern0,overlay,2206,100,0,3
+	animation300.pattern0,overlay,2206,100,0,2
+	animation300.pattern0,overlay,2206,100,0,1
+}
+
+surface9907
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2307,0,0,0
+	animation100.pattern0,overlay,2307,100,0,1
+	animation100.pattern0,overlay,2307,100,0,2
+	animation100.pattern0,overlay,2307,100,0,3
+	animation100.pattern0,overlay,2307,100,0,2
+	animation100.pattern0,overlay,2307,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2107,0,0,0
+	animation200.pattern0,overlay,2107,100,0,2
+	animation200.pattern0,overlay,2107,100,0,4
+	animation200.pattern0,overlay,2107,100,0,6
+	animation200.pattern0,overlay,2107,100,0,9
+	animation200.pattern0,overlay,2107,100,0,6
+	animation200.pattern0,overlay,2107,100,0,4
+	animation200.pattern0,overlay,2107,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2207,0,0,0
+	animation300.pattern0,overlay,2207,100,0,1
+	animation300.pattern0,overlay,2207,100,0,2
+	animation300.pattern0,overlay,2207,100,0,3
+	animation300.pattern0,overlay,2207,100,0,4
+	animation300.pattern0,overlay,2207,100,0,3
+	animation300.pattern0,overlay,2207,100,0,2
+	animation300.pattern0,overlay,2207,100,0,1
+}
+
+surface9908
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2308,0,0,0
+	animation100.pattern0,overlay,2308,100,0,1
+	animation100.pattern0,overlay,2308,100,0,2
+	animation100.pattern0,overlay,2308,100,0,3
+	animation100.pattern0,overlay,2308,100,0,2
+	animation100.pattern0,overlay,2308,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2108,0,0,0
+	animation200.pattern0,overlay,2108,100,0,2
+	animation200.pattern0,overlay,2108,100,0,4
+	animation200.pattern0,overlay,2108,100,0,6
+	animation200.pattern0,overlay,2108,100,0,9
+	animation200.pattern0,overlay,2108,100,0,6
+	animation200.pattern0,overlay,2108,100,0,4
+	animation200.pattern0,overlay,2108,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2208,0,0,0
+	animation300.pattern0,overlay,2208,100,0,1
+	animation300.pattern0,overlay,2208,100,0,2
+	animation300.pattern0,overlay,2208,100,0,3
+	animation300.pattern0,overlay,2208,100,0,4
+	animation300.pattern0,overlay,2208,100,0,3
+	animation300.pattern0,overlay,2208,100,0,2
+	animation300.pattern0,overlay,2208,100,0,1
+}
+
+surface9909
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2309,0,0,0
+	animation100.pattern0,overlay,2309,100,0,1
+	animation100.pattern0,overlay,2309,100,0,2
+	animation100.pattern0,overlay,2309,100,0,3
+	animation100.pattern0,overlay,2309,100,0,2
+	animation100.pattern0,overlay,2309,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2109,0,0,0
+	animation200.pattern0,overlay,2109,100,0,2
+	animation200.pattern0,overlay,2109,100,0,4
+	animation200.pattern0,overlay,2109,100,0,6
+	animation200.pattern0,overlay,2109,100,0,9
+	animation200.pattern0,overlay,2109,100,0,6
+	animation200.pattern0,overlay,2109,100,0,4
+	animation200.pattern0,overlay,2109,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2209,0,0,0
+	animation300.pattern0,overlay,2209,100,0,1
+	animation300.pattern0,overlay,2209,100,0,2
+	animation300.pattern0,overlay,2209,100,0,3
+	animation300.pattern0,overlay,2209,100,0,4
+	animation300.pattern0,overlay,2209,100,0,3
+	animation300.pattern0,overlay,2209,100,0,2
+	animation300.pattern0,overlay,2209,100,0,1
+}
+
+surface9910
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2310,0,0,0
+	animation100.pattern0,overlay,2310,100,0,1
+	animation100.pattern0,overlay,2310,100,0,2
+	animation100.pattern0,overlay,2310,100,0,3
+	animation100.pattern0,overlay,2310,100,0,2
+	animation100.pattern0,overlay,2310,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2110,0,0,0
+	animation200.pattern0,overlay,2110,100,0,2
+	animation200.pattern0,overlay,2110,100,0,4
+	animation200.pattern0,overlay,2110,100,0,6
+	animation200.pattern0,overlay,2110,100,0,9
+	animation200.pattern0,overlay,2110,100,0,6
+	animation200.pattern0,overlay,2110,100,0,4
+	animation200.pattern0,overlay,2110,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2210,0,0,0
+	animation300.pattern0,overlay,2210,100,0,1
+	animation300.pattern0,overlay,2210,100,0,2
+	animation300.pattern0,overlay,2210,100,0,3
+	animation300.pattern0,overlay,2210,100,0,4
+	animation300.pattern0,overlay,2210,100,0,3
+	animation300.pattern0,overlay,2210,100,0,2
+	animation300.pattern0,overlay,2210,100,0,1
+}
+
+surface9911
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2311,0,0,0
+	animation100.pattern0,overlay,2311,100,0,1
+	animation100.pattern0,overlay,2311,100,0,2
+	animation100.pattern0,overlay,2311,100,0,3
+	animation100.pattern0,overlay,2311,100,0,2
+	animation100.pattern0,overlay,2311,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2111,0,0,0
+	animation200.pattern0,overlay,2111,100,0,2
+	animation200.pattern0,overlay,2111,100,0,4
+	animation200.pattern0,overlay,2111,100,0,6
+	animation200.pattern0,overlay,2111,100,0,9
+	animation200.pattern0,overlay,2111,100,0,6
+	animation200.pattern0,overlay,2111,100,0,4
+	animation200.pattern0,overlay,2111,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2211,0,0,0
+	animation300.pattern0,overlay,2211,100,0,1
+	animation300.pattern0,overlay,2211,100,0,2
+	animation300.pattern0,overlay,2211,100,0,3
+	animation300.pattern0,overlay,2211,100,0,4
+	animation300.pattern0,overlay,2211,100,0,3
+	animation300.pattern0,overlay,2211,100,0,2
+	animation300.pattern0,overlay,2211,100,0,1
+}
+
+surface9912
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2312,0,0,0
+	animation100.pattern0,overlay,2312,100,0,1
+	animation100.pattern0,overlay,2312,100,0,2
+	animation100.pattern0,overlay,2312,100,0,3
+	animation100.pattern0,overlay,2312,100,0,2
+	animation100.pattern0,overlay,2312,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2112,0,0,0
+	animation200.pattern0,overlay,2112,100,0,2
+	animation200.pattern0,overlay,2112,100,0,4
+	animation200.pattern0,overlay,2112,100,0,6
+	animation200.pattern0,overlay,2112,100,0,9
+	animation200.pattern0,overlay,2112,100,0,6
+	animation200.pattern0,overlay,2112,100,0,4
+	animation200.pattern0,overlay,2112,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2212,0,0,0
+	animation300.pattern0,overlay,2212,100,0,1
+	animation300.pattern0,overlay,2212,100,0,2
+	animation300.pattern0,overlay,2212,100,0,3
+	animation300.pattern0,overlay,2212,100,0,4
+	animation300.pattern0,overlay,2212,100,0,3
+	animation300.pattern0,overlay,2212,100,0,2
+	animation300.pattern0,overlay,2212,100,0,1
+}
+
+surface9913
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2313,0,0,0
+	animation100.pattern0,overlay,2313,100,0,1
+	animation100.pattern0,overlay,2313,100,0,2
+	animation100.pattern0,overlay,2313,100,0,3
+	animation100.pattern0,overlay,2313,100,0,2
+	animation100.pattern0,overlay,2313,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2113,0,0,0
+	animation200.pattern0,overlay,2113,100,0,2
+	animation200.pattern0,overlay,2113,100,0,4
+	animation200.pattern0,overlay,2113,100,0,6
+	animation200.pattern0,overlay,2113,100,0,9
+	animation200.pattern0,overlay,2113,100,0,6
+	animation200.pattern0,overlay,2113,100,0,4
+	animation200.pattern0,overlay,2113,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2213,0,0,0
+	animation300.pattern0,overlay,2213,100,0,1
+	animation300.pattern0,overlay,2213,100,0,2
+	animation300.pattern0,overlay,2213,100,0,3
+	animation300.pattern0,overlay,2213,100,0,4
+	animation300.pattern0,overlay,2213,100,0,3
+	animation300.pattern0,overlay,2213,100,0,2
+	animation300.pattern0,overlay,2213,100,0,1
+}
+
+surface9914
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2314,0,0,0
+	animation100.pattern0,overlay,2314,100,0,1
+	animation100.pattern0,overlay,2314,100,0,2
+	animation100.pattern0,overlay,2314,100,0,3
+	animation100.pattern0,overlay,2314,100,0,2
+	animation100.pattern0,overlay,2314,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2114,0,0,0
+	animation200.pattern0,overlay,2114,100,0,2
+	animation200.pattern0,overlay,2114,100,0,4
+	animation200.pattern0,overlay,2114,100,0,6
+	animation200.pattern0,overlay,2114,100,0,9
+	animation200.pattern0,overlay,2114,100,0,6
+	animation200.pattern0,overlay,2114,100,0,4
+	animation200.pattern0,overlay,2114,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2214,0,0,0
+	animation300.pattern0,overlay,2214,100,0,1
+	animation300.pattern0,overlay,2214,100,0,2
+	animation300.pattern0,overlay,2214,100,0,3
+	animation300.pattern0,overlay,2214,100,0,4
+	animation300.pattern0,overlay,2214,100,0,3
+	animation300.pattern0,overlay,2214,100,0,2
+	animation300.pattern0,overlay,2214,100,0,1
+}
+
+surface9915
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2315,0,0,0
+	animation100.pattern0,overlay,2315,100,0,1
+	animation100.pattern0,overlay,2315,100,0,2
+	animation100.pattern0,overlay,2315,100,0,3
+	animation100.pattern0,overlay,2315,100,0,2
+	animation100.pattern0,overlay,2315,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2115,0,0,0
+	animation200.pattern0,overlay,2115,100,0,2
+	animation200.pattern0,overlay,2115,100,0,4
+	animation200.pattern0,overlay,2115,100,0,6
+	animation200.pattern0,overlay,2115,100,0,9
+	animation200.pattern0,overlay,2115,100,0,6
+	animation200.pattern0,overlay,2115,100,0,4
+	animation200.pattern0,overlay,2115,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2215,0,0,0
+	animation300.pattern0,overlay,2215,100,0,1
+	animation300.pattern0,overlay,2215,100,0,2
+	animation300.pattern0,overlay,2215,100,0,3
+	animation300.pattern0,overlay,2215,100,0,4
+	animation300.pattern0,overlay,2215,100,0,3
+	animation300.pattern0,overlay,2215,100,0,2
+	animation300.pattern0,overlay,2215,100,0,1
+}
+
+surface9916
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2316,0,0,0
+	animation100.pattern0,overlay,2316,100,0,1
+	animation100.pattern0,overlay,2316,100,0,2
+	animation100.pattern0,overlay,2316,100,0,3
+	animation100.pattern0,overlay,2316,100,0,2
+	animation100.pattern0,overlay,2316,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2116,0,0,0
+	animation200.pattern0,overlay,2116,100,0,2
+	animation200.pattern0,overlay,2116,100,0,4
+	animation200.pattern0,overlay,2116,100,0,6
+	animation200.pattern0,overlay,2116,100,0,9
+	animation200.pattern0,overlay,2116,100,0,6
+	animation200.pattern0,overlay,2116,100,0,4
+	animation200.pattern0,overlay,2116,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2216,0,0,0
+	animation300.pattern0,overlay,2216,100,0,1
+	animation300.pattern0,overlay,2216,100,0,2
+	animation300.pattern0,overlay,2216,100,0,3
+	animation300.pattern0,overlay,2216,100,0,4
+	animation300.pattern0,overlay,2216,100,0,3
+	animation300.pattern0,overlay,2216,100,0,2
+	animation300.pattern0,overlay,2216,100,0,1
+}
+
+surface9917
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2317,0,0,0
+	animation100.pattern0,overlay,2317,100,0,1
+	animation100.pattern0,overlay,2317,100,0,2
+	animation100.pattern0,overlay,2317,100,0,3
+	animation100.pattern0,overlay,2317,100,0,2
+	animation100.pattern0,overlay,2317,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2117,0,0,0
+	animation200.pattern0,overlay,2117,100,0,2
+	animation200.pattern0,overlay,2117,100,0,4
+	animation200.pattern0,overlay,2117,100,0,6
+	animation200.pattern0,overlay,2117,100,0,9
+	animation200.pattern0,overlay,2117,100,0,6
+	animation200.pattern0,overlay,2117,100,0,4
+	animation200.pattern0,overlay,2117,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2217,0,0,0
+	animation300.pattern0,overlay,2217,100,0,1
+	animation300.pattern0,overlay,2217,100,0,2
+	animation300.pattern0,overlay,2217,100,0,3
+	animation300.pattern0,overlay,2217,100,0,4
+	animation300.pattern0,overlay,2217,100,0,3
+	animation300.pattern0,overlay,2217,100,0,2
+	animation300.pattern0,overlay,2217,100,0,1
+}
+
+surface9918
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2318,0,0,0
+	animation100.pattern0,overlay,2318,100,0,1
+	animation100.pattern0,overlay,2318,100,0,2
+	animation100.pattern0,overlay,2318,100,0,3
+	animation100.pattern0,overlay,2318,100,0,2
+	animation100.pattern0,overlay,2318,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2118,0,0,0
+	animation200.pattern0,overlay,2118,100,0,2
+	animation200.pattern0,overlay,2118,100,0,4
+	animation200.pattern0,overlay,2118,100,0,6
+	animation200.pattern0,overlay,2118,100,0,9
+	animation200.pattern0,overlay,2118,100,0,6
+	animation200.pattern0,overlay,2118,100,0,4
+	animation200.pattern0,overlay,2118,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2218,0,0,0
+	animation300.pattern0,overlay,2218,100,0,1
+	animation300.pattern0,overlay,2218,100,0,2
+	animation300.pattern0,overlay,2218,100,0,3
+	animation300.pattern0,overlay,2218,100,0,4
+	animation300.pattern0,overlay,2218,100,0,3
+	animation300.pattern0,overlay,2218,100,0,2
+	animation300.pattern0,overlay,2218,100,0,1
+}
+
+surface9919
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2319,0,0,0
+	animation100.pattern0,overlay,2319,100,0,1
+	animation100.pattern0,overlay,2319,100,0,2
+	animation100.pattern0,overlay,2319,100,0,3
+	animation100.pattern0,overlay,2319,100,0,2
+	animation100.pattern0,overlay,2319,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2119,0,0,0
+	animation200.pattern0,overlay,2119,100,0,2
+	animation200.pattern0,overlay,2119,100,0,4
+	animation200.pattern0,overlay,2119,100,0,6
+	animation200.pattern0,overlay,2119,100,0,9
+	animation200.pattern0,overlay,2119,100,0,6
+	animation200.pattern0,overlay,2119,100,0,4
+	animation200.pattern0,overlay,2119,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2219,0,0,0
+	animation300.pattern0,overlay,2219,100,0,1
+	animation300.pattern0,overlay,2219,100,0,2
+	animation300.pattern0,overlay,2219,100,0,3
+	animation300.pattern0,overlay,2219,100,0,4
+	animation300.pattern0,overlay,2219,100,0,3
+	animation300.pattern0,overlay,2219,100,0,2
+	animation300.pattern0,overlay,2219,100,0,1
+}
+
+surface9920
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2320,0,0,0
+	animation100.pattern0,overlay,2320,100,0,1
+	animation100.pattern0,overlay,2320,100,0,2
+	animation100.pattern0,overlay,2320,100,0,3
+	animation100.pattern0,overlay,2320,100,0,2
+	animation100.pattern0,overlay,2320,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2120,0,0,0
+	animation200.pattern0,overlay,2120,100,0,2
+	animation200.pattern0,overlay,2120,100,0,4
+	animation200.pattern0,overlay,2120,100,0,6
+	animation200.pattern0,overlay,2120,100,0,9
+	animation200.pattern0,overlay,2120,100,0,6
+	animation200.pattern0,overlay,2120,100,0,4
+	animation200.pattern0,overlay,2120,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2220,0,0,0
+	animation300.pattern0,overlay,2220,100,0,1
+	animation300.pattern0,overlay,2220,100,0,2
+	animation300.pattern0,overlay,2220,100,0,3
+	animation300.pattern0,overlay,2220,100,0,4
+	animation300.pattern0,overlay,2220,100,0,3
+	animation300.pattern0,overlay,2220,100,0,2
+	animation300.pattern0,overlay,2220,100,0,1
+}
+
+surface9921
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2321,0,0,0
+	animation100.pattern0,overlay,2321,100,0,1
+	animation100.pattern0,overlay,2321,100,0,2
+	animation100.pattern0,overlay,2321,100,0,3
+	animation100.pattern0,overlay,2321,100,0,2
+	animation100.pattern0,overlay,2321,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2121,0,0,0
+	animation200.pattern0,overlay,2121,100,0,2
+	animation200.pattern0,overlay,2121,100,0,4
+	animation200.pattern0,overlay,2121,100,0,6
+	animation200.pattern0,overlay,2121,100,0,9
+	animation200.pattern0,overlay,2121,100,0,6
+	animation200.pattern0,overlay,2121,100,0,4
+	animation200.pattern0,overlay,2121,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2221,0,0,0
+	animation300.pattern0,overlay,2221,100,0,1
+	animation300.pattern0,overlay,2221,100,0,2
+	animation300.pattern0,overlay,2221,100,0,3
+	animation300.pattern0,overlay,2221,100,0,4
+	animation300.pattern0,overlay,2221,100,0,3
+	animation300.pattern0,overlay,2221,100,0,2
+	animation300.pattern0,overlay,2221,100,0,1
+}
+
+surface9922
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2322,0,0,0
+	animation100.pattern0,overlay,2322,100,0,1
+	animation100.pattern0,overlay,2322,100,0,2
+	animation100.pattern0,overlay,2322,100,0,3
+	animation100.pattern0,overlay,2322,100,0,2
+	animation100.pattern0,overlay,2322,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2122,0,0,0
+	animation200.pattern0,overlay,2122,100,0,2
+	animation200.pattern0,overlay,2122,100,0,4
+	animation200.pattern0,overlay,2122,100,0,6
+	animation200.pattern0,overlay,2122,100,0,9
+	animation200.pattern0,overlay,2122,100,0,6
+	animation200.pattern0,overlay,2122,100,0,4
+	animation200.pattern0,overlay,2122,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2222,0,0,0
+	animation300.pattern0,overlay,2222,100,0,1
+	animation300.pattern0,overlay,2222,100,0,2
+	animation300.pattern0,overlay,2222,100,0,3
+	animation300.pattern0,overlay,2222,100,0,4
+	animation300.pattern0,overlay,2222,100,0,3
+	animation300.pattern0,overlay,2222,100,0,2
+	animation300.pattern0,overlay,2222,100,0,1
+}
+
+surface9923
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2323,0,0,0
+	animation100.pattern0,overlay,2323,100,0,1
+	animation100.pattern0,overlay,2323,100,0,2
+	animation100.pattern0,overlay,2323,100,0,3
+	animation100.pattern0,overlay,2323,100,0,2
+	animation100.pattern0,overlay,2323,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2123,0,0,0
+	animation200.pattern0,overlay,2123,100,0,2
+	animation200.pattern0,overlay,2123,100,0,4
+	animation200.pattern0,overlay,2123,100,0,6
+	animation200.pattern0,overlay,2123,100,0,9
+	animation200.pattern0,overlay,2123,100,0,6
+	animation200.pattern0,overlay,2123,100,0,4
+	animation200.pattern0,overlay,2123,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2223,0,0,0
+	animation300.pattern0,overlay,2223,100,0,1
+	animation300.pattern0,overlay,2223,100,0,2
+	animation300.pattern0,overlay,2223,100,0,3
+	animation300.pattern0,overlay,2223,100,0,4
+	animation300.pattern0,overlay,2223,100,0,3
+	animation300.pattern0,overlay,2223,100,0,2
+	animation300.pattern0,overlay,2223,100,0,1
+}
+
+surface9924
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2324,0,0,0
+	animation100.pattern0,overlay,2324,100,0,1
+	animation100.pattern0,overlay,2324,100,0,2
+	animation100.pattern0,overlay,2324,100,0,3
+	animation100.pattern0,overlay,2324,100,0,2
+	animation100.pattern0,overlay,2324,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2124,0,0,0
+	animation200.pattern0,overlay,2124,100,0,2
+	animation200.pattern0,overlay,2124,100,0,4
+	animation200.pattern0,overlay,2124,100,0,6
+	animation200.pattern0,overlay,2124,100,0,9
+	animation200.pattern0,overlay,2124,100,0,6
+	animation200.pattern0,overlay,2124,100,0,4
+	animation200.pattern0,overlay,2124,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2224,0,0,0
+	animation300.pattern0,overlay,2224,100,0,1
+	animation300.pattern0,overlay,2224,100,0,2
+	animation300.pattern0,overlay,2224,100,0,3
+	animation300.pattern0,overlay,2224,100,0,4
+	animation300.pattern0,overlay,2224,100,0,3
+	animation300.pattern0,overlay,2224,100,0,2
+	animation300.pattern0,overlay,2224,100,0,1
+}
+
+surface9925
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2325,0,0,0
+	animation100.pattern0,overlay,2325,100,0,1
+	animation100.pattern0,overlay,2325,100,0,2
+	animation100.pattern0,overlay,2325,100,0,3
+	animation100.pattern0,overlay,2325,100,0,2
+	animation100.pattern0,overlay,2325,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2125,0,0,0
+	animation200.pattern0,overlay,2125,100,0,2
+	animation200.pattern0,overlay,2125,100,0,4
+	animation200.pattern0,overlay,2125,100,0,6
+	animation200.pattern0,overlay,2125,100,0,9
+	animation200.pattern0,overlay,2125,100,0,6
+	animation200.pattern0,overlay,2125,100,0,4
+	animation200.pattern0,overlay,2125,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2225,0,0,0
+	animation300.pattern0,overlay,2225,100,0,1
+	animation300.pattern0,overlay,2225,100,0,2
+	animation300.pattern0,overlay,2225,100,0,3
+	animation300.pattern0,overlay,2225,100,0,4
+	animation300.pattern0,overlay,2225,100,0,3
+	animation300.pattern0,overlay,2225,100,0,2
+	animation300.pattern0,overlay,2225,100,0,1
+}
+
+surface9926
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2326,0,0,0
+	animation100.pattern0,overlay,2326,100,0,1
+	animation100.pattern0,overlay,2326,100,0,2
+	animation100.pattern0,overlay,2326,100,0,3
+	animation100.pattern0,overlay,2326,100,0,2
+	animation100.pattern0,overlay,2326,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2126,0,0,0
+	animation200.pattern0,overlay,2126,100,0,2
+	animation200.pattern0,overlay,2126,100,0,4
+	animation200.pattern0,overlay,2126,100,0,6
+	animation200.pattern0,overlay,2126,100,0,9
+	animation200.pattern0,overlay,2126,100,0,6
+	animation200.pattern0,overlay,2126,100,0,4
+	animation200.pattern0,overlay,2126,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2226,0,0,0
+	animation300.pattern0,overlay,2226,100,0,1
+	animation300.pattern0,overlay,2226,100,0,2
+	animation300.pattern0,overlay,2226,100,0,3
+	animation300.pattern0,overlay,2226,100,0,4
+	animation300.pattern0,overlay,2226,100,0,3
+	animation300.pattern0,overlay,2226,100,0,2
+	animation300.pattern0,overlay,2226,100,0,1
+}
+
+surface9927
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2327,0,0,0
+	animation100.pattern0,overlay,2327,100,0,1
+	animation100.pattern0,overlay,2327,100,0,2
+	animation100.pattern0,overlay,2327,100,0,3
+	animation100.pattern0,overlay,2327,100,0,2
+	animation100.pattern0,overlay,2327,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2127,0,0,0
+	animation200.pattern0,overlay,2127,100,0,2
+	animation200.pattern0,overlay,2127,100,0,4
+	animation200.pattern0,overlay,2127,100,0,6
+	animation200.pattern0,overlay,2127,100,0,9
+	animation200.pattern0,overlay,2127,100,0,6
+	animation200.pattern0,overlay,2127,100,0,4
+	animation200.pattern0,overlay,2127,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2227,0,0,0
+	animation300.pattern0,overlay,2227,100,0,1
+	animation300.pattern0,overlay,2227,100,0,2
+	animation300.pattern0,overlay,2227,100,0,3
+	animation300.pattern0,overlay,2227,100,0,4
+	animation300.pattern0,overlay,2227,100,0,3
+	animation300.pattern0,overlay,2227,100,0,2
+	animation300.pattern0,overlay,2227,100,0,1
+}
+
+surface9928
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2328,0,0,0
+	animation100.pattern0,overlay,2328,100,0,1
+	animation100.pattern0,overlay,2328,100,0,2
+	animation100.pattern0,overlay,2328,100,0,3
+	animation100.pattern0,overlay,2328,100,0,2
+	animation100.pattern0,overlay,2328,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2128,0,0,0
+	animation200.pattern0,overlay,2128,100,0,2
+	animation200.pattern0,overlay,2128,100,0,4
+	animation200.pattern0,overlay,2128,100,0,6
+	animation200.pattern0,overlay,2128,100,0,9
+	animation200.pattern0,overlay,2128,100,0,6
+	animation200.pattern0,overlay,2128,100,0,4
+	animation200.pattern0,overlay,2128,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2228,0,0,0
+	animation300.pattern0,overlay,2228,100,0,1
+	animation300.pattern0,overlay,2228,100,0,2
+	animation300.pattern0,overlay,2228,100,0,3
+	animation300.pattern0,overlay,2228,100,0,4
+	animation300.pattern0,overlay,2228,100,0,3
+	animation300.pattern0,overlay,2228,100,0,2
+	animation300.pattern0,overlay,2228,100,0,1
+}
+
+surface9929
+{
+	element0,replace,surface0.png,0,0
+
+	//top wings
+	animation100.interval,always
+	animation100.pattern0,overlay,2329,0,0,0
+	animation100.pattern0,overlay,2329,100,0,1
+	animation100.pattern0,overlay,2329,100,0,2
+	animation100.pattern0,overlay,2329,100,0,3
+	animation100.pattern0,overlay,2329,100,0,2
+	animation100.pattern0,overlay,2329,100,0,1
+
+	//bottom wings
+	animation200.interval,always
+	animation200.pattern0,overlay,2129,0,0,0
+	animation200.pattern0,overlay,2129,100,0,2
+	animation200.pattern0,overlay,2129,100,0,4
+	animation200.pattern0,overlay,2129,100,0,6
+	animation200.pattern0,overlay,2129,100,0,9
+	animation200.pattern0,overlay,2129,100,0,6
+	animation200.pattern0,overlay,2129,100,0,4
+	animation200.pattern0,overlay,2129,100,0,2
+
+	//middle wings
+	animation300.interval,always
+	animation300.pattern0,overlay,2229,0,0,0
+	animation300.pattern0,overlay,2229,100,0,1
+	animation300.pattern0,overlay,2229,100,0,2
+	animation300.pattern0,overlay,2229,100,0,3
+	animation300.pattern0,overlay,2229,100,0,4
+	animation300.pattern0,overlay,2229,100,0,3
+	animation300.pattern0,overlay,2229,100,0,2
+	animation300.pattern0,overlay,2229,100,0,1
+}
+
+
+surface.append9900-9999
+{
+	//bottom eye
+	animation30.interval,always
+	animation1.pattern0,overlay,1000,0,0,0
+	animation1.pattern1,overlay,1000,100,0,2
+	animation1.pattern2,overlay,1000,100,0,5
+	animation1.pattern3,overlay,1000,100,0,7
+	animation1.pattern4,overlay,1000,100,0,10
+	animation1.pattern5,overlay,1000,100,0,7
+	animation1.pattern6,overlay,1000,100,0,5
+	animation1.pattern7,overlay,1000,100,0,2
+
+	//rings
+	animation35.interval,always
+	animation35.pattern0,overlay,1003,0,0,0
+	animation35.pattern1,overlay,1003,100,0,1
+	animation35.pattern2,overlay,1003,100,0,2
+	animation35.pattern3,overlay,1003,100,0,3
+	animation35.pattern4,overlay,1003,100,0,5
+	animation35.pattern5,overlay,1003,100,0,7
+	animation35.pattern6,overlay,1003,100,0,5
+	animation35.pattern7,overlay,1003,100,0,3
+	animation35.pattern8,overlay,1003,100,0,2
+	animation35.pattern9,overlay,1003,100,0,1
+
+	//middle eye
+	animation40.interval,always
+	animation40.pattern0,overlay,1001,0,0,0
+	animation40.pattern0,overlay,1001,100,0,2
+	animation40.pattern1,overlay,1001,100,0,4
+	animation40.pattern1,overlay,1001,100,0,6
+	animation40.pattern1,overlay,1001,100,0,8
+	animation40.pattern2,overlay,1001,100,0,10
+	animation40.pattern2,overlay,1001,100,0,8
+	animation40.pattern2,overlay,1001,100,0,6
+	animation40.pattern5,overlay,1001,100,0,4
+	animation40.pattern5,overlay,1001,100,0,2
+
+	//top eye
+	animation45.interval,always
+	animation45.pattern0,overlay,1002,0,0,0
+	animation45.pattern1,overlay,1002,100,0,3
+	animation45.pattern1,overlay,1002,100,0,6
+	animation45.pattern4,overlay,1002,100,0,9
+	animation45.pattern4,overlay,1002,100,0,11
+	animation45.pattern4,overlay,1002,100,0,14
+	animation45.pattern4,overlay,1002,100,0,11
+	animation45.pattern4,overlay,1002,100,0,9
+	animation45.pattern5,overlay,1002,100,0,6
+	animation45.pattern5,overlay,1002,100,0,3
+
+	//Angry eyebrows
+	animation21.interval,never
+	animation21.pattern0,overlay,1010,0,0,0
+}

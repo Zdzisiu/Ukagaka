@@ -1,0 +1,49 @@
+﻿//UTF-8 = english charset; Shift_JIS = japanese charset
+charset,UTF-8	
+//Always shell for a Ghost shell/skin	
+type,shell	
+//Shell name (shown in right click menu etc.)	
+name,Biblically Accurate Angel	
+
+//Author name
+craftman,Zdzisiu
+//Update website
+homeurl,https://zdzisiu.github.io/Ukagaka/shells/angel
+//homeurl,url								
+
+
+//Menu image locations
+menu.background.bitmap.filename,sprites\menu_background.png	
+menu.foreground.bitmap.filename,sprites\menu_foreground.png	
+menu.sidebar.bitmap.filename,sprites\menu_sidebar.png		
+//Font name and size
+//menu.font.name,filename				
+//menu.font.height,fontsize
+//RBG values of menu color
+menu.background.font.color.r,0				
+menu.background.font.color.g,0
+menu.background.font.color.b,0
+//RBG values of menu color on hover
+menu.foreground.font.color.r,255			
+menu.foreground.font.color.g,255
+menu.foreground.font.color.b,255
+//RBG values of menu disabled color
+menu.disable.font.color.r,222				
+menu.disable.font.color.g,222
+menu.disable.font.color.b,222
+//RBG values of menu seperator color
+menu.separator.color.r,0				
+menu.separator.color.g,0
+menu.separator.color.b,0		
+
+
+//Sets desktop alignment. Movable/Unmovable
+seriko.alignmenttodesktop,free	
+//Uses transparent png instead of pna if 1
+seriko.use_self_alpha,1		
+
+//--------- Dressup options ---------------
+
+//Hides dress up from menu
+//sakura.menu,hidden	
+

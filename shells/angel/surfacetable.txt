@@ -1,0 +1,19 @@
+charset,UTF-8
+
+version,1
+
+option,DisableNoDefineSurfaces
+
+
+group,main
+{
+	scope,0
+
+	0,default
+}
+
+
+
+
+
+
