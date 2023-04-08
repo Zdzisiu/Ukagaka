@@ -6,7 +6,7 @@ validrect.top,25
 validrect.right,295
 validrect.bottom,360
 
-wordwrappoint.x,205
+wordwrappoint.x,-50
 wordwrappoint.y,0
 
 windowposition.x,0
