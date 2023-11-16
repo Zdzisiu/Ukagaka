@@ -1,12 +1,13 @@
 Charset,UTF-8
 __system_settings_version__,2
-balloon,C:\Users\ola20\Documents\GitHub\Ukagaka\balloons\simple_pets\
+balloon,F:\GitHub\Work-In-Progress\balloons\simple_pets\
 inputbox.left,831
 scriptbox.left,997
-Char3.center,1323
-Char.VirtualDesktop,981822ba-7b10-4d37-82e7-f0c4c9faf703
-Char2.center,1179
-Char0.center,668
+shiori.debugnotify,0
+Char3.center,1175
+Char.VirtualDesktop,f712db4a-ed7e-4787-9853-33ebed109ebf
+Char2.center,1311
+Char0.center,1593
 scriptbox.top,635
 shell,shell\master - Copy\
 FirstBoot,booted

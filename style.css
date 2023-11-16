@@ -7,7 +7,7 @@ body {
 }
 
 .shella {
-    width: 257px;
+    width: 0.25vw;
     display: inline-block;
     text-align: center;
 }
@@ -66,6 +66,7 @@ aside {
     padding: 1vw;
     margin-top: 490px;
     position: fixed;
+    overflow-y: scroll;
 }
 
 .banner {
@@ -257,7 +258,7 @@ iframe {
     }
 
     .code {
-        background: linear-gradient(75deg, rgba(14, 14, 14, 1) 75%, rgba(49, 49, 49, 1) 100%);
+        background: rgba(14, 14, 14, 1);
         border-radius: 50px;
         padding: 20px;
         font-size: 1.2vw;

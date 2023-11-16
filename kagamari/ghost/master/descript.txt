@@ -1,1 +1,17 @@
+charset,UTF-8
+name,Kagamari
+type,ghost
 
+sakura.name,one-seven-z
+kero.name,-
+
+craftman,Zdzisiu
+craftmanw,Zdzisiu
+craftmanurl,-
+
+//Don't touch it.
+
+sstp.allowunspecifiedsend,0
+shiori,yaya.dll
+
+icon,icon.ico

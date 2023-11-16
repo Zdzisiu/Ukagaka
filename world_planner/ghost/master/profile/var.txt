@@ -6,4 +6,4 @@ surfacecount,5
 update_result,OK(0)
 firstboot,652203843
 commitmemorysize,91411
-lastboot,690649413
+lastboot,752252390

@@ -389,16 +389,16 @@ surface0
 	animation79.pattern7,overlay,2209,100,0,1
 	animation79.option,background
 
-	animation5.interval,bind+always
-	animation5.pattern0,overlay,2210,0,0,0
-	animation5.pattern1,overlay,2210,100,0,1
-	animation5.pattern2,overlay,2210,100,0,2
-	animation5.pattern3,overlay,2210,100,0,3
-	animation5.pattern4,overlay,2210,100,0,4
-	animation5.pattern5,overlay,2210,100,0,3
-	animation5.pattern6,overlay,2210,100,0,2
-	animation5.pattern7,overlay,2210,100,0,1
-	animation5.option,background
+	animation80.interval,bind+always
+	animation80.pattern0,overlay,2210,0,0,0
+	animation80.pattern1,overlay,2210,100,0,1
+	animation80.pattern2,overlay,2210,100,0,2
+	animation80.pattern3,overlay,2210,100,0,3
+	animation80.pattern4,overlay,2210,100,0,4
+	animation80.pattern5,overlay,2210,100,0,3
+	animation80.pattern6,overlay,2210,100,0,2
+	animation80.pattern7,overlay,2210,100,0,1
+	animation80.option,background
 
 	animation81.interval,bind+always
 	animation81.pattern0,overlay,2211,0,0,0
