@@ -41,3 +41,6 @@ world_planner/ghost/master/profile/ghost.dat
 *.cfg
 *.bak
 Gian/ghost/master/ssp_shiori_log.txt
+*.bak
+*.dat
+*.cfg
