@@ -44,3 +44,7 @@ Gian/ghost/master/ssp_shiori_log.txt
 *.bak
 *.dat
 *.cfg
+a.r.i_pets/ghost/master/profile/ghost.dat
+a.r.i_pets/ghost/master/profile/ghost.dat.bak
+a.r.i_pets/ghost/master/profile/var.txt
+a.r.i_pets/ghost/master/yaya_variable.cfg

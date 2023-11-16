@@ -46,101 +46,114 @@ seriko.use_self_alpha,1
 //Hides dress up from menu
 sakura.menu,hidden	
 
-sakura.bindgroup70.default,1
 sakura.bindgroup40.default,1
+sakura.bindgroup70.default,1
 sakura.bindgroup10.default,1
+sakura.bindgroup1.default,1
 
-sakura.bindgroup70.name,Bottom Wings,Old Rose
-sakura.bindgroup71.name,Bottom Wings,Amaranth
-sakura.bindgroup72.name,Bottom Wings,Crimson
-sakura.bindgroup73.name,Bottom Wings,Brick
-sakura.bindgroup74.name,Bottom Wings,Persimmon
-sakura.bindgroup75.name,Bottom Wings,Coral
-sakura.bindgroup76.name,Bottom Wings,Mango
-sakura.bindgroup77.name,Bottom Wings,Fawn
-sakura.bindgroup78.name,Bottom Wings,Mantis
-sakura.bindgroup79.name,Bottom Wings,Moss
-sakura.bindgroup80.name,Bottom Wings,Jade
-sakura.bindgroup81.name,Bottom Wings,Verdigris
-sakura.bindgroup82.name,Bottom Wings,Cerulean
-sakura.bindgroup83.name,Bottom Wings,Iceberg
-sakura.bindgroup84.name,Bottom Wings,Cosmic
-sakura.bindgroup85.name,Bottom Wings,Yonder
-sakura.bindgroup86.name,Bottom Wings,Baby Blue
-sakura.bindgroup87.name,Bottom Wings,Quartz
-sakura.bindgroup88.name,Bottom Wings,Thistle
-sakura.bindgroup89.name,Bottom Wings,Lilac
-sakura.bindgroup90.name,Bottom Wings,Jazzberry
-sakura.bindgroup91.name,Bottom Wings,Orchid
-sakura.bindgroup92.name,Bottom Wings,Wisteria
-sakura.bindgroup93.name,Bottom Wings,Ochre
-sakura.bindgroup94.name,Bottom Wings,Chestnut
-sakura.bindgroup95.name,Bottom Wings,Tumbleweed
-sakura.bindgroup96.name,Bottom Wings,Vanilla
-sakura.bindgroup97.name,Bottom Wings,Glass
-sakura.bindgroup98.name,Bottom Wings,Smoke
-sakura.bindgroup99.name,Bottom Wings,Ink
+sakura.bindoption0.group,Bottom Wings,mustselect
+sakura.bindoption0.group,Top Wings,mustselect
+sakura.bindoption0.group,Middle Wings,mustselect
+sakura.bindoption0.group,Eyes,mustselect
 
-sakura.bindgroup40.name,Top Wings,Old Rose
-sakura.bindgroup41.name,Top Wings,Amaranth
-sakura.bindgroup42.name,Top Wings,Crimson
-sakura.bindgroup43.name,Top Wings,Brick
-sakura.bindgroup44.name,Top Wings,Persimmon
-sakura.bindgroup45.name,Top Wings,Coral
-sakura.bindgroup46.name,Top Wings,Mango
-sakura.bindgroup47.name,Top Wings,Fawn
-sakura.bindgroup48.name,Top Wings,Mantis
-sakura.bindgroup49.name,Top Wings,Moss
-sakura.bindgroup50.name,Top Wings,Jade
-sakura.bindgroup51.name,Top Wings,Verdigris
-sakura.bindgroup52.name,Top Wings,Cerulean
-sakura.bindgroup53.name,Top Wings,Iceberg
-sakura.bindgroup54.name,Top Wings,Cosmic
-sakura.bindgroup55.name,Top Wings,Yonder
-sakura.bindgroup56.name,Top Wings,Baby Blue
-sakura.bindgroup57.name,Top Wings,Quartz
-sakura.bindgroup58.name,Top Wings,Thistle
-sakura.bindgroup59.name,Top Wings,Lilac
-sakura.bindgroup60.name,Top Wings,Jazzberry
-sakura.bindgroup61.name,Top Wings,Orchid
-sakura.bindgroup62.name,Top Wings,Wisteria
-sakura.bindgroup63.name,Top Wings,Ochre
-sakura.bindgroup64.name,Top Wings,Chestnut
-sakura.bindgroup65.name,Top Wings,Tumbleweed
-sakura.bindgroup66.name,Top Wings,Vanilla
-sakura.bindgroup67.name,Top Wings,Glass
-sakura.bindgroup68.name,Top Wings,Smoke
-sakura.bindgroup69.name,Top Wings,Ink
+sakura.bindgroup1.name,Eyes,Straw
+sakura.bindgroup1.addid,2
+sakura.bindgroup1.addid,3
+sakura.bindgroup5.name,Eyes,No Straw
+sakura.bindgroup5.addid,6
+sakura.bindgroup5.addid,7
 
-sakura.bindgroup10.name,Middle Wings,Old Rose
-sakura.bindgroup11.name,Middle Wings,Amaranth
-sakura.bindgroup12.name,Middle Wings,Crimson
-sakura.bindgroup13.name,Middle Wings,Brick
-sakura.bindgroup14.name,Middle Wings,Persimmon
-sakura.bindgroup15.name,Middle Wings,Coral
-sakura.bindgroup16.name,Middle Wings,Mango
-sakura.bindgroup17.name,Middle Wings,Fawn
-sakura.bindgroup18.name,Middle Wings,Mantis
-sakura.bindgroup19.name,Middle Wings,Moss
-sakura.bindgroup20.name,Middle Wings,Jade
-sakura.bindgroup21.name,Middle Wings,Verdigris
-sakura.bindgroup22.name,Middle Wings,Cerulean
-sakura.bindgroup23.name,Middle Wings,Iceberg
-sakura.bindgroup24.name,Middle Wings,Cosmic
-sakura.bindgroup25.name,Middle Wings,Yonder
-sakura.bindgroup26.name,Middle Wings,Baby Blue
-sakura.bindgroup27.name,Middle Wings,Quartz
-sakura.bindgroup28.name,Middle Wings,Thistle
-sakura.bindgroup29.name,Middle Wings,Lilac
-sakura.bindgroup30.name,Middle Wings,Jazzberry
-sakura.bindgroup31.name,Middle Wings,Orchid
-sakura.bindgroup32.name,Middle Wings,Wisteria
-sakura.bindgroup33.name,Middle Wings,Ochre
-sakura.bindgroup34.name,Middle Wings,Chestnut
-sakura.bindgroup35.name,Middle Wings,Tumbleweed
-sakura.bindgroup36.name,Middle Wings,Vanilla
-sakura.bindgroup37.name,Middle Wings,Glass
-sakura.bindgroup38.name,Middle Wings,Smoke
-sakura.bindgroup39.name,Middle Wings,Ink
+sakura.bindgroup10.name,Bottom Wings,Old Rose
+sakura.bindgroup11.name,Bottom Wings,Amaranth
+sakura.bindgroup12.name,Bottom Wings,Crimson
+sakura.bindgroup13.name,Bottom Wings,Brick
+sakura.bindgroup14.name,Bottom Wings,Persimmon
+sakura.bindgroup15.name,Bottom Wings,Coral
+sakura.bindgroup16.name,Bottom Wings,Mango
+sakura.bindgroup17.name,Bottom Wings,Fawn
+sakura.bindgroup18.name,Bottom Wings,Mantis
+sakura.bindgroup19.name,Bottom Wings,Moss
+sakura.bindgroup20.name,Bottom Wings,Jade
+sakura.bindgroup21.name,Bottom Wings,Verdigris
+sakura.bindgroup22.name,Bottom Wings,Cerulean
+sakura.bindgroup23.name,Bottom Wings,Iceberg
+sakura.bindgroup24.name,Bottom Wings,Cosmic
+sakura.bindgroup25.name,Bottom Wings,Yonder
+sakura.bindgroup26.name,Bottom Wings,Baby Blue
+sakura.bindgroup27.name,Bottom Wings,Quartz
+sakura.bindgroup28.name,Bottom Wings,Thistle
+sakura.bindgroup29.name,Bottom Wings,Lilac
+sakura.bindgroup30.name,Bottom Wings,Jazzberry
+sakura.bindgroup31.name,Bottom Wings,Orchid
+sakura.bindgroup32.name,Bottom Wings,Wisteria
+sakura.bindgroup33.name,Bottom Wings,Ochre
+sakura.bindgroup34.name,Bottom Wings,Chestnut
+sakura.bindgroup35.name,Bottom Wings,Tumbleweed
+sakura.bindgroup36.name,Bottom Wings,Vanilla
+sakura.bindgroup37.name,Bottom Wings,Glass
+sakura.bindgroup38.name,Bottom Wings,Smoke
+sakura.bindgroup39.name,Bottom Wings,Ink
+
+sakura.bindgroup40.name,Middle Wings,Old Rose
+sakura.bindgroup41.name,Middle Wings,Amaranth
+sakura.bindgroup42.name,Middle Wings,Crimson
+sakura.bindgroup43.name,Middle Wings,Brick
+sakura.bindgroup44.name,Middle Wings,Persimmon
+sakura.bindgroup45.name,Middle Wings,Coral
+sakura.bindgroup46.name,Middle Wings,Mango
+sakura.bindgroup47.name,Middle Wings,Fawn
+sakura.bindgroup48.name,Middle Wings,Mantis
+sakura.bindgroup49.name,Middle Wings,Moss
+sakura.bindgroup50.name,Middle Wings,Jade
+sakura.bindgroup51.name,Middle Wings,Verdigris
+sakura.bindgroup52.name,Middle Wings,Cerulean
+sakura.bindgroup53.name,Middle Wings,Iceberg
+sakura.bindgroup54.name,Middle Wings,Cosmic
+sakura.bindgroup55.name,Middle Wings,Yonder
+sakura.bindgroup56.name,Middle Wings,Baby Blue
+sakura.bindgroup57.name,Middle Wings,Quartz
+sakura.bindgroup58.name,Middle Wings,Thistle
+sakura.bindgroup59.name,Middle Wings,Lilac
+sakura.bindgroup60.name,Middle Wings,Jazzberry
+sakura.bindgroup61.name,Middle Wings,Orchid
+sakura.bindgroup62.name,Middle Wings,Wisteria
+sakura.bindgroup63.name,Middle Wings,Ochre
+sakura.bindgroup64.name,Middle Wings,Chestnut
+sakura.bindgroup65.name,Middle Wings,Tumbleweed
+sakura.bindgroup66.name,Middle Wings,Vanilla
+sakura.bindgroup67.name,Middle Wings,Glass
+sakura.bindgroup68.name,Middle Wings,Smoke
+sakura.bindgroup69.name,Middle Wings,Ink
+
+sakura.bindgroup70.name,Top Wings,Old Rose
+sakura.bindgroup71.name,Top Wings,Amaranth
+sakura.bindgroup72.name,Top Wings,Crimson
+sakura.bindgroup73.name,Top Wings,Brick
+sakura.bindgroup74.name,Top Wings,Persimmon
+sakura.bindgroup75.name,Top Wings,Coral
+sakura.bindgroup76.name,Top Wings,Mango
+sakura.bindgroup77.name,Top Wings,Fawn
+sakura.bindgroup78.name,Top Wings,Mantis
+sakura.bindgroup79.name,Top Wings,Moss
+sakura.bindgroup80.name,Top Wings,Jade
+sakura.bindgroup81.name,Top Wings,Verdigris
+sakura.bindgroup82.name,Top Wings,Cerulean
+sakura.bindgroup83.name,Top Wings,Iceberg
+sakura.bindgroup84.name,Top Wings,Cosmic
+sakura.bindgroup85.name,Top Wings,Yonder
+sakura.bindgroup86.name,Top Wings,Baby Blue
+sakura.bindgroup87.name,Top Wings,Quartz
+sakura.bindgroup88.name,Top Wings,Thistle
+sakura.bindgroup89.name,Top Wings,Lilac
+sakura.bindgroup90.name,Top Wings,Jazzberry
+sakura.bindgroup91.name,Top Wings,Orchid
+sakura.bindgroup92.name,Top Wings,Wisteria
+sakura.bindgroup93.name,Top Wings,Ochre
+sakura.bindgroup94.name,Top Wings,Chestnut
+sakura.bindgroup95.name,Top Wings,Tumbleweed
+sakura.bindgroup96.name,Top Wings,Vanilla
+sakura.bindgroup97.name,Top Wings,Glass
+sakura.bindgroup98.name,Top Wings,Smoke
+sakura.bindgroup99.name,Top Wings,Ink
 
 sakura.bindgroup0.name,Other,Angry Eyebrows
