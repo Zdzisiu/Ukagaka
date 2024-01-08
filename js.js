@@ -12,3 +12,5 @@ function GetColor(){
             }
             
         }
+
+window.location.replace("https://zdzisiu.github.io/Cemetery/")
